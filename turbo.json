@@ -1,0 +1,10 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "tasks": {
+    "build": {},
+    "clean": {},
+    "format": {},
+    "lint": {},
+    "typecheck": {}
+  }
+}

@@ -1,0 +1,130 @@
+// * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/accordion.ts
+import { type AccordionSlots, createAccordionSlots } from "@spark-css/core";
+// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+
+/**
+ * **Accordion**
+ * @description A collapsible component for displaying content in a vertical stack.
+ *
+ * @returns
+ * ```js
+ * {
+ *   base: "parkAccordion",
+ *   root: "parkAccordion__root",
+ *   item: "parkAccordion__item",
+ *   itemTrigger: "parkAccordion__itemTrigger",
+ *   itemContent: "parkAccordion__itemContent",
+ *   itemIndicator: "parkAccordion__itemIndicator"
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
+ */
+export const accordionSlots = createAccordionSlots({ prefix: "park", caseConvention: "camel" });
+
+// * Uncomment before styling slots
+// console.log(generateSlotsDocs("accordion", accordionSlots));
+
+/**
+ * **Accordion**
+ * @description A collapsible component for displaying content in a vertical stack.
+ *
+ * @example
+ * ```css
+ * .parkAccordion { }
+ *
+ * .parkAccordion__root {
+ *   (@)apply w-full border-y [&_>_:not([hidden])_~_:not([hidden])]:border-t [&_>_:not([hidden])_~_:not([hidden])]:border-b-0;
+ * }
+ *
+ * .parkAccordion__item { }
+ *
+ * .parkAccordion__itemTrigger {
+ *   (@)apply w-full cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex gap-3 items-center justify-between text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-left text-lg font-semibold;
+ * }
+ *
+ * .parkAccordion__itemContent {
+ *   (@)apply text-fg-muted overflow-hidden transition-[padding-bottom] duration-200 ease-[--easings-default] [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out];
+ * }
+ *
+ * .parkAccordion__itemIndicator {
+ *   (@)apply text-fg-muted origin-center [&:is([open],_[data-open],_[data-state=open])]:-rotate-180 transition-[transform] duration-200 ease-[--easings-default];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
+ */
+export const accordionStyledSlots = {
+  base: "parkAccordion",
+  root: [
+    "parkAccordion__root",
+
+    // Sizing
+    "w-full",
+
+    // Borders
+    "border-y",
+    "[&_>_:not([hidden])_~_:not([hidden])]:border-t",
+    "[&_>_:not([hidden])_~_:not([hidden])]:border-b-0"
+  ],
+  item: "parkAccordion__item",
+  itemTrigger: [
+    "parkAccordion__itemTrigger",
+
+    // Sizing
+    "w-full",
+
+    // Interactivity
+    "cursor-pointer",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+
+    // Layout
+    "flex",
+
+    // Flexbox & Grid
+    "gap-3",
+    "items-center",
+    "justify-between",
+
+    // Typography
+    "text-fg-default",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+    "text-left",
+    "text-lg",
+    "font-semibold"
+  ],
+  itemContent: [
+    "parkAccordion__itemContent",
+
+    // Typography
+    "text-fg-muted",
+
+    // Layout
+    "overflow-hidden",
+
+    // Transitions & Animation
+    "transition-[padding-bottom]",
+    "duration-200",
+    "ease-[--easings-default]",
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
+  ],
+  itemIndicator: [
+    "parkAccordion__itemIndicator",
+
+    // Typography
+    "text-fg-muted",
+
+    // Transforms
+    "origin-center",
+    "[&:is([open],_[data-open],_[data-state=open])]:-rotate-180",
+
+    // Transitions & Animation
+    "transition-[transform]",
+    "duration-200",
+    "ease-[--easings-default]"
+  ]
+} as const satisfies Record<AccordionSlots, string | string[]>;
+
+// * Uncomment after styling slots
+// console.log(generateStyledSlotsDocs("accordion", accordionStyledSlots));

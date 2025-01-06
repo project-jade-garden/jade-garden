@@ -1,0 +1,32 @@
+{
+  "name": "react-examples",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "biome format --write ./examples",
+    "lint": "biome lint ./examples",
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@ark-ui/react": "4.5.0",
+    "@storybook/addon-a11y": "8.4.7",
+    "@storybook/addon-essentials": "8.4.7",
+    "@storybook/addon-themes": "8.4.7",
+    "@storybook/react-vite": "8.4.7",
+    "@storybook/react": "8.4.7",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "lucide-react": "0.468.0",
+    "react": "19.0.0",
+    "react-hook-form": "7.54.0",
+    "react-dom": "19.0.0",
+    "storybook": "8.4.7",
+    "tailwindcss": "3.4.16",
+    "typescript": "5.7.2",
+    "vite": "6.0.3",
+    "vite-tsconfig-paths": "5.1.4"
+  }
+}

@@ -1,0 +1,1 @@
+# @spark-css/theme-minimal

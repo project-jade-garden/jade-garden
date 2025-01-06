@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import Advanced from "./advanced.vue";
+import Basic from "./basic.vue";
+import Controlled from "./controlled.vue";
+import Multiple from "./multiple.vue";
+import ReactiveCollection from "./reactive-collection.vue";
+import RootProvider from "./root-provider.vue";
+import WithField from "./with-field.vue";
+</script>
+
+<template>
+  <Story title="Select">
+    <Variant title="Basic">
+      <Basic />
+    </Variant>
+    <Variant title="Advanced">
+      <Advanced />
+    </Variant>
+    <Variant title="Multiple">
+      <Multiple />
+    </Variant>
+    <Variant title="Controlled">
+      <Controlled />
+    </Variant>
+    <Variant title="With Field">
+      <WithField />
+    </Variant>
+    <Variant title="Reactive Collection">
+      <ReactiveCollection />
+    </Variant>
+    <Variant title="RootProvider">
+      <RootProvider />
+    </Variant>
+  </Story>
+</template>
