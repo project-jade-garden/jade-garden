@@ -6,19 +6,19 @@ export default {
   parameters: {
     options: {
       storySort: {
-        method: "alphabetical",
-      },
+        method: "alphabetical"
+      }
     },
-    layout: "padded",
+    layout: "padded"
   },
   decorators: [
     withThemeByClassName<ReactRenderer>({
       defaultTheme: "light",
       themes: {
         light: "",
-        dark: "dark",
-      },
+        dark: "dark"
+      }
     }),
-    (Story) => Story(),
-  ],
+    (Story) => Story()
+  ]
 } satisfies Preview;

@@ -12,11 +12,17 @@
   "dependencies": {
     "@ark-ui/vue": "4.5.0",
     "@histoire/plugin-vue": "0.17.17",
+    "@spark-css/theme-park": "workspace:*",
+    "@spark-css/theme-shadcn": "workspace:*",
     "@vitejs/plugin-vue": "5.2.1",
+    "autoprefixer": "10.4.20",
+    "clsx": "2.1.1",
+    "es-toolkit": "1.31.0",
     "histoire": "0.17.17",
+    "postcss": "8.4.49",
     "tailwindcss": "3.4.16",
-    "typescript": "5.7.2",
-    "vite": "6.0.3",
+    "typescript": "5.7.3",
+    "vite": "6.0.7",
     "vue": "3.5.13",
     "vue-tsc": "2.1.10"
   }

@@ -7,24 +7,24 @@ export default {
   addons: [
     {
       name: "@storybook/addon-essentials",
-      options: { backgrounds: false, actions: false },
+      options: { backgrounds: false, actions: false }
     },
     "@storybook/addon-a11y",
-    "@storybook/addon-themes",
+    "@storybook/addon-themes"
   ],
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {}
   },
   core: {
-    disableTelemetry: true,
+    disableTelemetry: true
   },
   typescript: {
-    reactDocgen: false,
+    reactDocgen: false
   },
   async viteFinal(config) {
     return mergeConfig(config, {
-      plugins: [tsconfigPaths({ root: "./" })],
+      plugins: [tsconfigPaths({ root: "./" })]
     });
-  },
+  }
 } satisfies StorybookConfig;
