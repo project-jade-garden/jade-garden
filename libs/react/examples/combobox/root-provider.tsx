@@ -1,10 +1,16 @@
 import { Combobox, createListCollection, useCombobox } from "@ark-ui/react/combobox";
 import { Portal } from "@ark-ui/react/portal";
+import { comboboxStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { comboboxStyledSlots as park } from "@spark-css/theme-park";
+import { comboboxStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { useMemo, useState } from "react";
 
 const initialItems = ["React", "Solid", "Vue"];
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const [items, setItems] = useState(initialItems);
 
   const collection = useMemo(() => createListCollection({ items }), [items]);

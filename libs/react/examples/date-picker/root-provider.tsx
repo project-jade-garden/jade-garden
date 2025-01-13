@@ -1,7 +1,13 @@
 import { DatePicker, useDatePicker } from "@ark-ui/react/date-picker";
 import { Portal } from "@ark-ui/react/portal";
+import { datePickerStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { datePickerStyledSlots as park } from "@spark-css/theme-park";
+import { datePickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const datePicker = useDatePicker();
 
   return (

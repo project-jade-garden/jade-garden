@@ -1,6 +1,12 @@
 import { Popover, usePopover } from "@ark-ui/react/popover";
+import { popoverStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { popoverStyledSlots as park } from "@spark-css/theme-park";
+import { popoverStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const popover = usePopover({
     positioning: {
       placement: "bottom-start"

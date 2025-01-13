@@ -1,4 +1,9 @@
 import { Menu as ArkMenu } from "@ark-ui/react";
+import { menuStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { menuStyledSlots as park } from "@spark-css/theme-park";
+import { menuStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
 interface Item {
   name: string;
@@ -14,6 +19,7 @@ interface Props {
 
 const Menu = (props: Props) => {
   const { id, label, items, onSelect } = props;
+
   return (
     <ArkMenu.Root onSelect={(changes) => onSelect?.(changes.value)} id={id}>
       <ArkMenu.Trigger style={{ fontSize: "18px", padding: "12px" }}>{label} ⬇️</ArkMenu.Trigger>
@@ -39,7 +45,9 @@ const items = [
   { name: "three", uid: "three" }
 ];
 
-export const MultipleMenu = () => {
+export const MultipleMenu = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
     <div style={{ display: "flex", gap: "10px" }}>
       <Menu id="first" label="First" items={items} />

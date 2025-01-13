@@ -1,12 +1,26 @@
 import type { Meta } from "@storybook/react";
+import type { Story } from "../utils";
+import { Basic as SbBasic } from "./basic";
+import { Controlled as SbControlled } from "./controlled";
+import { Customized as SbCustomized } from "./customized";
+import { RootProvider as SbRootProvider } from "./root-provider";
 
-const meta: Meta = {
+export default {
   title: "Components / Carousel"
+} satisfies Meta;
+
+export const Basic: Story = {
+  render: (args) => <SbBasic {...args} />
 };
 
-export default meta;
+export const Controlled: Story = {
+  render: (args) => <SbControlled {...args} />
+};
 
-export { Basic } from "./basic";
-export { RootProvider } from "./root-provider";
-export { Controlled } from "./controlled";
-export { Customized } from "./customized";
+export const Customized: Story = {
+  render: (args) => <SbCustomized {...args} />
+};
+
+export const RootProvider: Story = {
+  render: (args) => <SbRootProvider {...args} />
+};

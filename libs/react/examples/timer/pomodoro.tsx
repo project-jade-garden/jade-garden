@@ -1,7 +1,13 @@
 import { Timer } from "@ark-ui/react/timer";
+import { timerStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { timerStyledSlots as park } from "@spark-css/theme-park";
+import { timerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { useState } from "react";
+import { type Theme, getTheme } from "../utils";
 
-export const Pomodoro = () => {
+export const Pomodoro = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const [isWorking, setIsWorking] = useState(true);
   const [cycles, setCycles] = useState(0);
 

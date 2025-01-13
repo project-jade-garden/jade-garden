@@ -1,6 +1,12 @@
 import { RadioGroup, useRadioGroup } from "@ark-ui/react/radio-group";
+import { radioGroupStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { radioGroupStyledSlots as park } from "@spark-css/theme-park";
+import { radioGroupStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const frameworks = ["React", "Solid", "Vue"];
 
   const radioGroup = useRadioGroup();

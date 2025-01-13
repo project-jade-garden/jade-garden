@@ -1,12 +1,26 @@
 import type { Meta } from "@storybook/react";
+import type { Story } from "../utils";
+import { Input as SbInput } from "./input";
+import { RequiredIndicator as SbRequiredIndicator } from "./required-indicator";
+import { Select as SbSelect } from "./select";
+import { Textarea as SbTextarea } from "./textarea";
 
-const meta: Meta = {
+export default {
   title: "Components / Field"
+} satisfies Meta;
+
+export const Input: Story = {
+  render: (args) => <SbInput {...args} />
 };
 
-export default meta;
+export const RequiredIndicator: Story = {
+  render: (args) => <SbRequiredIndicator {...args} />
+};
 
-export { Input } from "./input";
-export { RequiredIndicator } from "./required-indicator";
-export { Select } from "./select";
-export { Textarea } from "./textarea";
+export const Select: Story = {
+  render: (args) => <SbSelect {...args} />
+};
+
+export const Textarea: Story = {
+  render: (args) => <SbTextarea {...args} />
+};

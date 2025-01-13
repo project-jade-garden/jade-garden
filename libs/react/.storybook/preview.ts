@@ -3,13 +3,14 @@ import type { Preview, ReactRenderer } from "@storybook/react";
 import "./index.css";
 
 export default {
-  parameters: {
-    options: {
-      storySort: {
-        method: "alphabetical"
-      }
-    },
-    layout: "padded"
+  args: {
+    theme: "minimal"
+  },
+  argTypes: {
+    theme: {
+      options: ["minimal", "park", "shadcn"],
+      control: { type: "radio" }
+    }
   },
   decorators: [
     withThemeByClassName<ReactRenderer>({
@@ -20,5 +21,13 @@ export default {
       }
     }),
     (Story) => Story()
-  ]
+  ],
+  parameters: {
+    options: {
+      storySort: {
+        method: "alphabetical"
+      }
+    },
+    layout: "padded"
+  }
 } satisfies Preview;

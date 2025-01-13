@@ -1,8 +1,15 @@
 import { Tabs } from "@ark-ui/react/tabs";
+import { tabsStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { tabsStyledSlots as park } from "@spark-css/theme-park";
+import { tabsStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { useState } from "react";
+import { type Theme, getTheme } from "../utils";
 
-export const Controlled = () => {
+export const Controlled = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const [value, setValue] = useState<string | null>("react");
+
   return (
     <Tabs.Root value={value} onValueChange={(e) => setValue(e.value)}>
       <Tabs.List>

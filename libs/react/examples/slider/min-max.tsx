@@ -1,6 +1,13 @@
 import { Slider } from "@ark-ui/react/slider";
+import { sliderStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { sliderStyledSlots as park } from "@spark-css/theme-park";
+import { sliderStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const MinMax = () => {
+export const MinMax = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
     <Slider.Root min={-10} max={10}>
       <Slider.Label>Label</Slider.Label>

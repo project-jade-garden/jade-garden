@@ -1,6 +1,12 @@
 import { Slider, useSlider } from "@ark-ui/react/slider";
+import { sliderStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { sliderStyledSlots as park } from "@spark-css/theme-park";
+import { sliderStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const slider = useSlider();
 
   return (

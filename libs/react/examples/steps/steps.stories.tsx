@@ -1,10 +1,16 @@
 import type { Meta } from "@storybook/react";
+import type { Story } from "../utils";
+import { Basic as SbBasic } from "./basic";
+import { RootProvider as SbRootProvider } from "./root-provider";
 
-const meta: Meta = {
+export default {
   title: "Components / Steps"
+} satisfies Meta;
+
+export const Basic: Story = {
+  render: (args) => <SbBasic {...args} />
 };
 
-export default meta;
-
-export { Basic } from "./basic";
-export { RootProvider } from "./root-provider";
+export const RootProvider: Story = {
+  render: (args) => <SbRootProvider {...args} />
+};

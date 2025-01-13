@@ -1,6 +1,11 @@
 import { Select, createListCollection } from "@ark-ui/react/select";
+import { selectStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { selectStyledSlots as park } from "@spark-css/theme-park";
+import { selectStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
 import { useState } from "react";
+import { type Theme, getTheme } from "../utils";
 
 const itemsBase = [
   { label: "React", value: "react" },
@@ -9,7 +14,8 @@ const itemsBase = [
   { label: "Vue", value: "vue" }
 ];
 
-export const ReactiveCollection = () => {
+export const ReactiveCollection = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const [number, setNumber] = useState(0);
   const collection = createListCollection({
     items: itemsBase.map((item) => ({ ...item, label: `${item.label}-${number}` }))

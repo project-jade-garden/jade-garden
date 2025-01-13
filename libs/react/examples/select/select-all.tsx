@@ -1,26 +1,30 @@
 import { Portal } from "@ark-ui/react/portal";
 import { Select, createListCollection } from "@ark-ui/react/select";
+import { selectStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { selectStyledSlots as park } from "@spark-css/theme-park";
+import { selectStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { ChevronDownIcon } from "lucide-react";
+import { type Theme, getTheme } from "../utils";
 
-const SelectAllButton = () => {
-  return (
-    <Select.Context>
-      {(api) => (
-        <button
-          type="button"
-          onClick={() => {
-            api.selectAll();
-            api.setOpen(false);
-          }}
-        >
-          Select All
-        </button>
-      )}
-    </Select.Context>
-  );
-};
+const SelectAllButton = () => (
+  <Select.Context>
+    {(api) => (
+      <button
+        type="button"
+        onClick={() => {
+          api.selectAll();
+          api.setOpen(false);
+        }}
+      >
+        Select All
+      </button>
+    )}
+  </Select.Context>
+);
 
-export const SelectAll = () => {
+export const SelectAll = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });
 
   return (

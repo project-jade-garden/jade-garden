@@ -1,8 +1,14 @@
 import { Field } from "@ark-ui/react/field";
 import { SignaturePad } from "@ark-ui/react/signature-pad";
+import { signaturePadStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { signaturePadStyledSlots as park } from "@spark-css/theme-park";
+import { signaturePadStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { useState } from "react";
+import { type Theme, getTheme } from "../utils";
 
-export const WithField = (props: Field.RootProps) => {
+export const WithField = (props: Field.RootProps & { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
   const [value, setValue] = useState("");
 
   return (

@@ -1,10 +1,17 @@
 import { Popover } from "@ark-ui/react/popover";
+import { popoverStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { popoverStyledSlots as park } from "@spark-css/theme-park";
+import { popoverStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
 const style: React.CSSProperties = {
   minWidth: "200px"
 };
 
-export const WithSameWidth = () => {
+export const WithSameWidth = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
     <Popover.Root positioning={{ sameWidth: true }}>
       <Popover.Trigger style={style}>Click Me</Popover.Trigger>

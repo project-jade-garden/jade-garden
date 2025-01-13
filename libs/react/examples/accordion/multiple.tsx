@@ -1,18 +1,27 @@
 import { Accordion } from "@ark-ui/react/accordion";
+import { accordionStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { accordionStyledSlots as park } from "@spark-css/theme-park";
+import { accordionStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { ChevronDownIcon } from "lucide-react";
+import { type Theme, getTheme } from "../utils";
 
-export const Multiple = () => {
+export const Multiple = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
-    <Accordion.Root defaultValue={["React"]} multiple>
+    <Accordion.Root defaultValue={["React"]} multiple className={clsx(styledSlots.root)}>
       {["React", "Solid", "Vue"].map((item) => (
-        <Accordion.Item key={item} value={item}>
-          <Accordion.ItemTrigger>
+        <Accordion.Item key={item} value={item} className={clsx(styledSlots.item)}>
+          <Accordion.ItemTrigger className={clsx(styledSlots.itemTrigger)}>
             {item}
-            <Accordion.ItemIndicator>
+            <Accordion.ItemIndicator className={clsx(styledSlots.itemIndicator)}>
               <ChevronDownIcon />
             </Accordion.ItemIndicator>
           </Accordion.ItemTrigger>
-          <Accordion.ItemContent>{item} is a JavaScript library for building user interfaces.</Accordion.ItemContent>
+          <Accordion.ItemContent className={clsx(styledSlots.itemContent)}>
+            {item} is a JavaScript library for building user interfaces.
+          </Accordion.ItemContent>
         </Accordion.Item>
       ))}
     </Accordion.Root>

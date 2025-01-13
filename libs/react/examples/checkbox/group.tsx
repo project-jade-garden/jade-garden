@@ -1,4 +1,8 @@
 import { Checkbox } from "@ark-ui/react/checkbox";
+import { checkboxStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { checkboxStyledSlots as park } from "@spark-css/theme-park";
+import { checkboxStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { CheckIcon } from "lucide-react";
 
 const items = [
@@ -6,19 +10,29 @@ const items = [
   { label: "Solid", value: "solid" },
   { label: "Vue", value: "vue" }
 ];
+import { type Theme, getTheme } from "../utils";
 
-export const Group = () => (
-  <Checkbox.Group defaultValue={["react"]} name="framework" onValueChange={console.log}>
-    {items.map((item) => (
-      <Checkbox.Root value={item.value} key={item.value}>
-        <Checkbox.Label>{item.label}</Checkbox.Label>
-        <Checkbox.Control>
-          <Checkbox.Indicator>
-            <CheckIcon />
-          </Checkbox.Indicator>
-        </Checkbox.Control>
-        <Checkbox.HiddenInput />
-      </Checkbox.Root>
-    ))}
-  </Checkbox.Group>
-);
+export const Group = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
+  return (
+    <Checkbox.Group
+      defaultValue={["react"]}
+      name="framework"
+      onValueChange={console.log}
+      className={clsx(styledSlots.group)}
+    >
+      {items.map((item) => (
+        <Checkbox.Root value={item.value} key={item.value} className={clsx(styledSlots.root)}>
+          <Checkbox.Label className={clsx(styledSlots.label)}>{item.label}</Checkbox.Label>
+          <Checkbox.Control className={clsx(styledSlots.control)}>
+            <Checkbox.Indicator className={clsx(styledSlots.indicator)}>
+              <CheckIcon />
+            </Checkbox.Indicator>
+          </Checkbox.Control>
+          <Checkbox.HiddenInput />
+        </Checkbox.Root>
+      ))}
+    </Checkbox.Group>
+  );
+};

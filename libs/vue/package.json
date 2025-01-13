@@ -12,6 +12,7 @@
   "dependencies": {
     "@ark-ui/vue": "4.5.0",
     "@histoire/plugin-vue": "0.17.17",
+    "@spark-css/theme-minimal": "workspace:*",
     "@spark-css/theme-park": "workspace:*",
     "@spark-css/theme-shadcn": "workspace:*",
     "@vitejs/plugin-vue": "5.2.1",

@@ -1,14 +1,36 @@
 import type { Meta } from "@storybook/react";
+import type { Story } from "../../utils";
+import { Basic as SbBasic } from "./basic";
+import { Indeterminate as SbIndeterminate } from "./indeterminate";
+import { InitialValue as SbInitialValue } from "./initial-value";
+import { MinMax as SbMinMax } from "./min-max";
+import { RootProvider as SbRootProvider } from "./root-provider";
+import { ValueText as SbValueText } from "./value-text";
 
-const meta: Meta = {
+export default {
   title: "Components / Progress / Circular"
+} satisfies Meta;
+
+export const Basic: Story = {
+  render: (args) => <SbBasic {...args} />
 };
 
-export default meta;
+export const Indeterminate: Story = {
+  render: (args) => <SbIndeterminate {...args} />
+};
 
-export { Basic } from "./basic";
-export { RootProvider } from "./root-provider";
-export { InitialValue } from "./initial-value";
-export { MinMax } from "./min-max";
-export { Indeterminate } from "./indeterminate";
-export { ValueText } from "./value-text";
+export const InitialValue: Story = {
+  render: (args) => <SbInitialValue {...args} />
+};
+
+export const MinMax: Story = {
+  render: (args) => <SbMinMax {...args} />
+};
+
+export const RootProvider: Story = {
+  render: (args) => <SbRootProvider {...args} />
+};
+
+export const ValueText: Story = {
+  render: (args) => <SbValueText {...args} />
+};

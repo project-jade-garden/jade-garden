@@ -1,12 +1,18 @@
 import { FileUpload } from "@ark-ui/react/file-upload";
+import { fileUploadStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { fileUploadStyledSlots as park } from "@spark-css/theme-park";
+import { fileUploadStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { FileIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { type Theme, getTheme } from "../utils";
 
 interface FieldValues {
   files: File[];
 }
 
-export const WithFormRegister = () => {
+export const WithFormRegister = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const { register, handleSubmit } = useForm<FieldValues>();
 
   const onSubmit = (data: FieldValues) => {

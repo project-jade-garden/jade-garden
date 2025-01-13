@@ -1,17 +1,26 @@
 import { Checkbox } from "@ark-ui/react/checkbox";
+import { checkboxStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { checkboxStyledSlots as park } from "@spark-css/theme-park";
+import { checkboxStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { CheckIcon, MinusIcon } from "lucide-react";
+import { type Theme, getTheme } from "../utils";
 
-export const Indeterminate = () => (
-  <Checkbox.Root checked="indeterminate">
-    <Checkbox.Label>Checkbox</Checkbox.Label>
-    <Checkbox.Control>
-      <Checkbox.Indicator>
-        <CheckIcon />
-      </Checkbox.Indicator>
-      <Checkbox.Indicator indeterminate>
-        <MinusIcon />
-      </Checkbox.Indicator>
-    </Checkbox.Control>
-    <Checkbox.HiddenInput />
-  </Checkbox.Root>
-);
+export const Indeterminate = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
+  return (
+    <Checkbox.Root checked="indeterminate" className={clsx(styledSlots.root)}>
+      <Checkbox.Label className={clsx(styledSlots.label)}>Checkbox</Checkbox.Label>
+      <Checkbox.Control className={clsx(styledSlots.control)}>
+        <Checkbox.Indicator className={clsx(styledSlots.indicator)}>
+          <CheckIcon />
+        </Checkbox.Indicator>
+        <Checkbox.Indicator indeterminate className={clsx(styledSlots.indicator)}>
+          <MinusIcon />
+        </Checkbox.Indicator>
+      </Checkbox.Control>
+      <Checkbox.HiddenInput />
+    </Checkbox.Root>
+  );
+};

@@ -1,6 +1,12 @@
 import { ColorPicker, parseColor, useColorPicker } from "@ark-ui/react/color-picker";
+import { colorPickerStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { colorPickerStyledSlots as park } from "@spark-css/theme-park";
+import { colorPickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const colorPicker = useColorPicker({ defaultValue: parseColor("#eb5e41") });
 
   return (

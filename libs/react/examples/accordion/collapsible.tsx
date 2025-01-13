@@ -1,16 +1,18 @@
 import { Accordion } from "@ark-ui/react/accordion";
-import { accordionStyledSlots as parkUi } from "@spark-css/theme-park";
-import { accordionStyledSlots as shadcnUi } from "@spark-css/theme-shadcn";
+import { accordionStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { accordionStyledSlots as park } from "@spark-css/theme-park";
+import { accordionStyledSlots as shadcn } from "@spark-css/theme-shadcn";
 import { clsx } from "clsx";
 import { ChevronDownIcon } from "lucide-react";
+import { type Theme, getTheme } from "../utils";
 
-export const Collapsible = () => {
-  const styledSlots = parkUi;
+export const Collapsible = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
     <Accordion.Root defaultValue={["React"]} collapsible className={clsx(styledSlots.root)}>
       {["React", "Solid", "Vue"].map((item) => (
-        <Accordion.Item key={item} value={item} className={styledSlots.item}>
+        <Accordion.Item key={item} value={item} className={clsx(styledSlots.item)}>
           <Accordion.ItemTrigger className={clsx(styledSlots.itemTrigger)}>
             {item}
             <Accordion.ItemIndicator className={clsx(styledSlots.itemIndicator)}>

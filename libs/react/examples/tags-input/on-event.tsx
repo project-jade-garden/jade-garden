@@ -1,6 +1,13 @@
 import { TagsInput } from "@ark-ui/react/tags-input";
+import { tagsInputStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { tagsInputStyledSlots as park } from "@spark-css/theme-park";
+import { tagsInputStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const OnEvent = () => {
+export const OnEvent = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
     <TagsInput.Root
       onValueChange={(details) => {

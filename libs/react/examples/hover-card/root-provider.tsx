@@ -1,7 +1,13 @@
 import { HoverCard, useHoverCard } from "@ark-ui/react/hover-card";
 import { Portal } from "@ark-ui/react/portal";
+import { hoverCardStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { hoverCardStyledSlots as park } from "@spark-css/theme-park";
+import { hoverCardStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const hoverCard = useHoverCard();
 
   return (

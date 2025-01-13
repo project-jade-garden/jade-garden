@@ -1,5 +1,10 @@
 import { Toast, Toaster, createToaster } from "@ark-ui/react/toast";
+import { toastStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { toastStyledSlots as park } from "@spark-css/theme-park";
+import { toastStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
 import { useRef } from "react";
+import { type Theme, getTheme } from "../utils";
 
 const toaster = createToaster({
   placement: "bottom-end",
@@ -7,21 +12,23 @@ const toaster = createToaster({
   gap: 24
 });
 
-export const Update = () => {
-  const id = useRef<string>();
+export const Update = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const id = useRef<string>("");
 
   const createToast = () => {
-    id.current = toaster.create({
+    const toast = toaster.create({
       title: "Loading",
       description: "Loading ...",
       type: "info"
     });
+
+    if (toast) id.current = toast;
   };
 
   const updateToast = () => {
-    if (!id.current) {
-      return;
-    }
+    if (!id.current) return;
+
     toaster.update(id.current, {
       title: "Success",
       description: "Success!"

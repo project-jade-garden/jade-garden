@@ -1,6 +1,12 @@
 import { Splitter, useSplitter } from "@ark-ui/react/splitter";
+import { splitterStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { splitterStyledSlots as park } from "@spark-css/theme-park";
+import { splitterStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const splitter = useSplitter({ defaultSize: [{ id: "a", size: 50 }] });
 
   return (

@@ -1,4 +1,9 @@
 import { Steps, useSteps } from "@ark-ui/react/steps";
+import { stepsStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { stepsStyledSlots as park } from "@spark-css/theme-park";
+import { stepsStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
 const items = [
   { value: "first", title: "First", description: "Contact Info" },
@@ -6,7 +11,8 @@ const items = [
   { value: "third", title: "Third", description: "Select Rooms" }
 ];
 
-export const RootProvider = () => {
+export const RootProvider = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
   const steps = useSteps({ count: items.length });
 
   return (

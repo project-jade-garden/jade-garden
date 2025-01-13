@@ -1,6 +1,13 @@
 import { ColorPicker } from "@ark-ui/react/color-picker";
+import { colorPickerStyledSlots as minimal } from "@spark-css/theme-minimal";
+import { colorPickerStyledSlots as park } from "@spark-css/theme-park";
+import { colorPickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { clsx } from "clsx";
+import { type Theme, getTheme } from "../utils";
 
-export const ColorPickerContent = () => {
+export const ColorPickerContent = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
     <ColorPicker.Content>
       <ColorPicker.Area>
@@ -53,7 +60,9 @@ export const ColorPickerContent = () => {
   );
 };
 
-export const ColorPickerControl = () => {
+export const ColorPickerControl = ({ theme }: { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+
   return (
     <ColorPicker.Control>
       <ColorPicker.ChannelInput channel="hex" />
