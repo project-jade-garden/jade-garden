@@ -1,5 +1,8 @@
-import { type CollapsibleSlots, createCollapsibleSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type CollapsibleSlots,
+  // createCollapsibleDocs,
+  createCollapsibleSlots
+} from "@spark-css/core";
 
 /**
  * **Collapsible**
@@ -20,7 +23,7 @@ import { type CollapsibleSlots, createCollapsibleSlots } from "@spark-css/core";
 export const collapsibleSlots = createCollapsibleSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("collapsible", collapsibleSlots));
+// createCollapsibleDocs("anatomy", collapsibleSlots);
 
 /**
  * **Collapsible**
@@ -47,4 +50,4 @@ export const collapsibleStyledSlots = {
 } as const satisfies Record<CollapsibleSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("collapsible", collapsibleStyledSlots));
+// createCollapsibleDocs("styled", collapsibleStyledSlots);

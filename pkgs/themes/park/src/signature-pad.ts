@@ -1,6 +1,9 @@
 // * https://github.com/chakra-ui/ark/tree/main/website/src/demos/signature-pad.demo.tsx
-import { type SignaturePadSlots, createSignaturePadSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type SignaturePadSlots,
+  // createSignaturePadDocs,
+  createSignaturePadSlots
+} from "@spark-css/core";
 
 /**
  * **Signature Pad**
@@ -25,7 +28,7 @@ import { type SignaturePadSlots, createSignaturePadSlots } from "@spark-css/core
 export const signaturePadSlots = createSignaturePadSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("signature-pad", signaturePadSlots));
+// createSignaturePadDocs("anatomy", signaturePadSlots);
 
 /**
  * **Signature Pad**
@@ -136,4 +139,4 @@ export const signaturePadStyledSlots = {
 } as const satisfies Record<SignaturePadSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("signature-pad", signaturePadStyledSlots));
+// createSignaturePadDocs("styled", signaturePadStyledSlots);

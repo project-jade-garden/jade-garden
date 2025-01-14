@@ -1,6 +1,6 @@
 {
   "name": "@spark-css/utils",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Utilities to construct slots for Spark CSS",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "utilities"],
   "main": "src/index.ts",
@@ -13,10 +13,10 @@
     "build": "tsup",
     "clean": "rm -rf .turbo dist node_modules",
     "format": "biome format --write ./src ./tests",
-    "gen-files": "bun script.ts",
     "lint": "biome lint ./src ./tests",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
+    "script": "bun script.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

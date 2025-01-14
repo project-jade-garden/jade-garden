@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/number-input.ts
-import { type NumberInputSlots, createNumberInputSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type NumberInputSlots,
+  // createNumberInputDocs,
+  createNumberInputSlots
+} from "@spark-css/core";
 
 /**
  * **Number Input**
@@ -26,7 +29,7 @@ import { type NumberInputSlots, createNumberInputSlots } from "@spark-css/core";
 export const numberInputSlots = createNumberInputSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("number-input", numberInputSlots));
+// createNumberInputDocs("anatomy", numberInputSlots);
 
 /**
  * **Number Input**
@@ -202,4 +205,4 @@ export const numberInputStyledSlots = {
 } as const satisfies Record<NumberInputSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("number-input", numberInputStyledSlots));
+// createNumberInputDocs("styled", numberInputStyledSlots);

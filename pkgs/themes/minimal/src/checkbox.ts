@@ -1,5 +1,8 @@
-import { type CheckboxSlots, createCheckboxSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type CheckboxSlots,
+  // createCheckboxDocs,
+  createCheckboxSlots
+} from "@spark-css/core";
 
 /**
  * **Checkbox**
@@ -22,7 +25,7 @@ import { type CheckboxSlots, createCheckboxSlots } from "@spark-css/core";
 export const checkboxSlots = createCheckboxSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("checkbox", checkboxSlots));
+// createCheckboxDocs("anatomy", checkboxSlots);
 
 /**
  * **Checkbox**
@@ -55,4 +58,4 @@ export const checkboxStyledSlots = {
 } as const satisfies Record<CheckboxSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("checkbox", checkboxStyledSlots));
+// createCheckboxDocs("styled", checkboxStyledSlots);

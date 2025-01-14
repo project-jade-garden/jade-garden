@@ -1,5 +1,8 @@
-import { type ClipboardSlots, createClipboardSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type ClipboardSlots,
+  // createClipboardDocs,
+  createClipboardSlots
+} from "@spark-css/core";
 
 /**
  * **Clipboard**
@@ -23,7 +26,7 @@ import { type ClipboardSlots, createClipboardSlots } from "@spark-css/core";
 export const clipboardSlots = createClipboardSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("clipboard", clipboardSlots));
+// createClipboardDocs("anatomy", clipboardSlots);
 
 /**
  * **Clipboard**
@@ -59,4 +62,4 @@ export const clipboardStyledSlots = {
 } as const satisfies Record<ClipboardSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("clipboard", clipboardStyledSlots));
+// createClipboardDocs("styled", clipboardStyledSlots);

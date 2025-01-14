@@ -1,5 +1,8 @@
-import { type SwitchSlots, createSwitchSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type SwitchSlots,
+  // createSwitchDocs,
+  createSwitchSlots
+} from "@spark-css/core";
 
 /**
  * **Switch**
@@ -21,7 +24,7 @@ import { type SwitchSlots, createSwitchSlots } from "@spark-css/core";
 export const switchSlots = createSwitchSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("switch", switchSlots));
+// createSwitchDocs("anatomy", switchSlots);
 
 /**
  * **Switch**
@@ -51,4 +54,4 @@ export const switchStyledSlots = {
 } as const satisfies Record<SwitchSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("switch", switchStyledSlots));
+// createSwitchDocs("styled", switchStyledSlots);

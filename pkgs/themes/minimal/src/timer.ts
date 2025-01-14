@@ -1,5 +1,8 @@
-import { type TimerSlots, createTimerSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type TimerSlots,
+  // createTimerDocs,
+  createTimerSlots
+} from "@spark-css/core";
 
 /**
  * **Timer**
@@ -25,7 +28,7 @@ import { type TimerSlots, createTimerSlots } from "@spark-css/core";
 export const timerSlots = createTimerSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("timer", timerSlots));
+// createTimerDocs("anatomy", timerSlots);
 
 /**
  * **Timer**
@@ -67,4 +70,4 @@ export const timerStyledSlots = {
 } as const satisfies Record<TimerSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("timer", timerStyledSlots));
+// createTimerDocs("styled", timerStyledSlots);

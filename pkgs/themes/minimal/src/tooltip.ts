@@ -1,5 +1,8 @@
-import { type TooltipSlots, createTooltipSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type TooltipSlots,
+  // createTooltipDocs,
+  createTooltipSlots
+} from "@spark-css/core";
 
 /**
  * **Tooltip**
@@ -22,7 +25,7 @@ import { type TooltipSlots, createTooltipSlots } from "@spark-css/core";
 export const tooltipSlots = createTooltipSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("tooltip", tooltipSlots));
+// createTooltipDocs("anatomy", tooltipSlots);
 
 /**
  * **Tooltip**
@@ -55,4 +58,4 @@ export const tooltipStyledSlots = {
 } as const satisfies Record<TooltipSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("tooltip", tooltipStyledSlots));
+// createTooltipDocs("styled", tooltipStyledSlots);

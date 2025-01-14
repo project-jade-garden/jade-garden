@@ -1,5 +1,8 @@
-import { type AccordionSlots, createAccordionSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type AccordionSlots,
+  // createAccordionDocs,
+  createAccordionSlots
+} from "@spark-css/core";
 
 /**
  * **Accordion**
@@ -22,7 +25,7 @@ import { type AccordionSlots, createAccordionSlots } from "@spark-css/core";
 export const accordionSlots = createAccordionSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("accordion", accordionSlots));
+// createAccordionDocs("anatomy", accordionSlots);
 
 /**
  * **Accordion**
@@ -55,4 +58,4 @@ export const accordionStyledSlots = {
 } as const satisfies Record<AccordionSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("accordion", accordionStyledSlots));
+// createAccordionDocs("styled", accordionStyledSlots);

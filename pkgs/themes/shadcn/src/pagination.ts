@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/pagination.ts
-import { type PaginationSlots, createPaginationSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type PaginationSlots,
+  // createPaginationDocs,
+  createPaginationSlots
+} from "@spark-css/core";
 
 /**
  * **Pagination**
@@ -23,7 +26,7 @@ import { type PaginationSlots, createPaginationSlots } from "@spark-css/core";
 export const paginationSlots = createPaginationSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("pagination", paginationSlots));
+// createPaginationDocs("anatomy", paginationSlots);
 
 /**
  * **Pagination**
@@ -88,4 +91,4 @@ export const paginationStyledSlots = {
 } as const satisfies Record<PaginationSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("pagination", paginationStyledSlots));
+// createPaginationDocs("styled", paginationStyledSlots);

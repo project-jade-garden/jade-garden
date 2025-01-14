@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/pin-input.ts
-import { type PinInputSlots, createPinInputSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type PinInputSlots,
+  // createPinInputDocs,
+  createPinInputSlots
+} from "@spark-css/core";
 
 /**
  * **Pin Input**
@@ -22,7 +25,7 @@ import { type PinInputSlots, createPinInputSlots } from "@spark-css/core";
 export const pinInputSlots = createPinInputSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("pin-input", pinInputSlots));
+// createPinInputDocs("anatomy", pinInputSlots);
 
 /**
  * **Pin Input**
@@ -91,4 +94,4 @@ export const pinInputStyledSlots = {
 } as const satisfies Record<PinInputSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("pin-input", pinInputStyledSlots));
+// createPinInputDocs("styled", pinInputStyledSlots);

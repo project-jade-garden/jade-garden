@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/field.ts
-import { type FieldSlots, createFieldSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type FieldSlots,
+  // createFieldDocs,
+  createFieldSlots
+} from "@spark-css/core";
 
 /**
  * **Field**
@@ -26,7 +29,7 @@ import { type FieldSlots, createFieldSlots } from "@spark-css/core";
 export const fieldSlots = createFieldSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("field", fieldSlots));
+// createFieldDocs("anatomy", fieldSlots);
 
 /**
  * **Field**
@@ -114,4 +117,4 @@ export const fieldStyledSlots = {
 } as const satisfies Record<FieldSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("field", fieldStyledSlots));
+// createFieldDocs("styled", fieldStyledSlots);

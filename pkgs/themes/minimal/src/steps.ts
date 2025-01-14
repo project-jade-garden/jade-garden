@@ -1,5 +1,8 @@
-import { type StepsSlots, createStepsSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type StepsSlots,
+  // createStepsDocs,
+  createStepsSlots
+} from "@spark-css/core";
 
 /**
  * **Steps**
@@ -27,7 +30,7 @@ import { type StepsSlots, createStepsSlots } from "@spark-css/core";
 export const stepsSlots = createStepsSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("steps", stepsSlots));
+// createStepsDocs("anatomy", stepsSlots);
 
 /**
  * **Steps**
@@ -75,4 +78,4 @@ export const stepsStyledSlots = {
 } as const satisfies Record<StepsSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("steps", stepsStyledSlots));
+// createStepsDocs("styled", stepsStyledSlots);

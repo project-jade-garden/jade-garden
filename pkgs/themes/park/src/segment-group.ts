@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/segment-group.ts
-import { type SegmentGroupSlots, createSegmentGroupSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type SegmentGroupSlots,
+  // createSegmentGroupDocs,
+  createSegmentGroupSlots
+} from "@spark-css/core";
 
 /**
  * **Segment Group**
@@ -24,7 +27,7 @@ import { type SegmentGroupSlots, createSegmentGroupSlots } from "@spark-css/core
 export const segmentGroupSlots = createSegmentGroupSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("segment-group", segmentGroupSlots));
+// createSegmentGroupDocs("anatomy", segmentGroupSlots);
 
 /**
  * **Segment Group**
@@ -122,4 +125,4 @@ export const segmentGroupStyledSlots = {
 } as const satisfies Record<SegmentGroupSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("segment-group", segmentGroupStyledSlots));
+// createSegmentGroupDocs("styled", segmentGroupStyledSlots);

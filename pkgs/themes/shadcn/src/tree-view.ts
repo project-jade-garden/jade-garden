@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/tree-view.ts
-import { type TreeViewSlots, createTreeViewSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type TreeViewSlots,
+  // createTreeViewDocs,
+  createTreeViewSlots
+} from "@spark-css/core";
 
 /**
  * **Tree View**
@@ -31,7 +34,7 @@ import { type TreeViewSlots, createTreeViewSlots } from "@spark-css/core";
 export const treeViewSlots = createTreeViewSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("tree-view", treeViewSlots));
+// createTreeViewDocs("anatomy", treeViewSlots);
 
 /**
  * **Tree View**
@@ -228,4 +231,4 @@ export const treeViewStyledSlots = {
 } as const satisfies Record<TreeViewSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("tree-view", treeViewStyledSlots));
+// createTreeViewDocs("styled", treeViewStyledSlots);

@@ -1,5 +1,8 @@
-import { type QrCodeSlots, createQrCodeSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type QrCodeSlots,
+  // createQrCodeDocs,
+  createQrCodeSlots
+} from "@spark-css/core";
 
 /**
  * **Qr Code**
@@ -21,7 +24,7 @@ import { type QrCodeSlots, createQrCodeSlots } from "@spark-css/core";
 export const qrCodeSlots = createQrCodeSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("qr-code", qrCodeSlots));
+// createQrCodeDocs("anatomy", qrCodeSlots);
 
 /**
  * **Qr Code**
@@ -51,4 +54,4 @@ export const qrCodeStyledSlots = {
 } as const satisfies Record<QrCodeSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("qr-code", qrCodeStyledSlots));
+// createQrCodeDocs("styled", qrCodeStyledSlots);

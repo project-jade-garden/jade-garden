@@ -1,10 +1,15 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/progress.ts
-import { type ProgressSlots, createProgressSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type ProgressSlots,
+  // createProgressDocs,
+  createProgressSlots
+} from "@spark-css/core";
 
 /**
  * **Progress**
- * @description **Circular** - An element that shows either determinate or indeterminate progress. **Linear** - An element that shows either determinate or indeterminate progress.
+ * @description
+ * **Circular** - An element that shows either determinate or indeterminate progress.
+ * **Linear** - An element that shows either determinate or indeterminate progress.
  *
  * @returns
  * ```js
@@ -27,11 +32,13 @@ import { type ProgressSlots, createProgressSlots } from "@spark-css/core";
 export const progressSlots = createProgressSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("progress", progressSlots));
+// createProgressDocs("anatomy", progressSlots);
 
 /**
  * **Progress**
- * @description **Circular** - An element that shows either determinate or indeterminate progress. **Linear** - An element that shows either determinate or indeterminate progress.
+ * @description
+ * **Circular** - An element that shows either determinate or indeterminate progress.
+ * **Linear** - An element that shows either determinate or indeterminate progress.
  *
  * @example
  * ```css
@@ -150,4 +157,4 @@ export const progressStyledSlots = {
 } as const satisfies Record<ProgressSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("progress", progressStyledSlots));
+// createProgressDocs("styled", progressStyledSlots);

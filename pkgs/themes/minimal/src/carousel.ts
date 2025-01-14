@@ -1,5 +1,8 @@
-import { type CarouselSlots, createCarouselSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type CarouselSlots,
+  // createCarouselDocs,
+  createCarouselSlots
+} from "@spark-css/core";
 
 /**
  * **Carousel**
@@ -26,7 +29,7 @@ import { type CarouselSlots, createCarouselSlots } from "@spark-css/core";
 export const carouselSlots = createCarouselSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("carousel", carouselSlots));
+// createCarouselDocs("anatomy", carouselSlots);
 
 /**
  * **Carousel**
@@ -71,4 +74,4 @@ export const carouselStyledSlots = {
 } as const satisfies Record<CarouselSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("carousel", carouselStyledSlots));
+// createCarouselDocs("styled", carouselStyledSlots);

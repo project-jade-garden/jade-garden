@@ -1,9 +1,9 @@
 import { transformStr } from "./transformStr";
-import type { GSProps } from "./types";
+import type { CSArgs } from "./types";
 
-export const generateSlots = <A extends string>(componentName: string, anatomy: A[], props?: GSProps) => {
-  const caseConvention = props?.caseConvention ?? "kebab";
-  const prefix = props?.prefix ?? "";
+export const createSlots = <A extends string>(componentName: string, anatomy: A[], args?: CSArgs) => {
+  const caseConvention = args?.caseConvention ?? "kebab";
+  const prefix = args?.prefix ?? "";
 
   const base = transformStr(`${prefix}-${componentName}`, caseConvention);
   return anatomy.reduce(

@@ -1,5 +1,5 @@
 import { camelCase, kebabCase, pascalCase, snakeCase } from "es-toolkit";
-import type { GSProps } from "./types";
+import type { CSArgs } from "./types";
 
 /**
  * String manipulation function that returns a string
@@ -9,7 +9,7 @@ import type { GSProps } from "./types";
  * @see [pascalCase](https://es-toolkit.slash.page/reference/string/pascalCase.html)
  * @see [snakeCase](https://es-toolkit.slash.page/reference/string/snakeCase.html)
  */
-export const transformStr = (str: string, caseConvention?: GSProps["caseConvention"]) => {
+export const transformStr = (str: string, caseConvention?: CSArgs["caseConvention"]) => {
   switch (caseConvention) {
     case "camel":
       return camelCase(str);

@@ -1,5 +1,8 @@
-import { type SelectSlots, createSelectSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type SelectSlots,
+  // createSelectDocs,
+  createSelectSlots
+} from "@spark-css/core";
 
 /**
  * **Select**
@@ -32,7 +35,7 @@ import { type SelectSlots, createSelectSlots } from "@spark-css/core";
 export const selectSlots = createSelectSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("select", selectSlots));
+// createSelectDocs("anatomy", selectSlots);
 
 /**
  * **Select**
@@ -95,4 +98,4 @@ export const selectStyledSlots = {
 } as const satisfies Record<SelectSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("select", selectStyledSlots));
+// createSelectDocs("styled", selectStyledSlots);

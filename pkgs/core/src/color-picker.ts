@@ -1,20 +1,18 @@
-import { type GSProps, generateSlots } from "@spark-css/utils";
+import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
 // * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/color-picker/color-picker.anatomy.ts
 import { anatomy } from "@zag-js/color-picker";
 
 const colorPickerAnatomy = anatomy.extendWith("view");
 
-/**
- * **Color Picker**
- * @description A component that allows users to select a color from a color picker.
- * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
- */
-export const createColorPickerSlots = (props?: GSProps) =>
-  generateSlots("color-picker", colorPickerAnatomy.keys(), props);
+const component = {
+  name: "Color Picker",
+  description: "A component that allows users to select a color from a color picker."
+};
+const source = "https://ark-ui.com/vue/docs/components/color-picker#anatomy";
 
-/**
- * **Color Picker**
- * @description A component that allows users to select a color from a color picker.
- * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
- */
 export type ColorPickerSlots = keyof ReturnType<typeof createColorPickerSlots>;
+
+export const createColorPickerSlots = (args?: CSArgs) => createSlots("color-picker", colorPickerAnatomy.keys(), args);
+
+export const createColorPickerDocs = (print: PrintType, slots: Slots = {}) =>
+  createDocs(print, { slots, component, source });

@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/fieldset.ts
-import { type FieldsetSlots, createFieldsetSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type FieldsetSlots,
+  // createFieldsetDocs,
+  createFieldsetSlots
+} from "@spark-css/core";
 
 /**
  * **Fieldset**
@@ -23,7 +26,7 @@ import { type FieldsetSlots, createFieldsetSlots } from "@spark-css/core";
 export const fieldsetSlots = createFieldsetSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("fieldset", fieldsetSlots));
+// createFieldsetDocs("anatomy", fieldsetSlots);
 
 /**
  * **Fieldset**
@@ -126,4 +129,4 @@ export const fieldsetStyledSlots = {
 } as const satisfies Record<FieldsetSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("fieldset", fieldsetStyledSlots));
+// createFieldsetDocs("styled", fieldsetStyledSlots);

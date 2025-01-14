@@ -1,5 +1,8 @@
-import { type FileUploadSlots, createFileUploadSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type FileUploadSlots,
+  // createFileUploadDocs,
+  createFileUploadSlots
+} from "@spark-css/core";
 
 /**
  * **File Upload**
@@ -29,7 +32,7 @@ import { type FileUploadSlots, createFileUploadSlots } from "@spark-css/core";
 export const fileUploadSlots = createFileUploadSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("file-upload", fileUploadSlots));
+// createFileUploadDocs("anatomy", fileUploadSlots);
 
 /**
  * **File Upload**
@@ -83,4 +86,4 @@ export const fileUploadStyledSlots = {
 } as const satisfies Record<FileUploadSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("file-upload", fileUploadStyledSlots));
+// createFileUploadDocs("styled", fileUploadStyledSlots);

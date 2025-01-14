@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/tabs.ts
-import { type TabsSlots, createTabsSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type TabsSlots,
+  // createTabsDocs,
+  createTabsSlots
+} from "@spark-css/core";
 
 /**
  * **Tabs**
@@ -23,7 +26,7 @@ import { type TabsSlots, createTabsSlots } from "@spark-css/core";
 export const tabsSlots = createTabsSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("tabs", tabsSlots));
+// createTabsDocs("anatomy", tabsSlots);
 
 /**
  * **Tabs**
@@ -119,4 +122,4 @@ export const tabsStyledSlots = {
 } as const satisfies Record<TabsSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("tabs", tabsStyledSlots));
+// createTabsDocs("styled", tabsStyledSlots);

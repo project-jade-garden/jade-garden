@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/checkbox.ts
-import { type CheckboxSlots, createCheckboxSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type CheckboxSlots,
+  // createCheckboxDocs,
+  createCheckboxSlots
+} from "@spark-css/core";
 
 /**
  * **Checkbox**
@@ -23,7 +26,7 @@ import { type CheckboxSlots, createCheckboxSlots } from "@spark-css/core";
 export const checkboxSlots = createCheckboxSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("checkbox", checkboxSlots));
+// createCheckboxDocs("",checkboxSlots);
 
 /**
  * **Checkbox**
@@ -111,4 +114,4 @@ export const checkboxStyledSlots = {
 } as const satisfies Record<CheckboxSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("checkbox", checkboxStyledSlots));
+// createCheckboxDocs("",checkboxStyledSlots);

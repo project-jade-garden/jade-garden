@@ -1,5 +1,8 @@
-import { type MenuSlots, createMenuSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type MenuSlots,
+  // createMenuDocs,
+  createMenuSlots
+} from "@spark-css/core";
 
 /**
  * **Menu**
@@ -31,7 +34,7 @@ import { type MenuSlots, createMenuSlots } from "@spark-css/core";
 export const menuSlots = createMenuSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("menu", menuSlots));
+// createMenuDocs("anatomy", menuSlots);
 
 /**
  * **Menu**
@@ -91,4 +94,4 @@ export const menuStyledSlots = {
 } as const satisfies Record<MenuSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("menu", menuStyledSlots));
+// createMenuDocs("styled", menuStyledSlots);

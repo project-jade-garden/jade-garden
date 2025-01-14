@@ -1,5 +1,8 @@
-import { type TabsSlots, createTabsSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type TabsSlots,
+  // createTabsDocs,
+  createTabsSlots
+} from "@spark-css/core";
 
 /**
  * **Tabs**
@@ -22,7 +25,7 @@ import { type TabsSlots, createTabsSlots } from "@spark-css/core";
 export const tabsSlots = createTabsSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("tabs", tabsSlots));
+// createTabsDocs("anatomy", tabsSlots);
 
 /**
  * **Tabs**
@@ -55,4 +58,4 @@ export const tabsStyledSlots = {
 } as const satisfies Record<TabsSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("tabs", tabsStyledSlots));
+// createTabsDocs("styled", tabsStyledSlots);

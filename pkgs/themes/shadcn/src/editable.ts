@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/editable.ts
-import { type EditableSlots, createEditableSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type EditableSlots,
+  // createEditableDocs,
+  createEditableSlots
+} from "@spark-css/core";
 
 /**
  * **Editable**
@@ -27,7 +30,7 @@ import { type EditableSlots, createEditableSlots } from "@spark-css/core";
 export const editableSlots = createEditableSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("editable", editableSlots));
+// createEditableDocs("anatomy", editableSlots);
 
 /**
  * **Editable**
@@ -96,4 +99,4 @@ export const editableStyledSlots = {
 } as const satisfies Record<EditableSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("editable", editableStyledSlots));
+// createEditableDocs("styled", editableStyledSlots);

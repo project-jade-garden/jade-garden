@@ -1,5 +1,8 @@
-import { type RadioGroupSlots, createRadioGroupSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type RadioGroupSlots,
+  // createRadioGroupDocs,
+  createRadioGroupSlots
+} from "@spark-css/core";
 
 /**
  * **Radio Group**
@@ -23,7 +26,7 @@ import { type RadioGroupSlots, createRadioGroupSlots } from "@spark-css/core";
 export const radioGroupSlots = createRadioGroupSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("radio-group", radioGroupSlots));
+// createRadioGroupDocs("anatomy", radioGroupSlots);
 
 /**
  * **Radio Group**
@@ -59,4 +62,4 @@ export const radioGroupStyledSlots = {
 } as const satisfies Record<RadioGroupSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("radio-group", radioGroupStyledSlots));
+// createRadioGroupDocs("styled", radioGroupStyledSlots);

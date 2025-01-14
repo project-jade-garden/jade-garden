@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/date-picker.ts
-import { type DatePickerSlots, createDatePickerSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type DatePickerSlots,
+  // createDatePickerDocs,
+  createDatePickerSlots
+} from "@spark-css/core";
 
 /**
  * **Date Picker**
@@ -42,7 +45,7 @@ import { type DatePickerSlots, createDatePickerSlots } from "@spark-css/core";
 export const datePickerSlots = createDatePickerSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("date-picker", datePickerSlots));
+// createDatePickerDocs("anatomy", datePickerSlots);
 
 /**
  * **Date Picker**
@@ -271,4 +274,4 @@ export const datePickerStyledSlots = {
 } as const satisfies Record<DatePickerSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("date-picker", datePickerStyledSlots));
+// createDatePickerDocs("styled", datePickerStyledSlots);

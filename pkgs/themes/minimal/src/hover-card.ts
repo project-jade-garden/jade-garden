@@ -1,5 +1,8 @@
-import { type HoverCardSlots, createHoverCardSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type HoverCardSlots,
+  // createHoverCardDocs,
+  createHoverCardSlots
+} from "@spark-css/core";
 
 /**
  * **Hover Card**
@@ -22,7 +25,7 @@ import { type HoverCardSlots, createHoverCardSlots } from "@spark-css/core";
 export const hoverCardSlots = createHoverCardSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("hover-card", hoverCardSlots));
+// createHoverCardDocs("anatomy", hoverCardSlots);
 
 /**
  * **Hover Card**
@@ -55,4 +58,4 @@ export const hoverCardStyledSlots = {
 } as const satisfies Record<HoverCardSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("hover-card", hoverCardStyledSlots));
+// createHoverCardDocs("styled", hoverCardStyledSlots);

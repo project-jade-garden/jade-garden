@@ -1,5 +1,8 @@
-import { type PopoverSlots, createPopoverSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type PopoverSlots,
+  // createPopoverDocs,
+  createPopoverSlots
+} from "@spark-css/core";
 
 /**
  * **Popover**
@@ -27,7 +30,7 @@ import { type PopoverSlots, createPopoverSlots } from "@spark-css/core";
 export const popoverSlots = createPopoverSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("popover", popoverSlots));
+// createPopoverDocs("anatomy", popoverSlots);
 
 /**
  * **Popover**
@@ -75,4 +78,4 @@ export const popoverStyledSlots = {
 } as const satisfies Record<PopoverSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("popover", popoverStyledSlots));
+// createPopoverDocs("styled", popoverStyledSlots);

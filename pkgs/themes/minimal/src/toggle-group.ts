@@ -1,5 +1,8 @@
-import { type ToggleGroupSlots, createToggleGroupSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type ToggleGroupSlots,
+  // createToggleGroupDocs,
+  createToggleGroupSlots
+} from "@spark-css/core";
 
 /**
  * **Toggle Group**
@@ -19,7 +22,7 @@ import { type ToggleGroupSlots, createToggleGroupSlots } from "@spark-css/core";
 export const toggleGroupSlots = createToggleGroupSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("toggle-group", toggleGroupSlots));
+// createToggleGroupDocs("anatomy", toggleGroupSlots);
 
 /**
  * **Toggle Group**
@@ -43,4 +46,4 @@ export const toggleGroupStyledSlots = {
 } as const satisfies Record<ToggleGroupSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("toggle-group", toggleGroupStyledSlots));
+// createToggleGroupDocs("styled", toggleGroupStyledSlots);

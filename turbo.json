@@ -5,6 +5,7 @@
     "clean": {},
     "format": {},
     "lint": {},
+    "script": {},
     "typecheck": {}
   }
 }

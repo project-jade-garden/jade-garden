@@ -1,16 +1,15 @@
-import { type GSProps, generateSlots } from "@spark-css/utils";
+import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
 import { anatomy as treeViewAnatomy } from "@zag-js/tree-view";
 
-/**
- * **Tree View**
- * @description A component that is used to show a tree hierarchy.
- * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
- */
-export const createTreeViewSlots = (props?: GSProps) => generateSlots("tree-view", treeViewAnatomy.keys(), props);
+const component = {
+  name: "Tree View",
+  description: "A component that is used to show a tree hierarchy."
+};
+const source = "https://ark-ui.com/vue/docs/components/tree-view#anatomy";
 
-/**
- * **Tree View**
- * @description A component that is used to show a tree hierarchy.
- * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
- */
 export type TreeViewSlots = keyof ReturnType<typeof createTreeViewSlots>;
+
+export const createTreeViewSlots = (args?: CSArgs) => createSlots("tree-view", treeViewAnatomy.keys(), args);
+
+export const createTreeViewDocs = (print: PrintType, slots: Slots = {}) =>
+  createDocs(print, { slots, component, source });

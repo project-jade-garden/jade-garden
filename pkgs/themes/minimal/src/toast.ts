@@ -1,5 +1,8 @@
-import { type ToastSlots, createToastSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type ToastSlots,
+  // createToastDocs,
+  createToastSlots
+} from "@spark-css/core";
 
 /**
  * **Toast**
@@ -23,7 +26,7 @@ import { type ToastSlots, createToastSlots } from "@spark-css/core";
 export const toastSlots = createToastSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("toast", toastSlots));
+// createToastDocs("anatomy", toastSlots);
 
 /**
  * **Toast**
@@ -59,4 +62,4 @@ export const toastStyledSlots = {
 } as const satisfies Record<ToastSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("toast", toastStyledSlots));
+// createToastDocs("styled", toastStyledSlots);

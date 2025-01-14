@@ -1,3 +1,5 @@
+export { createAnatomy, createDocs, createSlots } from "@spark-css/utils";
+
 export * from "./accordion";
 export * from "./avatar";
 export * from "./carousel";

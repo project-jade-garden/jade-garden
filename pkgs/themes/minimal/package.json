@@ -1,6 +1,6 @@
 {
   "name": "@spark-css/theme-minimal",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Spark CSS Minimal Theme",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "classes", "variants", "styled", "styles", "theme", "minimal"],
   "main": "src/index.ts",

@@ -1,5 +1,8 @@
-import { type RatingGroupSlots, createRatingGroupSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type RatingGroupSlots,
+  // createRatingGroupDocs,
+  createRatingGroupSlots
+} from "@spark-css/core";
 
 /**
  * **Rating Group**
@@ -21,7 +24,7 @@ import { type RatingGroupSlots, createRatingGroupSlots } from "@spark-css/core";
 export const ratingGroupSlots = createRatingGroupSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("rating-group", ratingGroupSlots));
+// createRatingGroupDocs("anatomy", ratingGroupSlots);
 
 /**
  * **Rating Group**
@@ -51,4 +54,4 @@ export const ratingGroupStyledSlots = {
 } as const satisfies Record<RatingGroupSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("rating-group", ratingGroupStyledSlots));
+// createRatingGroupDocs("styled", ratingGroupStyledSlots);

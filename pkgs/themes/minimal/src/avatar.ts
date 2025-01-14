@@ -1,5 +1,8 @@
-import { type AvatarSlots, createAvatarSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type AvatarSlots,
+  // createAvatarDocs,
+  createAvatarSlots
+} from "@spark-css/core";
 
 /**
  * **Avatar**
@@ -20,7 +23,7 @@ import { type AvatarSlots, createAvatarSlots } from "@spark-css/core";
 export const avatarSlots = createAvatarSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("avatar", avatarSlots));
+// createAvatarDocs("anatomy", avatarSlots);
 
 /**
  * **Avatar**
@@ -47,4 +50,4 @@ export const avatarStyledSlots = {
 } as const satisfies Record<AvatarSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("avatar", avatarStyledSlots));
+// createAvatarDocs("styled", avatarStyledSlots);

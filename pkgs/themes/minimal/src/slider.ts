@@ -1,5 +1,8 @@
-import { type SliderSlots, createSliderSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type SliderSlots,
+  // createSliderDocs,
+  createSliderSlots
+} from "@spark-css/core";
 
 /**
  * **Slider**
@@ -27,7 +30,7 @@ import { type SliderSlots, createSliderSlots } from "@spark-css/core";
 export const sliderSlots = createSliderSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("slider", sliderSlots));
+// createSliderDocs("anatomy", sliderSlots);
 
 /**
  * **Slider**
@@ -75,4 +78,4 @@ export const sliderStyledSlots = {
 } as const satisfies Record<SliderSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("slider", sliderStyledSlots));
+// createSliderDocs("styled", sliderStyledSlots);

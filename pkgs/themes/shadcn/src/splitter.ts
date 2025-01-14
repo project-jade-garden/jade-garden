@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/splitter.ts
-import { type SplitterSlots, createSplitterSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type SplitterSlots,
+  // createSplitterDocs,
+  createSplitterSlots
+} from "@spark-css/core";
 
 /**
  * **Splitter**
@@ -21,7 +24,7 @@ import { type SplitterSlots, createSplitterSlots } from "@spark-css/core";
 export const splitterSlots = createSplitterSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("splitter", splitterSlots));
+// createSplitterDocs("anatomy", splitterSlots);
 
 /**
  * **Splitter**
@@ -106,4 +109,4 @@ export const splitterStyledSlots = {
 } as const satisfies Record<SplitterSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("splitter", splitterStyledSlots));
+// createSplitterDocs("styled", splitterStyledSlots);

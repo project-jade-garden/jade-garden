@@ -1,6 +1,6 @@
 {
   "name": "@spark-css/theme-shadcn",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Spark CSS Shadcn UI Theme",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "classes", "variants", "styled", "styles", "theme", "shadcn-ui"],
   "main": "src/index.ts",

@@ -1,5 +1,8 @@
-import { type TagsInputSlots, createTagsInputSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type TagsInputSlots,
+  // createTagsInputDocs,
+  createTagsInputSlots
+} from "@spark-css/core";
 
 /**
  * **Tags Input**
@@ -27,7 +30,7 @@ import { type TagsInputSlots, createTagsInputSlots } from "@spark-css/core";
 export const tagsInputSlots = createTagsInputSlots({});
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("tags-input", tagsInputSlots));
+// createTagsInputDocs("anatomy", tagsInputSlots);
 
 /**
  * **Tags Input**
@@ -75,4 +78,4 @@ export const tagsInputStyledSlots = {
 } as const satisfies Record<TagsInputSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("tags-input", tagsInputStyledSlots));
+// createTagsInputDocs("styled", tagsInputStyledSlots);

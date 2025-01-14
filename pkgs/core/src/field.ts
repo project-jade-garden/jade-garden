@@ -1,6 +1,5 @@
-import { type GSProps, generateSlots } from "@spark-css/utils";
+import { type CSArgs, type PrintType, type Slots, createAnatomy, createDocs, createSlots } from "@spark-css/utils";
 // * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/field/field.anatomy.ts
-import { createAnatomy } from "@zag-js/anatomy";
 
 const fieldAnatomy = createAnatomy("field").parts(
   "root",
@@ -13,16 +12,14 @@ const fieldAnatomy = createAnatomy("field").parts(
   "requiredIndicator"
 );
 
-/**
- * **Field**
- * @description Provides a flexible container for form inputs, labels, and helper text.
- * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
- */
-export const createFieldSlots = (props?: GSProps) => generateSlots("field", fieldAnatomy.keys(), props);
+const component = {
+  name: "Field",
+  description: "Provides a flexible container for form inputs, labels, and helper text."
+};
+const source = "https://ark-ui.com/vue/docs/components/field#anatomy";
 
-/**
- * **Field**
- * @description Provides a flexible container for form inputs, labels, and helper text.
- * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
- */
 export type FieldSlots = keyof ReturnType<typeof createFieldSlots>;
+
+export const createFieldSlots = (args?: CSArgs) => createSlots("field", fieldAnatomy.keys(), args);
+
+export const createFieldDocs = (print: PrintType, slots: Slots = {}) => createDocs(print, { slots, component, source });

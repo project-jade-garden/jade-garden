@@ -1,6 +1,9 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/dialog.ts
-import { type DialogSlots, createDialogSlots } from "@spark-css/core";
-// import { generateSlotsDocs, generateStyledSlotsDocs } from "@spark-css/utils";
+import {
+  type DialogSlots,
+  // createDialogDocs,
+  createDialogSlots
+} from "@spark-css/core";
 
 /**
  * **Dialog**
@@ -25,7 +28,7 @@ import { type DialogSlots, createDialogSlots } from "@spark-css/core";
 export const dialogSlots = createDialogSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// console.log(generateSlotsDocs("dialog", dialogSlots));
+// createDialogDocs("anatomy", dialogSlots);
 
 /**
  * **Dialog**
@@ -148,4 +151,4 @@ export const dialogStyledSlots = {
 } as const satisfies Record<DialogSlots, string | string[]>;
 
 // * Uncomment after styling slots
-// console.log(generateStyledSlotsDocs("dialog", dialogStyledSlots));
+// createDialogDocs("styled", dialogStyledSlots);
