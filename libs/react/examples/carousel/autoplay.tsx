@@ -13,7 +13,7 @@ export const Autoplay = ({ theme }: { theme: Theme }) => {
   return (
     <Carousel.Root autoplay loop className={clsx(styledSlots.root)}>
       <Carousel.Control className={clsx(styledSlots.control)}>
-        <Carousel.AutoplayTrigger>
+        <Carousel.AutoplayTrigger className={clsx(styledSlots.autoplayTrigger)}>
           <Carousel.Context>{({ isPlaying }) => (isPlaying ? "Pause" : "Play")}</Carousel.Context>
         </Carousel.AutoplayTrigger>
       </Carousel.Control>

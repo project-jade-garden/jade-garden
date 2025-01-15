@@ -128,18 +128,7 @@ export const carouselStyledSlots = {
     // Interactivity
     "cursor-pointer"
   ],
-  // ! Styles were used for `viewport`
-  // TODO: Determine if styles should be applied
-  autoplayTrigger: [
-    "parkCarousel__autoplayTrigger",
-
-    // Borders
-    "rounded-l2",
-
-    // Layout
-    "relative",
-    "overflow-x-hidden"
-  ]
+  autoplayTrigger: "parkCarousel__autoplayTrigger"
 } as const satisfies Record<CarouselSlots, string | string[]>;
 
 // * Uncomment before styling slots
