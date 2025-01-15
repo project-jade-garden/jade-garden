@@ -15,7 +15,8 @@ import {
  *   root: "qr-code__root",
  *   frame: "qr-code__frame",
  *   pattern: "qr-code__pattern",
- *   overlay: "qr-code__overlay"
+ *   overlay: "qr-code__overlay",
+ *   downloadTrigger: "qr-code__download-trigger"
  * }
  * ```
  *
@@ -41,6 +42,8 @@ export const qrCodeSlots = createQrCodeSlots({});
  * .qr-code__pattern { }
  *
  * .qr-code__overlay { }
+ *
+ * .qr-code__download-trigger { }
  * ```
  *
  * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
@@ -50,7 +53,8 @@ export const qrCodeStyledSlots = {
   root: "qr-code__root",
   frame: "qr-code__frame",
   pattern: "qr-code__pattern",
-  overlay: "qr-code__overlay"
+  overlay: "qr-code__overlay",
+  downloadTrigger: "qr-code__download-trigger"
 } as const satisfies Record<QrCodeSlots, string | string[]>;
 
 // * Uncomment after styling slots

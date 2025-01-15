@@ -1,6 +1,6 @@
 {
   "name": "@spark-css/utils",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Utilities to construct slots for Spark CSS",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "utilities"],
   "main": "src/index.ts",
@@ -16,11 +16,10 @@
     "lint": "biome lint ./src ./tests",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
-    "script": "bun script.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@zag-js/anatomy": "0.78.3",
+    "@zag-js/anatomy": "0.81.2",
     "es-toolkit": "1.31.0"
   },
   "devDependencies": {

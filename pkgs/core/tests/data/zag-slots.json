@@ -14,7 +14,7 @@
     "trigger",
     "clearTrigger"
   ],
-  "qrCode": ["root", "frame", "pattern", "overlay"],
+  "qrCode": ["root", "frame", "pattern", "overlay", "downloadTrigger"],
   "clipboard": ["root", "control", "trigger", "indicator", "input", "label"],
   "popover": [
     "arrow",
@@ -45,13 +45,23 @@
     "control",
     "valueText"
   ],
-  "progress": ["root", "label", "track", "range", "valueText", "view", "circle", "circleTrack", "circleRange"],
   "pagination": ["root", "item", "ellipsis", "prevTrigger", "nextTrigger"],
   "toast": ["group", "root", "title", "description", "actionTrigger", "closeTrigger"],
   "hoverCard": ["arrow", "arrowTip", "trigger", "positioner", "content"],
   "radioGroup": ["root", "label", "item", "itemText", "itemControl", "indicator"],
   "accordion": ["root", "item", "itemTrigger", "itemContent", "itemIndicator"],
   "signaturePad": ["root", "control", "segment", "segmentPath", "guide", "clearTrigger", "label"],
+  "carousel": [
+    "root",
+    "itemGroup",
+    "item",
+    "control",
+    "nextTrigger",
+    "prevTrigger",
+    "indicatorGroup",
+    "indicator",
+    "autoplayTrigger"
+  ],
   "menu": [
     "arrow",
     "arrowTip",

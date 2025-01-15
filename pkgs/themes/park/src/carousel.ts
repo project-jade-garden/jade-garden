@@ -14,14 +14,14 @@ import {
  * {
  *   base: "parkCarousel",
  *   root: "parkCarousel__root",
- *   viewport: "parkCarousel__viewport",
  *   itemGroup: "parkCarousel__itemGroup",
  *   item: "parkCarousel__item",
+ *   control: "parkCarousel__control",
  *   nextTrigger: "parkCarousel__nextTrigger",
  *   prevTrigger: "parkCarousel__prevTrigger",
  *   indicatorGroup: "parkCarousel__indicatorGroup",
  *   indicator: "parkCarousel__indicator",
- *   control: "parkCarousel__control"
+ *   autoplayTrigger: "parkCarousel__autoplayTrigger"
  * }
  * ```
  *
@@ -42,15 +42,15 @@ export const carouselSlots = createCarouselSlots({ prefix: "park", caseConventio
  *
  * .parkCarousel__root { }
  *
- * .parkCarousel__viewport {
- *   (@)apply rounded-l2 relative overflow-x-hidden;
- * }
- *
  * .parkCarousel__itemGroup {
  *   (@)apply flex;
  * }
  *
  * .parkCarousel__item { }
+ *
+ * .parkCarousel__control {
+ *   (@)apply bg-gray-dark-a12 dark:bg-gray-light-a12 rounded-l2 absolute bottom-4 left-1/2 flex items-center -translate-y-1/2;
+ * }
  *
  * .parkCarousel__nextTrigger { }
  *
@@ -64,8 +64,8 @@ export const carouselSlots = createCarouselSlots({ prefix: "park", caseConventio
  *   (@)apply bg-gray-6 [&:is([data-current])]:bg-[--colors-color-palette-default] rounded-full [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-offset-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline cursor-pointer;
  * }
  *
- * .parkCarousel__control {
- *   (@)apply bg-gray-dark-a12 dark:bg-gray-light-a12 rounded-l2 absolute bottom-4 left-1/2 flex items-center -translate-y-1/2;
+ * .parkCarousel__autoplayTrigger {
+ *   (@)apply rounded-l2 relative overflow-x-hidden;
  * }
  * ```
  *
@@ -74,16 +74,6 @@ export const carouselSlots = createCarouselSlots({ prefix: "park", caseConventio
 export const carouselStyledSlots = {
   base: "parkCarousel",
   root: "parkCarousel__root",
-  viewport: [
-    "parkCarousel__viewport",
-
-    // Borders
-    "rounded-l2",
-
-    // Layout
-    "relative",
-    "overflow-x-hidden"
-  ],
   itemGroup: [
     "parkCarousel__itemGroup",
 
@@ -91,6 +81,28 @@ export const carouselStyledSlots = {
     "flex"
   ],
   item: "parkCarousel__item",
+  control: [
+    "parkCarousel__control",
+
+    // Backgrounds
+    "bg-gray-dark-a12",
+    "dark:bg-gray-light-a12",
+
+    // Borders
+    "rounded-l2",
+
+    // Layout
+    "absolute",
+    "bottom-4",
+    "left-1/2",
+    "flex",
+
+    // Flexbox & Grid
+    "items-center",
+
+    // Transforms
+    "-translate-y-1/2"
+  ],
   nextTrigger: "parkCarousel__nextTrigger",
   prevTrigger: "parkCarousel__prevTrigger",
   indicatorGroup: [
@@ -116,29 +128,19 @@ export const carouselStyledSlots = {
     // Interactivity
     "cursor-pointer"
   ],
-  control: [
-    "parkCarousel__control",
-
-    // Backgrounds
-    "bg-gray-dark-a12",
-    "dark:bg-gray-light-a12",
+  // ! Styles were used for `viewport`
+  // TODO: Determine if styles should be applied
+  autoplayTrigger: [
+    "parkCarousel__autoplayTrigger",
 
     // Borders
     "rounded-l2",
 
     // Layout
-    "absolute",
-    "bottom-4",
-    "left-1/2",
-    "flex",
-
-    // Flexbox & Grid
-    "items-center",
-
-    // Transforms
-    "-translate-y-1/2"
+    "relative",
+    "overflow-x-hidden"
   ]
 } as const satisfies Record<CarouselSlots, string | string[]>;
 
 // * Uncomment before styling slots
-// createCarouselDocs("styled", carouselSlots);
+// createCarouselDocs("styled", carouselStyledSlots);

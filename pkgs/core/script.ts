@@ -1,6 +1,9 @@
 import { readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import type { Anatomy } from "@spark-css/utils";
 import { camelCase, kebabCase, pascalCase, startCase } from "es-toolkit";
+
+const components = readdirSync(join(__dirname, "./src"));
 
 /**
  * Static descriptions for generating JSDocs.
@@ -51,10 +54,11 @@ const descriptions = {
   "tree-view": "A component that is used to show a tree hierarchy."
 };
 
-// ! Files need to be manually written. Components are custom for Ark UI.
-// * https://github.com/search?q=repo%3Achakra-ui/ark%20path%3A.anatomy.ts&type=code
 const skipFiles = [
-  "carousel",
+  "index",
+
+  // ! Files need to be manually written. Components are custom for Ark UI.
+  // * https://github.com/search?q=repo%3Achakra-ui/ark%20path%3A.anatomy.ts&type=code
   "checkbox",
   "color-picker",
   "date-picker",
@@ -67,10 +71,30 @@ const skipFiles = [
 
 const isComponentWithDescription = (c: string): c is keyof typeof descriptions => Object.keys(descriptions).includes(c);
 
-const main = () => {
+const generateSlotsForTests = async () => {
+  const outputPath = join(__dirname, "./tests");
+
+  const slots: Record<string, string[]> = {};
+
+  for (const component of components) {
+    const c = component.slice(0, -3); // Removes `.ts`;
+    if (skipFiles.includes(c)) continue;
+
+    const camelName = camelCase(c);
+
+    const anatomies = await import(`@zag-js/${c}`);
+    const anatomy: Anatomy<string> = anatomies.anatomy;
+
+    slots[camelName] = anatomy.keys();
+  }
+
+  writeFileSync(`${outputPath}/data/zag-slots.json`, JSON.stringify(slots));
+};
+
+const generateSrcFiles = () => {
   const outputPath = join(__dirname, "./src");
 
-  for (const component of readdirSync(outputPath)) {
+  for (const component of components) {
     const c = component.slice(0, -3); // Removes `.ts`;
     const camelName = camelCase(c);
     const pascalName = pascalCase(c); // TODO: Remove after exports refactored to just files
@@ -112,4 +136,9 @@ const main = () => {
   }
 };
 
-main();
+const main = async () => {
+  await generateSlotsForTests();
+  generateSrcFiles();
+};
+
+await main();

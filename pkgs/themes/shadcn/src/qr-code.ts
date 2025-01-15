@@ -16,7 +16,8 @@ import {
  *   root: "parkQrCode__root",
  *   frame: "parkQrCode__frame",
  *   pattern: "parkQrCode__pattern",
- *   overlay: "parkQrCode__overlay"
+ *   overlay: "parkQrCode__overlay",
+ *   downloadTrigger: "parkQrCode__downloadTrigger"
  * }
  * ```
  *
@@ -90,7 +91,8 @@ export const qrCodeStyledSlots = {
     "outline",
     "outline-2",
     "outline-white"
-  ]
+  ],
+  downloadTrigger: "parkQrCode__downloadTrigger"
 } as const satisfies Record<QrCodeSlots, string | string[]>;
 
 // * Uncomment after styling slots

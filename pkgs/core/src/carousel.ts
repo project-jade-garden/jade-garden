@@ -1,8 +1,5 @@
 import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
-// * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/carousel/carousel.anatomy.ts
-import { anatomy } from "@zag-js/carousel";
-
-const carouselAnatomy = anatomy.extendWith("control");
+import { anatomy as carouselAnatomy } from "@zag-js/carousel";
 
 const component = {
   name: "Carousel",

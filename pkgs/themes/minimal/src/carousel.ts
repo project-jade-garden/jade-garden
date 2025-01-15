@@ -13,14 +13,14 @@ import {
  * {
  *   base: "carousel",
  *   root: "carousel__root",
- *   viewport: "carousel__viewport",
  *   itemGroup: "carousel__item-group",
  *   item: "carousel__item",
+ *   control: "carousel__control",
  *   nextTrigger: "carousel__next-trigger",
  *   prevTrigger: "carousel__prev-trigger",
  *   indicatorGroup: "carousel__indicator-group",
  *   indicator: "carousel__indicator",
- *   control: "carousel__control"
+ *   autoplayTrigger: "carousel__autoplay-trigger"
  * }
  * ```
  *
@@ -41,11 +41,11 @@ export const carouselSlots = createCarouselSlots({});
  *
  * .carousel__root { }
  *
- * .carousel__viewport { }
- *
  * .carousel__item-group { }
  *
  * .carousel__item { }
+ *
+ * .carousel__control { }
  *
  * .carousel__next-trigger { }
  *
@@ -55,7 +55,7 @@ export const carouselSlots = createCarouselSlots({});
  *
  * .carousel__indicator { }
  *
- * .carousel__control { }
+ * .carousel__autoplay-trigger { }
  * ```
  *
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
@@ -63,14 +63,14 @@ export const carouselSlots = createCarouselSlots({});
 export const carouselStyledSlots = {
   base: "carousel",
   root: "carousel__root",
-  viewport: "carousel__viewport",
   itemGroup: "carousel__item-group",
   item: "carousel__item",
+  control: "carousel__control",
   nextTrigger: "carousel__next-trigger",
   prevTrigger: "carousel__prev-trigger",
   indicatorGroup: "carousel__indicator-group",
   indicator: "carousel__indicator",
-  control: "carousel__control"
+  autoplayTrigger: "carousel__autoplay-trigger"
 } as const satisfies Record<CarouselSlots, string | string[]>;
 
 // * Uncomment after styling slots

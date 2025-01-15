@@ -1,6 +1,6 @@
 {
   "name": "@spark-css/theme-park",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Spark CSS Park UI Theme",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "classes", "variants", "styled", "styles", "theme", "park-ui"],
   "main": "src/index.ts",

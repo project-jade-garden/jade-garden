@@ -6,16 +6,14 @@
   "scripts": {
     "fresh": "bun clean && bun i",
     "build": "turbo run build",
+    "core": "bun run --cwd pkgs/core",
     "lib:react": "bun run --cwd libs/react",
     "lib:solid": "bun run --cwd libs/solid",
     "lib:svelte": "bun run --cwd libs/svelte",
     "lib:vue": "bun run --cwd libs/vue",
-    "pkg:core": "bun run --cwd pkgs/core",
-    "pkg:utils": "bun run --cwd pkgs/utils",
     "clean": "turbo run clean && rm -rf .turbo node_modules",
     "format": "turbo run format",
     "lint": "turbo run lint",
-    "script": "turbo run script",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {

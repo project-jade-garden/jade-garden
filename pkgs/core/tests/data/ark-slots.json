@@ -1,15 +1,4 @@
 {
-  "carousel": [
-    "root",
-    "viewport",
-    "itemGroup",
-    "item",
-    "nextTrigger",
-    "prevTrigger",
-    "indicatorGroup",
-    "indicator",
-    "control"
-  ],
   "checkbox": ["root", "label", "control", "indicator", "group"],
   "colorPicker": [
     "root",
