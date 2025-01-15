@@ -10,7 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@ark-ui/vue": "4.5.0",
+    "@ark-ui/vue": "4.8.0",
     "@histoire/plugin-vue": "0.17.17",
     "@spark-css/theme-minimal": "workspace:*",
     "@spark-css/theme-park": "workspace:*",

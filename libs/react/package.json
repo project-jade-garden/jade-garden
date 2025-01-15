@@ -10,7 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@ark-ui/react": "4.5.0",
+    "@ark-ui/react": "4.8.1",
     "@spark-css/theme-minimal": "workspace:*",
     "@spark-css/theme-park": "workspace:*",
     "@spark-css/theme-shadcn": "workspace:*",

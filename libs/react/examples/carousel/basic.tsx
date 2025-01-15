@@ -22,15 +22,13 @@ export const Basic = ({ theme }: { theme: Theme }) => {
           </Carousel.Indicator>
         ))}
       </Carousel.IndicatorGroup>
-      <Carousel.Viewport className={clsx(styledSlots.viewport)}>
-        <Carousel.ItemGroup className={clsx(styledSlots.itemGroup)}>
-          {images.map((image, index) => (
-            <Carousel.Item key={index} index={index} className={clsx(styledSlots.item)}>
-              <img src={image} alt={`Slide ${index}`} />
-            </Carousel.Item>
-          ))}
-        </Carousel.ItemGroup>
-      </Carousel.Viewport>
+      <Carousel.ItemGroup className={clsx(styledSlots.itemGroup)}>
+        {images.map((image, index) => (
+          <Carousel.Item key={index} index={index} className={clsx(styledSlots.item)}>
+            <img src={image} alt={`Slide ${index}`} />
+          </Carousel.Item>
+        ))}
+      </Carousel.ItemGroup>
     </Carousel.Root>
   );
 };

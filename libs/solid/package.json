@@ -10,7 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@ark-ui/solid": "4.6.0",
+    "@ark-ui/solid": "4.9.0",
     "@modular-forms/solid": "0.25.0",
     "@spark-css/theme-minimal": "workspace:*",
     "@spark-css/theme-park": "workspace:*",

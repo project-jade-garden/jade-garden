@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { QrCode } from "@ark-ui/vue/qr-code";
+import { ref } from "vue";
+
+const value = ref("http://ark-ui.com");
 </script>
 
 <template>
-  <QrCode.Root defalutValue="http://ark-ui.com">
+  <QrCode.Root v-model="value">
     <QrCode.Frame>
       <QrCode.Pattern />
     </QrCode.Frame>

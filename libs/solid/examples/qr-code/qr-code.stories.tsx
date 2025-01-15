@@ -7,4 +7,7 @@ const meta: Meta = {
 export default meta;
 
 export { Basic } from "./basic";
+export { Controlled } from "./controlled";
+export { ErrorCorrection } from "./error-correction";
 export { RootProvider } from "./root-provider";
+export { WithOverlay } from "./with-overlay";

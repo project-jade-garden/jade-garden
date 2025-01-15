@@ -8,21 +8,20 @@ const images = Array.from(
 </script>
 
 <template>
-  <Carousel.Root>
+  <Carousel.Root autoplay loop>
     <Carousel.Control>
-      <Carousel.PrevTrigger>Previous</Carousel.PrevTrigger>
-      <Carousel.NextTrigger>Next</Carousel.NextTrigger>
+      <Carousel.AutoplayTrigger>
+        <Carousel.Context v-slot="context">
+          {{ context.isPlaying ? "Pause" : "Play" }}
+        </Carousel.Context>
+      </Carousel.AutoplayTrigger>
     </Carousel.Control>
     <Carousel.IndicatorGroup>
       <Carousel.Indicator v-for="(_, idx) in images" :key="idx" :index="idx" />
     </Carousel.IndicatorGroup>
     <Carousel.ItemGroup>
       <Carousel.Item v-for="(image, idx) in images" :key="idx" :index="idx">
-        <img
-          :src="image"
-          alt=""
-          :style="{ height: '300px', width: '100%', objectFit: 'cover' }"
-        />
+        <img :src="image" alt="" />
       </Carousel.Item>
     </Carousel.ItemGroup>
   </Carousel.Root>

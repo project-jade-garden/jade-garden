@@ -5,11 +5,11 @@ import { qrCodeStyledSlots as shadcn } from "@spark-css/theme-shadcn";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
-export const Basic = ({ theme }: { theme: Theme }) => {
+export const WithOverlay = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <QrCode.Root value="http://ark-ui.com" encoding={{ ecc: "H" }}>
+    <QrCode.Root defaultValue="http://ark-ui.com" encoding={{ ecc: "H" }}>
       <QrCode.Frame>
         <QrCode.Pattern />
       </QrCode.Frame>
