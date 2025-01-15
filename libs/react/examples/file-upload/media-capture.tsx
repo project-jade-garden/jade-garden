@@ -9,14 +9,16 @@ export const WithMediaCapture = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <FileUpload.Root capture="environment">
-      <FileUpload.Trigger>Open Camera</FileUpload.Trigger>
-      <FileUpload.ItemGroup>
+    <FileUpload.Root capture="environment" className={clsx(styledSlots.root)}>
+      <FileUpload.Trigger className={clsx(styledSlots.trigger)}>Open Camera</FileUpload.Trigger>
+      <FileUpload.ItemGroup className={clsx(styledSlots.itemGroup)}>
         <FileUpload.Context>
           {({ acceptedFiles }) =>
             acceptedFiles.map((file) => (
-              <FileUpload.Item key={file.name} file={file}>
-                <FileUpload.ItemName>{file.webkitRelativePath ?? file.name}</FileUpload.ItemName>
+              <FileUpload.Item key={file.name} file={file} className={clsx(styledSlots.item)}>
+                <FileUpload.ItemName className={clsx(styledSlots.itemName)}>
+                  {file.webkitRelativePath ?? file.name}
+                </FileUpload.ItemName>
               </FileUpload.Item>
             ))
           }

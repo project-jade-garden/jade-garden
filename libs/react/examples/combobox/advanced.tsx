@@ -18,22 +18,22 @@ export const Advanced = ({ theme }: { theme: Theme }) => {
   });
 
   return (
-    <Combobox.Root collection={collection} multiple>
-      <Combobox.Label>Framework</Combobox.Label>
-      <Combobox.Control>
-        <Combobox.Input />
-        <Combobox.Trigger>Open</Combobox.Trigger>
-        <Combobox.ClearTrigger>Clear</Combobox.ClearTrigger>
+    <Combobox.Root className={clsx(styledSlots.root)} collection={collection} multiple>
+      <Combobox.Label className={clsx(styledSlots.label)}>Framework</Combobox.Label>
+      <Combobox.Control className={clsx(styledSlots.control)}>
+        <Combobox.Input className={clsx(styledSlots.input)} />
+        <Combobox.Trigger className={clsx(styledSlots.trigger)}>Open</Combobox.Trigger>
+        <Combobox.ClearTrigger className={clsx(styledSlots.clearTrigger)}>Clear</Combobox.ClearTrigger>
       </Combobox.Control>
       <Portal>
-        <Combobox.Positioner>
-          <Combobox.Content>
-            <Combobox.ItemGroup>
-              <Combobox.ItemGroupLabel>Frameworks</Combobox.ItemGroupLabel>
+        <Combobox.Positioner className={clsx(styledSlots.positioner)}>
+          <Combobox.Content className={clsx(styledSlots.content)}>
+            <Combobox.ItemGroup className={clsx(styledSlots.itemGroup)}>
+              <Combobox.ItemGroupLabel className={clsx(styledSlots.itemGroupLabel)}>Frameworks</Combobox.ItemGroupLabel>
               {collection.items.map((item) => (
-                <Combobox.Item key={item.value} item={item}>
-                  <Combobox.ItemText>{item.label}</Combobox.ItemText>
-                  <Combobox.ItemIndicator>✓</Combobox.ItemIndicator>
+                <Combobox.Item className={clsx(styledSlots.item)} key={item.value} item={item}>
+                  <Combobox.ItemText className={clsx(styledSlots.itemText)}>{item.label}</Combobox.ItemText>
+                  <Combobox.ItemIndicator className={clsx(styledSlots.itemIndicator)}>✓</Combobox.ItemIndicator>
                 </Combobox.Item>
               ))}
             </Combobox.ItemGroup>

@@ -10,12 +10,18 @@ export const Context = ({ theme }: { theme: Theme }) => {
 
   return (
     <Menu.Root>
-      <Menu.ContextTrigger>Right click me</Menu.ContextTrigger>
-      <Menu.Positioner>
-        <Menu.Content>
-          <Menu.Item value="react">React</Menu.Item>
-          <Menu.Item value="solid">Solid</Menu.Item>
-          <Menu.Item value="vue">Vue</Menu.Item>
+      <Menu.ContextTrigger className={clsx(styledSlots.contextTrigger)}>Right click me</Menu.ContextTrigger>
+      <Menu.Positioner className={clsx(styledSlots.positioner)}>
+        <Menu.Content className={clsx(styledSlots.content)}>
+          <Menu.Item value="react" className={clsx(styledSlots.item)}>
+            React
+          </Menu.Item>
+          <Menu.Item value="solid" className={clsx(styledSlots.item)}>
+            Solid
+          </Menu.Item>
+          <Menu.Item value="vue" className={clsx(styledSlots.item)}>
+            Vue
+          </Menu.Item>
         </Menu.Content>
       </Menu.Positioner>
     </Menu.Root>

@@ -12,15 +12,15 @@ export const RadioGroup = ({ theme }: { theme: Theme }) => {
 
   return (
     <Menu.Root>
-      <Menu.Trigger>Open menu</Menu.Trigger>
-      <Menu.Positioner>
-        <Menu.Content>
+      <Menu.Trigger className={clsx(styledSlots.trigger)}>Open menu</Menu.Trigger>
+      <Menu.Positioner className={clsx(styledSlots.positioner)}>
+        <Menu.Content className={clsx(styledSlots.content)}>
           <Menu.RadioItemGroup value={value} onValueChange={(e) => setValue(e.value)}>
-            <Menu.ItemGroupLabel>JS Frameworks</Menu.ItemGroupLabel>
+            <Menu.ItemGroupLabel className={clsx(styledSlots.itemGroupLabel)}>JS Frameworks</Menu.ItemGroupLabel>
             {["React", "Solid", "Vue"].map((framework) => (
               <Menu.RadioItem key={framework} value={framework}>
-                <Menu.ItemIndicator>✅</Menu.ItemIndicator>
-                <Menu.ItemText>{framework}</Menu.ItemText>
+                <Menu.ItemIndicator className={clsx(styledSlots.itemIndicator)}>✅</Menu.ItemIndicator>
+                <Menu.ItemText className={clsx(styledSlots.itemText)}>{framework}</Menu.ItemText>
               </Menu.RadioItem>
             ))}
           </Menu.RadioItemGroup>

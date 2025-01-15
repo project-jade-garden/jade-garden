@@ -9,11 +9,11 @@ export const Textarea = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <Field.Root>
-      <Field.Label>Label</Field.Label>
-      <Field.Textarea autoresize />
-      <Field.HelperText>Some additional Info</Field.HelperText>
-      <Field.ErrorText>Error Info</Field.ErrorText>
+    <Field.Root className={clsx(styledSlots.root)}>
+      <Field.Label className={clsx(styledSlots.label)}>Label</Field.Label>
+      <Field.Textarea autoresize className={clsx(styledSlots.textarea)} />
+      <Field.HelperText className={clsx(styledSlots.helperText)}>Some additional Info</Field.HelperText>
+      <Field.ErrorText className={clsx(styledSlots.errorText)}>Error Info</Field.ErrorText>
     </Field.Root>
   );
 };

@@ -22,7 +22,7 @@ export const WithFormRegister = ({ theme }: { theme: Theme }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ColorPicker.Root open defaultValue={parseColor("#eb5e41")}>
+      <ColorPicker.Root className={clsx(styledSlots.root)} open defaultValue={parseColor("#eb5e41")}>
         <ColorPickerContent theme={theme} />
         <ColorPicker.HiddenInput {...register("color")} />
       </ColorPicker.Root>

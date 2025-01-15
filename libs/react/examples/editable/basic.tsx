@@ -9,11 +9,11 @@ export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <Editable.Root placeholder="Placeholder">
-      <Editable.Label>Label</Editable.Label>
-      <Editable.Area>
-        <Editable.Input />
-        <Editable.Preview />
+    <Editable.Root placeholder="Placeholder" className={clsx(styledSlots.root)}>
+      <Editable.Label className={clsx(styledSlots.label)}>Label</Editable.Label>
+      <Editable.Area className={clsx(styledSlots.area)}>
+        <Editable.Input className={clsx(styledSlots.input)} />
+        <Editable.Preview className={clsx(styledSlots.preview)} />
       </Editable.Area>
     </Editable.Root>
   );

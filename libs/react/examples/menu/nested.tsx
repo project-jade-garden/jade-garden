@@ -11,28 +11,38 @@ export const Nested = ({ theme }: { theme: Theme }) => {
 
   return (
     <Menu.Root>
-      <Menu.Trigger>Open menu</Menu.Trigger>
-      <Menu.Positioner>
-        <Menu.Content>
+      <Menu.Trigger className={clsx(styledSlots.trigger)}>Open menu</Menu.Trigger>
+      <Menu.Positioner className={clsx(styledSlots.positioner)}>
+        <Menu.Content className={clsx(styledSlots.content)}>
           <Menu.Root>
-            <Menu.TriggerItem>JS Frameworks</Menu.TriggerItem>
+            <Menu.TriggerItem className={clsx(styledSlots.triggerItem)}>JS Frameworks</Menu.TriggerItem>
             <Portal>
-              <Menu.Positioner>
-                <Menu.Content>
-                  <Menu.Item value="react">React</Menu.Item>
-                  <Menu.Item value="solid">Solid</Menu.Item>
-                  <Menu.Item value="vue">Vue</Menu.Item>
+              <Menu.Positioner className={clsx(styledSlots.positioner)}>
+                <Menu.Content className={clsx(styledSlots.content)}>
+                  <Menu.Item value="react" className={clsx(styledSlots.item)}>
+                    React
+                  </Menu.Item>
+                  <Menu.Item value="solid" className={clsx(styledSlots.item)}>
+                    Solid
+                  </Menu.Item>
+                  <Menu.Item value="vue" className={clsx(styledSlots.item)}>
+                    Vue
+                  </Menu.Item>
                 </Menu.Content>
               </Menu.Positioner>
             </Portal>
           </Menu.Root>
           <Menu.Root>
-            <Menu.TriggerItem>CSS Frameworks</Menu.TriggerItem>
+            <Menu.TriggerItem className={clsx(styledSlots.triggerItem)}>CSS Frameworks</Menu.TriggerItem>
             <Portal>
-              <Menu.Positioner>
-                <Menu.Content>
-                  <Menu.Item value="panda">Panda</Menu.Item>
-                  <Menu.Item value="tailwind">Tailwind</Menu.Item>
+              <Menu.Positioner className={clsx(styledSlots.positioner)}>
+                <Menu.Content className={clsx(styledSlots.content)}>
+                  <Menu.Item value="panda" className={clsx(styledSlots.item)}>
+                    Panda
+                  </Menu.Item>
+                  <Menu.Item value="tailwind" className={clsx(styledSlots.item)}>
+                    Tailwind
+                  </Menu.Item>
                 </Menu.Content>
               </Menu.Positioner>
             </Portal>

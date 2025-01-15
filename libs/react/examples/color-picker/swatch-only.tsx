@@ -10,17 +10,17 @@ export const SwatchOnly = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <ColorPicker.Root open defaultValue={parseColor("#eb5e41")}>
-      <ColorPicker.Content>
+    <ColorPicker.Root className={clsx(styledSlots.root)} open defaultValue={parseColor("#eb5e41")}>
+      <ColorPicker.Content className={clsx(styledSlots.content)}>
         <div>
           <div>Selected color:</div>
-          <ColorPicker.ValueText />
+          <ColorPicker.ValueText className={clsx(styledSlots.valueText)} />
         </div>
-        <ColorPicker.SwatchGroup>
-          <ColorPickerSwatch value="red" />
-          <ColorPickerSwatch value="pink" />
-          <ColorPickerSwatch value="orange" />
-          <ColorPickerSwatch value="purple" />
+        <ColorPicker.SwatchGroup className={clsx(styledSlots.swatchGroup)}>
+          <ColorPickerSwatch theme={theme} value="red" />
+          <ColorPickerSwatch theme={theme} value="pink" />
+          <ColorPickerSwatch theme={theme} value="orange" />
+          <ColorPickerSwatch theme={theme} value="purple" />
         </ColorPicker.SwatchGroup>
       </ColorPicker.Content>
     </ColorPicker.Root>

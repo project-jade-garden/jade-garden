@@ -9,53 +9,55 @@ export const ColorPickerContent = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <ColorPicker.Content>
-      <ColorPicker.Area>
-        <ColorPicker.AreaBackground />
-        <ColorPicker.AreaThumb />
+    <ColorPicker.Content className={clsx(styledSlots.content)}>
+      <ColorPicker.Area className={clsx(styledSlots.area)}>
+        <ColorPicker.AreaBackground className={clsx(styledSlots.areaBackground)} />
+        <ColorPicker.AreaThumb className={clsx(styledSlots.areaThumb)} />
       </ColorPicker.Area>
 
-      <ColorPicker.ChannelSlider channel="hue">
-        <ColorPicker.ChannelSliderTrack />
-        <ColorPicker.ChannelSliderThumb />
+      <ColorPicker.ChannelSlider channel="hue" className={clsx(styledSlots.channelSlider)}>
+        <ColorPicker.ChannelSliderTrack className={clsx(styledSlots.channelSliderTrack)} />
+        <ColorPicker.ChannelSliderThumb className={clsx(styledSlots.channelSliderThumb)} />
       </ColorPicker.ChannelSlider>
 
-      <ColorPicker.ChannelSlider channel="alpha">
-        <ColorPicker.TransparencyGrid />
-        <ColorPicker.ChannelSliderTrack />
-        <ColorPicker.ChannelSliderThumb />
+      <ColorPicker.ChannelSlider channel="alpha" className={clsx(styledSlots.channelSlider)}>
+        <ColorPicker.TransparencyGrid className={clsx(styledSlots.transparencyGrid)} />
+        <ColorPicker.ChannelSliderTrack className={clsx(styledSlots.channelSliderTrack)} />
+        <ColorPicker.ChannelSliderThumb className={clsx(styledSlots.channelSliderThumb)} />
       </ColorPicker.ChannelSlider>
 
-      <ColorPicker.SwatchGroup>
-        <ColorPicker.SwatchTrigger value="red">
-          <ColorPicker.Swatch value="red">
-            <ColorPicker.SwatchIndicator>✓</ColorPicker.SwatchIndicator>
+      <ColorPicker.SwatchGroup className={clsx(styledSlots.swatchGroup)}>
+        <ColorPicker.SwatchTrigger value="red" className={clsx(styledSlots.swatchTrigger)}>
+          <ColorPicker.Swatch value="red" className={clsx(styledSlots.swatch)}>
+            <ColorPicker.SwatchIndicator className={clsx(styledSlots.swatchIndicator)}>✓</ColorPicker.SwatchIndicator>
           </ColorPicker.Swatch>
         </ColorPicker.SwatchTrigger>
-        <ColorPicker.SwatchTrigger value="blue">
-          <ColorPicker.Swatch value="blue">
-            <ColorPicker.SwatchIndicator>✓</ColorPicker.SwatchIndicator>
+        <ColorPicker.SwatchTrigger value="blue" className={clsx(styledSlots.swatchTrigger)}>
+          <ColorPicker.Swatch value="blue" className={clsx(styledSlots.swatch)}>
+            <ColorPicker.SwatchIndicator className={clsx(styledSlots.swatchIndicator)}>✓</ColorPicker.SwatchIndicator>
           </ColorPicker.Swatch>
         </ColorPicker.SwatchTrigger>
-        <ColorPicker.SwatchTrigger value="green">
-          <ColorPicker.Swatch value="green">
-            <ColorPicker.SwatchIndicator>✓</ColorPicker.SwatchIndicator>
+        <ColorPicker.SwatchTrigger value="green" className={clsx(styledSlots.swatchTrigger)}>
+          <ColorPicker.Swatch value="green" className={clsx(styledSlots.swatch)}>
+            <ColorPicker.SwatchIndicator className={clsx(styledSlots.swatchIndicator)}>✓</ColorPicker.SwatchIndicator>
           </ColorPicker.Swatch>
         </ColorPicker.SwatchTrigger>
       </ColorPicker.SwatchGroup>
 
-      <ColorPicker.View format="rgba">
-        <ColorPicker.ChannelInput channel="hex" />
-        <ColorPicker.ChannelInput channel="alpha" />
+      <ColorPicker.View format="rgba" className={clsx(styledSlots.view)}>
+        <ColorPicker.ChannelInput channel="hex" className={clsx(styledSlots.channelInput)} />
+        <ColorPicker.ChannelInput channel="alpha" className={clsx(styledSlots.channelInput)} />
       </ColorPicker.View>
 
-      <ColorPicker.View format="hsla">
-        <ColorPicker.ChannelInput channel="hue" />
-        <ColorPicker.ChannelInput channel="saturation" />
-        <ColorPicker.ChannelInput channel="lightness" />
+      <ColorPicker.View format="hsla" className={clsx(styledSlots.view)}>
+        <ColorPicker.ChannelInput channel="hue" className={clsx(styledSlots.channelInput)} />
+        <ColorPicker.ChannelInput channel="saturation" className={clsx(styledSlots.channelInput)} />
+        <ColorPicker.ChannelInput channel="lightness" className={clsx(styledSlots.channelInput)} />
       </ColorPicker.View>
 
-      <ColorPicker.EyeDropperTrigger>Pick color</ColorPicker.EyeDropperTrigger>
+      <ColorPicker.EyeDropperTrigger className={clsx(styledSlots.eyeDropperTrigger)}>
+        Pick color
+      </ColorPicker.EyeDropperTrigger>
     </ColorPicker.Content>
   );
 };
@@ -64,35 +66,41 @@ export const ColorPickerControl = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <ColorPicker.Control>
-      <ColorPicker.ChannelInput channel="hex" />
-      <ColorPicker.ChannelInput channel="alpha" />
-      <ColorPicker.ValueText />
-      <ColorPicker.Trigger>
-        <ColorPicker.TransparencyGrid />
-        <ColorPicker.Context>{(colorPicker) => <ColorPicker.Swatch value={colorPicker.value} />}</ColorPicker.Context>
+    <ColorPicker.Control className={clsx(styledSlots.control)}>
+      <ColorPicker.ChannelInput channel="hex" className={clsx(styledSlots.channelInput)} />
+      <ColorPicker.ChannelInput channel="alpha" className={clsx(styledSlots.channelInput)} />
+      <ColorPicker.ValueText className={clsx(styledSlots.valueText)} />
+      <ColorPicker.Trigger className={clsx(styledSlots.trigger)}>
+        <ColorPicker.TransparencyGrid className={clsx(styledSlots.transparencyGrid)} />
+        <ColorPicker.Context>
+          {(colorPicker) => <ColorPicker.Swatch value={colorPicker.value} className={clsx(styledSlots.swatch)} />}
+        </ColorPicker.Context>
       </ColorPicker.Trigger>
     </ColorPicker.Control>
   );
 };
 
-export const ColorPickerSwatch = (props: ColorPicker.SwatchBaseProps) => {
+export const ColorPickerSwatch = (props: ColorPicker.SwatchBaseProps & { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
   const { value, ...rest } = props;
+
   return (
-    <ColorPicker.SwatchTrigger value={value} {...rest}>
-      <ColorPicker.Swatch value={value}>
-        <ColorPicker.SwatchIndicator>✓</ColorPicker.SwatchIndicator>
+    <ColorPicker.SwatchTrigger value={value} className={clsx(styledSlots.swatchTrigger)} {...rest}>
+      <ColorPicker.Swatch value={value} className={clsx(styledSlots.swatch)}>
+        <ColorPicker.SwatchIndicator className={clsx(styledSlots.swatchIndicator)}>✓</ColorPicker.SwatchIndicator>
       </ColorPicker.Swatch>
     </ColorPicker.SwatchTrigger>
   );
 };
 
-export const ColorPickerSlider = (props: ColorPicker.ChannelSliderBaseProps) => {
+export const ColorPickerSlider = (props: ColorPicker.ChannelSliderBaseProps & { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+
   return (
-    <ColorPicker.ChannelSlider {...props}>
-      <ColorPicker.TransparencyGrid />
-      <ColorPicker.ChannelSliderTrack />
-      <ColorPicker.ChannelSliderThumb />
+    <ColorPicker.ChannelSlider className={clsx(styledSlots.channelSlider)} {...props}>
+      <ColorPicker.TransparencyGrid className={clsx(styledSlots.transparencyGrid)} />
+      <ColorPicker.ChannelSliderTrack className={clsx(styledSlots.channelSliderTrack)} />
+      <ColorPicker.ChannelSliderThumb className={clsx(styledSlots.channelSliderThumb)} />
     </ColorPicker.ChannelSlider>
   );
 };

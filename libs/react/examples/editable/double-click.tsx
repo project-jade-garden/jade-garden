@@ -9,10 +9,10 @@ export const DoubleClick = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <Editable.Root placeholder="Placeholder" activationMode="dblclick">
-      <Editable.Area>
-        <Editable.Input />
-        <Editable.Preview />
+    <Editable.Root placeholder="Placeholder" activationMode="dblclick" className={clsx(styledSlots.root)}>
+      <Editable.Area className={clsx(styledSlots.area)}>
+        <Editable.Input className={clsx(styledSlots.input)} />
+        <Editable.Preview className={clsx(styledSlots.preview)} />
       </Editable.Area>
     </Editable.Root>
   );

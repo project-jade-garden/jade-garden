@@ -9,14 +9,16 @@ export const WithDirectoryUpload = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <FileUpload.Root directory>
-      <FileUpload.Trigger>Upload Folder</FileUpload.Trigger>
-      <FileUpload.ItemGroup>
+    <FileUpload.Root directory className={clsx(styledSlots.root)}>
+      <FileUpload.Trigger className={clsx(styledSlots.trigger)}>Upload Folder</FileUpload.Trigger>
+      <FileUpload.ItemGroup className={clsx(styledSlots.itemGroup)}>
         <FileUpload.Context>
           {({ acceptedFiles }) =>
             acceptedFiles.map((file) => (
-              <FileUpload.Item key={file.name} file={file}>
-                <FileUpload.ItemName>{file.webkitRelativePath ?? file.name}</FileUpload.ItemName>
+              <FileUpload.Item key={file.name} file={file} className={clsx(styledSlots.item)}>
+                <FileUpload.ItemName className={clsx(styledSlots.itemName)}>
+                  {file.webkitRelativePath ?? file.name}
+                </FileUpload.ItemName>
               </FileUpload.Item>
             ))
           }

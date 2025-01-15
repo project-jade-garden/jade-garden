@@ -18,12 +18,12 @@ export const Controlled = ({ theme }: { theme: Theme }) => {
       </button>
       <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
         <Portal>
-          <Dialog.Backdrop />
-          <Dialog.Positioner>
-            <Dialog.Content>
-              <Dialog.Title>Dialog Title</Dialog.Title>
-              <Dialog.Description>Dialog Description</Dialog.Description>
-              <Dialog.CloseTrigger>Close</Dialog.CloseTrigger>
+          <Dialog.Backdrop className={clsx(styledSlots.backdrop)} />
+          <Dialog.Positioner className={clsx(styledSlots.positioner)}>
+            <Dialog.Content className={clsx(styledSlots.content)}>
+              <Dialog.Title className={clsx(styledSlots.title)}>Dialog Title</Dialog.Title>
+              <Dialog.Description className={clsx(styledSlots.description)}>Dialog Description</Dialog.Description>
+              <Dialog.CloseTrigger className={clsx(styledSlots.closeTrigger)}>Close</Dialog.CloseTrigger>
             </Dialog.Content>
           </Dialog.Positioner>
         </Portal>

@@ -12,12 +12,12 @@ export const Checkbox = ({ theme }: { theme: Theme }) => {
 
   return (
     <Menu.Root>
-      <Menu.Trigger>Open menu</Menu.Trigger>
-      <Menu.Positioner>
-        <Menu.Content>
+      <Menu.Trigger className={clsx(styledSlots.trigger)}>Open menu</Menu.Trigger>
+      <Menu.Positioner className={clsx(styledSlots.positioner)}>
+        <Menu.Content className={clsx(styledSlots.content)}>
           <Menu.CheckboxItem checked={checked} onCheckedChange={setChecked} value="checked">
-            <Menu.ItemIndicator>✅</Menu.ItemIndicator>
-            <Menu.ItemText>Check me</Menu.ItemText>
+            <Menu.ItemIndicator className={clsx(styledSlots.itemIndicator)}>✅</Menu.ItemIndicator>
+            <Menu.ItemText className={clsx(styledSlots.itemText)}>Check me</Menu.ItemText>
           </Menu.CheckboxItem>
         </Menu.Content>
       </Menu.Positioner>

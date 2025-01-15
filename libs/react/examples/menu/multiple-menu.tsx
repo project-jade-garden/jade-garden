@@ -17,18 +17,21 @@ interface Props {
   onSelect?: (uid: string) => void;
 }
 
-const Menu = (props: Props) => {
+const Menu = (props: Props & { theme: Theme }) => {
+  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
   const { id, label, items, onSelect } = props;
 
   return (
     <ArkMenu.Root onSelect={(changes) => onSelect?.(changes.value)} id={id}>
-      <ArkMenu.Trigger style={{ fontSize: "18px", padding: "12px" }}>{label} ⬇️</ArkMenu.Trigger>
-      <ArkMenu.Positioner>
-        <ArkMenu.Content>
+      <ArkMenu.Trigger style={{ fontSize: "18px", padding: "12px" }} className={clsx(styledSlots.trigger)}>
+        {label} ⬇️
+      </ArkMenu.Trigger>
+      <ArkMenu.Positioner className={clsx(styledSlots.positioner)}>
+        <ArkMenu.Content className={clsx(styledSlots.content)}>
           {items.map(({ name, uid }) => {
             return (
-              <ArkMenu.Item key={uid} value={uid} className="item">
-                <ArkMenu.ItemIndicator>✅</ArkMenu.ItemIndicator>
+              <ArkMenu.Item key={uid} value={uid} className={clsx(styledSlots.item, "item")}>
+                <ArkMenu.ItemIndicator className={clsx(styledSlots.itemIndicator)}>✅</ArkMenu.ItemIndicator>
                 {name}
               </ArkMenu.Item>
             );
@@ -46,12 +49,10 @@ const items = [
 ];
 
 export const MultipleMenu = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
-
   return (
     <div style={{ display: "flex", gap: "10px" }}>
-      <Menu id="first" label="First" items={items} />
-      <Menu id="second" label="Second" items={items} />
+      <Menu theme={theme} id="first" label="First" items={items} />
+      <Menu theme={theme} id="second" label="Second" items={items} />
     </div>
   );
 };

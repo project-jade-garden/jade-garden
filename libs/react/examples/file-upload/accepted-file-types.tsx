@@ -9,14 +9,14 @@ export const WithAcceptedFileTypes = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <FileUpload.Root accept="image/png">
-      <FileUpload.Trigger>Select Files</FileUpload.Trigger>
-      <FileUpload.ItemGroup>
+    <FileUpload.Root accept="image/png" className={clsx(styledSlots.root)}>
+      <FileUpload.Trigger className={clsx(styledSlots.trigger)}>Select Files</FileUpload.Trigger>
+      <FileUpload.ItemGroup className={clsx(styledSlots.itemGroup)}>
         <FileUpload.Context>
           {({ acceptedFiles }) =>
             acceptedFiles.map((file) => (
-              <FileUpload.Item key={file.name} file={file}>
-                <FileUpload.ItemName />
+              <FileUpload.Item key={file.name} file={file} className={clsx(styledSlots.item)}>
+                <FileUpload.ItemName className={clsx(styledSlots.itemName)} />
               </FileUpload.Item>
             ))
           }

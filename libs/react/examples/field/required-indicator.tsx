@@ -9,12 +9,12 @@ export const RequiredIndicator = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <Field.Root required>
-      <Field.Label>
+    <Field.Root required className={clsx(styledSlots.root)}>
+      <Field.Label className={clsx(styledSlots.label)}>
         Username
-        <Field.RequiredIndicator />
+        <Field.RequiredIndicator className={clsx(styledSlots.requiredIndicator)} />
       </Field.Label>
-      <Field.Input />
+      <Field.Input className={clsx(styledSlots.input)} />
     </Field.Root>
   );
 };

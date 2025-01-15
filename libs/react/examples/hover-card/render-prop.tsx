@@ -12,13 +12,17 @@ export const RenderProp = ({ theme }: { theme: Theme }) => {
   return (
     <HoverCard.Root>
       <HoverCard.Context>
-        {(hoverCard) => <HoverCard.Trigger>Hover me {hoverCard.open ? "▲" : "▼"} </HoverCard.Trigger>}
+        {(hoverCard) => (
+          <HoverCard.Trigger className={clsx(styledSlots.trigger)}>
+            Hover me {hoverCard.open ? "▲" : "▼"}{" "}
+          </HoverCard.Trigger>
+        )}
       </HoverCard.Context>
       <Portal>
-        <HoverCard.Positioner>
-          <HoverCard.Content>
-            <HoverCard.Arrow>
-              <HoverCard.ArrowTip />
+        <HoverCard.Positioner className={clsx(styledSlots.positioner)}>
+          <HoverCard.Content className={clsx(styledSlots.content)}>
+            <HoverCard.Arrow className={clsx(styledSlots.arrow)}>
+              <HoverCard.ArrowTip className={clsx(styledSlots.arrowTip)} />
             </HoverCard.Arrow>
             Content
           </HoverCard.Content>

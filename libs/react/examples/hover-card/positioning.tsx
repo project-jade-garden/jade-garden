@@ -11,12 +11,12 @@ export const Positioning = ({ theme }: { theme: Theme }) => {
 
   return (
     <HoverCard.Root positioning={{ placement: "right", gutter: 12 }}>
-      <HoverCard.Trigger>Hover me</HoverCard.Trigger>
+      <HoverCard.Trigger className={clsx(styledSlots.trigger)}>Hover me</HoverCard.Trigger>
       <Portal>
-        <HoverCard.Positioner>
-          <HoverCard.Content>
-            <HoverCard.Arrow>
-              <HoverCard.ArrowTip />
+        <HoverCard.Positioner className={clsx(styledSlots.positioner)}>
+          <HoverCard.Content className={clsx(styledSlots.content)}>
+            <HoverCard.Arrow className={clsx(styledSlots.arrow)}>
+              <HoverCard.ArrowTip className={clsx(styledSlots.arrowTip)} />
             </HoverCard.Arrow>
             Content
           </HoverCard.Content>

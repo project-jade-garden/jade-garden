@@ -9,22 +9,22 @@ export const CustomControls = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <Editable.Root placeholder="enter a value" defaultValue="Chakra">
-      <Editable.Label>Label</Editable.Label>
-      <Editable.Area>
-        <Editable.Input />
-        <Editable.Preview />
+    <Editable.Root placeholder="enter a value" defaultValue="Chakra" className={clsx(styledSlots.root)}>
+      <Editable.Label className={clsx(styledSlots.label)}>Label</Editable.Label>
+      <Editable.Area className={clsx(styledSlots.area)}>
+        <Editable.Input className={clsx(styledSlots.input)} />
+        <Editable.Preview className={clsx(styledSlots.preview)} />
       </Editable.Area>
       <Editable.Context>
         {(editable) => (
-          <Editable.Control>
+          <Editable.Control className={clsx(styledSlots.control)}>
             {editable.editing ? (
               <>
-                <Editable.SubmitTrigger>Save</Editable.SubmitTrigger>
-                <Editable.CancelTrigger>Cancel</Editable.CancelTrigger>
+                <Editable.SubmitTrigger className={clsx(styledSlots.submitTrigger)}>Save</Editable.SubmitTrigger>
+                <Editable.CancelTrigger className={clsx(styledSlots.cancelTrigger)}>Cancel</Editable.CancelTrigger>
               </>
             ) : (
-              <Editable.EditTrigger>Edit</Editable.EditTrigger>
+              <Editable.EditTrigger className={clsx(styledSlots.editTrigger)}>Edit</Editable.EditTrigger>
             )}
           </Editable.Control>
         )}

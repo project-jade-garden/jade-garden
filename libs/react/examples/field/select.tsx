@@ -9,15 +9,15 @@ export const Select = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <Field.Root>
-      <Field.Label>Label</Field.Label>
-      <Field.Select>
+    <Field.Root className={clsx(styledSlots.root)}>
+      <Field.Label className={clsx(styledSlots.label)}>Label</Field.Label>
+      <Field.Select className={clsx(styledSlots.select)}>
         <option value="1">Option 1</option>
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
       </Field.Select>
-      <Field.HelperText>Some additional Info</Field.HelperText>
-      <Field.ErrorText>Error Info</Field.ErrorText>
+      <Field.HelperText className={clsx(styledSlots.helperText)}>Some additional Info</Field.HelperText>
+      <Field.ErrorText className={clsx(styledSlots.errorText)}>Error Info</Field.ErrorText>
     </Field.Root>
   );
 };

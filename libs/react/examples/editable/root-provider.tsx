@@ -15,11 +15,11 @@ export const RootProvider = ({ theme }: { theme: Theme }) => {
         Edit
       </button>
 
-      <Editable.RootProvider value={editable}>
-        <Editable.Label>Label</Editable.Label>
-        <Editable.Area>
-          <Editable.Input />
-          <Editable.Preview />
+      <Editable.RootProvider value={editable} className={clsx(styledSlots.root)}>
+        <Editable.Label className={clsx(styledSlots.label)}>Label</Editable.Label>
+        <Editable.Area className={clsx(styledSlots.area)}>
+          <Editable.Input className={clsx(styledSlots.input)} />
+          <Editable.Preview className={clsx(styledSlots.preview)} />
         </Editable.Area>
       </Editable.RootProvider>
     </>

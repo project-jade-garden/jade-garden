@@ -9,10 +9,10 @@ export const Basic = (props: Fieldset.RootProps & { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
 
   return (
-    <Fieldset.Root {...props}>
-      <Fieldset.Legend>Legend</Fieldset.Legend>
-      <Fieldset.HelperText>Helper text</Fieldset.HelperText>
-      <Fieldset.ErrorText>Error text</Fieldset.ErrorText>
+    <Fieldset.Root {...props} className={clsx(styledSlots.root)}>
+      <Fieldset.Legend className={clsx(styledSlots.legend)}>Legend</Fieldset.Legend>
+      <Fieldset.HelperText className={clsx(styledSlots.helperText)}>Helper text</Fieldset.HelperText>
+      <Fieldset.ErrorText className={clsx(styledSlots.errorText)}>Error text</Fieldset.ErrorText>
     </Fieldset.Root>
   );
 };

@@ -10,7 +10,7 @@ export const Inline = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme({ minimal, park, shadcn }, theme);
 
   return (
-    <ColorPicker.Root open defaultValue={parseColor("#eb5e41")}>
+    <ColorPicker.Root className={clsx(styledSlots.root)} open defaultValue={parseColor("#eb5e41")}>
       <ColorPickerContent theme={theme} />
     </ColorPicker.Root>
   );

@@ -17,14 +17,14 @@ export const RootProvider = ({ theme }: { theme: Theme }) => {
       </button>
 
       <Dialog.RootProvider value={dialog}>
-        <Dialog.Trigger>Open Dialog</Dialog.Trigger>
+        <Dialog.Trigger className={clsx(styledSlots.trigger)}>Open Dialog</Dialog.Trigger>
         <Portal>
-          <Dialog.Backdrop />
-          <Dialog.Positioner>
-            <Dialog.Content>
-              <Dialog.Title>Dialog Title</Dialog.Title>
-              <Dialog.Description>Dialog Description</Dialog.Description>
-              <Dialog.CloseTrigger>Close</Dialog.CloseTrigger>
+          <Dialog.Backdrop className={clsx(styledSlots.backdrop)} />
+          <Dialog.Positioner className={clsx(styledSlots.positioner)}>
+            <Dialog.Content className={clsx(styledSlots.content)}>
+              <Dialog.Title className={clsx(styledSlots.title)}>Dialog Title</Dialog.Title>
+              <Dialog.Description className={clsx(styledSlots.description)}>Dialog Description</Dialog.Description>
+              <Dialog.CloseTrigger className={clsx(styledSlots.closeTrigger)}>Close</Dialog.CloseTrigger>
             </Dialog.Content>
           </Dialog.Positioner>
         </Portal>

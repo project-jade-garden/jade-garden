@@ -12,17 +12,23 @@ export const OnChangeEnd = ({ theme }: { theme: Theme }) => {
   const [color, setColor] = useState(parseColor("rgba(186, 43, 186, 1)"));
 
   return (
-    <ColorPicker.Root value={color} onValueChangeEnd={(details) => setColor(details.value)}>
-      <ColorPicker.Control>
+    <ColorPicker.Root
+      className={clsx(styledSlots.root)}
+      value={color}
+      onValueChangeEnd={(details) => setColor(details.value)}
+    >
+      <ColorPicker.Control className={clsx(styledSlots.control)}>
         <p>Current color value: {color.toString("rgba")}</p>
 
-        <ColorPicker.Trigger>
-          <ColorPicker.TransparencyGrid />
-          <ColorPicker.Context>{(colorPicker) => <ColorPicker.Swatch value={colorPicker.value} />}</ColorPicker.Context>
+        <ColorPicker.Trigger className={clsx(styledSlots.trigger)}>
+          <ColorPicker.TransparencyGrid className={clsx(styledSlots.transparencyGrid)} />
+          <ColorPicker.Context>
+            {(colorPicker) => <ColorPicker.Swatch className={clsx(styledSlots.swatch)} value={colorPicker.value} />}
+          </ColorPicker.Context>
         </ColorPicker.Trigger>
       </ColorPicker.Control>
 
-      <ColorPicker.Positioner>
+      <ColorPicker.Positioner className={clsx(styledSlots.positioner)}>
         <ColorPickerContent theme={theme} />
       </ColorPicker.Positioner>
 
