@@ -1,8 +1,8 @@
 <div align="center">
   <a href="https://github.com/AGS1130/spark-css">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/spark-css-logo-simple-with-text-dark.png" width="300">
-      <img alt="Spark CSS logo with text." src="./.github/assets/spark-css-logo-simple-with-text-light.png" width="300">
+      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/spark-css-logo-with-text-dark.png" width="300">
+      <img alt="Spark CSS logo with text." src="./.github/assets/spark-css-logo-with-text-light.png" width="300">
     </picture>
   </a>
 </div>
