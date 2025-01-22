@@ -1,4 +1,4 @@
-import type { PrintType, Slots } from "./types";
+import type { PrintType, Slots } from "./types.js";
 
 type Component = {
   name: string;

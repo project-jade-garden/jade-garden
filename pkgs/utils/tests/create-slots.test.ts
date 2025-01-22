@@ -1,5 +1,22 @@
 import { describe, expect, test } from "bun:test";
-import { type CSArgs, createSlots, transformStr } from "../src";
+import { camelCase, kebabCase, pascalCase, snakeCase } from "es-toolkit";
+import { createSlots } from "../src/create-slots.js";
+import type { CSArgs } from "../src/types.js";
+
+const transformStr = (str: string, caseConvention?: CSArgs["caseConvention"]) => {
+  switch (caseConvention) {
+    case "camel":
+      return camelCase(str);
+    case "kebab":
+      return kebabCase(str);
+    case "pascal":
+      return pascalCase(str);
+    case "snake":
+      return snakeCase(str);
+    default:
+      return kebabCase(str);
+  }
+};
 
 describe("createSlots function", () => {
   const avatar = ["root", "image", "fallback"];

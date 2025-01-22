@@ -3,14 +3,46 @@
   "version": "0.5.1",
   "description": "Utilities to construct slots for Spark CSS",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "utilities"],
-  "main": "src/index.ts",
-  "sideEffects": false,
+  "type": "module",
   "files": ["dist"],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./anatomy": {
+      "import": "./dist/anatomy.js",
+      "require": "./dist/anatomy.cjs",
+      "types": "./dist/anatomy.d.ts"
+    },
+    "./create-docs": {
+      "import": "./dist/create-docs.js",
+      "require": "./dist/create-docs.cjs",
+      "types": "./dist/create-docs.d.ts"
+    },
+    "./create-slots": {
+      "import": "./dist/create-slots.js",
+      "require": "./dist/create-slots.cjs",
+      "types": "./dist/create-slots.d.ts"
+    }
+  },
+  "typesVersions": {
+    ">4.0": {
+      ".": ["./dist/index.d.ts"],
+      "anatomy": ["./dist/anatomy.d.ts"],
+      "create-docs": ["./dist/create-docs.d.ts"],
+      "create-slots": ["./dist/create-slots.d.ts"]
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsc && vite build",
     "clean": "rm -rf .turbo dist node_modules",
     "format": "biome format --write ./src ./tests",
     "lint": "biome lint ./src ./tests",
@@ -24,7 +56,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "tsup": "8.3.5"
+    "vite": "6.0.11",
+    "vite-plugin-dts": "4.5.0"
   },
   "clean-package": "../../clean-package.config.json"
 }

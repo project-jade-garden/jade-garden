@@ -66,7 +66,9 @@ const skipFiles = [
   "fieldset",
   "progress", // ! Should not be skipped, but has two different pages (see `source` variable)
   "segment-group",
-  "toggle"
+  "toggle",
+
+  "utils"
 ];
 
 const isComponentWithDescription = (c: string): c is keyof typeof descriptions => Object.keys(descriptions).includes(c);
