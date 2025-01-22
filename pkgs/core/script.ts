@@ -99,7 +99,7 @@ const generateSrcFiles = () => {
   for (const component of components) {
     const c = component.slice(0, -3); // Removes `.ts`;
     const camelName = camelCase(c);
-    const pascalName = pascalCase(c); // TODO: Remove after exports refactored to just files
+    const pascalName = pascalCase(c);
     const anatomyName = `${camelName}Anatomy`;
 
     if (skipFiles.includes(c) || !isComponentWithDescription(c)) {
