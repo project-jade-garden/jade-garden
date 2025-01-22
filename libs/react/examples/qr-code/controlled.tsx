@@ -1,13 +1,14 @@
 import { QrCode } from "@ark-ui/react/qr-code";
-import { qrCodeStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { qrCodeStyledSlots as park } from "@spark-css/theme-park";
-import { qrCodeStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.qrCodeStyledSlots, park: park.qrCodeStyledSlots, shadcn: shadcn.qrCodeStyledSlots },
+    theme
+  );
   const [value, setValue] = useState("http://ark-ui.com");
 
   return (

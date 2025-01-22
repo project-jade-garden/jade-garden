@@ -1,14 +1,19 @@
 import { Field } from "@ark-ui/react/field";
 import { RatingGroup } from "@ark-ui/react/rating-group";
-import { ratingGroupStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { ratingGroupStyledSlots as park } from "@spark-css/theme-park";
-import { ratingGroupStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { StarIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.ratingGroupStyledSlots,
+      park: park.ratingGroupStyledSlots,
+      shadcn: shadcn.ratingGroupStyledSlots
+    },
+    props.theme
+  );
 
   return (
     <Field.Root {...props}>

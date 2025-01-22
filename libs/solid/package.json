@@ -12,9 +12,7 @@
   "dependencies": {
     "@ark-ui/solid": "4.9.0",
     "@modular-forms/solid": "0.25.0",
-    "@spark-css/theme-minimal": "workspace:*",
-    "@spark-css/theme-park": "workspace:*",
-    "@spark-css/theme-shadcn": "workspace:*",
+    "@spark-css/themes": "workspace:*",
     "@storybook/addon-a11y": "8.4.7",
     "@storybook/addon-essentials": "8.4.7",
     "@storybook/addon-themes": "8.4.7",

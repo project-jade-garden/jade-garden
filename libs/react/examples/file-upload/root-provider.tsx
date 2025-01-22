@@ -1,13 +1,14 @@
 import { FileUpload, useFileUpload } from "@ark-ui/react/file-upload";
-import { fileUploadStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { fileUploadStyledSlots as park } from "@spark-css/theme-park";
-import { fileUploadStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { FileIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.fileUploadStyledSlots, park: park.fileUploadStyledSlots, shadcn: shadcn.fileUploadStyledSlots },
+    theme
+  );
   const fileUpload = useFileUpload({ maxFiles: 5 });
 
   return (

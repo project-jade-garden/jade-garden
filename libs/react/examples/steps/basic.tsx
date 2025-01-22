@@ -1,7 +1,5 @@
 import { Steps } from "@ark-ui/react/steps";
-import { stepsStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { stepsStyledSlots as park } from "@spark-css/theme-park";
-import { stepsStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
@@ -12,7 +10,10 @@ const items = [
 ];
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.stepsStyledSlots, park: park.stepsStyledSlots, shadcn: shadcn.stepsStyledSlots },
+    theme
+  );
 
   return (
     <Steps.Root count={items.length}>

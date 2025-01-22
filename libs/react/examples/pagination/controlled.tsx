@@ -1,13 +1,14 @@
 import { Pagination } from "@ark-ui/react/pagination";
-import { paginationStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { paginationStyledSlots as park } from "@spark-css/theme-park";
-import { paginationStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.paginationStyledSlots, park: park.paginationStyledSlots, shadcn: shadcn.paginationStyledSlots },
+    theme
+  );
   const [currentPage, setCurrentPage] = useState(1);
 
   return (

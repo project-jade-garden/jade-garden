@@ -1,13 +1,14 @@
 import { Field } from "@ark-ui/react/field";
 import { TagsInput } from "@ark-ui/react/tags-input";
-import { tagsInputStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { tagsInputStyledSlots as park } from "@spark-css/theme-park";
-import { tagsInputStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.tagsInputStyledSlots, park: park.tagsInputStyledSlots, shadcn: shadcn.tagsInputStyledSlots },
+    props.theme
+  );
 
   return (
     <Field.Root {...props}>

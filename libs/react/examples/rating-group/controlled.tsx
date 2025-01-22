@@ -1,14 +1,19 @@
 import { RatingGroup } from "@ark-ui/react/rating-group";
-import { ratingGroupStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { ratingGroupStyledSlots as park } from "@spark-css/theme-park";
-import { ratingGroupStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { StarIcon } from "lucide-react";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.ratingGroupStyledSlots,
+      park: park.ratingGroupStyledSlots,
+      shadcn: shadcn.ratingGroupStyledSlots
+    },
+    theme
+  );
   const [value, setValue] = useState(0);
 
   return (

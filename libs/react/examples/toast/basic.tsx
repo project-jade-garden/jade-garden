@@ -1,7 +1,5 @@
 import { Toast, Toaster, createToaster } from "@ark-ui/react/toast";
-import { toastStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { toastStyledSlots as park } from "@spark-css/theme-park";
-import { toastStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { XIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
@@ -13,7 +11,10 @@ const toaster = createToaster({
 });
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.toastStyledSlots, park: park.toastStyledSlots, shadcn: shadcn.toastStyledSlots },
+    theme
+  );
 
   return (
     <div>

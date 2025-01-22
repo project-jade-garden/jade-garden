@@ -1,7 +1,5 @@
 import { TreeView, createTreeCollection, useTreeView } from "@ark-ui/react/tree-view";
-import { treeViewStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { treeViewStyledSlots as park } from "@spark-css/theme-park";
-import { treeViewStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { CheckSquareIcon, ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
@@ -52,7 +50,10 @@ const collection = createTreeCollection<Node>({
 });
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.treeViewStyledSlots, park: park.treeViewStyledSlots, shadcn: shadcn.treeViewStyledSlots },
+    theme
+  );
   const treeView = useTreeView({ collection });
 
   return (

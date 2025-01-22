@@ -1,12 +1,13 @@
 import { Field } from "@ark-ui/react/field";
-import { fieldStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { fieldStyledSlots as park } from "@spark-css/theme-park";
-import { fieldStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RequiredIndicator = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+    theme
+  );
 
   return (
     <Field.Root required className={clsx(styledSlots.root)}>

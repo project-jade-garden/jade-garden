@@ -1,13 +1,14 @@
 import { Dialog, useDialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
-import { dialogStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { dialogStyledSlots as park } from "@spark-css/theme-park";
-import { dialogStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.dialogStyledSlots, park: park.dialogStyledSlots, shadcn: shadcn.dialogStyledSlots },
+    theme
+  );
   const dialog = useDialog();
 
   return (

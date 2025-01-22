@@ -12,9 +12,7 @@
   "dependencies": {
     "@ark-ui/vue": "4.8.0",
     "@histoire/plugin-vue": "0.17.17",
-    "@spark-css/theme-minimal": "workspace:*",
-    "@spark-css/theme-park": "workspace:*",
-    "@spark-css/theme-shadcn": "workspace:*",
+    "@spark-css/themes": "workspace:*",
     "@vitejs/plugin-vue": "5.2.1",
     "autoprefixer": "10.4.20",
     "clsx": "2.1.1",

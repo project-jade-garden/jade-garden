@@ -1,13 +1,14 @@
 import { Field } from "@ark-ui/react/field";
 import { PinInput } from "@ark-ui/react/pin-input";
-import { pinInputStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { pinInputStyledSlots as park } from "@spark-css/theme-park";
-import { pinInputStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.pinInputStyledSlots, park: park.pinInputStyledSlots, shadcn: shadcn.pinInputStyledSlots },
+    props.theme
+  );
 
   return (
     <Field.Root {...props}>

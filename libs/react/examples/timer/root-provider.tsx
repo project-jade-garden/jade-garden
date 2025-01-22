@@ -1,12 +1,13 @@
 import { Timer, useTimer } from "@ark-ui/react/timer";
-import { timerStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { timerStyledSlots as park } from "@spark-css/theme-park";
-import { timerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.timerStyledSlots, park: park.timerStyledSlots, shadcn: shadcn.timerStyledSlots },
+    theme
+  );
   const timer = useTimer({ targetMs: 60 * 60 * 1000 });
 
   return (

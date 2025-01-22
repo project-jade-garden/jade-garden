@@ -1,13 +1,14 @@
 import { Clipboard } from "@ark-ui/react/clipboard";
-import { clipboardStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { clipboardStyledSlots as park } from "@spark-css/theme-park";
-import { clipboardStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { CheckIcon, ClipboardCopyIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.clipboardStyledSlots, park: park.clipboardStyledSlots, shadcn: shadcn.clipboardStyledSlots },
+    theme
+  );
 
   return (
     <Clipboard.Root value="https://ark-ui.com" className={clsx(styledSlots.root)}>

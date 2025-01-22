@@ -1,17 +1,18 @@
 import { Accordion } from "@ark-ui/react/accordion";
 import { Slider } from "@ark-ui/react/slider";
-import { accordionStyledSlots as accordionMinimal, sliderStyledSlots as sliderMinimal } from "@spark-css/theme-minimal";
-import { accordionStyledSlots as accordionPark, sliderStyledSlots as sliderPark } from "@spark-css/theme-park";
-import { accordionStyledSlots as accordionShadcn, sliderStyledSlots as sliderShadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithSlider = ({ theme }: { theme: Theme }) => {
   const accordionStyledSlots = getTheme(
-    { minimal: accordionMinimal, park: accordionPark, shadcn: accordionShadcn },
+    { minimal: minimal.accordionStyledSlots, park: park.accordionStyledSlots, shadcn: shadcn.accordionStyledSlots },
     theme
   );
-  const sliderStyledSlots = getTheme({ minimal: sliderMinimal, park: sliderPark, shadcn: sliderShadcn }, theme);
+  const sliderStyledSlots = getTheme(
+    { minimal: minimal.sliderStyledSlots, park: park.sliderStyledSlots, shadcn: shadcn.sliderStyledSlots },
+    theme
+  );
 
   return (
     <Accordion.Root defaultValue={["React"]} className={clsx(accordionStyledSlots.root)}>

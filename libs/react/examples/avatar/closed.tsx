@@ -1,7 +1,5 @@
 import { Avatar as ArkAvatar } from "@ark-ui/react/avatar";
-import { avatarStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { avatarStyledSlots as park } from "@spark-css/theme-park";
-import { avatarStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { UserIcon } from "lucide-react";
 import { forwardRef } from "react";
@@ -15,7 +13,10 @@ export interface AvatarProps extends ArkAvatar.RootProps {
 
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const { name, src, theme, ...rootProps } = props;
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.avatarStyledSlots, park: park.avatarStyledSlots, shadcn: shadcn.avatarStyledSlots },
+    theme
+  );
 
   return (
     <ArkAvatar.Root ref={ref} {...rootProps} className={clsx(styledSlots.root)}>

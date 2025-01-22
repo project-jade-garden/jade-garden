@@ -136,11 +136,7 @@ const extend = toMerged(parkTheme, shadcnTheme);
 
 export default {
   // * In a single repository project would be `./node_modules/`, but in monorepo
-  content: [
-    "../../node_modules/@spark-css/theme-park/**/*.{js,ts}",
-    "../../node_modules/@spark-css/theme-shadcn/**/*.{js,ts}",
-    "./examples/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ["../../node_modules/@spark-css/themes/**/*.{js,ts}", "./examples/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend
   }

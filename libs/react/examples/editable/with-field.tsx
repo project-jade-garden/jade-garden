@@ -1,17 +1,18 @@
 import { Editable } from "@ark-ui/react/editable";
 import { Field } from "@ark-ui/react/field";
-import { editableStyledSlots as editableMinimal, fieldStyledSlots as fieldMinimal } from "@spark-css/theme-minimal";
-import { editableStyledSlots as editablePark, fieldStyledSlots as fieldPark } from "@spark-css/theme-park";
-import { editableStyledSlots as editableShadcn, fieldStyledSlots as fieldShadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
   const editableStyledSlots = getTheme(
-    { minimal: editableMinimal, park: editablePark, shadcn: editableShadcn },
+    { minimal: minimal.editableStyledSlots, park: park.editableStyledSlots, shadcn: shadcn.editableStyledSlots },
     props.theme
   );
-  const fieldStyledSlots = getTheme({ minimal: fieldMinimal, park: fieldPark, shadcn: fieldShadcn }, props.theme);
+  const fieldStyledSlots = getTheme(
+    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+    props.theme
+  );
 
   return (
     <Field.Root {...props} className={clsx(fieldStyledSlots.root)}>

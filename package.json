@@ -2,7 +2,7 @@
   "name": "root",
   "type": "module",
   "private": true,
-  "workspaces": ["libs/*", "pkgs/*", "themes/*"],
+  "workspaces": ["libs/*", "pkgs/*", "themes"],
   "scripts": {
     "fresh": "bun clean && bun i && bun run build",
     "build": "bun utils build && bun core build",

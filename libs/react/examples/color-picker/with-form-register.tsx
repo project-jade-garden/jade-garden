@@ -1,7 +1,5 @@
 import { ColorPicker } from "@ark-ui/react/color-picker";
-import { colorPickerStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { colorPickerStyledSlots as park } from "@spark-css/theme-park";
-import { colorPickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { parseColor } from "@zag-js/color-utils";
 import { clsx } from "clsx";
 import { useForm } from "react-hook-form";
@@ -13,7 +11,14 @@ interface FieldValues {
 }
 
 export const WithFormRegister = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.colorPickerStyledSlots,
+      park: park.colorPickerStyledSlots,
+      shadcn: shadcn.colorPickerStyledSlots
+    },
+    theme
+  );
   const { register, handleSubmit } = useForm<FieldValues>();
 
   const onSubmit = (data: FieldValues) => {

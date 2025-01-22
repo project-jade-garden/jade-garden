@@ -1,12 +1,13 @@
 import { Tabs } from "@ark-ui/react/tabs";
-import { tabsStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { tabsStyledSlots as park } from "@spark-css/theme-park";
-import { tabsStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Manual = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.tabsStyledSlots, park: park.tabsStyledSlots, shadcn: shadcn.tabsStyledSlots },
+    theme
+  );
 
   return (
     <Tabs.Root activationMode="manual" defaultValue="react">

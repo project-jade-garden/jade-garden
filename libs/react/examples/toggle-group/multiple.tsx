@@ -1,12 +1,17 @@
 import { ToggleGroup } from "@ark-ui/react/toggle-group";
-import { toggleGroupStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { toggleGroupStyledSlots as park } from "@spark-css/theme-park";
-import { toggleGroupStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Multiple = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.toggleGroupStyledSlots,
+      park: park.toggleGroupStyledSlots,
+      shadcn: shadcn.toggleGroupStyledSlots
+    },
+    theme
+  );
 
   return (
     <ToggleGroup.Root multiple>

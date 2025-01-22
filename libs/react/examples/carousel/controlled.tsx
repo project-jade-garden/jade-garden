@@ -1,7 +1,5 @@
 import { Carousel } from "@ark-ui/react/carousel";
-import { carouselStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { carouselStyledSlots as park } from "@spark-css/theme-park";
-import { carouselStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
@@ -9,7 +7,10 @@ import { type Theme, getTheme } from "../utils";
 const images = Array.from({ length: 5 }, (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`);
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.carouselStyledSlots, park: park.carouselStyledSlots, shadcn: shadcn.carouselStyledSlots },
+    theme
+  );
   const [page, setPage] = useState(0);
 
   return (

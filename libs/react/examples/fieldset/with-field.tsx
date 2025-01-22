@@ -1,17 +1,18 @@
 import { Field } from "@ark-ui/react/field";
 import { Fieldset } from "@ark-ui/react/fieldset";
-import { fieldStyledSlots as fieldMinimal, fieldsetStyledSlots as fieldsetMinimal } from "@spark-css/theme-minimal";
-import { fieldStyledSlots as fieldPark, fieldsetStyledSlots as fieldsetPark } from "@spark-css/theme-park";
-import { fieldStyledSlots as fieldShadcn, fieldsetStyledSlots as fieldsetShadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Fieldset.RootProps & { theme: Theme }) => {
   const fieldsetStyledSlots = getTheme(
-    { minimal: fieldsetMinimal, park: fieldsetPark, shadcn: fieldsetShadcn },
+    { minimal: minimal.fieldsetStyledSlots, park: park.fieldsetStyledSlots, shadcn: shadcn.fieldsetStyledSlots },
     props.theme
   );
-  const fieldStyledSlots = getTheme({ minimal: fieldMinimal, park: fieldPark, shadcn: fieldShadcn }, props.theme);
+  const fieldStyledSlots = getTheme(
+    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+    props.theme
+  );
 
   return (
     <Fieldset.Root {...props} className={clsx(fieldsetStyledSlots.root)}>

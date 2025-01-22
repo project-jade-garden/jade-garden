@@ -1,13 +1,14 @@
 import { Menu } from "@ark-ui/react/menu";
-import { menuStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { menuStyledSlots as park } from "@spark-css/theme-park";
-import { menuStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.menuStyledSlots, park: park.menuStyledSlots, shadcn: shadcn.menuStyledSlots },
+    theme
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   return (

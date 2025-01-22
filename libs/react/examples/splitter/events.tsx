@@ -1,12 +1,13 @@
 import { Splitter } from "@ark-ui/react/splitter";
-import { splitterStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { splitterStyledSlots as park } from "@spark-css/theme-park";
-import { splitterStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Events = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.splitterStyledSlots, park: park.splitterStyledSlots, shadcn: shadcn.splitterStyledSlots },
+    theme
+  );
 
   return (
     <Splitter.Root

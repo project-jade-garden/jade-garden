@@ -1,7 +1,5 @@
 import { Menu as ArkMenu } from "@ark-ui/react";
-import { menuStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { menuStyledSlots as park } from "@spark-css/theme-park";
-import { menuStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
@@ -18,7 +16,10 @@ interface Props {
 }
 
 const Menu = (props: Props & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.menuStyledSlots, park: park.menuStyledSlots, shadcn: shadcn.menuStyledSlots },
+    props.theme
+  );
   const { id, label, items, onSelect } = props;
 
   return (

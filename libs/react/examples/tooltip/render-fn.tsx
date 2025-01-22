@@ -1,12 +1,13 @@
 import { Tooltip } from "@ark-ui/react/tooltip";
-import { tooltipStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { tooltipStyledSlots as park } from "@spark-css/theme-park";
-import { tooltipStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RenderFn = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.tooltipStyledSlots, park: park.tooltipStyledSlots, shadcn: shadcn.tooltipStyledSlots },
+    theme
+  );
 
   return (
     <Tooltip.Root>

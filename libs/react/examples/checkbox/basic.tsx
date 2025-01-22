@@ -1,13 +1,14 @@
 import { Checkbox } from "@ark-ui/react/checkbox";
-import { checkboxStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { checkboxStyledSlots as park } from "@spark-css/theme-park";
-import { checkboxStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { CheckIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.checkboxStyledSlots, park: park.checkboxStyledSlots, shadcn: shadcn.checkboxStyledSlots },
+    theme
+  );
 
   return (
     <Checkbox.Root className={clsx(styledSlots.root)}>

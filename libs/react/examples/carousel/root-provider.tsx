@@ -1,12 +1,13 @@
 import { Carousel, useCarousel } from "@ark-ui/react/carousel";
-import { carouselStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { carouselStyledSlots as park } from "@spark-css/theme-park";
-import { carouselStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.carouselStyledSlots, park: park.carouselStyledSlots, shadcn: shadcn.carouselStyledSlots },
+    theme
+  );
   const images = ["https://tinyurl.com/5b6ka8jd", "https://tinyurl.com/7rmccdn5", "https://tinyurl.com/59jxz9uu"];
   const carousel = useCarousel();
 

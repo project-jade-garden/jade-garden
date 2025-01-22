@@ -1,13 +1,18 @@
 import { RatingGroup } from "@ark-ui/react/rating-group";
-import { ratingGroupStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { ratingGroupStyledSlots as park } from "@spark-css/theme-park";
-import { ratingGroupStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { StarIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const FormUsage = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.ratingGroupStyledSlots,
+      park: park.ratingGroupStyledSlots,
+      shadcn: shadcn.ratingGroupStyledSlots
+    },
+    theme
+  );
 
   return (
     <RatingGroup.Root name="my-rating" count={5} defaultValue={3}>

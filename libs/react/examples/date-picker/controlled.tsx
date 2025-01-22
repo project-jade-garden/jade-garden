@@ -1,14 +1,15 @@
 import { DatePicker, parseDate } from "@ark-ui/react/date-picker";
 import { Portal } from "@ark-ui/react/portal";
-import { datePickerStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { datePickerStyledSlots as park } from "@spark-css/theme-park";
-import { datePickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.datePickerStyledSlots, park: park.datePickerStyledSlots, shadcn: shadcn.datePickerStyledSlots },
+    theme
+  );
   const [value, setValue] = useState([parseDate("2022-01-01")]);
 
   return (

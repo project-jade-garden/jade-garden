@@ -1,12 +1,13 @@
 import { Progress } from "@ark-ui/react/progress";
-import { progressStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { progressStyledSlots as park } from "@spark-css/theme-park";
-import { progressStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../../utils";
 
 export const InitialValue = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.progressStyledSlots, park: park.progressStyledSlots, shadcn: shadcn.progressStyledSlots },
+    theme
+  );
 
   return (
     <Progress.Root defaultValue={70}>

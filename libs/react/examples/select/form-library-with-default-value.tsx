@@ -1,7 +1,5 @@
 import { Select, createListCollection } from "@ark-ui/react/select";
-import { selectStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { selectStyledSlots as park } from "@spark-css/theme-park";
-import { selectStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { ChevronDownIcon } from "lucide-react";
 import { type SubmitHandler, useForm } from "react-hook-form";
@@ -12,7 +10,10 @@ interface Inputs {
 }
 
 export const FormLibraryWithDefaultValue = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.selectStyledSlots, park: park.selectStyledSlots, shadcn: shadcn.selectStyledSlots },
+    theme
+  );
   const { register, handleSubmit, getValues } = useForm<Inputs>({
     defaultValues: { framework: "React" }
   });

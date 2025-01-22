@@ -1,18 +1,19 @@
 import { Checkbox } from "@ark-ui/react/checkbox";
 import { Field } from "@ark-ui/react/field";
-import { checkboxStyledSlots as checkboxMinimal, fieldStyledSlots as fieldMinimal } from "@spark-css/theme-minimal";
-import { checkboxStyledSlots as checkboxPark, fieldStyledSlots as fieldPark } from "@spark-css/theme-park";
-import { checkboxStyledSlots as checkboxShadcn, fieldStyledSlots as fieldShadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { CheckIcon, MinusIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
   const checkboxStyledSlots = getTheme(
-    { minimal: checkboxMinimal, park: checkboxPark, shadcn: checkboxShadcn },
+    { minimal: minimal.checkboxStyledSlots, park: park.checkboxStyledSlots, shadcn: shadcn.checkboxStyledSlots },
     props.theme
   );
-  const fieldStyledSlots = getTheme({ minimal: fieldMinimal, park: fieldPark, shadcn: fieldShadcn }, props.theme);
+  const fieldStyledSlots = getTheme(
+    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+    props.theme
+  );
 
   return (
     <Field.Root {...props} className={clsx(fieldStyledSlots.root)}>

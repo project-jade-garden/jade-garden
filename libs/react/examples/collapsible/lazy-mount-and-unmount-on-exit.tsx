@@ -1,12 +1,17 @@
 import { Collapsible } from "@ark-ui/react/collapsible";
-import { collapsibleStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { collapsibleStyledSlots as park } from "@spark-css/theme-park";
-import { collapsibleStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const LazyMountAndUnmountOnExit = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.collapsibleStyledSlots,
+      park: park.collapsibleStyledSlots,
+      shadcn: shadcn.collapsibleStyledSlots
+    },
+    theme
+  );
 
   return (
     <Collapsible.Root lazyMount unmountOnExit className={clsx(styledSlots.root)}>

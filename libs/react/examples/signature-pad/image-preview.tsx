@@ -1,13 +1,18 @@
 import { SignaturePad } from "@ark-ui/react/signature-pad";
-import { signaturePadStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { signaturePadStyledSlots as park } from "@spark-css/theme-park";
-import { signaturePadStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const ImagePreview = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.signaturePadStyledSlots,
+      park: park.signaturePadStyledSlots,
+      shadcn: shadcn.signaturePadStyledSlots
+    },
+    theme
+  );
   const [imageUrl, setImageUrl] = useState("");
 
   return (

@@ -1,12 +1,13 @@
 import { Avatar } from "@ark-ui/react/avatar";
-import { avatarStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { avatarStyledSlots as park } from "@spark-css/theme-park";
-import { avatarStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Context = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.avatarStyledSlots, park: park.avatarStyledSlots, shadcn: shadcn.avatarStyledSlots },
+    theme
+  );
 
   return (
     <Avatar.Root className={clsx(styledSlots.root)}>

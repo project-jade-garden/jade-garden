@@ -1,12 +1,17 @@
 import { ColorPicker } from "@ark-ui/react/color-picker";
-import { colorPickerStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { colorPickerStyledSlots as park } from "@spark-css/theme-park";
-import { colorPickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const ColorPickerContent = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.colorPickerStyledSlots,
+      park: park.colorPickerStyledSlots,
+      shadcn: shadcn.colorPickerStyledSlots
+    },
+    theme
+  );
 
   return (
     <ColorPicker.Content className={clsx(styledSlots.content)}>
@@ -63,7 +68,14 @@ export const ColorPickerContent = ({ theme }: { theme: Theme }) => {
 };
 
 export const ColorPickerControl = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.colorPickerStyledSlots,
+      park: park.colorPickerStyledSlots,
+      shadcn: shadcn.colorPickerStyledSlots
+    },
+    theme
+  );
 
   return (
     <ColorPicker.Control className={clsx(styledSlots.control)}>
@@ -81,7 +93,14 @@ export const ColorPickerControl = ({ theme }: { theme: Theme }) => {
 };
 
 export const ColorPickerSwatch = (props: ColorPicker.SwatchBaseProps & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.colorPickerStyledSlots,
+      park: park.colorPickerStyledSlots,
+      shadcn: shadcn.colorPickerStyledSlots
+    },
+    props.theme
+  );
   const { value, ...rest } = props;
 
   return (
@@ -94,7 +113,14 @@ export const ColorPickerSwatch = (props: ColorPicker.SwatchBaseProps & { theme: 
 };
 
 export const ColorPickerSlider = (props: ColorPicker.ChannelSliderBaseProps & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, props.theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.colorPickerStyledSlots,
+      park: park.colorPickerStyledSlots,
+      shadcn: shadcn.colorPickerStyledSlots
+    },
+    props.theme
+  );
 
   return (
     <ColorPicker.ChannelSlider className={clsx(styledSlots.channelSlider)} {...props}>

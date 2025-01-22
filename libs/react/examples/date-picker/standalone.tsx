@@ -1,12 +1,13 @@
 import { DatePicker } from "@ark-ui/react/date-picker";
-import { datePickerStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { datePickerStyledSlots as park } from "@spark-css/theme-park";
-import { datePickerStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Standalone = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.datePickerStyledSlots, park: park.datePickerStyledSlots, shadcn: shadcn.datePickerStyledSlots },
+    theme
+  );
 
   return (
     <DatePicker.Root open className={clsx(styledSlots.root)}>

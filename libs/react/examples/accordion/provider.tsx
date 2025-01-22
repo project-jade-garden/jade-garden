@@ -1,13 +1,14 @@
 import { Accordion, useAccordion } from "@ark-ui/react/accordion";
-import { accordionStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { accordionStyledSlots as park } from "@spark-css/theme-park";
-import { accordionStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { ChevronDownIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const Provider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.accordionStyledSlots, park: park.accordionStyledSlots, shadcn: shadcn.accordionStyledSlots },
+    theme
+  );
   const accordion = useAccordion({
     multiple: true,
     onValueChange: (details) => console.log(details)

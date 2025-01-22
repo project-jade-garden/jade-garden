@@ -1,13 +1,14 @@
 import { Combobox, createListCollection } from "@ark-ui/react/combobox";
 import { Portal } from "@ark-ui/react/portal";
-import { comboboxStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { comboboxStyledSlots as park } from "@spark-css/theme-park";
-import { comboboxStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Advanced = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.comboboxStyledSlots, park: park.comboboxStyledSlots, shadcn: shadcn.comboboxStyledSlots },
+    theme
+  );
   const collection = createListCollection({
     items: [
       { label: "React", value: "react" },

@@ -1,8 +1,6 @@
 import { Portal } from "@ark-ui/react/portal";
 import { Select, createListCollection } from "@ark-ui/react/select";
-import { selectStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { selectStyledSlots as park } from "@spark-css/theme-park";
-import { selectStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
@@ -15,7 +13,10 @@ interface Item {
 }
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.selectStyledSlots, park: park.selectStyledSlots, shadcn: shadcn.selectStyledSlots },
+    theme
+  );
   const [_, setSelectedItems] = useState<Item[]>([]);
 
   const collection = createListCollection<Item>({

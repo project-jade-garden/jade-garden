@@ -1,12 +1,17 @@
 import { SegmentGroup, useSegmentGroup } from "@ark-ui/react/segment-group";
-import { segmentGroupStyledSlots as minimal } from "@spark-css/theme-minimal";
-import { segmentGroupStyledSlots as park } from "@spark-css/theme-park";
-import { segmentGroupStyledSlots as shadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal, park, shadcn }, theme);
+  const styledSlots = getTheme(
+    {
+      minimal: minimal.segmentGroupStyledSlots,
+      park: park.segmentGroupStyledSlots,
+      shadcn: shadcn.segmentGroupStyledSlots
+    },
+    theme
+  );
   const frameworks = ["React", "Solid", "Svelte", "Vue"];
   const segmentGroup = useSegmentGroup();
 

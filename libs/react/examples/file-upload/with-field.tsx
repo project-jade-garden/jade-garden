@@ -1,15 +1,16 @@
 import { Field } from "@ark-ui/react/field";
 import { FileUpload } from "@ark-ui/react/file-upload";
-import { fieldStyledSlots as fieldMinimal, fileUploadStyledSlots as fileUploadMinimal } from "@spark-css/theme-minimal";
-import { fieldStyledSlots as fieldPark, fileUploadStyledSlots as fileUploadPark } from "@spark-css/theme-park";
-import { fieldStyledSlots as fieldShadcn, fileUploadStyledSlots as fileUploadShadcn } from "@spark-css/theme-shadcn";
+import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const fieldStyledSlots = getTheme({ minimal: fieldMinimal, park: fieldPark, shadcn: fieldShadcn }, props.theme);
   const fileUploadStyledSlots = getTheme(
-    { minimal: fileUploadMinimal, park: fileUploadPark, shadcn: fileUploadShadcn },
+    { minimal: minimal.fileUploadStyledSlots, park: park.fileUploadStyledSlots, shadcn: shadcn.fileUploadStyledSlots },
+    props.theme
+  );
+  const fieldStyledSlots = getTheme(
+    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
     props.theme
   );
 
