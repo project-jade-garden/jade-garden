@@ -1,27 +1,34 @@
 {
-  "name": "vue-examples",
+  "name": "@spark-css/example-vue",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "biome lint ./src",
-    "storybook": "histoire dev",
-    "typecheck": "tsc"
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/vue": "4.8.0",
-    "@histoire/plugin-vue": "0.17.17",
+    "@ark-ui/vue": "4.9.0",
     "@spark-css/themes": "workspace:*",
-    "@vitejs/plugin-vue": "5.2.1",
     "autoprefixer": "10.4.20",
     "clsx": "2.1.1",
-    "es-toolkit": "1.31.0",
-    "histoire": "0.17.17",
-    "tailwindcss": "3.4.16",
-    "typescript": "5.7.3",
-    "vite": "6.0.7",
     "vue": "3.5.13",
     "vue-tsc": "2.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "8.5.0",
+    "@storybook/addon-essentials": "8.5.0",
+    "@storybook/addon-themes": "8.5.0",
+    "@storybook/test": "8.5.0",
+    "@storybook/vue3": "8.5.0",
+    "@storybook/vue3-vite": "8.5.0",
+    "@vitejs/plugin-vue": "5.2.1",
+    "es-toolkit": "1.31.0",
+    "storybook": "8.5.0",
+    "tailwindcss": "3.4.16",
+    "typescript": "5.7.3",
+    "vite": "6.0.7"
   }
 }

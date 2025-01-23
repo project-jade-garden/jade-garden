@@ -42,7 +42,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "bun typecheck && vite build",
     "clean": "rm -rf .turbo dist node_modules",
     "format": "biome format --write ./src ./tests",
     "lint": "biome lint ./src ./tests",

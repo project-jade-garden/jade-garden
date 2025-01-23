@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/vue3";
 
 export type Theme = "minimal" | "park" | "shadcn";
 
