@@ -1,0 +1,35 @@
+{
+  "name": "solid-examples",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "biome format --write ./src",
+    "lint": "biome lint ./src",
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "4.9.0",
+    "@modular-forms/solid": "0.25.0",
+    "@spark-css/themes": "workspace:*",
+    "@storybook/addon-a11y": "8.4.7",
+    "@storybook/addon-essentials": "8.4.7",
+    "@storybook/addon-themes": "8.4.7",
+    "@storybook/docs-tools": "8.4.7",
+    "autoprefixer": "10.4.20",
+    "clsx": "2.1.1",
+    "es-toolkit": "1.31.0",
+    "lucide-solid": "0.468.0",
+    "solid-icons": "1.1.0",
+    "solid-js": "1.9.4",
+    "storybook": "8.4.7",
+    "storybook-solidjs": "1.0.0-beta.6",
+    "storybook-solidjs-vite": "1.0.0-beta.6",
+    "tailwindcss": "3.4.16",
+    "typescript": "5.7.3",
+    "vite": "6.0.7",
+    "vite-plugin-solid": "2.11.0",
+    "vite-tsconfig-paths": "5.1.4"
+  }
+}
