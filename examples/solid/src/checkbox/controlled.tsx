@@ -3,7 +3,7 @@ import { CheckIcon } from "lucide-solid";
 import { createSignal } from "solid-js";
 
 export const Controlled = () => {
-  const [checked, setChecked] = createSignal<Checkbox.CheckedState>(true);
+  const [checked, setChecked] = createSignal<typeof Checkbox.CheckedState>(true);
   return (
     <Checkbox.Root checked={checked()} onCheckedChange={(e) => setChecked(e.checked)}>
       <Checkbox.Label>Checkbox</Checkbox.Label>

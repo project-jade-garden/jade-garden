@@ -1,7 +1,7 @@
 import { Avatar } from "@ark-ui/solid/avatar";
 
 export const Events = () => {
-  const handleStatusChange = (details: Avatar.StatusChangeDetails) => {
+  const handleStatusChange = (details: typeof Avatar.StatusChangeDetails) => {
     console.log(details.status);
   };
 

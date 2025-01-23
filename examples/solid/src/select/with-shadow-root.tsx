@@ -6,6 +6,8 @@ export const WithShadowRoot = () => {
   let portalNode: (HTMLDivElement & { shadowRoot: ShadowRoot }) | undefined;
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });
 
+  if (!portalNode) return <></>;
+
   return (
     <Portal ref={portalNode} useShadow={true}>
       <EnvironmentProvider value={() => portalNode?.shadowRoot ?? document}>

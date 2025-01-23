@@ -3,7 +3,7 @@ import { createSignal } from "solid-js";
 import { Index, Portal } from "solid-js/web";
 
 export const Controlled = () => {
-  const [value, setValue] = createSignal<DatePicker.DateValue[]>([parseDate("2022-01-01")]);
+  const [value, setValue] = createSignal<(typeof DatePicker.DateValue)[]>([parseDate("2022-01-01")]);
 
   return (
     <DatePicker.Root value={value()} onValueChange={(e) => setValue(e.value)}>
