@@ -1,5 +1,7 @@
+import { copyFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { globbySync } from "globby";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
@@ -56,7 +58,12 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      tsconfigPath: resolve(__dirname, "tsconfig.json")
+      tsconfigPath: resolve(__dirname, "tsconfig.json"),
+      afterBuild: () => {
+        globbySync("dist/**.d.ts").map((file) => {
+          copyFileSync(file, file.replace(/\.d\.ts$/, ".d.cts"));
+        });
+      }
     })
   ]
 });

@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "lefthook install",
     "fresh": "bun clean && bun i && bun run build",
-    "build": "bun utils build && bun core build",
+    "build": "bun pkg:utils build && bun pkg:core build",
     "example:react": "bun run --cwd examples/react",
     "example:solid": "bun run --cwd examples/solid",
     "example:svelte": "bun run --cwd examples/svelte",

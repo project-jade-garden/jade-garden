@@ -10,32 +10,48 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "source": "./src/index.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./anatomy": {
-      "import": "./dist/anatomy.js",
-      "require": "./dist/anatomy.cjs",
-      "types": "./dist/anatomy.d.ts"
+      "source": "./src/anatomy.ts",
+      "import": {
+        "types": "./dist/anatomy.d.ts",
+        "default": "./dist/anatomy.js"
+      },
+      "require": {
+        "types": "./dist/anatomy.d.cts",
+        "default": "./dist/anatomy.cjs"
+      }
     },
     "./create-docs": {
-      "import": "./dist/create-docs.js",
-      "require": "./dist/create-docs.cjs",
-      "types": "./dist/create-docs.d.ts"
+      "source": "./src/create-docs.ts",
+      "import": {
+        "types": "./dist/create-docs.d.ts",
+        "default": "./dist/create-docs.js"
+      },
+      "require": {
+        "types": "./dist/create-docs.d.cts",
+        "default": "./dist/create-docs.cjs"
+      }
     },
     "./create-slots": {
-      "import": "./dist/create-slots.js",
-      "require": "./dist/create-slots.cjs",
-      "types": "./dist/create-slots.d.ts"
-    }
-  },
-  "typesVersions": {
-    ">4.0": {
-      ".": ["./dist/index.d.ts"],
-      "anatomy": ["./dist/anatomy.d.ts"],
-      "create-docs": ["./dist/create-docs.d.ts"],
-      "create-slots": ["./dist/create-slots.d.ts"]
+      "source": "./src/create-slots.ts",
+      "import": {
+        "types": "./dist/create-slots.d.ts",
+        "default": "./dist/create-slots.js"
+      },
+      "require": {
+        "types": "./dist/create-slots.d.cts",
+        "default": "./dist/create-slots.cjs"
+      }
     }
   },
   "publishConfig": {
@@ -56,6 +72,7 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
+    "globby": "14.0.2",
     "vite": "6.0.11",
     "vite-plugin-dts": "4.5.0"
   },
