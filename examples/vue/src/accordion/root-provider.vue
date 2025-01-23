@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Accordion, useAccordion } from "@ark-ui/vue/accordion";
+import { ChevronDown } from "lucide-vue-next";
 import { ref } from "vue";
-import { default as ChevronDownIcon } from "../icons/chevron-down.vue";
 
 const items = ref(["React", "Solid", "Vue"]);
 
@@ -16,10 +16,13 @@ const accordion = useAccordion({ defaultValue: ["React"] });
       <Accordion.ItemTrigger>
         What is {{ item }}?
         <Accordion.ItemIndicator>
-          <ChevronDownIcon />
+          <ChevronDown />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
-      <Accordion.ItemContent>{{ item }} is a JavaScript library for building user interfaces.</Accordion.ItemContent>
+      <Accordion.ItemContent
+        >{{ item }} is a JavaScript library for building user
+        interfaces.</Accordion.ItemContent
+      >
     </Accordion.Item>
   </Accordion.RootProvider>
 </template>

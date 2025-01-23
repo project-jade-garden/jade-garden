@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Checkbox } from "@ark-ui/vue/checkbox";
 import { Field } from "@ark-ui/vue/field";
-import { default as CheckIcon } from "../icons/check.vue";
+import { Check } from "lucide-vue-next";
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import { default as CheckIcon } from "../icons/check.vue";
       <Checkbox.Label>Label</Checkbox.Label>
       <Checkbox.Control>
         <Checkbox.Indicator>
-          <CheckIcon />
+          <Check />
         </Checkbox.Indicator>
         <Checkbox.Indicator indeterminate>
           <MinusIcon />

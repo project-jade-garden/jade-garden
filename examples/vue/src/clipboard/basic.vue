@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Clipboard } from "@ark-ui/vue/clipboard";
-import { default as CheckIcon } from "../icons/check.vue";
-import { default as ClipboardCopyIcon } from "../icons/clipboard-copy.vue";
+import { Check, ClipboardCopy } from "lucide-vue-next";
 </script>
 
 <template>
@@ -11,9 +10,9 @@ import { default as ClipboardCopyIcon } from "../icons/clipboard-copy.vue";
       <Clipboard.Input />
       <Clipboard.Trigger>
         <Clipboard.Indicator>
-          <ClipboardCopyIcon />
+          <ClipboardCopy />
           <template #copied>
-            <CheckIcon />
+            <Check />
           </template>
         </Clipboard.Indicator>
       </Clipboard.Trigger>

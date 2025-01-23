@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { Select, createListCollection } from "@ark-ui/vue/select";
-import { default as ChevronDownIcon } from "../icons/chevron-down.vue";
+import { ChevronDown } from "lucide-vue-next";
 
 const collection = createListCollection({
   items: [
     { label: "React", value: "react" },
     { label: "Solid", value: "solid" },
     { label: "Vue", value: "vue" },
-    { label: "Svelte", value: "svelte", disabled: true }
-  ]
+    { label: "Svelte", value: "svelte", disabled: true },
+  ],
 });
 </script>
 
@@ -19,7 +19,7 @@ const collection = createListCollection({
       <Select.Trigger>
         <Select.ValueText placeholder="Select a Framework" />
         <Select.Indicator>
-          <ChevronDownIcon />
+          <ChevronDown />
         </Select.Indicator>
       </Select.Trigger>
       <Select.ClearTrigger>Clear</Select.ClearTrigger>
@@ -29,7 +29,11 @@ const collection = createListCollection({
         <Select.Content>
           <Select.ItemGroup>
             <Select.ItemGroupLabel>Frameworks</Select.ItemGroupLabel>
-            <Select.Item v-for="item in collection.items" :key="item.value" :item="item">
+            <Select.Item
+              v-for="item in collection.items"
+              :key="item.value"
+              :item="item"
+            >
               <Select.ItemText>{{ item.label }}</Select.ItemText>
               <Select.ItemIndicator>✓</Select.ItemIndicator>
             </Select.Item>

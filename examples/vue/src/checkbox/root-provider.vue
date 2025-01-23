@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Checkbox, useCheckbox } from "@ark-ui/vue/checkbox";
-import { default as CheckIcon } from "../icons/check.vue";
+import { Check } from "lucide-vue-next";
 
 const checkbox = useCheckbox();
 </script>
@@ -12,7 +12,7 @@ const checkbox = useCheckbox();
     <Checkbox.Label>Checkbox</Checkbox.Label>
     <Checkbox.Control>
       <Checkbox.Indicator>
-        <CheckIcon />
+        <Check />
       </Checkbox.Indicator>
     </Checkbox.Control>
     <Checkbox.HiddenInput />

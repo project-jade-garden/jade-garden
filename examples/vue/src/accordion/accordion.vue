@@ -7,7 +7,7 @@ import {
 } from "@ark-ui/vue/accordion";
 import { minimal, park, shadcn } from "@spark-css/themes";
 import { clsx } from "clsx";
-import { default as ChevronDownIcon } from "../icons/chevron-down.vue";
+import { ChevronDown } from "lucide-vue-next";
 import { type Theme, getTheme } from "../utils";
 
 export interface AccordionProps extends AccordionRootProps {
@@ -40,7 +40,7 @@ const styledSlots = getTheme(
       <Accordion.ItemTrigger :class="clsx(styledSlots.itemTrigger)">
         What is {{ item }}?
         <Accordion.ItemIndicator :class="clsx(styledSlots.itemIndicator)">
-          <ChevronDownIcon />
+          <ChevronDown />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent :class="clsx(styledSlots.itemContent)"
