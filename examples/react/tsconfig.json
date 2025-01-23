@@ -3,8 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
-    "jsxImportSource": "react",
-    "moduleResolution": "bundler"
+    "jsxImportSource": "react"
   },
+  "exclude": ["node_modules", "dist"],
   "include": ["src"]
 }

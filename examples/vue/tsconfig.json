@@ -4,7 +4,6 @@
     "baseUrl": ".",
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "moduleResolution": "bundler",
     "noPropertyAccessFromIndexSignature": false
   },
   "exclude": ["node_modules", "dist"],
