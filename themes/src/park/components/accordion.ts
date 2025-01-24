@@ -3,7 +3,7 @@ import {
   type AccordionSlots,
   // createAccordionDocs,
   createAccordionSlots
-} from "@spark-css/core";
+} from "@spark-css/core/accordion";
 
 /**
  * **Accordion**

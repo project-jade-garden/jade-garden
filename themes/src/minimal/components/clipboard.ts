@@ -2,7 +2,7 @@ import {
   type ClipboardSlots,
   // createClipboardDocs,
   createClipboardSlots
-} from "@spark-css/core";
+} from "@spark-css/core/clipboard";
 
 /**
  * **Clipboard**

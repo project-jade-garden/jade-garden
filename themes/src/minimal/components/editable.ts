@@ -2,7 +2,7 @@ import {
   type EditableSlots,
   // createEditableDocs,
   createEditableSlots
-} from "@spark-css/core";
+} from "@spark-css/core/editable";
 
 /**
  * **Editable**

@@ -3,7 +3,7 @@ import {
   type RadioGroupSlots,
   // createRadioGroupDocs,
   createRadioGroupSlots
-} from "@spark-css/core";
+} from "@spark-css/core/radio-group";
 
 /**
  * **Radio Group**

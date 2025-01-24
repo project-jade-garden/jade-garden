@@ -3,7 +3,7 @@ import {
   type ToastSlots,
   // createToastDocs,
   createToastSlots
-} from "@spark-css/core";
+} from "@spark-css/core/toast";
 
 /**
  * **Toast**

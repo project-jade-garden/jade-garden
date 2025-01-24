@@ -3,7 +3,7 @@ import {
   type TreeViewSlots,
   // createTreeViewDocs,
   createTreeViewSlots
-} from "@spark-css/core";
+} from "@spark-css/core/tree-view";
 
 /**
  * **Tree View**

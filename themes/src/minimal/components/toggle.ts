@@ -2,7 +2,7 @@ import {
   type ToggleSlots,
   // createToggleDocs,
   createToggleSlots
-} from "@spark-css/core";
+} from "@spark-css/core/toggle";
 
 /**
  * **Toggle**

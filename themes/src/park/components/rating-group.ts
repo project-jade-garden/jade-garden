@@ -3,7 +3,7 @@ import {
   type RatingGroupSlots,
   // createRatingGroupDocs,
   createRatingGroupSlots
-} from "@spark-css/core";
+} from "@spark-css/core/rating-group";
 
 /**
  * **Rating Group**

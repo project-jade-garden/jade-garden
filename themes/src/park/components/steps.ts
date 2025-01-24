@@ -3,7 +3,7 @@ import {
   type StepsSlots,
   // createStepsDocs,
   createStepsSlots
-} from "@spark-css/core";
+} from "@spark-css/core/steps";
 
 /**
  * **Steps**

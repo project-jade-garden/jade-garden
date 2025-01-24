@@ -2,7 +2,7 @@ import {
   type QrCodeSlots,
   // createQrCodeDocs,
   createQrCodeSlots
-} from "@spark-css/core";
+} from "@spark-css/core/qr-code";
 
 /**
  * **Qr Code**

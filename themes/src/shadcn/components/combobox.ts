@@ -3,7 +3,7 @@ import {
   type ComboboxSlots,
   // createComboboxDocs,
   createComboboxSlots
-} from "@spark-css/core";
+} from "@spark-css/core/combobox";
 
 /**
  * **Combobox**

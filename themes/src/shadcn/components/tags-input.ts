@@ -3,7 +3,7 @@ import {
   type TagsInputSlots,
   // createTagsInputDocs,
   createTagsInputSlots
-} from "@spark-css/core";
+} from "@spark-css/core/tags-input";
 
 /**
  * **Tags Input**

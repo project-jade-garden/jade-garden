@@ -3,7 +3,7 @@ import {
   type SplitterSlots,
   // createSplitterDocs,
   createSplitterSlots
-} from "@spark-css/core";
+} from "@spark-css/core/splitter";
 
 /**
  * **Splitter**

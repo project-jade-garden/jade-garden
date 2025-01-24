@@ -2,7 +2,7 @@ import {
   type ColorPickerSlots,
   // createColorPickerDocs,
   createColorPickerSlots
-} from "@spark-css/core";
+} from "@spark-css/core/color-picker";
 
 /**
  * **Color Picker**

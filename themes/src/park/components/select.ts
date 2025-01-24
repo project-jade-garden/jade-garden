@@ -3,7 +3,7 @@ import {
   type SelectSlots,
   // createSelectDocs,
   createSelectSlots
-} from "@spark-css/core";
+} from "@spark-css/core/select";
 
 /**
  * **Select**

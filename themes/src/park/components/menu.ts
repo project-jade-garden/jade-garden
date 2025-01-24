@@ -3,7 +3,7 @@ import {
   type MenuSlots,
   // createMenuDocs,
   createMenuSlots
-} from "@spark-css/core";
+} from "@spark-css/core/menu";
 
 /**
  * **Menu**

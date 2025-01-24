@@ -2,7 +2,7 @@ import {
   type SignaturePadSlots,
   // createSignaturePadDocs,
   createSignaturePadSlots
-} from "@spark-css/core";
+} from "@spark-css/core/signature-pad";
 
 /**
  * **Signature Pad**

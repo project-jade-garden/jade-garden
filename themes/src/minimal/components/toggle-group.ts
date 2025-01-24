@@ -2,7 +2,7 @@ import {
   type ToggleGroupSlots,
   // createToggleGroupDocs,
   createToggleGroupSlots
-} from "@spark-css/core";
+} from "@spark-css/core/toggle-group";
 
 /**
  * **Toggle Group**

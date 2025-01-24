@@ -3,7 +3,7 @@ import {
   type CheckboxSlots,
   // createCheckboxDocs,
   createCheckboxSlots
-} from "@spark-css/core";
+} from "@spark-css/core/checkbox";
 
 /**
  * **Checkbox**

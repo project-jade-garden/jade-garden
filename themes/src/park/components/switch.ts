@@ -3,7 +3,7 @@ import {
   type SwitchSlots,
   // createSwitchDocs,
   createSwitchSlots
-} from "@spark-css/core";
+} from "@spark-css/core/switch";
 
 /**
  * **Switch**

@@ -2,7 +2,7 @@ import {
   type FileUploadSlots,
   // createFileUploadDocs,
   createFileUploadSlots
-} from "@spark-css/core";
+} from "@spark-css/core/file-upload";
 
 /**
  * **File Upload**

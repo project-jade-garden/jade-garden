@@ -3,7 +3,7 @@ import {
   type SegmentGroupSlots,
   // createSegmentGroupDocs,
   createSegmentGroupSlots
-} from "@spark-css/core";
+} from "@spark-css/core/segment-group";
 
 /**
  * **Segment Group**

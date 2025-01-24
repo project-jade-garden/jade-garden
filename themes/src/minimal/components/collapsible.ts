@@ -2,7 +2,7 @@ import {
   type CollapsibleSlots,
   // createCollapsibleDocs,
   createCollapsibleSlots
-} from "@spark-css/core";
+} from "@spark-css/core/collapsible";
 
 /**
  * **Collapsible**

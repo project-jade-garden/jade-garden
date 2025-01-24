@@ -3,7 +3,7 @@ import {
   type FieldSlots,
   // createFieldDocs,
   createFieldSlots
-} from "@spark-css/core";
+} from "@spark-css/core/field";
 
 /**
  * **Field**

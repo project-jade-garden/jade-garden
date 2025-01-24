@@ -2,7 +2,7 @@ import {
   type TabsSlots,
   // createTabsDocs,
   createTabsSlots
-} from "@spark-css/core";
+} from "@spark-css/core/tabs";
 
 /**
  * **Tabs**

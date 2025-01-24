@@ -2,7 +2,7 @@ import {
   type SliderSlots,
   // createSliderDocs,
   createSliderSlots
-} from "@spark-css/core";
+} from "@spark-css/core/slider";
 
 /**
  * **Slider**

@@ -3,7 +3,7 @@ import {
   type PinInputSlots,
   // createPinInputDocs,
   createPinInputSlots
-} from "@spark-css/core";
+} from "@spark-css/core/pin-input";
 
 /**
  * **Pin Input**

@@ -2,7 +2,7 @@ import {
   type CarouselSlots,
   // createCarouselDocs,
   createCarouselSlots
-} from "@spark-css/core";
+} from "@spark-css/core/carousel";
 
 /**
  * **Carousel**

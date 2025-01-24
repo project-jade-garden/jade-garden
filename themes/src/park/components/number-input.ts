@@ -3,7 +3,7 @@ import {
   type NumberInputSlots,
   // createNumberInputDocs,
   createNumberInputSlots
-} from "@spark-css/core";
+} from "@spark-css/core/number-input";
 
 /**
  * **Number Input**

@@ -3,7 +3,7 @@ import {
   type TimerSlots,
   // createTimerDocs,
   createTimerSlots
-} from "@spark-css/core";
+} from "@spark-css/core/timer";
 
 /**
  * **Timer**

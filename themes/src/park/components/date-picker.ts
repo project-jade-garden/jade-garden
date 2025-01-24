@@ -3,7 +3,7 @@ import {
   type DatePickerSlots,
   // createDatePickerDocs,
   createDatePickerSlots
-} from "@spark-css/core";
+} from "@spark-css/core/date-picker";
 
 /**
  * **Date Picker**

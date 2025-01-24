@@ -3,7 +3,7 @@ import {
   type TooltipSlots,
   // createTooltipDocs,
   createTooltipSlots
-} from "@spark-css/core";
+} from "@spark-css/core/tooltip";
 
 /**
  * **Tooltip**

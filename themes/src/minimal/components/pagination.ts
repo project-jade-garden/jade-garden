@@ -2,7 +2,7 @@ import {
   type PaginationSlots,
   // createPaginationDocs,
   createPaginationSlots
-} from "@spark-css/core";
+} from "@spark-css/core/pagination";
 
 /**
  * **Pagination**

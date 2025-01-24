@@ -2,7 +2,7 @@ import {
   type DialogSlots,
   // createDialogDocs,
   createDialogSlots
-} from "@spark-css/core";
+} from "@spark-css/core/dialog";
 
 /**
  * **Dialog**

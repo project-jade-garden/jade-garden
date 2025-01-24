@@ -2,7 +2,7 @@ import {
   type PopoverSlots,
   // createPopoverDocs,
   createPopoverSlots
-} from "@spark-css/core";
+} from "@spark-css/core/popover";
 
 /**
  * **Popover**

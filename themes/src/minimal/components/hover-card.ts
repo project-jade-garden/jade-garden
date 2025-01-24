@@ -2,7 +2,7 @@ import {
   type HoverCardSlots,
   // createHoverCardDocs,
   createHoverCardSlots
-} from "@spark-css/core";
+} from "@spark-css/core/hover-card";
 
 /**
  * **Hover Card**

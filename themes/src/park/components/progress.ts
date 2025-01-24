@@ -3,7 +3,7 @@ import {
   type ProgressSlots,
   // createProgressDocs,
   createProgressSlots
-} from "@spark-css/core";
+} from "@spark-css/core/progress";
 
 /**
  * **Progress**

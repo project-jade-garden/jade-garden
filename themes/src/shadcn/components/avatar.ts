@@ -3,7 +3,7 @@ import {
   type AvatarSlots,
   // createAvatarDocs,
   createAvatarSlots
-} from "@spark-css/core";
+} from "@spark-css/core/avatar";
 
 /**
  * **Avatar**

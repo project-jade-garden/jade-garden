@@ -3,7 +3,7 @@ import {
   type FieldsetSlots,
   // createFieldsetDocs,
   createFieldsetSlots
-} from "@spark-css/core";
+} from "@spark-css/core/fieldset";
 
 /**
  * **Fieldset**
