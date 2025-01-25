@@ -29,86 +29,86 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-full",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-1",
-    "flex-col"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "font-medium"
-  ],
-  thumb: [
-    slots.thumb,
-    // Backgrounds
-    "bg-bg-default",
-    // Borders
-    "rounded-full",
-    "border-2",
-    "border-[--colors-color-palette-default]",
-    // Effects
-    "shadow-sm",
-    // Layout
-    "outline-none",
-    "z-[1]"
-  ],
-  valueText: slots.valueText,
-  track: [
-    slots.track,
-    // Backgrounds
-    "bg-bg-emphasized",
-    // Borders
-    "rounded-full",
-    // Layout
-    "overflow-hidden",
-    // Flexbox & Grid
-    "flex-1"
-  ],
-  range: [
-    slots.range,
-    // Backgrounds
-    "bg-[--colors-color-palette-default]"
-  ],
-  control: [
-    slots.control,
-    // Layout
-    "flex",
-    "relative",
-    // Flexbox & Grid
-    "items-center"
-  ],
-  markerGroup: [
-    slots.markerGroup,
-    // Spacing
-    "-mt-1"
-  ],
-  marker: [
-    slots.marker,
-    // Background
-    "before:bg-white",
-    "[&:is([data-state=under-value])]:before:bg-white",
-    "dark:[&:is([data-state=under-value])]:before:bg-[--colors-color-palette-fg]",
-    // Borders
-    "before:rounded-full",
-    // Layout
-    "block",
-    "relative",
-    "left-1/2",
-    // Transforms
-    "-translate-x-1/2",
-    // Typography
-    "text-fg-muted",
-    "before:content-['']"
-  ],
-  draggingIndicator: slots.draggingIndicator
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-full",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-1",
+        "flex-col"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "font-medium"
+    ],
+    thumb: [
+        slots.thumb,
+        // Backgrounds
+        "bg-bg-default",
+        // Borders
+        "rounded-full",
+        "border-2",
+        "border-[--colors-color-palette-default]",
+        // Effects
+        "shadow-sm",
+        // Layout
+        "outline-none",
+        "z-[1]"
+    ],
+    valueText: slots.valueText,
+    track: [
+        slots.track,
+        // Backgrounds
+        "bg-bg-emphasized",
+        // Borders
+        "rounded-full",
+        // Layout
+        "overflow-hidden",
+        // Flexbox & Grid
+        "flex-1"
+    ],
+    range: [
+        slots.range,
+        // Backgrounds
+        "bg-[--colors-color-palette-default]"
+    ],
+    control: [
+        slots.control,
+        // Layout
+        "flex",
+        "relative",
+        // Flexbox & Grid
+        "items-center"
+    ],
+    markerGroup: [
+        slots.markerGroup,
+        // Spacing
+        "-mt-1"
+    ],
+    marker: [
+        slots.marker,
+        // Background
+        "before:bg-white",
+        "[&:is([data-state=under-value])]:before:bg-white",
+        "dark:[&:is([data-state=under-value])]:before:bg-[--colors-color-palette-fg]",
+        // Borders
+        "before:rounded-full",
+        // Layout
+        "block",
+        "relative",
+        "left-1/2",
+        // Transforms
+        "-translate-x-1/2",
+        // Typography
+        "text-fg-muted",
+        "before:content-['']"
+    ],
+    draggingIndicator: slots.draggingIndicator
 };
 /**
  * **Slider**

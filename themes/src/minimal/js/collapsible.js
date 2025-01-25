@@ -21,10 +21,10 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  trigger: slots.trigger,
-  content: slots.content
+    base: slots.base,
+    root: slots.root,
+    trigger: slots.trigger,
+    content: slots.content
 };
 /**
  * **Collapsible**

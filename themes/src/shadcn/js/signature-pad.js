@@ -26,62 +26,62 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-full",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-1.5",
-    "flex-col"
-  ],
-  control: [
-    slots.control,
-    // Sizing
-    "min-h-52",
-    "min-w-0",
-    // Backgrounds
-    "bg-bg-subtle",
-    // Borders
-    "rounded-l2",
-    "border",
-    // Layout
-    "relative"
-  ],
-  segment: [
-    slots.segment,
-    // SVG
-    "fill-fg-default"
-  ],
-  segmentPath: slots.segmentPath,
-  guide: [
-    slots.guide,
-    // Borders
-    "border-b",
-    "border-[--colors-gray-8]",
-    "border-dashed",
-    // Layout
-    "absolute",
-    "bottom-6",
-    "left-6",
-    "right-6"
-  ],
-  clearTrigger: [
-    slots.clearTrigger,
-    // Layout
-    "absolute",
-    "top-3",
-    "right-3"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-sm",
-    "text-fg-default",
-    "font-medium"
-  ]
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-full",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-1.5",
+        "flex-col"
+    ],
+    control: [
+        slots.control,
+        // Sizing
+        "min-h-52",
+        "min-w-0",
+        // Backgrounds
+        "bg-bg-subtle",
+        // Borders
+        "rounded-l2",
+        "border",
+        // Layout
+        "relative"
+    ],
+    segment: [
+        slots.segment,
+        // SVG
+        "fill-fg-default"
+    ],
+    segmentPath: slots.segmentPath,
+    guide: [
+        slots.guide,
+        // Borders
+        "border-b",
+        "border-[--colors-gray-8]",
+        "border-dashed",
+        // Layout
+        "absolute",
+        "bottom-6",
+        "left-6",
+        "right-6"
+    ],
+    clearTrigger: [
+        slots.clearTrigger,
+        // Layout
+        "absolute",
+        "top-3",
+        "right-3"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-sm",
+        "text-fg-default",
+        "font-medium"
+    ]
 };
 /**
  * **Signature Pad**

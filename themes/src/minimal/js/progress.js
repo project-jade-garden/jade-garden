@@ -30,16 +30,16 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  label: slots.label,
-  track: slots.track,
-  range: slots.range,
-  valueText: slots.valueText,
-  view: slots.view,
-  circle: slots.circle,
-  circleTrack: slots.circleTrack,
-  circleRange: slots.circleRange
+    base: slots.base,
+    root: slots.root,
+    label: slots.label,
+    track: slots.track,
+    range: slots.range,
+    valueText: slots.valueText,
+    view: slots.view,
+    circle: slots.circle,
+    circleTrack: slots.circleTrack,
+    circleRange: slots.circleRange
 };
 /**
  * **Progress**

@@ -28,17 +28,17 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  label: slots.label,
-  control: slots.control,
-  input: slots.input,
-  clearTrigger: slots.clearTrigger,
-  item: slots.item,
-  itemPreview: slots.itemPreview,
-  itemInput: slots.itemInput,
-  itemText: slots.itemText,
-  itemDeleteTrigger: slots.itemDeleteTrigger
+    base: slots.base,
+    root: slots.root,
+    label: slots.label,
+    control: slots.control,
+    input: slots.input,
+    clearTrigger: slots.clearTrigger,
+    item: slots.item,
+    itemPreview: slots.itemPreview,
+    itemInput: slots.itemInput,
+    itemText: slots.itemText,
+    itemDeleteTrigger: slots.itemDeleteTrigger
 };
 /**
  * **Tags Input**

@@ -27,108 +27,108 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-1.5",
-    "flex-col"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "font-medium"
-  ],
-  input: [
-    slots.input,
-    // Sizing
-    "w-full",
-    // Backgrounds
-    "bg-transparent",
-    // Borders
-    "border-none",
-    // Interactivity
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Layout
-    "outline-none",
-    // Flexbox & Grid
-    "row-span-2"
-  ],
-  control: [
-    slots.control,
-    // Borders
-    "border",
-    "rounded-l2",
-    "border-border-default",
-    "[&_>_:not([hidden])_~_:not([hidden])]:border-l",
-    "[&_>_:not([hidden])_~_:not([hidden])]:border-r-0",
-    "focus-within:border-[--colors-color-palette-default]",
-    // Effects
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:opacity-40",
-    "focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default]",
-    // Interactivity
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Layout
-    "grid",
-    "overflow-hidden",
-    // Flexbox & Grid
-    "grid-cols-[1fr_32px]",
-    "grid-rows-[1fr_1fr]",
-    // Transitions & Animation
-    "transition-[border-color,_box-shadow]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  valueText: slots.valueText,
-  incrementTrigger: [
-    slots.incrementTrigger,
-    // Sizing
-    "[&_:where(svg)]:size-4",
-    // Borders
-    "border-border-default",
-    // Interactivity
-    "cursor-pointer",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Layout
-    "inline-flex",
-    // Flexbox & Grid
-    "items-center",
-    "justify-center",
-    // Typography
-    "text-fg-muted",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    // Transitions & Animation
-    "transition-property:background,_border-color,_color,_box-shadow]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  decrementTrigger: [
-    slots.decrementTrigger,
-    // Sizing
-    "[&_:where(svg)]:size-4",
-    // Borders
-    "border-t",
-    "border-border-default",
-    // Interactivity
-    "cursor-pointer",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Layout
-    "inline-flex",
-    // Flexbox & Grid
-    "items-center",
-    "justify-center",
-    // Typography
-    "text-fg-muted",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    // Transitions & Animation
-    "transition-property:background,_border-color,_color,_box-shadow]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  scrubber: slots.scrubber
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-1.5",
+        "flex-col"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "font-medium"
+    ],
+    input: [
+        slots.input,
+        // Sizing
+        "w-full",
+        // Backgrounds
+        "bg-transparent",
+        // Borders
+        "border-none",
+        // Interactivity
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Layout
+        "outline-none",
+        // Flexbox & Grid
+        "row-span-2"
+    ],
+    control: [
+        slots.control,
+        // Borders
+        "border",
+        "rounded-l2",
+        "border-border-default",
+        "[&_>_:not([hidden])_~_:not([hidden])]:border-l",
+        "[&_>_:not([hidden])_~_:not([hidden])]:border-r-0",
+        "focus-within:border-[--colors-color-palette-default]",
+        // Effects
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:opacity-40",
+        "focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default]",
+        // Interactivity
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Layout
+        "grid",
+        "overflow-hidden",
+        // Flexbox & Grid
+        "grid-cols-[1fr_32px]",
+        "grid-rows-[1fr_1fr]",
+        // Transitions & Animation
+        "transition-[border-color,_box-shadow]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    valueText: slots.valueText,
+    incrementTrigger: [
+        slots.incrementTrigger,
+        // Sizing
+        "[&_:where(svg)]:size-4",
+        // Borders
+        "border-border-default",
+        // Interactivity
+        "cursor-pointer",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Layout
+        "inline-flex",
+        // Flexbox & Grid
+        "items-center",
+        "justify-center",
+        // Typography
+        "text-fg-muted",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        // Transitions & Animation
+        "transition-property:background,_border-color,_color,_box-shadow]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    decrementTrigger: [
+        slots.decrementTrigger,
+        // Sizing
+        "[&_:where(svg)]:size-4",
+        // Borders
+        "border-t",
+        "border-border-default",
+        // Interactivity
+        "cursor-pointer",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Layout
+        "inline-flex",
+        // Flexbox & Grid
+        "items-center",
+        "justify-center",
+        // Typography
+        "text-fg-muted",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        // Transitions & Animation
+        "transition-property:background,_border-color,_color,_box-shadow]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    scrubber: slots.scrubber
 };
 /**
  * **Number Input**

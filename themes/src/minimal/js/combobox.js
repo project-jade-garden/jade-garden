@@ -32,21 +32,21 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  clearTrigger: slots.clearTrigger,
-  content: slots.content,
-  control: slots.control,
-  input: slots.input,
-  item: slots.item,
-  itemGroup: slots.itemGroup,
-  itemGroupLabel: slots.itemGroupLabel,
-  itemIndicator: slots.itemIndicator,
-  itemText: slots.itemText,
-  label: slots.label,
-  list: slots.list,
-  positioner: slots.positioner,
-  trigger: slots.trigger
+    base: slots.base,
+    root: slots.root,
+    clearTrigger: slots.clearTrigger,
+    content: slots.content,
+    control: slots.control,
+    input: slots.input,
+    item: slots.item,
+    itemGroup: slots.itemGroup,
+    itemGroupLabel: slots.itemGroupLabel,
+    itemIndicator: slots.itemIndicator,
+    itemText: slots.itemText,
+    label: slots.label,
+    list: slots.list,
+    positioner: slots.positioner,
+    trigger: slots.trigger
 };
 /**
  * **Combobox**

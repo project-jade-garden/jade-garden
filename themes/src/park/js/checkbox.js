@@ -24,51 +24,51 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "items-center"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "font-medium"
-  ],
-  control: [
-    slots.control,
-    // Backgrounds
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default]",
-    "[&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:bg-[--colors-color-palette-default]",
-    // Borders
-    "border",
-    "border-border-default",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default]",
-    "[&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:border-[--colors-color-palette-default]",
-    "has-[+_:focus-visible]:outline",
-    "has-[+_:focus-visible]:outline-2",
-    "has-[+_:focus-visible]:outline-offset-2",
-    "has-[+_:focus-visible]:outline-border-outline",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:has-[+_:focus-visible]:outline-[--colors-color-palette-default]",
-    // Interactivity
-    "cursor-pointer",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "items-center",
-    "justify-center",
-    // Typography
-    "text-color-palette-fg",
-    // Transitions & Animation
-    "transition-[border-color,_background]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  indicator: slots.indicator,
-  group: slots.group
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "items-center"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "font-medium"
+    ],
+    control: [
+        slots.control,
+        // Backgrounds
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default]",
+        "[&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:bg-[--colors-color-palette-default]",
+        // Borders
+        "border",
+        "border-border-default",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default]",
+        "[&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:border-[--colors-color-palette-default]",
+        "has-[+_:focus-visible]:outline",
+        "has-[+_:focus-visible]:outline-2",
+        "has-[+_:focus-visible]:outline-offset-2",
+        "has-[+_:focus-visible]:outline-border-outline",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:has-[+_:focus-visible]:outline-[--colors-color-palette-default]",
+        // Interactivity
+        "cursor-pointer",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "items-center",
+        "justify-center",
+        // Typography
+        "text-color-palette-fg",
+        // Transitions & Animation
+        "transition-[border-color,_background]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    indicator: slots.indicator,
+    group: slots.group
 };
 /**
  * **Checkbox**

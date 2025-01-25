@@ -23,12 +23,12 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  arrow: slots.arrow,
-  arrowTip: slots.arrowTip,
-  trigger: slots.trigger,
-  positioner: slots.positioner,
-  content: slots.content
+    base: slots.base,
+    arrow: slots.arrow,
+    arrowTip: slots.arrowTip,
+    trigger: slots.trigger,
+    positioner: slots.positioner,
+    content: slots.content
 };
 /**
  * **Hover Card**

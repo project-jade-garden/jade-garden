@@ -27,15 +27,15 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  area: slots.area,
-  control: slots.control,
-  item: slots.item,
-  itemValue: slots.itemValue,
-  itemLabel: slots.itemLabel,
-  actionTrigger: slots.actionTrigger,
-  separator: slots.separator
+    base: slots.base,
+    root: slots.root,
+    area: slots.area,
+    control: slots.control,
+    item: slots.item,
+    itemValue: slots.itemValue,
+    itemLabel: slots.itemLabel,
+    actionTrigger: slots.actionTrigger,
+    separator: slots.separator
 };
 /**
  * **Timer**

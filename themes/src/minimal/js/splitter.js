@@ -21,10 +21,10 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  panel: slots.panel,
-  resizeTrigger: slots.resizeTrigger
+    base: slots.base,
+    root: slots.root,
+    panel: slots.panel,
+    resizeTrigger: slots.resizeTrigger
 };
 /**
  * **Splitter**

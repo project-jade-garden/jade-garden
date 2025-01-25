@@ -23,12 +23,12 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  frame: slots.frame,
-  pattern: slots.pattern,
-  overlay: slots.overlay,
-  downloadTrigger: slots.downloadTrigger
+    base: slots.base,
+    root: slots.root,
+    frame: slots.frame,
+    pattern: slots.pattern,
+    overlay: slots.overlay,
+    downloadTrigger: slots.downloadTrigger
 };
 /**
  * **Qr Code**

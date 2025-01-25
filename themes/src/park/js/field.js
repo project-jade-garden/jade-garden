@@ -27,46 +27,46 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-1.5",
-    "flex-col"
-  ],
-  errorText: [
-    slots.errorText,
-    // Layout
-    "inline-flex",
-    // Flexbox & Grid
-    "gap-2",
-    "items-center",
-    // Typography
-    "text-fg-error",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    "text-sm"
-  ],
-  helperText: [
-    slots.helperText,
-    // Typography
-    "text-fg-muted",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    "text-sm"
-  ],
-  input: slots.input,
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    "text-sm",
-    "font-medium"
-  ],
-  select: slots.select,
-  textarea: slots.textarea,
-  requiredIndicator: slots.requiredIndicator
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-1.5",
+        "flex-col"
+    ],
+    errorText: [
+        slots.errorText,
+        // Layout
+        "inline-flex",
+        // Flexbox & Grid
+        "gap-2",
+        "items-center",
+        // Typography
+        "text-fg-error",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        "text-sm"
+    ],
+    helperText: [
+        slots.helperText,
+        // Typography
+        "text-fg-muted",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        "text-sm"
+    ],
+    input: slots.input,
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        "text-sm",
+        "font-medium"
+    ],
+    select: slots.select,
+    textarea: slots.textarea,
+    requiredIndicator: slots.requiredIndicator
 };
 /**
  * **Field**

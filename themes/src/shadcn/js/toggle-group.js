@@ -21,48 +21,48 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    "overflow-hidden",
-    "relative",
-    // Flexbox & Grid
-    "data-[orientation=vertical]:flex-col"
-  ],
-  item: [
-    slots.item,
-    // Sizing
-    "min-w-0",
-    // Backgrounds
-    "[&:is([data-state=on])]:bg-[--colors-gray-a3]",
-    // Borders
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:border-border-disabled",
-    // Interactivity
-    "appearance-none",
-    "cursor-pointer",
-    "select-none",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Layout
-    "inline-flex",
-    "relative",
-    "outline-none",
-    // Flexbox & Grid
-    "items-center",
-    "justify-center",
-    // Typography
-    "text-fg-subtle",
-    "[&:is([data-state=on])]:text-fg-default",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    "font-semibold",
-    "align-middle",
-    "whitespace-nowrap",
-    // Transitions & Animation
-    "transition-[background,_box-shadow,_border-color,_color]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ]
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        "overflow-hidden",
+        "relative",
+        // Flexbox & Grid
+        "data-[orientation=vertical]:flex-col"
+    ],
+    item: [
+        slots.item,
+        // Sizing
+        "min-w-0",
+        // Backgrounds
+        "[&:is([data-state=on])]:bg-[--colors-gray-a3]",
+        // Borders
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:border-border-disabled",
+        // Interactivity
+        "appearance-none",
+        "cursor-pointer",
+        "select-none",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Layout
+        "inline-flex",
+        "relative",
+        "outline-none",
+        // Flexbox & Grid
+        "items-center",
+        "justify-center",
+        // Typography
+        "text-fg-subtle",
+        "[&:is([data-state=on])]:text-fg-default",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        "font-semibold",
+        "align-middle",
+        "whitespace-nowrap",
+        // Transitions & Animation
+        "transition-[background,_box-shadow,_border-color,_color]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ]
 };
 /**
  * **Toggle Group**

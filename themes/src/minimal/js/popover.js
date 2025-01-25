@@ -28,17 +28,17 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  arrow: slots.arrow,
-  arrowTip: slots.arrowTip,
-  anchor: slots.anchor,
-  trigger: slots.trigger,
-  indicator: slots.indicator,
-  positioner: slots.positioner,
-  content: slots.content,
-  title: slots.title,
-  description: slots.description,
-  closeTrigger: slots.closeTrigger
+    base: slots.base,
+    arrow: slots.arrow,
+    arrowTip: slots.arrowTip,
+    anchor: slots.anchor,
+    trigger: slots.trigger,
+    indicator: slots.indicator,
+    positioner: slots.positioner,
+    content: slots.content,
+    title: slots.title,
+    description: slots.description,
+    closeTrigger: slots.closeTrigger
 };
 /**
  * **Popover**

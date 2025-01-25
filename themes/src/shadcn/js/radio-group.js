@@ -25,55 +25,55 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "data-[orientation=horizontal]:flex-row",
-    "data-[orientation=vertical]:flex-col"
-  ],
-  label: slots.label,
-  item: [
-    slots.item,
-    // Interactivity
-    "cursor-pointer",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "items-center"
-  ],
-  itemText: [
-    slots.itemText,
-    // Typography
-    "text-fg-default",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    "font-medium"
-  ],
-  itemControl: [
-    slots.itemControl,
-    // Backgrounds
-    "bg-transparent",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default]",
-    // Borders
-    "rounded-full",
-    "border",
-    "border-border-default",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:border-border-disabled",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default]",
-    // Layout
-    "outline",
-    "outline-bg-default",
-    // Typography
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    // Transitions & Animation
-    "transition-[background]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  indicator: slots.indicator
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "data-[orientation=horizontal]:flex-row",
+        "data-[orientation=vertical]:flex-col"
+    ],
+    label: slots.label,
+    item: [
+        slots.item,
+        // Interactivity
+        "cursor-pointer",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "items-center"
+    ],
+    itemText: [
+        slots.itemText,
+        // Typography
+        "text-fg-default",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        "font-medium"
+    ],
+    itemControl: [
+        slots.itemControl,
+        // Backgrounds
+        "bg-transparent",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default]",
+        // Borders
+        "rounded-full",
+        "border",
+        "border-border-default",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:border-border-disabled",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default]",
+        // Layout
+        "outline",
+        "outline-bg-default",
+        // Typography
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        // Transitions & Animation
+        "transition-[background]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    indicator: slots.indicator
 };
 /**
  * **Radio Group**

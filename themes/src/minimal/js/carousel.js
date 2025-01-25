@@ -27,16 +27,16 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  itemGroup: slots.itemGroup,
-  item: slots.item,
-  control: slots.control,
-  nextTrigger: slots.nextTrigger,
-  prevTrigger: slots.prevTrigger,
-  indicatorGroup: slots.indicatorGroup,
-  indicator: slots.indicator,
-  autoplayTrigger: slots.autoplayTrigger
+    base: slots.base,
+    root: slots.root,
+    itemGroup: slots.itemGroup,
+    item: slots.item,
+    control: slots.control,
+    nextTrigger: slots.nextTrigger,
+    prevTrigger: slots.prevTrigger,
+    indicatorGroup: slots.indicatorGroup,
+    indicator: slots.indicator,
+    autoplayTrigger: slots.autoplayTrigger
 };
 /**
  * **Carousel**

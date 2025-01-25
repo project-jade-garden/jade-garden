@@ -24,36 +24,36 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-fit"
-  ],
-  frame: [
-    slots.frame,
-    // Sizing
-    "size-32",
-    // Backgrounds
-    "bg-white"
-  ],
-  pattern: [
-    slots.pattern,
-    // SVG
-    "fill-black"
-  ],
-  overlay: [
-    slots.overlay,
-    // Sizing
-    "size-9",
-    // Borders
-    "rounded-full",
-    // Layout
-    "outline",
-    "outline-2",
-    "outline-white"
-  ],
-  downloadTrigger: slots.downloadTrigger
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-fit"
+    ],
+    frame: [
+        slots.frame,
+        // Sizing
+        "size-32",
+        // Backgrounds
+        "bg-white"
+    ],
+    pattern: [
+        slots.pattern,
+        // SVG
+        "fill-black"
+    ],
+    overlay: [
+        slots.overlay,
+        // Sizing
+        "size-9",
+        // Borders
+        "rounded-full",
+        // Layout
+        "outline",
+        "outline-2",
+        "outline-white"
+    ],
+    downloadTrigger: slots.downloadTrigger
 };
 /**
  * **Qr Code**

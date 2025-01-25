@@ -26,15 +26,15 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  label: slots.label,
-  input: slots.input,
-  control: slots.control,
-  valueText: slots.valueText,
-  incrementTrigger: slots.incrementTrigger,
-  decrementTrigger: slots.decrementTrigger,
-  scrubber: slots.scrubber
+    base: slots.base,
+    root: slots.root,
+    label: slots.label,
+    input: slots.input,
+    control: slots.control,
+    valueText: slots.valueText,
+    incrementTrigger: slots.incrementTrigger,
+    decrementTrigger: slots.decrementTrigger,
+    scrubber: slots.scrubber
 };
 /**
  * **Number Input**

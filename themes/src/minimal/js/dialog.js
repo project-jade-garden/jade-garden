@@ -25,14 +25,14 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  trigger: slots.trigger,
-  backdrop: slots.backdrop,
-  positioner: slots.positioner,
-  content: slots.content,
-  title: slots.title,
-  description: slots.description,
-  closeTrigger: slots.closeTrigger
+    base: slots.base,
+    trigger: slots.trigger,
+    backdrop: slots.backdrop,
+    positioner: slots.positioner,
+    content: slots.content,
+    title: slots.title,
+    description: slots.description,
+    closeTrigger: slots.closeTrigger
 };
 /**
  * **Dialog**

@@ -24,13 +24,13 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  control: slots.control,
-  trigger: slots.trigger,
-  indicator: slots.indicator,
-  input: slots.input,
-  label: slots.label
+    base: slots.base,
+    root: slots.root,
+    control: slots.control,
+    trigger: slots.trigger,
+    indicator: slots.indicator,
+    input: slots.input,
+    label: slots.label
 };
 /**
  * **Clipboard**

@@ -30,19 +30,19 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  dropzone: slots.dropzone,
-  item: slots.item,
-  itemDeleteTrigger: slots.itemDeleteTrigger,
-  itemGroup: slots.itemGroup,
-  itemName: slots.itemName,
-  itemPreview: slots.itemPreview,
-  itemPreviewImage: slots.itemPreviewImage,
-  itemSizeText: slots.itemSizeText,
-  label: slots.label,
-  trigger: slots.trigger,
-  clearTrigger: slots.clearTrigger
+    base: slots.base,
+    root: slots.root,
+    dropzone: slots.dropzone,
+    item: slots.item,
+    itemDeleteTrigger: slots.itemDeleteTrigger,
+    itemGroup: slots.itemGroup,
+    itemName: slots.itemName,
+    itemPreview: slots.itemPreview,
+    itemPreviewImage: slots.itemPreviewImage,
+    itemSizeText: slots.itemSizeText,
+    label: slots.label,
+    trigger: slots.trigger,
+    clearTrigger: slots.clearTrigger
 };
 /**
  * **File Upload**

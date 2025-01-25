@@ -28,17 +28,17 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  list: slots.list,
-  item: slots.item,
-  trigger: slots.trigger,
-  indicator: slots.indicator,
-  separator: slots.separator,
-  content: slots.content,
-  nextTrigger: slots.nextTrigger,
-  prevTrigger: slots.prevTrigger,
-  progress: slots.progress
+    base: slots.base,
+    root: slots.root,
+    list: slots.list,
+    item: slots.item,
+    trigger: slots.trigger,
+    indicator: slots.indicator,
+    separator: slots.separator,
+    content: slots.content,
+    nextTrigger: slots.nextTrigger,
+    prevTrigger: slots.prevTrigger,
+    progress: slots.progress
 };
 /**
  * **Steps**

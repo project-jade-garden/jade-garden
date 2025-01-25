@@ -22,11 +22,11 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  label: slots.label,
-  control: slots.control,
-  thumb: slots.thumb
+    base: slots.base,
+    root: slots.root,
+    label: slots.label,
+    control: slots.control,
+    thumb: slots.thumb
 };
 /**
  * **Switch**

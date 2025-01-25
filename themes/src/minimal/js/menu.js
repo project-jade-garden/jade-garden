@@ -32,21 +32,21 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  arrow: slots.arrow,
-  arrowTip: slots.arrowTip,
-  content: slots.content,
-  contextTrigger: slots.contextTrigger,
-  indicator: slots.indicator,
-  item: slots.item,
-  itemGroup: slots.itemGroup,
-  itemGroupLabel: slots.itemGroupLabel,
-  itemIndicator: slots.itemIndicator,
-  itemText: slots.itemText,
-  positioner: slots.positioner,
-  separator: slots.separator,
-  trigger: slots.trigger,
-  triggerItem: slots.triggerItem
+    base: slots.base,
+    arrow: slots.arrow,
+    arrowTip: slots.arrowTip,
+    content: slots.content,
+    contextTrigger: slots.contextTrigger,
+    indicator: slots.indicator,
+    item: slots.item,
+    itemGroup: slots.itemGroup,
+    itemGroupLabel: slots.itemGroupLabel,
+    itemIndicator: slots.itemIndicator,
+    itemText: slots.itemText,
+    positioner: slots.positioner,
+    separator: slots.separator,
+    trigger: slots.trigger,
+    triggerItem: slots.triggerItem
 };
 /**
  * **Menu**

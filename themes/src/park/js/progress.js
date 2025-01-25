@@ -30,65 +30,65 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-full",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-1.5",
-    "items-center",
-    "flex-col"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "text-sm",
-    "font-medium"
-  ],
-  track: [
-    slots.track,
-    // Sizing
-    "w-full",
-    // Backgrounds
-    "bg-bg-emphasized",
-    // Borders
-    "rounded-l2",
-    // Layout
-    "overflow-hidden"
-  ],
-  range: [
-    slots.range,
-    // Sizing
-    "h-full",
-    // Backgrounds
-    "bg-[--colors-color-palette-default]",
-    // Transitions & Animation
-    "[transition:width_.2s_ease-in-out]"
-  ],
-  valueText: [
-    slots.valueText,
-    // Typography
-    "text-sm"
-  ],
-  view: slots.view,
-  circle: slots.circle,
-  circleTrack: [
-    slots.circleTrack,
-    // SVG
-    "stroke-bg-emphasized"
-  ],
-  circleRange: [
-    slots.circleRange,
-    // SVG
-    "stroke-[--colors-color-palette-default]",
-    // Transitions & Animation
-    "transition-[stroke-dasharray,_stroke]",
-    "duration-[600ms]"
-  ]
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-full",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-1.5",
+        "items-center",
+        "flex-col"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "text-sm",
+        "font-medium"
+    ],
+    track: [
+        slots.track,
+        // Sizing
+        "w-full",
+        // Backgrounds
+        "bg-bg-emphasized",
+        // Borders
+        "rounded-l2",
+        // Layout
+        "overflow-hidden"
+    ],
+    range: [
+        slots.range,
+        // Sizing
+        "h-full",
+        // Backgrounds
+        "bg-[--colors-color-palette-default]",
+        // Transitions & Animation
+        "[transition:width_.2s_ease-in-out]"
+    ],
+    valueText: [
+        slots.valueText,
+        // Typography
+        "text-sm"
+    ],
+    view: slots.view,
+    circle: slots.circle,
+    circleTrack: [
+        slots.circleTrack,
+        // SVG
+        "stroke-bg-emphasized"
+    ],
+    circleRange: [
+        slots.circleRange,
+        // SVG
+        "stroke-[--colors-color-palette-default]",
+        // Transitions & Animation
+        "transition-[stroke-dasharray,_stroke]",
+        "duration-[600ms]"
+    ]
 };
 /**
  * **Progress**

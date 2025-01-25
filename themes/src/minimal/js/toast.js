@@ -24,13 +24,13 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  group: slots.group,
-  root: slots.root,
-  title: slots.title,
-  description: slots.description,
-  actionTrigger: slots.actionTrigger,
-  closeTrigger: slots.closeTrigger
+    base: slots.base,
+    group: slots.group,
+    root: slots.root,
+    title: slots.title,
+    description: slots.description,
+    actionTrigger: slots.actionTrigger,
+    closeTrigger: slots.closeTrigger
 };
 /**
  * **Toast**

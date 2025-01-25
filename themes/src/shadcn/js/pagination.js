@@ -24,32 +24,32 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    "gap-2.5"
-  ],
-  item: [
-    slots.item,
-    // Typography
-    "tabular-nums"
-  ],
-  ellipsis: [
-    slots.ellipsis,
-    // Spacing
-    "px-2",
-    // Layout
-    "inline-flex",
-    // Flexbox & Grid
-    "items-center",
-    // Typography
-    "text-fg-default",
-    "font-semibold"
-  ],
-  prevTrigger: slots.prevTrigger,
-  nextTrigger: slots.nextTrigger
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        "gap-2.5"
+    ],
+    item: [
+        slots.item,
+        // Typography
+        "tabular-nums"
+    ],
+    ellipsis: [
+        slots.ellipsis,
+        // Spacing
+        "px-2",
+        // Layout
+        "inline-flex",
+        // Flexbox & Grid
+        "items-center",
+        // Typography
+        "text-fg-default",
+        "font-semibold"
+    ],
+    prevTrigger: slots.prevTrigger,
+    nextTrigger: slots.nextTrigger
 };
 /**
  * **Pagination**

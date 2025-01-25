@@ -26,15 +26,15 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  errorText: slots.errorText,
-  helperText: slots.helperText,
-  input: slots.input,
-  label: slots.label,
-  select: slots.select,
-  textarea: slots.textarea,
-  requiredIndicator: slots.requiredIndicator
+    base: slots.base,
+    root: slots.root,
+    errorText: slots.errorText,
+    helperText: slots.helperText,
+    input: slots.input,
+    label: slots.label,
+    select: slots.select,
+    textarea: slots.textarea,
+    requiredIndicator: slots.requiredIndicator
 };
 /**
  * **Field**

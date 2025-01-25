@@ -21,10 +21,10 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  image: slots.image,
-  fallback: slots.fallback
+    base: slots.base,
+    root: slots.root,
+    image: slots.image,
+    fallback: slots.fallback
 };
 /**
  * **Avatar**

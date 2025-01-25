@@ -25,56 +25,56 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  group: slots.group,
-  root: [
-    slots.root,
-    // Spacing
-    "p-4",
-    // Sizing
-    "min-w-80",
-    // Backgrounds
-    "bg-bg-default",
-    // Borders
-    "rounded-l3",
-    // Effects
-    "shadow-lg",
-    // Interactivity
-    "will-change-[translate,_opacity,_scale]",
-    // Layout
-    "relative",
-    // Typography
-    "[overflow-wrap:anywhere]",
-    // Transitions & Animation
-    "transition-[translate,_scale,_opacity,_height]",
-    "duration-300",
-    "ease-[--easings-default]"
-  ],
-  title: [
-    slots.title,
-    // Typography
-    "text-fg-default",
-    "text-sm",
-    "font-semibold"
-  ],
-  description: [
-    slots.description,
-    // Typography
-    "text-fg-muted",
-    "text-sm"
-  ],
-  actionTrigger: [
-    slots.actionTrigger,
-    // Spacing
-    "mt-2"
-  ],
-  closeTrigger: [
-    slots.closeTrigger,
-    // Layout
-    "absolute",
-    "top-3",
-    "right-3"
-  ]
+    base: slots.base,
+    group: slots.group,
+    root: [
+        slots.root,
+        // Spacing
+        "p-4",
+        // Sizing
+        "min-w-80",
+        // Backgrounds
+        "bg-bg-default",
+        // Borders
+        "rounded-l3",
+        // Effects
+        "shadow-lg",
+        // Interactivity
+        "will-change-[translate,_opacity,_scale]",
+        // Layout
+        "relative",
+        // Typography
+        "[overflow-wrap:anywhere]",
+        // Transitions & Animation
+        "transition-[translate,_scale,_opacity,_height]",
+        "duration-300",
+        "ease-[--easings-default]"
+    ],
+    title: [
+        slots.title,
+        // Typography
+        "text-fg-default",
+        "text-sm",
+        "font-semibold"
+    ],
+    description: [
+        slots.description,
+        // Typography
+        "text-fg-muted",
+        "text-sm"
+    ],
+    actionTrigger: [
+        slots.actionTrigger,
+        // Spacing
+        "mt-2"
+    ],
+    closeTrigger: [
+        slots.closeTrigger,
+        // Layout
+        "absolute",
+        "top-3",
+        "right-3"
+    ]
 };
 /**
  * **Toast**

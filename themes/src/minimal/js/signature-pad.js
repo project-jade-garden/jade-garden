@@ -25,14 +25,14 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  control: slots.control,
-  segment: slots.segment,
-  segmentPath: slots.segmentPath,
-  guide: slots.guide,
-  clearTrigger: slots.clearTrigger,
-  label: slots.label
+    base: slots.base,
+    root: slots.root,
+    control: slots.control,
+    segment: slots.segment,
+    segmentPath: slots.segmentPath,
+    guide: slots.guide,
+    clearTrigger: slots.clearTrigger,
+    label: slots.label
 };
 /**
  * **Signature Pad**

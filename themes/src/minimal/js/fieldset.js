@@ -22,11 +22,11 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  errorText: slots.errorText,
-  helperText: slots.helperText,
-  legend: slots.legend
+    base: slots.base,
+    root: slots.root,
+    errorText: slots.errorText,
+    helperText: slots.helperText,
+    legend: slots.legend
 };
 /**
  * **Fieldset**

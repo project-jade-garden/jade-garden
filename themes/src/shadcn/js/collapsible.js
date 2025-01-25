@@ -22,28 +22,28 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-full",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "items-start",
-    "flex-col"
-  ],
-  trigger: slots.trigger,
-  content: [
-    slots.content,
-    // Sizing
-    "w-full",
-    // Layout
-    "overflow-hidden",
-    // Transitions & Animation
-    "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
-    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
-  ]
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-full",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "items-start",
+        "flex-col"
+    ],
+    trigger: slots.trigger,
+    content: [
+        slots.content,
+        // Sizing
+        "w-full",
+        // Layout
+        "overflow-hidden",
+        // Transitions & Animation
+        "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
+        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
+    ]
 };
 /**
  * **Collapsible**

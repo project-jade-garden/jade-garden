@@ -31,107 +31,107 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-full",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-4",
-    "flex-col"
-  ],
-  dropzone: [
-    slots.dropzone,
-    // Spacing
-    "px-6",
-    "py-4",
-    // Sizing
-    "min-h-80",
-    // Backgrounds
-    "bg-bg-default",
-    // Borders
-    "border",
-    "rounded-l3",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-3",
-    "flex-col",
-    "items-center",
-    "justify-center"
-  ],
-  item: [
-    slots.item,
-    // Spacing
-    "p-4",
-    // Backgrounds
-    "bg-bg-default",
-    // Borders
-    "border",
-    "rounded-l3",
-    // Layout
-    "grid",
-    // Flexbox & Grid
-    "gap-x-3",
-    "grid-cols-[auto_1fr_auto]",
-    "[grid-template-areas:'preview_name_delete'_'preview_size_delete']",
-    // Transitions & Animation
-    "animate-fade-in"
-  ],
-  itemDeleteTrigger: [
-    slots.itemDeleteTrigger,
-    // Flexbox & Grid
-    "[grid-area:delete]",
-    "self-start"
-  ],
-  itemGroup: [
-    slots.itemGroup,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-3",
-    "flex-col"
-  ],
-  itemName: [
-    slots.itemName,
-    // Flexbox & Grid
-    "[grid-area:name]",
-    // Typography
-    "text-fg-default",
-    "text-sm",
-    "font-medium"
-  ],
-  itemPreview: [
-    slots.itemPreview,
-    // Flexbox & Grid
-    "[grid-area:preview]"
-  ],
-  itemPreviewImage: [
-    slots.itemPreviewImage,
-    // Sizing
-    "size-10",
-    // Layout
-    "aspect-square",
-    "object-scale-down"
-  ],
-  itemSizeText: [
-    slots.itemSizeText,
-    // Flexbox & Grid
-    "[grid-area:size]",
-    // Typography
-    "text-fg-muted",
-    "text-sm"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-sm",
-    "font-medium"
-  ],
-  trigger: slots.trigger,
-  clearTrigger: slots.clearTrigger
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-full",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-4",
+        "flex-col"
+    ],
+    dropzone: [
+        slots.dropzone,
+        // Spacing
+        "px-6",
+        "py-4",
+        // Sizing
+        "min-h-80",
+        // Backgrounds
+        "bg-bg-default",
+        // Borders
+        "border",
+        "rounded-l3",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-3",
+        "flex-col",
+        "items-center",
+        "justify-center"
+    ],
+    item: [
+        slots.item,
+        // Spacing
+        "p-4",
+        // Backgrounds
+        "bg-bg-default",
+        // Borders
+        "border",
+        "rounded-l3",
+        // Layout
+        "grid",
+        // Flexbox & Grid
+        "gap-x-3",
+        "grid-cols-[auto_1fr_auto]",
+        "[grid-template-areas:'preview_name_delete'_'preview_size_delete']",
+        // Transitions & Animation
+        "animate-fade-in"
+    ],
+    itemDeleteTrigger: [
+        slots.itemDeleteTrigger,
+        // Flexbox & Grid
+        "[grid-area:delete]",
+        "self-start"
+    ],
+    itemGroup: [
+        slots.itemGroup,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-3",
+        "flex-col"
+    ],
+    itemName: [
+        slots.itemName,
+        // Flexbox & Grid
+        "[grid-area:name]",
+        // Typography
+        "text-fg-default",
+        "text-sm",
+        "font-medium"
+    ],
+    itemPreview: [
+        slots.itemPreview,
+        // Flexbox & Grid
+        "[grid-area:preview]"
+    ],
+    itemPreviewImage: [
+        slots.itemPreviewImage,
+        // Sizing
+        "size-10",
+        // Layout
+        "aspect-square",
+        "object-scale-down"
+    ],
+    itemSizeText: [
+        slots.itemSizeText,
+        // Flexbox & Grid
+        "[grid-area:size]",
+        // Typography
+        "text-fg-muted",
+        "text-sm"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-sm",
+        "font-medium"
+    ],
+    trigger: slots.trigger,
+    clearTrigger: slots.clearTrigger
 };
 /**
  * **File Upload**

@@ -23,12 +23,12 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  item: slots.item,
-  ellipsis: slots.ellipsis,
-  prevTrigger: slots.prevTrigger,
-  nextTrigger: slots.nextTrigger
+    base: slots.base,
+    root: slots.root,
+    item: slots.item,
+    ellipsis: slots.ellipsis,
+    prevTrigger: slots.prevTrigger,
+    nextTrigger: slots.nextTrigger
 };
 /**
  * **Pagination**

@@ -29,84 +29,84 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Sizing
-    "w-full",
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-1.5",
-    "flex-col"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "text-sm",
-    "font-medium"
-  ],
-  control: [
-    slots.control,
-    // Borders
-    "rounded-l2",
-    "border",
-    "border-border-default",
-    "focus-within:border-[--colors-color-palette-default]",
-    // Effects
-    "focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)]",
-    // Layout
-    "flex",
-    "outline-0",
-    // Flexbox & Grid
-    "items-center",
-    "flex-wrap",
-    // Transitions & Animation
-    "transition-[border-color,_box-shadow]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  input: [
-    slots.input,
-    // Backgrounds
-    "bg-transparent",
-    // Borders
-    "outline-none",
-    // Typography
-    "text-fg-default"
-  ],
-  clearTrigger: slots.clearTrigger,
-  item: slots.item,
-  itemPreview: [
-    slots.itemPreview,
-    // Borders
-    "rounded-l1",
-    "border",
-    "border-border-default",
-    "data-[highlighted]:border-[--colors-color-palette-default]",
-    // Effects
-    "data-[highlighted]:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)]",
-    // Layout
-    "inline-flex",
-    "[&:is([hidden])]:hidden",
-    // Flexbox & Grid
-    "items-center",
-    // Typography
-    "text-fg-default",
-    "font-medium"
-  ],
-  itemInput: [
-    slots.itemInput,
-    // Backgrounds
-    "bg-transparent",
-    // Borders
-    "outline-none",
-    // Typography
-    "text-fg-default"
-  ],
-  itemText: slots.itemText,
-  itemDeleteTrigger: slots.itemDeleteTrigger
+    base: slots.base,
+    root: [
+        slots.root,
+        // Sizing
+        "w-full",
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-1.5",
+        "flex-col"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "text-sm",
+        "font-medium"
+    ],
+    control: [
+        slots.control,
+        // Borders
+        "rounded-l2",
+        "border",
+        "border-border-default",
+        "focus-within:border-[--colors-color-palette-default]",
+        // Effects
+        "focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)]",
+        // Layout
+        "flex",
+        "outline-0",
+        // Flexbox & Grid
+        "items-center",
+        "flex-wrap",
+        // Transitions & Animation
+        "transition-[border-color,_box-shadow]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    input: [
+        slots.input,
+        // Backgrounds
+        "bg-transparent",
+        // Borders
+        "outline-none",
+        // Typography
+        "text-fg-default"
+    ],
+    clearTrigger: slots.clearTrigger,
+    item: slots.item,
+    itemPreview: [
+        slots.itemPreview,
+        // Borders
+        "rounded-l1",
+        "border",
+        "border-border-default",
+        "data-[highlighted]:border-[--colors-color-palette-default]",
+        // Effects
+        "data-[highlighted]:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)]",
+        // Layout
+        "inline-flex",
+        "[&:is([hidden])]:hidden",
+        // Flexbox & Grid
+        "items-center",
+        // Typography
+        "text-fg-default",
+        "font-medium"
+    ],
+    itemInput: [
+        slots.itemInput,
+        // Backgrounds
+        "bg-transparent",
+        // Borders
+        "outline-none",
+        // Typography
+        "text-fg-default"
+    ],
+    itemText: slots.itemText,
+    itemDeleteTrigger: slots.itemDeleteTrigger
 };
 /**
  * **Tags Input**

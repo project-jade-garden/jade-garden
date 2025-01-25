@@ -25,59 +25,59 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "items-start",
-    "data-[orientation=horizontal]:gap-4",
-    "data-[orientation=horizontal]:flex-row",
-    "data-[orientation=horizontal]:border-b",
-    "data-[orientation=vertical]:gap-1",
-    "data-[orientation=vertical]:flex-col",
-    "data-[orientation=vertical]:border-l"
-  ],
-  label: slots.label,
-  item: [
-    slots.item,
-    // Spacing
-    "data-[orientation=horizontal]:px-1",
-    "data-[orientation=horizontal]:pb-3",
-    "data-[orientation=vertical]:px-3",
-    "data-[orientation=vertical]:py-1.5",
-    // Interactivity
-    "cursor-pointer",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-    // Typography
-    "text-fg-muted",
-    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:text-fg-default",
-    "font-medium",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:font-semibold",
-    // Transitions & Animation
-    "transition-[color]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  itemText: slots.itemText,
-  itemControl: slots.itemControl,
-  indicator: [
-    slots.indicator,
-    // Sizing
-    "data-[orientation=horizontal]:w-[50px]",
-    "data-[orientation=vertical]:h-9",
-    // Borders
-    "border-[--colors-color-palette-default]",
-    "data-[orientation=horizontal]:border-b-2",
-    "data-[orientation=vertical]:border-l-2",
-    // Layout
-    "data-[orientation=horizontal]:bottom-0",
-    // Transforms
-    "data-[orientation=horizontal]:translate-y-px",
-    "data-[orientation=vertical]:-translate-x-px"
-  ]
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "items-start",
+        "data-[orientation=horizontal]:gap-4",
+        "data-[orientation=horizontal]:flex-row",
+        "data-[orientation=horizontal]:border-b",
+        "data-[orientation=vertical]:gap-1",
+        "data-[orientation=vertical]:flex-col",
+        "data-[orientation=vertical]:border-l"
+    ],
+    label: slots.label,
+    item: [
+        slots.item,
+        // Spacing
+        "data-[orientation=horizontal]:px-1",
+        "data-[orientation=horizontal]:pb-3",
+        "data-[orientation=vertical]:px-3",
+        "data-[orientation=vertical]:py-1.5",
+        // Interactivity
+        "cursor-pointer",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+        // Typography
+        "text-fg-muted",
+        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:text-fg-default",
+        "font-medium",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:font-semibold",
+        // Transitions & Animation
+        "transition-[color]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    itemText: slots.itemText,
+    itemControl: slots.itemControl,
+    indicator: [
+        slots.indicator,
+        // Sizing
+        "data-[orientation=horizontal]:w-[50px]",
+        "data-[orientation=vertical]:h-9",
+        // Borders
+        "border-[--colors-color-palette-default]",
+        "data-[orientation=horizontal]:border-b-2",
+        "data-[orientation=vertical]:border-l-2",
+        // Layout
+        "data-[orientation=horizontal]:bottom-0",
+        // Transforms
+        "data-[orientation=horizontal]:translate-y-px",
+        "data-[orientation=vertical]:-translate-x-px"
+    ]
 };
 /**
  * **Segment Group**

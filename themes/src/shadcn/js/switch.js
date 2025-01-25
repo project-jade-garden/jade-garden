@@ -23,57 +23,57 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    "relative",
-    // Flexbox & Grid
-    "items-center"
-  ],
-  label: [
-    slots.label,
-    // Typography
-    "text-fg-default",
-    "font-medium"
-  ],
-  control: [
-    slots.control,
-    // Backgrounds
-    "bg-bg-emphasized",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default]",
-    // Borders
-    "rounded-full",
-    // Interactivity
-    "cursor-pointer",
-    // Layout
-    "inline-flex",
-    // Flexbox & Grid
-    "items-center",
-    "shrink-0",
-    // Transitions & Animation
-    "transition-[background]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ],
-  thumb: [
-    slots.thumb,
-    // Backgrounds
-    "bg-bg-default",
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-bg-default",
-    "dark:[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-fg]",
-    // Borders
-    "rounded-full",
-    // Effects
-    "shadow-xs",
-    // Transforms
-    "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:translate-x-full",
-    // Transitions & Animation
-    "transition-[background,_transform]",
-    "duration-200",
-    "ease-[--easings-default]"
-  ]
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        "relative",
+        // Flexbox & Grid
+        "items-center"
+    ],
+    label: [
+        slots.label,
+        // Typography
+        "text-fg-default",
+        "font-medium"
+    ],
+    control: [
+        slots.control,
+        // Backgrounds
+        "bg-bg-emphasized",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default]",
+        // Borders
+        "rounded-full",
+        // Interactivity
+        "cursor-pointer",
+        // Layout
+        "inline-flex",
+        // Flexbox & Grid
+        "items-center",
+        "shrink-0",
+        // Transitions & Animation
+        "transition-[background]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ],
+    thumb: [
+        slots.thumb,
+        // Backgrounds
+        "bg-bg-default",
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-bg-default",
+        "dark:[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-fg]",
+        // Borders
+        "rounded-full",
+        // Effects
+        "shadow-xs",
+        // Transforms
+        "[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:translate-x-full",
+        // Transitions & Animation
+        "transition-[background,_transform]",
+        "duration-200",
+        "ease-[--easings-default]"
+    ]
 };
 /**
  * **Switch**

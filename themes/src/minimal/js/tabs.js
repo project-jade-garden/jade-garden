@@ -23,12 +23,12 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root,
-  list: slots.list,
-  trigger: slots.trigger,
-  content: slots.content,
-  indicator: slots.indicator
+    base: slots.base,
+    root: slots.root,
+    list: slots.list,
+    trigger: slots.trigger,
+    content: slots.content,
+    indicator: slots.indicator
 };
 /**
  * **Tabs**

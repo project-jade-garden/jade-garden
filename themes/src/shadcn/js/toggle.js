@@ -21,13 +21,13 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: slots.root, // TODO: Determine if 'button' styles should be created: https://github.com/cschroeter/park-ui/blob/main/packages/panda/src/theme/recipes/button.ts
-  indicator: [
-    slots.indicator,
-    // Layout
-    "contents"
-  ]
+    base: slots.base,
+    root: slots.root, // TODO: Determine if 'button' styles should be created: https://github.com/cschroeter/park-ui/blob/main/packages/panda/src/theme/recipes/button.ts
+    indicator: [
+        slots.indicator,
+        // Layout
+        "contents"
+    ]
 };
 /**
  * **Toggle**

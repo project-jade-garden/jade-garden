@@ -33,22 +33,22 @@ const slots = createSlots({});
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  label: slots.label,
-  positioner: slots.positioner,
-  trigger: slots.trigger,
-  indicator: slots.indicator,
-  clearTrigger: slots.clearTrigger,
-  item: slots.item,
-  itemText: slots.itemText,
-  itemIndicator: slots.itemIndicator,
-  itemGroup: slots.itemGroup,
-  itemGroupLabel: slots.itemGroupLabel,
-  list: slots.list,
-  content: slots.content,
-  root: slots.root,
-  control: slots.control,
-  valueText: slots.valueText
+    base: slots.base,
+    label: slots.label,
+    positioner: slots.positioner,
+    trigger: slots.trigger,
+    indicator: slots.indicator,
+    clearTrigger: slots.clearTrigger,
+    item: slots.item,
+    itemText: slots.itemText,
+    itemIndicator: slots.itemIndicator,
+    itemGroup: slots.itemGroup,
+    itemGroupLabel: slots.itemGroupLabel,
+    list: slots.list,
+    content: slots.content,
+    root: slots.root,
+    control: slots.control,
+    valueText: slots.valueText
 };
 /**
  * **Select**

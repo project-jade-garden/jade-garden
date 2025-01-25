@@ -25,26 +25,26 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  * @type {Record<Slots, string | string[]>}
  */
 const styledSlots = {
-  base: slots.base,
-  root: [
-    slots.root,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "flex-col",
-    "gap-1.5"
-  ],
-  control: [
-    slots.control,
-    // Layout
-    "flex",
-    // Flexbox & Grid
-    "gap-3"
-  ],
-  trigger: slots.trigger,
-  indicator: slots.indicator,
-  input: slots.input,
-  label: slots.label
+    base: slots.base,
+    root: [
+        slots.root,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "flex-col",
+        "gap-1.5"
+    ],
+    control: [
+        slots.control,
+        // Layout
+        "flex",
+        // Flexbox & Grid
+        "gap-3"
+    ],
+    trigger: slots.trigger,
+    indicator: slots.indicator,
+    input: slots.input,
+    label: slots.label
 };
 /**
  * **Clipboard**
