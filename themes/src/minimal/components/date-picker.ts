@@ -37,7 +37,35 @@ import { type Slots, createSlots } from "@spark-css/core/date-picker";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePickerSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "date-picker",
+  root: "date-picker__root",
+  label: "date-picker__label",
+  clearTrigger: "date-picker__clear-trigger",
+  content: "date-picker__content",
+  control: "date-picker__control",
+  input: "date-picker__input",
+  monthSelect: "date-picker__month-select",
+  nextTrigger: "date-picker__next-trigger",
+  positioner: "date-picker__positioner",
+  prevTrigger: "date-picker__prev-trigger",
+  rangeText: "date-picker__range-text",
+  table: "date-picker__table",
+  tableBody: "date-picker__table-body",
+  tableCell: "date-picker__table-cell",
+  tableCellTrigger: "date-picker__table-cell-trigger",
+  tableHead: "date-picker__table-head",
+  tableHeader: "date-picker__table-header",
+  tableRow: "date-picker__table-row",
+  trigger: "date-picker__trigger",
+  viewTrigger: "date-picker__view-trigger",
+  viewControl: "date-picker__view-control",
+  yearSelect: "date-picker__year-select",
+  presetTrigger: "date-picker__preset-trigger",
+  view: "date-picker__view"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Date Picker**
@@ -98,30 +126,4 @@ export const datePickerSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePickerStyledSlots = {
-  base: "date-picker",
-  root: "date-picker__root",
-  label: "date-picker__label",
-  clearTrigger: "date-picker__clear-trigger",
-  content: "date-picker__content",
-  control: "date-picker__control",
-  input: "date-picker__input",
-  monthSelect: "date-picker__month-select",
-  nextTrigger: "date-picker__next-trigger",
-  positioner: "date-picker__positioner",
-  prevTrigger: "date-picker__prev-trigger",
-  rangeText: "date-picker__range-text",
-  table: "date-picker__table",
-  tableBody: "date-picker__table-body",
-  tableCell: "date-picker__table-cell",
-  tableCellTrigger: "date-picker__table-cell-trigger",
-  tableHead: "date-picker__table-head",
-  tableHeader: "date-picker__table-header",
-  tableRow: "date-picker__table-row",
-  trigger: "date-picker__trigger",
-  viewTrigger: "date-picker__view-trigger",
-  viewControl: "date-picker__view-control",
-  yearSelect: "date-picker__year-select",
-  presetTrigger: "date-picker__preset-trigger",
-  view: "date-picker__view"
-} as const satisfies Record<Slots, string | string[]>;
+export const datePicker = styledSlots;

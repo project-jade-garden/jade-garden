@@ -5,10 +5,7 @@ import { CheckIcon, ClipboardCopyIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const RenderFn = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.clipboardStyledSlots, park: park.clipboardStyledSlots, shadcn: shadcn.clipboardStyledSlots },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.clipboard, park: park.clipboard, shadcn: shadcn.clipboard }, theme);
 
   return (
     <Clipboard.Root value="https://ark-ui.com" className={clsx(styledSlots.root)}>

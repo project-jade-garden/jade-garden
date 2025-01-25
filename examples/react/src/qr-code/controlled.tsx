@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.qrCodeStyledSlots, park: park.qrCodeStyledSlots, shadcn: shadcn.qrCodeStyledSlots },
+    { minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode },
     theme
   );
   const [value, setValue] = useState("http://ark-ui.com");

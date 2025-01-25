@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../../utils";
 
 export const ContextSetValue = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.accordionStyledSlots, park: park.accordionStyledSlots, shadcn: shadcn.accordionStyledSlots },
+    { minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion },
     theme
   );
 

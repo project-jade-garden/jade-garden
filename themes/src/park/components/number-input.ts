@@ -22,48 +22,9 @@ import { type Slots, createSlots } from "@spark-css/core/number-input";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
  */
-export const numberInputSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Number Input**
- * @description A field that allows user input of numeric values.
- *
- * @example
- * ```css
- * .parkNumberInput { }
- *
- * .parkNumberInput__root {
- *   (@)apply flex gap-1.5 flex-col;
- * }
- *
- * .parkNumberInput__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkNumberInput__input {
- *   (@)apply w-full bg-transparent border-none [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed outline-none row-span-2;
- * }
- *
- * .parkNumberInput__control {
- *   (@)apply border rounded-l2 border-border-default [&_>_:not([hidden])_~_:not([hidden])]:border-l [&_>_:not([hidden])_~_:not([hidden])]:border-r-0 focus-within:border-[--colors-color-palette-default] [&:is(:disabled,_[disabled],_[data-disabled])]:opacity-40 focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default] [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed grid overflow-hidden grid-cols-[1fr_32px] grid-rows-[1fr_1fr] transition-[border-color,_box-shadow] duration-200 ease-[--easings-default];
- * }
- *
- * .parkNumberInput__valueText { }
- *
- * .parkNumberInput__incrementTrigger {
- *   (@)apply [&_:where(svg)]:size-4 border-border-default cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex items-center justify-center text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-property:background,_border-color,_color,_box-shadow] duration-200 ease-[--easings-default];
- * }
- *
- * .parkNumberInput__decrementTrigger {
- *   (@)apply [&_:where(svg)]:size-4 border-t border-border-default cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex items-center justify-center text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-property:background,_border-color,_color,_box-shadow] duration-200 ease-[--easings-default];
- * }
- *
- * .parkNumberInput__scrubber { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
- */
-export const numberInputStyledSlots = {
+const styledSlots = {
   base: "parkNumberInput",
   root: [
     "parkNumberInput__root",
@@ -195,4 +156,45 @@ export const numberInputStyledSlots = {
     "ease-[--easings-default]"
   ],
   scrubber: "parkNumberInput__scrubber"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Number Input**
+ * @description A field that allows user input of numeric values.
+ *
+ * @example
+ * ```css
+ * .parkNumberInput { }
+ *
+ * .parkNumberInput__root {
+ *   (@)apply flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkNumberInput__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkNumberInput__input {
+ *   (@)apply w-full bg-transparent border-none [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed outline-none row-span-2;
+ * }
+ *
+ * .parkNumberInput__control {
+ *   (@)apply border rounded-l2 border-border-default [&_>_:not([hidden])_~_:not([hidden])]:border-l [&_>_:not([hidden])_~_:not([hidden])]:border-r-0 focus-within:border-[--colors-color-palette-default] [&:is(:disabled,_[disabled],_[data-disabled])]:opacity-40 focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default] [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed grid overflow-hidden grid-cols-[1fr_32px] grid-rows-[1fr_1fr] transition-[border-color,_box-shadow] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkNumberInput__valueText { }
+ *
+ * .parkNumberInput__incrementTrigger {
+ *   (@)apply [&_:where(svg)]:size-4 border-border-default cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex items-center justify-center text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-property:background,_border-color,_color,_box-shadow] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkNumberInput__decrementTrigger {
+ *   (@)apply [&_:where(svg)]:size-4 border-t border-border-default cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex items-center justify-center text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-property:background,_border-color,_color,_box-shadow] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkNumberInput__scrubber { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
+ */
+export const numberInput = styledSlots;

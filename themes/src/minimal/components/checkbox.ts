@@ -18,7 +18,16 @@ import { type Slots, createSlots } from "@spark-css/core/checkbox";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
  */
-export const checkboxSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "checkbox",
+  root: "checkbox__root",
+  label: "checkbox__label",
+  control: "checkbox__control",
+  indicator: "checkbox__indicator",
+  group: "checkbox__group"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Checkbox**
@@ -41,11 +50,4 @@ export const checkboxSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
  */
-export const checkboxStyledSlots = {
-  base: "checkbox",
-  root: "checkbox__root",
-  label: "checkbox__label",
-  control: "checkbox__control",
-  indicator: "checkbox__indicator",
-  group: "checkbox__group"
-} as const satisfies Record<Slots, string | string[]>;
+export const checkbox = styledSlots;

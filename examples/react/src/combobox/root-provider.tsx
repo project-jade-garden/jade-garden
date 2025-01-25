@@ -9,7 +9,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.comboboxStyledSlots, park: park.comboboxStyledSlots, shadcn: shadcn.comboboxStyledSlots },
+    { minimal: minimal.combobox, park: park.combobox, shadcn: shadcn.combobox },
     theme
   );
   const [items, setItems] = useState(initialItems);

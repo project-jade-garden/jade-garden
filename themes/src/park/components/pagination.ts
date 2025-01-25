@@ -19,36 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/pagination";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/pagination#anatomy)
  */
-export const paginationSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Pagination**
- * @description A navigation component that allows users to browse through pages.
- *
- * @example
- * ```css
- * .parkPagination { }
- *
- * .parkPagination__root {
- *   (@)apply flex gap-2.5;
- * }
- *
- * .parkPagination__item {
- *   (@)apply tabular-nums;
- * }
- *
- * .parkPagination__ellipsis {
- *   (@)apply px-2 inline-flex items-center text-fg-default font-semibold;
- * }
- *
- * .parkPagination__prevTrigger { }
- *
- * .parkPagination__nextTrigger { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/pagination#anatomy)
- */
-export const paginationStyledSlots = {
+const styledSlots = {
   base: "parkPagination",
   root: [
     "parkPagination__root",
@@ -81,4 +54,33 @@ export const paginationStyledSlots = {
   ],
   prevTrigger: "parkPagination__prevTrigger",
   nextTrigger: "parkPagination__nextTrigger"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Pagination**
+ * @description A navigation component that allows users to browse through pages.
+ *
+ * @example
+ * ```css
+ * .parkPagination { }
+ *
+ * .parkPagination__root {
+ *   (@)apply flex gap-2.5;
+ * }
+ *
+ * .parkPagination__item {
+ *   (@)apply tabular-nums;
+ * }
+ *
+ * .parkPagination__ellipsis {
+ *   (@)apply px-2 inline-flex items-center text-fg-default font-semibold;
+ * }
+ *
+ * .parkPagination__prevTrigger { }
+ *
+ * .parkPagination__nextTrigger { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/pagination#anatomy)
+ */
+export const pagination = styledSlots;

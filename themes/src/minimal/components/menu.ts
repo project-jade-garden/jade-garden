@@ -27,7 +27,25 @@ import { type Slots, createSlots } from "@spark-css/core/menu";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
-export const menuSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "menu",
+  arrow: "menu__arrow",
+  arrowTip: "menu__arrow-tip",
+  content: "menu__content",
+  contextTrigger: "menu__context-trigger",
+  indicator: "menu__indicator",
+  item: "menu__item",
+  itemGroup: "menu__item-group",
+  itemGroupLabel: "menu__item-group-label",
+  itemIndicator: "menu__item-indicator",
+  itemText: "menu__item-text",
+  positioner: "menu__positioner",
+  separator: "menu__separator",
+  trigger: "menu__trigger",
+  triggerItem: "menu__trigger-item"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Menu**
@@ -68,20 +86,4 @@ export const menuSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
-export const menuStyledSlots = {
-  base: "menu",
-  arrow: "menu__arrow",
-  arrowTip: "menu__arrow-tip",
-  content: "menu__content",
-  contextTrigger: "menu__context-trigger",
-  indicator: "menu__indicator",
-  item: "menu__item",
-  itemGroup: "menu__item-group",
-  itemGroupLabel: "menu__item-group-label",
-  itemIndicator: "menu__item-indicator",
-  itemText: "menu__item-text",
-  positioner: "menu__positioner",
-  separator: "menu__separator",
-  trigger: "menu__trigger",
-  triggerItem: "menu__trigger-item"
-} as const satisfies Record<Slots, string | string[]>;
+export const menu = styledSlots;

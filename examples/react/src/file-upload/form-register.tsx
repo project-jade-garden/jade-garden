@@ -11,7 +11,7 @@ interface FieldValues {
 
 export const WithFormRegister = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fileUploadStyledSlots, park: park.fileUploadStyledSlots, shadcn: shadcn.fileUploadStyledSlots },
+    { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
     theme
   );
   const { register, handleSubmit } = useForm<FieldValues>();

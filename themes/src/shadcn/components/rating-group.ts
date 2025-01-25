@@ -18,36 +18,9 @@ import { type Slots, createSlots } from "@spark-css/core/rating-group";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
  */
-export const ratingGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Rating Group**
- * @description Allows users to rate items using a set of icons.
- *
- * @example
- * ```css
- * .parkRatingGroup { }
- *
- * .parkRatingGroup__root {
- *   (@)apply flex gap-1.5 flex-col;
- * }
- *
- * .parkRatingGroup__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkRatingGroup__item {
- *   (@)apply [&:is(:focus-visible,_[data-focus-visible])]:outline-none cursor-pointer fill-bg-emphasized data-[highlighted]:fill-[--colors-color-palette-default] transition-[color,_fill] duration-200 ease-[--easings-default];
- * }
- *
- * .parkRatingGroup__control {
- *   (@)apply flex;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
- */
-export const ratingGroupStyledSlots = {
+const styledSlots = {
   base: "parkRatingGroup",
   root: [
     "parkRatingGroup__root",
@@ -90,4 +63,33 @@ export const ratingGroupStyledSlots = {
     // Layout
     "flex"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Rating Group**
+ * @description Allows users to rate items using a set of icons.
+ *
+ * @example
+ * ```css
+ * .parkRatingGroup { }
+ *
+ * .parkRatingGroup__root {
+ *   (@)apply flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkRatingGroup__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkRatingGroup__item {
+ *   (@)apply [&:is(:focus-visible,_[data-focus-visible])]:outline-none cursor-pointer fill-bg-emphasized data-[highlighted]:fill-[--colors-color-palette-default] transition-[color,_fill] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkRatingGroup__control {
+ *   (@)apply flex;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
+ */
+export const ratingGroup = styledSlots;

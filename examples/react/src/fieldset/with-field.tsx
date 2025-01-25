@@ -5,25 +5,25 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Fieldset.RootProps & { theme: Theme }) => {
-  const fieldsetStyledSlots = getTheme(
-    { minimal: minimal.fieldsetStyledSlots, park: park.fieldsetStyledSlots, shadcn: shadcn.fieldsetStyledSlots },
+  const fieldset = getTheme(
+    { minimal: minimal.fieldset, park: park.fieldset, shadcn: shadcn.fieldset },
     props.theme
   );
-  const fieldStyledSlots = getTheme(
-    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+  const field = getTheme(
+    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
     props.theme
   );
 
   return (
-    <Fieldset.Root {...props} className={clsx(fieldsetStyledSlots.root)}>
-      <Fieldset.Legend className={clsx(fieldsetStyledSlots.legend)}>Legend</Fieldset.Legend>
-      <Fieldset.HelperText className={clsx(fieldsetStyledSlots.helperText)}>Helper text</Fieldset.HelperText>
-      <Fieldset.ErrorText className={clsx(fieldsetStyledSlots.errorText)}>Error text</Fieldset.ErrorText>
-      <Field.Root className={clsx(fieldStyledSlots.root)}>
-        <Field.Label className={clsx(fieldStyledSlots.label)}>Label</Field.Label>
-        <Field.Input className={clsx(fieldStyledSlots.input)} />
-        <Field.HelperText className={clsx(fieldStyledSlots.helperText)}>Field Helper Text</Field.HelperText>
-        <Field.ErrorText className={clsx(fieldStyledSlots.errorText)}>Field Error Text</Field.ErrorText>
+    <Fieldset.Root {...props} className={clsx(fieldset.root)}>
+      <Fieldset.Legend className={clsx(fieldset.legend)}>Legend</Fieldset.Legend>
+      <Fieldset.HelperText className={clsx(fieldset.helperText)}>Helper text</Fieldset.HelperText>
+      <Fieldset.ErrorText className={clsx(fieldset.errorText)}>Error text</Fieldset.ErrorText>
+      <Field.Root className={clsx(field.root)}>
+        <Field.Label className={clsx(field.label)}>Label</Field.Label>
+        <Field.Input className={clsx(field.input)} />
+        <Field.HelperText className={clsx(field.helperText)}>Field Helper Text</Field.HelperText>
+        <Field.ErrorText className={clsx(field.errorText)}>Field Error Text</Field.ErrorText>
       </Field.Root>
     </Fieldset.Root>
   );

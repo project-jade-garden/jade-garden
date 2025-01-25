@@ -12,7 +12,7 @@ const toaster = createToaster({
 
 export const Update = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.toastStyledSlots, park: park.toastStyledSlots, shadcn: shadcn.toastStyledSlots },
+    { minimal: minimal.toast, park: park.toast, shadcn: shadcn.toast },
     theme
   );
   const id = useRef<string>("");

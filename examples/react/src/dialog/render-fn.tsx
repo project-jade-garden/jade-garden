@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const RenderFn = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.dialogStyledSlots, park: park.dialogStyledSlots, shadcn: shadcn.dialogStyledSlots },
+    { minimal: minimal.dialog, park: park.dialog, shadcn: shadcn.dialog },
     theme
   );
 

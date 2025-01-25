@@ -6,31 +6,31 @@ import { CheckIcon, MinusIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const checkboxStyledSlots = getTheme(
-    { minimal: minimal.checkboxStyledSlots, park: park.checkboxStyledSlots, shadcn: shadcn.checkboxStyledSlots },
+  const checkbox = getTheme(
+    { minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox },
     props.theme
   );
-  const fieldStyledSlots = getTheme(
-    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+  const field = getTheme(
+    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
     props.theme
   );
 
   return (
-    <Field.Root {...props} className={clsx(fieldStyledSlots.root)}>
-      <Checkbox.Root className={clsx(checkboxStyledSlots.root)}>
-        <Checkbox.Label className={clsx(checkboxStyledSlots.label)}>Label</Checkbox.Label>
-        <Checkbox.Control className={clsx(checkboxStyledSlots.control)}>
-          <Checkbox.Indicator className={clsx(checkboxStyledSlots.indicator)}>
+    <Field.Root {...props} className={clsx(field.root)}>
+      <Checkbox.Root className={clsx(checkbox.root)}>
+        <Checkbox.Label className={clsx(checkbox.label)}>Label</Checkbox.Label>
+        <Checkbox.Control className={clsx(checkbox.control)}>
+          <Checkbox.Indicator className={clsx(checkbox.indicator)}>
             <CheckIcon />
           </Checkbox.Indicator>
-          <Checkbox.Indicator indeterminate className={clsx(checkboxStyledSlots.indicator)}>
+          <Checkbox.Indicator indeterminate className={clsx(checkbox.indicator)}>
             <MinusIcon />
           </Checkbox.Indicator>
         </Checkbox.Control>
         <Checkbox.HiddenInput />
       </Checkbox.Root>
-      <Field.HelperText className={clsx(fieldStyledSlots.helperText)}>Additional Info</Field.HelperText>
-      <Field.ErrorText className={clsx(fieldStyledSlots.errorText)}>Error Info</Field.ErrorText>
+      <Field.HelperText className={clsx(field.helperText)}>Additional Info</Field.HelperText>
+      <Field.ErrorText className={clsx(field.errorText)}>Error Info</Field.ErrorText>
     </Field.Root>
   );
 };

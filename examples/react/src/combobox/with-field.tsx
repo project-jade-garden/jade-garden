@@ -5,38 +5,38 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const comboboxStyledSlots = getTheme(
-    { minimal: minimal.comboboxStyledSlots, park: park.comboboxStyledSlots, shadcn: shadcn.comboboxStyledSlots },
+  const combobox = getTheme(
+    { minimal: minimal.combobox, park: park.combobox, shadcn: shadcn.combobox },
     props.theme
   );
-  const fieldStyledSlots = getTheme(
-    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+  const field = getTheme(
+    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
     props.theme
   );
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });
 
   return (
-    <Field.Root {...props} className={clsx(fieldStyledSlots.root)}>
-      <Combobox.Root className={clsx(comboboxStyledSlots.root)} collection={collection}>
-        <Combobox.Label className={clsx(comboboxStyledSlots.label)}>Label</Combobox.Label>
-        <Combobox.Control className={clsx(comboboxStyledSlots.control)}>
-          <Combobox.Input className={clsx(comboboxStyledSlots.input)} />
-          <Combobox.Trigger className={clsx(comboboxStyledSlots.trigger)}>Open</Combobox.Trigger>
-          <Combobox.ClearTrigger className={clsx(comboboxStyledSlots.clearTrigger)}>Clear</Combobox.ClearTrigger>
+    <Field.Root {...props} className={clsx(field.root)}>
+      <Combobox.Root className={clsx(combobox.root)} collection={collection}>
+        <Combobox.Label className={clsx(combobox.label)}>Label</Combobox.Label>
+        <Combobox.Control className={clsx(combobox.control)}>
+          <Combobox.Input className={clsx(combobox.input)} />
+          <Combobox.Trigger className={clsx(combobox.trigger)}>Open</Combobox.Trigger>
+          <Combobox.ClearTrigger className={clsx(combobox.clearTrigger)}>Clear</Combobox.ClearTrigger>
         </Combobox.Control>
-        <Combobox.Positioner className={clsx(comboboxStyledSlots.positioner)}>
-          <Combobox.Content className={clsx(comboboxStyledSlots.content)}>
+        <Combobox.Positioner className={clsx(combobox.positioner)}>
+          <Combobox.Content className={clsx(combobox.content)}>
             {collection.items.map((item) => (
-              <Combobox.Item className={clsx(comboboxStyledSlots.item)} key={item} item={item}>
-                <Combobox.ItemText className={clsx(comboboxStyledSlots.itemText)}>{item}</Combobox.ItemText>
-                <Combobox.ItemIndicator className={clsx(comboboxStyledSlots.itemIndicator)}>✓</Combobox.ItemIndicator>
+              <Combobox.Item className={clsx(combobox.item)} key={item} item={item}>
+                <Combobox.ItemText className={clsx(combobox.itemText)}>{item}</Combobox.ItemText>
+                <Combobox.ItemIndicator className={clsx(combobox.itemIndicator)}>✓</Combobox.ItemIndicator>
               </Combobox.Item>
             ))}
           </Combobox.Content>
         </Combobox.Positioner>
       </Combobox.Root>
-      <Field.HelperText className={clsx(fieldStyledSlots.helperText)}>Additional Info</Field.HelperText>
-      <Field.ErrorText className={clsx(fieldStyledSlots.errorText)}>Error Info</Field.ErrorText>
+      <Field.HelperText className={clsx(field.helperText)}>Additional Info</Field.HelperText>
+      <Field.ErrorText className={clsx(field.errorText)}>Error Info</Field.ErrorText>
     </Field.Root>
   );
 };

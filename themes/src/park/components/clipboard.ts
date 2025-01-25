@@ -20,7 +20,34 @@ import { type Slots, createSlots } from "@spark-css/core/clipboard";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
  */
-export const clipboardSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
+
+const styledSlots = {
+  base: "parkClipboard",
+  root: [
+    "parkClipboard__root",
+
+    // Layout
+    "flex",
+
+    // Flexbox & Grid
+    "flex-col",
+    "gap-1.5"
+  ],
+  control: [
+    "parkClipboard__control",
+
+    // Layout
+    "flex",
+
+    // Flexbox & Grid
+    "gap-3"
+  ],
+  trigger: "parkClipboard__trigger",
+  indicator: "parkClipboard__indicator",
+  input: "parkClipboard__input",
+  label: "parkClipboard__label"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Clipboard**
@@ -49,29 +76,4 @@ export const clipboardSlots = createSlots({ prefix: "park", caseConvention: "cam
  *
  * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
  */
-export const clipboardStyledSlots = {
-  base: "parkClipboard",
-  root: [
-    "parkClipboard__root",
-
-    // Layout
-    "flex",
-
-    // Flexbox & Grid
-    "flex-col",
-    "gap-1.5"
-  ],
-  control: [
-    "parkClipboard__control",
-
-    // Layout
-    "flex",
-
-    // Flexbox & Grid
-    "gap-3"
-  ],
-  trigger: "parkClipboard__trigger",
-  indicator: "parkClipboard__indicator",
-  input: "parkClipboard__input",
-  label: "parkClipboard__label"
-} as const satisfies Record<Slots, string | string[]>;
+export const clipboard = styledSlots;

@@ -19,7 +19,17 @@ import { type Slots, createSlots } from "@spark-css/core/segment-group";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
  */
-export const segmentGroupSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "segment-group",
+  root: "segment-group__root",
+  label: "segment-group__label",
+  item: "segment-group__item",
+  itemText: "segment-group__item-text",
+  itemControl: "segment-group__item-control",
+  indicator: "segment-group__indicator"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Segment Group**
@@ -44,12 +54,4 @@ export const segmentGroupSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
  */
-export const segmentGroupStyledSlots = {
-  base: "segment-group",
-  root: "segment-group__root",
-  label: "segment-group__label",
-  item: "segment-group__item",
-  itemText: "segment-group__item-text",
-  itemControl: "segment-group__item-control",
-  indicator: "segment-group__indicator"
-} as const satisfies Record<Slots, string | string[]>;
+export const segmentGroup = styledSlots;

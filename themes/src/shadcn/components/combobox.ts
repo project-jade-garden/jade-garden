@@ -28,64 +28,9 @@ import { type Slots, createSlots } from "@spark-css/core/combobox";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
-export const comboboxSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Combobox**
- * @description A single input field that combines the functionality of a select and input.
- *
- * @example
- * ```css
- * .parkCombobox { }
- *
- * .parkCombobox__root {
- *   (@)apply w-full flex gap-1.5 flex-col;
- * }
- *
- * .parkCombobox__clearTrigger { }
- *
- * .parkCombobox__content {
- *   (@)apply bg-bg-default rounded-l2 [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline shadow-lg flex [&:is([hidden])]:hidden z-[--z-index-dropdown] flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
- * }
- *
- * .parkCombobox__control {
- *   (@)apply relative;
- * }
- *
- * .parkCombobox__input { }
- *
- * .parkCombobox__item {
- *   (@)apply data-[highlighted]:bg-bg-muted rounded-l1 cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex items-center justify-between [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-[background,_color] duration-200 ease-[--easings-default];
- * }
- *
- * .parkCombobox__itemGroup { }
- *
- * .parkCombobox__itemGroupLabel {
- *   (@)apply text-sm font-semibold;
- * }
- *
- * .parkCombobox__itemIndicator {
- *   (@)apply text-[--colors-color-palette-default];
- * }
- *
- * .parkCombobox__itemText { }
- *
- * .parkCombobox__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkCombobox__list { }
- *
- * .parkCombobox__positioner { }
- *
- * .parkCombobox__trigger {
- *   (@)apply absolute inset-y-0 right-0 text-fg-muted;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
- */
-export const comboboxStyledSlots = {
+const styledSlots = {
   base: "parkCombobox",
   root: [
     "parkCombobox__root",
@@ -198,4 +143,61 @@ export const comboboxStyledSlots = {
     // Typography
     "text-fg-muted"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Combobox**
+ * @description A single input field that combines the functionality of a select and input.
+ *
+ * @example
+ * ```css
+ * .parkCombobox { }
+ *
+ * .parkCombobox__root {
+ *   (@)apply w-full flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkCombobox__clearTrigger { }
+ *
+ * .parkCombobox__content {
+ *   (@)apply bg-bg-default rounded-l2 [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline shadow-lg flex [&:is([hidden])]:hidden z-[--z-index-dropdown] flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
+ * }
+ *
+ * .parkCombobox__control {
+ *   (@)apply relative;
+ * }
+ *
+ * .parkCombobox__input { }
+ *
+ * .parkCombobox__item {
+ *   (@)apply data-[highlighted]:bg-bg-muted rounded-l1 cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex items-center justify-between [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-[background,_color] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkCombobox__itemGroup { }
+ *
+ * .parkCombobox__itemGroupLabel {
+ *   (@)apply text-sm font-semibold;
+ * }
+ *
+ * .parkCombobox__itemIndicator {
+ *   (@)apply text-[--colors-color-palette-default];
+ * }
+ *
+ * .parkCombobox__itemText { }
+ *
+ * .parkCombobox__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkCombobox__list { }
+ *
+ * .parkCombobox__positioner { }
+ *
+ * .parkCombobox__trigger {
+ *   (@)apply absolute inset-y-0 right-0 text-fg-muted;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
+ */
+export const combobox = styledSlots;

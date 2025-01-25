@@ -11,7 +11,7 @@ const items = [
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.stepsStyledSlots, park: park.stepsStyledSlots, shadcn: shadcn.stepsStyledSlots },
+    { minimal: minimal.steps, park: park.steps, shadcn: shadcn.steps },
     theme
   );
 

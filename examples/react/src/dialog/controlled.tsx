@@ -7,7 +7,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.dialogStyledSlots, park: park.dialogStyledSlots, shadcn: shadcn.dialogStyledSlots },
+    { minimal: minimal.dialog, park: park.dialog, shadcn: shadcn.dialog },
     theme
   );
   const [isOpen, setIsOpen] = useState(false);

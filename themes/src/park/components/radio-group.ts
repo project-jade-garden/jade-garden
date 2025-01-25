@@ -20,40 +20,9 @@ import { type Slots, createSlots } from "@spark-css/core/radio-group";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
  */
-export const radioGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Radio Group**
- * @description Allows single selection from multiple options.
- *
- * @example
- * ```css
- * .parkRadioGroup { }
- *
- * .parkRadioGroup__root {
- *   (@)apply flex data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col;
- * }
- *
- * .parkRadioGroup__label { }
- *
- * .parkRadioGroup__item {
- *   (@)apply cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex items-center;
- * }
- *
- * .parkRadioGroup__itemText {
- *   (@)apply text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled font-medium;
- * }
- *
- * .parkRadioGroup__itemControl {
- *   (@)apply bg-transparent [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default] rounded-full border border-border-default [&:is(:disabled,_[disabled],_[data-disabled])]:border-border-disabled [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default] outline outline-bg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-[background] duration-200 ease-[--easings-default];
- * }
- *
- * .parkRadioGroup__indicator { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
- */
-export const radioGroupStyledSlots = {
+const styledSlots = {
   base: "parkRadioGroup",
   root: [
     "parkRadioGroup__root",
@@ -114,4 +83,37 @@ export const radioGroupStyledSlots = {
     "ease-[--easings-default]"
   ],
   indicator: "parkRadioGroup__indicator"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Radio Group**
+ * @description Allows single selection from multiple options.
+ *
+ * @example
+ * ```css
+ * .parkRadioGroup { }
+ *
+ * .parkRadioGroup__root {
+ *   (@)apply flex data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col;
+ * }
+ *
+ * .parkRadioGroup__label { }
+ *
+ * .parkRadioGroup__item {
+ *   (@)apply cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex items-center;
+ * }
+ *
+ * .parkRadioGroup__itemText {
+ *   (@)apply text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled font-medium;
+ * }
+ *
+ * .parkRadioGroup__itemControl {
+ *   (@)apply bg-transparent [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default] rounded-full border border-border-default [&:is(:disabled,_[disabled],_[data-disabled])]:border-border-disabled [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default] outline outline-bg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled transition-[background] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkRadioGroup__indicator { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
+ */
+export const radioGroup = styledSlots;

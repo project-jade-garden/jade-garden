@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.editableStyledSlots, park: park.editableStyledSlots, shadcn: shadcn.editableStyledSlots },
+    { minimal: minimal.editable, park: park.editable, shadcn: shadcn.editable },
     theme
   );
 

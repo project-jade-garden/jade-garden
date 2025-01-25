@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.progressStyledSlots, park: park.progressStyledSlots, shadcn: shadcn.progressStyledSlots },
+    { minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress },
     theme
   );
   const progress = useProgress();

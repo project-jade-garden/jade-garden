@@ -18,7 +18,16 @@ import { type Slots, createSlots } from "@spark-css/core/hover-card";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
-export const hoverCardSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "hover-card",
+  arrow: "hover-card__arrow",
+  arrowTip: "hover-card__arrow-tip",
+  trigger: "hover-card__trigger",
+  positioner: "hover-card__positioner",
+  content: "hover-card__content"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Hover Card**
@@ -41,11 +50,4 @@ export const hoverCardSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
-export const hoverCardStyledSlots = {
-  base: "hover-card",
-  arrow: "hover-card__arrow",
-  arrowTip: "hover-card__arrow-tip",
-  trigger: "hover-card__trigger",
-  positioner: "hover-card__positioner",
-  content: "hover-card__content"
-} as const satisfies Record<Slots, string | string[]>;
+export const hoverCard = styledSlots;

@@ -20,7 +20,18 @@ import { type Slots, createSlots } from "@spark-css/core/dialog";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
  */
-export const dialogSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "dialog",
+  trigger: "dialog__trigger",
+  backdrop: "dialog__backdrop",
+  positioner: "dialog__positioner",
+  content: "dialog__content",
+  title: "dialog__title",
+  description: "dialog__description",
+  closeTrigger: "dialog__close-trigger"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Dialog**
@@ -47,13 +58,4 @@ export const dialogSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
  */
-export const dialogStyledSlots = {
-  base: "dialog",
-  trigger: "dialog__trigger",
-  backdrop: "dialog__backdrop",
-  positioner: "dialog__positioner",
-  content: "dialog__content",
-  title: "dialog__title",
-  description: "dialog__description",
-  closeTrigger: "dialog__close-trigger"
-} as const satisfies Record<Slots, string | string[]>;
+export const dialog = styledSlots;

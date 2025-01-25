@@ -21,7 +21,19 @@ import { type Slots, createSlots } from "@spark-css/core/timer";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
  */
-export const timerSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "timer",
+  root: "timer__root",
+  area: "timer__area",
+  control: "timer__control",
+  item: "timer__item",
+  itemValue: "timer__item-value",
+  itemLabel: "timer__item-label",
+  actionTrigger: "timer__action-trigger",
+  separator: "timer__separator"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Timer**
@@ -50,14 +62,4 @@ export const timerSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
  */
-export const timerStyledSlots = {
-  base: "timer",
-  root: "timer__root",
-  area: "timer__area",
-  control: "timer__control",
-  item: "timer__item",
-  itemValue: "timer__item-value",
-  itemLabel: "timer__item-label",
-  actionTrigger: "timer__action-trigger",
-  separator: "timer__separator"
-} as const satisfies Record<Slots, string | string[]>;
+export const timer = styledSlots;

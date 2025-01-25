@@ -23,48 +23,9 @@ import { type Slots, createSlots } from "@spark-css/core/carousel";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
  */
-export const carouselSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Carousel**
- * @description A slideshow component that cycles through elements.
- *
- * @example
- * ```css
- * .parkCarousel { }
- *
- * .parkCarousel__root { }
- *
- * .parkCarousel__itemGroup {
- *   (@)apply flex;
- * }
- *
- * .parkCarousel__item { }
- *
- * .parkCarousel__control {
- *   (@)apply bg-gray-dark-a12 dark:bg-gray-light-a12 rounded-l2 absolute bottom-4 left-1/2 flex items-center -translate-y-1/2;
- * }
- *
- * .parkCarousel__nextTrigger { }
- *
- * .parkCarousel__prevTrigger { }
- *
- * .parkCarousel__indicatorGroup {
- *   (@)apply flex;
- * }
- *
- * .parkCarousel__indicator {
- *   (@)apply bg-gray-6 [&:is([data-current])]:bg-[--colors-color-palette-default] rounded-full [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-offset-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline cursor-pointer;
- * }
- *
- * .parkCarousel__autoplayTrigger {
- *   (@)apply rounded-l2 relative overflow-x-hidden;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
- */
-export const carouselStyledSlots = {
+const styledSlots = {
   base: "parkCarousel",
   root: "parkCarousel__root",
   itemGroup: [
@@ -122,4 +83,45 @@ export const carouselStyledSlots = {
     "cursor-pointer"
   ],
   autoplayTrigger: "parkCarousel__autoplayTrigger"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Carousel**
+ * @description A slideshow component that cycles through elements.
+ *
+ * @example
+ * ```css
+ * .parkCarousel { }
+ *
+ * .parkCarousel__root { }
+ *
+ * .parkCarousel__itemGroup {
+ *   (@)apply flex;
+ * }
+ *
+ * .parkCarousel__item { }
+ *
+ * .parkCarousel__control {
+ *   (@)apply bg-gray-dark-a12 dark:bg-gray-light-a12 rounded-l2 absolute bottom-4 left-1/2 flex items-center -translate-y-1/2;
+ * }
+ *
+ * .parkCarousel__nextTrigger { }
+ *
+ * .parkCarousel__prevTrigger { }
+ *
+ * .parkCarousel__indicatorGroup {
+ *   (@)apply flex;
+ * }
+ *
+ * .parkCarousel__indicator {
+ *   (@)apply bg-gray-6 [&:is([data-current])]:bg-[--colors-color-palette-default] rounded-full [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-offset-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline cursor-pointer;
+ * }
+ *
+ * .parkCarousel__autoplayTrigger {
+ *   (@)apply rounded-l2 relative overflow-x-hidden;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
+ */
+export const carousel = styledSlots;

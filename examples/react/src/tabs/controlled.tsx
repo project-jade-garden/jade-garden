@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.tabsStyledSlots, park: park.tabsStyledSlots, shadcn: shadcn.tabsStyledSlots },
+    { minimal: minimal.tabs, park: park.tabs, shadcn: shadcn.tabs },
     theme
   );
   const [value, setValue] = useState<string | null>("react");

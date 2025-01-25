@@ -7,9 +7,9 @@ import { type Theme, getTheme } from "../utils";
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.ratingGroupStyledSlots,
-      park: park.ratingGroupStyledSlots,
-      shadcn: shadcn.ratingGroupStyledSlots
+      minimal: minimal.ratingGroup,
+      park: park.ratingGroup,
+      shadcn: shadcn.ratingGroup
     },
     theme
   );

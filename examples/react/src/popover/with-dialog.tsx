@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const WithDialog = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.popoverStyledSlots, park: park.popoverStyledSlots, shadcn: shadcn.popoverStyledSlots },
+    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
     theme
   );
 
@@ -36,7 +36,7 @@ interface DialogProps {
 const Dialog = (props: DialogProps) => {
   const { children, isOpen, setIsOpen, bg } = props;
   const styledSlots = getTheme(
-    { minimal: minimal.popoverStyledSlots, park: park.popoverStyledSlots, shadcn: shadcn.popoverStyledSlots },
+    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
     props.theme
   );
 

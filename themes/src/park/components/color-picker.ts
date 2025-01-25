@@ -39,96 +39,9 @@ import { type Slots, createSlots } from "@spark-css/core/color-picker";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPickerSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Color Picker**
- * @description A component that allows users to select a color from a color picker.
- *
- * @example
- * ```css
- * .parkColorPicker { }
- *
- * .parkColorPicker__root {
- *   (@)apply flex flex-col gap-1.5;
- * }
- *
- * .parkColorPicker__label {
- *   (@)apply text-fg-default text-sm font-medium;
- * }
- *
- * .parkColorPicker__control {
- *   (@)apply flex flex-row gap-2;
- * }
- *
- * .parkColorPicker__trigger { }
- *
- * .parkColorPicker__positioner { }
- *
- * .parkColorPicker__content {
- *   (@)apply p-4 max-w-96 bg-bg-default rounded-l3 shadow-lg flex z-[--z-index-dropdown] [&:is([hidden])]:hidden flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
- * }
- *
- * .parkColorPicker__area {
- *   (@)apply h-36 rounded-l2 overflow-hidden;
- * }
- *
- * .parkColorPicker__areaThumb {
- *   (@)apply size-2.5 rounded-full outline-none shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000];
- * }
- *
- * .parkColorPicker__valueText { }
- *
- * .parkColorPicker__areaBackground {
- *   (@)apply h-full;
- * }
- *
- * .parkColorPicker__channelSlider {
- *   (@)apply rounded-l2;
- * }
- *
- * .parkColorPicker__channelSliderLabel { }
- *
- * .parkColorPicker__channelSliderTrack {
- *   (@)apply h-3 rounded-l2;
- * }
- *
- * .parkColorPicker__channelSliderThumb {
- *   (@)apply size-2.5 rounded-full outline-none shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000] -translate-x-1/2 -translate-y-1/2;
- * }
- *
- * .parkColorPicker__channelSliderValueText { }
- *
- * .parkColorPicker__channelInput { }
- *
- * .parkColorPicker__transparencyGrid {
- *   (@)apply rounded-l2;
- * }
- *
- * .parkColorPicker__swatchGroup {
- *   (@)apply bg-bg-default grid gap-2 grid-cols-7;
- * }
- *
- * .parkColorPicker__swatchTrigger { }
- *
- * .parkColorPicker__swatchIndicator { }
- *
- * .parkColorPicker__swatch {
- *   (@)apply size-6 rounded-l2 shadow-[0_0_0_1px_var(--colors-border-emphasized),_0_0_0_2px_var(--colors-bg-default)_inset];
- * }
- *
- * .parkColorPicker__eyeDropperTrigger { }
- *
- * .parkColorPicker__formatTrigger { }
- *
- * .parkColorPicker__formatSelect { }
- *
- * .parkColorPicker__view { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
- */
-export const colorPickerStyledSlots = {
+const styledSlots = {
   base: "parkColorPicker",
   root: [
     "parkColorPicker__root",
@@ -294,4 +207,93 @@ export const colorPickerStyledSlots = {
   formatTrigger: "parkColorPicker__formatTrigger",
   formatSelect: "parkColorPicker__formatSelect",
   view: "parkColorPicker__view"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Color Picker**
+ * @description A component that allows users to select a color from a color picker.
+ *
+ * @example
+ * ```css
+ * .parkColorPicker { }
+ *
+ * .parkColorPicker__root {
+ *   (@)apply flex flex-col gap-1.5;
+ * }
+ *
+ * .parkColorPicker__label {
+ *   (@)apply text-fg-default text-sm font-medium;
+ * }
+ *
+ * .parkColorPicker__control {
+ *   (@)apply flex flex-row gap-2;
+ * }
+ *
+ * .parkColorPicker__trigger { }
+ *
+ * .parkColorPicker__positioner { }
+ *
+ * .parkColorPicker__content {
+ *   (@)apply p-4 max-w-96 bg-bg-default rounded-l3 shadow-lg flex z-[--z-index-dropdown] [&:is([hidden])]:hidden flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
+ * }
+ *
+ * .parkColorPicker__area {
+ *   (@)apply h-36 rounded-l2 overflow-hidden;
+ * }
+ *
+ * .parkColorPicker__areaThumb {
+ *   (@)apply size-2.5 rounded-full outline-none shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000];
+ * }
+ *
+ * .parkColorPicker__valueText { }
+ *
+ * .parkColorPicker__areaBackground {
+ *   (@)apply h-full;
+ * }
+ *
+ * .parkColorPicker__channelSlider {
+ *   (@)apply rounded-l2;
+ * }
+ *
+ * .parkColorPicker__channelSliderLabel { }
+ *
+ * .parkColorPicker__channelSliderTrack {
+ *   (@)apply h-3 rounded-l2;
+ * }
+ *
+ * .parkColorPicker__channelSliderThumb {
+ *   (@)apply size-2.5 rounded-full outline-none shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000] -translate-x-1/2 -translate-y-1/2;
+ * }
+ *
+ * .parkColorPicker__channelSliderValueText { }
+ *
+ * .parkColorPicker__channelInput { }
+ *
+ * .parkColorPicker__transparencyGrid {
+ *   (@)apply rounded-l2;
+ * }
+ *
+ * .parkColorPicker__swatchGroup {
+ *   (@)apply bg-bg-default grid gap-2 grid-cols-7;
+ * }
+ *
+ * .parkColorPicker__swatchTrigger { }
+ *
+ * .parkColorPicker__swatchIndicator { }
+ *
+ * .parkColorPicker__swatch {
+ *   (@)apply size-6 rounded-l2 shadow-[0_0_0_1px_var(--colors-border-emphasized),_0_0_0_2px_var(--colors-bg-default)_inset];
+ * }
+ *
+ * .parkColorPicker__eyeDropperTrigger { }
+ *
+ * .parkColorPicker__formatTrigger { }
+ *
+ * .parkColorPicker__formatSelect { }
+ *
+ * .parkColorPicker__view { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
+ */
+export const colorPicker = styledSlots;

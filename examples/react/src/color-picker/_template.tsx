@@ -6,9 +6,9 @@ import { type Theme, getTheme } from "../utils";
 export const ColorPickerContent = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.colorPickerStyledSlots,
-      park: park.colorPickerStyledSlots,
-      shadcn: shadcn.colorPickerStyledSlots
+      minimal: minimal.colorPicker,
+      park: park.colorPicker,
+      shadcn: shadcn.colorPicker
     },
     theme
   );
@@ -70,9 +70,9 @@ export const ColorPickerContent = ({ theme }: { theme: Theme }) => {
 export const ColorPickerControl = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.colorPickerStyledSlots,
-      park: park.colorPickerStyledSlots,
-      shadcn: shadcn.colorPickerStyledSlots
+      minimal: minimal.colorPicker,
+      park: park.colorPicker,
+      shadcn: shadcn.colorPicker
     },
     theme
   );
@@ -95,9 +95,9 @@ export const ColorPickerControl = ({ theme }: { theme: Theme }) => {
 export const ColorPickerSwatch = (props: ColorPicker.SwatchBaseProps & { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.colorPickerStyledSlots,
-      park: park.colorPickerStyledSlots,
-      shadcn: shadcn.colorPickerStyledSlots
+      minimal: minimal.colorPicker,
+      park: park.colorPicker,
+      shadcn: shadcn.colorPicker
     },
     props.theme
   );
@@ -115,9 +115,9 @@ export const ColorPickerSwatch = (props: ColorPicker.SwatchBaseProps & { theme: 
 export const ColorPickerSlider = (props: ColorPicker.ChannelSliderBaseProps & { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.colorPickerStyledSlots,
-      park: park.colorPickerStyledSlots,
-      shadcn: shadcn.colorPickerStyledSlots
+      minimal: minimal.colorPicker,
+      park: park.colorPicker,
+      shadcn: shadcn.colorPicker
     },
     props.theme
   );

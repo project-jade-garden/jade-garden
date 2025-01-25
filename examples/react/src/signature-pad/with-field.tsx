@@ -8,9 +8,9 @@ import { type Theme, getTheme } from "../utils";
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.signaturePadStyledSlots,
-      park: park.signaturePadStyledSlots,
-      shadcn: shadcn.signaturePadStyledSlots
+      minimal: minimal.signaturePad,
+      park: park.signaturePad,
+      shadcn: shadcn.signaturePad
     },
     props.theme
   );

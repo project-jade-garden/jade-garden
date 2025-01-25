@@ -8,7 +8,7 @@ const images = Array.from({ length: 5 }, (_, i) => `https://picsum.photos/seed/$
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.carouselStyledSlots, park: park.carouselStyledSlots, shadcn: shadcn.carouselStyledSlots },
+    { minimal: minimal.carousel, park: park.carousel, shadcn: shadcn.carousel },
     theme
   );
   const [page, setPage] = useState(0);

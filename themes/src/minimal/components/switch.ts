@@ -17,7 +17,15 @@ import { type Slots, createSlots } from "@spark-css/core/switch";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
  */
-export const switchSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "switch",
+  root: "switch__root",
+  label: "switch__label",
+  control: "switch__control",
+  thumb: "switch__thumb"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Switch**
@@ -38,10 +46,4 @@ export const switchSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
  */
-export const switchStyledSlots = {
-  base: "switch",
-  root: "switch__root",
-  label: "switch__label",
-  control: "switch__control",
-  thumb: "switch__thumb"
-} as const satisfies Record<Slots, string | string[]>;
+export const switchStyles = styledSlots;

@@ -24,52 +24,9 @@ import { type Slots, createSlots } from "@spark-css/core/tags-input";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
-export const tagsInputSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Tags Input**
- * @description A component that allows users to add tags to an input field.
- *
- * @example
- * ```css
- * .parkTagsInput { }
- *
- * .parkTagsInput__root {
- *   (@)apply w-full flex gap-1.5 flex-col;
- * }
- *
- * .parkTagsInput__label {
- *   (@)apply text-fg-default text-sm font-medium;
- * }
- *
- * .parkTagsInput__control {
- *   (@)apply rounded-l2 border border-border-default focus-within:border-[--colors-color-palette-default] focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)] flex outline-0 items-center flex-wrap transition-[border-color,_box-shadow] duration-200 ease-[--easings-default];
- * }
- *
- * .parkTagsInput__input {
- *   (@)apply bg-transparent outline-none text-fg-default;
- * }
- *
- * .parkTagsInput__clearTrigger { }
- *
- * .parkTagsInput__item { }
- *
- * .parkTagsInput__itemPreview {
- *   (@)apply rounded-l1 border border-border-default data-[highlighted]:border-[--colors-color-palette-default] data-[highlighted]:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)] inline-flex [&:is([hidden])]:hidden items-center text-fg-default font-medium;
- * }
- *
- * .parkTagsInput__itemInput {
- *   (@)apply bg-transparent outline-none text-fg-default;
- * }
- *
- * .parkTagsInput__itemText { }
- *
- * .parkTagsInput__itemDeleteTrigger { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
- */
-export const tagsInputStyledSlots = {
+const styledSlots = {
   base: "parkTagsInput",
   root: [
     "parkTagsInput__root",
@@ -168,4 +125,49 @@ export const tagsInputStyledSlots = {
   ],
   itemText: "parkTagsInput__itemText",
   itemDeleteTrigger: "parkTagsInput__itemDeleteTrigger"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Tags Input**
+ * @description A component that allows users to add tags to an input field.
+ *
+ * @example
+ * ```css
+ * .parkTagsInput { }
+ *
+ * .parkTagsInput__root {
+ *   (@)apply w-full flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkTagsInput__label {
+ *   (@)apply text-fg-default text-sm font-medium;
+ * }
+ *
+ * .parkTagsInput__control {
+ *   (@)apply rounded-l2 border border-border-default focus-within:border-[--colors-color-palette-default] focus-within:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)] flex outline-0 items-center flex-wrap transition-[border-color,_box-shadow] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkTagsInput__input {
+ *   (@)apply bg-transparent outline-none text-fg-default;
+ * }
+ *
+ * .parkTagsInput__clearTrigger { }
+ *
+ * .parkTagsInput__item { }
+ *
+ * .parkTagsInput__itemPreview {
+ *   (@)apply rounded-l1 border border-border-default data-[highlighted]:border-[--colors-color-palette-default] data-[highlighted]:[box-shadow:0_0_0_1px_var(--colors-color-palette-default)] inline-flex [&:is([hidden])]:hidden items-center text-fg-default font-medium;
+ * }
+ *
+ * .parkTagsInput__itemInput {
+ *   (@)apply bg-transparent outline-none text-fg-default;
+ * }
+ *
+ * .parkTagsInput__itemText { }
+ *
+ * .parkTagsInput__itemDeleteTrigger { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
+ */
+export const tagsInput = styledSlots;

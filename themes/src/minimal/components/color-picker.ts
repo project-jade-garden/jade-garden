@@ -38,7 +38,36 @@ import { type Slots, createSlots } from "@spark-css/core/color-picker";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPickerSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "color-picker",
+  root: "color-picker__root",
+  label: "color-picker__label",
+  control: "color-picker__control",
+  trigger: "color-picker__trigger",
+  positioner: "color-picker__positioner",
+  content: "color-picker__content",
+  area: "color-picker__area",
+  areaThumb: "color-picker__area-thumb",
+  valueText: "color-picker__value-text",
+  areaBackground: "color-picker__area-background",
+  channelSlider: "color-picker__channel-slider",
+  channelSliderLabel: "color-picker__channel-slider-label",
+  channelSliderTrack: "color-picker__channel-slider-track",
+  channelSliderThumb: "color-picker__channel-slider-thumb",
+  channelSliderValueText: "color-picker__channel-slider-value-text",
+  channelInput: "color-picker__channel-input",
+  transparencyGrid: "color-picker__transparency-grid",
+  swatchGroup: "color-picker__swatch-group",
+  swatchTrigger: "color-picker__swatch-trigger",
+  swatchIndicator: "color-picker__swatch-indicator",
+  swatch: "color-picker__swatch",
+  eyeDropperTrigger: "color-picker__eye-dropper-trigger",
+  formatTrigger: "color-picker__format-trigger",
+  formatSelect: "color-picker__format-select",
+  view: "color-picker__view"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Color Picker**
@@ -101,31 +130,4 @@ export const colorPickerSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPickerStyledSlots = {
-  base: "color-picker",
-  root: "color-picker__root",
-  label: "color-picker__label",
-  control: "color-picker__control",
-  trigger: "color-picker__trigger",
-  positioner: "color-picker__positioner",
-  content: "color-picker__content",
-  area: "color-picker__area",
-  areaThumb: "color-picker__area-thumb",
-  valueText: "color-picker__value-text",
-  areaBackground: "color-picker__area-background",
-  channelSlider: "color-picker__channel-slider",
-  channelSliderLabel: "color-picker__channel-slider-label",
-  channelSliderTrack: "color-picker__channel-slider-track",
-  channelSliderThumb: "color-picker__channel-slider-thumb",
-  channelSliderValueText: "color-picker__channel-slider-value-text",
-  channelInput: "color-picker__channel-input",
-  transparencyGrid: "color-picker__transparency-grid",
-  swatchGroup: "color-picker__swatch-group",
-  swatchTrigger: "color-picker__swatch-trigger",
-  swatchIndicator: "color-picker__swatch-indicator",
-  swatch: "color-picker__swatch",
-  eyeDropperTrigger: "color-picker__eye-dropper-trigger",
-  formatTrigger: "color-picker__format-trigger",
-  formatSelect: "color-picker__format-select",
-  view: "color-picker__view"
-} as const satisfies Record<Slots, string | string[]>;
+export const colorPicker = styledSlots;

@@ -21,7 +21,19 @@ import { type Slots, createSlots } from "@spark-css/core/field";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
-export const fieldSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "field",
+  root: "field__root",
+  errorText: "field__error-text",
+  helperText: "field__helper-text",
+  input: "field__input",
+  label: "field__label",
+  select: "field__select",
+  textarea: "field__textarea",
+  requiredIndicator: "field__required-indicator"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Field**
@@ -50,14 +62,4 @@ export const fieldSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
-export const fieldStyledSlots = {
-  base: "field",
-  root: "field__root",
-  errorText: "field__error-text",
-  helperText: "field__helper-text",
-  input: "field__input",
-  label: "field__label",
-  select: "field__select",
-  textarea: "field__textarea",
-  requiredIndicator: "field__required-indicator"
-} as const satisfies Record<Slots, string | string[]>;
+export const field = styledSlots;

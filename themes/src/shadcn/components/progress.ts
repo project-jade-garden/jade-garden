@@ -25,54 +25,9 @@ import { type Slots, createSlots } from "@spark-css/core/progress";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/progress#anatomy)
  */
-export const progressSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Progress**
- * @description
- * **Circular** - An element that shows either determinate or indeterminate progress.
- * **Linear** - An element that shows either determinate or indeterminate progress.
- *
- * @example
- * ```css
- * .parkProgress { }
- *
- * .parkProgress__root {
- *   (@)apply w-full flex gap-1.5 items-center flex-col;
- * }
- *
- * .parkProgress__label {
- *   (@)apply text-fg-default text-sm font-medium;
- * }
- *
- * .parkProgress__track {
- *   (@)apply w-full bg-bg-emphasized rounded-l2 overflow-hidden;
- * }
- *
- * .parkProgress__range {
- *   (@)apply h-full bg-[--colors-color-palette-default] [transition:width_.2s_ease-in-out];
- * }
- *
- * .parkProgress__valueText {
- *   (@)apply text-sm;
- * }
- *
- * .parkProgress__view { }
- *
- * .parkProgress__circle { }
- *
- * .parkProgress__circleTrack {
- *   (@)apply stroke-bg-emphasized;
- * }
- *
- * .parkProgress__circleRange {
- *   (@)apply stroke-[--colors-color-palette-default] transition-[stroke-dasharray,_stroke] duration-[600ms];
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/progress#anatomy)
- */
-export const progressStyledSlots = {
+const styledSlots = {
   base: "parkProgress",
   root: [
     "parkProgress__root",
@@ -147,4 +102,51 @@ export const progressStyledSlots = {
     "transition-[stroke-dasharray,_stroke]",
     "duration-[600ms]"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Progress**
+ * @description
+ * **Circular** - An element that shows either determinate or indeterminate progress.
+ * **Linear** - An element that shows either determinate or indeterminate progress.
+ *
+ * @example
+ * ```css
+ * .parkProgress { }
+ *
+ * .parkProgress__root {
+ *   (@)apply w-full flex gap-1.5 items-center flex-col;
+ * }
+ *
+ * .parkProgress__label {
+ *   (@)apply text-fg-default text-sm font-medium;
+ * }
+ *
+ * .parkProgress__track {
+ *   (@)apply w-full bg-bg-emphasized rounded-l2 overflow-hidden;
+ * }
+ *
+ * .parkProgress__range {
+ *   (@)apply h-full bg-[--colors-color-palette-default] [transition:width_.2s_ease-in-out];
+ * }
+ *
+ * .parkProgress__valueText {
+ *   (@)apply text-sm;
+ * }
+ *
+ * .parkProgress__view { }
+ *
+ * .parkProgress__circle { }
+ *
+ * .parkProgress__circleTrack {
+ *   (@)apply stroke-bg-emphasized;
+ * }
+ *
+ * .parkProgress__circleRange {
+ *   (@)apply stroke-[--colors-color-palette-default] transition-[stroke-dasharray,_stroke] duration-[600ms];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/progress#anatomy)
+ */
+export const progress = styledSlots;

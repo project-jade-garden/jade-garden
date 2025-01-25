@@ -29,64 +29,9 @@ import { type Slots, createSlots } from "@spark-css/core/select";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
  */
-export const selectSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Select**
- * @description Displays a list of options for the user to pick from.
- *
- * @example
- * ```css
- * .parkSelect { }
- *
- * .parkSelect__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkSelect__positioner {
- *   (@)apply w-full rounded-l2 border-border-default appearance-none cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex relative outline-0 items-center justify-between text-fg-default [&_:where(svg)]:text-fg-subtle [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is(:disabled,_[disabled],_[data-disabled])_:where(svg)]:text-fg-disabled [&:is(:placeholder-shown,_[data-placeholder-shown])]:text-fg-subtle transition-[background,_box-shadow,_border-color] duration-200 ease-[--easings-default];
- * }
- *
- * .parkSelect__trigger { }
- *
- * .parkSelect__indicator { }
- *
- * .parkSelect__clearTrigger { }
- *
- * .parkSelect__item {
- *   (@)apply bg-[--colors-gray-a3] rounded-l1 cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex items-center justify-between data-[highlighted]:text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is([aria-selected=true],_[data-selected])]:text-fg-subtle transition-[background,_color] duration-150 ease-[--easings-default];
- * }
- *
- * .parkSelect__itemText { }
- *
- * .parkSelect__itemIndicator {
- *   (@)apply text-[--colors-color-palette-default];
- * }
- *
- * .parkSelect__itemGroup { }
- *
- * .parkSelect__itemGroupLabel {
- *   (@)apply text-sm font-semibold;
- * }
- *
- * .parkSelect__list { }
- *
- * .parkSelect__content {
- *   (@)apply bg-bg-default rounded-l2 [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline shadow-lg flex [&:is([hidden])]:hidden z-[--z-index-dropdown] flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
- * }
- *
- * .parkSelect__root {
- *   (@)apply w-full flex gap-1.5 flex-col;
- * }
- *
- * .parkSelect__control { }
- *
- * .parkSelect__valueText { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
- */
-export const selectStyledSlots = {
+const styledSlots = {
   base: "parkSelect",
   label: [
     "parkSelect__label",
@@ -222,4 +167,61 @@ export const selectStyledSlots = {
   ],
   control: "parkSelect__control",
   valueText: "parkSelect__valueText"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Select**
+ * @description Displays a list of options for the user to pick from.
+ *
+ * @example
+ * ```css
+ * .parkSelect { }
+ *
+ * .parkSelect__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkSelect__positioner {
+ *   (@)apply w-full rounded-l2 border-border-default appearance-none cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex relative outline-0 items-center justify-between text-fg-default [&_:where(svg)]:text-fg-subtle [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is(:disabled,_[disabled],_[data-disabled])_:where(svg)]:text-fg-disabled [&:is(:placeholder-shown,_[data-placeholder-shown])]:text-fg-subtle transition-[background,_box-shadow,_border-color] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkSelect__trigger { }
+ *
+ * .parkSelect__indicator { }
+ *
+ * .parkSelect__clearTrigger { }
+ *
+ * .parkSelect__item {
+ *   (@)apply bg-[--colors-gray-a3] rounded-l1 cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex items-center justify-between data-[highlighted]:text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is([aria-selected=true],_[data-selected])]:text-fg-subtle transition-[background,_color] duration-150 ease-[--easings-default];
+ * }
+ *
+ * .parkSelect__itemText { }
+ *
+ * .parkSelect__itemIndicator {
+ *   (@)apply text-[--colors-color-palette-default];
+ * }
+ *
+ * .parkSelect__itemGroup { }
+ *
+ * .parkSelect__itemGroupLabel {
+ *   (@)apply text-sm font-semibold;
+ * }
+ *
+ * .parkSelect__list { }
+ *
+ * .parkSelect__content {
+ *   (@)apply bg-bg-default rounded-l2 [&:is(:focus-visible,_[data-focus-visible])]:outline [&:is(:focus-visible,_[data-focus-visible])]:outline-2 [&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline shadow-lg flex [&:is([hidden])]:hidden z-[--z-index-dropdown] flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
+ * }
+ *
+ * .parkSelect__root {
+ *   (@)apply w-full flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkSelect__control { }
+ *
+ * .parkSelect__valueText { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
+ */
+export const select = styledSlots;

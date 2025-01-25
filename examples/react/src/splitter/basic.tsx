@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.splitterStyledSlots, park: park.splitterStyledSlots, shadcn: shadcn.splitterStyledSlots },
+    { minimal: minimal.splitter, park: park.splitter, shadcn: shadcn.splitter },
     theme
   );
 

@@ -27,7 +27,25 @@ import { type Slots, createSlots } from "@spark-css/core/combobox";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
-export const comboboxSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "combobox",
+  root: "combobox__root",
+  clearTrigger: "combobox__clear-trigger",
+  content: "combobox__content",
+  control: "combobox__control",
+  input: "combobox__input",
+  item: "combobox__item",
+  itemGroup: "combobox__item-group",
+  itemGroupLabel: "combobox__item-group-label",
+  itemIndicator: "combobox__item-indicator",
+  itemText: "combobox__item-text",
+  label: "combobox__label",
+  list: "combobox__list",
+  positioner: "combobox__positioner",
+  trigger: "combobox__trigger"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Combobox**
@@ -68,20 +86,4 @@ export const comboboxSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
-export const comboboxStyledSlots = {
-  base: "combobox",
-  root: "combobox__root",
-  clearTrigger: "combobox__clear-trigger",
-  content: "combobox__content",
-  control: "combobox__control",
-  input: "combobox__input",
-  item: "combobox__item",
-  itemGroup: "combobox__item-group",
-  itemGroupLabel: "combobox__item-group-label",
-  itemIndicator: "combobox__item-indicator",
-  itemText: "combobox__item-text",
-  label: "combobox__label",
-  list: "combobox__list",
-  positioner: "combobox__positioner",
-  trigger: "combobox__trigger"
-} as const satisfies Record<Slots, string | string[]>;
+export const combobox = styledSlots;

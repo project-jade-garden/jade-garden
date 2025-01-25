@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.timerStyledSlots, park: park.timerStyledSlots, shadcn: shadcn.timerStyledSlots },
+    { minimal: minimal.timer, park: park.timer, shadcn: shadcn.timer },
     theme
   );
   const timer = useTimer({ targetMs: 60 * 60 * 1000 });

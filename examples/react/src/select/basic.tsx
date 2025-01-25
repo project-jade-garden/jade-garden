@@ -7,7 +7,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.selectStyledSlots, park: park.selectStyledSlots, shadcn: shadcn.selectStyledSlots },
+    { minimal: minimal.select, park: park.select, shadcn: shadcn.select },
     theme
   );
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });

@@ -9,7 +9,7 @@ const style: React.CSSProperties = {
 
 export const WithSameWidth = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.popoverStyledSlots, park: park.popoverStyledSlots, shadcn: shadcn.popoverStyledSlots },
+    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
     theme
   );
 

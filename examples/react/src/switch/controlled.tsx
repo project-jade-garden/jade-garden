@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.switchStyledSlots, park: park.switchStyledSlots, shadcn: shadcn.switchStyledSlots },
+    { minimal: minimal.switchStyles, park: park.switchStyles, shadcn: shadcn.switchStyles },
     theme
   );
   const [checked, setChecked] = useState(false);

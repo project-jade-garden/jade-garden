@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.tooltipStyledSlots, park: park.tooltipStyledSlots, shadcn: shadcn.tooltipStyledSlots },
+    { minimal: minimal.tooltip, park: park.tooltip, shadcn: shadcn.tooltip },
     theme
   );
   const [isOpen, setIsOpen] = useState(false);

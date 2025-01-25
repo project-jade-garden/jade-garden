@@ -22,7 +22,20 @@ import { type Slots, createSlots } from "@spark-css/core/editable";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editableSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "editable",
+  root: "editable__root",
+  area: "editable__area",
+  label: "editable__label",
+  preview: "editable__preview",
+  input: "editable__input",
+  editTrigger: "editable__edit-trigger",
+  submitTrigger: "editable__submit-trigger",
+  cancelTrigger: "editable__cancel-trigger",
+  control: "editable__control"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Editable**
@@ -53,15 +66,4 @@ export const editableSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editableStyledSlots = {
-  base: "editable",
-  root: "editable__root",
-  area: "editable__area",
-  label: "editable__label",
-  preview: "editable__preview",
-  input: "editable__input",
-  editTrigger: "editable__edit-trigger",
-  submitTrigger: "editable__submit-trigger",
-  cancelTrigger: "editable__cancel-trigger",
-  control: "editable__control"
-} as const satisfies Record<Slots, string | string[]>;
+export const editable = styledSlots;

@@ -11,7 +11,7 @@ interface FieldValues {
 
 export const WithFormSetValue = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fileUploadStyledSlots, park: park.fileUploadStyledSlots, shadcn: shadcn.fileUploadStyledSlots },
+    { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
     theme
   );
   const { handleSubmit, setValue } = useForm<FieldValues>();

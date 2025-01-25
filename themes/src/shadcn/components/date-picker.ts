@@ -38,88 +38,9 @@ import { type Slots, createSlots } from "@spark-css/core/date-picker";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePickerSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Date Picker**
- * @description A component that allows users to select a date from a calendar.
- *
- * @example
- * ```css
- * .parkDatePicker { }
- *
- * .parkDatePicker__root {
- *   (@)apply flex gap-1.5 flex-col;
- * }
- *
- * .parkDatePicker__label {
- *   (@)apply text-sm font-medium;
- * }
- *
- * .parkDatePicker__clearTrigger { }
- *
- * .parkDatePicker__content {
- *   (@)apply p-4 w-[344px] bg-bg-default rounded-l3 shadow-lg flex [&:is([hidden])]:hidden z-[--z-index-dropdown] gap-3 flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
- * }
- *
- * .parkDatePicker__control {
- *   (@)apply flex gap-2 flex-row;
- * }
- *
- * .parkDatePicker__input { }
- *
- * .parkDatePicker__monthSelect { }
- *
- * .parkDatePicker__nextTrigger { }
- *
- * .parkDatePicker__positioner { }
- *
- * .parkDatePicker__prevTrigger { }
- *
- * .parkDatePicker__rangeText { }
- *
- * .parkDatePicker__table {
- *   (@)apply -m-1 w-full border-separate border-spacing-1;
- * }
- *
- * .parkDatePicker__tableBody { }
- *
- * .parkDatePicker__tableCell {
- *   (@)apply text-center;
- * }
- *
- * .parkDatePicker__tableCellTrigger {
- *   (@)apply [&:is([data-today])]:before:mt-6 w-full data-[in-range]:bg-bg-muted [&:is([data-today])]:before:absolute [&:is([data-today])]:before:text-[--colors-color-palette-default] [&:is([aria-selected=true],_[data-selected])]:before:text-color-palette-fg [&:is([data-today])]:before:content-['-'];
- * }
- *
- * .parkDatePicker__tableHead { }
- *
- * .parkDatePicker__tableHeader {
- *   (@)apply h-10 text-fg-muted text-sm font-semibold;
- * }
- *
- * .parkDatePicker__tableRow { }
- *
- * .parkDatePicker__trigger { }
- *
- * .parkDatePicker__viewTrigger { }
- *
- * .parkDatePicker__viewControl {
- *   (@)apply flex gap-2 justify-between;
- * }
- *
- * .parkDatePicker__yearSelect { }
- *
- * .parkDatePicker__presetTrigger { }
- *
- * .parkDatePicker__view {
- *   (@)apply flex [&:is([hidden])]:hidden gap-3 flex-col;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
- */
-export const datePickerStyledSlots = {
+const styledSlots = {
   base: "parkDatePicker",
   root: [
     "parkDatePicker__root",
@@ -264,4 +185,85 @@ export const datePickerStyledSlots = {
     "gap-3",
     "flex-col"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Date Picker**
+ * @description A component that allows users to select a date from a calendar.
+ *
+ * @example
+ * ```css
+ * .parkDatePicker { }
+ *
+ * .parkDatePicker__root {
+ *   (@)apply flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkDatePicker__label {
+ *   (@)apply text-sm font-medium;
+ * }
+ *
+ * .parkDatePicker__clearTrigger { }
+ *
+ * .parkDatePicker__content {
+ *   (@)apply p-4 w-[344px] bg-bg-default rounded-l3 shadow-lg flex [&:is([hidden])]:hidden z-[--z-index-dropdown] gap-3 flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
+ * }
+ *
+ * .parkDatePicker__control {
+ *   (@)apply flex gap-2 flex-row;
+ * }
+ *
+ * .parkDatePicker__input { }
+ *
+ * .parkDatePicker__monthSelect { }
+ *
+ * .parkDatePicker__nextTrigger { }
+ *
+ * .parkDatePicker__positioner { }
+ *
+ * .parkDatePicker__prevTrigger { }
+ *
+ * .parkDatePicker__rangeText { }
+ *
+ * .parkDatePicker__table {
+ *   (@)apply -m-1 w-full border-separate border-spacing-1;
+ * }
+ *
+ * .parkDatePicker__tableBody { }
+ *
+ * .parkDatePicker__tableCell {
+ *   (@)apply text-center;
+ * }
+ *
+ * .parkDatePicker__tableCellTrigger {
+ *   (@)apply [&:is([data-today])]:before:mt-6 w-full data-[in-range]:bg-bg-muted [&:is([data-today])]:before:absolute [&:is([data-today])]:before:text-[--colors-color-palette-default] [&:is([aria-selected=true],_[data-selected])]:before:text-color-palette-fg [&:is([data-today])]:before:content-['-'];
+ * }
+ *
+ * .parkDatePicker__tableHead { }
+ *
+ * .parkDatePicker__tableHeader {
+ *   (@)apply h-10 text-fg-muted text-sm font-semibold;
+ * }
+ *
+ * .parkDatePicker__tableRow { }
+ *
+ * .parkDatePicker__trigger { }
+ *
+ * .parkDatePicker__viewTrigger { }
+ *
+ * .parkDatePicker__viewControl {
+ *   (@)apply flex gap-2 justify-between;
+ * }
+ *
+ * .parkDatePicker__yearSelect { }
+ *
+ * .parkDatePicker__presetTrigger { }
+ *
+ * .parkDatePicker__view {
+ *   (@)apply flex [&:is([hidden])]:hidden gap-3 flex-col;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
+ */
+export const datePicker = styledSlots;

@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Pomodoro = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.timerStyledSlots, park: park.timerStyledSlots, shadcn: shadcn.timerStyledSlots },
+    { minimal: minimal.timer, park: park.timer, shadcn: shadcn.timer },
     theme
   );
   const [isWorking, setIsWorking] = useState(true);

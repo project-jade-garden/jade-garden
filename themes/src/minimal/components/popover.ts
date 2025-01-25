@@ -23,7 +23,21 @@ import { type Slots, createSlots } from "@spark-css/core/popover";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
-export const popoverSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "popover",
+  arrow: "popover__arrow",
+  arrowTip: "popover__arrow-tip",
+  anchor: "popover__anchor",
+  trigger: "popover__trigger",
+  indicator: "popover__indicator",
+  positioner: "popover__positioner",
+  content: "popover__content",
+  title: "popover__title",
+  description: "popover__description",
+  closeTrigger: "popover__close-trigger"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Popover**
@@ -56,16 +70,4 @@ export const popoverSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
-export const popoverStyledSlots = {
-  base: "popover",
-  arrow: "popover__arrow",
-  arrowTip: "popover__arrow-tip",
-  anchor: "popover__anchor",
-  trigger: "popover__trigger",
-  indicator: "popover__indicator",
-  positioner: "popover__positioner",
-  content: "popover__content",
-  title: "popover__title",
-  description: "popover__description",
-  closeTrigger: "popover__close-trigger"
-} as const satisfies Record<Slots, string | string[]>;
+export const popover = styledSlots;

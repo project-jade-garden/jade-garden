@@ -18,7 +18,16 @@ import { type Slots, createSlots } from "@spark-css/core/tabs";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const tabsSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "tabs",
+  root: "tabs__root",
+  list: "tabs__list",
+  trigger: "tabs__trigger",
+  content: "tabs__content",
+  indicator: "tabs__indicator"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Tabs**
@@ -41,11 +50,4 @@ export const tabsSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const tabsStyledSlots = {
-  base: "tabs",
-  root: "tabs__root",
-  list: "tabs__list",
-  trigger: "tabs__trigger",
-  content: "tabs__content",
-  indicator: "tabs__indicator"
-} as const satisfies Record<Slots, string | string[]>;
+export const tabs = styledSlots;

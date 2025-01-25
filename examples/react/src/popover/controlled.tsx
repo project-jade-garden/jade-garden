@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.popoverStyledSlots, park: park.popoverStyledSlots, shadcn: shadcn.popoverStyledSlots },
+    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
     theme
   );
   const [isOpen, setIsOpen] = useState(false);

@@ -18,7 +18,16 @@ import { type Slots, createSlots } from "@spark-css/core/pagination";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/pagination#anatomy)
  */
-export const paginationSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "pagination",
+  root: "pagination__root",
+  item: "pagination__item",
+  ellipsis: "pagination__ellipsis",
+  prevTrigger: "pagination__prev-trigger",
+  nextTrigger: "pagination__next-trigger"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Pagination**
@@ -41,11 +50,4 @@ export const paginationSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/pagination#anatomy)
  */
-export const paginationStyledSlots = {
-  base: "pagination",
-  root: "pagination__root",
-  item: "pagination__item",
-  ellipsis: "pagination__ellipsis",
-  prevTrigger: "pagination__prev-trigger",
-  nextTrigger: "pagination__next-trigger"
-} as const satisfies Record<Slots, string | string[]>;
+export const pagination = styledSlots;

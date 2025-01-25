@@ -17,32 +17,9 @@ import { type Slots, createSlots } from "@spark-css/core/splitter";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
  */
-export const splitterSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Splitter**
- * @description A component that divides your interface into resizable sections.
- *
- * @example
- * ```css
- * .parkSplitter { }
- *
- * .parkSplitter__root {
- *   (@)apply flex gap-2;
- * }
- *
- * .parkSplitter__panel {
- *   (@)apply bg-bg-default rounded-l2 border flex items-center justify-center text-fg-muted;
- * }
- *
- * .parkSplitter__resizeTrigger {
- *   (@)apply data-[orientation=horizontal]:mx-0 data-[orientation=horizontal]:my-[min(1rem,_20%)] data-[orientation=vertical]:mx-[min(1rem,_20%)] data-[orientation=vertical]:my-0 data-[orientation=horizontal]:min-w-1.5 data-[orientation=vertical]:min-h-1.5 bg-[--colors-gray-7] [&:is(:active,_[data-active])]:bg-[--colors-gray-8] rounded-full outline-0 transition-[background] duration-200 ease-[--easings-default];
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
- */
-export const splitterStyledSlots = {
+const styledSlots = {
   base: "parkSplitter",
   root: [
     "parkSplitter__root",
@@ -99,4 +76,29 @@ export const splitterStyledSlots = {
     "duration-200",
     "ease-[--easings-default]"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Splitter**
+ * @description A component that divides your interface into resizable sections.
+ *
+ * @example
+ * ```css
+ * .parkSplitter { }
+ *
+ * .parkSplitter__root {
+ *   (@)apply flex gap-2;
+ * }
+ *
+ * .parkSplitter__panel {
+ *   (@)apply bg-bg-default rounded-l2 border flex items-center justify-center text-fg-muted;
+ * }
+ *
+ * .parkSplitter__resizeTrigger {
+ *   (@)apply data-[orientation=horizontal]:mx-0 data-[orientation=horizontal]:my-[min(1rem,_20%)] data-[orientation=vertical]:mx-[min(1rem,_20%)] data-[orientation=vertical]:my-0 data-[orientation=horizontal]:min-w-1.5 data-[orientation=vertical]:min-h-1.5 bg-[--colors-gray-7] [&:is(:active,_[data-active])]:bg-[--colors-gray-8] rounded-full outline-0 transition-[background] duration-200 ease-[--easings-default];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
+ */
+export const splitter = styledSlots;

@@ -5,26 +5,26 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const editableStyledSlots = getTheme(
-    { minimal: minimal.editableStyledSlots, park: park.editableStyledSlots, shadcn: shadcn.editableStyledSlots },
+  const editable = getTheme(
+    { minimal: minimal.editable, park: park.editable, shadcn: shadcn.editable },
     props.theme
   );
-  const fieldStyledSlots = getTheme(
-    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+  const field = getTheme(
+    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
     props.theme
   );
 
   return (
-    <Field.Root {...props} className={clsx(fieldStyledSlots.root)}>
-      <Editable.Root placeholder="Placeholder" activationMode="dblclick" className={clsx(editableStyledSlots.root)}>
-        <Editable.Label className={clsx(editableStyledSlots.label)}>Label</Editable.Label>
-        <Editable.Area className={clsx(editableStyledSlots.area)}>
-          <Editable.Input className={clsx(editableStyledSlots.input)} />
-          <Editable.Preview className={clsx(editableStyledSlots.preview)} />
+    <Field.Root {...props} className={clsx(field.root)}>
+      <Editable.Root placeholder="Placeholder" activationMode="dblclick" className={clsx(editable.root)}>
+        <Editable.Label className={clsx(editable.label)}>Label</Editable.Label>
+        <Editable.Area className={clsx(editable.area)}>
+          <Editable.Input className={clsx(editable.input)} />
+          <Editable.Preview className={clsx(editable.preview)} />
         </Editable.Area>
       </Editable.Root>
-      <Field.HelperText className={clsx(fieldStyledSlots.helperText)}>Additional Info</Field.HelperText>
-      <Field.ErrorText className={clsx(fieldStyledSlots.errorText)}>Error Info</Field.ErrorText>
+      <Field.HelperText className={clsx(field.helperText)}>Additional Info</Field.HelperText>
+      <Field.ErrorText className={clsx(field.errorText)}>Error Info</Field.ErrorText>
     </Field.Root>
   );
 };

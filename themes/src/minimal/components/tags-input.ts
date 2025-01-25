@@ -23,7 +23,21 @@ import { type Slots, createSlots } from "@spark-css/core/tags-input";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
-export const tagsInputSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "tags-input",
+  root: "tags-input__root",
+  label: "tags-input__label",
+  control: "tags-input__control",
+  input: "tags-input__input",
+  clearTrigger: "tags-input__clear-trigger",
+  item: "tags-input__item",
+  itemPreview: "tags-input__item-preview",
+  itemInput: "tags-input__item-input",
+  itemText: "tags-input__item-text",
+  itemDeleteTrigger: "tags-input__item-delete-trigger"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Tags Input**
@@ -56,16 +70,4 @@ export const tagsInputSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
-export const tagsInputStyledSlots = {
-  base: "tags-input",
-  root: "tags-input__root",
-  label: "tags-input__label",
-  control: "tags-input__control",
-  input: "tags-input__input",
-  clearTrigger: "tags-input__clear-trigger",
-  item: "tags-input__item",
-  itemPreview: "tags-input__item-preview",
-  itemInput: "tags-input__item-input",
-  itemText: "tags-input__item-text",
-  itemDeleteTrigger: "tags-input__item-delete-trigger"
-} as const satisfies Record<Slots, string | string[]>;
+export const tagsInput = styledSlots;

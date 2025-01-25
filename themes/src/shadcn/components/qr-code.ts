@@ -19,36 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/qr-code";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
  */
-export const qrCodeSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Qr Code**
- * @description A component that generates a QR code based on the provided data.
- *
- * @example
- * ```css
- * .parkQrCode { }
- *
- * .parkQrCode__root {
- *   (@)apply w-fit;
- * }
- *
- * .parkQrCode__frame {
- *   (@)apply size-32 bg-white;
- * }
- *
- * .parkQrCode__pattern {
- *   (@)apply fill-black;
- * }
- *
- * .parkQrCode__overlay {
- *   (@)apply size-9 rounded-full outline outline-2 outline-white;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
- */
-export const qrCodeStyledSlots = {
+const styledSlots = {
   base: "parkQrCode",
   root: [
     "parkQrCode__root",
@@ -86,4 +59,33 @@ export const qrCodeStyledSlots = {
     "outline-white"
   ],
   downloadTrigger: "parkQrCode__downloadTrigger"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Qr Code**
+ * @description A component that generates a QR code based on the provided data.
+ *
+ * @example
+ * ```css
+ * .parkQrCode { }
+ *
+ * .parkQrCode__root {
+ *   (@)apply w-fit;
+ * }
+ *
+ * .parkQrCode__frame {
+ *   (@)apply size-32 bg-white;
+ * }
+ *
+ * .parkQrCode__pattern {
+ *   (@)apply fill-black;
+ * }
+ *
+ * .parkQrCode__overlay {
+ *   (@)apply size-9 rounded-full outline outline-2 outline-white;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
+ */
+export const qrCode = styledSlots;

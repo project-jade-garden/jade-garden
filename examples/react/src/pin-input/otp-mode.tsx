@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const OTPMode = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.pinInputStyledSlots, park: park.pinInputStyledSlots, shadcn: shadcn.pinInputStyledSlots },
+    { minimal: minimal.pinInput, park: park.pinInput, shadcn: shadcn.pinInput },
     theme
   );
 

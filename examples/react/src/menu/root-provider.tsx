@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.menuStyledSlots, park: park.menuStyledSlots, shadcn: shadcn.menuStyledSlots },
+    { minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu },
     theme
   );
   const menu = useMenu();

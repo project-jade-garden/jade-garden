@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const ErrorCorrection = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.qrCodeStyledSlots, park: park.qrCodeStyledSlots, shadcn: shadcn.qrCodeStyledSlots },
+    { minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode },
     theme
   );
 

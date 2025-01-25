@@ -17,30 +17,9 @@ import { type Slots, createSlots } from "@spark-css/core/collapsible";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const collapsibleSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Collapsible**
- * @description An interactive component that can be expanded or collapsed.
- *
- * @example
- * ```css
- * .parkCollapsible { }
- *
- * .parkCollapsible__root {
- *   (@)apply w-full flex items-start flex-col;
- * }
- *
- * .parkCollapsible__trigger { }
- *
- * .parkCollapsible__content {
- *   (@)apply w-full overflow-hidden [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out];
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
- */
-export const collapsibleStyledSlots = {
+const styledSlots = {
   base: "parkCollapsible",
   root: [
     "parkCollapsible__root",
@@ -69,4 +48,27 @@ export const collapsibleStyledSlots = {
     "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
     "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Collapsible**
+ * @description An interactive component that can be expanded or collapsed.
+ *
+ * @example
+ * ```css
+ * .parkCollapsible { }
+ *
+ * .parkCollapsible__root {
+ *   (@)apply w-full flex items-start flex-col;
+ * }
+ *
+ * .parkCollapsible__trigger { }
+ *
+ * .parkCollapsible__content {
+ *   (@)apply w-full overflow-hidden [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
+ */
+export const collapsible = styledSlots;

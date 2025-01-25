@@ -16,7 +16,18 @@ import { type Slots, createSlots } from "@spark-css/core/toggle";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
  */
-export const toggleSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
+
+const styledSlots = {
+  base: "parkToggle",
+  root: "parkToggle__root", // TODO: Determine if 'button' styles should be created: https://github.com/cschroeter/park-ui/blob/main/packages/panda/src/theme/recipes/button.ts
+  indicator: [
+    "parkToggle__indicator",
+
+    // Layout
+    "contents"
+  ]
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Toggle**
@@ -35,13 +46,4 @@ export const toggleSlots = createSlots({ prefix: "park", caseConvention: "camel"
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
  */
-export const toggleStyledSlots = {
-  base: "parkToggle",
-  root: "parkToggle__root", // TODO: Determine if 'button' styles should be created: https://github.com/cschroeter/park-ui/blob/main/packages/panda/src/theme/recipes/button.ts
-  indicator: [
-    "parkToggle__indicator",
-
-    // Layout
-    "contents"
-  ]
-} as const satisfies Record<Slots, string | string[]>;
+export const toggle = styledSlots;

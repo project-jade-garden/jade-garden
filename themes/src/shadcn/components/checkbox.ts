@@ -19,36 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/checkbox";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
  */
-export const checkboxSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Checkbox**
- * @description A control element that allows for multiple selections within a set.
- *
- * @example
- * ```css
- * .parkCheckbox { }
- *
- * .parkCheckbox__root {
- *   (@)apply flex items-center;
- * }
- *
- * .parkCheckbox__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkCheckbox__control {
- *   (@)apply [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default] [&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:bg-[--colors-color-palette-default] border border-border-default [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default] [&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:border-[--colors-color-palette-default] has-[+_:focus-visible]:outline has-[+_:focus-visible]:outline-2 has-[+_:focus-visible]:outline-offset-2 has-[+_:focus-visible]:outline-border-outline [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:has-[+_:focus-visible]:outline-[--colors-color-palette-default] cursor-pointer flex items-center justify-center text-color-palette-fg transition-[border-color,_background] duration-200 ease-[--easings-default];
- * }
- *
- * .parkCheckbox__indicator { }
- *
- * .parkCheckbox__group { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
- */
-export const checkboxStyledSlots = {
+const styledSlots = {
   base: "parkCheckbox",
   root: [
     "parkCheckbox__root",
@@ -104,4 +77,33 @@ export const checkboxStyledSlots = {
   ],
   indicator: "parkCheckbox__indicator",
   group: "parkCheckbox__group"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Checkbox**
+ * @description A control element that allows for multiple selections within a set.
+ *
+ * @example
+ * ```css
+ * .parkCheckbox { }
+ *
+ * .parkCheckbox__root {
+ *   (@)apply flex items-center;
+ * }
+ *
+ * .parkCheckbox__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkCheckbox__control {
+ *   (@)apply [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default] [&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:bg-[--colors-color-palette-default] border border-border-default [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:border-[--colors-color-palette-default] [&:is(:indeterminate, [data-indeterminate],_[aria-checked=mixed],_[data-state=indeterminate])]:border-[--colors-color-palette-default] has-[+_:focus-visible]:outline has-[+_:focus-visible]:outline-2 has-[+_:focus-visible]:outline-offset-2 has-[+_:focus-visible]:outline-border-outline [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:has-[+_:focus-visible]:outline-[--colors-color-palette-default] cursor-pointer flex items-center justify-center text-color-palette-fg transition-[border-color,_background] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkCheckbox__indicator { }
+ *
+ * .parkCheckbox__group { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
+ */
+export const checkbox = styledSlots;

@@ -20,38 +20,9 @@ import { type Slots, createSlots } from "@spark-css/core/segment-group";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
  */
-export const segmentGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Segment Group**
- * @description Organizes and navigates between sections in a view.
- *
- * @example
- * ```css
- * .parkSegmentGroup { }
- *
- * .parkSegmentGroup__root {
- *   (@)apply flex items-start data-[orientation=horizontal]:gap-4 data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:border-b data-[orientation=vertical]:gap-1 data-[orientation=vertical]:flex-col data-[orientation=vertical]:border-l;
- * }
- *
- * .parkSegmentGroup__label { }
- *
- * .parkSegmentGroup__item {
- *   (@)apply data-[orientation=horizontal]:px-1 data-[orientation=horizontal]:pb-3 data-[orientation=vertical]:px-3 data-[orientation=vertical]:py-1.5 cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:text-fg-default font-medium [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:font-semibold transition-[color] duration-200 ease-[--easings-default];
- * }
- *
- * .parkSegmentGroup__itemText { }
- *
- * .parkSegmentGroup__itemControl { }
- *
- * .parkSegmentGroup__indicator {
- *   (@)apply data-[orientation=horizontal]:w-[50px] data-[orientation=vertical]:h-9 border-[--colors-color-palette-default] data-[orientation=horizontal]:border-b-2 data-[orientation=vertical]:border-l-2 data-[orientation=horizontal]:bottom-0 data-[orientation=horizontal]:translate-y-px data-[orientation=vertical]:-translate-x-px;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
- */
-export const segmentGroupStyledSlots = {
+const styledSlots = {
   base: "parkSegmentGroup",
   root: [
     "parkSegmentGroup__root",
@@ -115,4 +86,35 @@ export const segmentGroupStyledSlots = {
     "data-[orientation=horizontal]:translate-y-px",
     "data-[orientation=vertical]:-translate-x-px"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Segment Group**
+ * @description Organizes and navigates between sections in a view.
+ *
+ * @example
+ * ```css
+ * .parkSegmentGroup { }
+ *
+ * .parkSegmentGroup__root {
+ *   (@)apply flex items-start data-[orientation=horizontal]:gap-4 data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:border-b data-[orientation=vertical]:gap-1 data-[orientation=vertical]:flex-col data-[orientation=vertical]:border-l;
+ * }
+ *
+ * .parkSegmentGroup__label { }
+ *
+ * .parkSegmentGroup__item {
+ *   (@)apply data-[orientation=horizontal]:px-1 data-[orientation=horizontal]:pb-3 data-[orientation=vertical]:px-3 data-[orientation=vertical]:py-1.5 cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:text-fg-default font-medium [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:font-semibold transition-[color] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkSegmentGroup__itemText { }
+ *
+ * .parkSegmentGroup__itemControl { }
+ *
+ * .parkSegmentGroup__indicator {
+ *   (@)apply data-[orientation=horizontal]:w-[50px] data-[orientation=vertical]:h-9 border-[--colors-color-palette-default] data-[orientation=horizontal]:border-b-2 data-[orientation=vertical]:border-l-2 data-[orientation=horizontal]:bottom-0 data-[orientation=horizontal]:translate-y-px data-[orientation=vertical]:-translate-x-px;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
+ */
+export const segmentGroup = styledSlots;

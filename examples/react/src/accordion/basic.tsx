@@ -5,10 +5,7 @@ import { ChevronDownIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.accordionStyledSlots, park: park.accordionStyledSlots, shadcn: shadcn.accordionStyledSlots },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
 
   return (
     <Accordion.Root defaultValue={["React"]} className={clsx(styledSlots.root)}>

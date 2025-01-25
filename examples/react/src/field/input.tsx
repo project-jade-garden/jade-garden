@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Input = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
     theme
   );
 

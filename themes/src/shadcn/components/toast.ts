@@ -20,42 +20,9 @@ import { type Slots, createSlots } from "@spark-css/core/toast";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
  */
-export const toastSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Toast**
- * @description A message that appears on the screen to provide feedback on an action.
- *
- * @example
- * ```css
- * .parkToast { }
- *
- * .parkToast__group { }
- *
- * .parkToast__root {
- *   (@)apply p-4 min-w-80 bg-bg-default rounded-l3 shadow-lg will-change-[translate,_opacity,_scale] relative [overflow-wrap:anywhere] transition-[translate,_scale,_opacity,_height] duration-300 ease-[--easings-default];
- * }
- *
- * .parkToast__title {
- *   (@)apply text-fg-default text-sm font-semibold;
- * }
- *
- * .parkToast__description {
- *   (@)apply text-fg-muted text-sm;
- * }
- *
- * .parkToast__actionTrigger {
- *   (@)apply mt-2;
- * }
- *
- * .parkToast__closeTrigger {
- *   (@)apply absolute top-3 right-3;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
- */
-export const toastStyledSlots = {
+const styledSlots = {
   base: "parkToast",
   group: "parkToast__group",
   root: [
@@ -119,4 +86,39 @@ export const toastStyledSlots = {
     "top-3",
     "right-3"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Toast**
+ * @description A message that appears on the screen to provide feedback on an action.
+ *
+ * @example
+ * ```css
+ * .parkToast { }
+ *
+ * .parkToast__group { }
+ *
+ * .parkToast__root {
+ *   (@)apply p-4 min-w-80 bg-bg-default rounded-l3 shadow-lg will-change-[translate,_opacity,_scale] relative [overflow-wrap:anywhere] transition-[translate,_scale,_opacity,_height] duration-300 ease-[--easings-default];
+ * }
+ *
+ * .parkToast__title {
+ *   (@)apply text-fg-default text-sm font-semibold;
+ * }
+ *
+ * .parkToast__description {
+ *   (@)apply text-fg-muted text-sm;
+ * }
+ *
+ * .parkToast__actionTrigger {
+ *   (@)apply mt-2;
+ * }
+ *
+ * .parkToast__closeTrigger {
+ *   (@)apply absolute top-3 right-3;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
+ */
+export const toast = styledSlots;

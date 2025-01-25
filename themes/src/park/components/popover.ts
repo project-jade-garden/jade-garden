@@ -24,52 +24,9 @@ import { type Slots, createSlots } from "@spark-css/core/popover";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
-export const popoverSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Popover**
- * @description An overlay that displays additional information or options when triggered.
- *
- * @example
- * ```css
- * .parkPopover { }
- *
- * .parkPopover__arrow { }
- *
- * .parkPopover__arrowTip {
- *   (@)apply border-t border-l;
- * }
- *
- * .parkPopover__anchor { }
- *
- * .parkPopover__trigger { }
- *
- * .parkPopover__indicator { }
- *
- * .parkPopover__positioner {
- *   (@)apply relative;
- * }
- *
- * .parkPopover__content {
- *   (@)apply p-4 max-w-96 bg-bg-default rounded-l3 shadow-lg flex z-[--z-index-popover] [&:is([hidden])]:hidden flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
- * }
- *
- * .parkPopover__title {
- *   (@)apply text-sm font-medium;
- * }
- *
- * .parkPopover__description {
- *   (@)apply text-sm text-fg-muted;
- * }
- *
- * .parkPopover__closeTrigger {
- *   (@)apply text-fg-muted;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
- */
-export const popoverStyledSlots = {
+const styledSlots = {
   base: "parkPopover",
   arrow: "parkPopover__arrow",
   arrowTip: [
@@ -138,4 +95,49 @@ export const popoverStyledSlots = {
     // Typography
     "text-fg-muted"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Popover**
+ * @description An overlay that displays additional information or options when triggered.
+ *
+ * @example
+ * ```css
+ * .parkPopover { }
+ *
+ * .parkPopover__arrow { }
+ *
+ * .parkPopover__arrowTip {
+ *   (@)apply border-t border-l;
+ * }
+ *
+ * .parkPopover__anchor { }
+ *
+ * .parkPopover__trigger { }
+ *
+ * .parkPopover__indicator { }
+ *
+ * .parkPopover__positioner {
+ *   (@)apply relative;
+ * }
+ *
+ * .parkPopover__content {
+ *   (@)apply p-4 max-w-96 bg-bg-default rounded-l3 shadow-lg flex z-[--z-index-popover] [&:is([hidden])]:hidden flex-col [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out;
+ * }
+ *
+ * .parkPopover__title {
+ *   (@)apply text-sm font-medium;
+ * }
+ *
+ * .parkPopover__description {
+ *   (@)apply text-sm text-fg-muted;
+ * }
+ *
+ * .parkPopover__closeTrigger {
+ *   (@)apply text-fg-muted;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
+ */
+export const popover = styledSlots;

@@ -27,60 +27,9 @@ import { type Slots, createSlots } from "@spark-css/core/tree-view";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
  */
-export const treeViewSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Tree View**
- * @description A component that is used to show a tree hierarchy.
- *
- * @example
- * ```css
- * .parkTreeView { }
- *
- * .parkTreeView__root {
- *   (@)apply w-full;
- * }
- *
- * .parkTreeView__label { }
- *
- * .parkTreeView__tree {
- *   (@)apply flex gap-3 flex-col;
- * }
- *
- * .parkTreeView__item {
- *   (@)apply pl-[calc(((var(--depth)_-_1)_*_22px)_+_22px)] data-[depth=1]:pl-6 py-1.5 [&:is([aria-selected=true],_[data-selected])]:before:w-0.5 [&:is([aria-selected=true],_[data-selected])]:before:h-full [&:is([aria-selected=true],_[data-selected])]:before:bg-accent-default [&:is([aria-selected=true],_[data-selected])]:bg-[--colors-color-palette-a2] [&:is([aria-selected=true],_[data-selected])]:data-[depth=1]:before:bg-transparent rounded-l2 cursor-pointer relative [&:is([aria-selected=true],_[data-selected])]:before:absolute [&:is([aria-selected=true],_[data-selected])]:before:left-3 [&:is([aria-selected=true],_[data-selected])]:before:top-0 [&:is([aria-selected=true],_[data-selected])]:before:z-[1] [&:is([aria-selected=true],_[data-selected])]:before:content-[''] text-fg-muted data-[depth=1]:text-fg-default [&:is([aria-selected=true],_[data-selected])]:text-[--colors-color-palette-text] text-sm font-medium data-[depth=1]:font-semibold transition-[background,_color] duration-200 ease-[--easings-default];
- * }
- *
- * .parkTreeView__itemIndicator { }
- *
- * .parkTreeView__itemText { }
- *
- * .parkTreeView__branch {
- *   (@)apply [&[data-depth=1]_>_[data-part=branch-content]:before]:h-full [&[data-depth=1]_>_[data-part=branch-content]:before]:w-px [&[data-depth=1]_>_[data-part=branch-content]:before]:bg-border-default [&[data-depth=1]_>_[data-part=branch-content]:before]:absolute [&[data-depth=1]_>_[data-part=branch-content]:before]:left-3 [&[data-depth=1]_>_[data-part=branch-content]:before]:z-[1] [&[data-depth=1]_>_[data-part=branch-content]:before]:content-[''];
- * }
- *
- * .parkTreeView__branchControl {
- *   (@)apply px-[calc((var(--depth)_-_1)_*_22px)] data-[depth=1]:pl-1 py-1.5 rounded-l2 flex gap-1.5 items-center text-fg-muted [&[data-depth=1]_>_[data-part=branch-text]]:text-fg-default text-sm font-medium [&[data-depth=1]_>_[data-part=branch-text]]:font-semibold transition-[background,_color] duration-200 ease-[--easings-default];
- * }
- *
- * .parkTreeView__branchTrigger { }
- *
- * .parkTreeView__branchContent {
- *   (@)apply relative;
- * }
- *
- * .parkTreeView__branchText { }
- *
- * .parkTreeView__branchIndicator {
- *   (@)apply [&_svg]:size-4 text-[--colors-color-palette-default] [&_svg]:text-base origin-center [&:is([open],_[data-open],_[data-state=open])]:rotate-90 transition-[transform] duration-200 ease-[--easings-default];
- * }
- *
- * .parkTreeView__branchIndentGuide { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
- */
-export const treeViewStyledSlots = {
+const styledSlots = {
   base: "parkTreeView",
   root: [
     "parkTreeView__root",
@@ -221,4 +170,57 @@ export const treeViewStyledSlots = {
     "ease-[--easings-default]"
   ],
   branchIndentGuide: "parkTreeView__branchIndentGuide"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Tree View**
+ * @description A component that is used to show a tree hierarchy.
+ *
+ * @example
+ * ```css
+ * .parkTreeView { }
+ *
+ * .parkTreeView__root {
+ *   (@)apply w-full;
+ * }
+ *
+ * .parkTreeView__label { }
+ *
+ * .parkTreeView__tree {
+ *   (@)apply flex gap-3 flex-col;
+ * }
+ *
+ * .parkTreeView__item {
+ *   (@)apply pl-[calc(((var(--depth)_-_1)_*_22px)_+_22px)] data-[depth=1]:pl-6 py-1.5 [&:is([aria-selected=true],_[data-selected])]:before:w-0.5 [&:is([aria-selected=true],_[data-selected])]:before:h-full [&:is([aria-selected=true],_[data-selected])]:before:bg-accent-default [&:is([aria-selected=true],_[data-selected])]:bg-[--colors-color-palette-a2] [&:is([aria-selected=true],_[data-selected])]:data-[depth=1]:before:bg-transparent rounded-l2 cursor-pointer relative [&:is([aria-selected=true],_[data-selected])]:before:absolute [&:is([aria-selected=true],_[data-selected])]:before:left-3 [&:is([aria-selected=true],_[data-selected])]:before:top-0 [&:is([aria-selected=true],_[data-selected])]:before:z-[1] [&:is([aria-selected=true],_[data-selected])]:before:content-[''] text-fg-muted data-[depth=1]:text-fg-default [&:is([aria-selected=true],_[data-selected])]:text-[--colors-color-palette-text] text-sm font-medium data-[depth=1]:font-semibold transition-[background,_color] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkTreeView__itemIndicator { }
+ *
+ * .parkTreeView__itemText { }
+ *
+ * .parkTreeView__branch {
+ *   (@)apply [&[data-depth=1]_>_[data-part=branch-content]:before]:h-full [&[data-depth=1]_>_[data-part=branch-content]:before]:w-px [&[data-depth=1]_>_[data-part=branch-content]:before]:bg-border-default [&[data-depth=1]_>_[data-part=branch-content]:before]:absolute [&[data-depth=1]_>_[data-part=branch-content]:before]:left-3 [&[data-depth=1]_>_[data-part=branch-content]:before]:z-[1] [&[data-depth=1]_>_[data-part=branch-content]:before]:content-[''];
+ * }
+ *
+ * .parkTreeView__branchControl {
+ *   (@)apply px-[calc((var(--depth)_-_1)_*_22px)] data-[depth=1]:pl-1 py-1.5 rounded-l2 flex gap-1.5 items-center text-fg-muted [&[data-depth=1]_>_[data-part=branch-text]]:text-fg-default text-sm font-medium [&[data-depth=1]_>_[data-part=branch-text]]:font-semibold transition-[background,_color] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkTreeView__branchTrigger { }
+ *
+ * .parkTreeView__branchContent {
+ *   (@)apply relative;
+ * }
+ *
+ * .parkTreeView__branchText { }
+ *
+ * .parkTreeView__branchIndicator {
+ *   (@)apply [&_svg]:size-4 text-[--colors-color-palette-default] [&_svg]:text-base origin-center [&:is([open],_[data-open],_[data-state=open])]:rotate-90 transition-[transform] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkTreeView__branchIndentGuide { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
+ */
+export const treeView = styledSlots;

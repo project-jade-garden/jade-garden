@@ -5,39 +5,39 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const colorPickerStyledSlots = getTheme(
+  const colorPicker = getTheme(
     {
-      minimal: minimal.colorPickerStyledSlots,
-      park: park.colorPickerStyledSlots,
-      shadcn: shadcn.colorPickerStyledSlots
+      minimal: minimal.colorPicker,
+      park: park.colorPicker,
+      shadcn: shadcn.colorPicker
     },
     props.theme
   );
-  const fieldStyledSlots = getTheme(
-    { minimal: minimal.fieldStyledSlots, park: park.fieldStyledSlots, shadcn: shadcn.fieldStyledSlots },
+  const field = getTheme(
+    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
     props.theme
   );
 
   return (
-    <Field.Root {...props} className={clsx(fieldStyledSlots.root)}>
-      <ColorPicker.Root className={clsx(colorPickerStyledSlots.root)} defaultValue={parseColor("#eb5e41")}>
-        <ColorPicker.Label className={clsx(colorPickerStyledSlots.label)}>Label</ColorPicker.Label>
-        <ColorPicker.Control className={clsx(colorPickerStyledSlots.control)}>
-          <ColorPicker.ChannelInput className={clsx(colorPickerStyledSlots.channelInput)} channel="hex" />
-          <ColorPicker.ChannelInput className={clsx(colorPickerStyledSlots.channelInput)} channel="alpha" />
-          <ColorPicker.ValueText className={clsx(colorPickerStyledSlots.valueText)} />
-          <ColorPicker.Trigger className={clsx(colorPickerStyledSlots.trigger)}>
-            <ColorPicker.TransparencyGrid className={clsx(colorPickerStyledSlots.transparencyGrid)} />
+    <Field.Root {...props} className={clsx(field.root)}>
+      <ColorPicker.Root className={clsx(colorPicker.root)} defaultValue={parseColor("#eb5e41")}>
+        <ColorPicker.Label className={clsx(colorPicker.label)}>Label</ColorPicker.Label>
+        <ColorPicker.Control className={clsx(colorPicker.control)}>
+          <ColorPicker.ChannelInput className={clsx(colorPicker.channelInput)} channel="hex" />
+          <ColorPicker.ChannelInput className={clsx(colorPicker.channelInput)} channel="alpha" />
+          <ColorPicker.ValueText className={clsx(colorPicker.valueText)} />
+          <ColorPicker.Trigger className={clsx(colorPicker.trigger)}>
+            <ColorPicker.TransparencyGrid className={clsx(colorPicker.transparencyGrid)} />
             <ColorPicker.ValueSwatch />
           </ColorPicker.Trigger>
         </ColorPicker.Control>
-        <ColorPicker.Positioner className={clsx(colorPickerStyledSlots.positioner)}>
-          <ColorPicker.Content className={clsx(colorPickerStyledSlots.content)} />
+        <ColorPicker.Positioner className={clsx(colorPicker.positioner)}>
+          <ColorPicker.Content className={clsx(colorPicker.content)} />
         </ColorPicker.Positioner>
         <ColorPicker.HiddenInput />
       </ColorPicker.Root>
-      <Field.HelperText className={clsx(fieldStyledSlots.helperText)}>Additional Info</Field.HelperText>
-      <Field.ErrorText className={clsx(fieldStyledSlots.errorText)}>Error Info</Field.ErrorText>
+      <Field.HelperText className={clsx(field.helperText)}>Additional Info</Field.HelperText>
+      <Field.ErrorText className={clsx(field.errorText)}>Error Info</Field.ErrorText>
     </Field.Root>
   );
 };

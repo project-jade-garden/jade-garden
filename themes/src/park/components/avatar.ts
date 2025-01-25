@@ -17,32 +17,9 @@ import { type Slots, createSlots } from "@spark-css/core/avatar";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatarSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Avatar**
- * @description A graphical representation of the user, often used in profile sections.
- *
- * @example
- * ```css
- * .parkAvatar { }
- *
- * .parkAvatar__root {
- *   (@)apply rounded-full overflow-hidden shrink-0;
- * }
- *
- * .parkAvatar__image {
- *   (@)apply object-cover;
- * }
- *
- * .parkAvatar__fallback {
- *   (@)apply [height:inherit] bg-bg-subtle rounded-full border flex [&:is([hidden])]:hidden items-center justify-center text-fg-default font-semibold;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
- */
-export const avatarStyledSlots = {
+const styledSlots = {
   base: "parkAvatar",
   root: [
     "parkAvatar__root",
@@ -87,4 +64,29 @@ export const avatarStyledSlots = {
     "text-fg-default",
     "font-semibold"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Avatar**
+ * @description A graphical representation of the user, often used in profile sections.
+ *
+ * @example
+ * ```css
+ * .parkAvatar { }
+ *
+ * .parkAvatar__root {
+ *   (@)apply rounded-full overflow-hidden shrink-0;
+ * }
+ *
+ * .parkAvatar__image {
+ *   (@)apply object-cover;
+ * }
+ *
+ * .parkAvatar__fallback {
+ *   (@)apply [height:inherit] bg-bg-subtle rounded-full border flex [&:is([hidden])]:hidden items-center justify-center text-fg-default font-semibold;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
+ */
+export const avatar = styledSlots;

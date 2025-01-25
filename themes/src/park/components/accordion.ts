@@ -19,38 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/accordion";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
-export const accordionSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Accordion**
- * @description A collapsible component for displaying content in a vertical stack.
- *
- * @example
- * ```css
- * .parkAccordion { }
- *
- * .parkAccordion__root {
- *   (@)apply w-full border-y [&_>_:not([hidden])_~_:not([hidden])]:border-t [&_>_:not([hidden])_~_:not([hidden])]:border-b-0;
- * }
- *
- * .parkAccordion__item { }
- *
- * .parkAccordion__itemTrigger {
- *   (@)apply w-full cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex gap-3 items-center justify-between text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-left text-lg font-semibold;
- * }
- *
- * .parkAccordion__itemContent {
- *   (@)apply text-fg-muted overflow-hidden transition-[padding-bottom] duration-200 ease-[--easings-default] [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out];
- * }
- *
- * .parkAccordion__itemIndicator {
- *   (@)apply text-fg-muted origin-center [&:is([open],_[data-open],_[data-state=open])]:-rotate-180 transition-[transform] duration-200 ease-[--easings-default];
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
- */
-export const accordionStyledSlots = {
+const styledSlots = {
   base: "parkAccordion",
   root: [
     "parkAccordion__root",
@@ -120,4 +91,35 @@ export const accordionStyledSlots = {
     "duration-200",
     "ease-[--easings-default]"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Accordion**
+ * @description A collapsible component for displaying content in a vertical stack.
+ *
+ * @example
+ * ```css
+ * .parkAccordion { }
+ *
+ * .parkAccordion__root {
+ *   (@)apply w-full border-y [&_>_:not([hidden])_~_:not([hidden])]:border-t [&_>_:not([hidden])_~_:not([hidden])]:border-b-0;
+ * }
+ *
+ * .parkAccordion__item { }
+ *
+ * .parkAccordion__itemTrigger {
+ *   (@)apply w-full cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed flex gap-3 items-center justify-between text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-left text-lg font-semibold;
+ * }
+ *
+ * .parkAccordion__itemContent {
+ *   (@)apply text-fg-muted overflow-hidden transition-[padding-bottom] duration-200 ease-[--easings-default] [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out];
+ * }
+ *
+ * .parkAccordion__itemIndicator {
+ *   (@)apply text-fg-muted origin-center [&:is([open],_[data-open],_[data-state=open])]:-rotate-180 transition-[transform] duration-200 ease-[--easings-default];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
+ */
+export const accordion = styledSlots;

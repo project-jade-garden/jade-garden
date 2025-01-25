@@ -26,64 +26,9 @@ import { type Slots, createSlots } from "@spark-css/core/file-upload";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
-export const fileUploadSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **File Upload**
- * @description A component that is used to upload multiple files.
- *
- * @example
- * ```css
- * .parkFileUpload { }
- *
- * .parkFileUpload__root {
- *   (@)apply w-full flex gap-4 flex-col;
- * }
- *
- * .parkFileUpload__dropzone {
- *   (@)apply px-6 py-4 min-h-80 bg-bg-default border rounded-l3 flex gap-3 flex-col items-center justify-center;
- * }
- *
- * .parkFileUpload__item {
- *   (@)apply p-4 bg-bg-default border rounded-l3 grid gap-x-3 grid-cols-[auto_1fr_auto] [grid-template-areas:'preview_name_delete'_'preview_size_delete'] animate-fade-in;
- * }
- *
- * .parkFileUpload__itemDeleteTrigger {
- *   (@)apply [grid-area:delete] self-start;
- * }
- *
- * .parkFileUpload__itemGroup {
- *   (@)apply flex gap-3 flex-col;
- * }
- *
- * .parkFileUpload__itemName {
- *   (@)apply [grid-area:name] text-fg-default text-sm font-medium;
- * }
- *
- * .parkFileUpload__itemPreview {
- *   (@)apply [grid-area:preview];
- * }
- *
- * .parkFileUpload__itemPreviewImage {
- *   (@)apply size-10 aspect-square object-scale-down;
- * }
- *
- * .parkFileUpload__itemSizeText {
- *   (@)apply [grid-area:size] text-fg-muted text-sm;
- * }
- *
- * .parkFileUpload__label {
- *   (@)apply text-sm font-medium;
- * }
- *
- * .parkFileUpload__trigger { }
- *
- * .parkFileUpload__clearTrigger { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
- */
-export const fileUploadStyledSlots = {
+const styledSlots = {
   base: "parkFileUpload",
   root: [
     "parkFileUpload__root",
@@ -211,4 +156,61 @@ export const fileUploadStyledSlots = {
   ],
   trigger: "parkFileUpload__trigger",
   clearTrigger: "parkFileUpload__clearTrigger"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **File Upload**
+ * @description A component that is used to upload multiple files.
+ *
+ * @example
+ * ```css
+ * .parkFileUpload { }
+ *
+ * .parkFileUpload__root {
+ *   (@)apply w-full flex gap-4 flex-col;
+ * }
+ *
+ * .parkFileUpload__dropzone {
+ *   (@)apply px-6 py-4 min-h-80 bg-bg-default border rounded-l3 flex gap-3 flex-col items-center justify-center;
+ * }
+ *
+ * .parkFileUpload__item {
+ *   (@)apply p-4 bg-bg-default border rounded-l3 grid gap-x-3 grid-cols-[auto_1fr_auto] [grid-template-areas:'preview_name_delete'_'preview_size_delete'] animate-fade-in;
+ * }
+ *
+ * .parkFileUpload__itemDeleteTrigger {
+ *   (@)apply [grid-area:delete] self-start;
+ * }
+ *
+ * .parkFileUpload__itemGroup {
+ *   (@)apply flex gap-3 flex-col;
+ * }
+ *
+ * .parkFileUpload__itemName {
+ *   (@)apply [grid-area:name] text-fg-default text-sm font-medium;
+ * }
+ *
+ * .parkFileUpload__itemPreview {
+ *   (@)apply [grid-area:preview];
+ * }
+ *
+ * .parkFileUpload__itemPreviewImage {
+ *   (@)apply size-10 aspect-square object-scale-down;
+ * }
+ *
+ * .parkFileUpload__itemSizeText {
+ *   (@)apply [grid-area:size] text-fg-muted text-sm;
+ * }
+ *
+ * .parkFileUpload__label {
+ *   (@)apply text-sm font-medium;
+ * }
+ *
+ * .parkFileUpload__trigger { }
+ *
+ * .parkFileUpload__clearTrigger { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
+ */
+export const fileUpload = styledSlots;

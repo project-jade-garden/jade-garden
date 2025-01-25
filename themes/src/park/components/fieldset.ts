@@ -19,36 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/fieldset";
  * @see [source](https://ark-ui.com/vue/docs/components/fieldset#anatomy)
  */
 
-export const fieldsetSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Fieldset**
- * @description A set of form controls optionally grouped under a common name.
- *
- * @example
- * ```css
- * .parkFieldset { }
- *
- * .parkFieldset__root {
- *   (@)apply w-full border-t grid gap-x-8 gap-y-1.5 grid-rows-[auto_1fr] grid-cols-[1fr_auto] [grid-template-areas:'legend_legend'_'helperText_helperText'_'control_control'_'errorText_errorText'] md:[grid-template-areas:'legend_control'_'helperText_control'_'errorText_errorText'];
- * }
- *
- * .parkFieldset__errorText {
- *   (@)apply mt-4 border-t inline-flex gap-2 items-center [grid-area:errorText] text-sm text-fg-error [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled;
- * }
- *
- * .parkFieldset__helperText {
- *   (@)apply [grid-area:helperText] text-sm text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled;
- * }
- *
- * .parkFieldset__legend {
- *   (@)apply float-left clear-both [grid-area:legend] text-sm font-medium text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled;
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/fieldset#anatomy)
- */
-export const fieldsetStyledSlots = {
+const styledSlots = {
   base: "parkFieldset",
   root: [
     "parkFieldset__root",
@@ -119,4 +92,33 @@ export const fieldsetStyledSlots = {
     "text-fg-default",
     "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Fieldset**
+ * @description A set of form controls optionally grouped under a common name.
+ *
+ * @example
+ * ```css
+ * .parkFieldset { }
+ *
+ * .parkFieldset__root {
+ *   (@)apply w-full border-t grid gap-x-8 gap-y-1.5 grid-rows-[auto_1fr] grid-cols-[1fr_auto] [grid-template-areas:'legend_legend'_'helperText_helperText'_'control_control'_'errorText_errorText'] md:[grid-template-areas:'legend_control'_'helperText_control'_'errorText_errorText'];
+ * }
+ *
+ * .parkFieldset__errorText {
+ *   (@)apply mt-4 border-t inline-flex gap-2 items-center [grid-area:errorText] text-sm text-fg-error [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled;
+ * }
+ *
+ * .parkFieldset__helperText {
+ *   (@)apply [grid-area:helperText] text-sm text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled;
+ * }
+ *
+ * .parkFieldset__legend {
+ *   (@)apply float-left clear-both [grid-area:legend] text-sm font-medium text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/fieldset#anatomy)
+ */
+export const fieldset = styledSlots;

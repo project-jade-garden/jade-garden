@@ -19,34 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/hover-card";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
-export const hoverCardSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Hover Card**
- * @description A card that appears when a user hovers over an element.
- *
- * @example
- * ```css
- * .parkHoverCard { }
- *
- * .parkHoverCard__arrow { }
- *
- * .parkHoverCard__arrowTip {
- *   (@)apply border-t border-l;
- * }
- *
- * .parkHoverCard__trigger { }
- *
- * .parkHoverCard__positioner { }
- *
- * .parkHoverCard__content {
- *   (@)apply p-4 max-w-80 bg-bg-default rounded-l3 shadow-lg relative [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[fadeOut_.25s_ease-out];
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
- */
-export const hoverCardStyledSlots = {
+const styledSlots = {
   base: "parkHoverCard",
   arrow: "parkHoverCard__arrow",
   arrowTip: [
@@ -83,4 +58,31 @@ export const hoverCardStyledSlots = {
     "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
     "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[fadeOut_.25s_ease-out]"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Hover Card**
+ * @description A card that appears when a user hovers over an element.
+ *
+ * @example
+ * ```css
+ * .parkHoverCard { }
+ *
+ * .parkHoverCard__arrow { }
+ *
+ * .parkHoverCard__arrowTip {
+ *   (@)apply border-t border-l;
+ * }
+ *
+ * .parkHoverCard__trigger { }
+ *
+ * .parkHoverCard__positioner { }
+ *
+ * .parkHoverCard__content {
+ *   (@)apply p-4 max-w-80 bg-bg-default rounded-l3 shadow-lg relative [&:is([open],_[data-open],_[data-state=open])]:animate-fade-in [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[fadeOut_.25s_ease-out];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
+ */
+export const hoverCard = styledSlots;

@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.datePickerStyledSlots, park: park.datePickerStyledSlots, shadcn: shadcn.datePickerStyledSlots },
+    { minimal: minimal.datePicker, park: park.datePicker, shadcn: shadcn.datePicker },
     theme
   );
 

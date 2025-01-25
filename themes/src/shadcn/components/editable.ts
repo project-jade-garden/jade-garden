@@ -23,7 +23,7 @@ import { type Slots, createSlots } from "@spark-css/core/editable";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editableSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
  * **Editable**
@@ -58,7 +58,7 @@ export const editableSlots = createSlots({ prefix: "park", caseConvention: "came
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editableStyledSlots = {
+const styledSlots = {
   base: "parkEditable",
   root: [
     "parkEditable__root",
@@ -89,4 +89,39 @@ export const editableStyledSlots = {
     // Flexbox & Grid
     "gap-2"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Editable**
+ * @description A component that allows users to edit text in place.
+ *
+ * @example
+ * ```css
+ * .parkEditable { }
+ *
+ * .parkEditable__root {
+ *   (@)apply w-full flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkEditable__area { }
+ *
+ * .parkEditable__label { }
+ *
+ * .parkEditable__preview { }
+ *
+ * .parkEditable__input { }
+ *
+ * .parkEditable__editTrigger { }
+ *
+ * .parkEditable__submitTrigger { }
+ *
+ * .parkEditable__cancelTrigger { }
+ *
+ * .parkEditable__control {
+ *   (@)apply flex gap-2;
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
+ */
+export const editable = styledSlots;

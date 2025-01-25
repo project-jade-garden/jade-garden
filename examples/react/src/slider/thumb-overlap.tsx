@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const ThumbOverlap = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.sliderStyledSlots, park: park.sliderStyledSlots, shadcn: shadcn.sliderStyledSlots },
+    { minimal: minimal.slider, park: park.slider, shadcn: shadcn.slider },
     theme
   );
 

@@ -20,7 +20,18 @@ import { type Slots, createSlots } from "@spark-css/core/signature-pad";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/signature-pad#anatomy)
  */
-export const signaturePadSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "signature-pad",
+  root: "signature-pad__root",
+  control: "signature-pad__control",
+  segment: "signature-pad__segment",
+  segmentPath: "signature-pad__segment-path",
+  guide: "signature-pad__guide",
+  clearTrigger: "signature-pad__clear-trigger",
+  label: "signature-pad__label"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Signature Pad**
@@ -47,13 +58,4 @@ export const signaturePadSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/signature-pad#anatomy)
  */
-export const signaturePadStyledSlots = {
-  base: "signature-pad",
-  root: "signature-pad__root",
-  control: "signature-pad__control",
-  segment: "signature-pad__segment",
-  segmentPath: "signature-pad__segment-path",
-  guide: "signature-pad__guide",
-  clearTrigger: "signature-pad__clear-trigger",
-  label: "signature-pad__label"
-} as const satisfies Record<Slots, string | string[]>;
+export const signaturePad = styledSlots;

@@ -24,7 +24,21 @@ import { type Slots, createSlots } from "@spark-css/core/steps";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
  */
-export const stepsSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
+
+const styledSlots = {
+  base: "parkSteps",
+  root: "parkSteps__root",
+  list: "parkSteps__list",
+  item: "parkSteps__item",
+  trigger: "parkSteps__trigger",
+  indicator: "parkSteps__indicator",
+  separator: "parkSteps__separator",
+  content: "parkSteps__content",
+  nextTrigger: "parkSteps__nextTrigger",
+  prevTrigger: "parkSteps__prevTrigger",
+  progress: "parkSteps__progress"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Steps**
@@ -57,16 +71,4 @@ export const stepsSlots = createSlots({ prefix: "park", caseConvention: "camel" 
  *
  * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
  */
-export const stepsStyledSlots = {
-  base: "parkSteps",
-  root: "parkSteps__root",
-  list: "parkSteps__list",
-  item: "parkSteps__item",
-  trigger: "parkSteps__trigger",
-  indicator: "parkSteps__indicator",
-  separator: "parkSteps__separator",
-  content: "parkSteps__content",
-  nextTrigger: "parkSteps__nextTrigger",
-  prevTrigger: "parkSteps__prevTrigger",
-  progress: "parkSteps__progress"
-} as const satisfies Record<Slots, string | string[]>;
+export const steps = styledSlots;

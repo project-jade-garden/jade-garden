@@ -12,7 +12,7 @@ const style: React.CSSProperties = {
 
 export const WithInitialFocusEl = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.popoverStyledSlots, park: park.popoverStyledSlots, shadcn: shadcn.popoverStyledSlots },
+    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
     theme
   );
   const ref = useRef<HTMLInputElement>(null);

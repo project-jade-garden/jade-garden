@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.radioGroupStyledSlots, park: park.radioGroupStyledSlots, shadcn: shadcn.radioGroupStyledSlots },
+    { minimal: minimal.radioGroup, park: park.radioGroup, shadcn: shadcn.radioGroup },
     theme
   );
   const frameworks = ["React", "Solid", "Vue"];

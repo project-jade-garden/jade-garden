@@ -18,36 +18,9 @@ import { type Slots, createSlots } from "@spark-css/core/switch";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
  */
-export const switchSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Switch**
- * @description A control element that allows for a binary selection.
- *
- * @example
- * ```css
- * .parkSwitch { }
- *
- * .parkSwitch__root {
- *   (@)apply flex relative items-center;
- * }
- *
- * .parkSwitch__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkSwitch__control {
- *   (@)apply bg-bg-emphasized [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default] rounded-full cursor-pointer inline-flex items-center shrink-0 transition-[background] duration-200 ease-[--easings-default];
- * }
- *
- * .parkSwitch__thumb {
- *   (@)apply bg-bg-default [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-bg-default dark:[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-fg] rounded-full shadow-xs [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:translate-x-full transition-[background,_transform] duration-200 ease-[--easings-default];
- * }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
- */
-export const switchStyledSlots = {
+const styledSlots = {
   base: "parkSwitch",
   root: [
     "parkSwitch__root",
@@ -113,4 +86,33 @@ export const switchStyledSlots = {
     "duration-200",
     "ease-[--easings-default]"
   ]
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Switch**
+ * @description A control element that allows for a binary selection.
+ *
+ * @example
+ * ```css
+ * .parkSwitch { }
+ *
+ * .parkSwitch__root {
+ *   (@)apply flex relative items-center;
+ * }
+ *
+ * .parkSwitch__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkSwitch__control {
+ *   (@)apply bg-bg-emphasized [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-default] rounded-full cursor-pointer inline-flex items-center shrink-0 transition-[background] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkSwitch__thumb {
+ *   (@)apply bg-bg-default [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-bg-default dark:[&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:bg-[--colors-color-palette-fg] rounded-full shadow-xs [&:is(:checked,_[data-checked],_[aria-checked=true],_[data-state=checked])]:translate-x-full transition-[background,_transform] duration-200 ease-[--easings-default];
+ * }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
+ */
+export const switchStyles = styledSlots;

@@ -23,7 +23,21 @@ import { type Slots, createSlots } from "@spark-css/core/slider";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
  */
-export const sliderSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "slider",
+  root: "slider__root",
+  label: "slider__label",
+  thumb: "slider__thumb",
+  valueText: "slider__value-text",
+  track: "slider__track",
+  range: "slider__range",
+  control: "slider__control",
+  markerGroup: "slider__marker-group",
+  marker: "slider__marker",
+  draggingIndicator: "slider__dragging-indicator"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Slider**
@@ -56,16 +70,4 @@ export const sliderSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
  */
-export const sliderStyledSlots = {
-  base: "slider",
-  root: "slider__root",
-  label: "slider__label",
-  thumb: "slider__thumb",
-  valueText: "slider__value-text",
-  track: "slider__track",
-  range: "slider__range",
-  control: "slider__control",
-  markerGroup: "slider__marker-group",
-  marker: "slider__marker",
-  draggingIndicator: "slider__dragging-indicator"
-} as const satisfies Record<Slots, string | string[]>;
+export const slider = styledSlots;

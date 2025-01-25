@@ -25,7 +25,23 @@ import { type Slots, createSlots } from "@spark-css/core/file-upload";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
-export const fileUploadSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "file-upload",
+  root: "file-upload__root",
+  dropzone: "file-upload__dropzone",
+  item: "file-upload__item",
+  itemDeleteTrigger: "file-upload__item-delete-trigger",
+  itemGroup: "file-upload__item-group",
+  itemName: "file-upload__item-name",
+  itemPreview: "file-upload__item-preview",
+  itemPreviewImage: "file-upload__item-preview-image",
+  itemSizeText: "file-upload__item-size-text",
+  label: "file-upload__label",
+  trigger: "file-upload__trigger",
+  clearTrigger: "file-upload__clear-trigger"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **File Upload**
@@ -62,18 +78,4 @@ export const fileUploadSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
-export const fileUploadStyledSlots = {
-  base: "file-upload",
-  root: "file-upload__root",
-  dropzone: "file-upload__dropzone",
-  item: "file-upload__item",
-  itemDeleteTrigger: "file-upload__item-delete-trigger",
-  itemGroup: "file-upload__item-group",
-  itemName: "file-upload__item-name",
-  itemPreview: "file-upload__item-preview",
-  itemPreviewImage: "file-upload__item-preview-image",
-  itemSizeText: "file-upload__item-size-text",
-  label: "file-upload__label",
-  trigger: "file-upload__trigger",
-  clearTrigger: "file-upload__clear-trigger"
-} as const satisfies Record<Slots, string | string[]>;
+export const fileUpload = styledSlots;

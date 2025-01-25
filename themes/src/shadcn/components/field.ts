@@ -22,44 +22,9 @@ import { type Slots, createSlots } from "@spark-css/core/field";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
-export const fieldSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Field**
- * @description Provides a flexible container for form inputs, labels, and helper text.
- *
- * @example
- * ```css
- * .parkField { }
- *
- * .parkField__root {
- *   (@)apply flex gap-1.5 flex-col;
- * }
- *
- * .parkField__errorText {
- *   (@)apply inline-flex gap-2 items-center text-fg-error [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-sm;
- * }
- *
- * .parkField__helperText {
- *   (@)apply text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-sm;
- * }
- *
- * .parkField__input { }
- *
- * .parkField__label {
- *   (@)apply text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-sm font-medium;
- * }
- *
- * .parkField__select { }
- *
- * .parkField__textarea { }
- *
- * .parkField__requiredIndicator { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
- */
-export const fieldStyledSlots = {
+const styledSlots = {
   base: "parkField",
   root: [
     "parkField__root",
@@ -107,4 +72,41 @@ export const fieldStyledSlots = {
   select: "parkField__select",
   textarea: "parkField__textarea",
   requiredIndicator: "parkField__requiredIndicator"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Field**
+ * @description Provides a flexible container for form inputs, labels, and helper text.
+ *
+ * @example
+ * ```css
+ * .parkField { }
+ *
+ * .parkField__root {
+ *   (@)apply flex gap-1.5 flex-col;
+ * }
+ *
+ * .parkField__errorText {
+ *   (@)apply inline-flex gap-2 items-center text-fg-error [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-sm;
+ * }
+ *
+ * .parkField__helperText {
+ *   (@)apply text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-sm;
+ * }
+ *
+ * .parkField__input { }
+ *
+ * .parkField__label {
+ *   (@)apply text-fg-default [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled text-sm font-medium;
+ * }
+ *
+ * .parkField__select { }
+ *
+ * .parkField__textarea { }
+ *
+ * .parkField__requiredIndicator { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
+ */
+export const field = styledSlots;

@@ -6,9 +6,9 @@ import { type Theme, getTheme } from "../utils";
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.segmentGroupStyledSlots,
-      park: park.segmentGroupStyledSlots,
-      shadcn: shadcn.segmentGroupStyledSlots
+      minimal: minimal.segmentGroup,
+      park: park.segmentGroup,
+      shadcn: shadcn.segmentGroup
     },
     theme
   );

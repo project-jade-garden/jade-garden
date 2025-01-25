@@ -14,7 +14,7 @@ interface Item {
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.selectStyledSlots, park: park.selectStyledSlots, shadcn: shadcn.selectStyledSlots },
+    { minimal: minimal.select, park: park.select, shadcn: shadcn.select },
     theme
   );
   const [_, setSelectedItems] = useState<Item[]>([]);

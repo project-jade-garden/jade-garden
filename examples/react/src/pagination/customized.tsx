@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Customized = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.paginationStyledSlots, park: park.paginationStyledSlots, shadcn: shadcn.paginationStyledSlots },
+    { minimal: minimal.pagination, park: park.pagination, shadcn: shadcn.pagination },
     theme
   );
 

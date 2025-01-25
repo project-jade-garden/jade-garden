@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const WithMediaCapture = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fileUploadStyledSlots, park: park.fileUploadStyledSlots, shadcn: shadcn.fileUploadStyledSlots },
+    { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
     theme
   );
 

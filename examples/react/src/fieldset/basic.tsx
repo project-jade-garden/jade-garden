@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = (props: Fieldset.RootProps & { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fieldsetStyledSlots, park: park.fieldsetStyledSlots, shadcn: shadcn.fieldsetStyledSlots },
+    { minimal: minimal.fieldset, park: park.fieldset, shadcn: shadcn.fieldset },
     props.theme
   );
 

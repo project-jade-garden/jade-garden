@@ -19,36 +19,9 @@ import { type Slots, createSlots } from "@spark-css/core/tabs";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const tabsSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Tabs**
- * @description Flexible navigation tool with various modes and features.
- *
- * @example
- * ```css
- * .parkTabs { }
- *
- * .parkTabs__root {
- *   (@)apply w-full flex data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row;
- * }
- *
- * .parkTabs__list {
- *   (@)apply flex overflow-auto relative [&::-webkit-scrollbar]:hidden shrink-0 data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col [scrollbar-width:none];
- * }
- *
- * .parkTabs__trigger {
- *   (@)apply cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex z-[1] gap-2 items-center justify-center data-[orientation=vertical]:justify-start shrink-0 text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is([aria-selected=true],_[data-selected])]:text-fg-default font-semibold whitespace-nowrap transition-[color,_background,_border-color] duration-200 ease-[--easings-default];
- * }
- *
- * .parkTabs__content { }
- *
- * .parkTabs__indicator { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
- */
-export const tabsStyledSlots = {
+const styledSlots = {
   base: "parkTabs",
   root: [
     "parkTabs__root",
@@ -112,4 +85,33 @@ export const tabsStyledSlots = {
   ],
   content: "parkTabs__content",
   indicator: "parkTabs__indicator"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Tabs**
+ * @description Flexible navigation tool with various modes and features.
+ *
+ * @example
+ * ```css
+ * .parkTabs { }
+ *
+ * .parkTabs__root {
+ *   (@)apply w-full flex data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row;
+ * }
+ *
+ * .parkTabs__list {
+ *   (@)apply flex overflow-auto relative [&::-webkit-scrollbar]:hidden shrink-0 data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col [scrollbar-width:none];
+ * }
+ *
+ * .parkTabs__trigger {
+ *   (@)apply cursor-pointer [&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed inline-flex z-[1] gap-2 items-center justify-center data-[orientation=vertical]:justify-start shrink-0 text-fg-muted [&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled [&:is([aria-selected=true],_[data-selected])]:text-fg-default font-semibold whitespace-nowrap transition-[color,_background,_border-color] duration-200 ease-[--easings-default];
+ * }
+ *
+ * .parkTabs__content { }
+ *
+ * .parkTabs__indicator { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
+ */
+export const tabs = styledSlots;

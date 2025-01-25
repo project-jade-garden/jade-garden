@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.hoverCardStyledSlots, park: park.hoverCardStyledSlots, shadcn: shadcn.hoverCardStyledSlots },
+    { minimal: minimal.hoverCard, park: park.hoverCard, shadcn: shadcn.hoverCard },
     theme
   );
 

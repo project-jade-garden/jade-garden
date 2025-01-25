@@ -25,7 +25,20 @@ import { type Slots, createSlots } from "@spark-css/core/progress";
  * @see [Circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
  * @see [Linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
  */
-export const progressSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "progress",
+  root: "progress__root",
+  label: "progress__label",
+  track: "progress__track",
+  range: "progress__range",
+  valueText: "progress__value-text",
+  view: "progress__view",
+  circle: "progress__circle",
+  circleTrack: "progress__circle-track",
+  circleRange: "progress__circle-range"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Progress**
@@ -59,15 +72,4 @@ export const progressSlots = createSlots({});
  * @see [Circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
  * @see [Linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
  */
-export const progressStyledSlots = {
-  base: "progress",
-  root: "progress__root",
-  label: "progress__label",
-  track: "progress__track",
-  range: "progress__range",
-  valueText: "progress__value-text",
-  view: "progress__view",
-  circle: "progress__circle",
-  circleTrack: "progress__circle-track",
-  circleRange: "progress__circle-range"
-} as const satisfies Record<Slots, string | string[]>;
+export const progress = styledSlots;

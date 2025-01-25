@@ -16,7 +16,14 @@ import { type Slots, createSlots } from "@spark-css/core/avatar";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatarSlots = createSlots({});
+const slots = createSlots({});
+
+const styledSlots = {
+  base: "avatar",
+  root: "avatar__root",
+  image: "avatar__image",
+  fallback: "avatar__fallback"
+} satisfies Record<Slots, string | string[]>;
 
 /**
  * **Avatar**
@@ -35,9 +42,4 @@ export const avatarSlots = createSlots({});
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatarStyledSlots = {
-  base: "avatar",
-  root: "avatar__root",
-  image: "avatar__image",
-  fallback: "avatar__fallback"
-} as const satisfies Record<Slots, string | string[]>;
+export const avatar = styledSlots;

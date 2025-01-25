@@ -21,44 +21,9 @@ import { type Slots, createSlots } from "@spark-css/core/dialog";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
  */
-export const dialogSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Dialog**
- * @description A modal window that appears on top of the main content.
- *
- * @example
- * ```css
- * .parkDialog { }
- *
- * .parkDialog__trigger { }
- *
- * .parkDialog__backdrop {
- *   (@)apply h-screen w-screen bg-white-a10 dark:bg-black-a10 fixed left-0 top-0 z-[--z-index-overlay] backdrop-blur-sm [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-backdrop-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-backdrop-out];
- * }
- *
- * .parkDialog__positioner {
- *   (@)apply h-dvh w-screen flex overflow-auto fixed left-0 top-0 z-[--z-index-modal] items-center justify-center;
- * }
- *
- * .parkDialog__content {
- *   (@)apply min-w-96 bg-bg-default rounded-l3 shadow-lg relative [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-dialog-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-dialog-out];
- * }
- *
- * .parkDialog__title {
- *   (@)apply text-lg font-semibold;
- * }
- *
- * .parkDialog__description {
- *   (@)apply text-fg-muted text-sm;
- * }
- *
- * .parkDialog__closeTrigger { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
- */
-export const dialogStyledSlots = {
+const styledSlots = {
   base: "parkDialog",
   trigger: "parkDialog__trigger",
   backdrop: [
@@ -141,4 +106,41 @@ export const dialogStyledSlots = {
     "text-sm"
   ],
   closeTrigger: "parkDialog__closeTrigger"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Dialog**
+ * @description A modal window that appears on top of the main content.
+ *
+ * @example
+ * ```css
+ * .parkDialog { }
+ *
+ * .parkDialog__trigger { }
+ *
+ * .parkDialog__backdrop {
+ *   (@)apply h-screen w-screen bg-white-a10 dark:bg-black-a10 fixed left-0 top-0 z-[--z-index-overlay] backdrop-blur-sm [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-backdrop-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-backdrop-out];
+ * }
+ *
+ * .parkDialog__positioner {
+ *   (@)apply h-dvh w-screen flex overflow-auto fixed left-0 top-0 z-[--z-index-modal] items-center justify-center;
+ * }
+ *
+ * .parkDialog__content {
+ *   (@)apply min-w-96 bg-bg-default rounded-l3 shadow-lg relative [&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-dialog-in] [&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-dialog-out];
+ * }
+ *
+ * .parkDialog__title {
+ *   (@)apply text-lg font-semibold;
+ * }
+ *
+ * .parkDialog__description {
+ *   (@)apply text-fg-muted text-sm;
+ * }
+ *
+ * .parkDialog__closeTrigger { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
+ */
+export const dialog = styledSlots;

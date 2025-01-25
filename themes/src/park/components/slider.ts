@@ -24,56 +24,9 @@ import { type Slots, createSlots } from "@spark-css/core/slider";
  *
  * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
  */
-export const sliderSlots = createSlots({ prefix: "park", caseConvention: "camel" });
+const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
-/**
- * **Slider**
- * @description A control element that allows for a range of selections.
- *
- * @example
- * ```css
- * .parkSlider { }
- *
- * .parkSlider__root {
- *   (@)apply w-full flex gap-1 flex-col;
- * }
- *
- * .parkSlider__label {
- *   (@)apply text-fg-default font-medium;
- * }
- *
- * .parkSlider__thumb {
- *   (@)apply bg-bg-default rounded-full border-2 border-[--colors-color-palette-default] shadow-sm outline-none z-[1];
- * }
- *
- * .parkSlider__valueText { }
- *
- * .parkSlider__track {
- *   (@)apply bg-bg-emphasized rounded-full overflow-hidden flex-1;
- * }
- *
- * .parkSlider__range {
- *   (@)apply bg-[--colors-color-palette-default];
- * }
- *
- * .parkSlider__control {
- *   (@)apply flex relative items-center;
- * }
- *
- * .parkSlider__markerGroup {
- *   (@)apply -mt-1;
- * }
- *
- * .parkSlider__marker {
- *   (@)apply before:bg-white [&:is([data-state=under-value])]:before:bg-white dark:[&:is([data-state=under-value])]:before:bg-[--colors-color-palette-fg] before:rounded-full block relative left-1/2 -translate-x-1/2 text-fg-muted before:content-[''];
- * }
- *
- * .parkSlider__draggingIndicator { }
- * ```
- *
- * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
- */
-export const sliderStyledSlots = {
+const styledSlots = {
   base: "parkSlider",
   root: [
     "parkSlider__root",
@@ -175,4 +128,53 @@ export const sliderStyledSlots = {
     "before:content-['']"
   ],
   draggingIndicator: "parkSlider__draggingIndicator"
-} as const satisfies Record<Slots, string | string[]>;
+} satisfies Record<Slots, string | string[]>;
+
+/**
+ * **Slider**
+ * @description A control element that allows for a range of selections.
+ *
+ * @example
+ * ```css
+ * .parkSlider { }
+ *
+ * .parkSlider__root {
+ *   (@)apply w-full flex gap-1 flex-col;
+ * }
+ *
+ * .parkSlider__label {
+ *   (@)apply text-fg-default font-medium;
+ * }
+ *
+ * .parkSlider__thumb {
+ *   (@)apply bg-bg-default rounded-full border-2 border-[--colors-color-palette-default] shadow-sm outline-none z-[1];
+ * }
+ *
+ * .parkSlider__valueText { }
+ *
+ * .parkSlider__track {
+ *   (@)apply bg-bg-emphasized rounded-full overflow-hidden flex-1;
+ * }
+ *
+ * .parkSlider__range {
+ *   (@)apply bg-[--colors-color-palette-default];
+ * }
+ *
+ * .parkSlider__control {
+ *   (@)apply flex relative items-center;
+ * }
+ *
+ * .parkSlider__markerGroup {
+ *   (@)apply -mt-1;
+ * }
+ *
+ * .parkSlider__marker {
+ *   (@)apply before:bg-white [&:is([data-state=under-value])]:before:bg-white dark:[&:is([data-state=under-value])]:before:bg-[--colors-color-palette-fg] before:rounded-full block relative left-1/2 -translate-x-1/2 text-fg-muted before:content-[''];
+ * }
+ *
+ * .parkSlider__draggingIndicator { }
+ * ```
+ *
+ * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
+ */
+export const slider = styledSlots;

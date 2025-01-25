@@ -6,9 +6,9 @@ import { type Theme, getTheme } from "../utils";
 export const Basic = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.collapsibleStyledSlots,
-      park: park.collapsibleStyledSlots,
-      shadcn: shadcn.collapsibleStyledSlots
+      minimal: minimal.collapsible,
+      park: park.collapsible,
+      shadcn: shadcn.collapsible
     },
     theme
   );
