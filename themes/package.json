@@ -4,7 +4,10 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc src/**/components/*.ts --module esnext --target esnext",
+    "build": "bun run build.ts",
+    "build:minimal": "tsc src/minimal/ts/*.ts --outDir src/minimal/js --module esnext --target esnext",
+    "build:park": "tsc src/park/ts/*.ts --outDir src/park/js --module esnext --target esnext",
+    "build:shadcn": "tsc src/shadcn/ts/*.ts --outDir src/shadcn/js --module esnext --target esnext",
     "clean": "rm -rf .turbo dist node_modules",
     "format": "biome format --write ./src ./tests",
     "typecheck": "tsc --noEmit"

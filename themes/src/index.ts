@@ -1,3 +1,3 @@
-export * as minimal from "./minimal/components";
-export * as park from "./park/components";
-export * as shadcn from "./shadcn/components";
+export * as minimal from "./minimal/ts";
+export * as park from "./park/ts";
+export * as shadcn from "./shadcn/ts";
