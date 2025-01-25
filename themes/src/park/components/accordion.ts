@@ -21,6 +21,10 @@ import { type Slots, createSlots } from "@spark-css/core/accordion";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/accordion").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkAccordion",
   root: [

@@ -29,6 +29,10 @@ import { type Slots, createSlots } from "@spark-css/core/combobox";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/combobox").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "combobox",
   root: "combobox__root",

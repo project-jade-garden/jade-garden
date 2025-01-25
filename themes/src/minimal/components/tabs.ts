@@ -20,6 +20,10 @@ import { type Slots, createSlots } from "@spark-css/core/tabs";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/tabs").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "tabs",
   root: "tabs__root",

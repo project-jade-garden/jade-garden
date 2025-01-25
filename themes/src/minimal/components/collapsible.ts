@@ -18,6 +18,10 @@ import { type Slots, createSlots } from "@spark-css/core/collapsible";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/collapsible").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "collapsible",
   root: "collapsible__root",

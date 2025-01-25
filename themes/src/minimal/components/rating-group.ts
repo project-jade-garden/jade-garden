@@ -19,6 +19,10 @@ import { type Slots, createSlots } from "@spark-css/core/rating-group";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/rating-group").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "rating-group",
   root: "rating-group__root",

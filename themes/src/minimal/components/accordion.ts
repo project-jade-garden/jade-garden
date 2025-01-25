@@ -20,6 +20,10 @@ import { type Slots, createSlots } from "@spark-css/core/accordion";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/accordion").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "accordion",
   root: "accordion__root",

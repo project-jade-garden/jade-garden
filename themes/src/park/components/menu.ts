@@ -30,6 +30,10 @@ import { type Slots, createSlots } from "@spark-css/core/menu";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/menu").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkMenu",
   arrow: "parkMenu__arrow",

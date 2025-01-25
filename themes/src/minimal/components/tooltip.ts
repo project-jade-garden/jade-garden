@@ -20,6 +20,10 @@ import { type Slots, createSlots } from "@spark-css/core/tooltip";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/tooltip").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "tooltip",
   trigger: "tooltip__trigger",

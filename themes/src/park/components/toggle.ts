@@ -18,6 +18,10 @@ import { type Slots, createSlots } from "@spark-css/core/toggle";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/toggle").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkToggle",
   root: "parkToggle__root", // TODO: Determine if 'button' styles should be created: https://github.com/cschroeter/park-ui/blob/main/packages/panda/src/theme/recipes/button.ts

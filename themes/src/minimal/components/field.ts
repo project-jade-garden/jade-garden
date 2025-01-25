@@ -23,6 +23,10 @@ import { type Slots, createSlots } from "@spark-css/core/field";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/field").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "field",
   root: "field__root",

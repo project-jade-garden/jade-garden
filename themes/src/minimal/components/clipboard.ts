@@ -21,6 +21,10 @@ import { type Slots, createSlots } from "@spark-css/core/clipboard";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/clipboard").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "clipboard",
   root: "clipboard__root",

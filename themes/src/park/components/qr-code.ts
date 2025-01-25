@@ -21,6 +21,10 @@ import { type Slots, createSlots } from "@spark-css/core/qr-code";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/qr-code").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkQrCode",
   root: [

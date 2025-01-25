@@ -30,6 +30,10 @@ import { type Slots, createSlots } from "@spark-css/core/select";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/select").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "select",
   label: "select__label",

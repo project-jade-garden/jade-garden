@@ -58,6 +58,10 @@ const slots = createSlots({ prefix: "park", caseConvention: "camel" });
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
+/**
+ * @typedef {import("@spark-css/core/editable").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkEditable",
   root: [

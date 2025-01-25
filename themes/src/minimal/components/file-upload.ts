@@ -27,6 +27,10 @@ import { type Slots, createSlots } from "@spark-css/core/file-upload";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/file-upload").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "file-upload",
   root: "file-upload__root",

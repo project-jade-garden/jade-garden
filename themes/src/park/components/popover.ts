@@ -26,6 +26,10 @@ import { type Slots, createSlots } from "@spark-css/core/popover";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/popover").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkPopover",
   arrow: "parkPopover__arrow",

@@ -19,6 +19,10 @@ import { type Slots, createSlots } from "@spark-css/core/pin-input";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/pin-input").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "pin-input",
   root: "pin-input__root",

@@ -26,6 +26,10 @@ import { type Slots, createSlots } from "@spark-css/core/tags-input";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/tags-input").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkTagsInput",
   root: [

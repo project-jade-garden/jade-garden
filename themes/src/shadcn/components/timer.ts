@@ -24,6 +24,10 @@ import { type Slots, createSlots } from "@spark-css/core/timer";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/timer").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkTimer",
   root: "parkTimer__root",

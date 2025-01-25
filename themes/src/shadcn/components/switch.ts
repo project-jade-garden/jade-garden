@@ -20,6 +20,10 @@ import { type Slots, createSlots } from "@spark-css/core/switch";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/switch").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkSwitch",
   root: [

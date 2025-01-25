@@ -25,6 +25,10 @@ import { type Slots, createSlots } from "@spark-css/core/tags-input";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/tags-input").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "tags-input",
   root: "tags-input__root",

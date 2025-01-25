@@ -21,6 +21,10 @@ import { type Slots, createSlots } from "@spark-css/core/pagination";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/pagination").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkPagination",
   root: [

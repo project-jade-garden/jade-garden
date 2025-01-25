@@ -22,6 +22,10 @@ import { type Slots, createSlots } from "@spark-css/core/toast";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/toast").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkToast",
   group: "parkToast__group",

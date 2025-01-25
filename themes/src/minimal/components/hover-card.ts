@@ -20,6 +20,10 @@ import { type Slots, createSlots } from "@spark-css/core/hover-card";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/hover-card").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "hover-card",
   arrow: "hover-card__arrow",

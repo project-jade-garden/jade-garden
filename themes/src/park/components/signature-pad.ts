@@ -23,6 +23,10 @@ import { type Slots, createSlots } from "@spark-css/core/signature-pad";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/signature-pad").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkSignaturePad",
   root: [

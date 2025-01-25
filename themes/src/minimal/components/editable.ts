@@ -24,6 +24,10 @@ import { type Slots, createSlots } from "@spark-css/core/editable";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/editable").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "editable",
   root: "editable__root",

@@ -40,6 +40,10 @@ import { type Slots, createSlots } from "@spark-css/core/color-picker";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/color-picker").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "color-picker",
   root: "color-picker__root",

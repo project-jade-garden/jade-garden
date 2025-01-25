@@ -4,6 +4,7 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
+    "build": "tsc src/**/components/*.ts --module esnext --target esnext",
     "clean": "rm -rf .turbo dist node_modules",
     "format": "biome format --write ./src ./tests",
     "typecheck": "tsc --noEmit"

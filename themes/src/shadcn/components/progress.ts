@@ -27,6 +27,10 @@ import { type Slots, createSlots } from "@spark-css/core/progress";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/progress").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkProgress",
   root: [

@@ -23,6 +23,10 @@ import { type Slots, createSlots } from "@spark-css/core/number-input";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/number-input").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "number-input",
   root: "number-input__root",

@@ -22,6 +22,10 @@ import { type Slots, createSlots } from "@spark-css/core/radio-group";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/radio-group").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkRadioGroup",
   root: [

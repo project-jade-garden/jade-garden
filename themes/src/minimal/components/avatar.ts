@@ -18,6 +18,10 @@ import { type Slots, createSlots } from "@spark-css/core/avatar";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/avatar").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "avatar",
   root: "avatar__root",

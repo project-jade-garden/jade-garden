@@ -17,6 +17,10 @@ import { type Slots, createSlots } from "@spark-css/core/toggle";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/toggle").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "toggle",
   root: "toggle__root",

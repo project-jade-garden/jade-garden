@@ -29,6 +29,10 @@ import { type Slots, createSlots } from "@spark-css/core/menu";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/menu").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "menu",
   arrow: "menu__arrow",

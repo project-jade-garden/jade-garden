@@ -23,6 +23,10 @@ import { type Slots, createSlots } from "@spark-css/core/timer";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/timer").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "timer",
   root: "timer__root",

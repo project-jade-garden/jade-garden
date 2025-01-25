@@ -18,6 +18,10 @@ import { type Slots, createSlots } from "@spark-css/core/toggle-group";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/toggle-group").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkToggleGroup",
   root: [

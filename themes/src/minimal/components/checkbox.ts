@@ -20,6 +20,10 @@ import { type Slots, createSlots } from "@spark-css/core/checkbox";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/checkbox").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "checkbox",
   root: "checkbox__root",

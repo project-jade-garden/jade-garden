@@ -21,6 +21,10 @@ import { type Slots, createSlots } from "@spark-css/core/segment-group";
  */
 const slots = createSlots({});
 
+/**
+ * @typedef {import("@spark-css/core/segment-group").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "segment-group",
   root: "segment-group__root",

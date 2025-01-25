@@ -21,6 +21,10 @@ import { type Slots, createSlots } from "@spark-css/core/fieldset";
 
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
+/**
+ * @typedef {import("@spark-css/core/fieldset").Slots} Slots
+ * @type {Record<Slots, string | string[]>}
+ */
 const styledSlots = {
   base: "parkFieldset",
   root: [
