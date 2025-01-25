@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/segment-group.ts
 import {
-  type SegmentGroupSlots,
-  // createSegmentGroupDocs,
-  createSegmentGroupSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/segment-group";
 
 /**
@@ -24,10 +24,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
  */
-export const segmentGroupSlots = createSegmentGroupSlots({ prefix: "park", caseConvention: "camel" });
+export const segmentGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createSegmentGroupDocs("anatomy", segmentGroupSlots);
+// createDocs("anatomy", segmentGroupSlots);
 
 /**
  * **Segment Group**
@@ -122,7 +122,7 @@ export const segmentGroupStyledSlots = {
     "data-[orientation=horizontal]:translate-y-px",
     "data-[orientation=vertical]:-translate-x-px"
   ]
-} as const satisfies Record<SegmentGroupSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createSegmentGroupDocs("styled", segmentGroupStyledSlots);
+// createDocs("styled", segmentGroupStyledSlots);

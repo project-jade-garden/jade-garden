@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as carouselAnatomy } from "@zag-js/carousel";
 
 const component = {
@@ -7,9 +13,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/carousel#anatomy";
 
-export type CarouselSlots = keyof ReturnType<typeof createCarouselSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createCarouselSlots = (args?: CSArgs) => createSlots("carousel", carouselAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("carousel", carouselAnatomy.keys(), args);
 
-export const createCarouselDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

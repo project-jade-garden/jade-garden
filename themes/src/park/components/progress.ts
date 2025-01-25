@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/progress.ts
 import {
-  type ProgressSlots,
-  // createProgressDocs,
-  createProgressSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/progress";
 
 /**
@@ -29,10 +29,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/progress#anatomy)
  */
-export const progressSlots = createProgressSlots({ prefix: "park", caseConvention: "camel" });
+export const progressSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createProgressDocs("anatomy", progressSlots);
+// createDocs("anatomy", progressSlots);
 
 /**
  * **Progress**
@@ -154,7 +154,7 @@ export const progressStyledSlots = {
     "transition-[stroke-dasharray,_stroke]",
     "duration-[600ms]"
   ]
-} as const satisfies Record<ProgressSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createProgressDocs("styled", progressStyledSlots);
+// createDocs("styled", progressStyledSlots);

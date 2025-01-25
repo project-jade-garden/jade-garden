@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 // * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/segment-group/segment-group.anatomy.ts
 import { anatomy } from "@zag-js/radio-group";
 
@@ -10,10 +16,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/segment-group#anatomy";
 
-export type SegmentGroupSlots = keyof ReturnType<typeof createSegmentGroupSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createSegmentGroupSlots = (args?: CSArgs) =>
-  createSlots("segment-group", segmentGroupAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("segment-group", segmentGroupAnatomy.keys(), args);
 
-export const createSegmentGroupDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/combobox.ts
 import {
-  type ComboboxSlots,
-  // createComboboxDocs,
-  createComboboxSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/combobox";
 
 /**
@@ -32,10 +32,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
-export const comboboxSlots = createComboboxSlots({ prefix: "park", caseConvention: "camel" });
+export const comboboxSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createComboboxDocs("anatomy", comboboxSlots);
+// createDocs("anatomy", comboboxSlots);
 
 /**
  * **Combobox**
@@ -205,7 +205,7 @@ export const comboboxStyledSlots = {
     // Typography
     "text-fg-muted"
   ]
-} as const satisfies Record<ComboboxSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createComboboxDocs("styled", comboboxStyledSlots);
+// createDocs("styled", comboboxStyledSlots);

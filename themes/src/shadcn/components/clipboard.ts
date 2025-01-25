@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/clipboard.ts
 import {
-  type ClipboardSlots,
-  // createClipboardDocs,
-  createClipboardSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/clipboard";
 
 /**
@@ -24,10 +24,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
  */
-export const clipboardSlots = createClipboardSlots({ prefix: "park", caseConvention: "camel" });
+export const clipboardSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createClipboardDocs("anatomy", clipboardSlots);
+// createDocs("anatomy", clipboardSlots);
 
 /**
  * **Clipboard**
@@ -81,7 +81,7 @@ export const clipboardStyledSlots = {
   indicator: "parkClipboard__indicator",
   input: "parkClipboard__input",
   label: "parkClipboard__label"
-} as const satisfies Record<ClipboardSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createClipboardDocs("styled",clipboardStyledSlots);
+// createDocs("styled",clipboardStyledSlots);

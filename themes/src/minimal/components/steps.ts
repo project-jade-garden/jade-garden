@@ -1,7 +1,7 @@
 import {
-  type StepsSlots,
-  // createStepsDocs,
-  createStepsSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/steps";
 
 /**
@@ -27,10 +27,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
  */
-export const stepsSlots = createStepsSlots({});
+export const stepsSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createStepsDocs("anatomy", stepsSlots);
+// createDocs("anatomy", stepsSlots);
 
 /**
  * **Steps**
@@ -75,7 +75,7 @@ export const stepsStyledSlots = {
   nextTrigger: "steps__next-trigger",
   prevTrigger: "steps__prev-trigger",
   progress: "steps__progress"
-} as const satisfies Record<StepsSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createStepsDocs("styled", stepsStyledSlots);
+// createDocs("styled", stepsStyledSlots);

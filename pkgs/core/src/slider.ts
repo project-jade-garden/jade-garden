@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as sliderAnatomy } from "@zag-js/slider";
 
 const component = {
@@ -7,9 +13,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/slider#anatomy";
 
-export type SliderSlots = keyof ReturnType<typeof createSliderSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createSliderSlots = (args?: CSArgs) => createSlots("slider", sliderAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("slider", sliderAnatomy.keys(), args);
 
-export const createSliderDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

@@ -1,7 +1,7 @@
 import {
-  type ProgressSlots,
-  // createProgressDocs,
-  createProgressSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/progress";
 
 /**
@@ -29,10 +29,10 @@ import {
  * @see [Circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
  * @see [Linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
  */
-export const progressSlots = createProgressSlots({});
+export const progressSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createProgressDocs("anatomy", progressSlots);
+// createDocs("anatomy", progressSlots);
 
 /**
  * **Progress**
@@ -77,7 +77,7 @@ export const progressStyledSlots = {
   circle: "progress__circle",
   circleTrack: "progress__circle-track",
   circleRange: "progress__circle-range"
-} as const satisfies Record<ProgressSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createProgressDocs("styled", progressStyledSlots);
+// createDocs("styled", progressStyledSlots);

@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/fieldset.ts
 import {
-  type FieldsetSlots,
-  // createFieldsetDocs,
-  createFieldsetSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/fieldset";
 
 /**
@@ -23,10 +23,10 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/fieldset#anatomy)
  */
 
-export const fieldsetSlots = createFieldsetSlots({ prefix: "park", caseConvention: "camel" });
+export const fieldsetSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createFieldsetDocs("anatomy", fieldsetSlots);
+// createDocs("anatomy", fieldsetSlots);
 
 /**
  * **Fieldset**
@@ -126,7 +126,7 @@ export const fieldsetStyledSlots = {
     "text-fg-default",
     "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled"
   ]
-} as const satisfies Record<FieldsetSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createFieldsetDocs("styled", fieldsetStyledSlots);
+// createDocs("styled", fieldsetStyledSlots);

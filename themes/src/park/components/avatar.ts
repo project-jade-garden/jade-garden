@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/avatar.ts
 import {
-  type AvatarSlots,
-  // createAvatarDocs,
-  createAvatarSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/avatar";
 
 /**
@@ -21,10 +21,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatarSlots = createAvatarSlots({ prefix: "park", caseConvention: "camel" });
+export const avatarSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createAvatarDocs("anatomy", avatarSlots);
+// createDocs("anatomy", avatarSlots);
 
 /**
  * **Avatar**
@@ -94,7 +94,7 @@ export const avatarStyledSlots = {
     "text-fg-default",
     "font-semibold"
   ]
-} as const satisfies Record<AvatarSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createAvatarDocs("styled", avatarStyledSlots);
+// createDocs("styled", avatarStyledSlots);

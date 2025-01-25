@@ -1,7 +1,7 @@
 import {
-  type FileUploadSlots,
-  // createFileUploadDocs,
-  createFileUploadSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/file-upload";
 
 /**
@@ -29,10 +29,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
-export const fileUploadSlots = createFileUploadSlots({});
+export const fileUploadSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createFileUploadDocs("anatomy", fileUploadSlots);
+// createDocs("anatomy", fileUploadSlots);
 
 /**
  * **File Upload**
@@ -83,7 +83,7 @@ export const fileUploadStyledSlots = {
   label: "file-upload__label",
   trigger: "file-upload__trigger",
   clearTrigger: "file-upload__clear-trigger"
-} as const satisfies Record<FileUploadSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createFileUploadDocs("styled", fileUploadStyledSlots);
+// createDocs("styled", fileUploadStyledSlots);

@@ -1,7 +1,7 @@
 import {
-  type FieldsetSlots,
-  // createFieldsetDocs,
-  createFieldsetSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/fieldset";
 
 /**
@@ -21,10 +21,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/fieldset#anatomy)
  */
-export const fieldsetSlots = createFieldsetSlots({});
+export const fieldsetSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createFieldsetDocs("anatomy", fieldsetSlots);
+// createDocs("anatomy", fieldsetSlots);
 
 /**
  * **Fieldset**
@@ -51,7 +51,7 @@ export const fieldsetStyledSlots = {
   errorText: "fieldset__error-text",
   helperText: "fieldset__helper-text",
   legend: "fieldset__legend"
-} as const satisfies Record<FieldsetSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createFieldsetDocs("styled", fieldsetStyledSlots);
+// createDocs("styled", fieldsetStyledSlots);

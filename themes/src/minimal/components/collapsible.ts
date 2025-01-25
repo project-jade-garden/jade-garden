@@ -1,7 +1,7 @@
 import {
-  type CollapsibleSlots,
-  // createCollapsibleDocs,
-  createCollapsibleSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/collapsible";
 
 /**
@@ -20,10 +20,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const collapsibleSlots = createCollapsibleSlots({});
+export const collapsibleSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createCollapsibleDocs("anatomy", collapsibleSlots);
+// createDocs("anatomy", collapsibleSlots);
 
 /**
  * **Collapsible**
@@ -47,7 +47,7 @@ export const collapsibleStyledSlots = {
   root: "collapsible__root",
   trigger: "collapsible__trigger",
   content: "collapsible__content"
-} as const satisfies Record<CollapsibleSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createCollapsibleDocs("styled", collapsibleStyledSlots);
+// createDocs("styled", collapsibleStyledSlots);

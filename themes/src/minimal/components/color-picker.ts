@@ -1,7 +1,7 @@
 import {
-  type ColorPickerSlots,
-  // createColorPickerDocs,
-  createColorPickerSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/color-picker";
 
 /**
@@ -42,10 +42,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPickerSlots = createColorPickerSlots({});
+export const colorPickerSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createColorPickerDocs("anatomy", colorPickerSlots);
+// createDocs("anatomy", colorPickerSlots);
 
 /**
  * **Color Picker**
@@ -135,7 +135,7 @@ export const colorPickerStyledSlots = {
   formatTrigger: "color-picker__format-trigger",
   formatSelect: "color-picker__format-select",
   view: "color-picker__view"
-} as const satisfies Record<ColorPickerSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createColorPickerDocs("styled", colorPickerStyledSlots);
+// createDocs("styled", colorPickerStyledSlots);

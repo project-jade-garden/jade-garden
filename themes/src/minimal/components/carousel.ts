@@ -1,7 +1,7 @@
 import {
-  type CarouselSlots,
-  // createCarouselDocs,
-  createCarouselSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/carousel";
 
 /**
@@ -26,10 +26,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
  */
-export const carouselSlots = createCarouselSlots({});
+export const carouselSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createCarouselDocs("anatomy", carouselSlots);
+// createDocs("anatomy", carouselSlots);
 
 /**
  * **Carousel**
@@ -71,7 +71,7 @@ export const carouselStyledSlots = {
   indicatorGroup: "carousel__indicator-group",
   indicator: "carousel__indicator",
   autoplayTrigger: "carousel__autoplay-trigger"
-} as const satisfies Record<CarouselSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createCarouselDocs("styled", carouselStyledSlots);
+// createDocs("styled", carouselStyledSlots);

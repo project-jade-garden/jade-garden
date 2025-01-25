@@ -1,7 +1,7 @@
 import {
-  type SliderSlots,
-  // createSliderDocs,
-  createSliderSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/slider";
 
 /**
@@ -27,10 +27,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
  */
-export const sliderSlots = createSliderSlots({});
+export const sliderSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createSliderDocs("anatomy", sliderSlots);
+// createDocs("anatomy", sliderSlots);
 
 /**
  * **Slider**
@@ -75,7 +75,7 @@ export const sliderStyledSlots = {
   markerGroup: "slider__marker-group",
   marker: "slider__marker",
   draggingIndicator: "slider__dragging-indicator"
-} as const satisfies Record<SliderSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createSliderDocs("styled", sliderStyledSlots);
+// createDocs("styled", sliderStyledSlots);

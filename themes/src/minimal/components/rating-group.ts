@@ -1,7 +1,7 @@
 import {
-  type RatingGroupSlots,
-  // createRatingGroupDocs,
-  createRatingGroupSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/rating-group";
 
 /**
@@ -21,10 +21,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
  */
-export const ratingGroupSlots = createRatingGroupSlots({});
+export const ratingGroupSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createRatingGroupDocs("anatomy", ratingGroupSlots);
+// createDocs("anatomy", ratingGroupSlots);
 
 /**
  * **Rating Group**
@@ -51,7 +51,7 @@ export const ratingGroupStyledSlots = {
   label: "rating-group__label",
   item: "rating-group__item",
   control: "rating-group__control"
-} as const satisfies Record<RatingGroupSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createRatingGroupDocs("styled", ratingGroupStyledSlots);
+// createDocs("styled", ratingGroupStyledSlots);

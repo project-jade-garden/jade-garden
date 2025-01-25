@@ -1,7 +1,7 @@
 import {
-  type EditableSlots,
-  // createEditableDocs,
-  createEditableSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/editable";
 
 /**
@@ -26,10 +26,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editableSlots = createEditableSlots({});
+export const editableSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createEditableDocs("anatomy", editableSlots);
+// createDocs("anatomy", editableSlots);
 
 /**
  * **Editable**
@@ -71,7 +71,7 @@ export const editableStyledSlots = {
   submitTrigger: "editable__submit-trigger",
   cancelTrigger: "editable__cancel-trigger",
   control: "editable__control"
-} as const satisfies Record<EditableSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createEditableDocs("styled", editableStyledSlots);
+// createDocs("styled", editableStyledSlots);

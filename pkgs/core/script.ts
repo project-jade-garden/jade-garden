@@ -99,20 +99,19 @@ const generateSrcFiles = () => {
   for (const component of components) {
     const c = component.slice(0, -3); // Removes `.ts`;
     const camelName = camelCase(c);
-    const pascalName = pascalCase(c);
     const anatomyName = `${camelName}Anatomy`;
 
     if (skipFiles.includes(c) || !isComponentWithDescription(c)) {
       const fileContent = [
-        'import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";',
+        'import { type CSArgs, type PrintType, type Slots as UtilSlots, createDocs as utilDocs, createSlots as utilSlots } from "@spark-css/utils";',
         "const component = {",
         `  name: "${startCase(c)}",`,
         `  description: ""`,
         "};",
         `const source = "https://ark-ui.com/vue/docs/components/${kebabCase(c)}#anatomy";\n`,
-        `export type ${pascalName}Slots = keyof ReturnType<typeof create${pascalName}Slots>;\n`,
-        `export const create${pascalName}Slots = (args?: CSArgs) => createSlots("${c}", ${anatomyName}.keys(), args);\n`,
-        `export const create${pascalName}Docs = (print: PrintType, slots: Slots = {}) => createDocs(print, { slots, component, source });\n`
+        "export type Slots = keyof ReturnType<typeof createSlots>;\n",
+        `export const createSlots = (args?: CSArgs) => utilSlots("${c}", ${anatomyName}.keys(), args);\n`,
+        "export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });\n"
       ].join("\n");
 
       console.warn(`Update file in ${outputPath}/${component}\n\x1b[33m${fileContent}\x1b[0m`);
@@ -122,16 +121,16 @@ const generateSrcFiles = () => {
     const description = Array.isArray(descriptions[c]) ? `["${descriptions[c].join('", "')}"]` : `"${descriptions[c]}"`;
 
     const fileContent = [
-      'import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";',
+      'import { type CSArgs, type PrintType, type Slots as UtilSlots, createDocs as utilDocs, createSlots as utilSlots } from "@spark-css/utils";',
       `import { anatomy as ${anatomyName} } from "@zag-js/${c}";\n`,
       "const component = {",
       `  name: "${startCase(c)}",`,
       `  description: ${description}`,
       "};",
       `const source = "https://ark-ui.com/vue/docs/components/${kebabCase(c)}#anatomy";\n`,
-      `export type ${pascalName}Slots = keyof ReturnType<typeof create${pascalName}Slots>;\n`,
-      `export const create${pascalName}Slots = (args?: CSArgs) => createSlots("${c}", ${anatomyName}.keys(), args);\n`,
-      `export const create${pascalName}Docs = (print: PrintType, slots: Slots = {}) => createDocs(print, { slots, component, source });\n`
+      "export type Slots = keyof ReturnType<typeof createSlots>;\n",
+      `export const createSlots = (args?: CSArgs) => utilSlots("${c}", ${anatomyName}.keys(), args);\n`,
+      "export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });\n"
     ].join("\n");
 
     writeFileSync(`${outputPath}/${component}`, fileContent);

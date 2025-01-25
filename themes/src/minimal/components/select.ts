@@ -1,7 +1,7 @@
 import {
-  type SelectSlots,
-  // createSelectDocs,
-  createSelectSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/select";
 
 /**
@@ -32,10 +32,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
  */
-export const selectSlots = createSelectSlots({});
+export const selectSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createSelectDocs("anatomy", selectSlots);
+// createDocs("anatomy", selectSlots);
 
 /**
  * **Select**
@@ -95,7 +95,7 @@ export const selectStyledSlots = {
   root: "select__root",
   control: "select__control",
   valueText: "select__value-text"
-} as const satisfies Record<SelectSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createSelectDocs("styled", selectStyledSlots);
+// createDocs("styled", selectStyledSlots);

@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as progressAnatomy } from "@zag-js/progress";
 
 const component = {
@@ -19,9 +25,8 @@ const source = [
   }
 ];
 
-export type ProgressSlots = keyof ReturnType<typeof createProgressSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createProgressSlots = (args?: CSArgs) => createSlots("progress", progressAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("progress", progressAnatomy.keys(), args);
 
-export const createProgressDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

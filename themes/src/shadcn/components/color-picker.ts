@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/color-picker.ts
 import {
-  type ColorPickerSlots,
-  // createColorPickerDocs,
-  createColorPickerSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/color-picker";
 
 /**
@@ -43,10 +43,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPickerSlots = createColorPickerSlots({ prefix: "park", caseConvention: "camel" });
+export const colorPickerSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createColorPickerDocs("anatomy",colorPickerSlots);
+// createDocs("anatomy",colorPickerSlots);
 
 /**
  * **Color Picker**
@@ -301,7 +301,7 @@ export const colorPickerStyledSlots = {
   formatTrigger: "parkColorPicker__formatTrigger",
   formatSelect: "parkColorPicker__formatSelect",
   view: "parkColorPicker__view"
-} as const satisfies Record<ColorPickerSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createColorPickerDocs("styled",colorPickerStyledSlots);
+// createDocs("styled",colorPickerStyledSlots);

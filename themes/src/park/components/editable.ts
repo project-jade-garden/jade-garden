@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/editable.ts
 import {
-  type EditableSlots,
-  // createEditableDocs,
-  createEditableSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/editable";
 
 /**
@@ -27,10 +27,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editableSlots = createEditableSlots({ prefix: "park", caseConvention: "camel" });
+export const editableSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createEditableDocs("anatomy", editableSlots);
+// createDocs("anatomy", editableSlots);
 
 /**
  * **Editable**
@@ -96,7 +96,7 @@ export const editableStyledSlots = {
     // Flexbox & Grid
     "gap-2"
   ]
-} as const satisfies Record<EditableSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createEditableDocs("styled", editableStyledSlots);
+// createDocs("styled", editableStyledSlots);

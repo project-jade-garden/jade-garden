@@ -1,8 +1,8 @@
 // * https://github.com/chakra-ui/ark/tree/main/website/src/demos/qr-code.demo.tsx
 import {
-  type QrCodeSlots,
-  // createQrCodeDocs,
-  createQrCodeSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/qr-code";
 
 /**
@@ -23,10 +23,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
  */
-export const qrCodeSlots = createQrCodeSlots({ prefix: "park", caseConvention: "camel" });
+export const qrCodeSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createQrCodeDocs("anatomy", qrCodeSlots);
+// createDocs("anatomy", qrCodeSlots);
 
 /**
  * **Qr Code**
@@ -93,7 +93,7 @@ export const qrCodeStyledSlots = {
     "outline-white"
   ],
   downloadTrigger: "parkQrCode__downloadTrigger"
-} as const satisfies Record<QrCodeSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createQrCodeDocs("styled", qrCodeStyledSlots);
+// createDocs("styled", qrCodeStyledSlots);

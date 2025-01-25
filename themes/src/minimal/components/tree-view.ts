@@ -1,7 +1,7 @@
 import {
-  type TreeViewSlots,
-  // createTreeViewDocs,
-  createTreeViewSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/tree-view";
 
 /**
@@ -30,10 +30,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
  */
-export const treeViewSlots = createTreeViewSlots({});
+export const treeViewSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createTreeViewDocs("anatomy", treeViewSlots);
+// createDocs("anatomy", treeViewSlots);
 
 /**
  * **Tree View**
@@ -87,7 +87,7 @@ export const treeViewStyledSlots = {
   branchText: "tree-view__branch-text",
   branchIndicator: "tree-view__branch-indicator",
   branchIndentGuide: "tree-view__branch-indent-guide"
-} as const satisfies Record<TreeViewSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createTreeViewDocs("styled", treeViewStyledSlots);
+// createDocs("styled", treeViewStyledSlots);

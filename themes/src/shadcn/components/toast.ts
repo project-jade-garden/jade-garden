@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/toast.ts
 import {
-  type ToastSlots,
-  // createToastDocs,
-  createToastSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/toast";
 
 /**
@@ -24,10 +24,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
  */
-export const toastSlots = createToastSlots({ prefix: "park", caseConvention: "camel" });
+export const toastSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createToastDocs("anatomy", toastSlots);
+// createDocs("anatomy", toastSlots);
 
 /**
  * **Toast**
@@ -126,7 +126,7 @@ export const toastStyledSlots = {
     "top-3",
     "right-3"
   ]
-} as const satisfies Record<ToastSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createToastDocs("styled", toastStyledSlots);
+// createDocs("styled", toastStyledSlots);

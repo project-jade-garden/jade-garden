@@ -1,7 +1,7 @@
 import {
-  type QrCodeSlots,
-  // createQrCodeDocs,
-  createQrCodeSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/qr-code";
 
 /**
@@ -22,10 +22,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
  */
-export const qrCodeSlots = createQrCodeSlots({});
+export const qrCodeSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createQrCodeDocs("anatomy", qrCodeSlots);
+// createDocs("anatomy", qrCodeSlots);
 
 /**
  * **Qr Code**
@@ -55,7 +55,7 @@ export const qrCodeStyledSlots = {
   pattern: "qr-code__pattern",
   overlay: "qr-code__overlay",
   downloadTrigger: "qr-code__download-trigger"
-} as const satisfies Record<QrCodeSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createQrCodeDocs("styled", qrCodeStyledSlots);
+// createDocs("styled", qrCodeStyledSlots);

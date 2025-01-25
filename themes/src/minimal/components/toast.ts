@@ -1,7 +1,7 @@
 import {
-  type ToastSlots,
-  // createToastDocs,
-  createToastSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/toast";
 
 /**
@@ -23,10 +23,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
  */
-export const toastSlots = createToastSlots({});
+export const toastSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createToastDocs("anatomy", toastSlots);
+// createDocs("anatomy", toastSlots);
 
 /**
  * **Toast**
@@ -59,7 +59,7 @@ export const toastStyledSlots = {
   description: "toast__description",
   actionTrigger: "toast__action-trigger",
   closeTrigger: "toast__close-trigger"
-} as const satisfies Record<ToastSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createToastDocs("styled", toastStyledSlots);
+// createDocs("styled", toastStyledSlots);

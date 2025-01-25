@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/collapsible.ts
 import {
-  type CollapsibleSlots,
-  // createCollapsibleDocs,
-  createCollapsibleSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/collapsible";
 
 /**
@@ -21,10 +21,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const collapsibleSlots = createCollapsibleSlots({ prefix: "park", caseConvention: "camel" });
+export const collapsibleSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createCollapsibleDocs("anatomy",collapsibleSlots);
+// createDocs("anatomy",collapsibleSlots);
 
 /**
  * **Collapsible**
@@ -76,7 +76,7 @@ export const collapsibleStyledSlots = {
     "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
     "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
   ]
-} as const satisfies Record<CollapsibleSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createCollapsibleDocs("styled",collapsibleStyledSlots);
+// createDocs("styled",collapsibleStyledSlots);

@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as collapsibleAnatomy } from "@zag-js/collapsible";
 
 const component = {
@@ -7,9 +13,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/collapsible#anatomy";
 
-export type CollapsibleSlots = keyof ReturnType<typeof createCollapsibleSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createCollapsibleSlots = (args?: CSArgs) => createSlots("collapsible", collapsibleAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("collapsible", collapsibleAnatomy.keys(), args);
 
-export const createCollapsibleDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

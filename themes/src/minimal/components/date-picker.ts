@@ -1,7 +1,7 @@
 import {
-  type DatePickerSlots,
-  // createDatePickerDocs,
-  createDatePickerSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/date-picker";
 
 /**
@@ -41,10 +41,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePickerSlots = createDatePickerSlots({});
+export const datePickerSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createDatePickerDocs("anatomy", datePickerSlots);
+// createDocs("anatomy", datePickerSlots);
 
 /**
  * **Date Picker**
@@ -131,7 +131,7 @@ export const datePickerStyledSlots = {
   yearSelect: "date-picker__year-select",
   presetTrigger: "date-picker__preset-trigger",
   view: "date-picker__view"
-} as const satisfies Record<DatePickerSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createDatePickerDocs("styled", datePickerStyledSlots);
+// createDocs("styled", datePickerStyledSlots);

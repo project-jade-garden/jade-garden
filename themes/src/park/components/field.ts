@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/field.ts
 import {
-  type FieldSlots,
-  // createFieldDocs,
-  createFieldSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/field";
 
 /**
@@ -26,10 +26,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
-export const fieldSlots = createFieldSlots({ prefix: "park", caseConvention: "camel" });
+export const fieldSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createFieldDocs("anatomy", fieldSlots);
+// createDocs("anatomy", fieldSlots);
 
 /**
  * **Field**
@@ -114,7 +114,7 @@ export const fieldStyledSlots = {
   select: "parkField__select",
   textarea: "parkField__textarea",
   requiredIndicator: "parkField__requiredIndicator"
-} as const satisfies Record<FieldSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createFieldDocs("styled", fieldStyledSlots);
+// createDocs("styled", fieldStyledSlots);

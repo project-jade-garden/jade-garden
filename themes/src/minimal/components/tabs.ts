@@ -1,7 +1,7 @@
 import {
-  type TabsSlots,
-  // createTabsDocs,
-  createTabsSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/tabs";
 
 /**
@@ -22,10 +22,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const tabsSlots = createTabsSlots({});
+export const tabsSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createTabsDocs("anatomy", tabsSlots);
+// createDocs("anatomy", tabsSlots);
 
 /**
  * **Tabs**
@@ -55,7 +55,7 @@ export const tabsStyledSlots = {
   trigger: "tabs__trigger",
   content: "tabs__content",
   indicator: "tabs__indicator"
-} as const satisfies Record<TabsSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createTabsDocs("styled", tabsStyledSlots);
+// createDocs("styled", tabsStyledSlots);

@@ -1,7 +1,7 @@
 import {
-  type SplitterSlots,
-  // createSplitterDocs,
-  createSplitterSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/splitter";
 
 /**
@@ -20,10 +20,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
  */
-export const splitterSlots = createSplitterSlots({});
+export const splitterSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createSplitterDocs("anatomy", splitterSlots);
+// createDocs("anatomy", splitterSlots);
 
 /**
  * **Splitter**
@@ -47,7 +47,7 @@ export const splitterStyledSlots = {
   root: "splitter__root",
   panel: "splitter__panel",
   resizeTrigger: "splitter__resize-trigger"
-} as const satisfies Record<SplitterSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createSplitterDocs("styled", splitterStyledSlots);
+// createDocs("styled", splitterStyledSlots);

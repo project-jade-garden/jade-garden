@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/pin-input.ts
 import {
-  type PinInputSlots,
-  // createPinInputDocs,
-  createPinInputSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/pin-input";
 
 /**
@@ -22,10 +22,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/pin-input#anatomy)
  */
-export const pinInputSlots = createPinInputSlots({ prefix: "park", caseConvention: "camel" });
+export const pinInputSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createPinInputDocs("anatomy", pinInputSlots);
+// createDocs("anatomy", pinInputSlots);
 
 /**
  * **Pin Input**
@@ -91,7 +91,7 @@ export const pinInputStyledSlots = {
     // Flexbox & Grid
     "gap-2"
   ]
-} as const satisfies Record<PinInputSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createPinInputDocs("styled", pinInputStyledSlots);
+// createDocs("styled", pinInputStyledSlots);

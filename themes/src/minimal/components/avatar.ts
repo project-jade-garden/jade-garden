@@ -1,7 +1,7 @@
 import {
-  type AvatarSlots,
-  // createAvatarDocs,
-  createAvatarSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/avatar";
 
 /**
@@ -20,10 +20,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatarSlots = createAvatarSlots({});
+export const avatarSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createAvatarDocs("anatomy", avatarSlots);
+// createDocs("anatomy", avatarSlots);
 
 /**
  * **Avatar**
@@ -47,7 +47,7 @@ export const avatarStyledSlots = {
   root: "avatar__root",
   image: "avatar__image",
   fallback: "avatar__fallback"
-} as const satisfies Record<AvatarSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createAvatarDocs("styled", avatarStyledSlots);
+// createDocs("styled", avatarStyledSlots);

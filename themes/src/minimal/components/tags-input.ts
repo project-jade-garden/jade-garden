@@ -1,7 +1,7 @@
 import {
-  type TagsInputSlots,
-  // createTagsInputDocs,
-  createTagsInputSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/tags-input";
 
 /**
@@ -27,10 +27,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
-export const tagsInputSlots = createTagsInputSlots({});
+export const tagsInputSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createTagsInputDocs("anatomy", tagsInputSlots);
+// createDocs("anatomy", tagsInputSlots);
 
 /**
  * **Tags Input**
@@ -75,7 +75,7 @@ export const tagsInputStyledSlots = {
   itemInput: "tags-input__item-input",
   itemText: "tags-input__item-text",
   itemDeleteTrigger: "tags-input__item-delete-trigger"
-} as const satisfies Record<TagsInputSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createTagsInputDocs("styled", tagsInputStyledSlots);
+// createDocs("styled", tagsInputStyledSlots);

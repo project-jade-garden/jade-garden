@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as qrCodeAnatomy } from "@zag-js/qr-code";
 
 const component = {
@@ -7,9 +13,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/qr-code#anatomy";
 
-export type QrCodeSlots = keyof ReturnType<typeof createQrCodeSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createQrCodeSlots = (args?: CSArgs) => createSlots("qr-code", qrCodeAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("qr-code", qrCodeAnatomy.keys(), args);
 
-export const createQrCodeDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

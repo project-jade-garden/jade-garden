@@ -1,7 +1,7 @@
 import {
-  type SwitchSlots,
-  // createSwitchDocs,
-  createSwitchSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/switch";
 
 /**
@@ -21,10 +21,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
  */
-export const switchSlots = createSwitchSlots({});
+export const switchSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createSwitchDocs("anatomy", switchSlots);
+// createDocs("anatomy", switchSlots);
 
 /**
  * **Switch**
@@ -51,7 +51,7 @@ export const switchStyledSlots = {
   label: "switch__label",
   control: "switch__control",
   thumb: "switch__thumb"
-} as const satisfies Record<SwitchSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createSwitchDocs("styled", switchStyledSlots);
+// createDocs("styled", switchStyledSlots);

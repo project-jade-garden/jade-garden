@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as clipboardAnatomy } from "@zag-js/clipboard";
 
 const component = {
@@ -7,9 +13,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/clipboard#anatomy";
 
-export type ClipboardSlots = keyof ReturnType<typeof createClipboardSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createClipboardSlots = (args?: CSArgs) => createSlots("clipboard", clipboardAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("clipboard", clipboardAnatomy.keys(), args);
 
-export const createClipboardDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

@@ -1,7 +1,7 @@
 import {
-  type FieldSlots,
-  // createFieldDocs,
-  createFieldSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/field";
 
 /**
@@ -25,10 +25,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
-export const fieldSlots = createFieldSlots({});
+export const fieldSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createFieldDocs("anatomy", fieldSlots);
+// createDocs("anatomy", fieldSlots);
 
 /**
  * **Field**
@@ -67,7 +67,7 @@ export const fieldStyledSlots = {
   select: "field__select",
   textarea: "field__textarea",
   requiredIndicator: "field__required-indicator"
-} as const satisfies Record<FieldSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createFieldDocs("styled", fieldStyledSlots);
+// createDocs("styled", fieldStyledSlots);

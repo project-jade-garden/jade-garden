@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/radio-group.ts
 import {
-  type RadioGroupSlots,
-  // createRadioGroupDocs,
-  createRadioGroupSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/radio-group";
 
 /**
@@ -24,10 +24,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
  */
-export const radioGroupSlots = createRadioGroupSlots({ prefix: "park", caseConvention: "camel" });
+export const radioGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createRadioGroupDocs("anatomy", radioGroupSlots);
+// createDocs("anatomy", radioGroupSlots);
 
 /**
  * **Radio Group**
@@ -121,7 +121,7 @@ export const radioGroupStyledSlots = {
     "ease-[--easings-default]"
   ],
   indicator: "parkRadioGroup__indicator"
-} as const satisfies Record<RadioGroupSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createRadioGroupDocs("styled", radioGroupStyledSlots);
+// createDocs("styled", radioGroupStyledSlots);

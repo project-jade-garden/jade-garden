@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/number-input.ts
 import {
-  type NumberInputSlots,
-  // createNumberInputDocs,
-  createNumberInputSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/number-input";
 
 /**
@@ -26,10 +26,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
  */
-export const numberInputSlots = createNumberInputSlots({ prefix: "park", caseConvention: "camel" });
+export const numberInputSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createNumberInputDocs("anatomy", numberInputSlots);
+// createDocs("anatomy", numberInputSlots);
 
 /**
  * **Number Input**
@@ -202,7 +202,7 @@ export const numberInputStyledSlots = {
     "ease-[--easings-default]"
   ],
   scrubber: "parkNumberInput__scrubber"
-} as const satisfies Record<NumberInputSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createNumberInputDocs("styled", numberInputStyledSlots);
+// createDocs("styled", numberInputStyledSlots);

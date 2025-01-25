@@ -1,4 +1,10 @@
-import { type CSArgs, type PrintType, type Slots, createDocs, createSlots } from "@spark-css/utils";
+import {
+  type CSArgs,
+  type PrintType,
+  type Slots as UtilSlots,
+  createDocs as utilDocs,
+  createSlots as utilSlots
+} from "@spark-css/utils";
 import { anatomy as comboboxAnatomy } from "@zag-js/combobox";
 
 const component = {
@@ -7,9 +13,8 @@ const component = {
 };
 const source = "https://ark-ui.com/vue/docs/components/combobox#anatomy";
 
-export type ComboboxSlots = keyof ReturnType<typeof createComboboxSlots>;
+export type Slots = keyof ReturnType<typeof createSlots>;
 
-export const createComboboxSlots = (args?: CSArgs) => createSlots("combobox", comboboxAnatomy.keys(), args);
+export const createSlots = (args?: CSArgs) => utilSlots("combobox", comboboxAnatomy.keys(), args);
 
-export const createComboboxDocs = (print: PrintType, slots: Slots = {}) =>
-  createDocs(print, { slots, component, source });
+export const createDocs = (print: PrintType, slots: UtilSlots = {}) => utilDocs(print, { slots, component, source });

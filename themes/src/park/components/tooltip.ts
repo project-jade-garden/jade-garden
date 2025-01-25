@@ -1,8 +1,8 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/tooltip.ts
 import {
-  type TooltipSlots,
-  // createTooltipDocs,
-  createTooltipSlots
+  type Slots,
+  // createDocs,
+  createSlots
 } from "@spark-css/core/tooltip";
 
 /**
@@ -23,10 +23,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tooltip#anatomy)
  */
-export const tooltipSlots = createTooltipSlots({ prefix: "park", caseConvention: "camel" });
+export const tooltipSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createTooltipDocs("anatomy", tooltipSlots);
+// createDocs("anatomy", tooltipSlots);
 
 /**
  * **Tooltip**
@@ -88,7 +88,7 @@ export const tooltipStyledSlots = {
     "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
     "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
   ]
-} as const satisfies Record<TooltipSlots, string | string[]>;
+} as const satisfies Record<Slots, string | string[]>;
 
 // * Uncomment after styling slots
-// createTooltipDocs("styled", tooltipStyledSlots);
+// createDocs("styled", tooltipStyledSlots);
