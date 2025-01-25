@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/number-input";
+import { type Slots, createSlots } from "@spark-css/core/number-input";
 
 /**
  * **Number Input**
@@ -26,9 +22,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
  */
 export const numberInputSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", numberInputSlots);
 
 /**
  * **Number Input**
@@ -68,6 +61,3 @@ export const numberInputStyledSlots = {
   decrementTrigger: "number-input__decrement-trigger",
   scrubber: "number-input__scrubber"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", numberInputStyledSlots);

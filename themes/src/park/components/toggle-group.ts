@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/toggle-group.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/toggle-group";
+import { type Slots, createSlots } from "@spark-css/core/toggle-group";
 
 /**
  * **Toggle Group**
@@ -21,9 +17,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/toggle-group#anatomy)
  */
 export const toggleGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", toggleGroupSlots);
 
 /**
  * **Toggle Group**
@@ -98,6 +91,3 @@ export const toggleGroupStyledSlots = {
     "ease-[--easings-default]"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", toggleGroupStyledSlots);

@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/tags-input.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/tags-input";
+import { type Slots, createSlots } from "@spark-css/core/tags-input";
 
 /**
  * **Tags Input**
@@ -29,9 +25,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
 export const tagsInputSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", tagsInputSlots);
 
 /**
  * **Tags Input**
@@ -176,6 +169,3 @@ export const tagsInputStyledSlots = {
   itemText: "parkTagsInput__itemText",
   itemDeleteTrigger: "parkTagsInput__itemDeleteTrigger"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", tagsInputStyledSlots);

@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/tooltip";
+import { type Slots, createSlots } from "@spark-css/core/tooltip";
 
 /**
  * **Tooltip**
@@ -23,9 +19,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/tooltip#anatomy)
  */
 export const tooltipSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", tooltipSlots);
 
 /**
  * **Tooltip**
@@ -56,6 +49,3 @@ export const tooltipStyledSlots = {
   positioner: "tooltip__positioner",
   content: "tooltip__content"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", tooltipStyledSlots);

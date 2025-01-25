@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/select.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/select";
+import { type Slots, createSlots } from "@spark-css/core/select";
 
 /**
  * **Select**
@@ -34,9 +30,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
  */
 export const selectSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", selectSlots);
 
 /**
  * **Select**
@@ -230,6 +223,3 @@ export const selectStyledSlots = {
   control: "parkSelect__control",
   valueText: "parkSelect__valueText"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", selectStyledSlots);

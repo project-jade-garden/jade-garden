@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/menu.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/menu";
+import { type Slots, createSlots } from "@spark-css/core/menu";
 
 /**
  * **Menu**
@@ -33,9 +29,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
 export const menuSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", menuSlots);
 
 /**
  * **Menu**
@@ -209,6 +202,3 @@ export const menuStyledSlots = {
     "ease-[--easings-default]"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", menuStyledSlots);

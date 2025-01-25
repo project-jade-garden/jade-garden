@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/checkbox.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/checkbox";
+import { type Slots, createSlots } from "@spark-css/core/checkbox";
 
 /**
  * **Checkbox**
@@ -24,9 +20,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
  */
 export const checkboxSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("",checkboxSlots);
 
 /**
  * **Checkbox**
@@ -112,6 +105,3 @@ export const checkboxStyledSlots = {
   indicator: "parkCheckbox__indicator",
   group: "parkCheckbox__group"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("",checkboxStyledSlots);

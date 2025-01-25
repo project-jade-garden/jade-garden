@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/toggle";
+import { type Slots, createSlots } from "@spark-css/core/toggle";
 
 /**
  * **Toggle**
@@ -20,9 +16,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
  */
 export const toggleSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", toggleSlots);
 
 /**
  * **Toggle**
@@ -44,6 +37,3 @@ export const toggleStyledSlots = {
   root: "toggle__root",
   indicator: "toggle__indicator"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", toggleStyledSlots);

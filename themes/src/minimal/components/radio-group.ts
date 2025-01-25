@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/radio-group";
+import { type Slots, createSlots } from "@spark-css/core/radio-group";
 
 /**
  * **Radio Group**
@@ -24,9 +20,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
  */
 export const radioGroupSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", radioGroupSlots);
 
 /**
  * **Radio Group**
@@ -60,6 +53,3 @@ export const radioGroupStyledSlots = {
   itemControl: "radio-group__item-control",
   indicator: "radio-group__indicator"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", radioGroupStyledSlots);

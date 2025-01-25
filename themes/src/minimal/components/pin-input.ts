@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/pin-input";
+import { type Slots, createSlots } from "@spark-css/core/pin-input";
 
 /**
  * **Pin Input**
@@ -22,9 +18,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/pin-input#anatomy)
  */
 export const pinInputSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", pinInputSlots);
 
 /**
  * **Pin Input**
@@ -52,6 +45,3 @@ export const pinInputStyledSlots = {
   input: "pin-input__input",
   control: "pin-input__control"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", pinInputStyledSlots);

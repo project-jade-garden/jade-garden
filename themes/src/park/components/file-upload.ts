@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/file-upload.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/file-upload";
+import { type Slots, createSlots } from "@spark-css/core/file-upload";
 
 /**
  * **File Upload**
@@ -31,9 +27,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
 export const fileUploadSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", fileUploadSlots);
 
 /**
  * **File Upload**
@@ -219,6 +212,3 @@ export const fileUploadStyledSlots = {
   trigger: "parkFileUpload__trigger",
   clearTrigger: "parkFileUpload__clearTrigger"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", fileUploadStyledSlots);

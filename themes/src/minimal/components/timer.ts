@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/timer";
+import { type Slots, createSlots } from "@spark-css/core/timer";
 
 /**
  * **Timer**
@@ -26,9 +22,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
  */
 export const timerSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", timerSlots);
 
 /**
  * **Timer**
@@ -68,6 +61,3 @@ export const timerStyledSlots = {
   actionTrigger: "timer__action-trigger",
   separator: "timer__separator"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", timerStyledSlots);

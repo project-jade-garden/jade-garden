@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/menu";
+import { type Slots, createSlots } from "@spark-css/core/menu";
 
 /**
  * **Menu**
@@ -32,9 +28,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
 export const menuSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", menuSlots);
 
 /**
  * **Menu**
@@ -92,6 +85,3 @@ export const menuStyledSlots = {
   trigger: "menu__trigger",
   triggerItem: "menu__trigger-item"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", menuStyledSlots);

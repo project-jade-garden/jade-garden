@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/accordion";
+import { type Slots, createSlots } from "@spark-css/core/accordion";
 
 /**
  * **Accordion**
@@ -23,9 +19,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
 export const accordionSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", accordionSlots);
 
 /**
  * **Accordion**
@@ -56,6 +49,3 @@ export const accordionStyledSlots = {
   itemContent: "accordion__item-content",
   itemIndicator: "accordion__item-indicator"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", accordionStyledSlots);

@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/signature-pad";
+import { type Slots, createSlots } from "@spark-css/core/signature-pad";
 
 /**
  * **Signature Pad**
@@ -25,9 +21,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/signature-pad#anatomy)
  */
 export const signaturePadSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", signaturePadSlots);
 
 /**
  * **Signature Pad**
@@ -64,6 +57,3 @@ export const signaturePadStyledSlots = {
   clearTrigger: "signature-pad__clear-trigger",
   label: "signature-pad__label"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", signaturePadStyledSlots);

@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/splitter.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/splitter";
+import { type Slots, createSlots } from "@spark-css/core/splitter";
 
 /**
  * **Splitter**
@@ -22,9 +18,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
  */
 export const splitterSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", splitterSlots);
 
 /**
  * **Splitter**
@@ -107,6 +100,3 @@ export const splitterStyledSlots = {
     "ease-[--easings-default]"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", splitterStyledSlots);

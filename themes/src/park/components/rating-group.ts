@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/rating-group.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/rating-group";
+import { type Slots, createSlots } from "@spark-css/core/rating-group";
 
 /**
  * **Rating Group**
@@ -23,9 +19,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
  */
 export const ratingGroupSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", ratingGroupSlots);
 
 /**
  * **Rating Group**
@@ -98,6 +91,3 @@ export const ratingGroupStyledSlots = {
     "flex"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", ratingGroupStyledSlots);

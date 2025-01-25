@@ -1,9 +1,5 @@
 // * https://github.com/chakra-ui/ark/tree/main/website/src/demos/toggle.demo.tsx
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/toggle";
+import { type Slots, createSlots } from "@spark-css/core/toggle";
 
 /**
  * **Toggle**
@@ -21,9 +17,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
  */
 export const toggleSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", toggleSlots);
 
 /**
  * **Toggle**
@@ -52,6 +45,3 @@ export const toggleStyledSlots = {
     "contents"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", toggleStyledSlots);

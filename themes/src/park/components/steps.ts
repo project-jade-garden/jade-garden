@@ -1,9 +1,5 @@
 // * https://github.com/chakra-ui/ark/blob/main/website/src/demos/steps.demo.tsx
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/steps";
+import { type Slots, createSlots } from "@spark-css/core/steps";
 
 /**
  * **Steps**
@@ -29,9 +25,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
  */
 export const stepsSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", stepsSlots);
 
 /**
  * **Steps**
@@ -77,6 +70,3 @@ export const stepsStyledSlots = {
   prevTrigger: "parkSteps__prevTrigger",
   progress: "parkSteps__progress"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", stepsStyledSlots);

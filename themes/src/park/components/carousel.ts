@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/carousel.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/carousel";
+import { type Slots, createSlots } from "@spark-css/core/carousel";
 
 /**
  * **Carousel**
@@ -28,9 +24,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
  */
 export const carouselSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", carouselSlots);
 
 /**
  * **Carousel**
@@ -130,6 +123,3 @@ export const carouselStyledSlots = {
   ],
   autoplayTrigger: "parkCarousel__autoplayTrigger"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment before styling slots
-// createDocs("styled", carouselStyledSlots);

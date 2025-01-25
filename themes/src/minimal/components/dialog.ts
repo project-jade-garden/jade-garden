@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/dialog";
+import { type Slots, createSlots } from "@spark-css/core/dialog";
 
 /**
  * **Dialog**
@@ -25,9 +21,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
  */
 export const dialogSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", dialogSlots);
 
 /**
  * **Dialog**
@@ -64,6 +57,3 @@ export const dialogStyledSlots = {
   description: "dialog__description",
   closeTrigger: "dialog__close-trigger"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", dialogStyledSlots);

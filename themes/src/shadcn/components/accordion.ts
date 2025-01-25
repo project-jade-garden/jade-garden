@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/accordion.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/accordion";
+import { type Slots, createSlots } from "@spark-css/core/accordion";
 
 /**
  * **Accordion**
@@ -24,9 +20,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
 export const accordionSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", accordionSlots);
 
 /**
  * **Accordion**
@@ -128,6 +121,3 @@ export const accordionStyledSlots = {
     "ease-[--easings-default]"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", accordionStyledSlots);

@@ -1,9 +1,5 @@
 // * https://github.com/chakra-ui/ark/tree/main/website/src/demos/timer.demo.tsx
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/timer";
+import { type Slots, createSlots } from "@spark-css/core/timer";
 
 /**
  * **Timer**
@@ -27,9 +23,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
  */
 export const timerSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", timerSlots);
 
 /**
  * **Timer**
@@ -69,6 +62,3 @@ export const timerStyledSlots = {
   actionTrigger: "parkTimer__actionTrigger",
   separator: "parkTimer__separator"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", timerStyledSlots);

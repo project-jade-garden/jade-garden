@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/popover";
+import { type Slots, createSlots } from "@spark-css/core/popover";
 
 /**
  * **Popover**
@@ -28,9 +24,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
 export const popoverSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", popoverSlots);
 
 /**
  * **Popover**
@@ -76,6 +69,3 @@ export const popoverStyledSlots = {
   description: "popover__description",
   closeTrigger: "popover__close-trigger"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", popoverStyledSlots);

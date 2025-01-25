@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/clipboard";
+import { type Slots, createSlots } from "@spark-css/core/clipboard";
 
 /**
  * **Clipboard**
@@ -24,9 +20,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
  */
 export const clipboardSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", clipboardSlots);
 
 /**
  * **Clipboard**
@@ -60,6 +53,3 @@ export const clipboardStyledSlots = {
   input: "clipboard__input",
   label: "clipboard__label"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", clipboardStyledSlots);

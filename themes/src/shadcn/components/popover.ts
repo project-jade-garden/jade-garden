@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/popover.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/popover";
+import { type Slots, createSlots } from "@spark-css/core/popover";
 
 /**
  * **Popover**
@@ -29,9 +25,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
 export const popoverSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", popoverSlots);
 
 /**
  * **Popover**
@@ -146,6 +139,3 @@ export const popoverStyledSlots = {
     "text-fg-muted"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", popoverStyledSlots);

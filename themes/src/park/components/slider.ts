@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/slider.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/slider";
+import { type Slots, createSlots } from "@spark-css/core/slider";
 
 /**
  * **Slider**
@@ -29,9 +25,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
  */
 export const sliderSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", sliderSlots);
 
 /**
  * **Slider**
@@ -183,6 +176,3 @@ export const sliderStyledSlots = {
   ],
   draggingIndicator: "parkSlider__draggingIndicator"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", sliderStyledSlots);

@@ -1,8 +1,4 @@
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/combobox";
+import { type Slots, createSlots } from "@spark-css/core/combobox";
 
 /**
  * **Combobox**
@@ -32,9 +28,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
 export const comboboxSlots = createSlots({});
-
-// * Uncomment before styling slots
-// createDocs("anatomy", comboboxSlots);
 
 /**
  * **Combobox**
@@ -92,6 +85,3 @@ export const comboboxStyledSlots = {
   positioner: "combobox__positioner",
   trigger: "combobox__trigger"
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", comboboxStyledSlots);

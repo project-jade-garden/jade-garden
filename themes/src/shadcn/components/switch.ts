@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/switch.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/switch";
+import { type Slots, createSlots } from "@spark-css/core/switch";
 
 /**
  * **Switch**
@@ -23,9 +19,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
  */
 export const switchSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", switchSlots);
 
 /**
  * **Switch**
@@ -121,6 +114,3 @@ export const switchStyledSlots = {
     "ease-[--easings-default]"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", switchStyledSlots);

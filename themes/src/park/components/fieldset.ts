@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/fieldset.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/fieldset";
+import { type Slots, createSlots } from "@spark-css/core/fieldset";
 
 /**
  * **Fieldset**
@@ -24,9 +20,6 @@ import {
  */
 
 export const fieldsetSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", fieldsetSlots);
 
 /**
  * **Fieldset**
@@ -127,6 +120,3 @@ export const fieldsetStyledSlots = {
     "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", fieldsetStyledSlots);

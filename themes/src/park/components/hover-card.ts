@@ -1,9 +1,5 @@
 // * https://github.com/cschroeter/park-ui/tree/main/packages/panda/src/theme/recipes/hover-card.ts
-import {
-  type Slots,
-  // createDocs,
-  createSlots
-} from "@spark-css/core/hover-card";
+import { type Slots, createSlots } from "@spark-css/core/hover-card";
 
 /**
  * **Hover Card**
@@ -24,9 +20,6 @@ import {
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
 export const hoverCardSlots = createSlots({ prefix: "park", caseConvention: "camel" });
-
-// * Uncomment before styling slots
-// createDocs("anatomy", hoverCardSlots);
 
 /**
  * **Hover Card**
@@ -91,6 +84,3 @@ export const hoverCardStyledSlots = {
     "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[fadeOut_.25s_ease-out]"
   ]
 } as const satisfies Record<Slots, string | string[]>;
-
-// * Uncomment after styling slots
-// createDocs("styled", hoverCardStyledSlots);
