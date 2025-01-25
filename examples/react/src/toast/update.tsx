@@ -11,10 +11,7 @@ const toaster = createToaster({
 });
 
 export const Update = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.toast, park: park.toast, shadcn: shadcn.toast },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.toast, park: park.toast, shadcn: shadcn.toast }, theme);
   const id = useRef<string>("");
 
   const createToast = () => {

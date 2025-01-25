@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const InitialValue = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput }, theme);
 
   return (
     <TagsInput.Root defaultValue={["React", "Solid", "Vue"]}>

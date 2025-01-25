@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.splitter, park: park.splitter, shadcn: shadcn.splitter },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.splitter, park: park.splitter, shadcn: shadcn.splitter }, theme);
 
   return (
     <Splitter.Root

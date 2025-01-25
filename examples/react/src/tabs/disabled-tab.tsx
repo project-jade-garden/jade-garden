@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const DisabledTab = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.tabs, park: park.tabs, shadcn: shadcn.tabs },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.tabs, park: park.tabs, shadcn: shadcn.tabs }, theme);
 
   return (
     <Tabs.Root defaultValue="react">

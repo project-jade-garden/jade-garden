@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.carousel, park: park.carousel, shadcn: shadcn.carousel },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.carousel, park: park.carousel, shadcn: shadcn.carousel }, theme);
   const images = ["https://tinyurl.com/5b6ka8jd", "https://tinyurl.com/7rmccdn5", "https://tinyurl.com/59jxz9uu"];
 
   return (

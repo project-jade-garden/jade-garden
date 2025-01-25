@@ -6,18 +6,9 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithCheckbox = (props: Fieldset.RootProps & { theme: Theme }) => {
-  const checkbox = getTheme(
-    { minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox },
-    props.theme
-  );
-  const fieldset = getTheme(
-    { minimal: minimal.fieldset, park: park.fieldset, shadcn: shadcn.fieldset },
-    props.theme
-  );
-  const field = getTheme(
-    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
-    props.theme
-  );
+  const checkbox = getTheme({ minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox }, props.theme);
+  const fieldset = getTheme({ minimal: minimal.fieldset, park: park.fieldset, shadcn: shadcn.fieldset }, props.theme);
+  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
 
   return (
     <Fieldset.Root {...props} className={clsx(fieldset.root)}>

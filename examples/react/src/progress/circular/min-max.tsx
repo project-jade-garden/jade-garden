@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../../utils";
 
 export const MinMax = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress }, theme);
 
   return (
     <Progress.Root defaultValue={20} min={10} max={30}>

@@ -5,22 +5,14 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithSlider = ({ theme }: { theme: Theme }) => {
-  const accordion = getTheme(
-    { minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion },
-    theme
-  );
-  const slider = getTheme(
-    { minimal: minimal.slider, park: park.slider, shadcn: shadcn.slider },
-    theme
-  );
+  const accordion = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
+  const slider = getTheme({ minimal: minimal.slider, park: park.slider, shadcn: shadcn.slider }, theme);
 
   return (
     <Accordion.Root defaultValue={["React"]} className={clsx(accordion.root)}>
       {["React", "Solid", "Vue"].map((item) => (
         <Accordion.Item key={item} value={item} className={clsx(accordion.item)}>
-          <Accordion.ItemTrigger className={clsx(accordion.itemTrigger)}>
-            What is {item}?
-          </Accordion.ItemTrigger>
+          <Accordion.ItemTrigger className={clsx(accordion.itemTrigger)}>What is {item}?</Accordion.ItemTrigger>
           <Accordion.ItemContent className={clsx(accordion.itemContent)}>
             {item} is a JavaScript library for building user interfaces.
             <Slider.Root style={{ marginBlock: "20px" }} className={clsx(slider.root)}>

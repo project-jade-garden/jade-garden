@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Blurred = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.pinInput, park: park.pinInput, shadcn: shadcn.pinInput },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.pinInput, park: park.pinInput, shadcn: shadcn.pinInput }, theme);
 
   return (
     <PinInput.Root blurOnComplete>

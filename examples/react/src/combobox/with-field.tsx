@@ -5,14 +5,8 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const combobox = getTheme(
-    { minimal: minimal.combobox, park: park.combobox, shadcn: shadcn.combobox },
-    props.theme
-  );
-  const field = getTheme(
-    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
-    props.theme
-  );
+  const combobox = getTheme({ minimal: minimal.combobox, park: park.combobox, shadcn: shadcn.combobox }, props.theme);
+  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });
 
   return (

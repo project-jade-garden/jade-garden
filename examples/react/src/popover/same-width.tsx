@@ -8,10 +8,7 @@ const style: React.CSSProperties = {
 };
 
 export const WithSameWidth = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover }, theme);
 
   return (
     <Popover.Root positioning={{ sameWidth: true }}>

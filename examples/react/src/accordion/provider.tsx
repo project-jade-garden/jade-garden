@@ -5,10 +5,7 @@ import { ChevronDownIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const Provider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
   const accordion = useAccordion({
     multiple: true,
     onValueChange: (details) => console.log(details)

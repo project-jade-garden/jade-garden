@@ -5,10 +5,7 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode }, theme);
   const [value, setValue] = useState("http://ark-ui.com");
   const qrCode = useQrCode({ value });
 

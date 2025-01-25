@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../../utils";
 
 export const Vertical = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress }, theme);
 
   return (
     <Progress.Root orientation="vertical">

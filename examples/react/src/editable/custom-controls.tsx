@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const CustomControls = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.editable, park: park.editable, shadcn: shadcn.editable },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.editable, park: park.editable, shadcn: shadcn.editable }, theme);
 
   return (
     <Editable.Root placeholder="enter a value" defaultValue="Chakra" className={clsx(styledSlots.root)}>

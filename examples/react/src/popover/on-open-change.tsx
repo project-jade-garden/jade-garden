@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const OnOpenChange = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover }, theme);
 
   return (
     <Popover.Root onOpenChange={(open) => alert(open ? "opened" : "closed")}>

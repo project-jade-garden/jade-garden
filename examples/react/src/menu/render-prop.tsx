@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RenderProp = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu }, theme);
 
   return (
     <Menu.Root>

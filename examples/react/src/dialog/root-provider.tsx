@@ -5,10 +5,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.dialog, park: park.dialog, shadcn: shadcn.dialog },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.dialog, park: park.dialog, shadcn: shadcn.dialog }, theme);
   const dialog = useDialog();
 
   return (

@@ -6,10 +6,7 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.hoverCard, park: park.hoverCard, shadcn: shadcn.hoverCard },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.hoverCard, park: park.hoverCard, shadcn: shadcn.hoverCard }, theme);
   const [isOpen, setOpen] = useState(false);
 
   return (

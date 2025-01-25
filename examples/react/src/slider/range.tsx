@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Range = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.slider, park: park.slider, shadcn: shadcn.slider },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.slider, park: park.slider, shadcn: shadcn.slider }, theme);
 
   return (
     <Slider.Root defaultValue={[5, 10]}>

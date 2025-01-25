@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress }, theme);
   const progress = useProgress();
 
   return (

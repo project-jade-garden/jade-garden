@@ -9,10 +9,7 @@ export const WithField = (props: Field.RootProps & { theme: Theme }) => {
     { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
     props.theme
   );
-  const field = getTheme(
-    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
-    props.theme
-  );
+  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
 
   return (
     <Field.Root {...props} className={clsx(field.root)}>

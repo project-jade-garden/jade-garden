@@ -5,10 +5,7 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu }, theme);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

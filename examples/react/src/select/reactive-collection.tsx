@@ -13,10 +13,7 @@ const itemsBase = [
 ];
 
 export const ReactiveCollection = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.select, park: park.select, shadcn: shadcn.select },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.select, park: park.select, shadcn: shadcn.select }, theme);
   const [number, setNumber] = useState(0);
   const collection = createListCollection({
     items: itemsBase.map((item) => ({ ...item, label: `${item.label}-${number}` }))

@@ -6,14 +6,8 @@ import { CheckIcon, MinusIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const checkbox = getTheme(
-    { minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox },
-    props.theme
-  );
-  const field = getTheme(
-    { minimal: minimal.field, park: park.field, shadcn: shadcn.field },
-    props.theme
-  );
+  const checkbox = getTheme({ minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox }, props.theme);
+  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
 
   return (
     <Field.Root {...props} className={clsx(field.root)}>

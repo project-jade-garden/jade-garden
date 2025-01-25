@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const DisabledEditing = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput }, theme);
 
   return (
     <TagsInput.Root editable={false}>

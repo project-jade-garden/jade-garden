@@ -10,10 +10,7 @@ const items = [
 ];
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.steps, park: park.steps, shadcn: shadcn.steps },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.steps, park: park.steps, shadcn: shadcn.steps }, theme);
   const steps = useSteps({ count: items.length });
 
   return (

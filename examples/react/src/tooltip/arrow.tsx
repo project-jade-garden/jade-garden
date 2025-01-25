@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Arrow = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.tooltip, park: park.tooltip, shadcn: shadcn.tooltip },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.tooltip, park: park.tooltip, shadcn: shadcn.tooltip }, theme);
 
   return (
     <Tooltip.Root>

@@ -5,10 +5,7 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const RadioGroup = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu }, theme);
   const [value, setValue] = useState("React");
 
   return (

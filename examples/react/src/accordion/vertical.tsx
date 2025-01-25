@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Vertical = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
   const items = ["panel-1", "panel-2", "panel-3"];
 
   return (

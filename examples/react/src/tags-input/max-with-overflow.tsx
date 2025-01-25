@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const MaxWithOverflow = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput }, theme);
 
   return (
     <TagsInput.Root max={3} allowOverflow>

@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.tagsInput, park: park.tagsInput, shadcn: shadcn.tagsInput }, theme);
   const tagsInput = useTagsInput();
 
   return (

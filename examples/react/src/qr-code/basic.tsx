@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode }, theme);
 
   return (
     <QrCode.Root defaultValue="http://ark-ui.com">

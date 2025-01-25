@@ -7,10 +7,7 @@ import { type Theme, getTheme } from "../utils";
 const images = Array.from({ length: 5 }, (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`);
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.carousel, park: park.carousel, shadcn: shadcn.carousel },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.carousel, park: park.carousel, shadcn: shadcn.carousel }, theme);
   const [page, setPage] = useState(0);
 
   return (

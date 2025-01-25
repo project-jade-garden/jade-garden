@@ -11,10 +11,7 @@ const items = [
 import { type Theme, getTheme } from "../utils";
 
 export const GroupWithInvalid = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme(
-    { minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox },
-    theme
-  );
+  const styledSlots = getTheme({ minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox }, theme);
 
   return (
     <Checkbox.Group invalid className={clsx(styledSlots.group)}>
