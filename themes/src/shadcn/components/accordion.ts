@@ -23,10 +23,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
-export const slots = createSlots({ prefix: "park", caseConvention: "camel" });
+export const accordionSlots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 // * Uncomment before styling slots
-// createDocs("anatomy", Slots);
+// createDocs("anatomy", accordionSlots);
 
 /**
  * **Accordion**

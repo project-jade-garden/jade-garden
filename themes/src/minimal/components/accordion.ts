@@ -22,10 +22,10 @@ import {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
-export const slots = createSlots({});
+export const accordionSlots = createSlots({});
 
 // * Uncomment before styling slots
-// createDocs("anatomy", Slots);
+// createDocs("anatomy", accordionSlots);
 
 /**
  * **Accordion**
