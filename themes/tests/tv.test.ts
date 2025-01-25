@@ -1,9 +1,9 @@
 import { describe, expect, test } from "bun:test";
-import { createAvatarSlots } from "@spark-css/core";
+import { createSlots } from "@spark-css/core/avatar";
 import { tv } from "tailwind-variants";
 
 describe("Tailwind Variants", () => {
-  const avatarSlots = createAvatarSlots({ prefix: "spark" });
+  const avatarSlots = createSlots({ prefix: "spark" });
   const avatarVariants = tv({ slots: avatarSlots });
   const { base, fallback, image, root } = avatarVariants();
 
