@@ -9,7 +9,6 @@ import { printErr } from "./utils.js";
 
 const twUtils = {
   clsx: "clsx",
-  cva: "class-variance-authority",
   tm: "tailwind-merge",
   tv: "tailwind-variants"
 } as const;

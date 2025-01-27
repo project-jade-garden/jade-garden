@@ -6,7 +6,7 @@ export type Prompts = {
   lang: "ts" | "js";
   ui: "react" | "solid" | "vue";
   theme: "minimal" | "park" | "shadcn";
-  util: "tv" | "tm" | "cva" | "clsx";
+  util: "tv" | "tm" | "clsx";
   path: string;
 };
 
@@ -74,7 +74,6 @@ export const prompts = async () =>
               label: "tailwind-merge",
               hint: "Recommended if you don't want to worry about style conflicts."
             },
-            { value: "cva", label: "cva", hint: "Recommended for styling components with very few variations." },
             { value: "clsx", label: "clsx", hint: "Recommended for managing strings or array of strings." }
           ]
         }),
