@@ -1,0 +1,27 @@
+{
+  "name": "@spark-css/cli",
+  "version": "0.0.1",
+  "description": "Add Ark UI components and Spark CSS themes to your project.",
+  "type": "module",
+  "bin": {
+    "spark-css": "dist/index.js"
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --minify",
+    "clean": "rm -rf .turbo dist node_modules",
+    "format": "biome format --write ./src",
+    "lint": "biome lint ./src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/prompts": "0.9.1",
+    "degit": "2.8.4",
+    "es-toolkit": "1.31.0",
+    "package-manager-detector": "0.2.8",
+    "picocolors": "1.1.1",
+    "pkg-dir": "8.0.0"
+  },
+  "devDependencies": {
+    "@types/degit": "2.8.6"
+  }
+}
