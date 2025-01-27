@@ -20,17 +20,17 @@ import { createSlots } from "@spark-css/core/radio-group";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/radio-group").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/radio-group").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    item: slots.item,
-    itemText: slots.itemText,
-    itemControl: slots.itemControl,
-    indicator: slots.indicator
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  item: slots.item,
+  itemText: slots.itemText,
+  itemControl: slots.itemControl,
+  indicator: slots.indicator
 };
 /**
  * **Radio Group**
@@ -55,4 +55,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
  */
-export const radioGroup = styledSlots;
+export const radioGroupStyles = styledSlots;

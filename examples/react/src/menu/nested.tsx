@@ -5,7 +5,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Nested = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.menuStyles, park: park.menuStyles, shadcn: shadcn.menuStyles },
+    theme
+  );
 
   return (
     <Menu.Root>

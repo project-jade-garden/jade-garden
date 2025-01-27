@@ -38,35 +38,35 @@ import { createSlots } from "@spark-css/core/date-picker";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/date-picker").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/date-picker").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    clearTrigger: slots.clearTrigger,
-    content: slots.content,
-    control: slots.control,
-    input: slots.input,
-    monthSelect: slots.monthSelect,
-    nextTrigger: slots.nextTrigger,
-    positioner: slots.positioner,
-    prevTrigger: slots.prevTrigger,
-    rangeText: slots.rangeText,
-    table: slots.table,
-    tableBody: slots.tableBody,
-    tableCell: slots.tableCell,
-    tableCellTrigger: slots.tableCellTrigger,
-    tableHead: slots.tableHead,
-    tableHeader: slots.tableHeader,
-    tableRow: slots.tableRow,
-    trigger: slots.trigger,
-    viewTrigger: slots.viewTrigger,
-    viewControl: slots.viewControl,
-    yearSelect: slots.yearSelect,
-    presetTrigger: slots.presetTrigger,
-    view: slots.view
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  clearTrigger: slots.clearTrigger,
+  content: slots.content,
+  control: slots.control,
+  input: slots.input,
+  monthSelect: slots.monthSelect,
+  nextTrigger: slots.nextTrigger,
+  positioner: slots.positioner,
+  prevTrigger: slots.prevTrigger,
+  rangeText: slots.rangeText,
+  table: slots.table,
+  tableBody: slots.tableBody,
+  tableCell: slots.tableCell,
+  tableCellTrigger: slots.tableCellTrigger,
+  tableHead: slots.tableHead,
+  tableHeader: slots.tableHeader,
+  tableRow: slots.tableRow,
+  trigger: slots.trigger,
+  viewTrigger: slots.viewTrigger,
+  viewControl: slots.viewControl,
+  yearSelect: slots.yearSelect,
+  presetTrigger: slots.presetTrigger,
+  view: slots.view
 };
 /**
  * **Date Picker**
@@ -127,4 +127,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePicker = styledSlots;
+export const datePickerStyles = styledSlots;

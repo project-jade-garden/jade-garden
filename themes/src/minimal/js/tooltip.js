@@ -19,16 +19,16 @@ import { createSlots } from "@spark-css/core/tooltip";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/tooltip").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/tooltip").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    trigger: slots.trigger,
-    arrow: slots.arrow,
-    arrowTip: slots.arrowTip,
-    positioner: slots.positioner,
-    content: slots.content
+  base: slots.base,
+  trigger: slots.trigger,
+  arrow: slots.arrow,
+  arrowTip: slots.arrowTip,
+  positioner: slots.positioner,
+  content: slots.content
 };
 /**
  * **Tooltip**
@@ -51,4 +51,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tooltip#anatomy)
  */
-export const tooltip = styledSlots;
+export const tooltipStyles = styledSlots;

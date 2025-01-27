@@ -6,7 +6,10 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.checkboxStyles, park: park.checkboxStyles, shadcn: shadcn.checkboxStyles },
+    theme
+  );
   const [checked, setChecked] = useState<Checkbox.CheckedState>(true);
 
   return (

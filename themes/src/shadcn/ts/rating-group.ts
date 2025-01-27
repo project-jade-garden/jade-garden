@@ -21,8 +21,8 @@ import { type Slots, createSlots } from "@spark-css/core/rating-group";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/rating-group").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/rating-group").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -96,4 +96,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
  */
-export const ratingGroup = styledSlots;
+export const ratingGroupStyles = styledSlots;

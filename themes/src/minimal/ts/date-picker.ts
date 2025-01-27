@@ -40,8 +40,8 @@ import { type Slots, createSlots } from "@spark-css/core/date-picker";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/date-picker").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/date-picker").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -130,4 +130,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePicker = styledSlots;
+export const datePickerStyles = styledSlots;

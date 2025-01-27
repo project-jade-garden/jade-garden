@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.timer, park: park.timer, shadcn: shadcn.timer }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.timerStyles, park: park.timerStyles, shadcn: shadcn.timerStyles },
+    theme
+  );
   const timer = useTimer({ targetMs: 60 * 60 * 1000 });
 
   return (

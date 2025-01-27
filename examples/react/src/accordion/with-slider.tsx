@@ -5,8 +5,14 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithSlider = ({ theme }: { theme: Theme }) => {
-  const accordion = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
-  const slider = getTheme({ minimal: minimal.slider, park: park.slider, shadcn: shadcn.slider }, theme);
+  const accordion = getTheme(
+    { minimal: minimal.accordionStyles, park: park.accordionStyles, shadcn: shadcn.accordionStyles },
+    theme
+  );
+  const slider = getTheme(
+    { minimal: minimal.sliderStyles, park: park.sliderStyles, shadcn: shadcn.sliderStyles },
+    theme
+  );
 
   return (
     <Accordion.Root defaultValue={["React"]} className={clsx(accordion.root)}>

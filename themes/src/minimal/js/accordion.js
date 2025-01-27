@@ -19,16 +19,16 @@ import { createSlots } from "@spark-css/core/accordion";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/accordion").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/accordion").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    item: slots.item,
-    itemTrigger: slots.itemTrigger,
-    itemContent: slots.itemContent,
-    itemIndicator: slots.itemIndicator
+  base: slots.base,
+  root: slots.root,
+  item: slots.item,
+  itemTrigger: slots.itemTrigger,
+  itemContent: slots.itemContent,
+  itemIndicator: slots.itemIndicator
 };
 /**
  * **Accordion**
@@ -51,4 +51,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
-export const accordion = styledSlots;
+export const accordionStyles = styledSlots;

@@ -17,14 +17,14 @@ import { createSlots } from "@spark-css/core/avatar";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/avatar").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/avatar").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    image: slots.image,
-    fallback: slots.fallback
+  base: slots.base,
+  root: slots.root,
+  image: slots.image,
+  fallback: slots.fallback
 };
 /**
  * **Avatar**
@@ -43,4 +43,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatar = styledSlots;
+export const avatarStyles = styledSlots;

@@ -6,9 +6,9 @@ import { type Theme, getTheme } from "../utils";
 export const RootProvider = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.colorPicker,
-      park: park.colorPicker,
-      shadcn: shadcn.colorPicker
+      minimal: minimal.colorPickerStyles,
+      park: park.colorPickerStyles,
+      shadcn: shadcn.colorPickerStyles
     },
     theme
   );

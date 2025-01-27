@@ -39,36 +39,36 @@ import { createSlots } from "@spark-css/core/color-picker";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/color-picker").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/color-picker").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    control: slots.control,
-    trigger: slots.trigger,
-    positioner: slots.positioner,
-    content: slots.content,
-    area: slots.area,
-    areaThumb: slots.areaThumb,
-    valueText: slots.valueText,
-    areaBackground: slots.areaBackground,
-    channelSlider: slots.channelSlider,
-    channelSliderLabel: slots.channelSliderLabel,
-    channelSliderTrack: slots.channelSliderTrack,
-    channelSliderThumb: slots.channelSliderThumb,
-    channelSliderValueText: slots.channelSliderValueText,
-    channelInput: slots.channelInput,
-    transparencyGrid: slots.transparencyGrid,
-    swatchGroup: slots.swatchGroup,
-    swatchTrigger: slots.swatchTrigger,
-    swatchIndicator: slots.swatchIndicator,
-    swatch: slots.swatch,
-    eyeDropperTrigger: slots.eyeDropperTrigger,
-    formatTrigger: slots.formatTrigger,
-    formatSelect: slots.formatSelect,
-    view: slots.view
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  control: slots.control,
+  trigger: slots.trigger,
+  positioner: slots.positioner,
+  content: slots.content,
+  area: slots.area,
+  areaThumb: slots.areaThumb,
+  valueText: slots.valueText,
+  areaBackground: slots.areaBackground,
+  channelSlider: slots.channelSlider,
+  channelSliderLabel: slots.channelSliderLabel,
+  channelSliderTrack: slots.channelSliderTrack,
+  channelSliderThumb: slots.channelSliderThumb,
+  channelSliderValueText: slots.channelSliderValueText,
+  channelInput: slots.channelInput,
+  transparencyGrid: slots.transparencyGrid,
+  swatchGroup: slots.swatchGroup,
+  swatchTrigger: slots.swatchTrigger,
+  swatchIndicator: slots.swatchIndicator,
+  swatch: slots.swatch,
+  eyeDropperTrigger: slots.eyeDropperTrigger,
+  formatTrigger: slots.formatTrigger,
+  formatSelect: slots.formatSelect,
+  view: slots.view
 };
 /**
  * **Color Picker**
@@ -131,4 +131,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPicker = styledSlots;
+export const colorPickerStyles = styledSlots;

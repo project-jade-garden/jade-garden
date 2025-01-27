@@ -7,9 +7,9 @@ import { type Theme, getTheme } from "../utils";
 export const FormUsage = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.ratingGroup,
-      park: park.ratingGroup,
-      shadcn: shadcn.ratingGroup
+      minimal: minimal.ratingGroupStyles,
+      park: park.ratingGroupStyles,
+      shadcn: shadcn.ratingGroupStyles
     },
     theme
   );

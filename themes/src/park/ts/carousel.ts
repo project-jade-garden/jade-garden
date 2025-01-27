@@ -26,8 +26,8 @@ import { type Slots, createSlots } from "@spark-css/core/carousel";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/carousel").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/carousel").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -128,4 +128,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
  */
-export const carousel = styledSlots;
+export const carouselStyles = styledSlots;

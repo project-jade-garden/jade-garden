@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const ErrorCorrection = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.qrCode, park: park.qrCode, shadcn: shadcn.qrCode }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.qrCodeStyles, park: park.qrCodeStyles, shadcn: shadcn.qrCodeStyles },
+    theme
+  );
 
   return (
     <QrCode.Root defaultValue="http://ark-ui.com" encoding={{ ecc: "H" }}>

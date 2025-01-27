@@ -5,7 +5,10 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.popoverStyles, park: park.popoverStyles, shadcn: shadcn.popoverStyles },
+    theme
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Events = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.avatar, park: park.avatar, shadcn: shadcn.avatar }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.avatarStyles, park: park.avatarStyles, shadcn: shadcn.avatarStyles },
+    theme
+  );
 
   const handleStatusChange = (details: Avatar.StatusChangeDetails) => {
     console.log(details.status);

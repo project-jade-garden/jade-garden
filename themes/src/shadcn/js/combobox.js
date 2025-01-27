@@ -29,100 +29,100 @@ import { createSlots } from "@spark-css/core/combobox";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/combobox").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/combobox").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Sizing
-        "w-full",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-1.5",
-        "flex-col"
-    ],
-    clearTrigger: slots.clearTrigger,
-    content: [
-        slots.content,
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l2",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline-2",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "flex",
-        "[&:is([hidden])]:hidden",
-        "z-[--z-index-dropdown]",
-        // Flexbox & Grid
-        "flex-col",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
-    ],
-    control: [
-        slots.control,
-        // Layout
-        "relative"
-    ],
-    input: slots.input,
-    item: [
-        slots.item,
-        // Backgrounds
-        "data-[highlighted]:bg-bg-muted",
-        // Borders
-        "rounded-l1",
-        // Interactivity
-        "cursor-pointer",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "items-center",
-        "justify-between",
-        // Typography
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-        // Transitions & Animation
-        "transition-[background,_color]",
-        "duration-200",
-        "ease-[--easings-default]"
-    ],
-    itemGroup: slots.itemGroup,
-    itemGroupLabel: [
-        slots.itemGroupLabel,
-        // Typography
-        "text-sm",
-        "font-semibold"
-    ],
-    itemIndicator: [
-        slots.itemIndicator,
-        // Typography
-        "text-[--colors-color-palette-default]"
-    ],
-    itemText: slots.itemText,
-    label: [
-        slots.label,
-        // Typography
-        "text-fg-default",
-        "font-medium"
-    ],
-    list: slots.list,
-    positioner: slots.positioner,
-    trigger: [
-        slots.trigger,
-        // Layout
-        "absolute",
-        "inset-y-0",
-        "right-0",
-        // Typography
-        "text-fg-muted"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Sizing
+    "w-full",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-1.5",
+    "flex-col"
+  ],
+  clearTrigger: slots.clearTrigger,
+  content: [
+    slots.content,
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l2",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline-2",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "flex",
+    "[&:is([hidden])]:hidden",
+    "z-[--z-index-dropdown]",
+    // Flexbox & Grid
+    "flex-col",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
+  ],
+  control: [
+    slots.control,
+    // Layout
+    "relative"
+  ],
+  input: slots.input,
+  item: [
+    slots.item,
+    // Backgrounds
+    "data-[highlighted]:bg-bg-muted",
+    // Borders
+    "rounded-l1",
+    // Interactivity
+    "cursor-pointer",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "items-center",
+    "justify-between",
+    // Typography
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+    // Transitions & Animation
+    "transition-[background,_color]",
+    "duration-200",
+    "ease-[--easings-default]"
+  ],
+  itemGroup: slots.itemGroup,
+  itemGroupLabel: [
+    slots.itemGroupLabel,
+    // Typography
+    "text-sm",
+    "font-semibold"
+  ],
+  itemIndicator: [
+    slots.itemIndicator,
+    // Typography
+    "text-[--colors-color-palette-default]"
+  ],
+  itemText: slots.itemText,
+  label: [
+    slots.label,
+    // Typography
+    "text-fg-default",
+    "font-medium"
+  ],
+  list: slots.list,
+  positioner: slots.positioner,
+  trigger: [
+    slots.trigger,
+    // Layout
+    "absolute",
+    "inset-y-0",
+    "right-0",
+    // Typography
+    "text-fg-muted"
+  ]
 };
 /**
  * **Combobox**
@@ -179,4 +179,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
-export const combobox = styledSlots;
+export const comboboxStyles = styledSlots;

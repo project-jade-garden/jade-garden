@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.progress, park: park.progress, shadcn: shadcn.progress }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.progressStyles, park: park.progressStyles, shadcn: shadcn.progressStyles },
+    theme
+  );
 
   return (
     <Progress.Root>

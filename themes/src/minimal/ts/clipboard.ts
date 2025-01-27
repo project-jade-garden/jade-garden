@@ -22,8 +22,8 @@ import { type Slots, createSlots } from "@spark-css/core/clipboard";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/clipboard").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/clipboard").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -58,4 +58,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
  */
-export const clipboard = styledSlots;
+export const clipboardStyles = styledSlots;

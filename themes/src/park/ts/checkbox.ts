@@ -22,8 +22,8 @@ import { type Slots, createSlots } from "@spark-css/core/checkbox";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/checkbox").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/checkbox").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -110,4 +110,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/checkbox#anatomy)
  */
-export const checkbox = styledSlots;
+export const checkboxStyles = styledSlots;

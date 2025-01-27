@@ -17,14 +17,14 @@ import { createSlots } from "@spark-css/core/collapsible";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/collapsible").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/collapsible").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    trigger: slots.trigger,
-    content: slots.content
+  base: slots.base,
+  root: slots.root,
+  trigger: slots.trigger,
+  content: slots.content
 };
 /**
  * **Collapsible**
@@ -43,4 +43,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const collapsible = styledSlots;
+export const collapsibleStyles = styledSlots;

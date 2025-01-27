@@ -28,25 +28,25 @@ import { createSlots } from "@spark-css/core/combobox";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/combobox").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/combobox").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    clearTrigger: slots.clearTrigger,
-    content: slots.content,
-    control: slots.control,
-    input: slots.input,
-    item: slots.item,
-    itemGroup: slots.itemGroup,
-    itemGroupLabel: slots.itemGroupLabel,
-    itemIndicator: slots.itemIndicator,
-    itemText: slots.itemText,
-    label: slots.label,
-    list: slots.list,
-    positioner: slots.positioner,
-    trigger: slots.trigger
+  base: slots.base,
+  root: slots.root,
+  clearTrigger: slots.clearTrigger,
+  content: slots.content,
+  control: slots.control,
+  input: slots.input,
+  item: slots.item,
+  itemGroup: slots.itemGroup,
+  itemGroupLabel: slots.itemGroupLabel,
+  itemIndicator: slots.itemIndicator,
+  itemText: slots.itemText,
+  label: slots.label,
+  list: slots.list,
+  positioner: slots.positioner,
+  trigger: slots.trigger
 };
 /**
  * **Combobox**
@@ -87,4 +87,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
  */
-export const combobox = styledSlots;
+export const comboboxStyles = styledSlots;

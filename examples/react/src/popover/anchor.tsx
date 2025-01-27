@@ -5,7 +5,10 @@ import { useRef } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithAnchor = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.popoverStyles, park: park.popoverStyles, shadcn: shadcn.popoverStyles },
+    theme
+  );
   const ref = useRef<HTMLInputElement>(null);
 
   return (

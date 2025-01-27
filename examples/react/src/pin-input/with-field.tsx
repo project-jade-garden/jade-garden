@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.pinInput, park: park.pinInput, shadcn: shadcn.pinInput },
+    { minimal: minimal.pinInputStyles, park: park.pinInputStyles, shadcn: shadcn.pinInputStyles },
     props.theme
   );
 

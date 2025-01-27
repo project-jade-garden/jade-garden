@@ -20,8 +20,8 @@ import { type Slots, createSlots } from "@spark-css/core/fieldset";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/fieldset").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/fieldset").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -50,4 +50,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/fieldset#anatomy)
  */
-export const fieldset = styledSlots;
+export const fieldsetStyles = styledSlots;

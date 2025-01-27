@@ -18,44 +18,44 @@ import { createSlots } from "@spark-css/core/avatar";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/avatar").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/avatar").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Borders
-        "rounded-full",
-        // Layout
-        "overflow-hidden",
-        // Flexbox & Grid
-        "shrink-0"
-    ],
-    image: [
-        slots.image,
-        // Layout
-        "object-cover"
-    ],
-    fallback: [
-        slots.fallback,
-        // Sizing
-        "[height:inherit]",
-        // Backgrounds
-        "bg-bg-subtle",
-        // Borders
-        "rounded-full",
-        "border",
-        // Layout
-        "flex",
-        "[&:is([hidden])]:hidden",
-        // Flexbox & Grid
-        "items-center",
-        "justify-center",
-        // Typography
-        "text-fg-default",
-        "font-semibold"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Borders
+    "rounded-full",
+    // Layout
+    "overflow-hidden",
+    // Flexbox & Grid
+    "shrink-0"
+  ],
+  image: [
+    slots.image,
+    // Layout
+    "object-cover"
+  ],
+  fallback: [
+    slots.fallback,
+    // Sizing
+    "[height:inherit]",
+    // Backgrounds
+    "bg-bg-subtle",
+    // Borders
+    "rounded-full",
+    "border",
+    // Layout
+    "flex",
+    "[&:is([hidden])]:hidden",
+    // Flexbox & Grid
+    "items-center",
+    "justify-center",
+    // Typography
+    "text-fg-default",
+    "font-semibold"
+  ]
 };
 /**
  * **Avatar**
@@ -80,4 +80,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
  */
-export const avatar = styledSlots;
+export const avatarStyles = styledSlots;

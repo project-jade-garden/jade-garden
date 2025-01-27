@@ -18,7 +18,7 @@ function FileUploadClearTrigger() {
 
 export const WithClearTrigger = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
+    { minimal: minimal.fileUploadStyles, park: park.fileUploadStyles, shadcn: shadcn.fileUploadStyles },
     theme
   );
 

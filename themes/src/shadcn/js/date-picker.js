@@ -39,126 +39,126 @@ import { createSlots } from "@spark-css/core/date-picker";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/date-picker").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/date-picker").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-1.5",
-        "flex-col"
-    ],
-    label: [
-        slots.label,
-        // Typography
-        "text-sm",
-        "font-medium"
-    ],
-    clearTrigger: slots.clearTrigger,
-    content: [
-        slots.content,
-        // Spacing
-        "p-4",
-        // Sizing
-        "w-[344px]",
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l3",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "flex",
-        "[&:is([hidden])]:hidden",
-        "z-[--z-index-dropdown]",
-        // Flexbox & Grid
-        "gap-3",
-        "flex-col",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
-    ],
-    control: [
-        slots.control,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-2",
-        "flex-row"
-    ],
-    input: slots.input,
-    monthSelect: slots.monthSelect,
-    nextTrigger: slots.nextTrigger,
-    positioner: slots.positioner,
-    prevTrigger: slots.prevTrigger,
-    rangeText: slots.rangeText,
-    table: [
-        slots.table,
-        // Spacing
-        "-m-1",
-        // Sizing
-        "w-full",
-        // Borders
-        "border-separate",
-        "border-spacing-1"
-    ],
-    tableBody: slots.tableBody,
-    tableCell: [
-        slots.tableCell,
-        // Flexbox & Grid
-        "text-center"
-    ],
-    tableCellTrigger: [
-        slots.tableCellTrigger,
-        // Spacing
-        "[&:is([data-today])]:before:mt-6",
-        // Sizing
-        "w-full",
-        // Backgrounds
-        "data-[in-range]:bg-bg-muted",
-        // Layout
-        "[&:is([data-today])]:before:absolute",
-        // Typography
-        "[&:is([data-today])]:before:text-[--colors-color-palette-default]",
-        "[&:is([aria-selected=true],_[data-selected])]:before:text-color-palette-fg",
-        "[&:is([data-today])]:before:content-['-']"
-    ],
-    tableHead: slots.tableHead,
-    tableHeader: [
-        slots.tableHeader,
-        // Sizing
-        "h-10",
-        // Typography
-        "text-fg-muted",
-        "text-sm",
-        "font-semibold"
-    ],
-    tableRow: slots.tableRow,
-    trigger: slots.trigger,
-    viewTrigger: slots.viewTrigger,
-    viewControl: [
-        slots.viewControl,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-2",
-        "justify-between"
-    ],
-    yearSelect: slots.yearSelect,
-    presetTrigger: slots.presetTrigger,
-    view: [
-        slots.view,
-        // Layout
-        "flex",
-        "[&:is([hidden])]:hidden",
-        // Flexbox & Grid
-        "gap-3",
-        "flex-col"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-1.5",
+    "flex-col"
+  ],
+  label: [
+    slots.label,
+    // Typography
+    "text-sm",
+    "font-medium"
+  ],
+  clearTrigger: slots.clearTrigger,
+  content: [
+    slots.content,
+    // Spacing
+    "p-4",
+    // Sizing
+    "w-[344px]",
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l3",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "flex",
+    "[&:is([hidden])]:hidden",
+    "z-[--z-index-dropdown]",
+    // Flexbox & Grid
+    "gap-3",
+    "flex-col",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
+  ],
+  control: [
+    slots.control,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-2",
+    "flex-row"
+  ],
+  input: slots.input,
+  monthSelect: slots.monthSelect,
+  nextTrigger: slots.nextTrigger,
+  positioner: slots.positioner,
+  prevTrigger: slots.prevTrigger,
+  rangeText: slots.rangeText,
+  table: [
+    slots.table,
+    // Spacing
+    "-m-1",
+    // Sizing
+    "w-full",
+    // Borders
+    "border-separate",
+    "border-spacing-1"
+  ],
+  tableBody: slots.tableBody,
+  tableCell: [
+    slots.tableCell,
+    // Flexbox & Grid
+    "text-center"
+  ],
+  tableCellTrigger: [
+    slots.tableCellTrigger,
+    // Spacing
+    "[&:is([data-today])]:before:mt-6",
+    // Sizing
+    "w-full",
+    // Backgrounds
+    "data-[in-range]:bg-bg-muted",
+    // Layout
+    "[&:is([data-today])]:before:absolute",
+    // Typography
+    "[&:is([data-today])]:before:text-[--colors-color-palette-default]",
+    "[&:is([aria-selected=true],_[data-selected])]:before:text-color-palette-fg",
+    "[&:is([data-today])]:before:content-['-']"
+  ],
+  tableHead: slots.tableHead,
+  tableHeader: [
+    slots.tableHeader,
+    // Sizing
+    "h-10",
+    // Typography
+    "text-fg-muted",
+    "text-sm",
+    "font-semibold"
+  ],
+  tableRow: slots.tableRow,
+  trigger: slots.trigger,
+  viewTrigger: slots.viewTrigger,
+  viewControl: [
+    slots.viewControl,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-2",
+    "justify-between"
+  ],
+  yearSelect: slots.yearSelect,
+  presetTrigger: slots.presetTrigger,
+  view: [
+    slots.view,
+    // Layout
+    "flex",
+    "[&:is([hidden])]:hidden",
+    // Flexbox & Grid
+    "gap-3",
+    "flex-col"
+  ]
 };
 /**
  * **Date Picker**
@@ -239,4 +239,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
-export const datePicker = styledSlots;
+export const datePickerStyles = styledSlots;

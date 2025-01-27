@@ -16,13 +16,13 @@ import { createSlots } from "@spark-css/core/toggle-group";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/toggle-group").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/toggle-group").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    item: slots.item
+  base: slots.base,
+  root: slots.root,
+  item: slots.item
 };
 /**
  * **Toggle Group**
@@ -39,4 +39,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toggle-group#anatomy)
  */
-export const toggleGroup = styledSlots;
+export const toggleGroupStyles = styledSlots;

@@ -26,8 +26,8 @@ import { type Slots, createSlots } from "@spark-css/core/tags-input";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/tags-input").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/tags-input").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -74,4 +74,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
-export const tagsInput = styledSlots;
+export const tagsInputStyles = styledSlots;

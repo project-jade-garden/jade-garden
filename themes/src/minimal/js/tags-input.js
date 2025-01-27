@@ -24,21 +24,21 @@ import { createSlots } from "@spark-css/core/tags-input";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/tags-input").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/tags-input").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    control: slots.control,
-    input: slots.input,
-    clearTrigger: slots.clearTrigger,
-    item: slots.item,
-    itemPreview: slots.itemPreview,
-    itemInput: slots.itemInput,
-    itemText: slots.itemText,
-    itemDeleteTrigger: slots.itemDeleteTrigger
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  control: slots.control,
+  input: slots.input,
+  clearTrigger: slots.clearTrigger,
+  item: slots.item,
+  itemPreview: slots.itemPreview,
+  itemInput: slots.itemInput,
+  itemText: slots.itemText,
+  itemDeleteTrigger: slots.itemDeleteTrigger
 };
 /**
  * **Tags Input**
@@ -71,4 +71,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
  */
-export const tagsInput = styledSlots;
+export const tagsInputStyles = styledSlots;

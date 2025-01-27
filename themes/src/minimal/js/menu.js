@@ -28,25 +28,25 @@ import { createSlots } from "@spark-css/core/menu";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/menu").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/menu").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    arrow: slots.arrow,
-    arrowTip: slots.arrowTip,
-    content: slots.content,
-    contextTrigger: slots.contextTrigger,
-    indicator: slots.indicator,
-    item: slots.item,
-    itemGroup: slots.itemGroup,
-    itemGroupLabel: slots.itemGroupLabel,
-    itemIndicator: slots.itemIndicator,
-    itemText: slots.itemText,
-    positioner: slots.positioner,
-    separator: slots.separator,
-    trigger: slots.trigger,
-    triggerItem: slots.triggerItem
+  base: slots.base,
+  arrow: slots.arrow,
+  arrowTip: slots.arrowTip,
+  content: slots.content,
+  contextTrigger: slots.contextTrigger,
+  indicator: slots.indicator,
+  item: slots.item,
+  itemGroup: slots.itemGroup,
+  itemGroupLabel: slots.itemGroupLabel,
+  itemIndicator: slots.itemIndicator,
+  itemText: slots.itemText,
+  positioner: slots.positioner,
+  separator: slots.separator,
+  trigger: slots.trigger,
+  triggerItem: slots.triggerItem
 };
 /**
  * **Menu**
@@ -87,4 +87,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
-export const menu = styledSlots;
+export const menuStyles = styledSlots;

@@ -22,8 +22,8 @@ import { type Slots, createSlots } from "@spark-css/core/qr-code";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/qr-code").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/qr-code").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -92,4 +92,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
  */
-export const qrCode = styledSlots;
+export const qrCodeStyles = styledSlots;

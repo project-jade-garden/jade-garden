@@ -50,7 +50,10 @@ const collection = createTreeCollection<Node>({
 });
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.treeView, park: park.treeView, shadcn: shadcn.treeView }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.treeViewStyles, park: park.treeViewStyles, shadcn: shadcn.treeViewStyles },
+    theme
+  );
   const treeView = useTreeView({ collection });
 
   return (

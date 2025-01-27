@@ -25,65 +25,65 @@ import { createSlots } from "@spark-css/core/popover";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/popover").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/popover").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    arrow: slots.arrow,
-    arrowTip: [
-        slots.arrowTip,
-        // Borders
-        "border-t",
-        "border-l"
-    ],
-    anchor: slots.anchor,
-    trigger: slots.trigger,
-    indicator: slots.indicator,
-    positioner: [
-        slots.positioner,
-        // Layout
-        "relative"
-    ],
-    content: [
-        slots.content,
-        // Spacing
-        "p-4",
-        // Sizing
-        "max-w-96",
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l3",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "flex",
-        "z-[--z-index-popover]",
-        "[&:is([hidden])]:hidden",
-        // Flexbox & Grid
-        "flex-col",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
-    ],
-    title: [
-        slots.title,
-        // Typography
-        "text-sm",
-        "font-medium"
-    ],
-    description: [
-        slots.description,
-        // Typography
-        "text-sm",
-        "text-fg-muted"
-    ],
-    closeTrigger: [
-        slots.closeTrigger,
-        // Typography
-        "text-fg-muted"
-    ]
+  base: slots.base,
+  arrow: slots.arrow,
+  arrowTip: [
+    slots.arrowTip,
+    // Borders
+    "border-t",
+    "border-l"
+  ],
+  anchor: slots.anchor,
+  trigger: slots.trigger,
+  indicator: slots.indicator,
+  positioner: [
+    slots.positioner,
+    // Layout
+    "relative"
+  ],
+  content: [
+    slots.content,
+    // Spacing
+    "p-4",
+    // Sizing
+    "max-w-96",
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l3",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "flex",
+    "z-[--z-index-popover]",
+    "[&:is([hidden])]:hidden",
+    // Flexbox & Grid
+    "flex-col",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
+  ],
+  title: [
+    slots.title,
+    // Typography
+    "text-sm",
+    "font-medium"
+  ],
+  description: [
+    slots.description,
+    // Typography
+    "text-sm",
+    "text-fg-muted"
+  ],
+  closeTrigger: [
+    slots.closeTrigger,
+    // Typography
+    "text-fg-muted"
+  ]
 };
 /**
  * **Popover**
@@ -128,4 +128,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
-export const popover = styledSlots;
+export const popoverStyles = styledSlots;

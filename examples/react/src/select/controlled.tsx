@@ -13,7 +13,10 @@ interface Item {
 }
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.select, park: park.select, shadcn: shadcn.select }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.selectStyles, park: park.selectStyles, shadcn: shadcn.selectStyles },
+    theme
+  );
   const [_, setSelectedItems] = useState<Item[]>([]);
 
   const collection = createListCollection<Item>({

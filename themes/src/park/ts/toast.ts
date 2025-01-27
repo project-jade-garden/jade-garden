@@ -23,8 +23,8 @@ import { type Slots, createSlots } from "@spark-css/core/toast";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/toast").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/toast").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -125,4 +125,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
  */
-export const toast = styledSlots;
+export const toastStyles = styledSlots;

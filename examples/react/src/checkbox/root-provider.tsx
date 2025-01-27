@@ -5,7 +5,10 @@ import { CheckIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.checkboxStyles, park: park.checkboxStyles, shadcn: shadcn.checkboxStyles },
+    theme
+  );
   const checkbox = useCheckbox();
 
   return (

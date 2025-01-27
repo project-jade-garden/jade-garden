@@ -20,40 +20,40 @@ import { createSlots } from "@spark-css/core/qr-code";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/qr-code").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/qr-code").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Sizing
-        "w-fit"
-    ],
-    frame: [
-        slots.frame,
-        // Sizing
-        "size-32",
-        // Backgrounds
-        "bg-white"
-    ],
-    pattern: [
-        slots.pattern,
-        // SVG
-        "fill-black"
-    ],
-    overlay: [
-        slots.overlay,
-        // Sizing
-        "size-9",
-        // Borders
-        "rounded-full",
-        // Layout
-        "outline",
-        "outline-2",
-        "outline-white"
-    ],
-    downloadTrigger: slots.downloadTrigger
+  base: slots.base,
+  root: [
+    slots.root,
+    // Sizing
+    "w-fit"
+  ],
+  frame: [
+    slots.frame,
+    // Sizing
+    "size-32",
+    // Backgrounds
+    "bg-white"
+  ],
+  pattern: [
+    slots.pattern,
+    // SVG
+    "fill-black"
+  ],
+  overlay: [
+    slots.overlay,
+    // Sizing
+    "size-9",
+    // Borders
+    "rounded-full",
+    // Layout
+    "outline",
+    "outline-2",
+    "outline-white"
+  ],
+  downloadTrigger: slots.downloadTrigger
 };
 /**
  * **Qr Code**
@@ -82,4 +82,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
  */
-export const qrCode = styledSlots;
+export const qrCodeStyles = styledSlots;

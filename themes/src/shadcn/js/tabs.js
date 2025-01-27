@@ -20,62 +20,62 @@ import { createSlots } from "@spark-css/core/tabs";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/tabs").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/tabs").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Sizing
-        "w-full",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "data-[orientation=horizontal]:flex-col",
-        "data-[orientation=vertical]:flex-row"
-    ],
-    list: [
-        slots.list,
-        // Layout
-        "flex",
-        "overflow-auto",
-        "relative",
-        "[&::-webkit-scrollbar]:hidden",
-        // Flexbox & Grid
-        "shrink-0",
-        "data-[orientation=horizontal]:flex-row",
-        "data-[orientation=vertical]:flex-col",
-        // Custom Modifier
-        "[scrollbar-width:none]"
-    ],
-    trigger: [
-        slots.trigger,
-        // Interactivity
-        "cursor-pointer",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-        // Layout
-        "inline-flex",
-        "z-[1]",
-        // Flexbox & Grid
-        "gap-2",
-        "items-center",
-        "justify-center",
-        "data-[orientation=vertical]:justify-start",
-        "shrink-0",
-        // Typography
-        "text-fg-muted",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-        "[&:is([aria-selected=true],_[data-selected])]:text-fg-default",
-        "font-semibold",
-        "whitespace-nowrap",
-        // Transitions & Animation
-        "transition-[color,_background,_border-color]",
-        "duration-200",
-        "ease-[--easings-default]"
-    ],
-    content: slots.content,
-    indicator: slots.indicator
+  base: slots.base,
+  root: [
+    slots.root,
+    // Sizing
+    "w-full",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "data-[orientation=horizontal]:flex-col",
+    "data-[orientation=vertical]:flex-row"
+  ],
+  list: [
+    slots.list,
+    // Layout
+    "flex",
+    "overflow-auto",
+    "relative",
+    "[&::-webkit-scrollbar]:hidden",
+    // Flexbox & Grid
+    "shrink-0",
+    "data-[orientation=horizontal]:flex-row",
+    "data-[orientation=vertical]:flex-col",
+    // Custom Modifier
+    "[scrollbar-width:none]"
+  ],
+  trigger: [
+    slots.trigger,
+    // Interactivity
+    "cursor-pointer",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+    // Layout
+    "inline-flex",
+    "z-[1]",
+    // Flexbox & Grid
+    "gap-2",
+    "items-center",
+    "justify-center",
+    "data-[orientation=vertical]:justify-start",
+    "shrink-0",
+    // Typography
+    "text-fg-muted",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+    "[&:is([aria-selected=true],_[data-selected])]:text-fg-default",
+    "font-semibold",
+    "whitespace-nowrap",
+    // Transitions & Animation
+    "transition-[color,_background,_border-color]",
+    "duration-200",
+    "ease-[--easings-default]"
+  ],
+  content: slots.content,
+  indicator: slots.indicator
 };
 /**
  * **Tabs**
@@ -104,4 +104,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const tabs = styledSlots;
+export const tabsStyles = styledSlots;

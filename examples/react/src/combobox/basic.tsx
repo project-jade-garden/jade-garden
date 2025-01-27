@@ -8,7 +8,10 @@ const initialItems = ["React", "Solid", "Vue"];
 import { type Theme, getTheme } from "../utils";
 
 export const Basic = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.combobox, park: park.combobox, shadcn: shadcn.combobox }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.comboboxStyles, park: park.comboboxStyles, shadcn: shadcn.comboboxStyles },
+    theme
+  );
   const [items, setItems] = useState(initialItems);
 
   const collection = useMemo(() => createListCollection({ items }), [items]);

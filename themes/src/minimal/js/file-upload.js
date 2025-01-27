@@ -26,23 +26,23 @@ import { createSlots } from "@spark-css/core/file-upload";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/file-upload").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/file-upload").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    dropzone: slots.dropzone,
-    item: slots.item,
-    itemDeleteTrigger: slots.itemDeleteTrigger,
-    itemGroup: slots.itemGroup,
-    itemName: slots.itemName,
-    itemPreview: slots.itemPreview,
-    itemPreviewImage: slots.itemPreviewImage,
-    itemSizeText: slots.itemSizeText,
-    label: slots.label,
-    trigger: slots.trigger,
-    clearTrigger: slots.clearTrigger
+  base: slots.base,
+  root: slots.root,
+  dropzone: slots.dropzone,
+  item: slots.item,
+  itemDeleteTrigger: slots.itemDeleteTrigger,
+  itemGroup: slots.itemGroup,
+  itemName: slots.itemName,
+  itemPreview: slots.itemPreview,
+  itemPreviewImage: slots.itemPreviewImage,
+  itemSizeText: slots.itemSizeText,
+  label: slots.label,
+  trigger: slots.trigger,
+  clearTrigger: slots.clearTrigger
 };
 /**
  * **File Upload**
@@ -79,4 +79,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
-export const fileUpload = styledSlots;
+export const fileUploadStyles = styledSlots;

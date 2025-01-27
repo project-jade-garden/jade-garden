@@ -5,7 +5,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.pagination, park: park.pagination, shadcn: shadcn.pagination },
+    { minimal: minimal.paginationStyles, park: park.paginationStyles, shadcn: shadcn.paginationStyles },
     theme
   );
   const pagination = usePagination({ count: 5000, pageSize: 10, siblingCount: 2 });

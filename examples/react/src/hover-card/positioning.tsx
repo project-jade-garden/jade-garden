@@ -5,7 +5,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Positioning = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.hoverCard, park: park.hoverCard, shadcn: shadcn.hoverCard }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.hoverCardStyles, park: park.hoverCardStyles, shadcn: shadcn.hoverCardStyles },
+    theme
+  );
 
   return (
     <HoverCard.Root positioning={{ placement: "right", gutter: 12 }}>

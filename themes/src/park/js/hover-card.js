@@ -20,38 +20,38 @@ import { createSlots } from "@spark-css/core/hover-card";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/hover-card").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/hover-card").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    arrow: slots.arrow,
-    arrowTip: [
-        slots.arrowTip,
-        // Borders
-        "border-t",
-        "border-l"
-    ],
-    trigger: slots.trigger,
-    positioner: slots.positioner,
-    content: [
-        slots.content,
-        // Spacing
-        "p-4",
-        // Sizing
-        "max-w-80",
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l3",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "relative",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[fadeOut_.25s_ease-out]"
-    ]
+  base: slots.base,
+  arrow: slots.arrow,
+  arrowTip: [
+    slots.arrowTip,
+    // Borders
+    "border-t",
+    "border-l"
+  ],
+  trigger: slots.trigger,
+  positioner: slots.positioner,
+  content: [
+    slots.content,
+    // Spacing
+    "p-4",
+    // Sizing
+    "max-w-80",
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l3",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "relative",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[fadeOut_.25s_ease-out]"
+  ]
 };
 /**
  * **Hover Card**
@@ -78,4 +78,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
-export const hoverCard = styledSlots;
+export const hoverCardStyles = styledSlots;

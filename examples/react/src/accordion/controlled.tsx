@@ -5,7 +5,10 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.accordionStyles, park: park.accordionStyles, shadcn: shadcn.accordionStyles },
+    theme
+  );
   const items = ["panel-1", "panel-2", "panel-3"];
   const [value, setValue] = useState<string[]>([]);
 

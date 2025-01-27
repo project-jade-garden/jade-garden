@@ -24,35 +24,35 @@ import { createSlots } from "@spark-css/core/editable";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/editable").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/editable").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Sizing
-        "w-full",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-1.5",
-        "flex-col"
-    ],
-    area: slots.area,
-    label: slots.label,
-    preview: slots.preview,
-    input: slots.input,
-    editTrigger: slots.editTrigger,
-    submitTrigger: slots.submitTrigger,
-    cancelTrigger: slots.cancelTrigger,
-    control: [
-        slots.control,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-2"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Sizing
+    "w-full",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-1.5",
+    "flex-col"
+  ],
+  area: slots.area,
+  label: slots.label,
+  preview: slots.preview,
+  input: slots.input,
+  editTrigger: slots.editTrigger,
+  submitTrigger: slots.submitTrigger,
+  cancelTrigger: slots.cancelTrigger,
+  control: [
+    slots.control,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-2"
+  ]
 };
 /**
  * **Editable**
@@ -87,4 +87,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
-export const editable = styledSlots;
+export const editableStyles = styledSlots;

@@ -5,7 +5,10 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const Controlled = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.tooltip, park: park.tooltip, shadcn: shadcn.tooltip }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.tooltipStyles, park: park.tooltipStyles, shadcn: shadcn.tooltipStyles },
+    theme
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -20,8 +20,8 @@ import { type Slots, createSlots } from "@spark-css/core/switch";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/switch").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/switch").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,

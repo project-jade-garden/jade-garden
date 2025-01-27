@@ -22,19 +22,19 @@ import { createSlots } from "@spark-css/core/field";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/field").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/field").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    errorText: slots.errorText,
-    helperText: slots.helperText,
-    input: slots.input,
-    label: slots.label,
-    select: slots.select,
-    textarea: slots.textarea,
-    requiredIndicator: slots.requiredIndicator
+  base: slots.base,
+  root: slots.root,
+  errorText: slots.errorText,
+  helperText: slots.helperText,
+  input: slots.input,
+  label: slots.label,
+  select: slots.select,
+  textarea: slots.textarea,
+  requiredIndicator: slots.requiredIndicator
 };
 /**
  * **Field**
@@ -63,4 +63,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
-export const field = styledSlots;
+export const fieldStyles = styledSlots;

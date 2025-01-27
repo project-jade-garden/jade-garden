@@ -6,7 +6,10 @@ import { ChevronDownIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.select, park: park.select, shadcn: shadcn.select }, props.theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.selectStyles, park: park.selectStyles, shadcn: shadcn.selectStyles },
+    props.theme
+  );
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });
 
   return (

@@ -24,21 +24,21 @@ import { createSlots } from "@spark-css/core/slider";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/slider").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/slider").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    thumb: slots.thumb,
-    valueText: slots.valueText,
-    track: slots.track,
-    range: slots.range,
-    control: slots.control,
-    markerGroup: slots.markerGroup,
-    marker: slots.marker,
-    draggingIndicator: slots.draggingIndicator
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  thumb: slots.thumb,
+  valueText: slots.valueText,
+  track: slots.track,
+  range: slots.range,
+  control: slots.control,
+  markerGroup: slots.markerGroup,
+  marker: slots.marker,
+  draggingIndicator: slots.draggingIndicator
 };
 /**
  * **Slider**
@@ -71,4 +71,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
  */
-export const slider = styledSlots;
+export const sliderStyles = styledSlots;

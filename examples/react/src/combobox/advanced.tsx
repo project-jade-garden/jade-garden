@@ -5,7 +5,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const Advanced = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.combobox, park: park.combobox, shadcn: shadcn.combobox }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.comboboxStyles, park: park.comboboxStyles, shadcn: shadcn.comboboxStyles },
+    theme
+  );
   const collection = createListCollection({
     items: [
       { label: "React", value: "react" },

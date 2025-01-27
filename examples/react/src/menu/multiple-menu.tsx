@@ -16,7 +16,10 @@ interface Props {
 }
 
 const Menu = (props: Props & { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.menu, park: park.menu, shadcn: shadcn.menu }, props.theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.menuStyles, park: park.menuStyles, shadcn: shadcn.menuStyles },
+    props.theme
+  );
   const { id, label, items, onSelect } = props;
 
   return (

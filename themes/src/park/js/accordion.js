@@ -20,66 +20,66 @@ import { createSlots } from "@spark-css/core/accordion";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/accordion").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/accordion").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Sizing
-        "w-full",
-        // Borders
-        "border-y",
-        "[&_>_:not([hidden])_~_:not([hidden])]:border-t",
-        "[&_>_:not([hidden])_~_:not([hidden])]:border-b-0"
-    ],
-    item: slots.item,
-    itemTrigger: [
-        slots.itemTrigger,
-        // Sizing
-        "w-full",
-        // Interactivity
-        "cursor-pointer",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-3",
-        "items-center",
-        "justify-between",
-        // Typography
-        "text-fg-default",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-        "text-left",
-        "text-lg",
-        "font-semibold"
-    ],
-    itemContent: [
-        slots.itemContent,
-        // Typography
-        "text-fg-muted",
-        // Layout
-        "overflow-hidden",
-        // Transitions & Animation
-        "transition-[padding-bottom]",
-        "duration-200",
-        "ease-[--easings-default]",
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
-    ],
-    itemIndicator: [
-        slots.itemIndicator,
-        // Typography
-        "text-fg-muted",
-        // Transforms
-        "origin-center",
-        "[&:is([open],_[data-open],_[data-state=open])]:-rotate-180",
-        // Transitions & Animation
-        "transition-[transform]",
-        "duration-200",
-        "ease-[--easings-default]"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Sizing
+    "w-full",
+    // Borders
+    "border-y",
+    "[&_>_:not([hidden])_~_:not([hidden])]:border-t",
+    "[&_>_:not([hidden])_~_:not([hidden])]:border-b-0"
+  ],
+  item: slots.item,
+  itemTrigger: [
+    slots.itemTrigger,
+    // Sizing
+    "w-full",
+    // Interactivity
+    "cursor-pointer",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-3",
+    "items-center",
+    "justify-between",
+    // Typography
+    "text-fg-default",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+    "text-left",
+    "text-lg",
+    "font-semibold"
+  ],
+  itemContent: [
+    slots.itemContent,
+    // Typography
+    "text-fg-muted",
+    // Layout
+    "overflow-hidden",
+    // Transitions & Animation
+    "transition-[padding-bottom]",
+    "duration-200",
+    "ease-[--easings-default]",
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
+  ],
+  itemIndicator: [
+    slots.itemIndicator,
+    // Typography
+    "text-fg-muted",
+    // Transforms
+    "origin-center",
+    "[&:is([open],_[data-open],_[data-state=open])]:-rotate-180",
+    // Transitions & Animation
+    "transition-[transform]",
+    "duration-200",
+    "ease-[--easings-default]"
+  ]
 };
 /**
  * **Accordion**
@@ -110,4 +110,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
  */
-export const accordion = styledSlots;
+export const accordionStyles = styledSlots;

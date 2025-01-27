@@ -18,32 +18,32 @@ import { createSlots } from "@spark-css/core/collapsible";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/collapsible").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/collapsible").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Sizing
-        "w-full",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "items-start",
-        "flex-col"
-    ],
-    trigger: slots.trigger,
-    content: [
-        slots.content,
-        // Sizing
-        "w-full",
-        // Layout
-        "overflow-hidden",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Sizing
+    "w-full",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "items-start",
+    "flex-col"
+  ],
+  trigger: slots.trigger,
+  content: [
+    slots.content,
+    // Sizing
+    "w-full",
+    // Layout
+    "overflow-hidden",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-collapse-in]",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-collapse-out]"
+  ]
 };
 /**
  * **Collapsible**
@@ -66,4 +66,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const collapsible = styledSlots;
+export const collapsibleStyles = styledSlots;

@@ -6,10 +6,13 @@ import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
   const fileUpload = getTheme(
-    { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
+    { minimal: minimal.fileUploadStyles, park: park.fileUploadStyles, shadcn: shadcn.fileUploadStyles },
     props.theme
   );
-  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
+  const field = getTheme(
+    { minimal: minimal.fieldStyles, park: park.fieldStyles, shadcn: shadcn.fieldStyles },
+    props.theme
+  );
 
   return (
     <Field.Root {...props} className={clsx(field.root)}>

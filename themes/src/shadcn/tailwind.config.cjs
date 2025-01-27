@@ -1,13 +1,16 @@
 // * https://github.com/shadcn-ui/ui/tree/main/tailwind.config.cjs
-import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+const theme = require("tailwindcss/defaultTheme");
 
-export default {
+/**
+ * @typedef { import("tailwindcss").Config} Config
+ * @type { Partial<Config> }
+ */
+module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-geist-mono)", ...fontFamily.mono]
+        sans: ["var(--font-geist-sans)", ...theme.fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...theme.fontFamily.mono]
       },
       colors: {
         border: "hsl(var(--border))",
@@ -82,4 +85,4 @@ export default {
     }
   },
   plugins: [require("tailwindcss-animate")]
-} satisfies Partial<Config>;
+};

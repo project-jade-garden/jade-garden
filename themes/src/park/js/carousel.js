@@ -24,57 +24,57 @@ import { createSlots } from "@spark-css/core/carousel";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/carousel").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/carousel").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    itemGroup: [
-        slots.itemGroup,
-        // Layout
-        "flex"
-    ],
-    item: slots.item,
-    control: [
-        slots.control,
-        // Backgrounds
-        "bg-gray-dark-a12",
-        "dark:bg-gray-light-a12",
-        // Borders
-        "rounded-l2",
-        // Layout
-        "absolute",
-        "bottom-4",
-        "left-1/2",
-        "flex",
-        // Flexbox & Grid
-        "items-center",
-        // Transforms
-        "-translate-y-1/2"
-    ],
-    nextTrigger: slots.nextTrigger,
-    prevTrigger: slots.prevTrigger,
-    indicatorGroup: [
-        slots.indicatorGroup,
-        // Layout
-        "flex"
-    ],
-    indicator: [
-        slots.indicator,
-        // Backgrounds
-        "bg-gray-6",
-        "[&:is([data-current])]:bg-[--colors-color-palette-default]",
-        // Borders
-        "rounded-full",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline-2",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline-offset-2",
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline",
-        // Interactivity
-        "cursor-pointer"
-    ],
-    autoplayTrigger: slots.autoplayTrigger
+  base: slots.base,
+  root: slots.root,
+  itemGroup: [
+    slots.itemGroup,
+    // Layout
+    "flex"
+  ],
+  item: slots.item,
+  control: [
+    slots.control,
+    // Backgrounds
+    "bg-gray-dark-a12",
+    "dark:bg-gray-light-a12",
+    // Borders
+    "rounded-l2",
+    // Layout
+    "absolute",
+    "bottom-4",
+    "left-1/2",
+    "flex",
+    // Flexbox & Grid
+    "items-center",
+    // Transforms
+    "-translate-y-1/2"
+  ],
+  nextTrigger: slots.nextTrigger,
+  prevTrigger: slots.prevTrigger,
+  indicatorGroup: [
+    slots.indicatorGroup,
+    // Layout
+    "flex"
+  ],
+  indicator: [
+    slots.indicator,
+    // Backgrounds
+    "bg-gray-6",
+    "[&:is([data-current])]:bg-[--colors-color-palette-default]",
+    // Borders
+    "rounded-full",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline-2",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline-offset-2",
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline-border-outline",
+    // Interactivity
+    "cursor-pointer"
+  ],
+  autoplayTrigger: slots.autoplayTrigger
 };
 /**
  * **Carousel**
@@ -115,4 +115,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
  */
-export const carousel = styledSlots;
+export const carouselStyles = styledSlots;

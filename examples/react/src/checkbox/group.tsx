@@ -11,7 +11,10 @@ const items = [
 import { type Theme, getTheme } from "../utils";
 
 export const Group = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.checkbox, park: park.checkbox, shadcn: shadcn.checkbox }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.checkboxStyles, park: park.checkboxStyles, shadcn: shadcn.checkboxStyles },
+    theme
+  );
 
   return (
     <Checkbox.Group

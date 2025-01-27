@@ -31,8 +31,8 @@ import { type Slots, createSlots } from "@spark-css/core/menu";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/menu").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/menu").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -207,4 +207,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
-export const menu = styledSlots;
+export const menuStyles = styledSlots;

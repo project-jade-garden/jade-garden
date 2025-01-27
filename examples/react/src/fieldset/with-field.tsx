@@ -5,8 +5,14 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Fieldset.RootProps & { theme: Theme }) => {
-  const fieldset = getTheme({ minimal: minimal.fieldset, park: park.fieldset, shadcn: shadcn.fieldset }, props.theme);
-  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
+  const fieldset = getTheme(
+    { minimal: minimal.fieldsetStyles, park: park.fieldsetStyles, shadcn: shadcn.fieldsetStyles },
+    props.theme
+  );
+  const field = getTheme(
+    { minimal: minimal.fieldStyles, park: park.fieldStyles, shadcn: shadcn.fieldStyles },
+    props.theme
+  );
 
   return (
     <Fieldset.Root {...props} className={clsx(fieldset.root)}>

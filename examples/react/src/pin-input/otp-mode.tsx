@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const OTPMode = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.pinInput, park: park.pinInput, shadcn: shadcn.pinInput }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.pinInputStyles, park: park.pinInputStyles, shadcn: shadcn.pinInputStyles },
+    theme
+  );
 
   return (
     <PinInput.Root otp>

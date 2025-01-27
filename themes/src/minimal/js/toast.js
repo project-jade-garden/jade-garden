@@ -20,17 +20,17 @@ import { createSlots } from "@spark-css/core/toast";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/toast").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/toast").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    group: slots.group,
-    root: slots.root,
-    title: slots.title,
-    description: slots.description,
-    actionTrigger: slots.actionTrigger,
-    closeTrigger: slots.closeTrigger
+  base: slots.base,
+  group: slots.group,
+  root: slots.root,
+  title: slots.title,
+  description: slots.description,
+  actionTrigger: slots.actionTrigger,
+  closeTrigger: slots.closeTrigger
 };
 /**
  * **Toast**
@@ -55,4 +55,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
  */
-export const toast = styledSlots;
+export const toastStyles = styledSlots;

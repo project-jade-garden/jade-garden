@@ -29,104 +29,104 @@ import { createSlots } from "@spark-css/core/menu";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/menu").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/menu").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    arrow: slots.arrow,
-    arrowTip: slots.arrowTip,
-    content: [
-        slots.content,
-        // Sizing
-        "w-[calc(100% + 2rem]",
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l2",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "flex",
-        "[&:is([hidden])]:hidden",
-        "outline-none",
-        "z-[--z-index-dropdown]",
-        // Flexbox & Grid
-        "flex-col",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
-    ],
-    contextTrigger: slots.contextTrigger,
-    indicator: slots.indicator,
-    item: [
-        slots.item,
-        // Backgrounds
-        "data-[highlighted]:bg-bg-muted",
-        // Borders
-        "rounded-l1",
-        // Interactivity
-        "cursor-pointer",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "items-center",
-        // Typography
-        "text-sm",
-        "[&_:where(svg)]:text-fg-muted",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-        "font-medium",
-        // Transitions & Animation
-        "transition-[background,_color]",
-        "duration-150",
-        "ease-[--easings-default]"
-    ],
-    itemGroup: [
-        slots.itemGroup,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "flex-col"
-    ],
-    itemGroupLabel: [
-        slots.itemGroupLabel,
-        // Typography
-        "text-sm",
-        "font-semibold"
-    ],
-    itemIndicator: slots.itemIndicator,
-    itemText: slots.itemText,
-    positioner: [
-        slots.positioner,
-        // Layout
-        "z-[--z-index-dropdown]"
-    ],
-    separator: slots.separator,
-    trigger: slots.trigger,
-    triggerItem: [
-        slots.triggerItem,
-        // Backgrounds
-        "data-[highlighted]:bg-bg-muted",
-        // Borders
-        "rounded-l2",
-        // Interactivity
-        "cursor-pointer",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "items-center",
-        // Typography
-        "text-sm",
-        "[&_:where(svg)]:text-fg-muted",
-        "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
-        "font-medium",
-        // Transitions & Animation
-        "transition-[background,_color]",
-        "duration-150",
-        "ease-[--easings-default]"
-    ]
+  base: slots.base,
+  arrow: slots.arrow,
+  arrowTip: slots.arrowTip,
+  content: [
+    slots.content,
+    // Sizing
+    "w-[calc(100% + 2rem]",
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l2",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "flex",
+    "[&:is([hidden])]:hidden",
+    "outline-none",
+    "z-[--z-index-dropdown]",
+    // Flexbox & Grid
+    "flex-col",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
+  ],
+  contextTrigger: slots.contextTrigger,
+  indicator: slots.indicator,
+  item: [
+    slots.item,
+    // Backgrounds
+    "data-[highlighted]:bg-bg-muted",
+    // Borders
+    "rounded-l1",
+    // Interactivity
+    "cursor-pointer",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "items-center",
+    // Typography
+    "text-sm",
+    "[&_:where(svg)]:text-fg-muted",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+    "font-medium",
+    // Transitions & Animation
+    "transition-[background,_color]",
+    "duration-150",
+    "ease-[--easings-default]"
+  ],
+  itemGroup: [
+    slots.itemGroup,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "flex-col"
+  ],
+  itemGroupLabel: [
+    slots.itemGroupLabel,
+    // Typography
+    "text-sm",
+    "font-semibold"
+  ],
+  itemIndicator: slots.itemIndicator,
+  itemText: slots.itemText,
+  positioner: [
+    slots.positioner,
+    // Layout
+    "z-[--z-index-dropdown]"
+  ],
+  separator: slots.separator,
+  trigger: slots.trigger,
+  triggerItem: [
+    slots.triggerItem,
+    // Backgrounds
+    "data-[highlighted]:bg-bg-muted",
+    // Borders
+    "rounded-l2",
+    // Interactivity
+    "cursor-pointer",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:cursor-not-allowed",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "items-center",
+    // Typography
+    "text-sm",
+    "[&_:where(svg)]:text-fg-muted",
+    "[&:is(:disabled,_[disabled],_[data-disabled])]:text-fg-disabled",
+    "font-medium",
+    // Transitions & Animation
+    "transition-[background,_color]",
+    "duration-150",
+    "ease-[--easings-default]"
+  ]
 };
 /**
  * **Menu**
@@ -179,4 +179,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
-export const menu = styledSlots;
+export const menuStyles = styledSlots;

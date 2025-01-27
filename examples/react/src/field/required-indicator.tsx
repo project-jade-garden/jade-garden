@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RequiredIndicator = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.fieldStyles, park: park.fieldStyles, shadcn: shadcn.fieldStyles },
+    theme
+  );
 
   return (
     <Field.Root required className={clsx(styledSlots.root)}>

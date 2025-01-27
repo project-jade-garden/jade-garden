@@ -25,21 +25,21 @@ import { createSlots } from "@spark-css/core/steps";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/steps").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/steps").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    list: slots.list,
-    item: slots.item,
-    trigger: slots.trigger,
-    indicator: slots.indicator,
-    separator: slots.separator,
-    content: slots.content,
-    nextTrigger: slots.nextTrigger,
-    prevTrigger: slots.prevTrigger,
-    progress: slots.progress
+  base: slots.base,
+  root: slots.root,
+  list: slots.list,
+  item: slots.item,
+  trigger: slots.trigger,
+  indicator: slots.indicator,
+  separator: slots.separator,
+  content: slots.content,
+  nextTrigger: slots.nextTrigger,
+  prevTrigger: slots.prevTrigger,
+  progress: slots.progress
 };
 /**
  * **Steps**
@@ -72,4 +72,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
  */
-export const steps = styledSlots;
+export const stepsStyles = styledSlots;

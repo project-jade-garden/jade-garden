@@ -1,7 +1,7 @@
 import { readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Anatomy } from "@spark-css/utils";
-import { camelCase, kebabCase, pascalCase, startCase } from "es-toolkit";
+import { camelCase, kebabCase, startCase } from "es-toolkit";
 
 const components = readdirSync(join(__dirname, "./src"));
 
@@ -79,7 +79,7 @@ const generateSlotsForTests = async () => {
   const slots: Record<string, string[]> = {};
 
   for (const component of components) {
-    const c = component.slice(0, -3); // Removes `.ts`;
+    const c = component.slice(0, -3); // Removes `.ts` file extension
     if (skipFiles.includes(c)) continue;
 
     const camelName = camelCase(c);
@@ -97,7 +97,7 @@ const generateSrcFiles = () => {
   const outputPath = join(__dirname, "./src");
 
   for (const component of components) {
-    const c = component.slice(0, -3); // Removes `.ts`;
+    const c = component.slice(0, -3); // Removes `.ts` file extension
     const camelName = camelCase(c);
     const anatomyName = `${camelName}Anatomy`;
 

@@ -6,9 +6,9 @@ import { type Theme, getTheme } from "../utils";
 export const Scrubber = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.numberInput,
-      park: park.numberInput,
-      shadcn: shadcn.numberInput
+      minimal: minimal.numberInputStyles,
+      park: park.numberInputStyles,
+      shadcn: shadcn.numberInputStyles
     },
     theme
   );

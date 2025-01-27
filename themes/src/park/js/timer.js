@@ -23,19 +23,19 @@ import { createSlots } from "@spark-css/core/timer";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/timer").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/timer").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    area: slots.area,
-    control: slots.control,
-    item: slots.item,
-    itemValue: slots.itemValue,
-    itemLabel: slots.itemLabel,
-    actionTrigger: slots.actionTrigger,
-    separator: slots.separator
+  base: slots.base,
+  root: slots.root,
+  area: slots.area,
+  control: slots.control,
+  item: slots.item,
+  itemValue: slots.itemValue,
+  itemLabel: slots.itemLabel,
+  actionTrigger: slots.actionTrigger,
+  separator: slots.separator
 };
 /**
  * **Timer**
@@ -64,4 +64,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
  */
-export const timer = styledSlots;
+export const timerStyles = styledSlots;

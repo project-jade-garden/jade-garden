@@ -18,54 +18,54 @@ import { createSlots } from "@spark-css/core/splitter";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/splitter").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/splitter").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-2"
-    ],
-    panel: [
-        slots.panel,
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l2",
-        "border",
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "items-center",
-        "justify-center",
-        // Typography
-        "text-fg-muted"
-    ],
-    resizeTrigger: [
-        slots.resizeTrigger,
-        // Spacing
-        "data-[orientation=horizontal]:mx-0",
-        "data-[orientation=horizontal]:my-[min(1rem,_20%)]",
-        "data-[orientation=vertical]:mx-[min(1rem,_20%)]",
-        "data-[orientation=vertical]:my-0",
-        // Sizing
-        "data-[orientation=horizontal]:min-w-1.5",
-        "data-[orientation=vertical]:min-h-1.5",
-        // Backgrounds
-        "bg-[--colors-gray-7]",
-        "[&:is(:active,_[data-active])]:bg-[--colors-gray-8]",
-        // Borders
-        "rounded-full",
-        "outline-0",
-        // Transitions & Animation
-        "transition-[background]",
-        "duration-200",
-        "ease-[--easings-default]"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-2"
+  ],
+  panel: [
+    slots.panel,
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l2",
+    "border",
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "items-center",
+    "justify-center",
+    // Typography
+    "text-fg-muted"
+  ],
+  resizeTrigger: [
+    slots.resizeTrigger,
+    // Spacing
+    "data-[orientation=horizontal]:mx-0",
+    "data-[orientation=horizontal]:my-[min(1rem,_20%)]",
+    "data-[orientation=vertical]:mx-[min(1rem,_20%)]",
+    "data-[orientation=vertical]:my-0",
+    // Sizing
+    "data-[orientation=horizontal]:min-w-1.5",
+    "data-[orientation=vertical]:min-h-1.5",
+    // Backgrounds
+    "bg-[--colors-gray-7]",
+    "[&:is(:active,_[data-active])]:bg-[--colors-gray-8]",
+    // Borders
+    "rounded-full",
+    "outline-0",
+    // Transitions & Animation
+    "transition-[background]",
+    "duration-200",
+    "ease-[--easings-default]"
+  ]
 };
 /**
  * **Splitter**
@@ -90,4 +90,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
  */
-export const splitter = styledSlots;
+export const splitterStyles = styledSlots;

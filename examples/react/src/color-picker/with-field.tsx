@@ -7,13 +7,16 @@ import { type Theme, getTheme } from "../utils";
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
   const colorPicker = getTheme(
     {
-      minimal: minimal.colorPicker,
-      park: park.colorPicker,
-      shadcn: shadcn.colorPicker
+      minimal: minimal.colorPickerStyles,
+      park: park.colorPickerStyles,
+      shadcn: shadcn.colorPickerStyles
     },
     props.theme
   );
-  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
+  const field = getTheme(
+    { minimal: minimal.fieldStyles, park: park.fieldStyles, shadcn: shadcn.fieldStyles },
+    props.theme
+  );
 
   return (
     <Field.Root {...props} className={clsx(field.root)}>

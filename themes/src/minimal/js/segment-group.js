@@ -20,17 +20,17 @@ import { createSlots } from "@spark-css/core/segment-group";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/segment-group").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/segment-group").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    item: slots.item,
-    itemText: slots.itemText,
-    itemControl: slots.itemControl,
-    indicator: slots.indicator
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  item: slots.item,
+  itemText: slots.itemText,
+  itemControl: slots.itemControl,
+  indicator: slots.indicator
 };
 /**
  * **Segment Group**
@@ -55,4 +55,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/segment-group#anatomy)
  */
-export const segmentGroup = styledSlots;
+export const segmentGroupStyles = styledSlots;

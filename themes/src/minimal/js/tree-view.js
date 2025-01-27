@@ -27,24 +27,24 @@ import { createSlots } from "@spark-css/core/tree-view";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/tree-view").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/tree-view").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    label: slots.label,
-    tree: slots.tree,
-    item: slots.item,
-    itemIndicator: slots.itemIndicator,
-    itemText: slots.itemText,
-    branch: slots.branch,
-    branchControl: slots.branchControl,
-    branchTrigger: slots.branchTrigger,
-    branchContent: slots.branchContent,
-    branchText: slots.branchText,
-    branchIndicator: slots.branchIndicator,
-    branchIndentGuide: slots.branchIndentGuide
+  base: slots.base,
+  root: slots.root,
+  label: slots.label,
+  tree: slots.tree,
+  item: slots.item,
+  itemIndicator: slots.itemIndicator,
+  itemText: slots.itemText,
+  branch: slots.branch,
+  branchControl: slots.branchControl,
+  branchTrigger: slots.branchTrigger,
+  branchContent: slots.branchContent,
+  branchText: slots.branchText,
+  branchIndicator: slots.branchIndicator,
+  branchIndentGuide: slots.branchIndentGuide
 };
 /**
  * **Tree View**
@@ -83,4 +83,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
  */
-export const treeView = styledSlots;
+export const treeViewStyles = styledSlots;

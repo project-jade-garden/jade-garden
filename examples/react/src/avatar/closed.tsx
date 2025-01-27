@@ -13,7 +13,10 @@ export interface AvatarProps extends ArkAvatar.RootProps {
 
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const { name, src, theme, ...rootProps } = props;
-  const styledSlots = getTheme({ minimal: minimal.avatar, park: park.avatar, shadcn: shadcn.avatar }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.avatarStyles, park: park.avatarStyles, shadcn: shadcn.avatarStyles },
+    theme
+  );
 
   return (
     <ArkAvatar.Root ref={ref} {...rootProps} className={clsx(styledSlots.root)}>

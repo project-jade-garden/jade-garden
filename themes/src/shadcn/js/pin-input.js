@@ -19,39 +19,39 @@ import { createSlots } from "@spark-css/core/pin-input";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/pin-input").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/pin-input").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-1.5",
-        "flex-col"
-    ],
-    label: [
-        slots.label,
-        // Typography
-        "text-fg-default",
-        "font-medium"
-    ],
-    input: [
-        slots.input,
-        // Spacing
-        "px-0",
-        // Typography
-        "text-center"
-    ],
-    control: [
-        slots.control,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-2"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-1.5",
+    "flex-col"
+  ],
+  label: [
+    slots.label,
+    // Typography
+    "text-fg-default",
+    "font-medium"
+  ],
+  input: [
+    slots.input,
+    // Spacing
+    "px-0",
+    // Typography
+    "text-center"
+  ],
+  control: [
+    slots.control,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-2"
+  ]
 };
 /**
  * **Pin Input**
@@ -80,4 +80,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/pin-input#anatomy)
  */
-export const pinInput = styledSlots;
+export const pinInputStyles = styledSlots;

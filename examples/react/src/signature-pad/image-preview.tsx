@@ -7,9 +7,9 @@ import { type Theme, getTheme } from "../utils";
 export const ImagePreview = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
     {
-      minimal: minimal.signaturePad,
-      park: park.signaturePad,
-      shadcn: shadcn.signaturePad
+      minimal: minimal.signaturePadStyles,
+      park: park.signaturePadStyles,
+      shadcn: shadcn.signaturePadStyles
     },
     theme
   );

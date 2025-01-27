@@ -19,44 +19,44 @@ import { createSlots } from "@spark-css/core/rating-group";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/rating-group").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/rating-group").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "gap-1.5",
-        "flex-col"
-    ],
-    label: [
-        slots.label,
-        // Typography
-        "text-fg-default",
-        "font-medium"
-    ],
-    item: [
-        slots.item,
-        // Borders
-        "[&:is(:focus-visible,_[data-focus-visible])]:outline-none",
-        // Interactivity
-        "cursor-pointer",
-        // SVG
-        "fill-bg-emphasized",
-        "data-[highlighted]:fill-[--colors-color-palette-default]",
-        // Transitions & Animation
-        "transition-[color,_fill]",
-        "duration-200",
-        "ease-[--easings-default]"
-    ],
-    control: [
-        slots.control,
-        // Layout
-        "flex"
-    ]
+  base: slots.base,
+  root: [
+    slots.root,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "gap-1.5",
+    "flex-col"
+  ],
+  label: [
+    slots.label,
+    // Typography
+    "text-fg-default",
+    "font-medium"
+  ],
+  item: [
+    slots.item,
+    // Borders
+    "[&:is(:focus-visible,_[data-focus-visible])]:outline-none",
+    // Interactivity
+    "cursor-pointer",
+    // SVG
+    "fill-bg-emphasized",
+    "data-[highlighted]:fill-[--colors-color-palette-default]",
+    // Transitions & Animation
+    "transition-[color,_fill]",
+    "duration-200",
+    "ease-[--easings-default]"
+  ],
+  control: [
+    slots.control,
+    // Layout
+    "flex"
+  ]
 };
 /**
  * **Rating Group**
@@ -85,4 +85,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
  */
-export const ratingGroup = styledSlots;
+export const ratingGroupStyles = styledSlots;

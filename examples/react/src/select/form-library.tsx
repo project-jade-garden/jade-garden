@@ -10,7 +10,10 @@ interface Inputs {
 }
 
 export const FormLibrary = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.select, park: park.select, shadcn: shadcn.select }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.selectStyles, park: park.selectStyles, shadcn: shadcn.selectStyles },
+    theme
+  );
   const collection = createListCollection({ items: ["React", "Solid", "Vue"] });
   const { register, handleSubmit } = useForm<Inputs>();
 

@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.editable, park: park.editable, shadcn: shadcn.editable }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.editableStyles, park: park.editableStyles, shadcn: shadcn.editableStyles },
+    theme
+  );
   const editable = useEditable({ placeholder: "Placeholder" });
 
   return (

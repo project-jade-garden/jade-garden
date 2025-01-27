@@ -5,7 +5,10 @@ import { ChevronDownIcon } from "lucide-react";
 import { type Theme, getTheme } from "../../utils";
 
 export const ContextGetItemState = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.accordionStyles, park: park.accordionStyles, shadcn: shadcn.accordionStyles },
+    theme
+  );
   const items = [{ value: "React" }, { value: "Solid", disabled: true }, { value: "Vue" }];
 
   return (

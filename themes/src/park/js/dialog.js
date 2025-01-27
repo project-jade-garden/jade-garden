@@ -22,76 +22,76 @@ import { createSlots } from "@spark-css/core/dialog";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/dialog").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/dialog").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    trigger: slots.trigger,
-    backdrop: [
-        slots.backdrop,
-        // Sizing
-        "h-screen",
-        "w-screen",
-        // Backgrounds
-        "bg-white-a10",
-        "dark:bg-black-a10",
-        // Layout
-        "fixed",
-        "left-0",
-        "top-0",
-        "z-[--z-index-overlay]",
-        // Filters
-        "backdrop-blur-sm",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-backdrop-in]",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-backdrop-out]"
-    ],
-    positioner: [
-        slots.positioner,
-        // Sizing
-        "h-dvh",
-        "w-screen",
-        // Layout
-        "flex",
-        "overflow-auto",
-        "fixed",
-        "left-0",
-        "top-0",
-        "z-[--z-index-modal]",
-        // Flexbox & Grid
-        "items-center",
-        "justify-center"
-    ],
-    content: [
-        slots.content,
-        // Sizing
-        "min-w-96",
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l3",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "relative",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-dialog-in]",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-dialog-out]"
-    ],
-    title: [
-        slots.title,
-        // Typography
-        "text-lg",
-        "font-semibold"
-    ],
-    description: [
-        slots.description,
-        // Typography
-        "text-fg-muted",
-        "text-sm"
-    ],
-    closeTrigger: slots.closeTrigger
+  base: slots.base,
+  trigger: slots.trigger,
+  backdrop: [
+    slots.backdrop,
+    // Sizing
+    "h-screen",
+    "w-screen",
+    // Backgrounds
+    "bg-white-a10",
+    "dark:bg-black-a10",
+    // Layout
+    "fixed",
+    "left-0",
+    "top-0",
+    "z-[--z-index-overlay]",
+    // Filters
+    "backdrop-blur-sm",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-backdrop-in]",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-backdrop-out]"
+  ],
+  positioner: [
+    slots.positioner,
+    // Sizing
+    "h-dvh",
+    "w-screen",
+    // Layout
+    "flex",
+    "overflow-auto",
+    "fixed",
+    "left-0",
+    "top-0",
+    "z-[--z-index-modal]",
+    // Flexbox & Grid
+    "items-center",
+    "justify-center"
+  ],
+  content: [
+    slots.content,
+    // Sizing
+    "min-w-96",
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l3",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "relative",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-[--animations-dialog-in]",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-[--animations-dialog-out]"
+  ],
+  title: [
+    slots.title,
+    // Typography
+    "text-lg",
+    "font-semibold"
+  ],
+  description: [
+    slots.description,
+    // Typography
+    "text-fg-muted",
+    "text-sm"
+  ],
+  closeTrigger: slots.closeTrigger
 };
 /**
  * **Dialog**
@@ -128,4 +128,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/dialog#anatomy)
  */
-export const dialog = styledSlots;
+export const dialogStyles = styledSlots;

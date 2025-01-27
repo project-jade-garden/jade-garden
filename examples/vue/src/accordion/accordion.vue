@@ -21,9 +21,9 @@ const emits = defineEmits<AccordionRootEmits>();
 const forwarded = useForwardPropsEmits(props, emits);
 const styledSlots = getTheme(
   {
-    minimal: minimal.accordion,
-    park: park.accordion,
-    shadcn: shadcn.accordion,
+    minimal: minimal.accordionStyles,
+    park: park.accordionStyles,
+    shadcn: shadcn.accordionStyles,
   },
   props.theme
 );

@@ -40,141 +40,141 @@ import { createSlots } from "@spark-css/core/color-picker";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/color-picker").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/color-picker").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "flex-col",
-        "gap-1.5"
-    ],
-    label: [
-        slots.label,
-        // Typography
-        "text-fg-default",
-        "text-sm",
-        "font-medium"
-    ],
-    control: [
-        slots.control,
-        // Layout
-        "flex",
-        // Flexbox & Grid
-        "flex-row",
-        "gap-2"
-    ],
-    trigger: slots.trigger,
-    positioner: slots.positioner,
-    content: [
-        slots.content,
-        // Spacing
-        "p-4",
-        // Sizing
-        "max-w-96",
-        // Backgrounds
-        "bg-bg-default",
-        // Borders
-        "rounded-l3",
-        // Effects
-        "shadow-lg",
-        // Layout
-        "flex",
-        "z-[--z-index-dropdown]",
-        "[&:is([hidden])]:hidden",
-        // Flexbox & Grid
-        "flex-col",
-        // Transitions & Animation
-        "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
-        "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
-    ],
-    area: [
-        slots.area,
-        // Sizing
-        "h-36",
-        // Borders
-        "rounded-l2",
-        // Layout
-        "overflow-hidden"
-    ],
-    areaThumb: [
-        slots.areaThumb,
-        // Sizing
-        "size-2.5",
-        // Borders
-        "rounded-full",
-        "outline-none",
-        // Effects
-        "shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000]"
-    ],
-    valueText: slots.valueText,
-    areaBackground: [
-        slots.areaBackground,
-        // Sizing
-        "h-full"
-    ],
-    channelSlider: [
-        slots.channelSlider,
-        // Borders
-        "rounded-l2"
-    ],
-    channelSliderLabel: slots.channelSliderLabel,
-    channelSliderTrack: [
-        slots.channelSliderTrack,
-        // Sizing
-        "h-3",
-        // Borders
-        "rounded-l2"
-    ],
-    channelSliderThumb: [
-        slots.channelSliderThumb,
-        // Sizing
-        "size-2.5",
-        // Borders
-        "rounded-full",
-        "outline-none",
-        // Effects
-        "shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000]",
-        // Transforms
-        "-translate-x-1/2",
-        "-translate-y-1/2"
-    ],
-    channelSliderValueText: slots.channelSliderValueText,
-    channelInput: slots.channelInput,
-    transparencyGrid: [
-        slots.transparencyGrid,
-        // Borders
-        "rounded-l2"
-    ],
-    swatchGroup: [
-        slots.swatchGroup,
-        // Backgrounds
-        "bg-bg-default",
-        // Layout
-        "grid",
-        // Flexbox & Grid
-        "gap-2",
-        "grid-cols-7"
-    ],
-    swatchTrigger: slots.swatchTrigger,
-    swatchIndicator: slots.swatchIndicator,
-    swatch: [
-        slots.swatch,
-        // Sizing
-        "size-6",
-        // Borders
-        "rounded-l2",
-        // Effects
-        "shadow-[0_0_0_1px_var(--colors-border-emphasized),_0_0_0_2px_var(--colors-bg-default)_inset]"
-    ],
-    eyeDropperTrigger: slots.eyeDropperTrigger,
-    formatTrigger: slots.formatTrigger,
-    formatSelect: slots.formatSelect,
-    view: slots.view
+  base: slots.base,
+  root: [
+    slots.root,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "flex-col",
+    "gap-1.5"
+  ],
+  label: [
+    slots.label,
+    // Typography
+    "text-fg-default",
+    "text-sm",
+    "font-medium"
+  ],
+  control: [
+    slots.control,
+    // Layout
+    "flex",
+    // Flexbox & Grid
+    "flex-row",
+    "gap-2"
+  ],
+  trigger: slots.trigger,
+  positioner: slots.positioner,
+  content: [
+    slots.content,
+    // Spacing
+    "p-4",
+    // Sizing
+    "max-w-96",
+    // Backgrounds
+    "bg-bg-default",
+    // Borders
+    "rounded-l3",
+    // Effects
+    "shadow-lg",
+    // Layout
+    "flex",
+    "z-[--z-index-dropdown]",
+    "[&:is([hidden])]:hidden",
+    // Flexbox & Grid
+    "flex-col",
+    // Transitions & Animation
+    "[&:is([open],_[data-open],_[data-state=open])]:animate-fade-in",
+    "[&:is([closed],_[data-closed],_[data-state=closed])]:animate-fade-out"
+  ],
+  area: [
+    slots.area,
+    // Sizing
+    "h-36",
+    // Borders
+    "rounded-l2",
+    // Layout
+    "overflow-hidden"
+  ],
+  areaThumb: [
+    slots.areaThumb,
+    // Sizing
+    "size-2.5",
+    // Borders
+    "rounded-full",
+    "outline-none",
+    // Effects
+    "shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000]"
+  ],
+  valueText: slots.valueText,
+  areaBackground: [
+    slots.areaBackground,
+    // Sizing
+    "h-full"
+  ],
+  channelSlider: [
+    slots.channelSlider,
+    // Borders
+    "rounded-l2"
+  ],
+  channelSliderLabel: slots.channelSliderLabel,
+  channelSliderTrack: [
+    slots.channelSliderTrack,
+    // Sizing
+    "h-3",
+    // Borders
+    "rounded-l2"
+  ],
+  channelSliderThumb: [
+    slots.channelSliderThumb,
+    // Sizing
+    "size-2.5",
+    // Borders
+    "rounded-full",
+    "outline-none",
+    // Effects
+    "shadow-[0_0_0_2px_#fff,_0_0_2px_1px_#000]",
+    // Transforms
+    "-translate-x-1/2",
+    "-translate-y-1/2"
+  ],
+  channelSliderValueText: slots.channelSliderValueText,
+  channelInput: slots.channelInput,
+  transparencyGrid: [
+    slots.transparencyGrid,
+    // Borders
+    "rounded-l2"
+  ],
+  swatchGroup: [
+    slots.swatchGroup,
+    // Backgrounds
+    "bg-bg-default",
+    // Layout
+    "grid",
+    // Flexbox & Grid
+    "gap-2",
+    "grid-cols-7"
+  ],
+  swatchTrigger: slots.swatchTrigger,
+  swatchIndicator: slots.swatchIndicator,
+  swatch: [
+    slots.swatch,
+    // Sizing
+    "size-6",
+    // Borders
+    "rounded-l2",
+    // Effects
+    "shadow-[0_0_0_1px_var(--colors-border-emphasized),_0_0_0_2px_var(--colors-bg-default)_inset]"
+  ],
+  eyeDropperTrigger: slots.eyeDropperTrigger,
+  formatTrigger: slots.formatTrigger,
+  formatSelect: slots.formatSelect,
+  view: slots.view
 };
 /**
  * **Color Picker**
@@ -263,4 +263,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPicker = styledSlots;
+export const colorPickerStyles = styledSlots;

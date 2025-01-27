@@ -22,8 +22,8 @@ import { type Slots, createSlots } from "@spark-css/core/tabs";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/tabs").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/tabs").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -118,4 +118,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const tabs = styledSlots;
+export const tabsStyles = styledSlots;

@@ -6,7 +6,7 @@ import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
   const styledSlots = getTheme(
-    { minimal: minimal.fileUpload, park: park.fileUpload, shadcn: shadcn.fileUpload },
+    { minimal: minimal.fileUploadStyles, park: park.fileUploadStyles, shadcn: shadcn.fileUploadStyles },
     theme
   );
   const fileUpload = useFileUpload({ maxFiles: 5 });

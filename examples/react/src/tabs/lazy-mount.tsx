@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const LazyMount = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.tabs, park: park.tabs, shadcn: shadcn.tabs }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.tabsStyles, park: park.tabsStyles, shadcn: shadcn.tabsStyles },
+    theme
+  );
 
   return (
     <Tabs.Root lazyMount unmountOnExit>

@@ -21,8 +21,8 @@ import { type Slots, createSlots } from "@spark-css/core/hover-card";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/hover-card").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/hover-card").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -54,4 +54,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
-export const hoverCard = styledSlots;
+export const hoverCardStyles = styledSlots;

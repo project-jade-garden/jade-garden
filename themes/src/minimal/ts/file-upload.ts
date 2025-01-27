@@ -28,8 +28,8 @@ import { type Slots, createSlots } from "@spark-css/core/file-upload";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/file-upload").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/file-upload").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -82,4 +82,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
  */
-export const fileUpload = styledSlots;
+export const fileUploadStyles = styledSlots;

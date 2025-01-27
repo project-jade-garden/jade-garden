@@ -28,8 +28,8 @@ import { type Slots, createSlots } from "@spark-css/core/progress";
 const slots = createSlots({});
 
 /**
- * @typedef {import("@spark-css/core/progress").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/progress").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -76,4 +76,4 @@ const styledSlots = {
  * @see [Circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
  * @see [Linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
  */
-export const progress = styledSlots;
+export const progressStyles = styledSlots;

@@ -21,18 +21,18 @@ import { createSlots } from "@spark-css/core/signature-pad";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/signature-pad").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/signature-pad").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    control: slots.control,
-    segment: slots.segment,
-    segmentPath: slots.segmentPath,
-    guide: slots.guide,
-    clearTrigger: slots.clearTrigger,
-    label: slots.label
+  base: slots.base,
+  root: slots.root,
+  control: slots.control,
+  segment: slots.segment,
+  segmentPath: slots.segmentPath,
+  guide: slots.guide,
+  clearTrigger: slots.clearTrigger,
+  label: slots.label
 };
 /**
  * **Signature Pad**
@@ -59,4 +59,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/signature-pad#anatomy)
  */
-export const signaturePad = styledSlots;
+export const signaturePadStyles = styledSlots;

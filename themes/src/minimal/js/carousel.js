@@ -23,20 +23,20 @@ import { createSlots } from "@spark-css/core/carousel";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/carousel").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/carousel").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    itemGroup: slots.itemGroup,
-    item: slots.item,
-    control: slots.control,
-    nextTrigger: slots.nextTrigger,
-    prevTrigger: slots.prevTrigger,
-    indicatorGroup: slots.indicatorGroup,
-    indicator: slots.indicator,
-    autoplayTrigger: slots.autoplayTrigger
+  base: slots.base,
+  root: slots.root,
+  itemGroup: slots.itemGroup,
+  item: slots.item,
+  control: slots.control,
+  nextTrigger: slots.nextTrigger,
+  prevTrigger: slots.prevTrigger,
+  indicatorGroup: slots.indicatorGroup,
+  indicator: slots.indicator,
+  autoplayTrigger: slots.autoplayTrigger
 };
 /**
  * **Carousel**
@@ -67,4 +67,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
  */
-export const carousel = styledSlots;
+export const carouselStyles = styledSlots;

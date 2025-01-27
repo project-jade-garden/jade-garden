@@ -5,8 +5,14 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const WithField = (props: Field.RootProps & { theme: Theme }) => {
-  const editable = getTheme({ minimal: minimal.editable, park: park.editable, shadcn: shadcn.editable }, props.theme);
-  const field = getTheme({ minimal: minimal.field, park: park.field, shadcn: shadcn.field }, props.theme);
+  const editable = getTheme(
+    { minimal: minimal.editableStyles, park: park.editableStyles, shadcn: shadcn.editableStyles },
+    props.theme
+  );
+  const field = getTheme(
+    { minimal: minimal.fieldStyles, park: park.fieldStyles, shadcn: shadcn.fieldStyles },
+    props.theme
+  );
 
   return (
     <Field.Root {...props} className={clsx(field.root)}>

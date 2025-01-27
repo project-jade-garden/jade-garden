@@ -6,7 +6,10 @@ import { type Theme, getTheme } from "../utils";
 const images = Array.from({ length: 5 }, (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`);
 
 export const Autoplay = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.carousel, park: park.carousel, shadcn: shadcn.carousel }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.carouselStyles, park: park.carouselStyles, shadcn: shadcn.carouselStyles },
+    theme
+  );
 
   return (
     <Carousel.Root autoplay loop className={clsx(styledSlots.root)}>

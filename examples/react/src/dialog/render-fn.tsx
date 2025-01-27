@@ -5,7 +5,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RenderFn = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.dialog, park: park.dialog, shadcn: shadcn.dialog }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.dialogStyles, park: park.dialogStyles, shadcn: shadcn.dialogStyles },
+    theme
+  );
 
   return (
     <Dialog.Root>

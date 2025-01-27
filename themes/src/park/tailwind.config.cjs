@@ -1,6 +1,8 @@
-import type { Config } from "tailwindcss";
-
-export default {
+/**
+ * @typedef { import("tailwindcss").Config} Config
+ * @type { Partial<Config> }
+ */
+module.exports = {
   theme: {
     extend: {
       // * Custom common animations
@@ -55,4 +57,4 @@ export default {
       }
     }
   }
-} satisfies Partial<Config>;
+};

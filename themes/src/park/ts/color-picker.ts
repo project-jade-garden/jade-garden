@@ -42,8 +42,8 @@ import { type Slots, createSlots } from "@spark-css/core/color-picker";
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 
 /**
- * @typedef {import("@spark-css/core/color-picker").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/color-picker").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
   base: slots.base,
@@ -300,4 +300,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
  */
-export const colorPicker = styledSlots;
+export const colorPickerStyles = styledSlots;

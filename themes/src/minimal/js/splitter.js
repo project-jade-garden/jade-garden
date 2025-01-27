@@ -17,14 +17,14 @@ import { createSlots } from "@spark-css/core/splitter";
  */
 const slots = createSlots({});
 /**
- * @typedef {import("@spark-css/core/splitter").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/splitter").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: slots.root,
-    panel: slots.panel,
-    resizeTrigger: slots.resizeTrigger
+  base: slots.base,
+  root: slots.root,
+  panel: slots.panel,
+  resizeTrigger: slots.resizeTrigger
 };
 /**
  * **Splitter**
@@ -43,4 +43,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
  */
-export const splitter = styledSlots;
+export const splitterStyles = styledSlots;

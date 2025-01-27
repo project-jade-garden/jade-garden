@@ -5,7 +5,10 @@ import { ChevronDownIcon } from "lucide-react";
 import { type Theme, getTheme } from "../utils";
 
 export const LazyMount = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.accordion, park: park.accordion, shadcn: shadcn.accordion }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.accordionStyles, park: park.accordionStyles, shadcn: shadcn.accordionStyles },
+    theme
+  );
 
   return (
     <Accordion.Root lazyMount unmountOnExit className={clsx(styledSlots.root)}>

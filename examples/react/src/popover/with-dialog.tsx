@@ -5,7 +5,10 @@ import { useState } from "react";
 import { type Theme, getTheme } from "../utils";
 
 export const WithDialog = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.popoverStyles, park: park.popoverStyles, shadcn: shadcn.popoverStyles },
+    theme
+  );
 
   return (
     <Popover.Root>
@@ -32,7 +35,10 @@ interface DialogProps {
 
 const Dialog = (props: DialogProps) => {
   const { children, isOpen, setIsOpen, bg } = props;
-  const styledSlots = getTheme({ minimal: minimal.popover, park: park.popover, shadcn: shadcn.popover }, props.theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.popoverStyles, park: park.popoverStyles, shadcn: shadcn.popoverStyles },
+    props.theme
+  );
 
   return (
     <>

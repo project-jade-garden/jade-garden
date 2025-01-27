@@ -4,7 +4,10 @@ import { clsx } from "clsx";
 import { type Theme, getTheme } from "../utils";
 
 export const RootProvider = ({ theme }: { theme: Theme }) => {
-  const styledSlots = getTheme({ minimal: minimal.tooltip, park: park.tooltip, shadcn: shadcn.tooltip }, theme);
+  const styledSlots = getTheme(
+    { minimal: minimal.tooltipStyles, park: park.tooltipStyles, shadcn: shadcn.tooltipStyles },
+    theme
+  );
   const tooltip = useTooltip();
 
   return (

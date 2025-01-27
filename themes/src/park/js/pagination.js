@@ -20,36 +20,36 @@ import { createSlots } from "@spark-css/core/pagination";
  */
 const slots = createSlots({ prefix: "park", caseConvention: "camel" });
 /**
- * @typedef {import("@spark-css/core/pagination").Slots} Slots
- * @type {Record<Slots, string | string[]>}
+ * @typedef { import("@spark-css/core/pagination").Slots } Slots
+ * @type { Record<Slots, string | string[]> }
  */
 const styledSlots = {
-    base: slots.base,
-    root: [
-        slots.root,
-        // Layout
-        "flex",
-        "gap-2.5"
-    ],
-    item: [
-        slots.item,
-        // Typography
-        "tabular-nums"
-    ],
-    ellipsis: [
-        slots.ellipsis,
-        // Spacing
-        "px-2",
-        // Layout
-        "inline-flex",
-        // Flexbox & Grid
-        "items-center",
-        // Typography
-        "text-fg-default",
-        "font-semibold"
-    ],
-    prevTrigger: slots.prevTrigger,
-    nextTrigger: slots.nextTrigger
+  base: slots.base,
+  root: [
+    slots.root,
+    // Layout
+    "flex",
+    "gap-2.5"
+  ],
+  item: [
+    slots.item,
+    // Typography
+    "tabular-nums"
+  ],
+  ellipsis: [
+    slots.ellipsis,
+    // Spacing
+    "px-2",
+    // Layout
+    "inline-flex",
+    // Flexbox & Grid
+    "items-center",
+    // Typography
+    "text-fg-default",
+    "font-semibold"
+  ],
+  prevTrigger: slots.prevTrigger,
+  nextTrigger: slots.nextTrigger
 };
 /**
  * **Pagination**
@@ -78,4 +78,4 @@ const styledSlots = {
  *
  * @see [source](https://ark-ui.com/vue/docs/components/pagination#anatomy)
  */
-export const pagination = styledSlots;
+export const paginationStyles = styledSlots;
