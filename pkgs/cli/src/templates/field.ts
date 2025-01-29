@@ -1,4 +1,15 @@
 import type { Prompts } from "../prompts.js";
+import { componentWrapper } from "../utils.js";
 
-export const createField = ({ lang, ui, util }: Pick<Prompts, "lang" | "ui" | "util">) => `
-`;
+export const createField = (opts: Prompts) =>
+  componentWrapper(
+    "field",
+    {
+      js: {
+        script: ""
+      },
+      markup: "",
+      props: ""
+    },
+    opts
+  );

@@ -1,4 +1,15 @@
 import type { Prompts } from "../prompts.js";
+import { componentWrapper } from "../utils.js";
 
-export const createSegmentGroup = ({ lang, ui, util }: Pick<Prompts, "lang" | "ui" | "util">) => `
-`;
+export const createSegmentGroup = (opts: Prompts) =>
+  componentWrapper(
+    "segment-group",
+    {
+      js: {
+        script: ""
+      },
+      markup: "",
+      props: ""
+    },
+    opts
+  );

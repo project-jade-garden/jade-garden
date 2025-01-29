@@ -1,4 +1,15 @@
 import type { Prompts } from "../prompts.js";
+import { componentWrapper } from "../utils.js";
 
-export const createToggleGroup = ({ lang, ui, util }: Pick<Prompts, "lang" | "ui" | "util">) => `
-`;
+export const createToggleGroup = (opts: Prompts) =>
+  componentWrapper(
+    "toggle-group",
+    {
+      js: {
+        script: ""
+      },
+      markup: "",
+      props: ""
+    },
+    opts
+  );

@@ -1,4 +1,15 @@
 import type { Prompts } from "../prompts.js";
+import { componentWrapper } from "../utils.js";
 
-export const createNumberInput = ({ lang, ui, util }: Pick<Prompts, "lang" | "ui" | "util">) => `
-`;
+export const createNumberInput = (opts: Prompts) =>
+  componentWrapper(
+    "number-input",
+    {
+      js: {
+        script: ""
+      },
+      markup: "",
+      props: ""
+    },
+    opts
+  );

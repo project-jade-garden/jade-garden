@@ -10,7 +10,7 @@ const API_URL = "AGS1130/spark-css/themes/src";
 
 const templatesTypeGuard = (k: string): k is keyof typeof templates => Object.hasOwn(templates, k);
 
-export const writeFiles = async (opts: Omit<Prompts, "install">) => {
+export const writeFiles = async (opts: Prompts) => {
   const { lang, path, theme, tw, ui, util } = opts;
   const clonedPath = usrPath(path); // ~/path/to/components
 
@@ -68,7 +68,7 @@ export const writeFiles = async (opts: Omit<Prompts, "install">) => {
 
         // TODO: Write JS framework templates to project
         if (templatesTypeGuard(componentName)) {
-          const createTemplate: (opts: Pick<Prompts, "lang" | "ui" | "util">) => string = templates[componentName];
+          const createTemplate: (opts: Prompts) => string = templates[componentName];
         }
 
         // touch ~/path/to/components/index.{lang} && echo export {componentExport} from "./{componentName}.{ext}";

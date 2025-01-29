@@ -5,13 +5,7 @@ import { detect } from "package-manager-detector/detect";
 import color from "picocolors";
 import { packageDirectorySync } from "pkg-dir";
 import type { Prompts } from "./prompts.js";
-import { printErr } from "./utils.js";
-
-const twUtils = {
-  clsx: "clsx",
-  tm: "tailwind-merge",
-  tv: "tailwind-variants"
-} as const;
+import { printErr, twUtils } from "./utils.js";
 
 const pmColor = (agent: Agent, str: string) => {
   switch (agent) {
@@ -32,13 +26,13 @@ const pmColor = (agent: Agent, str: string) => {
   }
 };
 
-export const installDeps = async ({ ui, util }: Pick<Prompts, "util" | "ui">) => {
+export const installDeps = async ({ ui, util }: Prompts) => {
   const install = await p.confirm({
     message: "Install dependencies?",
     initialValue: false
   });
 
-  const deps = [`@ark-ui/${ui}`, "@spark-css/core", twUtils[util]];
+  const deps = [`@ark-ui/${ui}`, "@spark-css/core", `lucide-${ui}`, twUtils[util]];
   const cwd = packageDirectorySync() ?? process.cwd();
   const pm = await detect({ cwd });
 

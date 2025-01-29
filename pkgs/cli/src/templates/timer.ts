@@ -1,4 +1,15 @@
 import type { Prompts } from "../prompts.js";
+import { componentWrapper } from "../utils.js";
 
-export const createTimer = ({ lang, ui, util }: Pick<Prompts, "lang" | "ui" | "util">) => `
-`;
+export const createTimer = (opts: Prompts) =>
+  componentWrapper(
+    "timer",
+    {
+      js: {
+        script: ""
+      },
+      markup: "",
+      props: ""
+    },
+    opts
+  );
