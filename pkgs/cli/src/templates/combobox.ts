@@ -1,15 +1,11 @@
 import type { Prompts } from "../prompts.js";
-import { componentWrapper } from "../utils.js";
+import { templateWrapper } from "../utils.js";
 
 export const createCombobox = (opts: Prompts) =>
-  componentWrapper(
+  templateWrapper(
     "combobox",
     {
-      js: {
-        script: ""
-      },
-      markup: "",
-      props: ""
+      markup: ""
     },
     opts
   );

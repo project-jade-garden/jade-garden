@@ -1,15 +1,11 @@
 import type { Prompts } from "../prompts.js";
-import { componentWrapper } from "../utils.js";
+import { templateWrapper } from "../utils.js";
 
 export const createColorPicker = (opts: Prompts) =>
-  componentWrapper(
+  templateWrapper(
     "color-picker",
     {
-      js: {
-        script: ""
-      },
-      markup: "",
-      props: ""
+      markup: ""
     },
     opts
   );

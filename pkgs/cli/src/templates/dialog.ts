@@ -1,15 +1,11 @@
 import type { Prompts } from "../prompts.js";
-import { componentWrapper } from "../utils.js";
+import { templateWrapper } from "../utils.js";
 
 export const createDialog = (opts: Prompts) =>
-  componentWrapper(
+  templateWrapper(
     "dialog",
     {
-      js: {
-        script: ""
-      },
-      markup: "",
-      props: ""
+      markup: ""
     },
     opts
   );

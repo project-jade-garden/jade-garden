@@ -1,15 +1,11 @@
 import type { Prompts } from "../prompts.js";
-import { componentWrapper } from "../utils.js";
+import { templateWrapper } from "../utils.js";
 
 export const createProgress = (opts: Prompts) =>
-  componentWrapper(
+  templateWrapper(
     "progress",
     {
-      js: {
-        script: ""
-      },
-      markup: "",
-      props: ""
+      markup: ""
     },
     opts
   );
