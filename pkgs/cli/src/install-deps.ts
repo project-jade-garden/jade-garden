@@ -32,7 +32,7 @@ export const installDeps = async ({ ui, util }: Prompts) => {
     initialValue: false
   });
 
-  const deps = [`@ark-ui/${ui}`, "@spark-css/core", `lucide-${ui}`, twUtils[util]];
+  const deps = [`@ark-ui/${ui}`, "@spark-css/core", `lucide-${ui === "vue" ? "vue-next" : ui}`, twUtils[util]];
   const cwd = packageDirectorySync() ?? process.cwd();
   const pm = await detect({ cwd });
 

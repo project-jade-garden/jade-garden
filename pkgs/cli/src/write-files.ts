@@ -3,12 +3,9 @@ import * as p from "@clack/prompts";
 import degit from "degit";
 import { pascalCase } from "es-toolkit";
 import type { Prompts } from "./prompts.js";
-import { templates } from "./templates/index.js";
 import { printErr, usrPath } from "./utils.js";
 
 const API_URL = "AGS1130/spark-css/themes/src";
-
-const templatesTypeGuard = (k: string): k is keyof typeof templates => Object.hasOwn(templates, k);
 
 export const writeFiles = async (opts: Prompts) => {
   const { lang, path, theme, tw, ui, util } = opts;
@@ -67,9 +64,6 @@ export const writeFiles = async (opts: Prompts) => {
         await cp(`${clonedThemeDir}/${file}`, `${componentDir}/styles.${lang}`);
 
         // TODO: Write JS framework templates to project
-        if (templatesTypeGuard(componentName)) {
-          const createTemplate: (opts: Prompts) => string = templates[componentName];
-        }
 
         // touch ~/path/to/components/index.{lang} && echo export {componentExport} from "./{componentName}.{ext}";
         await writeFile(`${componentDir}/index.${lang}`, `export ${componentExport} from "./${componentName}.${ext}"`);
