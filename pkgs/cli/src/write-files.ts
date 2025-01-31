@@ -117,7 +117,7 @@ export const writeFiles = async (opts: Prompts) => {
           config.to.push('import { twMerge } from "tailwind-merge";');
 
           // remove styledSlots
-          config.from.push(/getTheme\((\n|.)*?\);/g);
+          config.from.push(/const styledSlots =(\n|.)*?\);/g);
           config.to.push("");
 
           // replace class names with the appropriate `util`
@@ -125,7 +125,7 @@ export const writeFiles = async (opts: Prompts) => {
           config.to.push("twMerge(");
         } else if (util === "clsx") {
           // remove styledSlots
-          config.from.push(/getTheme\((\n|.)*?\);/g);
+          config.from.push(/const styledSlots =(\n|.)*?\);/g);
           config.to.push("");
         }
 
