@@ -19,7 +19,8 @@
     "es-toolkit": "1.31.0",
     "package-manager-detector": "0.2.8",
     "picocolors": "1.1.1",
-    "pkg-dir": "8.0.0"
+    "pkg-dir": "8.0.0",
+    "replace-in-file": "8.3.0"
   },
   "devDependencies": {
     "@types/degit": "2.8.6"

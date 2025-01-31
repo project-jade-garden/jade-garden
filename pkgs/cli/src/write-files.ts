@@ -1,11 +1,13 @@
 import { cp, exists, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import * as p from "@clack/prompts";
 import degit from "degit";
-import { pascalCase } from "es-toolkit";
+import { camelCase, pascalCase } from "es-toolkit";
+import { type From, type ReplaceInFileConfig, type To, replaceInFile } from "replace-in-file";
 import type { Prompts } from "./prompts.js";
 import { printErr, usrPath } from "./utils.js";
 
-const API_URL = "AGS1130/spark-css/themes/src";
+const EXAMPLES_URL = "AGS1130/spark-css/examples/";
+const THEMES_URL = "AGS1130/spark-css/themes/src";
 
 export const writeFiles = async (opts: Prompts) => {
   const { lang, path, theme, tw, ui, util } = opts;
@@ -32,7 +34,7 @@ export const writeFiles = async (opts: Prompts) => {
 
   // * Clone theme and force to project
   try {
-    const emitter = degit(`${API_URL}/${theme}`, { force: true });
+    const emitter = degit(`${THEMES_URL}/${theme}`, { force: true });
     await emitter.clone(clonedPath);
   } catch {
     p.cancel(printErr("There was an issue getting the theme."));
@@ -63,10 +65,72 @@ export const writeFiles = async (opts: Prompts) => {
         // cp ~/path/to/components/{js,ts}/{file} ~/path/to/components/{componentName}/styles.{js,ts}
         await cp(`${clonedThemeDir}/${file}`, `${componentDir}/styles.${lang}`);
 
-        // TODO: Write JS framework templates to project
-
         // touch ~/path/to/components/index.{lang} && echo export {componentExport} from "./{componentName}.{ext}";
         await writeFile(`${componentDir}/index.${lang}`, `export ${componentExport} from "./${componentName}.${ext}"`);
+
+        // * Clone `examples` for JS framework and force to project
+        const cloneExampleDir = `${EXAMPLES_URL}/${ui}/src/${componentName}`;
+        const clonedExampleFile = `${componentDir}/${componentName}.${ext}`;
+        let exampleFile = "basic";
+
+        // ! 'field' and 'progress' need exception handling
+        if (componentName === "field") exampleFile = "input";
+        else if (componentName === "progress") exampleFile = "circular/basic";
+
+        const emitter = degit(`${cloneExampleDir}/${exampleFile}.${ext}`, {
+          force: true
+        });
+        await emitter.clone(clonedExampleFile);
+
+        // ! Must update JS framework files to:
+        // - import the relative styles file
+        // TODO: remove props, types, and utilities that are only for the `examples` project
+        //   - ex.) import { type Theme, getTheme } from "../utils"; && { theme }: { theme: Theme } && const props = defineProps<AccordionProps>();
+        interface Config extends Omit<ReplaceInFileConfig, "from" | "to"> {
+          from: From[];
+          to: To[];
+        }
+        const config: Config = {
+          files: clonedExampleFile,
+          from: ['import { minimal, park, shadcn } from "@spark-css/themes";'],
+          to: [
+            `import { ${camelCase(componentName)}Styles ${util === "tv" ? "as styledSlots " : ""}} from "./styles.${lang}";`
+          ]
+        };
+        if (util === "tv") {
+          // include the import of the `util`
+          config.from.push('import { clsx } from "clsx";');
+          config.to.push('import { tv } from "tailwind-variants";');
+
+          // replace styledSlots with tv util
+          config.from.push(/getTheme\((\n|.)*?\);/g);
+          config.to.push(`tv({ slots: ${camelCase(componentName)}Styles });`);
+
+          // replace class names with the appropriate `util`
+          config.from.push(/clsx\(/g);
+          config.to.push((match: string) => `${match.slice(5, -1)}()`);
+          config.from.push(/styledSlots\./g);
+          config.to.push("styledSlots().");
+        } else if (util === "tm") {
+          // include the import of the `util`
+          config.from.push('import { clsx } from "clsx";');
+          config.to.push('import { twMerge } from "tailwind-merge";');
+
+          // remove styledSlots
+          config.from.push(/getTheme\((\n|.)*?\);/g);
+          config.to.push("");
+
+          // replace class names with the appropriate `util`
+          config.from.push(/clsx\(/g);
+          config.to.push("twMerge(");
+        } else if (util === "clsx") {
+          // remove styledSlots
+          config.from.push(/getTheme\((\n|.)*?\);/g);
+          config.to.push("");
+        }
+
+        // @ts-expect-error: overload issue with overriding `from` and `to` types
+        replaceInFile(config);
       }
     }
 
