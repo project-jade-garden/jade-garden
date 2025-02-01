@@ -16,7 +16,7 @@
   "dependencies": {
     "@clack/prompts": "0.9.1",
     "degit": "2.8.4",
-    "es-toolkit": "1.31.0",
+    "es-toolkit": "1.32.0",
     "package-manager-detector": "0.2.8",
     "picocolors": "1.1.1",
     "pkg-dir": "8.0.0",
