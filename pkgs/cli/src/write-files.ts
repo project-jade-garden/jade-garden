@@ -2,24 +2,25 @@ import { cp, exists, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import * as p from "@clack/prompts";
 import degit from "degit";
 import { camelCase, pascalCase } from "es-toolkit";
+import color from "picocolors";
 import { type From, type ReplaceInFileConfig, type To, replaceInFile } from "replace-in-file";
 import type { Prompts } from "./prompts.js";
 import { printErr, usrPath } from "./utils.js";
 
-const EXAMPLES_URL = "AGS1130/spark-css/examples/";
+const EXAMPLES_URL = "AGS1130/spark-css/examples";
 const THEMES_URL = "AGS1130/spark-css/themes/src";
 
 export const writeFiles = async (opts: Prompts) => {
   const { lang, path, theme, tw, ui, util } = opts;
   const clonedPath = usrPath(path); // ~/path/to/components
+  const s = p.spinner();
 
   // * Check if `clonedPath` is empty or non-existent
   try {
     const dirExists = await exists(clonedPath);
     if (dirExists) {
       const rmDir = await p.confirm({
-        message:
-          "There is an existing directory in the path you want to install your components. Remove the directory?",
+        message: "There is an existing directory. Remove the directory?",
         initialValue: true
       });
 
@@ -41,6 +42,7 @@ export const writeFiles = async (opts: Prompts) => {
     process.exit(0);
   }
 
+  s.start(`✍️ Writing files to ${color.italic(color.underline(usrPath(path)))}`);
   // * Set up project from cloned theme
   try {
     const clonedThemeDir = `${clonedPath}/${lang}`; // ~/path/to/components/{js,ts}
@@ -65,11 +67,13 @@ export const writeFiles = async (opts: Prompts) => {
         // cp ~/path/to/components/{js,ts}/{file} ~/path/to/components/{componentName}/styles.{js,ts}
         await cp(`${clonedThemeDir}/${file}`, `${componentDir}/styles.${lang}`);
 
-        // touch ~/path/to/components/index.{lang} && echo export {componentExport} from "./{componentName}.{ext}";
-        await writeFile(`${componentDir}/index.${lang}`, `export ${componentExport} from "./${componentName}.${ext}"`);
+        // touch ~/path/to/components/index.{lang} && echo export {componentExport} from "./{componentName}{ui === "vue" ? ".{ui}" : ""}";
+        await writeFile(
+          `${componentDir}/index.${lang}`,
+          `export ${componentExport} from "./${componentName}${ui === "vue" ? `.${ui}` : ""}"`
+        );
 
         // * Clone `examples` for JS framework and force to project
-        const cloneExampleDir = `${EXAMPLES_URL}/${ui}/src/${componentName}`;
         const clonedExampleFile = `${componentDir}/${componentName}.${ext}`;
         let exampleFile = "basic";
 
@@ -77,7 +81,7 @@ export const writeFiles = async (opts: Prompts) => {
         if (componentName === "field") exampleFile = "input";
         else if (componentName === "progress") exampleFile = "circular/basic";
 
-        const emitter = degit(`${cloneExampleDir}/${exampleFile}.${ext}`, {
+        const emitter = degit(`${EXAMPLES_URL}/${ui}/src/${componentName}/${exampleFile}.${ext}`, {
           force: true
         });
         await emitter.clone(clonedExampleFile);
@@ -91,15 +95,11 @@ export const writeFiles = async (opts: Prompts) => {
           files: clonedExampleFile,
           from: [
             'import { minimal, park, shadcn } from "@spark-css/themes";',
-            'import { type Theme, getTheme } from "../utils";',
-            `import { ${pascalCase(componentName)} }`,
-            `${pascalCase(componentName)}.`
+            /import \{ type Theme, getTheme \}.*\/utils";/g
           ],
           to: [
-            `import { ${camelCase(componentName)}Styles ${util === "tv" ? "as styledSlots " : ""}} from "./styles.${lang}";`,
-            "",
-            `import { ${pascalCase(componentName)} as Ark }`,
-            "Ark."
+            `import { ${camelCase(componentName)}Styles ${util !== "tv" ? "as styledSlots " : ""}} from "./styles";`,
+            ""
           ]
         };
 
@@ -119,7 +119,13 @@ export const writeFiles = async (opts: Prompts) => {
 
             // rename export component
             config.from.push("export const Basic");
-            config.to.push(`export const ${pascalCase(componentName)}`);
+            config.to.push(`export const Basic${pascalCase(componentName)}`);
+
+            // ! rename export "field" component
+            if (componentName === "field") {
+              config.from.push("export const Input");
+              config.to.push(`export const Basic${pascalCase(componentName)}`);
+            }
 
             break;
           }
@@ -133,13 +139,11 @@ export const writeFiles = async (opts: Prompts) => {
 
             // replace styledSlots with tv util
             config.from.push(/getTheme\((\n|.)*?\);/g);
-            config.to.push(`tv({ slots: ${camelCase(componentName)}Styles });`);
+            config.to.push(`tv({ slots: ${camelCase(componentName)}Styles })();`);
 
             // replace class names with the appropriate `util`
-            config.from.push(/clsx\(/g);
+            config.from.push(/clsx\(.*?\)/g);
             config.to.push((match: string) => `${match.slice(5, -1)}()`);
-            config.from.push(/styledSlots\./g);
-            config.to.push("styledSlots().");
 
             break;
           }
@@ -178,4 +182,5 @@ export const writeFiles = async (opts: Prompts) => {
     p.cancel(printErr("There was an issue setting up the project."));
     process.exit(0);
   }
+  s.stop("📖 Files written");
 };
