@@ -82,53 +82,91 @@ export const writeFiles = async (opts: Prompts) => {
         });
         await emitter.clone(clonedExampleFile);
 
-        // ! Must update JS framework files to:
-        // - import the relative styles file
-        // TODO: remove props, types, and utilities that are only for the `examples` project
-        //   - ex.) import { type Theme, getTheme } from "../utils"; && { theme }: { theme: Theme } && const props = defineProps<AccordionProps>();
+        // ! Must update JS framework files
         interface Config extends Omit<ReplaceInFileConfig, "from" | "to"> {
           from: From[];
           to: To[];
         }
         const config: Config = {
           files: clonedExampleFile,
-          from: ['import { minimal, park, shadcn } from "@spark-css/themes";'],
+          from: [
+            'import { minimal, park, shadcn } from "@spark-css/themes";',
+            'import { type Theme, getTheme } from "../utils";',
+            `import { ${pascalCase(componentName)} }`,
+            `${pascalCase(componentName)}.`
+          ],
           to: [
-            `import { ${camelCase(componentName)}Styles ${util === "tv" ? "as styledSlots " : ""}} from "./styles.${lang}";`
+            `import { ${camelCase(componentName)}Styles ${util === "tv" ? "as styledSlots " : ""}} from "./styles.${lang}";`,
+            "",
+            `import { ${pascalCase(componentName)} as Ark }`,
+            "Ark."
           ]
         };
-        if (util === "tv") {
-          // include the import of the `util`
-          config.from.push('import { clsx } from "clsx";');
-          config.to.push('import { tv } from "tailwind-variants";');
 
-          // replace styledSlots with tv util
-          config.from.push(/getTheme\((\n|.)*?\);/g);
-          config.to.push(`tv({ slots: ${camelCase(componentName)}Styles });`);
+        switch (ui) {
+          case "vue": {
+            // remove define props
+            config.from.push("const props = defineProps<Theme>();");
+            config.to.push("");
 
-          // replace class names with the appropriate `util`
-          config.from.push(/clsx\(/g);
-          config.to.push((match: string) => `${match.slice(5, -1)}()`);
-          config.from.push(/styledSlots\./g);
-          config.to.push("styledSlots().");
-        } else if (util === "tm") {
-          // include the import of the `util`
-          config.from.push('import { clsx } from "clsx";');
-          config.to.push('import { twMerge } from "tailwind-merge";');
+            break;
+          }
+          case "solid":
+          case "react": {
+            // remove props
+            config.from.push("{ theme }: { theme: Theme }");
+            config.to.push("");
 
-          // remove styledSlots
-          config.from.push(/const styledSlots =(\n|.)*?\);/g);
-          config.to.push("");
+            // rename export component
+            config.from.push("export const Basic");
+            config.to.push(`export const ${pascalCase(componentName)}`);
 
-          // replace class names with the appropriate `util`
-          config.from.push(/clsx\(/g);
-          config.to.push("twMerge(");
-        } else if (util === "clsx") {
-          // remove styledSlots
-          config.from.push(/const styledSlots =(\n|.)*?\);/g);
-          config.to.push("");
+            break;
+          }
         }
 
+        switch (util) {
+          case "tv": {
+            // include the import of the `util`
+            config.from.push('import { clsx } from "clsx";');
+            config.to.push('import { tv } from "tailwind-variants";');
+
+            // replace styledSlots with tv util
+            config.from.push(/getTheme\((\n|.)*?\);/g);
+            config.to.push(`tv({ slots: ${camelCase(componentName)}Styles });`);
+
+            // replace class names with the appropriate `util`
+            config.from.push(/clsx\(/g);
+            config.to.push((match: string) => `${match.slice(5, -1)}()`);
+            config.from.push(/styledSlots\./g);
+            config.to.push("styledSlots().");
+
+            break;
+          }
+          case "tm": {
+            // include the import of the `util`
+            config.from.push('import { clsx } from "clsx";');
+            config.to.push('import { twMerge } from "tailwind-merge";');
+
+            // remove styledSlots
+            config.from.push(/const styledSlots =(\n|.)*?\);/g);
+            config.to.push("");
+
+            // replace class names with the appropriate `util`
+            config.from.push(/clsx\(/g);
+            config.to.push("twMerge(");
+
+            break;
+          }
+
+          case "clsx": {
+            // remove styledSlots
+            config.from.push(/const styledSlots =(\n|.)*?\);/g);
+            config.to.push("");
+
+            break;
+          }
+        }
         // @ts-expect-error: overload issue with overriding `from` and `to` types
         replaceInFile(config);
       }
