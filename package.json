@@ -13,6 +13,7 @@
     "pkg:cli": "bun run --cwd pkgs/cli",
     "pkg:core": "bun run --cwd pkgs/core",
     "pkg:utils": "bun run --cwd pkgs/utils",
+    "scripts": "bun run --cwd scripts",
     "themes": "bun run --cwd themes",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf .turbo node_modules",

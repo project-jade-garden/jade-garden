@@ -3,6 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "build:themes": "bun run src/builds/themes.ts",
+    "generate:pkg-core": "bun run src/generators/pkg-core.ts",
     "clean": "rm -rf .turbo dist node_modules",
     "format": "biome format --write ./src",
     "typecheck": "tsc --noEmit"
