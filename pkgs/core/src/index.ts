@@ -1,7 +1,7 @@
 export {
-  type Slots,
-  createDocs,
-  createSlots
+  type Slots as AccordionSlots,
+  createDocs as createAccordionDocs,
+  createSlots as createAccordionSlots
 } from "./accordion.js";
 export {
   type Slots as AvatarSlots,
