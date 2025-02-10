@@ -21,12 +21,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/bun": "1.2.0",
+    "@types/bun": "1.2.2",
     "lefthook": "1.10.10",
     "turbo": "2.4.0"
   },
   "peerDependencies": {
     "typescript": "5.7.3"
   },
-  "packageManager": "bun@1.2.0"
+  "packageManager": "bun@1.2.2"
 }
