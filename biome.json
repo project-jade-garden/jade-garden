@@ -23,9 +23,6 @@
     "ignore": ["dist"],
     "rules": {
       "recommended": true,
-      "complexity": {
-        "noForEach": "off"
-      },
       "suspicious": {
         "noArrayIndexKey": "off",
         "noShadowRestrictedNames": "off"

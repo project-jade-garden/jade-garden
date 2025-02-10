@@ -1,15 +1,11 @@
-import type { PrintType, Slots } from "./types.js";
+export type PrintType = "anatomy" | "inform" | "styled";
+
+export type Slots = Record<string, string | string[]>;
 
 type Component = {
   name: string;
   description: string | string[];
 };
-
-type Args = Partial<{
-  component: Component;
-  slots: Slots;
-  source: string | Component[];
-}>;
 
 type SlotsEntries = [string, string | string[]][];
 
@@ -61,7 +57,14 @@ const docsStyledSlots = (slots: SlotsEntries) => {
   }, "")} * \`\`\`\n *\n`;
 };
 
-export const createDocs = (printOut: keyof typeof print, args: Args) => {
+export const createDocs = (
+  printOut: PrintType,
+  args: Partial<{
+    component: Component;
+    slots: Slots;
+    source: string | Component[];
+  }>
+) => {
   const { component, slots, source } = args;
 
   let docs = " *\n ";

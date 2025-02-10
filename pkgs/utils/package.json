@@ -1,8 +1,17 @@
 {
   "name": "@spark-css/utils",
-  "version": "0.5.1",
+  "version": "0.0.0",
   "description": "Utilities to construct slots for Spark CSS",
   "keywords": ["ark-ui", "tailwindcss", "spark-css", "utilities"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGS1130/spark-css.git",
+    "directory": "pkgs/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/AGS1130/spark-css/issues"
+  },
   "type": "module",
   "files": ["dist"],
   "main": "./dist/index.cjs",
@@ -20,61 +29,47 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./anatomy": {
-      "source": "./src/anatomy.ts",
+    "./*": {
+      "source": "./src/*.ts",
       "import": {
-        "types": "./dist/anatomy.d.ts",
-        "default": "./dist/anatomy.js"
+        "types": "./dist/*.d.ts",
+        "default": "./dist/*.js"
       },
       "require": {
-        "types": "./dist/anatomy.d.cts",
-        "default": "./dist/anatomy.cjs"
-      }
-    },
-    "./create-docs": {
-      "source": "./src/create-docs.ts",
-      "import": {
-        "types": "./dist/create-docs.d.ts",
-        "default": "./dist/create-docs.js"
-      },
-      "require": {
-        "types": "./dist/create-docs.d.cts",
-        "default": "./dist/create-docs.cjs"
-      }
-    },
-    "./create-slots": {
-      "source": "./src/create-slots.ts",
-      "import": {
-        "types": "./dist/create-slots.d.ts",
-        "default": "./dist/create-slots.js"
-      },
-      "require": {
-        "types": "./dist/create-slots.d.cts",
-        "default": "./dist/create-slots.cjs"
+        "types": "./dist/*.d.cts",
+        "default": "./dist/*.cjs"
       }
     }
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "scripts": {
     "build": "bun typecheck && vite build",
     "clean": "rm -rf .turbo dist node_modules",
-    "format": "biome format --write ./src ./tests",
-    "lint": "biome lint ./src ./tests",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
+    "release-it": "release-it --config ../../release-it.json",
     "typecheck": "tsc --noEmit"
   },
+  "clean-package": {
+    "remove": ["exports.\\..source", "exports.\\./*.source"]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
   "dependencies": {
     "@zag-js/anatomy": "0.82.1",
     "es-toolkit": "1.32.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@release-it/keep-a-changelog": "6.0.0",
     "clean-package": "2.2.0",
     "globby": "14.1.0",
+    "release-it": "18.1.2",
+    "typescript": "5.7.3",
     "vite": "6.1.0",
     "vite-plugin-dts": "4.5.0"
-  },
-  "clean-package": "../../clean-package.config.json"
+  }
 }

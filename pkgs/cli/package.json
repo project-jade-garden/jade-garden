@@ -1,16 +1,26 @@
 {
   "name": "@spark-css/cli",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Add Ark UI components and Spark CSS themes to your project.",
   "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGS1130/spark-css.git",
+    "directory": "pkgs/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/AGS1130/spark-css/issues"
+  },
   "bin": {
     "spark-css": "dist/index.js"
   },
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target node --minify",
+    "build": "bun build ./index.ts --outdir ./dist --target node --minify",
     "clean": "rm -rf .turbo dist node_modules",
-    "format": "biome format --write ./src",
-    "lint": "biome lint ./src",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "release-it": "release-it --config ../../release-it.json",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -20,9 +30,14 @@
     "package-manager-detector": "0.2.9",
     "picocolors": "1.1.1",
     "pkg-dir": "8.0.0",
-    "replace-in-file": "8.3.0"
+    "replace-in-file": "8.3.0",
+    "typescript": "5.7.3"
   },
   "devDependencies": {
-    "@types/degit": "2.8.6"
+    "@biomejs/biome": "1.9.4",
+    "@release-it/keep-a-changelog": "6.0.0",
+    "@types/degit": "2.8.6",
+    "release-it": "18.1.2",
+    "typescript": "5.7.3"
   }
 }

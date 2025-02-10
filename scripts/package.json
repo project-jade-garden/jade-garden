@@ -1,0 +1,17 @@
+{
+  "name": "@spark-css/scripts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo dist node_modules",
+    "format": "biome format --write ./src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "es-toolkit": "1.32.0"
+  },
+  "devDependencies": {
+    "@spark-css/utils": "workspace:*",
+    "typescript": "5.7.3"
+  }
+}

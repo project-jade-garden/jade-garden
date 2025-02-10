@@ -1,5 +1,9 @@
 import { camelCase, kebabCase, pascalCase, snakeCase } from "es-toolkit";
-import type { CSArgs } from "./types.js";
+
+export type CSArgs = {
+  caseConvention?: "camel" | "kebab" | "pascal" | "snake";
+  prefix?: string;
+};
 
 /**
  * String manipulation function that returns a string

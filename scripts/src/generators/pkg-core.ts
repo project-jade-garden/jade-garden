@@ -1,10 +1,14 @@
 import { readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { Anatomy } from "@spark-css/utils";
 import { camelCase, kebabCase, startCase } from "es-toolkit";
 
-const components = readdirSync(join(__dirname, "./src"));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const dir = join(__dirname, "..", "..", "..", "./pkgs/core");
+const components = readdirSync(join(dir, "./src"));
 /**
  * Static descriptions for generating JSDocs.
  * Taken from Ark UI docs.
@@ -74,7 +78,7 @@ const skipFiles = [
 const isComponentWithDescription = (c: string): c is keyof typeof descriptions => Object.keys(descriptions).includes(c);
 
 const generateSlotsForTests = async () => {
-  const outputPath = join(__dirname, "./tests");
+  const outputPath = join(dir, "./tests");
 
   const slots: Record<string, string[]> = {};
 
@@ -94,7 +98,7 @@ const generateSlotsForTests = async () => {
 };
 
 const generateSrcFiles = () => {
-  const outputPath = join(__dirname, "./src");
+  const outputPath = join(dir, "./src");
 
   for (const component of components) {
     const c = component.slice(0, -3); // Removes `.ts` file extension

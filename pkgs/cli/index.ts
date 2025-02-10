@@ -1,8 +1,8 @@
 import * as p from "@clack/prompts";
 import color from "picocolors";
-import { installDeps } from "./install-deps.js";
-import { prompts } from "./prompts.js";
-import { writeFiles } from "./write-files.js";
+import { installDeps } from "./src/install-deps.js";
+import { prompts } from "./src/prompts.js";
+import { writeFiles } from "./src/write-files.js";
 
 const main = async () => {
   console.clear();

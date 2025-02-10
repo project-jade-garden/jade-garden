@@ -1,6 +1,6 @@
 {
-  "extends": "../../tsconfig.build.json",
-  "include": ["src"],
+  "extends": "../../tsconfig.json",
+  "include": ["src", "index.ts"],
   "exclude": ["dist"],
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo"

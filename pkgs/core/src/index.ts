@@ -53,7 +53,11 @@ export {
   createDocs as createEditableDocs,
   createSlots as createEditableSlots
 } from "./editable.js";
-export { type Slots as FieldSlots, createDocs as createFieldDocs, createSlots as createFieldSlots } from "./field.js";
+export {
+  type Slots as FieldSlots,
+  createDocs as createFieldDocs,
+  createSlots as createFieldSlots
+} from "./field.js";
 export {
   type Slots as FieldsetSlots,
   createDocs as createFieldsetDocs,
@@ -135,7 +139,11 @@ export {
   createDocs as createSplitterDocs,
   createSlots as createSplitterSlots
 } from "./splitter.js";
-export { type Slots as StepsSlots, createDocs as createStepsDocs, createSlots as createStepsSlots } from "./steps.js";
+export {
+  type Slots as StepsSlots,
+  createDocs as createStepsDocs,
+  createSlots as createStepsSlots
+} from "./steps.js";
 export {
   type Slots as SwitchSlots,
   createDocs as createSwitchDocs,
@@ -147,8 +155,16 @@ export {
   createDocs as createTagsInputDocs,
   createSlots as createTagsInputSlots
 } from "./tags-input.js";
-export { type Slots as TimerSlots, createDocs as createTimerDocs, createSlots as createTimerSlots } from "./timer.js";
-export { type Slots as ToastSlots, createDocs as createToastDocs, createSlots as createToastSlots } from "./toast.js";
+export {
+  type Slots as TimerSlots,
+  createDocs as createTimerDocs,
+  createSlots as createTimerSlots
+} from "./timer.js";
+export {
+  type Slots as ToastSlots,
+  createDocs as createToastDocs,
+  createSlots as createToastSlots
+} from "./toast.js";
 export {
   type Slots as ToggleGroupSlots,
   createDocs as createToggleGroupDocs,

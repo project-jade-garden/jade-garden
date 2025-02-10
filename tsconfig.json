@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "customConditions": ["source"],
     "declaration": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
@@ -12,9 +14,12 @@
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
+    "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": false,
+    "noPropertyAccessFromIndexSignature": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

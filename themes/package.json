@@ -4,12 +4,11 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "build": "bun run build.ts",
-    "build:minimal": "tsc src/minimal/ts/*.ts --outDir src/minimal/js --module esnext --target esnext",
-    "build:park": "tsc src/park/ts/*.ts --outDir src/park/js --module esnext --target esnext",
-    "build:shadcn": "tsc src/shadcn/ts/*.ts --outDir src/shadcn/js --module esnext --target esnext",
+    "minimal": "tsc src/minimal/ts/*.ts --outDir src/minimal/js --module esnext --target esnext",
+    "park": "tsc src/park/ts/*.ts --outDir src/park/js --module esnext --target esnext",
+    "shadcn": "tsc src/shadcn/ts/*.ts --outDir src/shadcn/js --module esnext --target esnext",
     "clean": "rm -rf .turbo dist node_modules",
-    "format": "biome format --write ./src ./tests",
+    "format": "biome format --write .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -17,6 +16,7 @@
   },
   "devDependencies": {
     "tailwindcss": "3.4.16",
-    "tailwind-variants": "0.3.0"
+    "tailwind-variants": "0.3.0",
+    "typescript": "5.7.3"
   }
 }
