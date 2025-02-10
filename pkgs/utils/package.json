@@ -72,8 +72,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "globby": "14.0.2",
-    "vite": "6.0.11",
+    "globby": "14.1.0",
+    "vite": "6.1.0",
     "vite-plugin-dts": "4.5.0"
   },
   "clean-package": "../../clean-package.config.json"
