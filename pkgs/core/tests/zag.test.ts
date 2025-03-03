@@ -3,7 +3,7 @@ import type { Anatomy } from "@zag-js/anatomy";
 import { kebabCase } from "es-toolkit";
 import zagSlots from "./data/zag-slots.json";
 
-describe("@zag-js/anatomy@0.82.1", () => {
+describe("@zag-js/anatomy@1.2.1", () => {
   const components = Object.keys(zagSlots);
 
   test.each(components)("'%s' anatomy matches current version of @zag-js/anatomy", async (component) => {

@@ -30,14 +30,13 @@
     "package-manager-detector": "0.2.9",
     "picocolors": "1.1.1",
     "pkg-dir": "8.0.0",
-    "replace-in-file": "8.3.0",
-    "typescript": "5.7.3"
+    "replace-in-file": "8.3.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@release-it/keep-a-changelog": "6.0.0",
     "@types/degit": "2.8.6",
     "release-it": "18.1.2",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   }
 }
