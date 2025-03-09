@@ -5,7 +5,7 @@ export const Controlled = () => {
   const frameworks = ["React", "Solid", "Svelte", "Vue"];
   const [value, setValue] = createSignal("React");
   return (
-    <SegmentGroup.Root value={value()} onValueChange={(e) => setValue(e.value)}>
+    <SegmentGroup.Root value={value()} onValueChange={(e: { value: string | null }) => setValue(e.value ?? "")}>
       <SegmentGroup.Indicator />
       <Index each={frameworks}>
         {(framework) => (

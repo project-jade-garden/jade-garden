@@ -26,11 +26,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/bun": "1.2.2",
-    "lefthook": "1.10.10",
+    "@types/bun": "1.2.4",
+    "lefthook": "1.11.3",
     "typescript": "5.8.2",
-    "turbo": "2.4.0"
+    "turbo": "2.4.4"
   },
-  "packageManager": "bun@1.2.3",
+  "packageManager": "bun@1.2.4",
   "trustedDependencies": ["@biomejs/biome", "lefthook"]
 }

@@ -12,7 +12,7 @@ export const Autoplay = ({ theme }: { theme: Theme }) => {
   );
 
   return (
-    <Carousel.Root autoplay loop className={clsx(styledSlots.root)}>
+    <Carousel.Root slideCount={images.length} autoplay loop className={clsx(styledSlots.root)}>
       <Carousel.Control className={clsx(styledSlots.control)}>
         <Carousel.AutoplayTrigger className={clsx(styledSlots.autoplayTrigger)}>
           <Carousel.Context>{({ isPlaying }) => (isPlaying ? "Pause" : "Play")}</Carousel.Context>

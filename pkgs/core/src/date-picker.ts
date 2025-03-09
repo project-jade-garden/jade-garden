@@ -5,10 +5,7 @@ import {
   createDocs as utilDocs,
   createSlots as utilSlots
 } from "@spark-css/utils";
-// * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/date-picker/date-picker.anatomy.ts
-import { anatomy } from "@zag-js/date-picker";
-
-const datePickerAnatomy = anatomy.extendWith("view");
+import { anatomy as datePickerAnatomy } from "@zag-js/date-picker";
 
 const component = {
   name: "Date Picker",

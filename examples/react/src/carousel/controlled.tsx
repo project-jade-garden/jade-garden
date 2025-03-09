@@ -14,7 +14,12 @@ export const Controlled = ({ theme }: { theme: Theme }) => {
   const [page, setPage] = useState(0);
 
   return (
-    <Carousel.Root page={page} onPageChange={(e) => setPage(e.page)} className={clsx(styledSlots.root)}>
+    <Carousel.Root
+      slideCount={images.length}
+      page={page}
+      onPageChange={(e) => setPage(e.page)}
+      className={clsx(styledSlots.root)}
+    >
       <Carousel.Control className={clsx(styledSlots.control)}>
         <Carousel.PrevTrigger className={clsx(styledSlots.prevTrigger)}>Previous</Carousel.PrevTrigger>
         <Carousel.NextTrigger className={clsx(styledSlots.nextTrigger)}>Next</Carousel.NextTrigger>

@@ -65,7 +65,6 @@ const skipFiles = [
   // * https://github.com/search?q=repo%3Achakra-ui/ark%20path%3A.anatomy.ts&type=code
   "checkbox",
   "color-picker",
-  "date-picker",
   "field",
   "fieldset",
   "progress", // ! Should not be skipped, but has two different pages (see `source` variable)

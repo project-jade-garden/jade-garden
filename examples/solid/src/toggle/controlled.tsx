@@ -9,7 +9,7 @@ export const Controlled = ({ theme }: { theme: Theme }) => {
   const [pressed, setPressed] = createSignal(false);
   return (
     <div>
-      <Toggle.Root pressed={pressed} onPressedChange={setPressed}>
+      <Toggle.Root pressed={pressed()} onPressedChange={setPressed}>
         <Show when={pressed()} fallback={<VolumeOff />}>
           <Volume />
         </Show>

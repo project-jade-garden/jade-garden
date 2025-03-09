@@ -11,7 +11,7 @@ export const Basic = ({ theme }: { theme: Theme }) => {
   const images = ["https://tinyurl.com/5b6ka8jd", "https://tinyurl.com/7rmccdn5", "https://tinyurl.com/59jxz9uu"];
 
   return (
-    <Carousel.Root className={clsx(styledSlots.root)}>
+    <Carousel.Root defaultPage={0} slideCount={images.length} className={clsx(styledSlots.root)}>
       <Carousel.Control className={clsx(styledSlots.control)}>
         <Carousel.PrevTrigger className={clsx(styledSlots.prevTrigger)}>Previous</Carousel.PrevTrigger>
         <Carousel.NextTrigger className={clsx(styledSlots.nextTrigger)}>Next</Carousel.NextTrigger>

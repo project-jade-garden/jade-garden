@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { Carousel } from "@ark-ui/vue/carousel";
 
-const images = Array.from(
-  { length: 5 },
-  (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`
-);
+const images = Array.from({ length: 5 }, (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`);
 </script>
 
 <template>
-  <Carousel.Root autoplay loop>
+  <Carousel.Root :slide-count="images.length" autoplay loop>
     <Carousel.Control>
       <Carousel.AutoplayTrigger>
         <Carousel.Context v-slot="context">

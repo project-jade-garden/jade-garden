@@ -17,7 +17,7 @@ export const Controlled = ({ theme }: { theme: Theme }) => {
   const [value, setValue] = useState("React");
 
   return (
-    <SegmentGroup.Root value={value} onValueChange={(e) => setValue(e.value)}>
+    <SegmentGroup.Root value={value} onValueChange={(e) => setValue(e.value ?? "")}>
       <SegmentGroup.Indicator />
       {frameworks.map((framework) => (
         <SegmentGroup.Item key={framework} value={framework}>

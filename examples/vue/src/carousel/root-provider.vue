@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { Carousel, useCarousel } from "@ark-ui/vue/carousel";
 
-const images = Array.from(
-  { length: 5 },
-  (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`
-);
+const images = Array.from({ length: 5 }, (_, i) => `https://picsum.photos/seed/${i + 1}/500/300`);
 
-const carousel = useCarousel();
+const carousel = useCarousel({ slideCount: images.length });
 </script>
 
 <template>

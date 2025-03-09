@@ -9,7 +9,7 @@ export const RootProvider = ({ theme }: { theme: Theme }) => {
     theme
   );
   const images = ["https://tinyurl.com/5b6ka8jd", "https://tinyurl.com/7rmccdn5", "https://tinyurl.com/59jxz9uu"];
-  const carousel = useCarousel();
+  const carousel = useCarousel({ slideCount: images.length });
 
   return (
     <>
