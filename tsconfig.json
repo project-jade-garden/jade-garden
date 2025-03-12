@@ -12,8 +12,8 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "es2022"],
+    "module": "es2022",
     "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmit": true,
@@ -25,7 +25,7 @@
     "strict": true,
     "strictNullChecks": true,
     "stripInternal": true,
-    "target": "esnext",
+    "target": "es2022",
     "verbatimModuleSyntax": true
   }
 }

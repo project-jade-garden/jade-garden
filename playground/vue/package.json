@@ -1,0 +1,31 @@
+{
+  "name": "@tbd/playground-vue",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "biome lint ./src",
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@ark-ui/vue": "5.0.2",
+    "lucide-vue-next": "0.479.0",
+    "vue": "3.5.13",
+    "vue-tsc": "2.2.8"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "8.6.4",
+    "@storybook/addon-essentials": "8.6.4",
+    "@storybook/addon-themes": "8.6.4",
+    "@storybook/test": "8.6.4",
+    "@storybook/vue3": "8.6.4",
+    "@storybook/vue3-vite": "8.6.4",
+    "@tailwindcss/vite": "4.0.12",
+    "@vitejs/plugin-vue": "5.2.1",
+    "storybook": "8.6.4",
+    "tailwindcss": "4.0.12",
+    "typescript": "5.8.2",
+    "vite": "6.2.1"
+  }
+}

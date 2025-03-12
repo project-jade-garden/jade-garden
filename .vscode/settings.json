@@ -6,13 +6,12 @@
   },
   "files.exclude": {
     "**/.turbo": true,
-    "**/dist": false,
-    "**/node_modules": true
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/tsconfig.tsbuildinfo": true
   },
-  "tailwindCSS.experimental.classRegex": [
-    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-  "tailwindCSS.lint.cssConflict": "ignore", // Causes unnecessary warnings in JSDoc comments
+  // https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
+  "tailwindCSS.experimental.classRegex": [["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]],
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },

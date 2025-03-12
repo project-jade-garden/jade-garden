@@ -1,19 +1,19 @@
 {
-  "name": "@spark-css/scripts",
+  "name": "@tbd/scripts",
   "type": "module",
   "private": true,
   "scripts": {
-    "build:themes": "bun run src/builds/themes.ts",
-    "generate:pkg-core": "bun run src/generators/pkg-core.ts",
+    "create": "bun run src/create.ts",
+    "setup": "bun run src/setup.ts",
     "clean": "rm -rf .turbo dist node_modules",
-    "format": "biome format --write ./src",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "es-toolkit": "1.32.0"
-  },
   "devDependencies": {
-    "@spark-css/utils": "workspace:*",
+    "@biomejs/biome": "1.9.4",
+    "es-toolkit": "1.32.0",
+    "globby": "14.1.0",
     "typescript": "5.8.2"
   }
 }
