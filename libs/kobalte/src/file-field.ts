@@ -31,4 +31,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **File Field**
+ * @description A file input to upload multiple files, with ability to drag and drop files.
+ * @see [source](https://kobalte.dev/docs/core/components/file-field#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

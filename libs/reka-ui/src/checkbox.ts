@@ -15,4 +15,9 @@ export const slots = ["groupRoot", "root", "indicator"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Checkbox**
+ * @description A control that allows the user to toggle between checked and not checked.
+ * @see [source](https://reka-ui.com/docs/components/checkbox#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

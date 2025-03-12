@@ -32,4 +32,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Menu**
+ * @description A list of actions in a dropdown, enhanced with keyboard navigation.
+ * @see [source](https://base-ui.com/react/components/menu#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

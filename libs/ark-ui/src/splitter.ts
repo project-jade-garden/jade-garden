@@ -15,4 +15,9 @@ export const slots = ["root", "panel", "resizeTrigger"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Splitter**
+ * @description A component that divides your interface into resizable sections.
+ * @see [source](https://ark-ui.com/vue/docs/components/splitter#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

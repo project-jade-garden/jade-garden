@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Separator**
+ * @description Visually or semantically separates content.
+ * @see [source](https://reka-ui.com/docs/components/separator#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["control", "description", "errorMessage", "input", "label"
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Switch**
+ * @description A control that allows users to choose one of two values: on or off.
+ * @see [source](https://kobalte.dev/docs/core/components/switch#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

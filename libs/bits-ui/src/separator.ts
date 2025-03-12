@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Separator**
+ * @description Visually separates content or UI elements for clarity and organization.
+ * @see [source](https://www.bits-ui.com/docs/components/separator#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

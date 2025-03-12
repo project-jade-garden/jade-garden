@@ -15,4 +15,9 @@ export const slots = ["root", "item", "itemTrigger", "itemContent", "itemIndicat
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Accordion**
+ * @description A collapsible component for displaying content in a vertical stack.
+ * @see [source](https://ark-ui.com/vue/docs/components/accordion#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

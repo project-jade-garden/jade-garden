@@ -24,4 +24,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Color Channel Field**
+ * @description A number input that allow users to edit individual color channel value.
+ * @see [source](https://kobalte.dev/docs/core/components/color-channel-field#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

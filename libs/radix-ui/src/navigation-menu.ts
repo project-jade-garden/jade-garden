@@ -15,4 +15,9 @@ export const slots = ["content", "indicator", "item", "link", "list", "root", "s
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Navigation Menu**
+ * @description A collection of links for navigating websites.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/navigation-menu#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

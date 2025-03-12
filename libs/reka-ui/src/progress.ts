@@ -15,4 +15,9 @@ export const slots = ["root", "indicator"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Popover**
+ * @description Displays rich content in a portal, triggered by a button.
+ * @see [source](https://reka-ui.com/docs/components/popover#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

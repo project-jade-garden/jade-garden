@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle Group**
+ * @description Provides a shared state to a series of toggle buttons.
+ * @see [source](https://base-ui.com/react/components/toggle-group#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

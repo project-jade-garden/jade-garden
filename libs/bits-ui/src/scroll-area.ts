@@ -15,4 +15,9 @@ export const slots = ["root", "viewport", "scrollbar", "thumb", "corner"] as con
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Scroll Area**
+ * @description Provides a consistent scroll area across platforms.
+ * @see [source](https://www.bits-ui.com/docs/components/scroll-area#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

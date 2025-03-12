@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Meter**
+ * @description Display real-time measurements within a defined range.
+ * @see [source](https://www.bits-ui.com/docs/components/#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

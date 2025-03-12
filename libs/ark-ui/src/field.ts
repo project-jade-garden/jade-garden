@@ -7,11 +7,11 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
  */
 export const slots = [
-  "label",
-  "input",
   "root",
   "errorText",
   "helperText",
+  "input",
+  "label",
   "select",
   "textarea",
   "requiredIndicator"
@@ -24,4 +24,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Field**
+ * @description Provides a flexible container for form inputs, labels, and helper text.
+ * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

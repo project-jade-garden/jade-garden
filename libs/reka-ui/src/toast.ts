@@ -15,4 +15,9 @@ export const slots = ["provider", "root", "portal", "action", "close", "viewport
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toast**
+ * @description A succinct message that is displayed temporarily.
+ * @see [source](https://reka-ui.com/docs/components/toast#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

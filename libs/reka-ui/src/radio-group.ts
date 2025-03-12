@@ -15,4 +15,9 @@ export const slots = ["root", "item", "indicator"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Radio Group**
+ * @description A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+ * @see [source](https://reka-ui.com/docs/components/radio-group#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

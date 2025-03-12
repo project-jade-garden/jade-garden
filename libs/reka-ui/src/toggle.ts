@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle**
+ * @description A two-state button that can be either on or off.
+ * @see [source](https://reka-ui.com/docs/components/toggle#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

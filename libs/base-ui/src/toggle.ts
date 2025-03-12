@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle**
+ * @description A two-state button that can be on or off.
+ * @see [source](https://base-ui.com/react/components/toggle#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

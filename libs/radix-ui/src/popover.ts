@@ -15,4 +15,9 @@ export const slots = ["anchor", "arrow", "close", "content", "root", "trigger"] 
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Popover**
+ * @description Displays rich content in a portal, triggered by a button.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/popover#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

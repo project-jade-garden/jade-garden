@@ -15,4 +15,9 @@ export const slots = ["root", "content", "trigger"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Collapsible**
+ * @description Conceals or reveals content sections, enhancing space utilization and organization.
+ * @see [source](https://www.bits-ui.com/docs/components/collapsible#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

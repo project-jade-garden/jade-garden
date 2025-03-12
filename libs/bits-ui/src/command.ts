@@ -28,4 +28,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Command**
+ * @description A command menu component that can be used to search, filter, and select items.
+ * @see [source](https://www.bits-ui.com/docs/components/command#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

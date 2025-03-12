@@ -15,4 +15,9 @@ export const slots = ["input", "root"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Time Field**
+ * @description Enables users to input specific times within a designated field.
+ * @see [source](https://reka-ui.com/docs/components/time-field#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

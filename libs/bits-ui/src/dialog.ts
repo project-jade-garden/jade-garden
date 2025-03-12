@@ -15,4 +15,9 @@ export const slots = ["root", "title", "close", "content", "overlay", "trigger",
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Dialog**
+ * @description A modal window presenting content or seeking user input without navigating away from the current context.
+ * @see [source](https://www.bits-ui.com/docs/components/dialog#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

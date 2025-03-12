@@ -15,4 +15,9 @@ export const slots = ["root", "image", "fallback"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Avatar**
+ * @description Represents a user or entity with a recognizable image or placeholder in UI elements.
+ * @see [source](https://www.bits-ui.com/docs/components/avatar#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

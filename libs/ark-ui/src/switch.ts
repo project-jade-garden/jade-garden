@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description A control element that allows for a binary selection.
  * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
  */
-export const slots = ["root", "control", "label", "thumb"] as const;
+export const slots = ["root", "label", "control", "thumb"] as const;
 
 /**
  * **Switch**
@@ -15,4 +15,9 @@ export const slots = ["root", "control", "label", "thumb"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Switch**
+ * @description A control element that allows for a binary selection.
+ * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

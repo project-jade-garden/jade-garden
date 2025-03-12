@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Aspect Ratio**
+ * @description Displays content while maintaining a specified aspect ratio, ensuring consistent visual proportions.
+ * @see [source](https://www.bits-ui.com/docs/components/aspect-ratio#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["backdrop", "close", "description", "popup", "root", "titl
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Alert Dialog**
+ * @description A dialog that requires user response to proceed.
+ * @see [source](https://base-ui.com/react/components/alert-dialog#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

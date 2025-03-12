@@ -7,16 +7,16 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
  */
 export const slots = [
-  "content",
-  "trigger",
-  "positioner",
-  "title",
-  "description",
-  "closeTrigger",
-  "indicator",
   "arrow",
   "arrowTip",
-  "anchor"
+  "anchor",
+  "trigger",
+  "indicator",
+  "positioner",
+  "content",
+  "title",
+  "description",
+  "closeTrigger"
 ] as const;
 
 /**
@@ -26,4 +26,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Popover**
+ * @description An overlay that displays additional information or options when triggered.
+ * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

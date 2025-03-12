@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Radio Group**
+ * @description An easily stylable radio button component.
+ * @see [source](https://base-ui.com/react/components/radio#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

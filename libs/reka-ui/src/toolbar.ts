@@ -15,4 +15,9 @@ export const slots = ["root", "button", "link", "toggleGroup", "toggleItem", "se
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toolbar**
+ * @description A container for grouping a set of controls, such as buttons, Toolbar groups or dropdown menus.
+ * @see [source](https://reka-ui.com/docs/components/toolbar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

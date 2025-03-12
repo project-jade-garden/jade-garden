@@ -15,4 +15,9 @@ export const slots = ["root", "group", "groupLabel"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Checkbox**
+ * @description Allow users to switch between checked, unchecked, and indeterminate states.
+ * @see [source](https://www.bits-ui.com/docs/components/checkbox#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

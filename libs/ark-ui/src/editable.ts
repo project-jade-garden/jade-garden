@@ -7,11 +7,11 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
  */
 export const slots = [
-  "label",
-  "input",
-  "area",
   "root",
+  "area",
+  "label",
   "preview",
+  "input",
   "editTrigger",
   "submitTrigger",
   "cancelTrigger",
@@ -25,4 +25,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Editable**
+ * @description A component that allows users to edit text in place.
+ * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

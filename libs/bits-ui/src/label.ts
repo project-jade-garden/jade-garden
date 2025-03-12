@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Label**
+ * @description Identifies or describes associated UI elements.
+ * @see [source](https://www.bits-ui.com/docs/components/label#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

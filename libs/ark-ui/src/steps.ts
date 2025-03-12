@@ -8,12 +8,12 @@ import type { ClassValue } from "tailwind-variants";
  */
 export const slots = [
   "root",
-  "content",
-  "item",
-  "indicator",
-  "trigger",
   "list",
+  "item",
+  "trigger",
+  "indicator",
   "separator",
+  "content",
   "nextTrigger",
   "prevTrigger",
   "progress"
@@ -26,4 +26,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Steps**
+ * @description Used to guide users through a series of steps in a process.
+ * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

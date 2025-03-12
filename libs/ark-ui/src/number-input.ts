@@ -7,10 +7,10 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
  */
 export const slots = [
-  "control",
   "root",
-  "input",
   "label",
+  "input",
+  "control",
   "valueText",
   "incrementTrigger",
   "decrementTrigger",
@@ -24,4 +24,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Number Input**
+ * @description A field that allows user input of numeric values.
+ * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

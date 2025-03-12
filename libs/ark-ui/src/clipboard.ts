@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description A component to copy text to the clipboard.
  * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
  */
-export const slots = ["trigger", "control", "root", "input", "label", "indicator"] as const;
+export const slots = ["root", "control", "trigger", "indicator", "input", "label"] as const;
 
 /**
  * **Clipboard**
@@ -15,4 +15,9 @@ export const slots = ["trigger", "control", "root", "input", "label", "indicator
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Clipboard**
+ * @description A component to copy text to the clipboard.
+ * @see [source](https://ark-ui.com/vue/docs/components/clipboard#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["indicator", "root"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Checkbox**
+ * @description An easily stylable checkbox component.
+ * @see [source](https://base-ui.com/react/components/checkbox#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

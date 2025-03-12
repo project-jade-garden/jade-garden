@@ -15,4 +15,9 @@ export const slots = ["root", "viewport", "scrollbar", "thumb", "corner"] as con
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Scroll Area**
+ * @description Augments native scroll functionality for custom, cross-browser styling.
+ * @see [source](https://reka-ui.com/docs/components/scroll-area#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

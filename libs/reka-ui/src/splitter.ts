@@ -15,4 +15,9 @@ export const slots = ["group", "panel", "resizeHandle"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Splitter**
+ * @description A component that divides your layout into resizable sections.
+ * @see [source](https://reka-ui.com/docs/components/splitter#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

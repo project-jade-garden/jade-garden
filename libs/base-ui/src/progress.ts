@@ -15,4 +15,9 @@ export const slots = ["indicator", "root", "track", "value"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Progress**
+ * @description Displays the status of a task that takes a long time.
+ * @see [source](https://base-ui.com/react/components/progress#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

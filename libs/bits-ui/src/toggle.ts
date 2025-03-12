@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle**
+ * @description A control element that switches between two states, providing a binary choice.
+ * @see [source](https://www.bits-ui.com/docs/components/toggle#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

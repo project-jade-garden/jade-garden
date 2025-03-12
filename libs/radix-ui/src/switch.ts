@@ -15,4 +15,9 @@ export const slots = ["root", "thumb"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Switch**
+ * @description A control that allows the user to toggle between checked and not checked.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/switch#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

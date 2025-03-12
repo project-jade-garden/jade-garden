@@ -15,4 +15,9 @@ export const slots = ["fallback", "image", "root"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Avatar**
+ * @description An easily stylable avatar component.
+ * @see [source](https://base-ui.com/react/components/avatar#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

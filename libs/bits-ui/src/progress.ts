@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Progress**
+ * @description Visualizes the progress or completion status of a task or process.
+ * @see [source](https://www.bits-ui.com/docs/components/progress#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Label**
+ * @description Renders an accessible label associated with controls.
+ * @see [source](https://reka-ui.com/docs/components/label#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

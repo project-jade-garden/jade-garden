@@ -15,4 +15,9 @@ export const slots = ["fill", "label", "track", "valueLabel"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Progress**
+ * @description Show either determinate or indeterminate progress of an operation over time.
+ * @see [source](https://kobalte.dev/docs/core/components/progress#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

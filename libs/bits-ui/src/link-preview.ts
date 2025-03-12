@@ -15,4 +15,9 @@ export const slots = ["arrow", "root", "content", "trigger", "contentStatic"] as
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Link Preview**
+ * @description Displays a summarized preview of a linked content's details or information.
+ * @see [source](https://www.bits-ui.com/docs/components/link-preview#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

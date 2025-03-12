@@ -32,4 +32,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Dropdown Menu**
+ * @description Displays a menu to the user—such as a set of actions or functions—triggered by a button.
+ * @see [source](https://reka-ui.com/docs/components/dropdown-menu#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

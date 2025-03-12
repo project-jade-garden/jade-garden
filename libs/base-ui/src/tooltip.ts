@@ -15,4 +15,9 @@ export const slots = ["arrow", "popup", "positioner", "provider", "root", "trigg
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tooltip**
+ * @description A popup that appears when an element is hovered or focused, showing a hint for sighted users.
+ * @see [source](https://base-ui.com/react/components/tooltip#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

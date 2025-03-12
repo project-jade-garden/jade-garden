@@ -8,17 +8,17 @@ import type { ClassValue } from "tailwind-variants";
  */
 export const slots = [
   "root",
-  "trigger",
-  "label",
-  "item",
-  "itemGroup",
-  "clearTrigger",
   "dropzone",
+  "item",
   "itemDeleteTrigger",
+  "itemGroup",
   "itemName",
   "itemPreview",
   "itemPreviewImage",
-  "itemSizeText"
+  "itemSizeText",
+  "label",
+  "trigger",
+  "clearTrigger"
 ] as const;
 
 /**
@@ -28,4 +28,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **File Upload**
+ * @description A component that is used to upload multiple files.
+ * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

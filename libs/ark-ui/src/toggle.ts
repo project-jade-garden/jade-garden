@@ -15,4 +15,9 @@ export const slots = ["root", "indicator"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle**
+ * @description A two-state button that can be toggled on or off.
+ * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

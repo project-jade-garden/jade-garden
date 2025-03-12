@@ -34,4 +34,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Context Menu**
+ * @description Displays a menu located at the pointer, triggered by a right-click or a long-press.
+ * @see [source](https://kobalte.dev/docs/core/components/context-menu#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

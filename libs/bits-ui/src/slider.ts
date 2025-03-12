@@ -15,4 +15,9 @@ export const slots = ["root", "range", "thumb", "tick"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Slider**
+ * @description Allows users to select a value from a continuous range by sliding a handle.
+ * @see [source](https://www.bits-ui.com/docs/components/slider#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

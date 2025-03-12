@@ -24,4 +24,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Color Area**
+ * @description Allows users to adjust two channels of an RGB, HSL, or HSB color value against a two-dimensional gradient background.
+ * @see [source](https://kobalte.dev/docs/core/components/color-area#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

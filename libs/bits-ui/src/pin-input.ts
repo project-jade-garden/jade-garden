@@ -15,4 +15,9 @@ export const slots = ["root", "cell"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Pin Input**
+ * @description Allows users to input a sequence of one-character alphanumeric inputs.
+ * @see [source](https://www.bits-ui.com/docs/components/pin-input#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

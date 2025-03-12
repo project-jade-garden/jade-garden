@@ -9,11 +9,11 @@ import type { ClassValue } from "tailwind-variants";
 export const slots = [
   "root",
   "label",
-  "control",
-  "valueText",
   "thumb",
+  "valueText",
   "track",
   "range",
+  "control",
   "markerGroup",
   "marker",
   "draggingIndicator"
@@ -26,4 +26,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Slider**
+ * @description A control element that allows for a range of selections.
+ * @see [source](https://ark-ui.com/vue/docs/components/slider#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

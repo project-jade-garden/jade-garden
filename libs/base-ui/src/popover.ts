@@ -25,4 +25,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Popover**
+ * @description An accessible popup anchored to a button.
+ * @see [source](https://base-ui.com/react/components/popover#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

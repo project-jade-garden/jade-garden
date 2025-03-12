@@ -15,4 +15,9 @@ export const slots = ["corner", "root", "scrollbar", "thumb", "viewport"] as con
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Scroll Area**
+ * @description Augments native scroll functionality for custom, cross-browser styling.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/scroll-area#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

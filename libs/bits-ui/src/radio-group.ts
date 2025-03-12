@@ -15,4 +15,9 @@ export const slots = ["root", "item"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Radio Group**
+ * @description Allows users to select a single option from a list of mutually exclusive choices.
+ * @see [source](https://www.bits-ui.com/docs/components/radio-group#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

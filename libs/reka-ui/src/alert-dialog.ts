@@ -25,4 +25,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Alert Dialog**
+ * @description A modal dialog that interrupts the user with important content and expects a response.
+ * @see [source](https://reka-ui.com/docs/components/alert-dialog#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

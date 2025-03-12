@@ -15,4 +15,9 @@ export const slots = ["header", "item", "panel", "root", "trigger"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Accordion**
+ * @description A set of collapsible panels with headings.
+ * @see [source](https://base-ui.com/react/components/accordion#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

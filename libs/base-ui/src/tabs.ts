@@ -15,4 +15,9 @@ export const slots = ["indicator", "list", "panel", "root", "tab"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tabs**
+ * @description A component for toggling between related panels on the same page.
+ * @see [source](https://base-ui.com/react/components/tabs#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

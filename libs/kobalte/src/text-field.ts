@@ -15,4 +15,9 @@ export const slots = ["description", "errorMessage", "input", "label", "textArea
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Text Field**
+ * @description A text input that allow users to input custom text entries with a keyboard.
+ * @see [source](https://kobalte.dev/docs/core/components/text-field#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

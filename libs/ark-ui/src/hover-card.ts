@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description A card that appears when a user hovers over an element.
  * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
  */
-export const slots = ["trigger", "content", "positioner", "arrow", "arrowTip"] as const;
+export const slots = ["arrow", "arrowTip", "trigger", "positioner", "content"] as const;
 
 /**
  * **Hover Card**
@@ -15,4 +15,9 @@ export const slots = ["trigger", "content", "positioner", "arrow", "arrowTip"] a
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Hover Card**
+ * @description A card that appears when a user hovers over an element.
+ * @see [source](https://ark-ui.com/vue/docs/components/hover-card#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

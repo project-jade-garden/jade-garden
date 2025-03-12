@@ -15,4 +15,9 @@ export const slots = ["root", "item"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle Group**
+ * @description Groups multiple toggle controls, allowing users to enable one or multiple options.
+ * @see [source](https://www.bits-ui.com/docs/components/toggle-group#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["root", "item", "header", "trigger", "content"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Accordion**
+ * @description Organizes content into collapsible sections, allowing users to focus on one or more sections at a time.
+ * @see [source](https://www.bits-ui.com/docs/components/accordion#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

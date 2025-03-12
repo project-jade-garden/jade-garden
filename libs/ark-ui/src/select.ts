@@ -7,21 +7,21 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
  */
 export const slots = [
-  "root",
   "label",
-  "item",
-  "indicator",
-  "itemText",
-  "content",
-  "trigger",
   "positioner",
-  "valueText",
-  "control",
-  "list",
+  "trigger",
+  "indicator",
   "clearTrigger",
+  "item",
+  "itemText",
   "itemIndicator",
   "itemGroup",
-  "itemGroupLabel"
+  "itemGroupLabel",
+  "list",
+  "content",
+  "root",
+  "control",
+  "valueText"
 ] as const;
 
 /**
@@ -31,4 +31,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Select**
+ * @description Displays a list of options for the user to pick from.
+ * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

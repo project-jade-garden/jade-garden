@@ -28,4 +28,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Calendar**
+ * @description Displays dates and days of the week, facilitating date-related interactions.
+ * @see [source](https://reka-ui.com/docs/components/calendar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

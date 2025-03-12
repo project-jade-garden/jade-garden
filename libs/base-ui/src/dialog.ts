@@ -15,4 +15,9 @@ export const slots = ["backdrop", "close", "description", "popup", "root", "titl
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Dialog**
+ * @descriptionA popup that opens on top of the entire page.
+ * @see [source](https://base-ui.com/react/components/dialog#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

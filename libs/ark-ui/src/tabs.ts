@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description Flexible navigation tool with various modes and features.
  * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
  */
-export const slots = ["root", "content", "indicator", "trigger", "list"] as const;
+export const slots = ["root", "list", "trigger", "content", "indicator"] as const;
 
 /**
  * **Tabs**
@@ -15,4 +15,9 @@ export const slots = ["root", "content", "indicator", "trigger", "list"] as cons
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tabs**
+ * @description Flexible navigation tool with various modes and features.
+ * @see [source](https://ark-ui.com/vue/docs/components/tabs#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

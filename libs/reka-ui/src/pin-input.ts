@@ -15,4 +15,9 @@ export const slots = ["root", "input"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Pin Input**
+ * @description A sequence of one-character alphanumeric inputs.
+ * @see [source](https://reka-ui.com/docs/components/pin-input#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

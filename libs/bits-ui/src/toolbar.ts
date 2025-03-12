@@ -15,4 +15,9 @@ export const slots = ["root", "button", "link", "group", "groupItem"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toolbar**
+ * @description Displays frequently used actions or tools in a compact, easily accessible bar.
+ * @see [source](https://www.bits-ui.com/docs/components/toolbar#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

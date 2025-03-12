@@ -29,4 +29,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Combobox**
+ * @description Enables users to pick from a list of options displayed in a dropdown.
+ * @see [source](https://www.bits-ui.com/docs/components/combobox#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

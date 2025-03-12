@@ -15,4 +15,9 @@ export const slots = ["root", "anchor", "arrow", "closeButton", "content", "desc
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Popover**
+ * @description A popover positioned relative to an anchor element.
+ * @see [source](https://kobalte.dev/docs/core/components/popover#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -36,4 +36,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Navigation Menu**
+ * @description A collection of links for navigating websites.
+ * @see [source](https://kobalte.dev/docs/core/components/navigation-menu#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

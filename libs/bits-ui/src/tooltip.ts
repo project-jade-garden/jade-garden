@@ -15,4 +15,9 @@ export const slots = ["root", "content", "contentStatic", "trigger", "arrow", "p
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tooltip**
+ * @description Provides additional information or context when users hover over or interact with an element.
+ * @see [source](https://www.bits-ui.com/docs/components/tooltip#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

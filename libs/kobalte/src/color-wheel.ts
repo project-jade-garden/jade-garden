@@ -15,4 +15,9 @@ export const slots = ["root", "description", "errorMessage", "input", "label", "
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Color Wheel**
+ * @description Allows users to adjust the hue of an HSL or HSB color value on a circular track.
+ * @see [source](https://kobalte.dev/docs/core/components/color-wheel#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

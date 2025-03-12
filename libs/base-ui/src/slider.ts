@@ -15,4 +15,9 @@ export const slots = ["control", "indicator", "root", "thumb", "track", "value"]
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Slider**
+ * @description An easily stylable range input.
+ * @see [source](https://base-ui.com/react/components/slider#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

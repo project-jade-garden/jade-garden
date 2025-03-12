@@ -28,4 +28,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Range Calendar**
+ * @description Presents a calendar view tailored for selecting date ranges.
+ * @see [source](https://www.bits-ui.com/docs/components/range-calendar#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

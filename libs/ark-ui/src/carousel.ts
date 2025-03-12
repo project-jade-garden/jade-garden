@@ -8,13 +8,13 @@ import type { ClassValue } from "tailwind-variants";
  */
 export const slots = [
   "root",
-  "control",
-  "indicator",
-  "item",
   "itemGroup",
+  "item",
+  "control",
   "nextTrigger",
   "prevTrigger",
   "indicatorGroup",
+  "indicator",
   "autoplayTrigger"
 ] as const;
 
@@ -25,4 +25,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Carousel**
+ * @description A slideshow component that cycles through elements.
+ * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

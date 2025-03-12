@@ -32,4 +32,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Context Menu**
+ * @description Displays options or actions relevant to a specific context or selected item, triggered by a right-click.
+ * @see [source](https://www.bits-ui.com/docs/components/context-menu#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

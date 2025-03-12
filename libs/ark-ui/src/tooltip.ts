@@ -15,4 +15,9 @@ export const slots = ["trigger", "arrow", "arrowTip", "positioner", "content"] a
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tooltip**
+ * @description A label that provides information on hover or focus.
+ * @see [source](https://ark-ui.com/vue/docs/components/tooltip#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

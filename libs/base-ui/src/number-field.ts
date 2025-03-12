@@ -15,4 +15,9 @@ export const slots = ["decrement", "group", "increment", "input", "root", "scrub
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Number Field**
+ * @description A numeric input element with increment and decrement buttons, and a scrub area.
+ * @see [source](https://base-ui.com/react/components/number-field#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

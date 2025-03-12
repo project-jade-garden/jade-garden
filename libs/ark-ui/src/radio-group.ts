@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description Allows single selection from multiple options.
  * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
  */
-export const slots = ["root", "indicator", "label", "item", "itemText", "itemControl"] as const;
+export const slots = ["root", "label", "item", "itemText", "itemControl", "indicator"] as const;
 
 /**
  * **Radio Group**
@@ -15,4 +15,9 @@ export const slots = ["root", "indicator", "label", "item", "itemText", "itemCon
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Radio Group**
+ * @description Allows single selection from multiple options.
+ * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

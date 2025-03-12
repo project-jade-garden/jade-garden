@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description A component that allows users to draw a signature using a signature pad.
  * @see [source](https://ark-ui.com/vue/docs/components/signature-pad#anatomy)
  */
-export const slots = ["root", "label", "control", "clearTrigger", "segment", "segmentPath", "guide"] as const;
+export const slots = ["root", "control", "segment", "segmentPath", "guide", "clearTrigger", "label"] as const;
 
 /**
  * **Signature Pad**
@@ -15,4 +15,9 @@ export const slots = ["root", "label", "control", "clearTrigger", "segment", "se
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Signature Pad**
+ * @description A component that allows users to draw a signature using a signature pad.
+ * @see [source](https://ark-ui.com/vue/docs/components/signature-pad#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

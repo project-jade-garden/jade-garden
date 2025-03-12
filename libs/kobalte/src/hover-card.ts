@@ -15,4 +15,9 @@ export const slots = ["root", "arrow", "content", "trigger"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Hover Card**
+ * @description Allows sighted users to preview content available behind a link.
+ * @see [source](https://kobalte.dev/docs/core/components/hover-card#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

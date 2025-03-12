@@ -10,10 +10,10 @@ import type { ClassValue } from "tailwind-variants";
 export const slots = [
   "root",
   "label",
-  "valueText",
-  "view",
   "track",
   "range",
+  "valueText",
+  "view",
   "circle",
   "circleTrack",
   "circleRange"
@@ -27,4 +27,10 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Progress**
+ * @description An element that shows either determinate or indeterminate progress.
+ * @see [circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
+ * @see [linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

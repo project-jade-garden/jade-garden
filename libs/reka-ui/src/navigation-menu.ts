@@ -15,4 +15,9 @@ export const slots = ["root", "content", "indicator", "item", "link", "list", "s
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Navigation Menu**
+ * @description A collection of links for navigating websites.
+ * @see [source](https://reka-ui.com/docs/components/navigation-menu#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["root", "fallback", "image"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Avatar**
+ * @description An image element with a fallback for representing the user.
+ * @see [source](https://reka-ui.com/docs/components/avatar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

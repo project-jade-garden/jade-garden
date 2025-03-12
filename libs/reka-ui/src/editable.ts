@@ -15,4 +15,9 @@ export const slots = ["root", "area", "input", "preview", "submitTrigger", "canc
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Editable**
+ * @description Displays an input field used for editing a single line of text, rendering as static text on load.
+ * @see [source](https://reka-ui.com/docs/components/editable#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

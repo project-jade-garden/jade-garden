@@ -15,4 +15,9 @@ export const slots = ["root", "content", "list", "trigger"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tabs**
+ * @description Organizes content into distinct sections, allowing users to switch between them.
+ * @see [source](https://www.bits-ui.com/docs/components/tabs#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

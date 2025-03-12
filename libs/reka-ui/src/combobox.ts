@@ -32,4 +32,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Combobox**
+ * @description Choose from a list of suggested values with full keyboard support.
+ * @see [source](https://reka-ui.com/docs/components/combobox#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

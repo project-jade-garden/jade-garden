@@ -15,4 +15,9 @@ export const slots = ["root", "thumb"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Switch**
+ * @description A control that indicates whether a setting is on or off.
+ * @see [source](https://base-ui.com/react/components/switch#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

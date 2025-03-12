@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Aspect Ratio**
+ * @description Displays content within a desired ratio.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/aspect-ratio#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

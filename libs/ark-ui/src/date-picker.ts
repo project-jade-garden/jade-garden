@@ -7,20 +7,19 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
  */
 export const slots = [
-  "content",
-  "table",
-  "label",
-  "input",
-  "view",
-  "root",
   "clearTrigger",
+  "content",
   "control",
+  "input",
+  "label",
   "monthSelect",
   "nextTrigger",
   "positioner",
   "presetTrigger",
   "prevTrigger",
   "rangeText",
+  "root",
+  "table",
   "tableBody",
   "tableCell",
   "tableCellTrigger",
@@ -28,6 +27,7 @@ export const slots = [
   "tableHeader",
   "tableRow",
   "trigger",
+  "view",
   "viewControl",
   "viewTrigger",
   "yearSelect"
@@ -40,4 +40,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Date Picker**
+ * @description A component that allows users to select a date from a calendar.
+ * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

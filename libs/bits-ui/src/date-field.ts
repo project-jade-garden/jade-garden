@@ -15,4 +15,9 @@ export const slots = ["root", "input", "label", "segment"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Date Field**
+ * @description Enables users to input specific dates within a designated field.
+ * @see [source](https://www.bits-ui.com/docs/components/date-field#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

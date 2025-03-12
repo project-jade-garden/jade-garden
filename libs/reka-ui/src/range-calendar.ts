@@ -28,4 +28,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Range Calendar**
+ * @description Presents a calendar view tailored for selecting date ranges.
+ * @see [source](https://reka-ui.com/docs/components/range-calendar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

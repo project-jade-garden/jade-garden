@@ -15,4 +15,9 @@ export const slots = ["root", "image", "fallback"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Avatar**
+ * @description A graphical representation of the user, often used in profile sections.
+ * @see [source](https://ark-ui.com/vue/docs/components/avatar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

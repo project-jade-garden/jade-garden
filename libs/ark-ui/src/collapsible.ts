@@ -6,7 +6,7 @@ import type { ClassValue } from "tailwind-variants";
  * @description An interactive component that can be expanded or collapsed.
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const slots = ["trigger", "root", "content"] as const;
+export const slots = ["root", "trigger", "content"] as const;
 
 /**
  * **Collapsible**
@@ -15,4 +15,9 @@ export const slots = ["trigger", "root", "content"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Collapsible**
+ * @description An interactive component that can be expanded or collapsed.
+ * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

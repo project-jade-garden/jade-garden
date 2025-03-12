@@ -15,4 +15,9 @@ export const slots = ["legend", "root"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Fieldset**
+ * @description A native fieldset element with an easily stylable legend.
+ * @see [source](https://base-ui.com/react/components/fieldset#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

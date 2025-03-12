@@ -7,19 +7,19 @@ import type { ClassValue } from "tailwind-variants";
  * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
  */
 export const slots = [
-  "trigger",
-  "content",
-  "positioner",
   "arrow",
   "arrowTip",
+  "content",
+  "contextTrigger",
+  "indicator",
   "item",
-  "itemIndicator",
   "itemGroup",
   "itemGroupLabel",
+  "itemIndicator",
   "itemText",
-  "indicator",
+  "positioner",
   "separator",
-  "contextTrigger",
+  "trigger",
   "triggerItem"
 ] as const;
 
@@ -30,4 +30,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Menu**
+ * @description A list of options that appears when a user interacts with a button.
+ * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["action", "close", "description", "provider", "root", "tit
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toast**
+ * @description A succinct message that is displayed temporarily.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/toast#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

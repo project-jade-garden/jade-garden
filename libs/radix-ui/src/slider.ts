@@ -15,4 +15,9 @@ export const slots = ["range", "root", "thumb", "track"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Slider**
+ * @description An input where the user selects a value from within a given range.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/slider#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

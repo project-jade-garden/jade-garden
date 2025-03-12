@@ -15,4 +15,9 @@ export const slots = ["control", "description", "errorMessage", "indicator", "in
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Checkbox**
+ * @description A control that allows the user to toggle between checked and not checked.
+ * @see [source](https://kobalte.dev/docs/core/components/checkbox#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

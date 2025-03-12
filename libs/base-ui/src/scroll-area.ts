@@ -15,4 +15,9 @@ export const slots = ["corner", "root", "scrollbar", "thumb", "viewport"] as con
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Scroll Area**
+ * @description A native scroll container with custom scrollbars.
+ * @see [source](https://base-ui.com/react/components/scroll-area#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

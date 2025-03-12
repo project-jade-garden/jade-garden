@@ -15,4 +15,9 @@ export const slots = ["root", "arrow", "content", "contentStatic", "trigger", "c
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Popover**
+ * @description Display supplementary content or information when users interact with specific elements.
+ * @see [source](https://www.bits-ui.com/docs/components/popover#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -15,4 +15,9 @@ export const slots = ["fallback", "img"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Image**
+ * @description An image element with an optional fallback for loading and error status.
+ * @see [source](https://kobalte.dev/docs/core/components/image#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

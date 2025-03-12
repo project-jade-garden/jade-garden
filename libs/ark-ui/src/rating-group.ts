@@ -15,4 +15,9 @@ export const slots = ["root", "label", "item", "control"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Rating Group**
+ * @description Allows users to rate items using a set of icons.
+ * @see [source](https://ark-ui.com/vue/docs/components/rating-group#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

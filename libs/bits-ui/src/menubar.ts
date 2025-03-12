@@ -33,4 +33,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Menubar**
+ * @description Organizes and presents a collection of menu options or actions within a horizontal bar.
+ * @see [source](https://www.bits-ui.com/docs/components/menubar#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

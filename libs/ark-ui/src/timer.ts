@@ -8,9 +8,9 @@ import type { ClassValue } from "tailwind-variants";
  */
 export const slots = [
   "root",
-  "item",
-  "control",
   "area",
+  "control",
+  "item",
   "itemValue",
   "itemLabel",
   "actionTrigger",
@@ -24,4 +24,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Timer**
+ * @description Used to record the time elapsed from zero or since a specified target time.
+ * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

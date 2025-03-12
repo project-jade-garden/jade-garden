@@ -15,4 +15,9 @@ export const slots = ["root", "input", "label", "segment"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Date Range Field**
+ * @description Allows users to input a range of dates within a designated field.
+ * @see [source](https://www.bits-ui.com/docs/components/date-range-field#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

@@ -35,4 +35,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Menubar**
+ * @description A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
+ * @see [source](https://kobalte.dev/docs/core/components/menubar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

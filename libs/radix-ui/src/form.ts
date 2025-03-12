@@ -15,4 +15,9 @@ export const slots = ["control", "field", "label", "message", "root", "submit", 
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Form**
+ * @description Collect information from your users using validation rules.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/form#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

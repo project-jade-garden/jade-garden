@@ -15,4 +15,9 @@ export const slots = ["root", "ellipsis", "item", "items", "next", "previous"] a
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Pagination**
+ * @description Allows the user to select a specific page from a range of pages.
+ * @see [source](https://kobalte.dev/docs/core/components/pagination#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

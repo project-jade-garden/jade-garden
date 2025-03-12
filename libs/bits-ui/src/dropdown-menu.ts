@@ -32,4 +32,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Dropdown Menu**
+ * @description Displays a menu of items that users can select from when triggered.
+ * @see [source](https://www.bits-ui.com/docs/components/dropdown-menu#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

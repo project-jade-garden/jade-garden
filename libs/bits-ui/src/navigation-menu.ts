@@ -15,4 +15,9 @@ export const slots = ["root", "content", "indicator", "item", "link", "list", "t
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Navigation Menu**
+ * @description A list of links that allow users to navigate between pages of a website.
+ * @see [source](https://www.bits-ui.com/docs/components/navigation-menu#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

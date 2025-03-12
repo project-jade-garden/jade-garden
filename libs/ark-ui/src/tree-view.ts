@@ -29,4 +29,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Tree View**
+ * @description A component that is used to show a tree hierarchy.
+ * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

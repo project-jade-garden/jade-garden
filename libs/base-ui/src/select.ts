@@ -32,4 +32,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Select**
+ * @description A common form component for choosing a predefined value in a dropdown menu.
+ * @see [source](https://base-ui.com/react/components/select#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

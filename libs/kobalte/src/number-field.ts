@@ -24,4 +24,9 @@ export const slots = [
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Number Field**
+ * @description A number input that allow users to input custom number entries with a keyboard.
+ * @see [source](https://kobalte.dev/docs/core/components/number-field#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

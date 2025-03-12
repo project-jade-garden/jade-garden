@@ -15,4 +15,9 @@ export const slots = ["closeButton", "content", "description", "overlay", "title
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Dialog**
+ * @description A window overlaid on either the primary window or another dialog window. Content behind a modal dialog is inert, meaning that users cannot interact with it.
+ * @see [source](https://kobalte.dev/docs/core/components/dialog#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

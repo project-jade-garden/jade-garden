@@ -15,4 +15,9 @@ export const slots = ["closeButton", "content", "description", "overlay", "title
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Alert Dialog**
+ * @description A modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.
+ * @see [source](https://kobalte.dev/docs/core/components/alert-dialog#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

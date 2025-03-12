@@ -15,4 +15,9 @@ export const slots = ["root", "thumb"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Switch**
+ * @description A toggle control enabling users to switch between "on" and "off" states.
+ * @see [source](https://www.bits-ui.com/docs/components/switch#api-reference)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

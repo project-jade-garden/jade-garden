@@ -15,4 +15,9 @@ export const slots = ["root"];
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Toggle Button**
+ * @description A two-state button that can be either on (pressed) or off (not pressed).
+ * @see [source](https://kobalte.dev/docs/core/components/toggle-button#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;

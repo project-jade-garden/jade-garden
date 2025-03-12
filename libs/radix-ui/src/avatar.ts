@@ -15,4 +15,9 @@ export const slots = ["fallback", "image", "root"] as const;
  */
 export type Slots = (typeof slots)[number];
 
+/**
+ * **Avatar**
+ * @description An image element with a fallback for representing the user.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/avatar#anatomy)
+ */
 export type TVSlots = Record<Slots, ClassValue>;
