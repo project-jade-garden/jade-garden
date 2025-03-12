@@ -1,7 +1,7 @@
 import type { Meta } from "storybook-solidjs";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Tooltip",
-  component: Basic
+  title: "Ark UI / Tooltip"
 } satisfies Meta;
+
+export { Basic } from ".";

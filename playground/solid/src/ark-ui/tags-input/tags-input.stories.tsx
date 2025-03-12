@@ -1,7 +1,7 @@
 import type { Meta } from "storybook-solidjs";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Tags Input",
-  component: Basic
+  title: "Ark UI / Tags Input"
 } satisfies Meta;
+
+export { Basic } from ".";

@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / PinInput",
-  component: Basic
+  title: "Ark UI / PinInput"
 } satisfies Meta;
+
+export { Basic } from ".";

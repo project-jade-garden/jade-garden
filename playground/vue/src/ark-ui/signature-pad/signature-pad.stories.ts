@@ -1,7 +1,15 @@
-import type { Meta } from "@storybook/vue3";
-import Basic from "./index.vue";
+import type { Meta, StoryObj } from "@storybook/vue3";
+import SbBasic from "./index.vue";
+
+type Story = StoryObj;
 
 export default {
-  title: "Ark UI / Signature Pad",
-  component: Basic
+  title: "Ark UI / Signature Pad"
 } satisfies Meta;
+
+export const Basic: Story = {
+  render: () => ({
+    components: { SbBasic },
+    template: "<sb-basic />"
+  })
+};

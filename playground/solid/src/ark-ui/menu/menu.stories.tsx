@@ -1,7 +1,7 @@
 import type { Meta } from "storybook-solidjs";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Menu",
-  component: Basic
+  title: "Ark UI / Menu"
 } satisfies Meta;
+
+export { Basic } from ".";

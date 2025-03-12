@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Tree View",
-  component: Basic
+  title: "Ark UI / Tree View"
 } satisfies Meta;
+
+export { Basic } from ".";

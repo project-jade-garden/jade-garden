@@ -1,7 +1,7 @@
 import type { Meta } from "storybook-solidjs";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Signature Pad",
-  component: Basic
+  title: "Ark UI / Signature Pad"
 } satisfies Meta;
+
+export { Basic } from ".";

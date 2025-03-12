@@ -1,7 +1,7 @@
 import type { Meta } from "storybook-solidjs";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Date Picker",
-  component: Basic
+  title: "Ark UI / Date Picker"
 } satisfies Meta;
+
+export { Basic } from ".";

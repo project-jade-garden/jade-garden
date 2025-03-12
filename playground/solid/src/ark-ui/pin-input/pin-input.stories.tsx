@@ -1,7 +1,7 @@
 import type { Meta } from "storybook-solidjs";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Pin Input",
-  component: Basic
+  title: "Ark UI / Pin Input"
 } satisfies Meta;
+
+export { Basic } from ".";

@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
-import { Basic } from ".";
 
 export default {
-  title: "Ark UI / Carousel",
-  component: Basic
+  title: "Ark UI / Carousel"
 } satisfies Meta;
+
+export { Basic } from ".";
