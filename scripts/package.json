@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "cheerio": "1.0.0",
     "es-toolkit": "1.32.0",
     "globby": "14.1.0",
     "typescript": "5.8.2"
