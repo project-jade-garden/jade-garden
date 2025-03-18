@@ -27,6 +27,6 @@
     "typescript": "5.8.2",
     "turbo": "2.4.4"
   },
-  "packageManager": "bun@1.2.4",
+  "packageManager": "bun@1.2.5",
   "trustedDependencies": ["@biomejs/biome", "lefthook"]
 }
