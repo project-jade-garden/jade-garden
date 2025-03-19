@@ -194,6 +194,7 @@
       "name": "@tbd/playground-solid",
       "dependencies": {
         "@ark-ui/solid": "5.0.0",
+        "@kobalte/core": "0.13.9",
         "@modular-forms/solid": "0.25.1",
         "lucide-solid": "0.479.0",
         "solid-icons": "1.1.0",
