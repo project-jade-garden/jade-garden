@@ -5,6 +5,7 @@
   },
   "formatter": {
     "enabled": true,
+    "ignore": ["**/*.svelte", "**/*.vue"],
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 120
