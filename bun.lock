@@ -14,8 +14,115 @@
         "typescript": "5.8.2",
       },
     },
-    "libs/ark-ui": {
-      "name": "@tbd/ark-ui",
+    "playground/react": {
+      "name": "@pjg/playground-react",
+      "dependencies": {
+        "@ark-ui/react": "5.0.0",
+        "@base-ui-components/react": "1.0.0-alpha.6",
+        "lucide-react": "0.479.0",
+        "radix-ui": "1.1.3",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
+        "react-hook-form": "7.54.2",
+      },
+      "devDependencies": {
+        "@storybook/addon-a11y": "8.6.4",
+        "@storybook/addon-essentials": "8.6.4",
+        "@storybook/addon-themes": "8.6.4",
+        "@storybook/react": "8.6.4",
+        "@storybook/react-vite": "8.6.4",
+        "@storybook/test": "8.6.4",
+        "@tailwindcss/vite": "4.0.12",
+        "@types/react": "19.0.10",
+        "@types/react-dom": "19.0.4",
+        "@vitejs/plugin-react": "4.3.4",
+        "es-toolkit": "1.33.0",
+        "storybook": "8.6.4",
+        "tailwindcss": "4.0.12",
+        "typescript": "5.8.2",
+        "vite": "6.2.2",
+        "vite-tsconfig-paths": "5.1.4",
+      },
+    },
+    "playground/solid": {
+      "name": "@pjg/playground-solid",
+      "dependencies": {
+        "@ark-ui/solid": "5.0.0",
+        "@kobalte/core": "0.13.9",
+        "@modular-forms/solid": "0.25.1",
+        "lucide-solid": "0.479.0",
+        "solid-icons": "1.1.0",
+        "solid-js": "1.9.5",
+      },
+      "devDependencies": {
+        "@storybook/addon-a11y": "8.6.4",
+        "@storybook/addon-essentials": "8.6.4",
+        "@storybook/addon-themes": "8.6.4",
+        "@storybook/test": "8.6.4",
+        "@tailwindcss/vite": "4.0.12",
+        "storybook": "8.6.4",
+        "storybook-solidjs": "1.0.0-beta.6",
+        "storybook-solidjs-vite": "1.0.0-beta.6",
+        "tailwindcss": "4.0.12",
+        "typescript": "5.8.2",
+        "vite": "6.2.2",
+        "vite-plugin-solid": "2.11.6",
+        "vite-tsconfig-paths": "5.1.4",
+      },
+    },
+    "playground/svelte": {
+      "name": "@pjg/playground-svelte",
+      "dependencies": {
+        "@ark-ui/svelte": "0.3.0",
+        "bits-ui": "1.3.13",
+        "lucide-svelte": "0.483.0",
+        "phosphor-svelte": "3.0.1",
+      },
+      "devDependencies": {
+        "@storybook/addon-a11y": "8.6.4",
+        "@storybook/addon-essentials": "8.6.4",
+        "@storybook/addon-themes": "8.6.4",
+        "@storybook/sveltekit": "8.6.4",
+        "@storybook/test": "8.6.4",
+        "@sveltejs/adapter-auto": "4.0.0",
+        "@sveltejs/kit": "2.20.1",
+        "@sveltejs/vite-plugin-svelte": "5.0.3",
+        "@tailwindcss/vite": "4.0.12",
+        "storybook": "8.6.4",
+        "svelte": "5.23.2",
+        "svelte-check": "4.1.5",
+        "tailwindcss": "4.0.12",
+        "typescript": "5.8.2",
+        "vite": "6.2.2",
+      },
+    },
+    "playground/vue": {
+      "name": "@pjg/playground-vue",
+      "dependencies": {
+        "@ark-ui/vue": "5.0.2",
+        "@iconify/vue": "4.3.0",
+        "lucide-vue-next": "0.479.0",
+        "reka-ui": "2.1.0",
+        "vue": "3.5.13",
+        "vue-tsc": "2.2.8",
+      },
+      "devDependencies": {
+        "@storybook/addon-a11y": "8.6.4",
+        "@storybook/addon-essentials": "8.6.4",
+        "@storybook/addon-themes": "8.6.4",
+        "@storybook/test": "8.6.4",
+        "@storybook/vue3": "8.6.4",
+        "@storybook/vue3-vite": "8.6.4",
+        "@tailwindcss/vite": "4.0.12",
+        "@vitejs/plugin-vue": "5.2.1",
+        "storybook": "8.6.4",
+        "tailwindcss": "4.0.12",
+        "typescript": "5.8.2",
+        "vite": "6.2.2",
+      },
+    },
+    "projects/ark-ui": {
+      "name": "@pjg/ark-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -63,14 +170,13 @@
         "globby": "14.1.0",
         "pkg-types": "2.1.0",
         "release-it": "18.1.2",
-        "tailwind-variants": "1.0.0",
         "typescript": "5.8.2",
         "vite": "6.2.2",
         "vite-plugin-dts": "4.5.3",
       },
     },
-    "libs/base-ui": {
-      "name": "@tbd/base-ui",
+    "projects/base-ui": {
+      "name": "@pjg/base-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@base-ui-components/react": "1.0.0-alpha.6",
@@ -81,14 +187,13 @@
         "globby": "14.1.0",
         "pkg-types": "2.1.0",
         "release-it": "18.1.2",
-        "tailwind-variants": "1.0.0",
         "typescript": "5.8.2",
         "vite": "6.2.2",
         "vite-plugin-dts": "4.5.3",
       },
     },
-    "libs/bits-ui": {
-      "name": "@tbd/bits-ui",
+    "projects/bits-ui": {
+      "name": "@pjg/bits-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -99,14 +204,13 @@
         "globby": "14.1.0",
         "pkg-types": "2.1.0",
         "release-it": "18.1.2",
-        "tailwind-variants": "1.0.0",
         "typescript": "5.8.2",
         "vite": "6.2.2",
         "vite-plugin-dts": "4.5.3",
       },
     },
-    "libs/kobalte": {
-      "name": "@tbd/kobalte",
+    "projects/kobalte": {
+      "name": "@pjg/kobalte",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -117,14 +221,32 @@
         "globby": "14.1.0",
         "pkg-types": "2.1.0",
         "release-it": "18.1.2",
-        "tailwind-variants": "1.0.0",
         "typescript": "5.8.2",
         "vite": "6.2.2",
         "vite-plugin-dts": "4.5.3",
       },
     },
-    "libs/radix-ui": {
-      "name": "@tbd/radix-ui",
+    "projects/pjg": {
+      "name": "pjg",
+      "version": "0.0.0",
+      "dependencies": {
+        "clsx": "2.1.1",
+        "es-toolkit": "1.33.0",
+      },
+      "devDependencies": {
+        "@biomejs/biome": "1.9.4",
+        "@release-it/keep-a-changelog": "6.0.0",
+        "clean-package": "2.2.0",
+        "globby": "14.1.0",
+        "pkg-types": "2.1.0",
+        "release-it": "18.1.2",
+        "typescript": "5.8.2",
+        "vite": "6.2.2",
+        "vite-plugin-dts": "4.5.3",
+      },
+    },
+    "projects/radix-ui": {
+      "name": "@pjg/radix-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -135,14 +257,13 @@
         "pkg-types": "2.1.0",
         "radix-ui": "1.1.3",
         "release-it": "18.1.2",
-        "tailwind-variants": "1.0.0",
         "typescript": "5.8.2",
         "vite": "6.2.2",
         "vite-plugin-dts": "4.5.3",
       },
     },
-    "libs/reka-ui": {
-      "name": "@tbd/reka-ui",
+    "projects/reka-ui": {
+      "name": "@pjg/reka-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -153,121 +274,13 @@
         "pkg-types": "2.1.0",
         "reka-ui": "2.1.0",
         "release-it": "18.1.2",
-        "tailwind-variants": "1.0.0",
         "typescript": "5.8.2",
         "vite": "6.2.2",
         "vite-plugin-dts": "4.5.3",
-      },
-    },
-    "playground/react": {
-      "name": "@tbd/playground-react",
-      "dependencies": {
-        "@ark-ui/react": "5.0.0",
-        "@base-ui-components/react": "1.0.0-alpha.6",
-        "lucide-react": "0.479.0",
-        "radix-ui": "1.1.3",
-        "react": "19.0.0",
-        "react-dom": "19.0.0",
-        "react-hook-form": "7.54.2",
-      },
-      "devDependencies": {
-        "@storybook/addon-a11y": "8.6.4",
-        "@storybook/addon-essentials": "8.6.4",
-        "@storybook/addon-themes": "8.6.4",
-        "@storybook/react": "8.6.4",
-        "@storybook/react-vite": "8.6.4",
-        "@storybook/test": "8.6.4",
-        "@tailwindcss/vite": "4.0.12",
-        "@types/react": "19.0.10",
-        "@types/react-dom": "19.0.4",
-        "@vitejs/plugin-react": "4.3.4",
-        "es-toolkit": "1.33.0",
-        "storybook": "8.6.4",
-        "tailwindcss": "4.0.12",
-        "typescript": "5.8.2",
-        "vite": "6.2.2",
-        "vite-tsconfig-paths": "5.1.4",
-      },
-    },
-    "playground/solid": {
-      "name": "@tbd/playground-solid",
-      "dependencies": {
-        "@ark-ui/solid": "5.0.0",
-        "@kobalte/core": "0.13.9",
-        "@modular-forms/solid": "0.25.1",
-        "lucide-solid": "0.479.0",
-        "solid-icons": "1.1.0",
-        "solid-js": "1.9.5",
-      },
-      "devDependencies": {
-        "@storybook/addon-a11y": "8.6.4",
-        "@storybook/addon-essentials": "8.6.4",
-        "@storybook/addon-themes": "8.6.4",
-        "@storybook/test": "8.6.4",
-        "@tailwindcss/vite": "4.0.12",
-        "storybook": "8.6.4",
-        "storybook-solidjs": "1.0.0-beta.6",
-        "storybook-solidjs-vite": "1.0.0-beta.6",
-        "tailwindcss": "4.0.12",
-        "typescript": "5.8.2",
-        "vite": "6.2.2",
-        "vite-plugin-solid": "2.11.6",
-        "vite-tsconfig-paths": "5.1.4",
-      },
-    },
-    "playground/svelte": {
-      "name": "@tbd/playground-svelte",
-      "dependencies": {
-        "@ark-ui/svelte": "0.3.0",
-        "bits-ui": "1.3.13",
-        "lucide-svelte": "0.483.0",
-        "phosphor-svelte": "3.0.1",
-      },
-      "devDependencies": {
-        "@storybook/addon-a11y": "8.6.4",
-        "@storybook/addon-essentials": "8.6.4",
-        "@storybook/addon-themes": "8.6.4",
-        "@storybook/sveltekit": "8.6.4",
-        "@storybook/test": "8.6.4",
-        "@sveltejs/adapter-auto": "4.0.0",
-        "@sveltejs/kit": "2.20.1",
-        "@sveltejs/vite-plugin-svelte": "5.0.3",
-        "@tailwindcss/vite": "4.0.12",
-        "storybook": "8.6.4",
-        "svelte": "5.23.2",
-        "svelte-check": "4.1.5",
-        "tailwindcss": "4.0.12",
-        "typescript": "5.8.2",
-        "vite": "6.2.2",
-      },
-    },
-    "playground/vue": {
-      "name": "@tbd/playground-vue",
-      "dependencies": {
-        "@ark-ui/vue": "5.0.2",
-        "@iconify/vue": "4.3.0",
-        "lucide-vue-next": "0.479.0",
-        "reka-ui": "2.1.0",
-        "vue": "3.5.13",
-        "vue-tsc": "2.2.8",
-      },
-      "devDependencies": {
-        "@storybook/addon-a11y": "8.6.4",
-        "@storybook/addon-essentials": "8.6.4",
-        "@storybook/addon-themes": "8.6.4",
-        "@storybook/test": "8.6.4",
-        "@storybook/vue3": "8.6.4",
-        "@storybook/vue3-vite": "8.6.4",
-        "@tailwindcss/vite": "4.0.12",
-        "@vitejs/plugin-vue": "5.2.1",
-        "storybook": "8.6.4",
-        "tailwindcss": "4.0.12",
-        "typescript": "5.8.2",
-        "vite": "6.2.2",
       },
     },
     "scripts": {
-      "name": "@tbd/scripts",
+      "name": "@pjg/scripts",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "es-toolkit": "1.33.0",
@@ -536,6 +549,28 @@
     "@octokit/rest": ["@octokit/rest@21.0.2", "", { "dependencies": { "@octokit/core": "^6.1.2", "@octokit/plugin-paginate-rest": "^11.0.0", "@octokit/plugin-request-log": "^5.3.1", "@octokit/plugin-rest-endpoint-methods": "^13.0.0" } }, "sha512-+CiLisCoyWmYicH25y1cDfCrv41kRSvTq6pPWtRroRJzhsCZWZyCqGyI8foJT5LmScADSwRAnr/xo+eewL04wQ=="],
 
     "@octokit/types": ["@octokit/types@13.8.0", "", { "dependencies": { "@octokit/openapi-types": "^23.0.1" } }, "sha512-x7DjTIbEpEWXK99DMd01QfWy0hd5h4EN+Q7shkdKds3otGQP+oWE/y0A76i1OvH9fygo4ddvNf7ZvF0t78P98A=="],
+
+    "@pjg/ark-ui": ["@pjg/ark-ui@workspace:projects/ark-ui"],
+
+    "@pjg/base-ui": ["@pjg/base-ui@workspace:projects/base-ui"],
+
+    "@pjg/bits-ui": ["@pjg/bits-ui@workspace:projects/bits-ui"],
+
+    "@pjg/kobalte": ["@pjg/kobalte@workspace:projects/kobalte"],
+
+    "@pjg/playground-react": ["@pjg/playground-react@workspace:playground/react"],
+
+    "@pjg/playground-solid": ["@pjg/playground-solid@workspace:playground/solid"],
+
+    "@pjg/playground-svelte": ["@pjg/playground-svelte@workspace:playground/svelte"],
+
+    "@pjg/playground-vue": ["@pjg/playground-vue@workspace:playground/vue"],
+
+    "@pjg/radix-ui": ["@pjg/radix-ui@workspace:projects/radix-ui"],
+
+    "@pjg/reka-ui": ["@pjg/reka-ui@workspace:projects/reka-ui"],
+
+    "@pjg/scripts": ["@pjg/scripts@workspace:scripts"],
 
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
@@ -870,28 +905,6 @@
     "@tanstack/virtual-core": ["@tanstack/virtual-core@3.13.2", "", {}, "sha512-Qzz4EgzMbO5gKrmqUondCjiHcuu4B1ftHb0pjCut661lXZdGoHeze9f/M8iwsK1t5LGR6aNuNGU7mxkowaW6RQ=="],
 
     "@tanstack/vue-virtual": ["@tanstack/vue-virtual@3.13.2", "", { "dependencies": { "@tanstack/virtual-core": "3.13.2" }, "peerDependencies": { "vue": "^2.7.0 || ^3.0.0" } }, "sha512-z4swzjdhzCh95n9dw9lTvw+t3iwSkYRlVkYkra3C9mul/m5fTzHR7KmtkwH4qXMTXGJUbngtC/bz2cHQIHkO8g=="],
-
-    "@tbd/ark-ui": ["@tbd/ark-ui@workspace:libs/ark-ui"],
-
-    "@tbd/base-ui": ["@tbd/base-ui@workspace:libs/base-ui"],
-
-    "@tbd/bits-ui": ["@tbd/bits-ui@workspace:libs/bits-ui"],
-
-    "@tbd/kobalte": ["@tbd/kobalte@workspace:libs/kobalte"],
-
-    "@tbd/playground-react": ["@tbd/playground-react@workspace:playground/react"],
-
-    "@tbd/playground-solid": ["@tbd/playground-solid@workspace:playground/solid"],
-
-    "@tbd/playground-svelte": ["@tbd/playground-svelte@workspace:playground/svelte"],
-
-    "@tbd/playground-vue": ["@tbd/playground-vue@workspace:playground/vue"],
-
-    "@tbd/radix-ui": ["@tbd/radix-ui@workspace:libs/radix-ui"],
-
-    "@tbd/reka-ui": ["@tbd/reka-ui@workspace:libs/reka-ui"],
-
-    "@tbd/scripts": ["@tbd/scripts@workspace:scripts"],
 
     "@testing-library/dom": ["@testing-library/dom@10.4.0", "", { "dependencies": { "@babel/code-frame": "^7.10.4", "@babel/runtime": "^7.12.5", "@types/aria-query": "^5.0.1", "aria-query": "5.3.0", "chalk": "^4.1.0", "dom-accessibility-api": "^0.5.9", "lz-string": "^1.5.0", "pretty-format": "^27.0.2" } }, "sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ=="],
 
@@ -1853,6 +1866,8 @@
 
     "picomatch": ["picomatch@4.0.2", "", {}, "sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg=="],
 
+    "pjg": ["pjg@workspace:projects/pjg"],
+
     "pkg-types": ["pkg-types@2.1.0", "", { "dependencies": { "confbox": "^0.2.1", "exsolve": "^1.0.1", "pathe": "^2.0.3" } }, "sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A=="],
 
     "polished": ["polished@4.3.1", "", { "dependencies": { "@babel/runtime": "^7.17.8" } }, "sha512-OBatVyC/N7SCW/FaDHrSd+vn0o5cS855TOmYi4OkdWUMSJCET/xip//ch8xGUvtr3i44X9LVyWwQlRMTN3pwSA=="],
@@ -2096,10 +2111,6 @@
     "sveltedoc-parser": ["sveltedoc-parser@4.2.1", "", { "dependencies": { "eslint": "8.4.1", "espree": "9.2.0", "htmlparser2-svelte": "4.1.0" } }, "sha512-sWJRa4qOfRdSORSVw9GhfDEwsbsYsegnDzBevUCF6k/Eis/QqCu9lJ6I0+d/E2wOWCjOhlcJ3+jl/Iur+5mmCw=="],
 
     "tabbable": ["tabbable@6.2.0", "", {}, "sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew=="],
-
-    "tailwind-merge": ["tailwind-merge@3.0.2", "", {}, "sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw=="],
-
-    "tailwind-variants": ["tailwind-variants@1.0.0", "", { "dependencies": { "tailwind-merge": "3.0.2" }, "peerDependencies": { "tailwindcss": "*" } }, "sha512-2WSbv4ulEEyuBKomOunut65D8UZwxrHoRfYnxGcQNnHqlSCp2+B7Yz2W+yrNDrxRodOXtGD/1oCcKGNBnUqMqA=="],
 
     "tailwindcss": ["tailwindcss@4.0.12", "", {}, "sha512-bT0hJo91FtncsAMSsMzUkoo/iEU0Xs5xgFgVC9XmdM9bw5MhZuQFjPNl6wxAE0SiQF/YTZJa+PndGWYSDtuxAg=="],
 

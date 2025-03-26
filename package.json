@@ -2,7 +2,7 @@
   "name": "root",
   "type": "module",
   "private": true,
-  "workspaces": ["libs/*", "playground/*", "scripts"],
+  "workspaces": ["playground/*", "projects/*", "scripts"],
   "scripts": {
     "postinstall": "lefthook install",
     "fresh": "bun clean && bun i && bun typecheck",

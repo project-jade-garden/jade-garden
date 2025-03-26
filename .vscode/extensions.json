@@ -1,9 +1,3 @@
 {
-  "recommendations": [
-    "biomejs.biome",
-    "bradlc.vscode-tailwindcss",
-    "chakra-ui.panda-css-vscode",
-    "svelte.svelte-vscode",
-    "Vue.volar"
-  ]
+  "recommendations": ["biomejs.biome", "bradlc.vscode-tailwindcss", "svelte.svelte-vscode", "Vue.volar"]
 }

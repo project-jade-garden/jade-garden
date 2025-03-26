@@ -21,7 +21,7 @@ type PkgExports = {
   };
 };
 
-const __dirname = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "libs");
+const __dirname = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "projects");
 const libDirs = readdirSync(__dirname);
 
 const main = async () => {
@@ -60,7 +60,7 @@ const main = async () => {
         }
       };
 
-      srcExports += `\nexport { slots as ${camelCase(component)}Slots, type Slots as ${pascalCase(component)}Slots, type TVSlots as ${pascalCase(component)}TVSlots } from ".${component}.js";`;
+      srcExports += `\nexport { slots as ${camelCase(component)}Slots, type Slots as ${pascalCase(component)}Slots } from ".${component}";`;
     }
 
     pkg.exports = pkgExports;

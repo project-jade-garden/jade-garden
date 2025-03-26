@@ -5,7 +5,7 @@ import { kebabCase, pascalCase, startCase } from "es-toolkit";
 
 const TARGET = "reka-ui";
 
-const __dirname = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "libs", TARGET);
+const __dirname = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "projects", TARGET);
 
 const main = async () => {
   const { components }: { components: { [key: string]: string | string[] } } = await import(
