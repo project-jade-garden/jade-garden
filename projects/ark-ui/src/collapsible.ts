@@ -5,7 +5,7 @@
  * @description An interactive component that can be expanded or collapsed.
  * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
  */
-export const slots = ["root", "trigger", "content"] as const;
+export const slots = ["root", "trigger", "content", "indicator"] as const;
 
 /**
  * **Collapsible**
