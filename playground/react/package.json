@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/react": "5.3.1",
+    "@ark-ui/react": "5.4.0",
     "@base-ui-components/react": "1.0.0-alpha.7",
     "lucide-react": "0.485.0",
     "radix-ui": "1.1.3",
