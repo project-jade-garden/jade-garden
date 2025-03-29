@@ -487,7 +487,7 @@
     "@release-it/keep-a-changelog": "6.0.0",
     "bits-ui": "1.3.13",
     "clean-package": "2.2.0",
-    "es-toolkit": "1.33.0",
+    "es-toolkit": "1.34.1",
     "globby": "14.1.0",
     "pkg-types": "2.1.0",
     "release-it": "18.1.2",
