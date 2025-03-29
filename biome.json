@@ -24,8 +24,12 @@
     "ignore": ["dist"],
     "rules": {
       "recommended": true,
+      "complexity": {
+        "noBannedTypes": "warn"
+      },
       "suspicious": {
         "noArrayIndexKey": "off",
+        "noExplicitAny": "warn",
         "noShadowRestrictedNames": "off"
       },
       "security": {
