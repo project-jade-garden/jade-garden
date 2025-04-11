@@ -104,9 +104,9 @@
     "clean-package": "2.2.0",
     "globby": "14.1.0",
     "release-it": "18.1.2",
-    "tailwind-merge": "3.0.2",
-    "typescript": "5.8.2",
-    "vite": "6.2.3",
+    "tailwind-merge": "3.2.0",
+    "typescript": "5.8.3",
+    "vite": "6.2.6",
     "vite-plugin-dts": "4.5.3"
   }
 }

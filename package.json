@@ -23,12 +23,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/bun": "1.2.8",
-    "lefthook": "1.11.5",
-    "typescript": "5.8.2",
-    "turbo": "2.4.4"
+    "@types/bun": "1.2.9",
+    "lefthook": "1.11.8",
+    "typescript": "5.8.3",
+    "turbo": "2.5.0"
   },
-  "packageManager": "bun@1.2.7",
+  "packageManager": "bun@1.2.9",
   "trustedDependencies": ["@biomejs/biome", "lefthook"],
   "patchedDependencies": {
     "lightningcss@1.29.2": "patches/lightningcss@1.29.2.patch"
