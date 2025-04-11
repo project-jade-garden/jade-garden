@@ -26,6 +26,7 @@ export { slots as popoverSlots, type Slots as PopoverSlots } from "./popover";
 export { slots as progressSlots, type Slots as ProgressSlots } from "./progress";
 export { slots as radioGroupSlots, type Slots as RadioGroupSlots } from "./radio-group";
 export { slots as rangeCalendarSlots, type Slots as RangeCalendarSlots } from "./range-calendar";
+export { slots as rovingFocusSlots, type Slots as RovingFocusSlots } from "./roving-focus";
 export { slots as scrollAreaSlots, type Slots as ScrollAreaSlots } from "./scroll-area";
 export { slots as selectSlots, type Slots as SelectSlots } from "./select";
 export { slots as separatorSlots, type Slots as SeparatorSlots } from "./separator";

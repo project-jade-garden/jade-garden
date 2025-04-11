@@ -22,7 +22,7 @@ describe("@ark-ui/*@5.x", () => {
     });
   });
 
-  describe("@zag-js/anatomy@1.7.0", () => {
+  describe("@zag-js/anatomy@1.9.3", () => {
     test.each(components.filter((component) => !customArkComponents.includes(component)))(
       "'%s' matches current anatomy of @zag-js",
       async (component) => {
