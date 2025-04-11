@@ -1,6 +1,6 @@
 import { cn } from "./class-utils";
 import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
-import { getRawClasses, getVariantClasses, hasProps, mergeConfig } from "./utils";
+import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ===================== CVA ===================== */
 
@@ -162,17 +162,3 @@ export const createCVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = 
  * @type {CVA}
  */
 export const cva: CVA = createCVA();
-
-/**
- * Creates a recipe function that overrides the base `cva` configuration.
- *
- * @template V - The type of variants.
- * @param {CVAReturnType<V>} cva - The base `cva` function.
- * @returns {(override: CVAConfig<V>) => CVAReturnType<V>} A function that returns a new `cva` function with overridden configuration.
- */
-export const cvaRecipe =
-  <V extends Variant = {}>(cva: CVAReturnType<V>) =>
-  (override: CVAConfig<V>): CVAReturnType<V> => {
-    const configOverride = override ? mergeConfig(cva.config, override) : cva.config;
-    return createCVA(cva.mergeClass, cva.rawConfig)(configOverride);
-  };

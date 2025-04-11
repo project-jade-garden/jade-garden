@@ -1,4 +1,4 @@
-import { camelCase, flatten, kebabCase, mergeWith, pascalCase, snakeCase } from "es-toolkit";
+import { camelCase, kebabCase, pascalCase, snakeCase } from "es-toolkit";
 import type { MergeClassFn, RawConfig } from "./types";
 
 /* ===================== Utils ===================== */
@@ -167,47 +167,3 @@ export const hasProps = (config: Record<string, unknown>, props: Record<string, 
 
   return isValid;
 };
-
-/**
- * Merges two configuration objects, handling specific cases for compound slots, compound variants,
- * base classes, default variants, and slots.
- *
- * @param {Record<PropertyKey, any>} target - The target configuration object.
- * @param {Record<PropertyKey, any>} source - The source configuration object.
- * @returns {Record<PropertyKey, any>} The merged configuration object.
- *
- * @description
- * - Merges arrays of compound slots or compound variants by replacing the target with the source array.
- * - Merges strings by combining them with unique class names.
- * - Merges plain objects recursively.
- * - Merges other arrays by combining them with unique values.
- * - Excludes merging for base, defaultVariants, and slots keys.
- */
-export const mergeConfig = (
-  target: Record<PropertyKey, any>,
-  source: Record<PropertyKey, any>
-): Record<PropertyKey, any> =>
-  mergeWith(target, source, (targetValue, sourceValue, key) => {
-    if (
-      ["compoundSlots", "compoundVariants"].includes(key) &&
-      Array.isArray(sourceValue) &&
-      Array.isArray(targetValue)
-    ) {
-      return sourceValue;
-    }
-
-    // * Intended to work for variants only
-    if (!["base", "defaultVariants", "slots"].includes(key)) {
-      if (typeof targetValue === "string" && typeof sourceValue === "string") {
-        return sourceValue;
-      }
-
-      if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
-        return Array.from(new Set(flatten(sourceValue, Number.POSITIVE_INFINITY)));
-      }
-
-      if (typeof targetValue === "object" && typeof sourceValue === "object") {
-        return mergeConfig(targetValue, sourceValue);
-      }
-    }
-  });

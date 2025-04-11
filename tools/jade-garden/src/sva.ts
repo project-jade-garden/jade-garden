@@ -1,6 +1,6 @@
 import { cn } from "./class-utils";
 import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
-import { convertCase, getRawClasses, getVariantClasses, hasProps, mergeConfig } from "./utils";
+import { convertCase, getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ===================== SVA ===================== */
 
@@ -301,18 +301,3 @@ export const createSVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = 
  * @type {SVA}
  */
 export const sva: SVA = createSVA();
-
-/**
- * Creates a recipe function that overrides the base `sva` configuration.
- *
- * @template S - The type of slots.
- * @template V - The type of variants.
- * @param {SVAReturnType<S, V>} sva - The base `sva` function.
- * @returns {(override: SVAConfig<S, V>) => SVAReturnType<S, V>} A function that returns a new `sva` function with overridden configuration.
- */
-export const svaRecipe =
-  <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(sva: SVAReturnType<S, V>) =>
-  (override: SVAConfig<S, V>): SVAReturnType<S, V> => {
-    const configOverride = override ? (mergeConfig(sva.config, override) as SVAConfig<S, V>) : sva.config;
-    return createSVA(sva.mergeClass, sva.rawConfig)(configOverride);
-  };
