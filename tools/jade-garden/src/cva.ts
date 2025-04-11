@@ -232,9 +232,8 @@ export const cva: CVA = createCVA();
  * Defines a CVA configuration object with type safety.
  *
  * @template V - The type of variants.
- * @template C - The type of the CVA configuration.
- * @param {Readonly<C>} config - The CVA configuration object.
- * @returns {Readonly<C>} The CVA configuration object.
+ * @param {CVAConfig<V>} config - The CVA configuration object.
+ * @returns {CVAConfig<V>} The CVA configuration object.
  *
  * @example
  * ```ts
@@ -246,7 +245,7 @@ export const cva: CVA = createCVA();
  * });
  * ```
  */
-export const defineCVA = <V extends Variant, C extends CVAConfig<V>>(config: Readonly<C>): Readonly<C> => config;
+export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
 
 /**
  * Represents the return type of the `rawCVA` function.

@@ -380,8 +380,8 @@ export const sva: SVA = createSVA();
  * @template S - The type of slots.
  * @template V - The type of variants.
  * @template C - The type of the SVA configuration.
- * @param {Readonly<C>} config - The SVA configuration object.
- * @returns {Readonly<C>} The SVA configuration object.
+ * @param {SVAConfig<S, V>} config - The SVA configuration object.
+ * @returns {SVAConfig<S, V>} The SVA configuration object.
  *
  * @example
  * ```ts
@@ -391,9 +391,9 @@ export const sva: SVA = createSVA();
  * });
  * ```
  */
-export const defineSVA = <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>, C extends SVAConfig<S, V>>(
-  config: Readonly<C>
-): Readonly<C> => config;
+export const defineSVA = <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
+  config: SVAConfig<S, V>
+): SVAConfig<S, V> => config;
 
 /**
  * Represents the return type of the `rawSVA` function.
