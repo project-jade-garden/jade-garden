@@ -84,7 +84,6 @@
     "lint": "biome lint .",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
-    "release-it": "release-it --config ../../release-it.json",
     "typecheck": "tsc --noEmit"
   },
   "clean-package": {
@@ -103,7 +102,6 @@
     "@release-it/keep-a-changelog": "6.0.0",
     "clean-package": "2.2.0",
     "globby": "14.1.0",
-    "release-it": "18.1.2",
     "tailwind-merge": "3.2.0",
     "typescript": "5.8.3",
     "vite": "6.2.6",

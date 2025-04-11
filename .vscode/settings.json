@@ -10,6 +10,10 @@
     "**/node_modules": true,
     "**/tsconfig.tsbuildinfo": true
   },
+  "material-icon-theme.folders.associations": {
+    "react": "React-components",
+    "solid": "Core"
+  },
   // https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
   "tailwindCSS.experimental.classRegex": [["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]],
   "[typescript]": {

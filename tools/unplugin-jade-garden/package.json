@@ -95,7 +95,6 @@
     "lint": "biome lint .",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
-    "release-it": "release-it --config ../../release-it.json",
     "typecheck": "tsc --noEmit"
   },
   "clean-package": {
@@ -120,7 +119,6 @@
     "jade-garden": "workspace:*",
     "postcss-loader": "8.1.1",
     "postcss": "8.5.3",
-    "release-it": "18.1.2",
     "rollup-plugin-postcss": "4.0.2",
     "rollup": "4.39.0",
     "tailwindcss": "4.1.3",

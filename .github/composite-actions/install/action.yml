@@ -1,0 +1,19 @@
+name: "Install"
+description: "Sets up Node.js and runs install"
+
+runs:
+  using: composite
+  steps:
+    - uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
+
+    - name: Setup Git User
+      shell: bash
+      run: |
+        git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+        git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+
+    - name: Install Dependencies
+      shell: bash
+      run: bun install
