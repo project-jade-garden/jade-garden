@@ -5,7 +5,7 @@
  * @description A two-state button that can be either on or off.
  * @see [source](https://reka-ui.com/docs/components/toggle#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Toggle**

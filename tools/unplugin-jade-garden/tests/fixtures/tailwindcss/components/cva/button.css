@@ -1,0 +1,26 @@
+@layer components {
+  .button {
+    @apply rounded-full;
+  }
+
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+
+  .button.button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .button.button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .button.button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .button.button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}

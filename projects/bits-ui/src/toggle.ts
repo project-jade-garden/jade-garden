@@ -5,7 +5,7 @@
  * @description A control element that switches between two states, providing a binary choice.
  * @see [source](https://www.bits-ui.com/docs/components/toggle#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Toggle**

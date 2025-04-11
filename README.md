@@ -1,6 +1,4 @@
-<h1 align="center">PJG</h1>
+<h1 align="center">Project Jade Garden</h1>
 <br />
 
-This project is being reworked.
-
-TBD.
+TODO: Update README.md

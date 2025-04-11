@@ -1,0 +1,112 @@
+{
+  "name": "jade-garden",
+  "version": "0.0.0",
+  "description": "TBD",
+  "keywords": [
+    "tailwindcss",
+    "tailwind",
+    "class-variance-authority",
+    "slots-variance-authority",
+    "classes",
+    "classname",
+    "classnames",
+    "css",
+    "cva",
+    "sva",
+    "styles",
+    "variants"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGS1130/spark-css.git",
+    "directory": "projects/jade-garden"
+  },
+  "bugs": {
+    "url": "https://github.com/AGS1130/spark-css/issues"
+  },
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./class-utils": {
+      "source": "./src/class-utils.ts",
+      "import": {
+        "types": "./dist/class-utils.d.ts",
+        "default": "./dist/class-utils.js"
+      },
+      "require": {
+        "types": "./dist/class-utils.d.cts",
+        "default": "./dist/class-utils.cjs"
+      }
+    },
+    "./cva": {
+      "source": "./src/cva.ts",
+      "import": {
+        "types": "./dist/cva.d.ts",
+        "default": "./dist/cva.js"
+      },
+      "require": {
+        "types": "./dist/cva.d.cts",
+        "default": "./dist/cva.cjs"
+      }
+    },
+    "./sva": {
+      "source": "./src/sva.ts",
+      "import": {
+        "types": "./dist/sva.d.ts",
+        "default": "./dist/sva.js"
+      },
+      "require": {
+        "types": "./dist/sva.d.cts",
+        "default": "./dist/sva.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "bun typecheck && vite build",
+    "clean": "rm -rf .turbo dist node_modules",
+    "dev": "vite build --watch",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "postpack": "clean-package restore",
+    "prepack": "clean-package",
+    "release-it": "release-it --config ../../release-it.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "clean-package": {
+    "remove": ["exports.\\..source", "exports.\\./*.source"]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "clsx": "2.1.1",
+    "es-toolkit": "1.34.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@release-it/keep-a-changelog": "6.0.0",
+    "clean-package": "2.2.0",
+    "globby": "14.1.0",
+    "release-it": "18.1.2",
+    "tailwind-merge": "3.0.2",
+    "typescript": "5.8.2",
+    "vite": "6.2.3",
+    "vite-plugin-dts": "4.5.3"
+  }
+}

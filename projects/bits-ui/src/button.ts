@@ -5,7 +5,7 @@
  * @description A component that if passed a `href` prop will render an anchor element instead of a button element.
  * @see [source](https://www.bits-ui.com/docs/components/button#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Button**

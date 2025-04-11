@@ -22,14 +22,31 @@ const main = async () => {
   for (const component of Object.keys(components)) {
     const slots = components[component];
 
-    const ghSrc = `// * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/${pascalCase(component)}/index.ts`;
-    const jsDoc = `\n\n/**\n * **${startCase(component)}**\n * @description\n * @see [source](https://reka-ui.com/docs/components/${kebabCase(component)}#anatomy)\n */\n`;
+    const template = String.raw;
+
     writeFileSync(
       `${srcDir}/${kebabCase(component)}.ts`,
-      `${ghSrc}${jsDoc}export const slots = ${JSON.stringify(slots)} as const;${jsDoc}(typeof slots)[number]\n`
+      template`
+      // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/${pascalCase(component)}/index.ts
+
+      /**
+       * **${startCase(component)}**
+       * @description Description of component
+       * @see [source](https://reka-ui.com/docs/components/${kebabCase(component)}#anatomy)
+       */
+      export const slots = ${JSON.stringify(slots)} as const;
+
+      /**
+       * **${startCase(component)}**
+       * @description Description of component
+       * @see [source](https://reka-ui.com/docs/components/${kebabCase(component)}#anatomy)
+       */
+      export type Slots = (typeof slots)[number];
+      `
     );
   }
 
+  // * Creates empty file
   writeFileSync(`${srcDir}/index.ts`, "");
 };
 

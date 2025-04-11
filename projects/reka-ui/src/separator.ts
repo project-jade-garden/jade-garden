@@ -5,7 +5,7 @@
  * @description Visually or semantically separates content.
  * @see [source](https://reka-ui.com/docs/components/separator#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Separator**

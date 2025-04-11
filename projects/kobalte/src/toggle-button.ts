@@ -5,7 +5,7 @@
  * @description A two-state button that can be either on (pressed) or off (not pressed).
  * @see [source](https://kobalte.dev/docs/core/components/toggle-button#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Toggle Button**

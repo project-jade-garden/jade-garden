@@ -5,7 +5,7 @@
  * @description An easily stylable radio button component.
  * @see [source](https://base-ui.com/react/components/radio#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Radio Group**

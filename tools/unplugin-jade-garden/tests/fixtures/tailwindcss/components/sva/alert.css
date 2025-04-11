@@ -1,0 +1,85 @@
+@layer components {
+  .alert--root,
+  .alert--title,
+  .alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}

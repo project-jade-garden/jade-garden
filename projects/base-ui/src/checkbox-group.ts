@@ -5,7 +5,7 @@
  * @description Provides shared state to a series of checkboxes.
  * @see [source](https://base-ui.com/react/components/checkbox-group#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Checkbox Group**

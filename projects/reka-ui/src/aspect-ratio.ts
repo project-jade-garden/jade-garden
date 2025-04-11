@@ -5,7 +5,7 @@
  * @description Displays content within a desired ratio.
  * @see [source](https://reka-ui.com/docs/components/aspect-ratio#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Aspect Ratio**

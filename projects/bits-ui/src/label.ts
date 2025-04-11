@@ -5,7 +5,7 @@
  * @description Identifies or describes associated UI elements.
  * @see [source](https://www.bits-ui.com/docs/components/label#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Label**

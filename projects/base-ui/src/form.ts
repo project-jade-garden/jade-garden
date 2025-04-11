@@ -5,7 +5,7 @@
  * @description A native form element with consolidated error handling.
  * @see [source](https://base-ui.com/react/components/form#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Form**

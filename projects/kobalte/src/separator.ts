@@ -5,7 +5,7 @@
  * @description Visually or semantically separates content.
  * @see [source](https://kobalte.dev/docs/core/components/separator#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Separator**

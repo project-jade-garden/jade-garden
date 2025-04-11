@@ -5,7 +5,7 @@
  * @description A separator element accessible to screen readers.
  * @see [source](https://base-ui.com/react/components/separator#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Separator**

@@ -530,10 +530,18 @@
       }
     }
   },
+  "tsdown": {
+    "entry": ["./src/*.ts"],
+    "format": ["cjs", "es"],
+    "target": "es2022",
+    "minify": true,
+    "clean": true,
+    "dts": true
+  },
   "scripts": {
-    "build": "bun typecheck && vite build",
+    "build": "bun typecheck && tsdown",
     "clean": "rm -rf .turbo dist node_modules",
-    "dev": "vite build --watch",
+    "dev": "tsdown --watch",
     "format": "biome format --write .",
     "lint": "biome lint .",
     "postpack": "clean-package restore",
@@ -553,12 +561,9 @@
     "@release-it/keep-a-changelog": "6.0.0",
     "clean-package": "2.2.0",
     "es-toolkit": "1.34.1",
-    "globby": "14.1.0",
-    "pkg-types": "2.1.0",
     "reka-ui": "2.1.1",
     "release-it": "18.1.2",
-    "typescript": "5.8.2",
-    "vite": "6.2.3",
-    "vite-plugin-dts": "4.5.3"
+    "tsdown": "0.7.5",
+    "typescript": "5.8.2"
   }
 }

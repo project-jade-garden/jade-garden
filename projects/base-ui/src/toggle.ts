@@ -5,7 +5,7 @@
  * @description A two-state button that can be on or off.
  * @see [source](https://base-ui.com/react/components/toggle#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Toggle**

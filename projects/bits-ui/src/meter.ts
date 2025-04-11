@@ -5,7 +5,7 @@
  * @description Display real-time measurements within a defined range.
  * @see [source](https://www.bits-ui.com/docs/components/#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Meter**

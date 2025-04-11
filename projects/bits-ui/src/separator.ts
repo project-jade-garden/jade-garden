@@ -5,7 +5,7 @@
  * @description Visually separates content or UI elements for clarity and organization.
  * @see [source](https://www.bits-ui.com/docs/components/separator#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Separator**

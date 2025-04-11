@@ -5,6 +5,9 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
+    "dev": {
+      "outputs": ["dist/**"]
+    },
     "clean": {},
     "format": {},
     "lint": {},

@@ -5,7 +5,7 @@
  * @description A native input element that automatically works with [Field](https://base-ui.com/react/components/field#api-reference).
  * @see [source](https://base-ui.com/react/components/input#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Input**

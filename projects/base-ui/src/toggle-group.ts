@@ -5,7 +5,7 @@
  * @description Provides a shared state to a series of toggle buttons.
  * @see [source](https://base-ui.com/react/components/toggle-group#api-reference)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Toggle Group**

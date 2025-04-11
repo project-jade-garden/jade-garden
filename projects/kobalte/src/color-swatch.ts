@@ -5,7 +5,7 @@
  * @description Displays a preview of a selected color.
  * @see [source](https://kobalte.dev/docs/core/components/color-swatch#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Color Swatch**

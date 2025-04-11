@@ -5,7 +5,7 @@
  * @description Renders an accessible label associated with controls.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/label#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Label**

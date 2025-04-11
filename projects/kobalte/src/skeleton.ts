@@ -5,7 +5,7 @@
  * @description Visually indicates content loading
  * @see [source](https://kobalte.dev/docs/core/components/skeleton#anatomy)
  */
-export const slots = ["root"];
+export const slots = ["root"] as const;
 
 /**
  * **Skeleton**
