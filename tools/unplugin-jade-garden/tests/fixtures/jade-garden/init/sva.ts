@@ -1,6 +1,6 @@
-import { sva } from "jade-garden/sva";
+import { defineSVA, rawSVA } from "jade-garden/sva";
 
-export const alert = sva({
+const alertConfig = defineSVA({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",
@@ -64,3 +64,5 @@ export const alert = sva({
     severity: "success"
   }
 });
+
+export const alert = rawSVA(alertConfig);

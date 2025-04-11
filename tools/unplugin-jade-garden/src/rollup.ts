@@ -7,7 +7,7 @@ import { type PluginInstance, factory } from "./core";
  * @example
  * ```ts
  * // rollup.config.js
- * import jadeGardenPlugin from "@jade-garden/rollup";
+ * import jadeGardenPlugin from "unplugin-jade-garden/rollup";
  *
  * export default {
  *   plugins: [jadeGardenPlugin()]

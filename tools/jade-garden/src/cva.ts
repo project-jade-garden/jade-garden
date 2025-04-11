@@ -7,6 +7,20 @@ import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 /**
  * Represents the variant configurations for `cva`.
  * Each variant is a record of class names, keyed by variant values.
+ *
+ * @example
+ * ```ts
+ * {
+ *   size: {
+ *     small: "text-sm py-1 px-2",
+ *     medium: "text-base py-2 px-4",
+ *   },
+ *   intent: {
+ *     primary: "bg-blue-500 text-white",
+ *     secondary: "bg-gray-200 text-gray-800",
+ *   }
+ * }
+ * ```
  */
 export type Variant = Record<string, RecordClassValue>;
 
@@ -15,6 +29,14 @@ export type Variant = Record<string, RecordClassValue>;
  * Each variant prop is typed as a StringToBoolean of the corresponding variant value keys.
  *
  * @template V - The type of variants.
+ * @example
+ * ```ts
+ * type ButtonVariants = CVAVariants<{
+ *   size: { small: string; medium: string };
+ *   intent: { primary: string; secondary: string };
+ * }>;
+ * // ButtonVariants = { size?: "small" | "medium"; intent?: "primary" | "secondary" };
+ * ```
  */
 type CVAVariants<V extends Variant> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]>;
@@ -24,8 +46,38 @@ type CVAVariants<V extends Variant> = {
  * Represents the configuration object for the `cva` function.
  *
  * @template V - The type of variants.
+ * @property {string=} name - Optional component name.
+ * @property {ClassValue=} base - The base class name for the component.
+ * @property {V=} variants - Variants allow you to create multiple versions of the same component.
+ * @property {(V extends Variant ? (CVAVariants<V> | { [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[]; }) & ClassProp : ClassProp)[]=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
+ * @property {CVAVariants<V>=} defaultVariants - Default variants allow you to set default variants for a component.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig: CVAConfig<{
+ *   size: { small: string; medium: string };
+ *   intent: { primary: string; secondary: string };
+ * }> = {
+ *   base: "rounded-md",
+ *   variants: {
+ *     size: { small: "text-sm", medium: "text-base" },
+ *     intent: { primary: "bg-blue-500", secondary: "bg-gray-200" }
+ *   },
+ *   compoundVariants: [
+ *     {
+ *       size: "small",
+ *       intent: "primary",
+ *       class: "font-bold"
+ *     }
+ *   ],
+ *   defaultVariants: { size: "medium", intent: "primary" }
+ * };
+ * ```
  */
 type CVAConfig<V extends Variant> = {
+  /**
+   * The name of the cva component.
+   */
   name?: string;
   /**
    * The base class name for the component.
@@ -53,22 +105,26 @@ type CVAConfig<V extends Variant> = {
   defaultVariants?: CVAVariants<V>;
 };
 
-export type CVAMethods<V extends Variant> = {
-  config: CVAConfig<V>;
-  mergeClass: MergeClassFn;
-  rawConfig: RawConfig;
-  raw: (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string;
-};
-
 /**
  * Represents the return type of the CVA function.
  *
  * @template V - The type of variants.
+ * @returns {(props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string} A function that generates class names based on props.
+ *
+ * @example
+ * ```ts
+ * const buttonCVA: CVAReturnType<{ size: { small: string; medium: string } }> = cva({
+ *   variants: {
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     }
+ *   },
+ * });
+ * const buttonClasses = buttonCVA({ size: "small" }); // Returns a string of class names
+ * ```
  */
-type CVAReturnType<V extends Variant> = ((
-  props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
-) => string) &
-  CVAMethods<V>;
+type CVAReturnType<V extends Variant> = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string;
 
 /**
  * Creates a class variant authority (cva) function.
@@ -76,7 +132,28 @@ type CVAReturnType<V extends Variant> = ((
  *
  * @template V - The type of variants.
  * @param {CVAConfig<V>} config - The cva configuration object.
- * @returns {CVAReturnType<V>} A function that generates class names based on props, and the original config object.
+ * @returns {CVAReturnType<V>} A function that generates class names based on props.
+ *
+ * @example
+ * ```ts
+ * const button = cva({
+ *   base: "rounded-md",
+ *   variants: {
+ *     size: { small: "text-sm", medium: "text-base" },
+ *     intent: { primary: "bg-blue-500", secondary: "bg-gray-200" }
+ *   },
+ *   compoundVariants: [
+ *     {
+ *       size: "small",
+ *       intent: "primary",
+ *       class: "font-bold"
+ *     }
+ *   ]
+ *   defaultVariants: { size: "medium", intent: "primary" }
+ * });
+ *
+ * const buttonClasses = button({ size: "small", intent: "primary" });
+ * ```
  */
 type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
 
@@ -84,10 +161,12 @@ type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
  * Creates a class variant authority (cva) function with a custom merge function.
  *
  * @param {MergeClassFn} mergeClass - The function to merge class names.
- * @param {RawConfig} rawConfig - The raw configuration object.
  * @returns {CVA} The cva function.
+ *
+ * @example
+ * const customCVA = createCVA(myCustomMergeFunction);
  */
-export const createCVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = {}): CVA => {
+export const createCVA = (mergeClass: MergeClassFn = cn): CVA => {
   return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
     const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       // * Exit early if `base` is not defined or has a falsey value
@@ -138,21 +217,7 @@ export const createCVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = 
       );
     };
 
-    return Object.assign(component, {
-      config,
-      mergeClass,
-      raw: (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => {
-        return getRawClasses({
-          defaultVariants: config.compoundVariants,
-          mergeClass,
-          name: config.name,
-          props,
-          rawConfig,
-          variants: config.variants
-        });
-      },
-      rawConfig
-    });
+    return component;
   };
 };
 
@@ -162,3 +227,78 @@ export const createCVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = 
  * @type {CVA}
  */
 export const cva: CVA = createCVA();
+
+/**
+ * Defines a CVA configuration object with type safety.
+ *
+ * @template V - The type of variants.
+ * @template C - The type of the CVA configuration.
+ * @param {Readonly<C>} config - The CVA configuration object.
+ * @returns {Readonly<C>} The CVA configuration object.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig = defineCVA({
+ *   base: "rounded-md",
+ *   variants: {
+ *     size: { small: "text-sm", medium: "text-base" }
+ *   }
+ * });
+ * ```
+ */
+export const defineCVA = <V extends Variant, C extends CVAConfig<V>>(config: Readonly<C>): Readonly<C> => config;
+
+/**
+ * Represents the return type of the `rawCVA` function.
+ * It includes the `CVAReturnType` along with the configuration, merge function, and raw configuration.
+ *
+ * @template V - The type of variants.
+ */
+export type CVARawReturnType<V extends Variant> = CVAReturnType<V> & {
+  config: CVAConfig<V>;
+  mergeClass: MergeClassFn;
+  rawConfig: RawConfig;
+};
+
+/**
+ * Type definition for the `rawCVA` function.
+ *
+ * @template V - The type of variants.
+ */
+type RawCVA<V extends Variant = {}> = (config: CVAConfig<V>) => CVARawReturnType<V>;
+
+/**
+ * Creates a raw CVA function that returns class names based on the component's raw configuration.
+ *
+ * @param {MergeClassFn} mergeClass - The function to merge class names.
+ * @param {RawConfig} rawConfig - Configuration for raw class name generation.
+ * @returns {RawCVA} The raw CVA function.
+ *
+ * @example
+ * ```ts
+ * const rawButton = createRawCVA(myCustomMergeFunction, { prefix: "btn" });
+ * ```
+ */
+export const createRawCVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = {}) => {
+  return <V extends Variant>(config: CVAConfig<V>): CVARawReturnType<V> => {
+    const rawClass = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
+      return getRawClasses({
+        defaultVariants: config.compoundVariants,
+        mergeClass,
+        name: config.name,
+        props,
+        rawConfig,
+        variants: config.variants
+      });
+    };
+
+    return Object.assign(rawClass, { config, mergeClass, rawConfig });
+  };
+};
+
+/**
+ * Implementation of the raw CVA function using the default class merging function and raw configuration.
+ *
+ * @type {RawCVA}
+ */
+export const rawCVA: RawCVA = createRawCVA();

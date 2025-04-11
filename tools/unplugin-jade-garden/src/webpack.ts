@@ -7,7 +7,7 @@ import { type PluginInstance, factory } from "./core";
  * @example
  * ```js
  * // webpack.config.js
- * import jadeGardenPlugin from "@jade-garden/webpack";
+ * import jadeGardenPlugin from "unplugin-jade-garden/webpack";
  *
  * default export {
  *  plugins: [jadeGardenPlugin()]

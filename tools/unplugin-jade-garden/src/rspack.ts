@@ -7,7 +7,7 @@ import { type PluginInstance, factory } from "./core";
  * @example
  * ```js
  * // rspack.config.js
- * import jadeGardenPlugin from "@jade-garden/rspack";
+ * import jadeGardenPlugin from "unplugin-jade-garden/rspack";
  *
  * default export {
  *  plugins: [jadeGardenPlugin()]

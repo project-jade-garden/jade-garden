@@ -1,10 +1,10 @@
 // * Workaround to prevent types from being exposed to developers in "jade-garden"
-import type { CVAMethods, Variant } from "../../../jade-garden/src/cva";
-import type { DefaultVariants, SVAMethods, SVAVariants, Slots } from "../../../jade-garden/src/sva";
+import type { CVARawReturnType, Variant } from "../../../jade-garden/src/cva";
+import type { DefaultVariants, SVARawReturnType, SVAVariants, Slots } from "../../../jade-garden/src/sva";
 
 /* ==================== Types ==================== */
 
-export type CVA = CVAMethods<Variant>;
+export type CVA = CVARawReturnType<Variant>;
 
 export type Options = {
   /**
@@ -25,4 +25,4 @@ export type Options = {
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
 
-export type SVA = SVAMethods<Slots, SVAVariants<Slots, DefaultVariants<Slots>>>;
+export type SVA = SVARawReturnType<Slots, SVAVariants<Slots, DefaultVariants<Slots>>>;

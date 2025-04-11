@@ -1,8 +1,8 @@
-import { createCVA, cx } from "jade-garden";
+import { createRawCVA, cx, defineCVA } from "jade-garden";
 
-const cva = createCVA(cx);
+const rawCVA = createRawCVA(cx);
 
-export const button = cva({
+const buttonConfig = defineCVA({
   name: "button",
   base: "rounded-full",
   variants: {
@@ -21,3 +21,5 @@ export const button = cva({
     size: "medium"
   }
 });
+
+export const button = rawCVA(buttonConfig);

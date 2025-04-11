@@ -8,7 +8,7 @@ import { type PluginInstance, factory } from "./core";
  * ```ts
  * // vite.config.ts
  * import { defineConfig } from "vite";
- * import jadeGardenPlugin from "@jade-garden/vite";
+ * import jadeGardenPlugin from "unplugin-jade-garden/vite";
  *
  * export default defineConfig({
  *   plugins: [jadeGardenPlugin()]
