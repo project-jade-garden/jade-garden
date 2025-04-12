@@ -22,7 +22,7 @@ import { getRawClasses, getVariantClasses, hasProps } from "./utils";
  * }
  * ```
  */
-export type Variant = Record<string, RecordClassValue>;
+type Variant = Record<string, RecordClassValue>;
 
 /**
  * Represents the schema for variant props in `cva`.
@@ -253,7 +253,7 @@ export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V>
  *
  * @template V - The type of variants.
  */
-export type CVARawReturnType<V extends Variant> = CVAReturnType<V> & {
+type CVARawReturnType<V extends Variant> = CVAReturnType<V> & {
   config: CVAConfig<V>;
   mergeClass: MergeClassFn;
   rawConfig: RawConfig;

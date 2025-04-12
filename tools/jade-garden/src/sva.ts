@@ -15,7 +15,7 @@ import { convertCase, getRawClasses, getVariantClasses, hasProps } from "./utils
  * }
  * ```
  */
-export type Slots = RecordClassValue;
+type Slots = RecordClassValue;
 
 /**
  * Represents the class values for slots, where keys are slot names and values are class names.
@@ -45,7 +45,7 @@ type SlotsClassValue<S extends Slots> = {
  * }
  * ```
  */
-export type DefaultVariants<S extends Slots> = {
+type DefaultVariants<S extends Slots> = {
   [key: string]: {
     [key: string]: SlotsClassValue<S>;
   };
@@ -79,7 +79,7 @@ export type DefaultVariants<S extends Slots> = {
  * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
  * ```
  */
-export type SVAVariants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants<S>> =
+type SVAVariants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants<S>> =
   | {
       [K in keyof V]?: {
         [K2 in keyof V[K]]?: SlotsClassValue<S>;
@@ -402,7 +402,7 @@ export const defineSVA = <S extends Slots, V extends SVAVariants<S, DefaultVaria
  * @template S - The type of slots.
  * @template V - The type of variants.
  */
-export type SVARawReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = SVAReturnType<S, V> & {
+type SVARawReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = SVAReturnType<S, V> & {
   config: SVAConfig<S, V>;
   mergeClass: MergeClassFn;
   rawConfig: RawConfig;
