@@ -2,7 +2,62 @@ import { describe, expect, test } from "bun:test";
 import { cm, cn, cx } from "../src";
 
 describe("class-utils", () => {
-  describe.todo("cm", () => {});
+  describe("cm", () => {
+    test("returns the input when no exclude or include is provided", () => {
+      expect(cm("class1 class2")).toBe("class1 class2");
+      expect(cm(["class1", "class2"])).toBe("class1 class2");
+      expect(cm({ class1: true, class2: false })).toBe("class1");
+      expect(cm(123)).toBe("123");
+    });
+
+    test("excludes specified classes when exclude is a string", () => {
+      expect(cm("class1 class2 class3", "class2")).toBe("class1 class3");
+      expect(cm(["class1", "class2", "class3"], "class2")).toBe("class1 class3");
+      expect(cm({ class1: true, class2: true, class3: true }, "class2")).toBe("class1 class3");
+    });
+
+    test("excludes specified classes when exclude is an array", () => {
+      expect(cm("class1 class2 class3", ["class2", "class3"])).toBe("class1");
+      expect(cm(["class1", "class2", "class3"], ["class2", "class3"])).toBe("class1");
+      expect(cm({ class1: true, class2: true, class3: true }, ["class2", "class3"])).toBe("class1");
+    });
+
+    test("includes specified classes when include is a string", () => {
+      expect(cm("class1 class2", undefined, "class3")).toBe("class1 class2 class3");
+      expect(cm(["class1", "class2"], undefined, "class3")).toBe("class1 class2 class3");
+      expect(cm({ class1: true, class2: true }, undefined, "class3")).toBe("class1 class2 class3");
+    });
+
+    test("includes specified classes when include is an array", () => {
+      expect(cm("class1 class2", undefined, ["class3", "class4"])).toBe("class1 class2 class3 class4");
+      expect(cm(["class1", "class2"], undefined, ["class3", "class4"])).toBe("class1 class2 class3 class4");
+      expect(cm({ class1: true, class2: true }, undefined, ["class3", "class4"])).toBe("class1 class2 class3 class4");
+    });
+
+    test("handles both exclude and include correctly", () => {
+      expect(cm("class1 class2 class3", "class2", "class4")).toBe("class1 class3 class4");
+      expect(cm(["class1", "class2", "class3"], ["class2"], ["class4", "class5"])).toBe("class1 class3 class4 class5");
+      expect(cm({ class1: true, class2: true, class3: true }, ["class2"], ["class4"])).toBe("class1 class3 class4");
+    });
+
+    test("removes duplicate classes", () => {
+      expect(cm("class1 class2 class1", undefined, "class2")).toBe("class1 class2");
+      expect(cm(["class1", "class2", "class1"], undefined, ["class2", "class3"])).toBe("class1 class2 class3");
+      // @ts-expect-error
+      // biome-ignore lint/suspicious/noDuplicateObjectKeys:for testing purposes
+      expect(cm({ class1: true, class2: true, class1: true }, undefined, ["class2", "class3"])).toBe(
+        "class1 class2 class3"
+      );
+    });
+
+    test("works with empty strings and arrays", () => {
+      expect(cm("", undefined, "class1")).toBe("class1");
+      expect(cm([], undefined, "class1")).toBe("class1");
+      expect(cm("class1", [], "class2")).toBe("class1 class2");
+      expect(cm("class1", "class1", [])).toBe("");
+      expect(cm("", [], [])).toBe("");
+    });
+  });
 
   describe("cn", () => {
     test("strings", () => {

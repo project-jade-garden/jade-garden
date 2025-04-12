@@ -1,4 +1,4 @@
-import { clsx } from "clsx/lite";
+import { clsx } from "clsx";
 import type { ClassValue } from "./types";
 
 /* ================== Class Utils ================= */
@@ -16,8 +16,8 @@ export const cm = <T extends ClassValue>(
   input: T,
   exclude?: string | string[],
   include?: string | string[]
-): string | T => {
-  if (typeof exclude === "undefined" && typeof include === "undefined") return input;
+): string => {
+  if (typeof exclude === "undefined" && typeof include === "undefined") return clsx(input);
 
   let result = clsx(input).split(" ");
 
@@ -37,7 +37,7 @@ export const cm = <T extends ClassValue>(
     }
   }
 
-  return Array.from(new Set(result)).join(" ");
+  return clsx(Array.from(new Set(result)));
 };
 
 export {
