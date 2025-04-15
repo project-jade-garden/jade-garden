@@ -19,11 +19,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AGS1130/spark-css.git",
+    "url": "git+https://github.com/AGS1130/project-jade-garden.git",
     "directory": "tools/unplugin-jade-garden"
   },
   "bugs": {
-    "url": "https://github.com/AGS1130/spark-css/issues"
+    "url": "https://github.com/AGS1130/project-jade-garden/issues"
   },
   "type": "module",
   "files": ["dist"],
