@@ -1,4 +1,4 @@
-import { cn } from "./class-utils";
+import { cx } from "./class-utils";
 import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
@@ -166,7 +166,7 @@ type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
  * @example
  * const customCVA = createCVA(myCustomMergeFunction);
  */
-export const createCVA = (mergeClass: MergeClassFn = cn): CVA => {
+export const createCVA = (mergeClass: MergeClassFn = cx): CVA => {
   return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
     const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       // * Exit early if `base` is not defined or has a falsey value
@@ -278,7 +278,7 @@ type RawCVA<V extends Variant = {}> = (config: CVAConfig<V>) => CVARawReturnType
  * const rawButton = createRawCVA(myCustomMergeFunction, { prefix: "btn" });
  * ```
  */
-export const createRawCVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = {}) => {
+export const createRawCVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig = {}) => {
   return <V extends Variant>(config: CVAConfig<V>): CVARawReturnType<V> => {
     const rawClass = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       return getRawClasses({

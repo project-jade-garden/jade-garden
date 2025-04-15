@@ -1,4 +1,4 @@
-import { cn } from "./class-utils";
+import { cx } from "./class-utils";
 import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
 import { convertCase, getRawClasses, getVariantClasses, hasProps } from "./utils";
 
@@ -246,7 +246,7 @@ type SVA = <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
  * const customSVA = createSVA(myCustomMergeFunction);
  * ```
  */
-export const createSVA = (mergeClass: MergeClassFn = cn): SVA => {
+export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
   return <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
     config: SVAConfig<S, V>
   ): SVAReturnType<S, V> => {
@@ -430,7 +430,7 @@ type RawSVA<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = (
  * const rawButton = createRawSVA(myCustomMergeFunction, { prefix: "btn" });
  * ```
  */
-export const createRawSVA = (mergeClass: MergeClassFn = cn, rawConfig: RawConfig = {}) => {
+export const createRawSVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig = {}) => {
   return <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
     config: SVAConfig<S, V>
   ): SVARawReturnType<S, V> => {
