@@ -60,8 +60,14 @@ type CVAVariants<V extends Variant> = {
  * }> = {
  *   base: "rounded-md",
  *   variants: {
- *     size: { small: "text-sm", medium: "text-base" },
- *     intent: { primary: "bg-blue-500", secondary: "bg-gray-200" }
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     },
+ *     intent: {
+ *       primary: "bg-blue-500",
+ *       secondary: "bg-gray-200"
+ *     }
  *   },
  *   compoundVariants: [
  *     {
@@ -70,7 +76,10 @@ type CVAVariants<V extends Variant> = {
  *       class: "font-bold"
  *     }
  *   ],
- *   defaultVariants: { size: "medium", intent: "primary" }
+ *   defaultVariants: {
+ *     size: "medium",
+ *     intent: "primary"
+ *   }
  * };
  * ```
  */
@@ -139,8 +148,14 @@ type CVAReturnType<V extends Variant> = (props?: V extends Variant ? CVAVariants
  * const button = cva({
  *   base: "rounded-md",
  *   variants: {
- *     size: { small: "text-sm", medium: "text-base" },
- *     intent: { primary: "bg-blue-500", secondary: "bg-gray-200" }
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     },
+ *     intent: {
+ *       primary: "bg-blue-500",
+ *       secondary: "bg-gray-200"
+ *     }
  *   },
  *   compoundVariants: [
  *     {
@@ -149,7 +164,10 @@ type CVAReturnType<V extends Variant> = (props?: V extends Variant ? CVAVariants
  *       class: "font-bold"
  *     }
  *   ]
- *   defaultVariants: { size: "medium", intent: "primary" }
+ *   defaultVariants: {
+ *     size: "medium",
+ *     intent: "primary"
+ *   }
  * });
  *
  * const buttonClasses = button({ size: "small", intent: "primary" });
@@ -228,6 +246,7 @@ export const createCVA = (mergeClass: MergeClassFn = cx): CVA => {
  */
 export const cva: CVA = createCVA();
 
+// TODO: Determine parameters for attributes/parts
 /**
  * Defines a CVA configuration object with type safety.
  *
@@ -240,7 +259,10 @@ export const cva: CVA = createCVA();
  * const buttonConfig = defineCVA({
  *   base: "rounded-md",
  *   variants: {
- *     size: { small: "text-sm", medium: "text-base" }
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     }
  *   }
  * });
  * ```
@@ -264,7 +286,7 @@ type CVARawReturnType<V extends Variant> = CVAReturnType<V> & {
  *
  * @template V - The type of variants.
  */
-type RawCVA<V extends Variant = {}> = (config: CVAConfig<V>) => CVARawReturnType<V>;
+type RawCVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVARawReturnType<V>;
 
 /**
  * Creates a raw CVA function that returns class names based on the component's raw configuration.
@@ -278,11 +300,11 @@ type RawCVA<V extends Variant = {}> = (config: CVAConfig<V>) => CVARawReturnType
  * const rawButton = createRawCVA(myCustomMergeFunction, { prefix: "btn" });
  * ```
  */
-export const createRawCVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig = {}) => {
+export const createRawCVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig = {}): RawCVA => {
   return <V extends Variant>(config: CVAConfig<V>): CVARawReturnType<V> => {
     const rawClass = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       return getRawClasses({
-        defaultVariants: config.compoundVariants,
+        compoundVariants: config.compoundVariants,
         mergeClass,
         name: config.name,
         props,

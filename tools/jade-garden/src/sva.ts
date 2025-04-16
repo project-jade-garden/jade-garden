@@ -11,7 +11,7 @@ import { convertCase, getRawClasses, getVariantClasses, hasProps } from "./utils
  * ```ts
  * {
  *   root: "flex",
- *   item: "px-2 py-1",
+ *   item: "px-2 py-1"
  * }
  * ```
  */
@@ -39,8 +39,12 @@ type SlotsClassValue<S extends Slots> = {
  * ```ts
  * {
  *   size: {
- *     small: { root: "text-sm" },
- *     medium: { root: "text-base" },
+ *     small: {
+ *       root: "text-sm"
+ *     },
+ *     medium: {
+ *       root: "text-base"
+ *     }
  *   }
  * }
  * ```
@@ -141,11 +145,25 @@ type SVAProps<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = {
  *   { root: string; item: string },
  *   { size: { small: { root: string }; medium: { root: string } } }
  * > = {
- *   slots: { root: "flex", item: "px-2 py-1" },
- *   variants: { size: { small: { root: "text-sm" }, medium: { root: "text-base" } } },
+ *   slots: {
+ *     root: "flex",
+ *     item: "px-2 py-1"
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "text-base"
+ *       }
+ *     }
+ *   },
  *   compoundVariants: [{ size: "small", class: { root: "font-bold" } }],
  *   compoundSlots: [{ slots: ["root", "item"], class: "rounded" }],
- *   defaultVariants: { size: "medium" }
+ *   defaultVariants: {
+ *     size: "medium"
+ *   }
  * };
  * ```
  */
@@ -201,8 +219,20 @@ type SVAConfig<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = 
  *   { root: string; item: string },
  *   { size: { small: { root: string }; medium: { root: string } } }
  * > = sva({
- *   slots: { root: "flex", item: "px-2 py-1" },
- *   variants: { size: { small: { root: "text-sm" }, medium: { root: "text-base" } } }
+ *   slots: {
+ *     root: "flex",
+ *     item: "px-2 py-1"
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "text-base"
+ *       }
+ *     }
+ *   }
  * });
  * ```
  */
@@ -221,11 +251,25 @@ type SVAReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>
  * @example
  * ```ts
  * const button = sva({
- *   slots: { root: "flex", item: "px-2 py-1" },
- *   variants: { size: { small: { root: "text-sm" }, medium: { root: "text-base" } } },
+ *   slots: {
+ *     root: "flex",
+ *     item: "px-2 py-1"
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "text-base"
+ *       }
+ *     }
+ *   },
  *   compoundVariants: [{ size: "small", class: { root: "font-bold" } }],
  *   compoundSlots: [{ slots: ["root", "item"], class: "rounded" }],
- *   defaultVariants: { size: "medium" }
+ *   defaultVariants: {
+ *     size: "medium"
+ *   }
  * });
  *
  * const buttonClasses = button({ size: "small" });
@@ -374,6 +418,7 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
  */
 export const sva: SVA = createSVA();
 
+// TODO: Determine parameters for attributes/parts
 /**
  * Defines an SVA configuration object with type safety.
  *
@@ -386,8 +431,20 @@ export const sva: SVA = createSVA();
  * @example
  * ```ts
  * const buttonConfig = defineSVA({
- *   slots: { root: "flex", item: "px-2 py-1" },
- *   variants: { size: { small: { root: "text-sm" }, medium: { root: "text-base" } } },
+ *   slots: {
+ *     root: "flex",
+ *     item: "px-2 py-1"
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "text-base"
+ *       }
+ *     }
+ *   }
  * });
  * ```
  */
@@ -443,32 +500,13 @@ export const createRawSVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig
       if (typeof config?.slots !== "object" || Object.keys(config.slots).length === 0) return slotsFns;
 
       const slots = config.slots;
-
-      // * Exit early if variants do not exist or is not an object
-      if (
-        typeof config?.variants !== "object" ||
-        (typeof config.variants === "object" && Array.isArray(config.variants))
-      ) {
-        for (const slotKey of Object.keys(slots)) {
-          slotsFns[slotKey] = (slotProps?: SVAProps<S, V> & ClassProp) => {
-            if (!config.name) return "";
-
-            const className = `${rawConfig.prefix ? `${rawConfig.prefix}-` : ""}${convertCase(config.name, rawConfig.caseConvention)}`;
-
-            return mergeClass(className, slotProps?.class, slotProps?.className);
-          };
-        }
-
-        return slotsFns;
-      }
-
-      const variants = config.variants;
+      const variants = config.variants ?? {};
 
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
         slotsFns[slotKey] = (slotProps: SVAProps<S, V> & ClassProp = {}) => {
           return getRawClasses({
-            defaultVariants: config.compoundVariants,
+            compoundVariants: config.compoundVariants,
             mergeClass,
             name: config.name,
             props,

@@ -60,7 +60,7 @@ This gap highlights the need for a more structured and programmatic approach to 
 Project Jade Garden is a set of guides and tools to standardize development of Headless Design Systems.
 This repo is primarly divided to two directories [`projects`](../projects) and [`tools`](../tools).
 
-The `projects` directory acts as a documentation of popular and similar Headless component libraries' "_API_".
+The `projects` directory acts as a documentation of popular and similar Headless component libraries' types.
 For example, child components for a parent component (accordion, dialog, menu, etc.) are referenced across these libraries as `anatomy`, `parts`, or `slots`.
 While the authors of these libraries may not be talking to each other, the libraries they develop share a similar concept through implicit language.
 In the very near future, the list of APIs can include [`ARIA attributes`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes) for accessiblity,

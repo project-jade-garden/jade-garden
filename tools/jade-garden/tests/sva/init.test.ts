@@ -1,7 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { cm, createSVA, cx } from "../../src";
-
-const sva = createSVA(cx);
+import { cm, sva } from "../../src";
 
 function parseClasses(result: string | string[]) {
   return (typeof result === "string" ? result.split(" ") : result).slice().sort();

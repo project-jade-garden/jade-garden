@@ -48,7 +48,7 @@ const falsyToString = <T>(value: T): string | T =>
  * Constructs a raw class name based on the component's name, slot, and variants.
  *
  * @param {object} options - The options object.
- * @param {Record<string, any> | undefined} options.defaultVariants - The default variants object.
+ * @param {Record<string, any> | undefined} options.compoundVariants - The compound variants object.
  * @param {MergeClassFn} options.mergeClass - The function to merge class names.
  * @param {string | undefined} options.name - The component name.
  * @param {Record<string, any> | undefined} options.props - The props object.
@@ -59,7 +59,7 @@ const falsyToString = <T>(value: T): string | T =>
  * @returns {string} A string of raw class names.
  */
 export const getRawClasses = (options: {
-  defaultVariants: Record<string, any> | undefined;
+  compoundVariants: Record<string, any> | undefined;
   mergeClass: MergeClassFn;
   name: string | undefined;
   props: Record<string, any> | undefined;
@@ -68,7 +68,7 @@ export const getRawClasses = (options: {
   slotKey?: string;
   slotProps?: Record<string, any>;
 }): string => {
-  const { defaultVariants, mergeClass, name, props, rawConfig, slotKey, slotProps, variants } = options;
+  const { compoundVariants, mergeClass, name, props, rawConfig, slotKey, slotProps, variants } = options;
   if (!name) return "";
 
   const cc = rawConfig.caseConvention;
@@ -91,7 +91,7 @@ export const getRawClasses = (options: {
     const variantObj = (variants as Record<string, any>)[variant];
     if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
 
-    const variantKey = slotProps?.[variant] ?? props?.[variant] ?? defaultVariants?.[variant];
+    const variantKey = slotProps?.[variant] ?? props?.[variant] ?? compoundVariants?.[variant];
 
     // * "__variant--variantKey"
     const suffix = variant

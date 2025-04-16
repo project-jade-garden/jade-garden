@@ -1,7 +1,7 @@
 {
   "name": "unplugin-jade-garden",
   "version": "0.0.0",
-  "description": "TBD",
+  "description": "Build tool plugin for creating CSS with Jade Garden",
   "keywords": [
     "tailwindcss",
     "tailwind",
