@@ -1,12 +1,5 @@
 import { cx } from "./class-utils";
-import type {
-  ClassProp,
-  ClassValue,
-  MergeClassFn,
-  RawConfig,
-  RecordClassValue as Slots,
-  StringToBoolean
-} from "./types";
+import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ===================== SVA ===================== */
@@ -14,21 +7,21 @@ import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 /**
  * Represents the class values for slots, where keys are slot names and values are class names.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @example
  * ```ts
  * type ButtonSlots = SlotsClassValue<{ root: string; item: string }>;
  * // ButtonSlots = { root?: ClassValue; item?: ClassValue };
  * ```
  */
-type SlotsClassValue<S extends Slots> = {
-  [K in keyof S]?: ClassValue;
+type SlotsClassValue<RCV extends RecordClassValue> = {
+  [K in keyof RCV]?: ClassValue;
 };
 
 /**
  * Represents the default variants for a component.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @example
  * ```ts
  * {
@@ -43,16 +36,16 @@ type SlotsClassValue<S extends Slots> = {
  * }
  * ```
  */
-type DefaultVariants<S extends Slots> = {
+type DefaultVariants<RCV extends RecordClassValue> = {
   [key: string]: {
-    [key: string]: SlotsClassValue<S>;
+    [key: string]: SlotsClassValue<RCV>;
   };
 };
 
 /**
  * Represents the variants for a component.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
  * @example
  * ```ts
@@ -77,18 +70,18 @@ type DefaultVariants<S extends Slots> = {
  * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
  * ```
  */
-type Variants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants<S>> =
+type Variants<RCV extends RecordClassValue, V extends DefaultVariants<RCV> = DefaultVariants<RCV>> =
   | {
       [K in keyof V]?: {
-        [K2 in keyof V[K]]?: SlotsClassValue<S>;
+        [K2 in keyof V[K]]?: SlotsClassValue<RCV>;
       };
     }
-  | DefaultVariants<S>;
+  | DefaultVariants<RCV>;
 
 /**
  * Reusable type for compound styles that apply based on multiple variant combinations.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
  * @example
  * ```ts
@@ -99,14 +92,14 @@ type Variants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants<S>
  * // ButtonCompound = { size?: "small" | "medium" | ("small" | "medium")[] };
  * ```
  */
-type CompoundBase<S extends Slots, V extends Variants<S>> = {
+type CompoundBase<RCV extends RecordClassValue, V extends Variants<RCV>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
 };
 
 /**
  * Represents the props for a component with variants and slots.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
  * @example
  * ```ts
@@ -117,21 +110,21 @@ type CompoundBase<S extends Slots, V extends Variants<S>> = {
  * // ButtonProps = { size?: "small" | "medium" };
  * ```
  */
-type SVAVariants<S extends Slots, V extends Variants<S>> = {
+type SVAVariants<RCV extends RecordClassValue, V extends Variants<RCV>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]>;
 };
 
 /**
  * Represents the configuration object for the `sva` function.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
  * @property {string=} name - Optional component name.
  * @property {S=} slots - Slots allow you to separate a component into multiple parts.
  * @property {V=} variants - Variants allow you to create multiple versions of the same component.
- * @property {Array<CompoundBase<S, V> & ( { class?: SlotsClassValue<S>; className?: never; } | { class?: never; className?: SlotsClassValue<S>; } )>=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
- * @property {Array<{ slots: Array<keyof S> } & CompoundBase<S, V> & ClassProp>=} compoundSlots - Compound slots allow you to apply classes to multiple slots at once.
- * @property {SVAVariants<S, V>=} defaultVariants - Default variants allow you to set default variants for a component.
+ * @property {Array<CompoundBase<RCV, V> & ( { class?: SlotsClassValue<RCV>; className?: never; } | { class?: never; className?: SlotsClassValue<RCV>; } )>=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
+ * @property {Array<{ slots: Array<keyof S> } & CompoundBase<RCV, V> & ClassProp>=} compoundSlots - Compound slots allow you to apply classes to multiple slots at once.
+ * @property {SVAVariants<RCV, V>=} defaultVariants - Default variants allow you to set default variants for a component.
  *
  * @example
  * ```ts
@@ -161,7 +154,7 @@ type SVAVariants<S extends Slots, V extends Variants<S>> = {
  * };
  * ```
  */
-type SVAConfig<S extends Slots, V extends Variants<S>> = {
+type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
   /**
    * The name of the sva component.
    */
@@ -169,7 +162,7 @@ type SVAConfig<S extends Slots, V extends Variants<S>> = {
   /**
    * Slots allow you to separate a component into multiple parts.
    */
-  slots?: S;
+  slots?: RCV;
   /**
    * Variants allow you to create multiple versions of the same component.
    */
@@ -178,34 +171,34 @@ type SVAConfig<S extends Slots, V extends Variants<S>> = {
    * Compound variants allow you to apply classes to multiple variants at once.
    */
   compoundVariants?: Array<
-    CompoundBase<S, V> &
+    CompoundBase<RCV, V> &
       (
         | {
-            class?: SlotsClassValue<S>;
+            class?: SlotsClassValue<RCV>;
             className?: never;
           }
         | {
             class?: never;
-            className?: SlotsClassValue<S>;
+            className?: SlotsClassValue<RCV>;
           }
       )
   >;
   /**
    * Compound slots allow you to apply classes to multiple slots at once.
    */
-  compoundSlots?: Array<{ slots: Array<keyof S> } & CompoundBase<S, V> & ClassProp>;
+  compoundSlots?: Array<{ slots: Array<keyof RCV> } & CompoundBase<RCV, V> & ClassProp>;
   /**
    * Default variants allow you to set default variants for a component.
    */
-  defaultVariants?: SVAVariants<S, V>;
+  defaultVariants?: SVAVariants<RCV, V>;
 };
 
 /**
  * Represents the return type of the SVA function.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
- * @returns {(props?: SVAVariants<S, V>) => { [K in keyof S]: (slotProps?: SVAVariants<S, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
+ * @returns {(props?: SVAVariants<RCV, V>) => { [K in keyof S]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
  *
  * @example
  * ```ts
@@ -230,17 +223,17 @@ type SVAConfig<S extends Slots, V extends Variants<S>> = {
  * });
  * ```
  */
-type SVAReturnType<S extends Slots, V extends Variants<S>> = (props?: SVAVariants<S, V>) => {
-  [K in keyof S]: (slotProps?: SVAVariants<S, V> & ClassProp) => string;
+type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = (props?: SVAVariants<RCV, V>) => {
+  [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
 };
 
 /**
- * Creates a Styled Variants API (SVA) function for a component.
+ * Creates a slots variants authority (SVA) function for a component.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
- * @param {SVAConfig<S, V>} config - Configuration options for the SVA function.
- * @returns {SVAReturnType<S, V>} The return type of the SVA function.
+ * @param {SVAConfig<RCV, V>} config - Configuration options for the SVA function.
+ * @returns {SVAReturnType<RCV, V>} The return type of the SVA function.
  *
  * @example
  * ```ts
@@ -269,10 +262,10 @@ type SVAReturnType<S extends Slots, V extends Variants<S>> = (props?: SVAVariant
  * const buttonClasses = button({ size: "small" });
  * ```
  */
-type SVA = <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>) => SVAReturnType<S, V>;
+type SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVAConfig<RCV, V>) => SVAReturnType<RCV, V>;
 
 /**
- * Creates a Styled Variants API (SVA) function with a custom merge function.
+ * Creates a slots variants authority (SVA) function with a custom merge function.
  *
  * @param {MergeClassFn} mergeClass - The function to merge class names.
  * @returns {SVA} The sva function.
@@ -283,8 +276,8 @@ type SVA = <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>) => 
  * ```
  */
 export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
-  return <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>): SVAReturnType<S, V> => {
-    const components = (props?: SVAVariants<S, V>) => {
+  return <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVAConfig<RCV, V>): SVAReturnType<RCV, V> => {
+    const components = (props?: SVAVariants<RCV, V>) => {
       type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
@@ -332,7 +325,7 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
         (typeof config.variants === "object" && Array.isArray(config.variants))
       ) {
         for (const slotKey of Object.keys(slots)) {
-          slotsFns[slotKey] = (slotProps: SVAVariants<S, V> & ClassProp = {}) => {
+          slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
             return mergeClass(
               slots[slotKey],
               getCompoundSlotClasses({ ...props, ...slotProps })[slotKey],
@@ -381,7 +374,7 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
 
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: SVAVariants<S, V> & ClassProp = {}) => {
+        slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
           const configProps = { ...defaultsAndProps, ...slotProps };
           return mergeClass(
             slots[slotKey],
@@ -397,58 +390,26 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
       return slotsFns;
     };
 
-    return components as SVAReturnType<S, V>;
+    return components as SVAReturnType<RCV, V>;
   };
 };
 
 /**
- * Implementation of the Styled Variants API (SVA) function using the default class merging function.
+ * Implementation of the slots variants authority (SVA) function using the default class merging function.
  *
  * @type {SVA}
  */
 export const sva: SVA = createSVA();
 
-// TODO: Determine parameters for attributes/parts
-/**
- * Defines an SVA configuration object with type safety.
- *
- * @template S - The type of slots.
- * @template V - The type of variants.
- * @template C - The type of the SVA configuration.
- * @param {SVAConfig<S, V>} config - The SVA configuration object.
- * @returns {SVAConfig<S, V>} The SVA configuration object.
- *
- * @example
- * ```ts
- * const buttonConfig = defineSVA({
- *   slots: {
- *     root: "flex",
- *     item: "px-2 py-1"
- *   },
- *   variants: {
- *     size: {
- *       small: {
- *         root: "text-sm"
- *       },
- *       medium: {
- *         root: "text-base"
- *       }
- *     }
- *   }
- * });
- * ```
- */
-export const defineSVA = <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>): SVAConfig<S, V> => config;
-
 /**
  * Represents the return type of the `rawSVA` function.
  * It includes the `SVAReturnType` along with the configuration, merge function, and raw configuration.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
  */
-type SVARawReturnType<S extends Slots, V extends Variants<S>> = SVAReturnType<S, V> & {
-  config: SVAConfig<S, V>;
+type SVARawReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = SVAReturnType<RCV, V> & {
+  config: SVAConfig<RCV, V>;
   mergeClass: MergeClassFn;
   rawConfig: RawConfig;
 };
@@ -456,10 +417,12 @@ type SVARawReturnType<S extends Slots, V extends Variants<S>> = SVAReturnType<S,
 /**
  * Type definition for the `rawSVA` function.
  *
- * @template S - The type of slots.
+ * @template RCV - The type of record class values.
  * @template V - The type of variants.
  */
-type RawSVA<S extends Slots, V extends Variants<S>> = (config: SVAConfig<S, V>) => SVARawReturnType<S, V>;
+type RawSVA<RCV extends RecordClassValue, V extends Variants<RCV>> = (
+  config: SVAConfig<RCV, V>
+) => SVARawReturnType<RCV, V>;
 
 /**
  * Creates a raw SVA function that returns class names based on the component's raw configuration.
@@ -476,9 +439,11 @@ type RawSVA<S extends Slots, V extends Variants<S>> = (config: SVAConfig<S, V>) 
 export const createRawSVA = (
   mergeClass: MergeClassFn = cx,
   rawConfig: RawConfig = {}
-): RawSVA<Slots, Variants<Slots>> => {
-  return <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>): SVARawReturnType<S, V> => {
-    const rawClasses = (props?: SVAVariants<S, V>) => {
+): RawSVA<RecordClassValue, Variants<RecordClassValue>> => {
+  return <RCV extends RecordClassValue, V extends Variants<RCV>>(
+    config: SVAConfig<RCV, V>
+  ): SVARawReturnType<RCV, V> => {
+    const rawClasses = (props?: SVAVariants<RCV, V>) => {
       type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
@@ -491,7 +456,7 @@ export const createRawSVA = (
 
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: SVAVariants<S, V> & ClassProp = {}) => {
+        slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
           return getRawClasses({
             compoundVariants: config.compoundVariants,
             mergeClass,
@@ -508,7 +473,7 @@ export const createRawSVA = (
       return slotsFns;
     };
 
-    return Object.assign(rawClasses, { config, mergeClass, rawConfig }) as SVARawReturnType<S, V>;
+    return Object.assign(rawClasses, { config, mergeClass, rawConfig }) as SVARawReturnType<RCV, V>;
   };
 };
 
@@ -517,4 +482,4 @@ export const createRawSVA = (
  *
  * @type {RawSVA}
  */
-export const rawSVA: RawSVA<Slots, Variants<Slots>> = createRawSVA();
+export const rawSVA: RawSVA<RecordClassValue, Variants<RecordClassValue>> = createRawSVA();

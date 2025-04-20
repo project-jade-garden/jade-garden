@@ -246,29 +246,6 @@ export const createCVA = (mergeClass: MergeClassFn = cx): CVA => {
  */
 export const cva: CVA = createCVA();
 
-// TODO: Determine parameters for attributes/parts
-/**
- * Defines a CVA configuration object with type safety.
- *
- * @template V - The type of variants.
- * @param {CVAConfig<V>} config - The CVA configuration object.
- * @returns {CVAConfig<V>} The CVA configuration object.
- *
- * @example
- * ```ts
- * const buttonConfig = defineCVA({
- *   base: "rounded-md",
- *   variants: {
- *     size: {
- *       small: "text-sm",
- *       medium: "text-base"
- *     }
- *   }
- * });
- * ```
- */
-export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
-
 /**
  * Represents the return type of the `rawCVA` function.
  * It includes the `CVAReturnType` along with the configuration, merge function, and raw configuration.
