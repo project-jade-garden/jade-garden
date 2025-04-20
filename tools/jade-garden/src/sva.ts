@@ -483,3 +483,31 @@ export const createRawSVA = (
  * @type {RawSVA}
  */
 export const rawSVA: RawSVA<RecordClassValue, Variants<RecordClassValue>> = createRawSVA();
+
+/**
+ * Define an SVA configuration object with type safety.
+ *
+ * @template S - The type of slots.
+ * @returns {SVAConfig<Record<S, ClassValue>, Variants<Record<S, ClassValue>>>} The SVA configuration object.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig: TypedSlots<"root" | "item"> = {
+ *   slots: {
+ *     root: "flex",
+ *     item: "px-2 py-1"
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "text-base"
+ *       }
+ *     }
+ *   }
+ * };
+ * ```
+ */
+export type TypedSVA<S extends string> = SVAConfig<Record<S, ClassValue>, Variants<Record<S, ClassValue>>>;

@@ -300,3 +300,23 @@ export const createRawCVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig
  * @type {RawCVA}
  */
 export const rawCVA: RawCVA = createRawCVA();
+
+/**
+ * Define a CVA configuration object with type safety.
+ *
+ * @returns {CVAConfig<Variant>} The CVA configuration object.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig: TypedCVA = {
+ *   base: "rounded-md",
+ *   variants: {
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     }
+ *   }
+ * };
+ * ```
+ */
+export type TypedCVA = CVAConfig<Variant>;
