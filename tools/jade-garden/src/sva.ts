@@ -1,21 +1,15 @@
 import { cx } from "./class-utils";
-import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
-import { convertCase, getRawClasses, getVariantClasses, hasProps } from "./utils";
+import type {
+  ClassProp,
+  ClassValue,
+  MergeClassFn,
+  RawConfig,
+  RecordClassValue as Slots,
+  StringToBoolean
+} from "./types";
+import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ===================== SVA ===================== */
-
-/**
- * Represents a dictionary of slot class names.
- *
- * @example
- * ```ts
- * {
- *   root: "flex",
- *   item: "px-2 py-1"
- * }
- * ```
- */
-type Slots = RecordClassValue;
 
 /**
  * Represents the class values for slots, where keys are slot names and values are class names.
@@ -62,7 +56,7 @@ type DefaultVariants<S extends Slots> = {
  * @template V - The type of variants.
  * @example
  * ```ts
- * type ButtonVariants = SVAVariants<
+ * type ButtonVariants = Variants<
  *   {
  *     root: string;
  *     item: string;
@@ -83,7 +77,7 @@ type DefaultVariants<S extends Slots> = {
  * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
  * ```
  */
-type SVAVariants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants<S>> =
+type Variants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants<S>> =
   | {
       [K in keyof V]?: {
         [K2 in keyof V[K]]?: SlotsClassValue<S>;
@@ -105,7 +99,7 @@ type SVAVariants<S extends Slots, V extends DefaultVariants<S> = DefaultVariants
  * // ButtonCompound = { size?: "small" | "medium" | ("small" | "medium")[] };
  * ```
  */
-type CompoundBase<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = {
+type CompoundBase<S extends Slots, V extends Variants<S>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
 };
 
@@ -116,14 +110,14 @@ type CompoundBase<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>
  * @template V - The type of variants.
  * @example
  * ```ts
- * type ButtonProps = SVAProps<
+ * type ButtonProps = SVAVariants<
  *   { root: string; item: string },
  *   { size: { small: { root: string }; medium: { root: string } } }
  * >;
  * // ButtonProps = { size?: "small" | "medium" };
  * ```
  */
-type SVAProps<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = {
+type SVAVariants<S extends Slots, V extends Variants<S>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]>;
 };
 
@@ -137,7 +131,7 @@ type SVAProps<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = {
  * @property {V=} variants - Variants allow you to create multiple versions of the same component.
  * @property {Array<CompoundBase<S, V> & ( { class?: SlotsClassValue<S>; className?: never; } | { class?: never; className?: SlotsClassValue<S>; } )>=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
  * @property {Array<{ slots: Array<keyof S> } & CompoundBase<S, V> & ClassProp>=} compoundSlots - Compound slots allow you to apply classes to multiple slots at once.
- * @property {SVAProps<S, V>=} defaultVariants - Default variants allow you to set default variants for a component.
+ * @property {SVAVariants<S, V>=} defaultVariants - Default variants allow you to set default variants for a component.
  *
  * @example
  * ```ts
@@ -167,7 +161,7 @@ type SVAProps<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = {
  * };
  * ```
  */
-type SVAConfig<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = {
+type SVAConfig<S extends Slots, V extends Variants<S>> = {
   /**
    * The name of the sva component.
    */
@@ -203,7 +197,7 @@ type SVAConfig<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = 
   /**
    * Default variants allow you to set default variants for a component.
    */
-  defaultVariants?: SVAProps<S, V>;
+  defaultVariants?: SVAVariants<S, V>;
 };
 
 /**
@@ -211,7 +205,7 @@ type SVAConfig<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = 
  *
  * @template S - The type of slots.
  * @template V - The type of variants.
- * @returns {(props?: SVAProps<S, V>) => { [K in keyof S]: (slotProps?: SVAProps<S, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
+ * @returns {(props?: SVAVariants<S, V>) => { [K in keyof S]: (slotProps?: SVAVariants<S, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
  *
  * @example
  * ```ts
@@ -236,8 +230,8 @@ type SVAConfig<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = 
  * });
  * ```
  */
-type SVAReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = (props?: SVAProps<S, V>) => {
-  [K in keyof S]: (slotProps?: SVAProps<S, V> & ClassProp) => string;
+type SVAReturnType<S extends Slots, V extends Variants<S>> = (props?: SVAVariants<S, V>) => {
+  [K in keyof S]: (slotProps?: SVAVariants<S, V> & ClassProp) => string;
 };
 
 /**
@@ -275,9 +269,7 @@ type SVAReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>
  * const buttonClasses = button({ size: "small" });
  * ```
  */
-type SVA = <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
-  config: SVAConfig<S, V>
-) => SVAReturnType<S, V>;
+type SVA = <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>) => SVAReturnType<S, V>;
 
 /**
  * Creates a Styled Variants API (SVA) function with a custom merge function.
@@ -291,11 +283,9 @@ type SVA = <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
  * ```
  */
 export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
-  return <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
-    config: SVAConfig<S, V>
-  ): SVAReturnType<S, V> => {
-    const components = (props?: SVAProps<S, V>) => {
-      type SlotProps = SVAProps<typeof slots, typeof variants> & ClassProp;
+  return <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>): SVAReturnType<S, V> => {
+    const components = (props?: SVAVariants<S, V>) => {
+      type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
@@ -342,7 +332,7 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
         (typeof config.variants === "object" && Array.isArray(config.variants))
       ) {
         for (const slotKey of Object.keys(slots)) {
-          slotsFns[slotKey] = (slotProps: SVAProps<S, V> & ClassProp = {}) => {
+          slotsFns[slotKey] = (slotProps: SVAVariants<S, V> & ClassProp = {}) => {
             return mergeClass(
               slots[slotKey],
               getCompoundSlotClasses({ ...props, ...slotProps })[slotKey],
@@ -391,7 +381,7 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
 
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: SVAProps<S, V> & ClassProp = {}) => {
+        slotsFns[slotKey] = (slotProps: SVAVariants<S, V> & ClassProp = {}) => {
           const configProps = { ...defaultsAndProps, ...slotProps };
           return mergeClass(
             slots[slotKey],
@@ -448,9 +438,7 @@ export const sva: SVA = createSVA();
  * });
  * ```
  */
-export const defineSVA = <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
-  config: SVAConfig<S, V>
-): SVAConfig<S, V> => config;
+export const defineSVA = <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>): SVAConfig<S, V> => config;
 
 /**
  * Represents the return type of the `rawSVA` function.
@@ -459,7 +447,7 @@ export const defineSVA = <S extends Slots, V extends SVAVariants<S, DefaultVaria
  * @template S - The type of slots.
  * @template V - The type of variants.
  */
-type SVARawReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = SVAReturnType<S, V> & {
+type SVARawReturnType<S extends Slots, V extends Variants<S>> = SVAReturnType<S, V> & {
   config: SVAConfig<S, V>;
   mergeClass: MergeClassFn;
   rawConfig: RawConfig;
@@ -471,9 +459,7 @@ type SVARawReturnType<S extends Slots, V extends SVAVariants<S, DefaultVariants<
  * @template S - The type of slots.
  * @template V - The type of variants.
  */
-type RawSVA<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = (
-  config: SVAConfig<S, V>
-) => SVARawReturnType<S, V>;
+type RawSVA<S extends Slots, V extends Variants<S>> = (config: SVAConfig<S, V>) => SVARawReturnType<S, V>;
 
 /**
  * Creates a raw SVA function that returns class names based on the component's raw configuration.
@@ -487,12 +473,13 @@ type RawSVA<S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>> = (
  * const rawButton = createRawSVA(myCustomMergeFunction, { prefix: "btn" });
  * ```
  */
-export const createRawSVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig = {}) => {
-  return <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
-    config: SVAConfig<S, V>
-  ): SVARawReturnType<S, V> => {
-    const rawClasses = (props?: SVAProps<S, V>) => {
-      type SlotProps = SVAProps<typeof slots, typeof variants> & ClassProp;
+export const createRawSVA = (
+  mergeClass: MergeClassFn = cx,
+  rawConfig: RawConfig = {}
+): RawSVA<Slots, Variants<Slots>> => {
+  return <S extends Slots, V extends Variants<S>>(config: SVAConfig<S, V>): SVARawReturnType<S, V> => {
+    const rawClasses = (props?: SVAVariants<S, V>) => {
+      type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
@@ -504,7 +491,7 @@ export const createRawSVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig
 
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: SVAProps<S, V> & ClassProp = {}) => {
+        slotsFns[slotKey] = (slotProps: SVAVariants<S, V> & ClassProp = {}) => {
           return getRawClasses({
             compoundVariants: config.compoundVariants,
             mergeClass,
@@ -530,6 +517,4 @@ export const createRawSVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig
  *
  * @type {RawSVA}
  */
-export const rawSVA: <S extends Slots, V extends SVAVariants<S, DefaultVariants<S>>>(
-  config: SVAConfig<S, V>
-) => SVARawReturnType<S, V> = createRawSVA();
+export const rawSVA: RawSVA<Slots, Variants<Slots>> = createRawSVA();
