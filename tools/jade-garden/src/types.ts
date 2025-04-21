@@ -24,10 +24,52 @@ export type ClassProp =
 export type ClassValue = CV;
 
 /**
+ * Recursively converts primitive values to their literal types and readonly arrays of strings
+ * to a union of those string literals. Other readonly arrays are kept as arrays of their literal types.
+ * Objects are deeply processed to apply this transformation to all their properties.
+ *
+ * @template T - The type to deeply process.
+ * @example
+ * ```ts
+ * type Example = DeepLiteralAndUnion<{
+ *   status: "pending" | "success";
+ *   values: readonly [1, 2, 3];
+ *   colors: readonly ["red", "blue"];
+ *   nested: {
+ *     isEnabled: true;
+ *   };
+ * }>;
+ * // type Example = {
+ * //   readonly status: "pending" | "success";
+ * //   readonly values: readonly [1, 2, 3];
+ * //   readonly colors: "red" | "blue";
+ * //   readonly nested: {
+ * //     readonly isEnabled: true;
+ * //   };
+ * // }
+ * ```
+ */
+export type DeepLiteralAndUnion<T> =
+  // biome-ignore format: the DeepLiteralAndUnion type is very complicated to read when formatted.
+  T extends string
+? T extends "number" ? number : T // Check for "number" string
+: T extends number
+? T
+: T extends boolean
+? T
+: T extends ReadonlyArray<string>
+? StringArrayToUnion<T>
+: T extends ReadonlyArray<infer U>
+? DeepLiteralAndUnion<U>[]
+: T extends { [K in keyof T]: any }
+? { readonly [K in keyof T]: DeepLiteralAndUnion<T[K]> }
+: T;
+
+/**
  * Represents a function that merges class names.
  *
  * @param {...ClassValue[]} classes - An array of class names to merge.
- * @returns {string} - The merged class name string.
+ * @returns {string} The merged class name string.
  */
 export type MergeClassFn = (...classes: ClassValue[]) => string;
 
@@ -56,11 +98,22 @@ export type RawConfig = {
 export type RecordClassValue = Record<string, ClassValue>;
 
 /**
+ * Converts a readonly array of strings into a union of those string literals.
+ *
+ * @template T - A readonly array of strings.
+ * @example
+ * ```ts
+ * type Colors = StringArrayToUnion<readonly ["red", "blue", "green"]>; // "red" | "blue" | "green"
+ * ```
+ */
+type StringArrayToUnion<T extends ReadonlyArray<string>> = T extends ReadonlyArray<infer U> ? U : never;
+
+/**
  * Converts "true" or "false" string literals to boolean types.
  * Otherwise, returns the original type.
  *
  * @template T - The type to convert.
- * @returns {T extends "true" | "false" ? boolean : T} - The converted type.
+ * @returns {T extends "true" | "false" ? boolean : T} The converted type.
  */
 export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
 

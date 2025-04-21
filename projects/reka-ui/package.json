@@ -552,6 +552,7 @@
     "clean-package": "2.2.0",
     "es-toolkit": "1.35.0",
     "globby": "14.1.0",
+    "jade-garden": "workspace:*",
     "reka-ui": "2.2.0",
     "typescript": "5.8.3",
     "vite": "6.3.2",
