@@ -2,7 +2,7 @@ import { cx } from "./class-utils";
 import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
-/* ===================== CVA ===================== */
+/* ====================== CVA ====================== */
 
 /**
  * Represents the variant configurations for `cva`.

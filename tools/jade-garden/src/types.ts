@@ -1,6 +1,11 @@
 import type { ClassValue as CV } from "clsx";
 
-/* ==================== Types ==================== */
+/* ===================== Types ===================== */
+
+/**
+ * Represents the minimum structure to work with class names.
+ */
+export type ClassNameValue = string | string[];
 
 /**
  * Represents the `class` and `className` props for `cva` and `sva`.
@@ -24,46 +29,19 @@ export type ClassProp =
 export type ClassValue = CV;
 
 /**
- * Recursively converts primitive values to their literal types and readonly arrays of strings
- * to a union of those string literals. Other readonly arrays are kept as arrays of their literal types.
- * Objects are deeply processed to apply this transformation to all their properties.
- *
- * @template T - The type to deeply process.
- * @example
- * ```ts
- * type Example = DeepLiteralAndUnion<{
- *   status: "pending" | "success";
- *   values: readonly [1, 2, 3];
- *   colors: readonly ["red", "blue"];
- *   nested: {
- *     isEnabled: true;
- *   };
- * }>;
- * // type Example = {
- * //   readonly status: "pending" | "success";
- * //   readonly values: readonly [1, 2, 3];
- * //   readonly colors: "red" | "blue";
- * //   readonly nested: {
- * //     readonly isEnabled: true;
- * //   };
- * // }
- * ```
+ * Represents the structure of data attributes for use in a `traits` configuration object.
  */
-export type DeepLiteralAndUnion<T> =
-  // biome-ignore format: the DeepLiteralAndUnion type is very complicated to read when formatted.
-  T extends string
-? T extends "number" ? number : T // Check for "number" string
-: T extends number
-? T
-: T extends boolean
-? T
-: T extends ReadonlyArray<string>
-? StringArrayToUnion<T>
-: T extends ReadonlyArray<infer U>
-? DeepLiteralAndUnion<U>[]
-: T extends { [K in keyof T]: any }
-? { readonly [K in keyof T]: DeepLiteralAndUnion<T[K]> }
-: T;
+export type DataAttributes<T extends Record<string, any>> = {
+  [K in keyof T]?: T[K] extends ""
+    ? ClassNameValue
+    : T[K] extends number
+      ? Partial<Record<T[K], ClassNameValue>>
+      : T[K] extends string
+        ? string extends T[K]
+          ? never
+          : Partial<Record<T[K], ClassNameValue>>
+        : never;
+};
 
 /**
  * Represents a function that merges class names.
@@ -98,17 +76,6 @@ export type RawConfig = {
 export type RecordClassValue = Record<string, ClassValue>;
 
 /**
- * Converts a readonly array of strings into a union of those string literals.
- *
- * @template T - A readonly array of strings.
- * @example
- * ```ts
- * type Colors = StringArrayToUnion<readonly ["red", "blue", "green"]>; // "red" | "blue" | "green"
- * ```
- */
-type StringArrayToUnion<T extends ReadonlyArray<string>> = T extends ReadonlyArray<infer U> ? U : never;
-
-/**
  * Converts "true" or "false" string literals to boolean types.
  * Otherwise, returns the original type.
  *
@@ -116,6 +83,15 @@ type StringArrayToUnion<T extends ReadonlyArray<string>> = T extends ReadonlyArr
  * @returns {T extends "true" | "false" ? boolean : T} The converted type.
  */
 export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
+
+/**
+ * Represents the configuration object of `traits`.
+ */
+export type TraitsConfig<T extends Record<string, any>> = {
+  class?: ClassValue;
+  className?: ClassValue;
+  data?: DataAttributes<T>;
+};
 
 /**
  * Extracts the variant props from a component's props type, excluding `class` and `className`.

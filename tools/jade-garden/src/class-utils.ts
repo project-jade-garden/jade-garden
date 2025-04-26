@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ClassValue } from "./types";
+import type { ClassNameValue, ClassValue, TraitsConfig } from "./types";
 
 /* ================== Class Utils ================= */
 
@@ -8,15 +8,11 @@ import type { ClassValue } from "./types";
  *
  * @template T - The type of the input class value, which can be a string, number, array, or object.
  * @param {T} input - The input class value to be processed by `cx`.
- * @param {string | string[]} [exclude] - Class names to exclude from the result.
- * @param {string | string[]} [include] - Class names to include in the result.
+ * @param {ClassNameValue} [exclude] - Class names to exclude from the result.
+ * @param {ClassNameValue} [include] - Class names to include in the result.
  * @returns {string} A string of class names, conditionally combined and modified based on the options.
  */
-export const cm = <T extends ClassValue>(
-  input: T,
-  exclude?: string | string[],
-  include?: string | string[]
-): string => {
+export const cm = <T extends ClassValue>(input: T, exclude?: ClassNameValue, include?: ClassNameValue): string => {
   if (typeof exclude === "undefined" && typeof include === "undefined") return clsx(input);
 
   let result = clsx(input).split(" ");
@@ -68,3 +64,72 @@ export {
    */
   clsx as cx
 } from "clsx";
+
+/**
+ * Generates CSS class names and data attributes for a part of an anatomy.
+ *
+ * @template T - An interface defining the shape of the data attributes.
+ * @returns {string} A string of merged class names and data attributes.
+ */
+export const traits = <T extends Record<string, any>>(config: TraitsConfig<T>): string => {
+  const appendDataAttribute = (
+    dataAttributes: string,
+    attributeKey: string,
+    attributeValue: ClassNameValue
+  ): string => {
+    const prefix = dataAttributes.length ? " " : "";
+    const dataAttributeStr = `data-[${attributeKey}]`;
+
+    if (Array.isArray(attributeValue)) {
+      return dataAttributes + prefix + attributeValue.map((v) => `${dataAttributeStr}:${v}`).join(" ");
+    }
+
+    if (typeof attributeValue === "string" && attributeValue.length) {
+      return `${dataAttributes}${prefix}${dataAttributeStr}:${attributeValue}`;
+    }
+
+    return dataAttributes;
+  };
+
+  const appendConditionalDataAttribute = (
+    dataAttributes: string,
+    attributeKey: string,
+    attributeValue: Partial<Record<string | number | symbol, ClassNameValue>>
+  ): string => {
+    let result = dataAttributes;
+
+    for (const condition in attributeValue) {
+      const prefix = result.length ? " " : "";
+
+      if (Object.hasOwn(attributeValue, condition)) {
+        const value = attributeValue[condition];
+        const dataAttributeStr = `data-[${attributeKey}=${condition}]`;
+        if (Array.isArray(value)) {
+          result += prefix + value.map((v) => `${dataAttributeStr}:${v}`).join(" ");
+        }
+
+        if (typeof value === "string" && value.length) {
+          result += `${prefix}${dataAttributeStr}:${value}`;
+        }
+      }
+    }
+
+    return result;
+  };
+
+  let dataAttributes = "";
+
+  if (typeof config?.data === "object" && !Array.isArray(config.data) && Object.keys(config.data).length > 0) {
+    for (const key of Object.keys(config.data)) {
+      const value = config.data[key];
+
+      if (typeof value === "object" && !Array.isArray(value)) {
+        dataAttributes = appendConditionalDataAttribute(dataAttributes, key, value);
+      } else if (typeof value !== "undefined") {
+        dataAttributes = appendDataAttribute(dataAttributes, key, value);
+      }
+    }
+  }
+
+  return clsx(config.class, config.className, dataAttributes);
+};

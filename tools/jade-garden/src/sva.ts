@@ -2,7 +2,7 @@ import { cx } from "./class-utils";
 import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
-/* ===================== SVA ===================== */
+/* ====================== SVA ====================== */
 
 /**
  * Represents the class values for slots, where keys are slot names and values are class names.
@@ -283,7 +283,13 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
       // * Exit early if slots is not defined or does not have keys
-      if (typeof config?.slots !== "object" || Object.keys(config.slots).length === 0) return slotsFns;
+      if (
+        typeof config?.slots !== "object" ||
+        Object.keys(config.slots).length === 0 ||
+        (typeof config.slots === "object" && Array.isArray(config.slots))
+      ) {
+        return slotsFns;
+      }
 
       const slots = config.slots;
       const compoundSlots = config?.compoundSlots ?? [];
@@ -449,7 +455,13 @@ export const createRawSVA = (
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
       // * Exit early if slots is not defined or does not have keys
-      if (typeof config?.slots !== "object" || Object.keys(config.slots).length === 0) return slotsFns;
+      if (
+        typeof config?.slots !== "object" ||
+        Object.keys(config.slots).length === 0 ||
+        (typeof config.slots === "object" && Array.isArray(config.slots))
+      ) {
+        return slotsFns;
+      }
 
       const slots = config.slots;
       const variants = config.variants ?? {};
