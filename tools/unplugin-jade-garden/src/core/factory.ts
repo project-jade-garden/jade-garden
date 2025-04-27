@@ -5,6 +5,7 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { kebabCase } from "es-toolkit";
+import { cx } from "jade-garden";
 import type { UnpluginFactory } from "unplugin";
 import { createFilter } from "unplugin-utils";
 import { generateCVAStyles } from "./generators/cva";
@@ -24,15 +25,21 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
     components: rawOptions?.components ?? {
       cva: [],
       sva: []
-    }
+    },
+    mergeFn: rawOptions?.mergeFn ?? cx
   };
   const filter = createFilter(options.entry);
 
   // let tailwindImport = "";
   const transformedFiles = new Map<string, string>();
 
-  const writeFiles = (props: { components: CVA[] | SVA[]; id: string; type: "cva" | "sva" }) => {
-    const { components, id, type } = props;
+  const writeFiles = (props: {
+    components: CVA[] | SVA[];
+    id: string;
+    mergeFn: Options["mergeFn"];
+    type: "cva" | "sva";
+  }) => {
+    const { components, id, mergeFn, type } = props;
     const dir = join(id, `../components/${type}`);
 
     if (existsSync(dir)) rmSync(dir, { force: true, recursive: true });
@@ -41,17 +48,25 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
 
     let count = 0;
     let indexFile = "";
-    for (const methods of components) {
-      const name = methods.config.name;
+    for (const component of components) {
+      const name = component.name;
 
       if (!name) {
         console.warn(`\x1b[33m[WARN]: ${type} does not have "name" in config.\x1b[0m`);
-        console.info(`\x1b[36mConfig:\n${JSON.stringify(methods.config, null, "\t")}\x1b[0m`);
+        console.info(`\x1b[36mConfig:\n${JSON.stringify(component, null, "\t")}\x1b[0m`);
         continue;
       }
 
       const fileName = `${kebabCase(name)}.css`;
-      const fileToWrite = type === "cva" ? generateCVAStyles(methods as CVA) : generateSVAStyles(methods as SVA);
+
+      if (existsSync(`${dir}/${fileName}`)) {
+        console.warn(`\x1b[33m[WARN]: File name "${fileName}" exists, please rename.\x1b[0m`);
+        console.info("\x1b[36mSkipping CSS file generation.\x1b[0m");
+        continue;
+      }
+
+      const fileToWrite =
+        type === "cva" ? generateCVAStyles(component as CVA, mergeFn) : generateSVAStyles(component as SVA, mergeFn);
 
       /**
        * TODO - Figure out how the Tailwind compiler works (intake, when it throws, etc.)
@@ -109,9 +124,11 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
         return;
       }
 
+      const { mergeFn } = options;
+
       // * Write files
-      if (cva?.length) writeFiles({ components: cva, id, type: "cva" });
-      if (sva?.length) writeFiles({ components: sva, id, type: "sva" });
+      if (cva?.length) writeFiles({ components: cva, id, mergeFn, type: "cva" });
+      if (sva?.length) writeFiles({ components: sva, id, mergeFn, type: "sva" });
     }
   };
 };

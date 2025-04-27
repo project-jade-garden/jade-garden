@@ -1,15 +1,11 @@
-// * Workaround to prevent types from being exposed to developers in "jade-garden"
-import { convertCase } from "../../../../jade-garden/src/utils";
-import type { SVA } from "../types";
+import { kebabCase } from "es-toolkit";
+import { cx } from "jade-garden";
+import type { Options, SVA } from "../types";
 
 /* ===================== SVA ===================== */
 
-export const generateSVAStyles = (methods: SVA): string => {
-  const { config, mergeClass, rawConfig } = methods;
-
-  const cc = rawConfig.caseConvention;
-  const pf = rawConfig.prefix;
-  const componentName = convertCase(`${pf ? `${pf}-` : ""}${config.name}`, cc);
+export const generateSVAStyles = (config: SVA, mergeFn: Options["mergeFn"] = cx): string => {
+  const componentName = kebabCase(config.name as string);
 
   let cssOutput = "";
 
@@ -18,14 +14,14 @@ export const generateSVAStyles = (methods: SVA): string => {
     for (const compoundSlot of config.compoundSlots) {
       const variantConditions = Object.keys(compoundSlot)
         .filter((key) => key !== "slots" && key !== "class" && key !== "className")
-        .map((key) => `__${convertCase(key, cc)}--${convertCase(compoundSlot[key] as string, cc)}`)
+        .map((key) => `__${kebabCase(key)}--${kebabCase(compoundSlot[key] as string)}`)
         .join("");
 
       const combinedSelectors = compoundSlot.slots
-        .map((slot) => `.${componentName}--${convertCase(slot, cc)}${variantConditions}`)
+        .map((slot) => `.${componentName}--${kebabCase(slot)}${variantConditions}`)
         .join(",\n  ");
 
-      const applyRules = mergeClass(compoundSlot.class, compoundSlot.className);
+      const applyRules = mergeFn(compoundSlot.class, compoundSlot.className);
 
       if (applyRules.length) {
         cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${combinedSelectors} {\n    @apply ${applyRules};\n  }`;
@@ -35,10 +31,10 @@ export const generateSVAStyles = (methods: SVA): string => {
 
   // Slots and their base classes
   for (const slot in config.slots) {
-    const applyRules = mergeClass(config.slots[slot]);
+    const applyRules = mergeFn(config.slots[slot]);
 
     if (!applyRules.length) continue;
-    cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}--${convertCase(slot, cc)} {\n    @apply ${applyRules};\n  }`;
+    cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}--${kebabCase(slot)} {\n    @apply ${applyRules};\n  }`;
   }
 
   // Compound variants
@@ -46,15 +42,13 @@ export const generateSVAStyles = (methods: SVA): string => {
     for (const compoundVariant of config.compoundVariants) {
       for (const slot in config.slots) {
         if (compoundVariant.class?.[slot] || compoundVariant.className?.[slot]) {
-          const prefixSelector = `.${componentName}--${convertCase(slot, cc)}`;
+          const prefixSelector = `.${componentName}--${kebabCase(slot)}`;
           const variantConditions = Object.keys(compoundVariant)
             .filter((key) => key !== "class" && key !== "className" && key !== slot)
-            .map(
-              (key) => `${prefixSelector}__${convertCase(key, cc)}--${convertCase(compoundVariant[key] as string, cc)}`
-            )
+            .map((key) => `${prefixSelector}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`)
             .join("");
 
-          const applyRules = mergeClass(compoundVariant.class?.[slot], compoundVariant.className?.[slot]);
+          const applyRules = mergeFn(compoundVariant.class?.[slot], compoundVariant.className?.[slot]);
 
           if (applyRules.length) {
             cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${prefixSelector}${variantConditions} {\n    @apply ${applyRules};\n  }`;
@@ -73,12 +67,12 @@ export const generateSVAStyles = (methods: SVA): string => {
         const slots = variantKeys[variantKey];
 
         for (const slot in slots) {
-          const applyRules = mergeClass(slots[slot]);
+          const applyRules = mergeFn(slots[slot]);
 
           if (!applyRules.length) continue;
 
-          const prefixSelector = `.${componentName}--${convertCase(slot, cc)}`;
-          cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${prefixSelector}${prefixSelector}__${convertCase(variant, cc)}--${convertCase(variantKey, cc)} {\n    @apply ${applyRules};\n  }`;
+          const prefixSelector = `.${componentName}--${kebabCase(slot)}`;
+          cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${prefixSelector}${prefixSelector}__${kebabCase(variant)}--${kebabCase(variantKey)} {\n    @apply ${applyRules};\n  }`;
         }
       }
     }

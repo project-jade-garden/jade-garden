@@ -60,17 +60,6 @@ export type MergeClassFn = (...classes: ClassValue[]) => string;
 type OmitUndefined<T> = T extends undefined ? never : T;
 
 /**
- * Configuration for raw class name generation.
- *
- * @property {("camel" | "kebab" | "pascal" | "snake")=} caseConvention - The case convention to use.
- * @property {string=} prefix - The prefix to prepend to the class name.
- */
-export type RawConfig = {
-  caseConvention?: "camel" | "kebab" | "pascal" | "snake";
-  prefix?: string;
-};
-
-/**
  * Represents a dictionary where keys are strings and values are ClassValue.
  */
 export type RecordClassValue = Record<string, ClassValue>;

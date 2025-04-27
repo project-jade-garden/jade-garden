@@ -1,17 +1,13 @@
-// * Workaround to prevent types from being exposed to developers in "jade-garden"
-import { convertCase } from "../../../../jade-garden/src/utils";
-import type { CVA } from "../types";
+import { kebabCase } from "es-toolkit";
+import { cx } from "jade-garden";
+import type { CVA, Options } from "../types";
 
 /* ===================== CVA ===================== */
 
-export const generateCVAStyles = (methods: CVA): string => {
-  const { config, mergeClass, rawConfig } = methods;
+export const generateCVAStyles = (config: CVA, mergeFn: Options["mergeFn"] = cx): string => {
+  const componentName = kebabCase(config.name as string);
 
-  const cc = rawConfig.caseConvention;
-  const pf = rawConfig.prefix;
-  const componentName = convertCase(`${pf ? `${pf}-` : ""}${config.name}`, cc);
-
-  let cssOutput = config.base ? `  .${componentName} {\n    @apply ${mergeClass(config.base)};\n  }` : "";
+  let cssOutput = config.base ? `  .${componentName} {\n    @apply ${mergeFn(config.base)};\n  }` : "";
 
   // Compound variants
   if (config.compoundVariants) {
@@ -19,12 +15,11 @@ export const generateCVAStyles = (methods: CVA): string => {
       const variantConditions = Object.keys(compoundVariant)
         .filter((key) => key !== "class" && key !== "className")
         .map(
-          (key) =>
-            `.${componentName}.${componentName}__${convertCase(key, cc)}--${convertCase(compoundVariant[key] as string, cc)}`
+          (key) => `.${componentName}.${componentName}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`
         )
         .join(",\n  ");
 
-      const applyRules = mergeClass(compoundVariant.class, compoundVariant.className);
+      const applyRules = mergeFn(compoundVariant.class, compoundVariant.className);
 
       if (variantConditions && applyRules.length) {
         cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${variantConditions} {\n    @apply ${applyRules};\n  }`;
@@ -38,10 +33,10 @@ export const generateCVAStyles = (methods: CVA): string => {
       const variantKeys = config.variants[variant];
 
       for (const variantKey in variantKeys) {
-        const applyRules = mergeClass(variantKeys[variantKey]);
+        const applyRules = mergeFn(variantKeys[variantKey]);
 
         if (!applyRules.length) continue;
-        cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}.${componentName}__${convertCase(variant, cc)}--${convertCase(variantKey, cc)} {\n    @apply ${applyRules};\n  }`;
+        cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}.${componentName}__${kebabCase(variant)}--${kebabCase(variantKey)} {\n    @apply ${applyRules};\n  }`;
       }
     }
   }

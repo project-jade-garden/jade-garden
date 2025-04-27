@@ -1,5 +1,5 @@
 import { cx } from "./class-utils";
-import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
+import type { ClassProp, ClassValue, MergeClassFn, RecordClassValue, StringToBoolean } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ====================== SVA ====================== */
@@ -275,7 +275,7 @@ type SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVACo
  * const customSVA = createSVA(myCustomMergeFunction);
  * ```
  */
-export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
+export const create = (mergeClass: MergeClassFn = cx): SVA => {
   return <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVAConfig<RCV, V>): SVAReturnType<RCV, V> => {
     const components = (props?: SVAVariants<RCV, V>) => {
       type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
@@ -405,96 +405,53 @@ export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
  *
  * @type {SVA}
  */
-export const sva: SVA = createSVA();
+export const sva: SVA = create();
 
 /**
- * Represents the return type of the `rawSVA` function.
- * It includes the `SVAReturnType` along with the configuration, merge function, and raw configuration.
+ * Generates `raw` class names based on the sva's configuration.
  *
- * @template RCV - The type of record class values.
- * @template V - The type of variants.
+ * @type {SVA}
  */
-type SVARawReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = SVAReturnType<RCV, V> & {
-  config: SVAConfig<RCV, V>;
-  mergeClass: MergeClassFn;
-  rawConfig: RawConfig;
-};
-
-/**
- * Type definition for the `rawSVA` function.
- *
- * @template RCV - The type of record class values.
- * @template V - The type of variants.
- */
-type RawSVA<RCV extends RecordClassValue, V extends Variants<RCV>> = (
+export const raw: SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
   config: SVAConfig<RCV, V>
-) => SVARawReturnType<RCV, V>;
+): SVAReturnType<RCV, V> => {
+  const components = (props?: SVAVariants<RCV, V>) => {
+    type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
-/**
- * Creates a raw SVA function that returns class names based on the component's raw configuration.
- *
- * @param {MergeClassFn} mergeClass - The function to merge class names.
- * @param {RawConfig} rawConfig - Configuration for raw class name generation.
- * @returns {RawSVA} The raw SVA function.
- *
- * @example
- * ```ts
- * const rawButton = createRawSVA(myCustomMergeFunction, { prefix: "btn" });
- * ```
- */
-export const createRawSVA = (
-  mergeClass: MergeClassFn = cx,
-  rawConfig: RawConfig = {}
-): RawSVA<RecordClassValue, Variants<RecordClassValue>> => {
-  return <RCV extends RecordClassValue, V extends Variants<RCV>>(
-    config: SVAConfig<RCV, V>
-  ): SVARawReturnType<RCV, V> => {
-    const rawClasses = (props?: SVAVariants<RCV, V>) => {
-      type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
+    const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
-      const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
-
-      // * Exit early if slots is not defined or does not have keys
-      if (
-        typeof config?.slots !== "object" ||
-        Object.keys(config.slots).length === 0 ||
-        (typeof config.slots === "object" && Array.isArray(config.slots))
-      ) {
-        return slotsFns;
-      }
-
-      const slots = config.slots;
-      const variants = config.variants ?? {};
-
-      // * Set `slotsFns`
-      for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
-          return getRawClasses({
-            compoundVariants: config.compoundVariants,
-            mergeClass,
-            name: config.name,
-            props,
-            rawConfig,
-            variants: config.variants,
-            slotKey,
-            slotProps
-          });
-        };
-      }
-
+    // * Exit early if slots is not defined or does not have keys
+    if (
+      typeof config?.slots !== "object" ||
+      Object.keys(config.slots).length === 0 ||
+      (typeof config.slots === "object" && Array.isArray(config.slots))
+    ) {
       return slotsFns;
-    };
+    }
 
-    return Object.assign(rawClasses, { config, mergeClass, rawConfig }) as SVARawReturnType<RCV, V>;
+    // * For `SlotProps` type
+    const slots = config.slots;
+    const variants = config.variants ?? {};
+
+    // * Set `slotsFns`
+    for (const slotKey of Object.keys(slots)) {
+      slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
+        return getRawClasses({
+          compoundVariants: config.compoundVariants,
+          name: config.name,
+          props,
+          variants: config.variants,
+          slotKey,
+          slotProps
+        });
+      };
+    }
+
+    return slotsFns;
   };
-};
 
-/**
- * Implementation of the raw SVA function using the default class merging function and raw configuration.
- *
- * @type {RawSVA}
- */
-export const rawSVA: RawSVA<RecordClassValue, Variants<RecordClassValue>> = createRawSVA();
+  return components as SVAReturnType<RCV, V>;
+};
 
 /**
  * Define an SVA configuration object with type safety.

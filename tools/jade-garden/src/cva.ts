@@ -1,5 +1,5 @@
 import { cx } from "./class-utils";
-import type { ClassProp, ClassValue, MergeClassFn, RawConfig, RecordClassValue, StringToBoolean } from "./types";
+import type { ClassProp, ClassValue, MergeClassFn, RecordClassValue, StringToBoolean } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ====================== CVA ====================== */
@@ -184,7 +184,7 @@ type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
  * @example
  * const customCVA = createCVA(myCustomMergeFunction);
  */
-export const createCVA = (mergeClass: MergeClassFn = cx): CVA => {
+export const create = (mergeClass: MergeClassFn = cx): CVA => {
   return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
     const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       // * Exit early if `base` is not defined or has a falsey value
@@ -244,62 +244,25 @@ export const createCVA = (mergeClass: MergeClassFn = cx): CVA => {
  *
  * @type {CVA}
  */
-export const cva: CVA = createCVA();
+export const cva: CVA = create();
 
 /**
- * Represents the return type of the `rawCVA` function.
- * It includes the `CVAReturnType` along with the configuration, merge function, and raw configuration.
+ * Generates `raw` class names based on the cva's configuration.
  *
- * @template V - The type of variants.
+ * @type {CVA}
  */
-type CVARawReturnType<V extends Variant> = CVAReturnType<V> & {
-  config: CVAConfig<V>;
-  mergeClass: MergeClassFn;
-  rawConfig: RawConfig;
-};
-
-/**
- * Type definition for the `rawCVA` function.
- *
- * @template V - The type of variants.
- */
-type RawCVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVARawReturnType<V>;
-
-/**
- * Creates a raw CVA function that returns class names based on the component's raw configuration.
- *
- * @param {MergeClassFn} mergeClass - The function to merge class names.
- * @param {RawConfig} rawConfig - Configuration for raw class name generation.
- * @returns {RawCVA} The raw CVA function.
- *
- * @example
- * ```ts
- * const rawButton = createRawCVA(myCustomMergeFunction, { prefix: "btn" });
- * ```
- */
-export const createRawCVA = (mergeClass: MergeClassFn = cx, rawConfig: RawConfig = {}): RawCVA => {
-  return <V extends Variant>(config: CVAConfig<V>): CVARawReturnType<V> => {
-    const rawClass = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
-      return getRawClasses({
-        compoundVariants: config.compoundVariants,
-        mergeClass,
-        name: config.name,
-        props,
-        rawConfig,
-        variants: config.variants
-      });
-    };
-
-    return Object.assign(rawClass, { config, mergeClass, rawConfig });
+export const raw: CVA = <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
+  const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
+    return getRawClasses({
+      compoundVariants: config.compoundVariants,
+      name: config.name,
+      props,
+      variants: config.variants
+    });
   };
-};
 
-/**
- * Implementation of the raw CVA function using the default class merging function and raw configuration.
- *
- * @type {RawCVA}
- */
-export const rawCVA: RawCVA = createRawCVA();
+  return component;
+};
 
 /**
  * Define a CVA configuration object with type safety.

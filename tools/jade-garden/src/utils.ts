@@ -1,36 +1,8 @@
-import { camelCase, kebabCase, pascalCase, snakeCase } from "es-toolkit";
-import type { MergeClassFn, RawConfig } from "./types";
+import { kebabCase } from "es-toolkit";
+import { cx } from "./class-utils";
+import type { MergeClassFn } from "./types";
 
 /* ===================== Utils ===================== */
-
-/**
- * String manipulation function that returns a string
- * in a `camelCase`, `kebabCase`, `pascalCase`, or `snakeCase` convention.
- * Defaults to `kebabCase` if no case convention is provided.
- *
- * @param {string} str - The string to convert.
- * @param {RawConfig["caseConvention"]} [caseConvention] - The desired case convention.
- * @returns {string} The converted string.
- *
- * @see [camelCase](https://es-toolkit.slash.page/reference/string/camelCase.html)
- * @see [kebabCase](https://es-toolkit.slash.page/reference/string/kebabCase.html)
- * @see [pascalCase](https://es-toolkit.slash.page/reference/string/pascalCase.html)
- * @see [snakeCase](https://es-toolkit.slash.page/reference/string/snakeCase.html)
- */
-export const convertCase = (str: string, caseConvention?: RawConfig["caseConvention"]): string => {
-  switch (caseConvention) {
-    case "camel":
-      return camelCase(str);
-    case "kebab":
-      return kebabCase(str);
-    case "pascal":
-      return pascalCase(str);
-    case "snake":
-      return snakeCase(str);
-    default:
-      return kebabCase(str);
-  }
-};
 
 /**
  * Converts a boolean to its string representation ("true" or "false"), or returns the value as is.
@@ -49,10 +21,8 @@ const falsyToString = <T>(value: T): string | T =>
  *
  * @param {object} options - The options object.
  * @param {Record<string, any> | undefined} options.compoundVariants - The compound variants object.
- * @param {MergeClassFn} options.mergeClass - The function to merge class names.
  * @param {string | undefined} options.name - The component name.
  * @param {Record<string, any> | undefined} options.props - The props object.
- * @param {RawConfig} options.rawConfig - The raw configuration object.
  * @param {Record<string, any> | undefined} options.variants - The variants object.
  * @param {string | undefined} [options.slotKey] - The slot key (for `sva`).
  * @param {Record<string, any> | undefined} [options.slotProps] - The slot props (for `sva`).
@@ -60,29 +30,21 @@ const falsyToString = <T>(value: T): string | T =>
  */
 export const getRawClasses = (options: {
   compoundVariants: Record<string, any> | undefined;
-  mergeClass: MergeClassFn;
   name: string | undefined;
   props: Record<string, any> | undefined;
-  rawConfig: RawConfig;
   variants: Record<string, any> | undefined;
   slotKey?: string;
   slotProps?: Record<string, any>;
 }): string => {
-  const { compoundVariants, mergeClass, name, props, rawConfig, slotKey, slotProps, variants } = options;
-  if (!name) return "";
-
-  const cc = rawConfig.caseConvention;
-  const pf = rawConfig.prefix;
-
-  const componentName = convertCase(`${pf ? `${pf}-` : ""}${name}`, cc);
-  const slotName = slotKey ? `--${convertCase(slotKey, cc)}` : "";
+  const { compoundVariants, name, props, slotKey, slotProps, variants } = options;
+  if (!name) return cx(props?.["class"], props?.["className"]);
 
   // * "prefix-name--slot"
-  const prefix = `${componentName}${slotName}`;
+  const prefix = `${kebabCase(name)}${slotKey ? `--${kebabCase(slotKey)}` : ""}`;
 
   // * Exit early if variants do not exist or is not an object
   if (typeof variants !== "object" || (typeof variants === "object" && Array.isArray(variants))) {
-    return mergeClass(prefix, props?.["class"], props?.["className"]);
+    return cx(prefix, props?.["class"], props?.["className"]);
   }
 
   let result = prefix;
@@ -94,15 +56,13 @@ export const getRawClasses = (options: {
     const variantKey = slotProps?.[variant] ?? props?.[variant] ?? compoundVariants?.[variant];
 
     // * "__variant--variantKey"
-    const suffix = variant
-      ? `__${convertCase(variant, cc)}${variantKey ? `--${convertCase(variantKey, cc)}` : ""}`
-      : "";
+    const suffix = variant ? `__${kebabCase(variant)}${variantKey ? `--${kebabCase(variantKey)}` : ""}` : "";
 
     // * "prefix-name--slot__variant--variantKey"
     result += ` ${prefix}${suffix}`;
   }
 
-  return mergeClass(result, props?.["class"], props?.["className"]);
+  return cx(result, props?.["class"], props?.["className"]);
 };
 
 /**
