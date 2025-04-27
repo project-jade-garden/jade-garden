@@ -1,7 +1,8 @@
 import { type TypedSVA, rawSVA } from "jade-garden";
 
-// TODO: Fix TypedSVA
-const alertConfig: TypedSVA<"root" | "title" | "message"> = {
+const defineConfig: TypedSVA<"root" | "title" | "message"> = (config) => config;
+
+const alertConfig = defineConfig({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",
@@ -61,7 +62,6 @@ const alertConfig: TypedSVA<"root" | "title" | "message"> = {
     }
   ],
   compoundVariants: [
-    // @ts-expect-error: Type 'string' is not assignable to type 'never[]'
     {
       variant: "outlined",
       severity: "error",
@@ -71,7 +71,7 @@ const alertConfig: TypedSVA<"root" | "title" | "message"> = {
         message: "text-red-600 dark:text-red-500"
       }
     },
-    // @ts-expect-error: Type 'string' is not assignable to type 'never[]'
+
     {
       variant: "outlined",
       severity: "success",
@@ -81,7 +81,7 @@ const alertConfig: TypedSVA<"root" | "title" | "message"> = {
         message: "text-green-600 dark:text-green-500"
       }
     },
-    // @ts-expect-error: Type 'string' is not assignable to type 'never[]'
+
     {
       variant: "filled",
       severity: "error",
@@ -91,7 +91,7 @@ const alertConfig: TypedSVA<"root" | "title" | "message"> = {
         message: "text-red-700 dark:text-red-200"
       }
     },
-    // @ts-expect-error: Type 'string' is not assignable to type 'never[]'
+
     {
       variant: "filled",
       severity: "success",
@@ -106,6 +106,6 @@ const alertConfig: TypedSVA<"root" | "title" | "message"> = {
     variant: "filled",
     severity: "success"
   }
-};
+});
 
 export const alert = rawSVA(alertConfig);

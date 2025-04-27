@@ -454,29 +454,50 @@ export const raw: SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
 };
 
 /**
- * Define an SVA configuration object with type safety.
+ * Defines a type-safe structure for an SVA configuration object.
+ * This utility allows you to define your SVA config with type checking
+ * based on the specified slots.
  *
- * @template S - The type of slots.
- * @returns {SVAConfig<Record<S, ClassValue>, Variants<Record<S, ClassValue>>>} The SVA configuration object.
+ * @template S - A string or union of strings representing the slot keys for the component.
+ * @returns A function that takes an `SVAConfig` object with the specified slot keys and returns that same configuration object, ensuring type safety.
  *
  * @example
  * ```ts
- * const buttonConfig: TypedSlots<"root" | "item"> = {
+ * const defineConfig: TypedSVA<"root" | "label"> = (config) => config;
+ *
+ * const buttonConfig = defineConfig({
+ *   name: "button",
  *   slots: {
- *     root: "flex",
- *     item: "px-2 py-1"
+ *     root: "base-button",
+ *     label: "button-label",
  *   },
  *   variants: {
  *     size: {
  *       small: {
- *         root: "text-sm"
+ *         root: "button-small",
+ *         label: "text-sm"
  *       },
  *       medium: {
- *         root: "text-base"
+ *         root: "button-medium",
+ *         label: "text-base"
+ *       }
+ *     },
+ *     color: {
+ *       primary: {
+ *         root: "bg-blue-500 text-white"
+ *       },
+ *       secondary: {
+ *         root: "bg-gray-300 text-gray-800"
  *       }
  *     }
+ *   },
+ *   defaultVariants: {
+ *     size: "medium",
+ *     color: "primary"
  *   }
- * };
+ * });
  * ```
  */
-export type TypedSVA<S extends string> = SVAConfig<Record<S, ClassValue>, Variants<Record<S, ClassValue>>>;
+export type TypedSVA<S extends string> = <RCV extends Record<S, ClassValue>, V extends Variants<RCV>>(
+  config: SVAConfig<RCV, V>
+) => SVAConfig<RCV, V>;
