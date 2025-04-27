@@ -1,10 +1,9 @@
 import { kebabCase } from "es-toolkit";
-import { cx } from "jade-garden";
 import type { CVA, Options } from "../types";
 
 /* ===================== CVA ===================== */
 
-export const generateCVAStyles = (config: CVA, mergeFn: Options["mergeFn"] = cx): string => {
+export const generateCVAStyles = (config: CVA, mergeFn: Exclude<Options["mergeFn"], undefined>): string => {
   const componentName = kebabCase(config.name as string);
 
   let cssOutput = config.base ? `  .${componentName} {\n    @apply ${mergeFn(config.base)};\n  }` : "";

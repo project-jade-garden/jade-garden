@@ -1,10 +1,9 @@
 import { kebabCase } from "es-toolkit";
-import { cx } from "jade-garden";
 import type { Options, SVA } from "../types";
 
 /* ===================== SVA ===================== */
 
-export const generateSVAStyles = (config: SVA, mergeFn: Options["mergeFn"] = cx): string => {
+export const generateSVAStyles = (config: SVA, mergeFn: Exclude<Options["mergeFn"], undefined>): string => {
   const componentName = kebabCase(config.name as string);
 
   let cssOutput = "";

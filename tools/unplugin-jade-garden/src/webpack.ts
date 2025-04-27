@@ -16,4 +16,3 @@ import { type PluginInstance, factory } from "./core";
  */
 const plugin: PluginInstance<WebpackPluginInstance> = createWebpackPlugin(factory);
 export default plugin;
-export { plugin as "module.exports" };

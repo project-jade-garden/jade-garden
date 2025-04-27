@@ -16,4 +16,3 @@ import { type PluginInstance, factory } from "./core";
  */
 const plugin: PluginInstance<RollupPlugin<any> | RollupPlugin<any>[]> = createRollupPlugin(factory);
 export default plugin;
-export { plugin as "module.exports" };

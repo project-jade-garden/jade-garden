@@ -88,9 +88,9 @@
     }
   },
   "scripts": {
-    "build": "bun typecheck && tsdown",
+    "build": "bun typecheck && tsup",
     "clean": "rm -rf .turbo dist node_modules",
-    "dev": "tsdown --watch",
+    "dev": "tsup --watch",
     "format": "biome format --write .",
     "lint": "biome lint .",
     "postpack": "clean-package restore",
@@ -121,7 +121,7 @@
     "rollup-plugin-postcss": "4.0.2",
     "rollup": "4.40.0",
     "tailwindcss": "4.1.4",
-    "tsdown": "0.9.1",
+    "tsup": "8.4.0",
     "typescript": "5.8.3",
     "vite": "6.3.3",
     "webpack": "5.99.6"

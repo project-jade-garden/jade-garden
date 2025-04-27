@@ -17,4 +17,3 @@ import { type PluginInstance, factory } from "./core";
  */
 const plugin: PluginInstance<VitePlugin | VitePlugin[]> = createVitePlugin(factory);
 export default plugin;
-export { plugin as "module.exports" };

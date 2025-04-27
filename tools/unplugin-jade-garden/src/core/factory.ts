@@ -36,7 +36,7 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
   const writeFiles = (props: {
     components: CVA[] | SVA[];
     id: string;
-    mergeFn: Options["mergeFn"];
+    mergeFn: Exclude<Options["mergeFn"], undefined>;
     type: "cva" | "sva";
   }) => {
     const { components, id, mergeFn, type } = props;
