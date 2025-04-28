@@ -3,13 +3,13 @@
 /**
  * **Qr Code**
  * @description A component that generates a QR code based on the provided data.
- * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/qr-code#anatomy)
  */
 export const slots = ["root", "frame", "pattern", "overlay", "downloadTrigger"] as const;
 
 /**
  * **Qr Code**
  * @description A component that generates a QR code based on the provided data.
- * @see [source](https://ark-ui.com/vue/docs/components/qr-code#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/qr-code#anatomy)
  */
 export type Slots = (typeof slots)[number];

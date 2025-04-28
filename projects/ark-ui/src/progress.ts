@@ -3,8 +3,8 @@
 /**
  * **Progress**
  * @description An element that shows either determinate or indeterminate progress.
- * @see [circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
- * @see [linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
+ * @see [circular](https://ark-ui.com/docs/components/progress-circular#anatomy)
+ * @see [linear](https://ark-ui.com/docs/components/progress-linear#anatomy)
  */
 export const slots = [
   "root",
@@ -21,7 +21,7 @@ export const slots = [
 /**
  * **Progress**
  * @description An element that shows either determinate or indeterminate progress.
- * @see [circular](https://ark-ui.com/vue/docs/components/progress-circular#anatomy)
- * @see [linear](https://ark-ui.com/vue/docs/components/progress-linear#anatomy)
+ * @see [circular](https://ark-ui.com/docs/components/progress-circular#anatomy)
+ * @see [linear](https://ark-ui.com/docs/components/progress-linear#anatomy)
  */
 export type Slots = (typeof slots)[number];

@@ -3,7 +3,7 @@
 /**
  * **Field**
  * @description Provides a flexible container for form inputs, labels, and helper text.
- * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/field#anatomy)
  */
 export const slots = [
   "root",
@@ -19,6 +19,6 @@ export const slots = [
 /**
  * **Field**
  * @description Provides a flexible container for form inputs, labels, and helper text.
- * @see [source](https://ark-ui.com/vue/docs/components/field#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/field#anatomy)
  */
 export type Slots = (typeof slots)[number];

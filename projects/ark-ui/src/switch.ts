@@ -3,13 +3,13 @@
 /**
  * **Switch**
  * @description A control element that allows for a binary selection.
- * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/switch#anatomy)
  */
 export const slots = ["root", "label", "control", "thumb"] as const;
 
 /**
  * **Switch**
  * @description A control element that allows for a binary selection.
- * @see [source](https://ark-ui.com/vue/docs/components/switch#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/switch#anatomy)
  */
 export type Slots = (typeof slots)[number];

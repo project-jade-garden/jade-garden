@@ -3,7 +3,7 @@
 /**
  * **Date Picker**
  * @description A component that allows users to select a date from a calendar.
- * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/date-picker#anatomy)
  */
 export const slots = [
   "clearTrigger",
@@ -35,6 +35,6 @@ export const slots = [
 /**
  * **Date Picker**
  * @description A component that allows users to select a date from a calendar.
- * @see [source](https://ark-ui.com/vue/docs/components/date-picker#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/date-picker#anatomy)
  */
 export type Slots = (typeof slots)[number];

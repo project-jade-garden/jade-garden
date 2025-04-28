@@ -3,7 +3,7 @@
 /**
  * **Menu**
  * @description A list of options that appears when a user interacts with a button.
- * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/menu#anatomy)
  */
 export const slots = [
   "arrow",
@@ -25,6 +25,6 @@ export const slots = [
 /**
  * **Menu**
  * @description A list of options that appears when a user interacts with a button.
- * @see [source](https://ark-ui.com/vue/docs/components/menu#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/menu#anatomy)
  */
 export type Slots = (typeof slots)[number];

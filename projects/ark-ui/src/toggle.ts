@@ -3,13 +3,13 @@
 /**
  * **Toggle**
  * @description A two-state button that can be toggled on or off.
- * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/toggle#anatomy)
  */
 export const slots = ["root", "indicator"] as const;
 
 /**
  * **Toggle**
  * @description A two-state button that can be toggled on or off.
- * @see [source](https://ark-ui.com/vue/docs/components/toggle#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/toggle#anatomy)
  */
 export type Slots = (typeof slots)[number];

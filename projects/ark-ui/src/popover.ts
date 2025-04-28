@@ -3,7 +3,7 @@
 /**
  * **Popover**
  * @description An overlay that displays additional information or options when triggered.
- * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/popover#anatomy)
  */
 export const slots = [
   "arrow",
@@ -21,6 +21,6 @@ export const slots = [
 /**
  * **Popover**
  * @description An overlay that displays additional information or options when triggered.
- * @see [source](https://ark-ui.com/vue/docs/components/popover#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/popover#anatomy)
  */
 export type Slots = (typeof slots)[number];

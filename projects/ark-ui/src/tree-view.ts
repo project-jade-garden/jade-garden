@@ -3,7 +3,7 @@
 /**
  * **Tree View**
  * @description A component that is used to show a tree hierarchy.
- * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/tree-view#anatomy)
  */
 export const slots = [
   "root",
@@ -24,6 +24,6 @@ export const slots = [
 /**
  * **Tree View**
  * @description A component that is used to show a tree hierarchy.
- * @see [source](https://ark-ui.com/vue/docs/components/tree-view#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/tree-view#anatomy)
  */
 export type Slots = (typeof slots)[number];

@@ -3,7 +3,7 @@
 /**
  * **Steps**
  * @description Used to guide users through a series of steps in a process.
- * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/steps#anatomy)
  */
 export const slots = [
   "root",
@@ -21,6 +21,6 @@ export const slots = [
 /**
  * **Steps**
  * @description Used to guide users through a series of steps in a process.
- * @see [source](https://ark-ui.com/vue/docs/components/steps#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/steps#anatomy)
  */
 export type Slots = (typeof slots)[number];

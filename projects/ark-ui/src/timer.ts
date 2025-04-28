@@ -3,7 +3,7 @@
 /**
  * **Timer**
  * @description Used to record the time elapsed from zero or since a specified target time.
- * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/timer#anatomy)
  */
 export const slots = [
   "root",
@@ -19,6 +19,6 @@ export const slots = [
 /**
  * **Timer**
  * @description Used to record the time elapsed from zero or since a specified target time.
- * @see [source](https://ark-ui.com/vue/docs/components/timer#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/timer#anatomy)
  */
 export type Slots = (typeof slots)[number];

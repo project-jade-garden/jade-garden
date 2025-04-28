@@ -3,7 +3,7 @@
 /**
  * **Tour**
  * @description A guided tour that helps users understand the interface.
- * @see [source](https://ark-ui.com/vue/docs/components/tour#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/tour#anatomy)
  */
 export const slots = [
   "content",
@@ -23,6 +23,6 @@ export const slots = [
 /**
  * **Tour**
  * @description A guided tour that helps users understand the interface.
- * @see [source](https://ark-ui.com/vue/docs/components/tour#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/tour#anatomy)
  */
 export type Slots = (typeof slots)[number];

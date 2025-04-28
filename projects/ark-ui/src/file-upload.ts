@@ -3,7 +3,7 @@
 /**
  * **File Upload**
  * @description A component that is used to upload multiple files.
- * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/file-upload#anatomy)
  */
 export const slots = [
   "root",
@@ -23,6 +23,6 @@ export const slots = [
 /**
  * **File Upload**
  * @description A component that is used to upload multiple files.
- * @see [source](https://ark-ui.com/vue/docs/components/file-upload#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/file-upload#anatomy)
  */
 export type Slots = (typeof slots)[number];

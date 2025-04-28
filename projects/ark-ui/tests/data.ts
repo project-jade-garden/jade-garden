@@ -3,6 +3,7 @@
 // * Updates based on changes here: https://github.com/search?q=repo%3Achakra-ui/ark%20path%3A.anatomy.ts&type=code
 import { anatomy as accordion } from "@zag-js/accordion";
 import { createAnatomy } from "@zag-js/anatomy";
+import { anatomy as angleSlider } from "@zag-js/angle-slider";
 import { anatomy as avatar } from "@zag-js/avatar";
 import { anatomy as carousel } from "@zag-js/carousel";
 import { anatomy as checkbox } from "@zag-js/checkbox";
@@ -14,7 +15,9 @@ import { anatomy as datePicker } from "@zag-js/date-picker";
 import { anatomy as dialog } from "@zag-js/dialog";
 import { anatomy as editable } from "@zag-js/editable";
 import { anatomy as fileUpload } from "@zag-js/file-upload";
+import { anatomy as floatingPanel } from "@zag-js/floating-panel";
 import { anatomy as hoverCard } from "@zag-js/hover-card";
+import { anatomy as listbox } from "@zag-js/listbox";
 import { anatomy as menu } from "@zag-js/menu";
 import { anatomy as numberInput } from "@zag-js/number-input";
 import { anatomy as pagination } from "@zag-js/pagination";
@@ -58,6 +61,7 @@ const toggle = createAnatomy("toggle", ["root", "indicator"]);
 
 export const components = {
   accordion: accordion.keys(),
+  angleSlider: angleSlider.keys(),
   avatar: avatar.keys(),
   carousel: carousel.keys(),
   checkbox: checkbox.extendWith("group").keys(),
@@ -71,7 +75,9 @@ export const components = {
   field: field.keys(),
   fieldset: fieldset.keys(),
   fileUpload: fileUpload.keys(),
+  floatingPanel: floatingPanel.keys(),
   hoverCard: hoverCard.keys(),
+  listbox: listbox.keys(),
   menu: menu.keys(),
   numberInput: numberInput.keys(),
   pagination: pagination.keys(),

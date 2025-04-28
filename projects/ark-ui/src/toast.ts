@@ -3,13 +3,13 @@
 /**
  * **Toast**
  * @description A message that appears on the screen to provide feedback on an action.
- * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/toast#anatomy)
  */
 export const slots = ["group", "root", "title", "description", "actionTrigger", "closeTrigger"] as const;
 
 /**
  * **Toast**
  * @description A message that appears on the screen to provide feedback on an action.
- * @see [source](https://ark-ui.com/vue/docs/components/toast#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/toast#anatomy)
  */
 export type Slots = (typeof slots)[number];

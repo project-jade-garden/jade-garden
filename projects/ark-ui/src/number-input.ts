@@ -3,7 +3,7 @@
 /**
  * **Number Input**
  * @description A field that allows user input of numeric values.
- * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/number-input#anatomy)
  */
 export const slots = [
   "root",
@@ -19,6 +19,6 @@ export const slots = [
 /**
  * **Number Input**
  * @description A field that allows user input of numeric values.
- * @see [source](https://ark-ui.com/vue/docs/components/number-input#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/number-input#anatomy)
  */
 export type Slots = (typeof slots)[number];

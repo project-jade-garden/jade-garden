@@ -3,7 +3,7 @@
 /**
  * **Select**
  * @description Displays a list of options for the user to pick from.
- * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/select#anatomy)
  */
 export const slots = [
   "label",
@@ -26,6 +26,6 @@ export const slots = [
 /**
  * **Select**
  * @description Displays a list of options for the user to pick from.
- * @see [source](https://ark-ui.com/vue/docs/components/select#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/select#anatomy)
  */
 export type Slots = (typeof slots)[number];

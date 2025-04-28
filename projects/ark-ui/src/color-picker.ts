@@ -3,7 +3,7 @@
 /**
  * **Color Picker**
  * @description A component that allows users to select a color from a color picker.
- * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/color-picker#anatomy)
  */
 export const slots = [
   "root",
@@ -36,6 +36,6 @@ export const slots = [
 /**
  * **Color Picker**
  * @description A component that allows users to select a color from a color picker.
- * @see [source](https://ark-ui.com/vue/docs/components/color-picker#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/color-picker#anatomy)
  */
 export type Slots = (typeof slots)[number];

@@ -3,13 +3,13 @@
 /**
  * **Collapsible**
  * @description An interactive component that can be expanded or collapsed.
- * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/collapsible#anatomy)
  */
 export const slots = ["root", "trigger", "content", "indicator"] as const;
 
 /**
  * **Collapsible**
  * @description An interactive component that can be expanded or collapsed.
- * @see [source](https://ark-ui.com/vue/docs/components/collapsible#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/collapsible#anatomy)
  */
 export type Slots = (typeof slots)[number];

@@ -3,7 +3,7 @@
 /**
  * **Tags Input**
  * @description A component that allows users to add tags to an input field.
- * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/tags-input#anatomy)
  */
 export const slots = [
   "root",
@@ -21,6 +21,6 @@ export const slots = [
 /**
  * **Tags Input**
  * @description A component that allows users to add tags to an input field.
- * @see [source](https://ark-ui.com/vue/docs/components/tags-input#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/tags-input#anatomy)
  */
 export type Slots = (typeof slots)[number];

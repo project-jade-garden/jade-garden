@@ -3,13 +3,13 @@
 /**
  * **Radio Group**
  * @description Allows single selection from multiple options.
- * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/radio-group#anatomy)
  */
 export const slots = ["root", "label", "item", "itemText", "itemControl", "indicator"] as const;
 
 /**
  * **Radio Group**
  * @description Allows single selection from multiple options.
- * @see [source](https://ark-ui.com/vue/docs/components/radio-group#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/radio-group#anatomy)
  */
 export type Slots = (typeof slots)[number];

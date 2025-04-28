@@ -3,7 +3,7 @@
 /**
  * **Editable**
  * @description A component that allows users to edit text in place.
- * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/editable#anatomy)
  */
 export const slots = [
   "root",
@@ -20,6 +20,6 @@ export const slots = [
 /**
  * **Editable**
  * @description A component that allows users to edit text in place.
- * @see [source](https://ark-ui.com/vue/docs/components/editable#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/editable#anatomy)
  */
 export type Slots = (typeof slots)[number];

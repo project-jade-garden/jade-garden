@@ -3,7 +3,7 @@
 /**
  * **Combobox**
  * @description A single input field that combines the functionality of a select and input.
- * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/combobox#anatomy)
  */
 export const slots = [
   "root",
@@ -25,6 +25,6 @@ export const slots = [
 /**
  * **Combobox**
  * @description A single input field that combines the functionality of a select and input.
- * @see [source](https://ark-ui.com/vue/docs/components/combobox#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/combobox#anatomy)
  */
 export type Slots = (typeof slots)[number];

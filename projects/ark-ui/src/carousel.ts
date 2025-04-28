@@ -3,7 +3,7 @@
 /**
  * **Carousel**
  * @description A slideshow component that cycles through elements.
- * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/carousel#anatomy)
  */
 export const slots = [
   "root",
@@ -20,6 +20,6 @@ export const slots = [
 /**
  * **Carousel**
  * @description A slideshow component that cycles through elements.
- * @see [source](https://ark-ui.com/vue/docs/components/carousel#anatomy)
+ * @see [source](https://ark-ui.com/docs/components/carousel#anatomy)
  */
 export type Slots = (typeof slots)[number];
