@@ -127,6 +127,25 @@ export const define = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> =>
  * Generates `raw` class names based on the cva's configuration.
  *
  * @type {CVA}
+ *
+ * @example
+ * ```ts
+ * const button = raw({
+ *   name: "button",
+ *   variants: {
+ *     size: {
+ *       small: "size-2",
+ *       medium: "size-4"
+ *     },
+ *     variant: {
+ *       primary: "bg-red-500",
+ *       secondary: "bg-blue-500"
+ *     }
+ *   }
+ * });
+ *
+ * button({ size: "small", variant: "primary" }) // "button button__size--small button__variant--primary"
+ * ```
  */
 export const raw: CVA = <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
   const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {

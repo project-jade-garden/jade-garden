@@ -239,6 +239,27 @@ export const sva: SVA = create();
  * Generates `raw` class names based on the sva's configuration.
  *
  * @type {SVA}
+ *
+ * @example
+ * ```ts
+ * const button = raw({
+ *   name: "button",
+ *   slots: { root: "root-class" },
+ *   variants: {
+ *     size: {
+ *       small: { root: "size-small" },
+ *       medium: { root: "size-medium" }
+ *     },
+ *     variant: {
+ *       primary: { root: "variant-primary" },
+ *       secondary: { root: "variant-secondary" }
+ *     }
+ *   }
+ * });
+ *
+ * const { root } = button({ size: "small", variant: "primary" });
+ * root(); // "button--root button--root__size--small button--root__variant--primary"
+ * ```
  */
 export const raw: SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
   config: SVAConfig<RCV, V>
