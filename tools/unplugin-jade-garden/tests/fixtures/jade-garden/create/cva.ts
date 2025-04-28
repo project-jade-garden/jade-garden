@@ -1,6 +1,6 @@
-import { type TypedCVA, rawCVA } from "jade-garden";
+import { defineCVA, rawCVA } from "jade-garden";
 
-const buttonConfig: TypedCVA = {
+const buttonConfig = defineCVA({
   name: "button",
   base: "rounded-full",
   variants: {
@@ -18,6 +18,6 @@ const buttonConfig: TypedCVA = {
     intent: "primary",
     size: "medium"
   }
-};
+});
 
 export const button = rawCVA(buttonConfig);

@@ -1,8 +1,6 @@
-import { type TypedSVA, rawSVA } from "jade-garden";
+import { defineSVA, rawSVA } from "jade-garden";
 
-const defineConfig: TypedSVA<"root" | "title" | "message"> = (config) => config;
-
-const alertConfig = defineConfig({
+const alertConfig = defineSVA<"root" | "title" | "message">()({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",
