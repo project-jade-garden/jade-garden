@@ -35,17 +35,11 @@ function pagingFunc(date: DateValue, sign: -1 | 1) {
     v-on="{ 'update:modelValue': props.emits?.['onUpdate:modelValue'] }"
   >
     <RangeCalendarHeader data-testid="header">
-      <RangeCalendarPrev
-        data-testid="prev-year-button"
-        :prev-page="(date: DateValue) => pagingFunc(date, -1)"
-      />
+      <RangeCalendarPrev data-testid="prev-year-button" />
       <RangeCalendarPrev data-testid="prev-button" />
       <RangeCalendarHeading data-testid="heading" />
       <RangeCalendarNext data-testid="next-button" />
-      <RangeCalendarNext
-        data-testid="next-year-button"
-        :next-page="(date: DateValue) => pagingFunc(date, 1)"
-      />
+      <RangeCalendarNext data-testid="next-year-button" />
     </RangeCalendarHeader>
 
     <RangeCalendarGrid

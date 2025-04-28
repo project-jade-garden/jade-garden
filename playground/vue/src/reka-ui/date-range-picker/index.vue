@@ -20,19 +20,24 @@ import {
   DateRangePickerRoot,
   DateRangePickerTrigger,
 } from "reka-ui";
+import type { Matcher } from "reka-ui/date";
 import Label from "../label/index.vue";
 
 const props = defineProps<{
   dateFieldProps?: DateRangePickerRootProps;
   emits?: { "onUpdate:modelValue"?: (data: DateValue) => void };
 }>();
+
+const isDateUnavailable: Matcher = (date) => {
+  return date.day === 17 || date.day === 18;
+};
 </script>
 
 <template>
   <Label data-testid="label" for="date-picker-field">Input label</Label>
   <DateRangePickerRoot
     id="date-picker-field"
-    :is-date-unavailable="(date:DateValue) => date.day === 19"
+    :is-date-unavailable="isDateUnavailable"
     v-bind="props.dateFieldProps"
     data-testid="picker"
     v-on="{ 'update:modelValue': props.emits?.['onUpdate:modelValue'] }"
