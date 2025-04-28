@@ -1,4 +1,4 @@
-// * Workaround to prevent types from being exposed to developers in "jade-garden"
+// * Workaround to prevent internal types from being exposed to developers in "jade-garden"
 import type {
   CVAConfig,
   MergeClassFn,

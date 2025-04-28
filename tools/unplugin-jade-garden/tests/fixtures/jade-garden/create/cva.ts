@@ -1,3 +1,5 @@
+// * For relative types import: https://stackoverflow.com/a/78037438
+import "../../../../../jade-garden/src/types";
 import { defineCVA, rawCVA } from "jade-garden";
 
 const buttonConfig = defineCVA({

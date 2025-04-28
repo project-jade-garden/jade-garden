@@ -1,3 +1,5 @@
+// * For relative types import: https://stackoverflow.com/a/78037438
+import "../../../../../jade-garden/src/types";
 import { defineSVA, rawSVA } from "jade-garden";
 
 const alertConfig = defineSVA<"root" | "title" | "message">()({
