@@ -1,5 +1,5 @@
 <script lang="ts">
-import { getLocalTimeZone, today } from "@internationalized/date";
+// import { getLocalTimeZone, today } from "@internationalized/date";
 // biome-ignore lint/style/useImportType: biome sometimes fails in svelte
 import { Calendar } from "bits-ui";
 import CaretLeft from "phosphor-svelte/lib/CaretLeft";
@@ -9,16 +9,16 @@ const isDateUnavailable: Calendar.RootProps["isDateUnavailable"] = (date) => {
   return date.day === 17 || date.day === 18;
 };
 
-// biome-ignore lint/style/useConst: biome sometimes fails in svelte
-let value = $state(today(getLocalTimeZone()));
+// // biome-ignore lint/style/useConst: biome sometimes fails in svelte
+// let value = $state(today(getLocalTimeZone()));
 </script>
 
+<!-- TODO: Return bind:value -->
 <Calendar.Root
   {isDateUnavailable}
   weekdayFormat="short"
   fixedWeeks={true}
   type="single"
-  bind:value
 >
   {#snippet children({ months, weekdays })}
     <Calendar.Header >
