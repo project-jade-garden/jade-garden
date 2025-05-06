@@ -60,6 +60,17 @@
         "default": "./dist/accordion.cjs"
       }
     },
+    "./angle-slider": {
+      "source": "./src/angle-slider.ts",
+      "import": {
+        "types": "./dist/angle-slider.d.ts",
+        "default": "./dist/angle-slider.js"
+      },
+      "require": {
+        "types": "./dist/angle-slider.d.cts",
+        "default": "./dist/angle-slider.cjs"
+      }
+    },
     "./avatar": {
       "source": "./src/avatar.ts",
       "import": {
@@ -203,6 +214,17 @@
         "default": "./dist/file-upload.cjs"
       }
     },
+    "./floating-panel": {
+      "source": "./src/floating-panel.ts",
+      "import": {
+        "types": "./dist/floating-panel.d.ts",
+        "default": "./dist/floating-panel.js"
+      },
+      "require": {
+        "types": "./dist/floating-panel.d.cts",
+        "default": "./dist/floating-panel.cjs"
+      }
+    },
     "./hover-card": {
       "source": "./src/hover-card.ts",
       "import": {
@@ -212,6 +234,17 @@
       "require": {
         "types": "./dist/hover-card.d.cts",
         "default": "./dist/hover-card.cjs"
+      }
+    },
+    "./listbox": {
+      "source": "./src/listbox.ts",
+      "import": {
+        "types": "./dist/listbox.d.ts",
+        "default": "./dist/listbox.js"
+      },
+      "require": {
+        "types": "./dist/listbox.d.cts",
+        "default": "./dist/listbox.cjs"
       }
     },
     "./menu": {

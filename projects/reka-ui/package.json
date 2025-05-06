@@ -353,6 +353,17 @@
         "default": "./dist/range-calendar.cjs"
       }
     },
+    "./roving-focus": {
+      "source": "./src/roving-focus.ts",
+      "import": {
+        "types": "./dist/roving-focus.d.ts",
+        "default": "./dist/roving-focus.js"
+      },
+      "require": {
+        "types": "./dist/roving-focus.d.cts",
+        "default": "./dist/roving-focus.cjs"
+      }
+    },
     "./scroll-area": {
       "source": "./src/scroll-area.ts",
       "import": {

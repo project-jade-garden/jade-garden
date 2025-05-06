@@ -5,7 +5,7 @@ import { camelCase, pascalCase } from "es-toolkit";
 import { globbySync } from "globby";
 import { readPackageJSON, writePackageJSON } from "pkg-types";
 
-const EXCLUDE_DIRS: string[] = [];
+const EXCLUDE_DIRS: string[] = [".DS_Store", "README.md"];
 
 type PkgExports = {
   [key: string]: {

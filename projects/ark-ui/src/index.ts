@@ -1,5 +1,5 @@
 export { slots as accordionSlots, type Slots as AccordionSlots } from "./accordion";
-export { slots as angleSliderSlots } from "./angle-slider";
+export { slots as angleSliderSlots, type Slots as AngleSliderSlots } from "./angle-slider";
 export { slots as avatarSlots, type Slots as AvatarSlots } from "./avatar";
 export { slots as carouselSlots, type Slots as CarouselSlots } from "./carousel";
 export { slots as checkboxSlots, type Slots as CheckboxSlots } from "./checkbox";
@@ -13,9 +13,9 @@ export { slots as editableSlots, type Slots as EditableSlots } from "./editable"
 export { slots as fieldSlots, type Slots as FieldSlots } from "./field";
 export { slots as fieldsetSlots, type Slots as FieldsetSlots } from "./fieldset";
 export { slots as fileUploadSlots, type Slots as FileUploadSlots } from "./file-upload";
-export { slots as floatingPanelSlots } from "./floating-panel";
+export { slots as floatingPanelSlots, type Slots as FloatingPanelSlots } from "./floating-panel";
 export { slots as hoverCardSlots, type Slots as HoverCardSlots } from "./hover-card";
-export { slots as listboxSlots } from "./listbox";
+export { slots as listboxSlots, type Slots as ListboxSlots } from "./listbox";
 export { slots as menuSlots, type Slots as MenuSlots } from "./menu";
 export { slots as numberInputSlots, type Slots as NumberInputSlots } from "./number-input";
 export { slots as paginationSlots, type Slots as PaginationSlots } from "./pagination";
