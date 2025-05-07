@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ClassNameValue, ClassValue, TraitsConfig } from "./types";
+import type { ClassNameValue, ClassProp, ClassValue } from "./types";
 
 /* ================== Class Utils ================= */
 
@@ -71,7 +71,7 @@ export {
  * @template T - An interface defining the shape of the data attributes.
  * @returns {string} A string of merged class names and data attributes.
  */
-export const traits = <T extends Record<string, any>>(config: TraitsConfig<T>): string => {
+export const traits = <T extends Record<string, any>>(props?: ClassProp & { data?: T }): string => {
   const appendDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
@@ -119,9 +119,9 @@ export const traits = <T extends Record<string, any>>(config: TraitsConfig<T>): 
 
   let dataAttributes = "";
 
-  if (typeof config?.data === "object" && !Array.isArray(config.data) && Object.keys(config.data).length > 0) {
-    for (const key of Object.keys(config.data)) {
-      const value = config.data[key];
+  if (typeof props?.data === "object" && !Array.isArray(props?.data) && Object.keys(props?.data).length > 0) {
+    for (const key of Object.keys(props?.data)) {
+      const value = props?.data[key];
 
       if (typeof value === "object" && !Array.isArray(value)) {
         dataAttributes = appendConditionalDataAttribute(dataAttributes, key, value);
@@ -131,5 +131,5 @@ export const traits = <T extends Record<string, any>>(config: TraitsConfig<T>): 
     }
   }
 
-  return clsx(config.class, config.className, dataAttributes);
+  return clsx(props?.class, props?.className, dataAttributes);
 };

@@ -1,6 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { cm, cn, cx, traits } from "../src";
-import type { TraitsConfig } from "../src/types";
+import { type CVATraits, cm, cn, cx, traits } from "../src";
 
 describe("class-utils", () => {
   describe("cm", () => {
@@ -145,102 +144,80 @@ describe("class-utils", () => {
 
   describe("traits", () => {
     test("return class and className when data is empty or invalid", () => {
-      const configWithEmptyData: TraitsConfig<{}> = { class: "base-class", className: "extra-class", data: {} };
-      expect(traits(configWithEmptyData)).toBe("base-class extra-class");
+      const propsWithNoData: CVATraits<{}> = { class: "base-class", className: "extra-class" };
+      const data: CVATraits<{}> = {};
 
-      const configWithInvalidDataArray: TraitsConfig<{}> = {
-        class: "base-class",
-        className: "extra-class",
-        data: [] as any
-      };
-      expect(traits(configWithInvalidDataArray)).toBe("base-class extra-class");
-
-      const configWithNoData: TraitsConfig<{}> = { class: "base-class", className: "extra-class" };
-      expect(traits(configWithNoData)).toBe("base-class extra-class");
+      expect(traits({ ...propsWithNoData, data })).toBe("base-class extra-class");
+      expect(traits({ ...propsWithNoData, data: [] as any })).toBe("base-class extra-class");
+      expect(traits({ ...propsWithNoData })).toBe("base-class extra-class");
     });
 
     test("generate data attributes for simple string values", () => {
-      const config: TraitsConfig<{ scope: "avatar"; part: "fallback" }> = {
-        data: {
-          scope: { avatar: "avatar" },
-          part: { fallback: "fallback" }
-        }
+      const data: CVATraits<{ scope: "avatar"; part: "fallback" }> = {
+        scope: { avatar: "avatar" },
+        part: { fallback: "fallback" }
       };
-      expect(traits(config)).toBe("data-[scope=avatar]:avatar data-[part=fallback]:fallback");
+      expect(traits({ data })).toBe("data-[scope=avatar]:avatar data-[part=fallback]:fallback");
     });
 
     test("generate data attributes for array values", () => {
-      const config: TraitsConfig<{ roles: "admin" | "moderator" }> = {
-        data: {
-          roles: {
-            admin: "admin",
-            moderator: "moderator"
-          }
+      const data: CVATraits<{ roles: "admin" | "moderator" }> = {
+        roles: {
+          admin: "admin",
+          moderator: "moderator"
         }
       };
-      expect(traits(config)).toBe("data-[roles=admin]:admin data-[roles=moderator]:moderator");
+      expect(traits({ data })).toBe("data-[roles=admin]:admin data-[roles=moderator]:moderator");
     });
 
     test("conditional data attributes for object values", () => {
-      const config: TraitsConfig<{ state: "open" | "closed" }> = {
-        data: {
-          state: {
-            open: "is-open",
-            closed: "is-closed"
-          }
+      const data: CVATraits<{ state: "open" | "closed" }> = {
+        state: {
+          open: "is-open",
+          closed: "is-closed"
         }
       };
-      expect(traits(config)).toBe("data-[state=open]:is-open data-[state=closed]:is-closed");
+      expect(traits({ data })).toBe("data-[state=open]:is-open data-[state=closed]:is-closed");
     });
 
     test("mix of class names and data attributes", () => {
-      const config: TraitsConfig<{ size: "small" | "large"; loading: "true" | "false" }> = {
-        class: "base-button",
-        className: ["primary", "animated"],
-        data: {
-          size: { small: "button-small", large: "button-large" },
-          loading: { true: "button-loading" }
-        }
+      const data: CVATraits<{ size: "small" | "large"; loading: "true" | "false" }> = {
+        size: { small: "button-small", large: "button-large" },
+        loading: { true: "button-loading" }
       };
-      expect(traits(config)).toBe(
+
+      // @ts-expect-error
+      expect(traits({ class: "base-button", className: ["primary", "animated"], data })).toBe(
         "base-button primary animated data-[size=small]:button-small data-[size=large]:button-large data-[loading=true]:button-loading"
       );
     });
 
     test("boolean data attributes", () => {
-      const config: TraitsConfig<{ disabled: "true" | "false" }> = {
-        data: {
-          disabled: { true: "is-disabled", false: "is-enabled" }
-        }
+      const data: CVATraits<{ disabled: "true" | "false" }> = {
+        disabled: { true: "is-disabled", false: "is-enabled" }
       };
-      expect(traits(config)).toBe("data-[disabled=true]:is-disabled data-[disabled=false]:is-enabled");
+      expect(traits({ data })).toBe("data-[disabled=true]:is-disabled data-[disabled=false]:is-enabled");
     });
 
     test("empty string literal data attributes", () => {
-      const config: TraitsConfig<{ focus: "" }> = {
-        data: {
-          focus: "is-focused"
-        }
+      const data: CVATraits<{ focus: "" }> = {
+        focus: "is-focused"
       };
-      expect(traits(config)).toBe("data-[focus]:is-focused");
+      expect(traits({ data })).toBe("data-[focus]:is-focused");
 
-      const configArray: TraitsConfig<{ focus: "" }> = {
-        data: {
-          focus: ["is-focused", "active"]
-        }
+      const dataArr: CVATraits<{ focus: "" }> = {
+        focus: ["is-focused", "active"]
       };
-      expect(traits(configArray)).toBe("data-[focus]:is-focused data-[focus]:active");
+      expect(traits({ data: dataArr })).toBe("data-[focus]:is-focused data-[focus]:active");
     });
 
     test("undefined data values", () => {
-      const config: TraitsConfig<{ name: ""; id: "" }> = {
+      const data: CVATraits<{ name: ""; id: "" }> = {
+        name: "John Doe",
         // @ts-expect-error
-        data: {
-          name: "John Doe",
-          id: undefined
-        }
+        id: undefined
       };
-      expect(traits(config)).toBe("data-[name]:John Doe");
+      expect(traits({ data })).toBe("data-[name]:John Doe");
     });
   });
 });
