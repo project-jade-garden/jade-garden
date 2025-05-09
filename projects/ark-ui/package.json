@@ -586,6 +586,7 @@
     "clean-package": "2.2.0",
     "es-toolkit": "1.36.0",
     "globby": "14.1.0",
+    "jade-garden": "workspace:*",
     "typescript": "5.8.3",
     "vite": "6.3.3",
     "vite-plugin-dts": "4.5.3"
