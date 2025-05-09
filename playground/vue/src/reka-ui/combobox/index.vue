@@ -15,15 +15,15 @@ import {
   ComboboxTrigger,
   ComboboxViewport,
   useFilter,
-  useForwardPropsEmits,
+  // useForwardPropsEmits,
 } from "reka-ui";
 import { computed, ref } from "vue";
 
 const props = defineProps<ComboboxRootProps>();
 const emits = defineEmits<ComboboxRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
-const v = ref<[] | string>(props.multiple ? [] : "");
+// const forwarded = useForwardPropsEmits(props, emits);
+const v = ref<any>(props.multiple ? [] : "");
 
 const options = ["Apple", "Banana", "Blueberry", "Grapes", "Pineapple"];
 const vegetables = ["Aubergine", "Broccoli", "Carrot", "Courgette", "Leek"];
@@ -41,7 +41,7 @@ const filteredVege = computed(() =>
 </script>
 
 <template>
-  <ComboboxRoot v-bind="forwarded" v-model="v" v-model:open="open" name="test">
+  <ComboboxRoot v-model="v" v-model:open="open" name="test">
     <ComboboxAnchor>
       <ComboboxInput placeholder="Placeholder..." />
       <ComboboxTrigger>

@@ -25,8 +25,8 @@ const modelValue = ref(["Test"]);
 <template>
   <TagsInputRoot
     v-model="modelValue"
-    :add-on-blur="addOnBlur"
-    :add-on-tab="addOnTab"
+    :add-on-blur="!!addOnBlur"
+    :add-on-tab="!!addOnTab"
   >
     <TagsInputItem v-for="item in modelValue" :key="item" :value="item">
       <TagsInputItemText>

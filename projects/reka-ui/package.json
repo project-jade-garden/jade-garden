@@ -561,12 +561,12 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "clean-package": "2.2.0",
-    "es-toolkit": "1.36.0",
+    "es-toolkit": "1.37.2",
     "globby": "14.1.0",
     "jade-garden": "workspace:*",
-    "reka-ui": "2.2.0",
+    "reka-ui": "2.2.1",
     "typescript": "5.8.3",
-    "vite": "6.3.3",
+    "vite": "6.3.5",
     "vite-plugin-dts": "4.5.3"
   }
 }

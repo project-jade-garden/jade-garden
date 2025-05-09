@@ -19,7 +19,7 @@ const count = ref(1);
 </script>
 
 <template>
-  <AccordionRoot v-bind="useEmitAsProps(emits)" :type="type">
+  <AccordionRoot v-bind="useEmitAsProps(emits)" :type="type ? type : 'single'">
     <AccordionItem v-for="value in values" :key="value" :value="value">
       <AccordionHeader>
         <AccordionTrigger>

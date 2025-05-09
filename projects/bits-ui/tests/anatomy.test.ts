@@ -5,7 +5,7 @@ import { components as dataComponents } from "./data";
 
 const components = Object.keys(dataComponents);
 
-describe("bits-ui@1.3.19", () => {
+describe("bits-ui@1.4.7", () => {
   test.each(components)("'%s' matches current anatomy", async (component) => {
     // @ts-expect-error: Element implicitly has an 'any' type because expression of type '`${string}Slots`' can't be used to index type 'typeof srcComponents'.
     const srcSlots = srcComponents[`${camelCase(component)}Slots`];

@@ -5,13 +5,13 @@ import {
   TreeRoot,
   type TreeRootEmits,
   type TreeRootProps,
-  useForwardPropsEmits,
+  // useForwardPropsEmits,
 } from "reka-ui";
 
 const props = defineProps<Omit<TreeRootProps, "items" | "getKey">>();
 const emits = defineEmits<TreeRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+// const forwarded = useForwardPropsEmits(props, emits);
 
 const items = [
   { title: "index.vue", icon: "vue" },
@@ -73,7 +73,6 @@ const items = [
 <template>
   <TreeRoot
     v-slot="{ flattenItems }"
-    v-bind="forwarded"
     :items="items"
     :get-key="(item) => item.title"
   >

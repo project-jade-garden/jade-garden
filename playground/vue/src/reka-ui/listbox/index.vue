@@ -4,14 +4,14 @@ import {
   ListboxContent,
   ListboxItem,
   ListboxRoot,
-  useForwardPropsEmits,
+  // useForwardPropsEmits,
 } from "reka-ui";
 import { computed, ref } from "vue";
 
 const props = defineProps<ListboxRootProps>();
 const emits = defineEmits<ListboxRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+// const forwarded = useForwardPropsEmits(props, emits);
 
 const filterText = ref("");
 const filteredOptions = computed(() => {
@@ -275,7 +275,7 @@ const filteredOptions = computed(() => {
 </script>
 
 <template>
-  <ListboxRoot v-bind="forwarded">
+  <ListboxRoot>
     <ListboxContent aria-label="options">
       <ListboxItem
         v-for="i in filteredOptions.map((i) => i.label).slice(0, 50)"
