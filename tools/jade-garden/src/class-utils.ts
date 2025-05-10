@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ClassNameValue, ClassProp, ClassValue } from "./types";
+import type { ClassNameValue, ClassProp, ClassValue, NestedTraits } from "./types";
 
 /* ================== Class Utils ================= */
 
@@ -71,7 +71,9 @@ export {
  * @template T - An interface defining the shape of the data attributes.
  * @returns {string} A string of merged class names and data attributes.
  */
-export const traits = <T extends Record<string, any>>(props?: ClassProp & { data?: T }): string => {
+export const traits = <T extends Record<string, NestedTraits | ClassNameValue>>(
+  props?: ClassProp & { data?: T }
+): string => {
   const appendDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
@@ -94,7 +96,7 @@ export const traits = <T extends Record<string, any>>(props?: ClassProp & { data
   const appendConditionalDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
-    attributeValue: Partial<Record<string | number | symbol, ClassNameValue>>
+    attributeValue: NestedTraits
   ): string => {
     let result = dataAttributes;
 

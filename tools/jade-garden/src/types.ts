@@ -36,6 +36,8 @@ export type ClassValue = CV;
  */
 export type MergeClassFn = (...classes: ClassValue[]) => string;
 
+export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassNameValue>> | ClassNameValue>>;
+
 /**
  * Removes undefined from a type.
  *
@@ -227,10 +229,10 @@ export type CVAReturnType<V extends Variant> = (
  * ```
  */
 export type CVATraits<T extends Record<string, any>> = {
-  [K in keyof T]: T[K] extends ""
+  [K in keyof T]?: T[K] extends ""
     ? ClassNameValue
-    : T[K] extends number
-      ? Partial<Record<T[K], ClassNameValue>>
+    : T[K] extends "number"
+      ? Partial<Record<PropertyKey, ClassNameValue>>
       : T[K] extends string
         ? string extends T[K]
           ? never
@@ -508,11 +510,11 @@ export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>>
  * ```
  */
 export type SVATraits<Slots extends string, T extends { [S in Slots]?: Record<string, any> }> = {
-  [K in keyof T]: {
+  [K in keyof T]?: {
     [P in keyof T[K]]?: T[K][P] extends ""
       ? ClassNameValue
-      : T[K][P] extends number
-        ? Partial<Record<T[K][P], ClassNameValue>>
+      : T[K][P] extends "number"
+        ? Partial<Record<PropertyKey, ClassNameValue>>
         : T[K][P] extends string
           ? string extends T[K][P]
             ? never
