@@ -60,7 +60,11 @@ const main = async () => {
         }
       };
 
-      srcExports += `\nexport { slots as ${camelCase(component)}Slots, type Slots as ${pascalCase(component)}Slots } from ".${component}";`;
+      srcExports += `\nexport {
+      slots as ${camelCase(component)}Slots,
+      type Slots as ${pascalCase(component)}Slots,
+      type Traits as ${pascalCase(component)}Traits
+      } from ".${component}";`;
     }
 
     pkg.exports = pkgExports;

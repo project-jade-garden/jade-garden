@@ -1,4 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/ScrollArea/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Scroll Area**
@@ -13,3 +14,10 @@ export const slots = ["root", "viewport", "scrollbar", "thumb", "corner"] as con
  * @see [source](https://reka-ui.com/docs/components/scroll-area#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Scroll Area**
+ * @description Augments native scroll functionality for custom, cross-browser styling.
+ * @see [source](https://reka-ui.com/docs/components/scroll-area#api-reference)
+ */
+export type Traits = SVATraits<Slots, { root: {}; viewport: {}; scrollbar: {}; thumb: {}; corner: {} }>;

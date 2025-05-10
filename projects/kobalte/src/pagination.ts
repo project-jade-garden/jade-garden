@@ -1,4 +1,5 @@
 // * https://github.com/kobaltedev/kobalte/blob/main/packages/core/src/pagination/index.tsx
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Pagination**
@@ -13,3 +14,10 @@ export const slots = ["root", "ellipsis", "item", "items", "next", "previous"] a
  * @see [source](https://kobalte.dev/docs/core/components/pagination#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Pagination**
+ * @description Allows the user to select a specific page from a range of pages.
+ * @see [source](https://kobalte.dev/docs/core/components/pagination#api-reference)
+ */
+export type Traits = SVATraits<Slots, { root: {}; ellipsis: {}; item: {}; items: {}; next: {}; previous: {} }>;

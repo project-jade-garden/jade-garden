@@ -1,4 +1,5 @@
 // * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/avatar/avatar.anatomy.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Avatar**
@@ -13,3 +14,10 @@ export const slots = ["root", "image", "fallback"] as const;
  * @see [source](https://ark-ui.com/docs/components/avatar#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Avatar**
+ * @description A graphical representation of the user, often used in profile sections.
+ * @see [source](https://ark-ui.com/docs/components/avatar#api-reference)
+ */
+export type Traits = SVATraits<Slots, { root: {}; image: {}; fallback: {} }>;

@@ -1,4 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/Tabs/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Tabs**
@@ -13,3 +14,10 @@ export const slots = ["root", "list", "content", "trigger", "indicator"] as cons
  * @see [source](https://reka-ui.com/docs/components/tabs#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Tabs**
+ * @description A set of layered sections of content—known as tab panels—that are displayed one at a time.
+ * @see [source](https://reka-ui.com/docs/components/tabs#api-reference)
+ */
+export type Traits = SVATraits<Slots, { root: {}; list: {}; content: {}; trigger: {}; indicator: {} }>;

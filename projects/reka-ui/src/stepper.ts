@@ -1,4 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/Stepper/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Stepper**
@@ -13,3 +14,13 @@ export const slots = ["root", "item", "trigger", "description", "title", "indica
  * @see [source](https://reka-ui.com/docs/components/stepper#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Stepper**
+ * @description A set of steps that are used to indicate progress through a multi-step process.
+ * @see [source](https://reka-ui.com/docs/components/stepper#api-reference)
+ */
+export type Traits = SVATraits<
+  Slots,
+  { root: {}; item: {}; trigger: {}; description: {}; title: {}; indicator: {}; separator: {} }
+>;

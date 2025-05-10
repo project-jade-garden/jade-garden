@@ -1,4 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/Menubar/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Menubar**
@@ -31,3 +32,31 @@ export const slots = [
  * @see [source](https://reka-ui.com/docs/components/menubar#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Menubar**
+ * @description A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
+ * @see [source](https://reka-ui.com/docs/components/menubar#api-reference)
+ */
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {};
+    trigger: {};
+    portal: {};
+    content: {};
+    arrow: {};
+    item: {};
+    group: {};
+    separator: {};
+    checkboxItem: {};
+    itemIndicator: {};
+    label: {};
+    radioGroup: {};
+    radioItem: {};
+    sub: {};
+    subContent: {};
+    subTrigger: {};
+    menu: {};
+  }
+>;

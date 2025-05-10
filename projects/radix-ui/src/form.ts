@@ -1,4 +1,5 @@
 // * https://github.com/radix-ui/primitives/blob/main/packages/react/form/src/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Form**
@@ -13,3 +14,13 @@ export const slots = ["control", "field", "label", "message", "root", "submit", 
  * @see [source](https://www.radix-ui.com/primitives/docs/components/form#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Form**
+ * @description Collect information from your users using validation rules.
+ * @see [source](https://www.radix-ui.com/primitives/docs/components/form#api-reference)
+ */
+export type Traits = SVATraits<
+  Slots,
+  { control: {}; field: {}; label: {}; message: {}; root: {}; submit: {}; validityState: {} }
+>;

@@ -1,4 +1,5 @@
 // * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/clipboard/clipboard.anatomy.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Clipboard**
@@ -13,3 +14,10 @@ export const slots = ["root", "control", "trigger", "indicator", "input", "label
  * @see [source](https://ark-ui.com/docs/components/clipboard#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Clipboard**
+ * @description A component to copy text to the clipboard.
+ * @see [source](https://ark-ui.com/docs/components/clipboard#api-reference)
+ */
+export type Traits = SVATraits<Slots, { root: {}; control: {}; trigger: {}; indicator: {}; input: {}; label: {} }>;

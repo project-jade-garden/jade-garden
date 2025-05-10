@@ -1,8 +1,9 @@
 // * https://github.com/mui/base-ui/blob/master/packages/react/src/popover/index.parts.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Popover**
- * @description An accessible popup anchored to a button.
+ * @description An accessible popup anchored to a button.
  * @see [source](https://base-ui.com/react/components/popover#api-reference)
  */
 export const slots = [
@@ -19,7 +20,17 @@ export const slots = [
 
 /**
  * **Popover**
- * @description An accessible popup anchored to a button.
+ * @description An accessible popup anchored to a button.
  * @see [source](https://base-ui.com/react/components/popover#api-reference)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Popover**
+ * @description An accessible popup anchored to a button.
+ * @see [source](https://base-ui.com/react/components/popover#api-reference)
+ */
+export type Traits = SVATraits<
+  Slots,
+  { arrow: {}; backdrop: {}; close: {}; description: {}; popup: {}; positioner: {}; root: {}; title: {}; trigger: {} }
+>;

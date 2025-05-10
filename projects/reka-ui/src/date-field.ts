@@ -1,4 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/DateField/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Date Field**
@@ -13,3 +14,10 @@ export const slots = ["root", "input"] as const;
  * @see [source](https://reka-ui.com/docs/components/date-field#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Date Field**
+ * @description Enables users to input specific dates within a designated field.
+ * @see [source](https://reka-ui.com/docs/components/date-field#api-reference)
+ */
+export type Traits = SVATraits<Slots, { root: {}; input: {} }>;

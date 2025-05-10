@@ -1,4 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/Dialog/index.ts
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Dialog**
@@ -13,3 +14,13 @@ export const slots = ["root", "trigger", "portal", "content", "overlay", "close"
  * @see [source](https://reka-ui.com/docs/components/dialog#anatomy)
  */
 export type Slots = (typeof slots)[number];
+
+/**
+ * **Dialog**
+ * @description A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+ * @see [source](https://reka-ui.com/docs/components/dialog#api-reference)
+ */
+export type Traits = SVATraits<
+  Slots,
+  { root: {}; trigger: {}; portal: {}; content: {}; overlay: {}; close: {}; title: {}; description: {} }
+>;
