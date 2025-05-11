@@ -20,4 +20,44 @@ export type Slots = (typeof slots)[number];
  * @description A component that provides labelling and validation for form controls.
  * @see [source](https://base-ui.com/react/components/field#api-reference)
  */
-export type Traits = SVATraits<Slots, { control: {}; description: {}; error: {}; label: {}; root: {}; validity: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    description: {
+      disabled: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+    error: {
+      disabled: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+    label: {
+      disabled: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+    root: {
+      disabled: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+  }
+>;

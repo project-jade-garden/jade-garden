@@ -20,4 +20,36 @@ export type Slots = (typeof slots)[number];
  * @description An easily stylable checkbox component.
  * @see [source](https://base-ui.com/react/components/checkbox#api-reference)
  */
-export type Traits = SVATraits<Slots, { indicator: {}; root: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    indicator: {
+      checked: "";
+      unchecked: "";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    root: {
+      checked: "";
+      unchecked: "";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+  }
+>;

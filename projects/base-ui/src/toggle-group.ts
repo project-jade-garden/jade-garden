@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description Provides a shared state to a series of toggle buttons.
  * @see [source](https://base-ui.com/react/components/toggle-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

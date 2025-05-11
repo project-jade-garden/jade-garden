@@ -40,21 +40,59 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    arrow: {};
-    backdrop: {};
-    group: {};
-    groupLabel: {};
-    icon: {};
-    item: {};
-    itemIndicator: {};
-    itemText: {};
-    popup: {};
-    positioner: {};
-    root: {};
-    scrollDownArrow: {};
-    scrollUpArrow: {};
-    separator: {};
-    trigger: {};
-    value: {};
+    arrow: {
+      open: "";
+      closed: "";
+      uncentered: "";
+      "anchor-hidden": "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+    };
+    backdrop: {
+      open: "";
+      closed: "";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    item: {
+      selected: "";
+      highlighted: "";
+      disabled: "";
+    };
+    popup: {
+      open: "";
+      closed: "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    positioner: {
+      open: "";
+      closed: "";
+      "anchor-hidden": "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+    };
+    scrollDownArrow: {
+      direction: "down";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+      visible: "";
+    };
+    scrollUpArrow: {
+      direction: "up";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+      visible: "";
+    };
+    trigger: {
+      "popup-open": "";
+      pressed: "";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
   }
 >;

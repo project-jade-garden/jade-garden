@@ -20,4 +20,81 @@ export type Slots = (typeof slots)[number];
  * @description An easily stylable range input.
  * @see [source](https://base-ui.com/react/components/slider#api-reference)
  */
-export type Traits = SVATraits<Slots, { control: {}; indicator: {}; root: {}; thumb: {}; track: {}; value: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    control: {
+      dragging: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      focused: "";
+    };
+    indicator: {
+      dragging: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      focused: "";
+    };
+    root: {
+      dragging: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      focused: "";
+    };
+    thumb: {
+      dragging: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      focused: "";
+      index: "number";
+    };
+    track: {
+      dragging: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      focused: "";
+    };
+    value: {
+      dragging: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      focused: "";
+    };
+  }
+>;

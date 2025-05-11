@@ -35,7 +35,22 @@ export const cheerioSiteMaps = {
     const traitsType: Record<string, Record<string, string>> = {};
 
     for (const slot of slots) {
-      traitsType[slot] = {};
+      const $tableRows = $(`#${kebabCase(slot)} + p + div + div table tbody tr`);
+
+      if ($tableRows.length > 0) {
+        const traits: Record<string, string> = {};
+
+        $tableRows.each((_, _tableRow) => {
+          const $tableRow = cheerio.load(_tableRow);
+          const dataAttribute = $tableRow("th code").text();
+          const value = $tableRow("td p").text();
+
+          const trait = dataAttribute.split("data-")[1];
+          traits[trait] = value;
+        });
+
+        traitsType[slot] = traits;
+      }
     }
 
     return { description, traitsType };

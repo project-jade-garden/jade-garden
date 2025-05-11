@@ -32,5 +32,37 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { arrow: {}; backdrop: {}; close: {}; description: {}; popup: {}; positioner: {}; root: {}; title: {}; trigger: {} }
+  {
+    arrow: {
+      open: "";
+      closed: "";
+      uncentered: "";
+      "anchor-hidden": "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+    };
+    backdrop: {
+      open: "";
+      closed: "";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    popup: {
+      open: "";
+      closed: "";
+      instant: "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    positioner: {
+      open: "";
+      closed: "";
+      "anchor-hidden": "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+    };
+    trigger: {
+      "popup-open": "";
+      pressed: "";
+    };
+  }
 >;

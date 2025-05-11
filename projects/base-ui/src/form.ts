@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A native form element with consolidated error handling.
  * @see [source](https://base-ui.com/react/components/form#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

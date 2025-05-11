@@ -20,4 +20,34 @@ export type Slots = (typeof slots)[number];
  * @description A control that indicates whether a setting is on or off.
  * @see [source](https://base-ui.com/react/components/switch#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; thumb: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      checked: "";
+      unchecked: "";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+    thumb: {
+      checked: "";
+      unchecked: "";
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+    };
+  }
+>;

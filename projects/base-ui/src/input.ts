@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A native input element that automatically works with Field.
  * @see [source](https://base-ui.com/react/components/input#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

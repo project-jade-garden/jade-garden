@@ -20,4 +20,16 @@ export type Slots = (typeof slots)[number];
  * @description A native scroll container with custom scrollbars.
  * @see [source](https://base-ui.com/react/components/scroll-area#api-reference)
  */
-export type Traits = SVATraits<Slots, { content: {}; corner: {}; root: {}; scrollbar: {}; thumb: {}; viewport: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    scrollbar: {
+      orientation: "horizontal" | "vertical";
+      hovering: "";
+      scrolling: "";
+    };
+    thumb: {
+      orientation: "horizontal" | "vertical";
+    };
+  }
+>;

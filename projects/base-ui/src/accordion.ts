@@ -20,4 +20,34 @@ export type Slots = (typeof slots)[number];
  * @description A set of collapsible panels with headings.
  * @see [source](https://base-ui.com/react/components/accordion#api-reference)
  */
-export type Traits = SVATraits<Slots, { header: {}; item: {}; panel: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    header: {
+      open: "";
+      disabled: "";
+      index: "number";
+    };
+    item: {
+      open: "";
+      disabled: "";
+      index: "number";
+    };
+    panel: {
+      open: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      index: "number";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    root: {
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+    };
+    trigger: {
+      "panel-open": "";
+      disabled: "";
+    };
+  }
+>;

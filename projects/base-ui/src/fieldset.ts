@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A native fieldset element with an easily stylable legend.
  * @see [source](https://base-ui.com/react/components/fieldset#api-reference)
  */
-export type Traits = SVATraits<Slots, { legend: {}; root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

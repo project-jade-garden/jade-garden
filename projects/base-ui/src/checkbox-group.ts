@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description Provides shared state to a series of checkboxes.
  * @see [source](https://base-ui.com/react/components/checkbox-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

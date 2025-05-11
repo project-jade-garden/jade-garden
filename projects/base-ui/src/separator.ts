@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A separator element accessible to screen readers.
  * @see [source](https://base-ui.com/react/components/separator#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

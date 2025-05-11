@@ -20,4 +20,33 @@ export type Slots = (typeof slots)[number];
  * @description Displays the status of a task that takes a long time.
  * @see [source](https://base-ui.com/react/components/progress#api-reference)
  */
-export type Traits = SVATraits<Slots, { indicator: {}; label: {}; root: {}; track: {}; value: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    indicator: {
+      complete: "";
+      indeterminate: "";
+      progressing: "";
+    };
+    label: {
+      complete: "";
+      indeterminate: "";
+      progressing: "";
+    };
+    root: {
+      complete: "";
+      indeterminate: "";
+      progressing: "";
+    };
+    track: {
+      complete: "";
+      indeterminate: "";
+      progressing: "";
+    };
+    value: {
+      complete: "";
+      indeterminate: "";
+      progressing: "";
+    };
+  }
+>;

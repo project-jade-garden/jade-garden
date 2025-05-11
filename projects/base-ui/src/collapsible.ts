@@ -20,4 +20,17 @@ export type Slots = (typeof slots)[number];
  * @description A collapsible panel controlled by a button.
  * @see [source](https://base-ui.com/react/components/collapsible#api-reference)
  */
-export type Traits = SVATraits<Slots, { panel: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    panel: {
+      open: "";
+      closed: "";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    trigger: {
+      "panel-open": "";
+    };
+  }
+>;

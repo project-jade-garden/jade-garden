@@ -20,4 +20,33 @@ export type Slots = (typeof slots)[number];
  * @description A component for toggling between related panels on the same page.
  * @see [source](https://base-ui.com/react/components/tabs#api-reference)
  */
-export type Traits = SVATraits<Slots, { indicator: {}; list: {}; panel: {}; root: {}; tab: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    indicator: {
+      orientation: "horizontal" | "vertical";
+      "activation-direction": "left" | "right" | "up" | "down" | "none";
+    };
+    list: {
+      orientation: "horizontal" | "vertical";
+      "activation-direction": "left" | "right" | "up" | "down" | "none";
+    };
+    panel: {
+      orientation: "horizontal" | "vertical";
+      "activation-direction": "left" | "right" | "up" | "down" | "none";
+      hidden: "";
+      index: "number";
+    };
+    root: {
+      orientation: "horizontal" | "vertical";
+      "activation-direction": "left" | "right" | "up" | "down" | "none";
+    };
+    tab: {
+      selected: "";
+      highlighted: "";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+      "activation-direction": "left" | "right" | "up" | "down" | "none";
+    };
+  }
+>;

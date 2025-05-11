@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description An easily stylable radio button component.
  * @see [source](https://base-ui.com/react/components/radio#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

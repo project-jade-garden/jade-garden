@@ -22,5 +22,78 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { decrement: {}; group: {}; increment: {}; input: {}; root: {}; scrubArea: {}; scrubAreaCursor: {} }
+  {
+    decrement: {
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      scrubbing: "";
+    };
+    group: {
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      scrubbing: "";
+    };
+    increment: {
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      scrubbing: "";
+    };
+    input: {
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      scrubbing: "";
+    };
+    root: {
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      scrubbing: "";
+    };
+    scrubArea: {
+      disabled: "";
+      readonly: "";
+      required: "";
+      valid: "";
+      invalid: "";
+      dirty: "";
+      touched: "";
+      filled: "";
+      focused: "";
+      scrubbing: "";
+    };
+  }
 >;

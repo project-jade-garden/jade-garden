@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description An easily stylable avatar component.
  * @see [source](https://base-ui.com/react/components/avatar#api-reference)
  */
-export type Traits = SVATraits<Slots, { fallback: {}; image: {}; root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

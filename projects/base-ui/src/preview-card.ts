@@ -20,4 +20,37 @@ export type Slots = (typeof slots)[number];
  * @description A popup that appears when a link is hovered, showing a preview for sighted users.
  * @see [source](https://base-ui.com/react/components/preview-card#api-reference)
  */
-export type Traits = SVATraits<Slots, { arrow: {}; backdrop: {}; popup: {}; positioner: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    arrow: {
+      open: "";
+      closed: "";
+      uncentered: "";
+      "anchor-hidden": "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+    };
+    backdrop: {
+      open: "";
+      closed: "";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    popup: {
+      open: "";
+      closed: "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+      "starting-style": "";
+      "ending-style": "";
+    };
+    positioner: {
+      open: "";
+      closed: "";
+      "anchor-hidden": "";
+      side: "top" | "bottom" | "left" | "right" | "inline-end" | "inline-start" | "none";
+    };
+    trigger: {
+      "popup-open": "";
+    };
+  }
+>;

@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A two-state button that can be on or off.
  * @see [source](https://base-ui.com/react/components/toggle#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;
