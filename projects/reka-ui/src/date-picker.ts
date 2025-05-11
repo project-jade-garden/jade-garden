@@ -44,25 +44,35 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    root: {};
-    header: {};
-    heading: {};
-    grid: {};
-    cell: {};
-    headCell: {};
-    next: {};
-    prev: {};
-    gridHead: {};
-    gridBody: {};
-    gridRow: {};
-    cellTrigger: {};
-    input: {};
-    calendar: {};
-    field: {};
-    anchor: {};
-    arrow: {};
-    close: {};
-    trigger: {};
-    content: {};
+    grid: {
+      disabled: "";
+      readonly: "";
+    };
+    cell: {
+      disabled: "";
+    };
+    cellTrigger: {
+      selected: "";
+      value: "The ISO string value of the date.";
+      disabled: "";
+      unavailable: "";
+      today: "";
+      "outside-view": "";
+      "outside-visible-view": "";
+      focused: "";
+    };
+    input: {
+      disabled: "";
+      invalid: "";
+      placeholder: "";
+    };
+    calendar: {
+      disabled: "";
+      readonly: "";
+    };
+    field: {
+      readonly: "";
+      invalid: "";
+    };
   }
 >;

@@ -20,4 +20,23 @@ export type Slots = (typeof slots)[number];
  * @description Tag inputs render tags inside an input, followed by an actual text input.
  * @see [source](https://reka-ui.com/docs/components/tags-input#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; input: {}; item: {}; itemText: {}; itemDelete: {}; clear: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      disabled: "";
+      focused: "";
+      invalid: "";
+    };
+    input: {
+      invalid: "";
+    };
+    item: {
+      state: "active" | "inactive";
+      disabled: "";
+    };
+    clear: {
+      disabled: "";
+    };
+  }
+>;

@@ -22,5 +22,9 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { root: {}; ellipsis: {}; first: {}; last: {}; list: {}; listItem: {}; next: {}; prev: {} }
+  {
+    ellipsis: {
+      type: "ellipsis";
+    };
+  }
 >;

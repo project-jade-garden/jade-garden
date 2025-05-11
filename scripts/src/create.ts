@@ -30,7 +30,7 @@ const main = async () => {
     const $ = await loadSiteData(`${site}/${kebabCase(component)}`);
     const slots = components[component];
 
-    const { description, traitsType } = cheerioSiteMaps[TARGET]($, slots);
+    const { description, traitsType } = cheerioSiteMaps[TARGET]($, slots, component);
 
     writeFileSync(
       `${srcDir}/${kebabCase(component)}.ts`,

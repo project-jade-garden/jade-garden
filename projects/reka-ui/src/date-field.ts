@@ -20,4 +20,17 @@ export type Slots = (typeof slots)[number];
  * @description Enables users to input specific dates within a designated field.
  * @see [source](https://reka-ui.com/docs/components/date-field#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; input: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      readonly: "";
+      invalid: "";
+    };
+    input: {
+      disabled: "";
+      invalid: "";
+      placeholder: "";
+    };
+  }
+>;

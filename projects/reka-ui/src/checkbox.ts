@@ -20,4 +20,16 @@ export type Slots = (typeof slots)[number];
  * @description A control that allows the user to toggle between checked and not checked.
  * @see [source](https://reka-ui.com/docs/components/checkbox#api-reference)
  */
-export type Traits = SVATraits<Slots, { groupRoot: {}; root: {}; indicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      state: "checked" | "unchecked" | "indeterminate";
+      disabled: "";
+    };
+    indicator: {
+      state: "checked" | "unchecked" | "indeterminate";
+      disabled: "";
+    };
+  }
+>;

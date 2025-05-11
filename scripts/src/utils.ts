@@ -1,9 +1,19 @@
-import type { CheerioAPI } from "cheerio";
+import type { Cheerio, CheerioAPI } from "cheerio";
 import * as cheerio from "cheerio";
 import { kebabCase, pascalCase } from "es-toolkit";
 
+const findTable = ($any: Cheerio<any>): Cheerio<any> | undefined => {
+  const $el = $any.next();
+  const tagName = $el.get(0)?.tagName;
+
+  if (!tagName || tagName === "h2" || tagName === "h3") return undefined;
+
+  const tableHead = $el.find("table thead th").text();
+  return tableHead.includes("Data Attribute") ? $el.find("table tbody tr") : findTable($el);
+};
+
 export const cheerioSiteMaps = {
-  "ark-ui": ($: CheerioAPI, slots: string[]) => {
+  "ark-ui": ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
@@ -30,7 +40,7 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
-  "base-ui": ($: CheerioAPI, slots: string[]) => {
+  "base-ui": ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
@@ -55,7 +65,7 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
-  "bits-ui": ($: CheerioAPI, slots: string[]) => {
+  "bits-ui": ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
@@ -65,7 +75,7 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
-  kobalte: ($: CheerioAPI, slots: string[]) => {
+  kobalte: ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
@@ -75,7 +85,7 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
-  "radix-ui": ($: CheerioAPI, slots: string[]) => {
+  "radix-ui": ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
@@ -85,12 +95,27 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
-  "reka-ui": ($: CheerioAPI, slots: string[]) => {
+  "reka-ui": ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("div.mb-4.md\\:text-lg").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
     for (const slot of slots) {
-      traitsType[slot] = {};
+      const $slotHeader = $(`#${kebabCase(slot)}`);
+      const $tableRows = findTable($slotHeader);
+
+      if ($tableRows) {
+        const traits: Record<string, string> = {};
+
+        $tableRows.each((_, _tableRow) => {
+          const $tableRow = cheerio.load(_tableRow);
+          const [dataAttribute, value] = $tableRow("td").text().split("]");
+
+          const trait = dataAttribute.split("data-")[1];
+          traits[trait] = value;
+        });
+
+        traitsType[slot] = traits;
+      }
     }
 
     return { description, traitsType };

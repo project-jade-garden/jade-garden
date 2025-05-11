@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description An image element with a fallback for representing the user.
  * @see [source](https://reka-ui.com/docs/components/avatar#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; fallback: {}; image: {} }>;
+export type Traits = SVATraits<Slots, {}>;

@@ -22,5 +22,20 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { root: {}; item: {}; trigger: {}; description: {}; title: {}; indicator: {}; separator: {} }
+  {
+    root: {
+      orientation: "vertical" | "horizontal";
+      linear: "";
+    };
+    item: {
+      state: "active" | "inactive" | "completed";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    trigger: {
+      state: "active" | "inactive" | "completed";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+  }
 >;

@@ -40,21 +40,20 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    root: {};
-    trigger: {};
-    portal: {};
-    content: {};
-    arrow: {};
-    separator: {};
-    itemIndicator: {};
-    label: {};
-    group: {};
-    item: {};
-    itemText: {};
-    viewport: {};
-    scrollUpButton: {};
-    scrollDownButton: {};
-    value: {};
-    icon: {};
+    trigger: {
+      state: "open" | "closed";
+      disabled: "";
+      placeholder: "";
+    };
+    content: {
+      state: "open" | "closed";
+      side: "left" | "right" | "bottom" | "top";
+      align: "start" | "end" | "center";
+    };
+    item: {
+      state: "checked" | "unchecked";
+      highlighted: "";
+      disabled: "";
+    };
   }
 >;

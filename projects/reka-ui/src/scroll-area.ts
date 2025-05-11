@@ -20,4 +20,15 @@ export type Slots = (typeof slots)[number];
  * @description Augments native scroll functionality for custom, cross-browser styling.
  * @see [source](https://reka-ui.com/docs/components/scroll-area#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; viewport: {}; scrollbar: {}; thumb: {}; corner: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    scrollbar: {
+      state: "visible" | "hidden";
+      orientation: "vertical" | "horizontal";
+    };
+    thumb: {
+      state: "visible" | "hidden";
+    };
+  }
+>;

@@ -20,4 +20,20 @@ export type Slots = (typeof slots)[number];
  * @description An interactive component which expands/collapses a panel.
  * @see [source](https://reka-ui.com/docs/components/collapsible#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; trigger: {}; content: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      state: "open" | "closed";
+      disabled: "";
+    };
+    trigger: {
+      state: "open" | "closed";
+      disabled: "";
+    };
+    content: {
+      state: "open" | "closed";
+      disabled: "";
+    };
+  }
+>;

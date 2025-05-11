@@ -20,4 +20,17 @@ export type Slots = (typeof slots)[number];
  * @description Enables users to input specific times within a designated field.
  * @see [source](https://reka-ui.com/docs/components/time-field#api-reference)
  */
-export type Traits = SVATraits<Slots, { input: {}; root: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    input: {
+      disabled: "";
+      invalid: "";
+      placeholder: "";
+    };
+    root: {
+      readonly: "";
+      invalid: "";
+    };
+  }
+>;

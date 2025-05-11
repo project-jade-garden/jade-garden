@@ -20,4 +20,13 @@ export type Slots = (typeof slots)[number];
  * @description A tree view widget displays a hierarchical list of items that can be expanded or collapsed to show or hide their child items, such as in a file system navigator.
  * @see [source](https://reka-ui.com/docs/components/tree#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; item: {}; virtualizer: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    item: {
+      indent: "number";
+      expanded: "";
+      selected: "";
+    };
+  }
+>;

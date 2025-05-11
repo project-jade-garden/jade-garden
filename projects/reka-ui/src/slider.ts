@@ -20,4 +20,24 @@ export type Slots = (typeof slots)[number];
  * @description An input where the user selects a value from within a given range.
  * @see [source](https://reka-ui.com/docs/components/slider#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; thumb: {}; track: {}; range: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    thumb: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    track: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    range: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+  }
+>;

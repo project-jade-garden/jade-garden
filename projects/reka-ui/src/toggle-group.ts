@@ -20,4 +20,16 @@ export type Slots = (typeof slots)[number];
  * @description A set of two-state buttons that can be toggled on or off.
  * @see [source](https://reka-ui.com/docs/components/toggle-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; item: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      orientation: "vertical" | "horizontal";
+    };
+    item: {
+      state: "on" | "off";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+  }
+>;

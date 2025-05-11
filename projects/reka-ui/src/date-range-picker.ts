@@ -44,25 +44,43 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    root: {};
-    header: {};
-    heading: {};
-    grid: {};
-    cell: {};
-    headCell: {};
-    next: {};
-    prev: {};
-    gridHead: {};
-    gridBody: {};
-    gridRow: {};
-    cellTrigger: {};
-    input: {};
-    calendar: {};
-    field: {};
-    anchor: {};
-    arrow: {};
-    close: {};
-    trigger: {};
-    content: {};
+    heading: {
+      disabled: "";
+    };
+    grid: {
+      readonly: "";
+      disabled: "";
+    };
+    cell: {
+      disabled: "";
+    };
+    cellTrigger: {
+      selected: "";
+      value: "";
+      disabled: "";
+      unavailable: "";
+      today: "";
+      "outside-view": "";
+      "outside-visible-view": "";
+      "selection-start": "";
+      "selection-end": "";
+      highlighted: "";
+      "highlighted-start": "";
+      "highlighted-end": "";
+      focused: "";
+    };
+    input: {
+      disabled: "";
+      invalid: "";
+      placeholder: "";
+    };
+    calendar: {
+      readonly: "";
+      invalid: "";
+    };
+    field: {
+      readonly: "";
+      invalid: "";
+    };
   }
 >;

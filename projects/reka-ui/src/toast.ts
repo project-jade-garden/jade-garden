@@ -22,5 +22,11 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { provider: {}; root: {}; portal: {}; action: {}; close: {}; viewport: {}; title: {}; description: {} }
+  {
+    root: {
+      state: "open" | "closed";
+      swipe: "start" | "move" | "cancel" | "end";
+      "swipe-direction": "up" | "down" | "left" | "right";
+    };
+  }
 >;

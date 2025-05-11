@@ -20,4 +20,11 @@ export type Slots = (typeof slots)[number];
  * @description Visually or semantically separates content.
  * @see [source](https://reka-ui.com/docs/components/separator#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      orientation: "vertical" | "horizontal";
+    };
+  }
+>;

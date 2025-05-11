@@ -20,4 +20,16 @@ export type Slots = (typeof slots)[number];
  * @description For sighted users to preview content available behind a link.
  * @see [source](https://reka-ui.com/docs/components/hover-card#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; trigger: {}; portal: {}; content: {}; arrow: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    trigger: {
+      state: "open" | "closed";
+    };
+    content: {
+      state: "open" | "closed";
+      side: "left" | "right" | "bottom" | "top";
+      align: "start" | "end" | "center";
+    };
+  }
+>;

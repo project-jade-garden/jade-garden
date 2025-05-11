@@ -36,17 +36,29 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    root: {};
-    header: {};
-    heading: {};
-    grid: {};
-    cell: {};
-    headCell: {};
-    next: {};
-    prev: {};
-    gridHead: {};
-    gridBody: {};
-    gridRow: {};
-    cellTrigger: {};
+    root: {
+      readonly: "";
+      invalid: "";
+    };
+    heading: {
+      disabled: "";
+    };
+    grid: {
+      readonly: "";
+      disabled: "";
+    };
+    cell: {
+      disabled: "";
+    };
+    cellTrigger: {
+      selected: "";
+      value: "The ISO string value of the date.";
+      disabled: "";
+      unavailable: "";
+      today: "";
+      "outside-view": "";
+      "outside-visible-view": "";
+      focused: "";
+    };
   }
 >;

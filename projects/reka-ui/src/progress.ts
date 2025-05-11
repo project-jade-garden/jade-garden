@@ -20,4 +20,18 @@ export type Slots = (typeof slots)[number];
  * @description Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
  * @see [source](https://reka-ui.com/docs/components/progress#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; indicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      state: "complete" | "indeterminate" | "loading";
+      value: "The current value";
+      max: "The max value";
+    };
+    indicator: {
+      state: "complete" | "indeterminate" | "loading";
+      value: "The current value";
+      max: "The max value";
+    };
+  }
+>;

@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description Renders an accessible label associated with controls.
  * @see [source](https://reka-ui.com/docs/components/label#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

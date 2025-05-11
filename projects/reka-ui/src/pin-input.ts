@@ -20,4 +20,16 @@ export type Slots = (typeof slots)[number];
  * @description A sequence of one-character alphanumeric inputs.
  * @see [source](https://reka-ui.com/docs/components/pin-input#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; input: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      complete: "";
+      disabled: "";
+    };
+    input: {
+      complete: "";
+      disabled: "";
+    };
+  }
+>;

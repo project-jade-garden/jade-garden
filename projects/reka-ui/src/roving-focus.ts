@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description Utility component that implements the roving tabindex method to manage focus between items.
  * @see [source](https://reka-ui.com/docs/utilities/roving-focus#anatomy)
  */
-export type Traits = SVATraits<Slots, { group: {}; item: {} }>;
+export type Traits = SVATraits<Slots, {}>;

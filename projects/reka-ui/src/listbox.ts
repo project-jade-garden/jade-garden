@@ -31,5 +31,17 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { root: {}; content: {}; filter: {}; item: {}; itemIndicator: {}; virtualizer: {}; group: {}; groupLabel: {} }
+  {
+    root: {
+      disabled: "";
+    };
+    filter: {
+      disabled: "";
+    };
+    item: {
+      state: "checked" | "unchecked";
+      highlighted: "";
+      disabled: "";
+    };
+  }
 >;

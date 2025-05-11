@@ -20,4 +20,22 @@ export type Slots = (typeof slots)[number];
  * @description A number field allows a user to enter a number and increment or decrement the value using stepper buttons.
  * @see [source](https://reka-ui.com/docs/components/number-field#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; input: {}; increment: {}; decrement: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      disabled: "";
+    };
+    input: {
+      disabled: "";
+    };
+    increment: {
+      pressed: "";
+      disabled: "";
+    };
+    decrement: {
+      pressed: "";
+      disabled: "";
+    };
+  }
+>;

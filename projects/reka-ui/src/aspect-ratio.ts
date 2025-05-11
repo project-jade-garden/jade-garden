@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description Displays content within a desired ratio.
  * @see [source](https://reka-ui.com/docs/components/aspect-ratio#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;
