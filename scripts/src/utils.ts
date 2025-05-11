@@ -21,9 +21,9 @@ export const cheerioSiteMaps = {
       const $slotHeader = $(`h3:contains("${pascalCase(slot)}")`).filter(function () {
         return $(this).text() === pascalCase(slot);
       });
-      const $tableRows = $slotHeader.next().next().find("table tbody tr");
+      const $tableRows = findTable($slotHeader);
 
-      if ($tableRows.length > 0) {
+      if ($tableRows) {
         const traits: Record<string, string> = {};
 
         $tableRows.each((_, _tableRow) => {
@@ -45,9 +45,10 @@ export const cheerioSiteMaps = {
     const traitsType: Record<string, Record<string, string>> = {};
 
     for (const slot of slots) {
-      const $tableRows = $(`#${kebabCase(slot)} + p + div + div table tbody tr`);
+      const $slotHeader = $(`#${kebabCase(slot)}`);
+      const $tableRows = findTable($slotHeader);
 
-      if ($tableRows.length > 0) {
+      if ($tableRows) {
         const traits: Record<string, string> = {};
 
         $tableRows.each((_, _tableRow) => {
