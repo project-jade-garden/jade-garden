@@ -230,7 +230,7 @@ export type CVAReturnType<V extends Variant> = (
  */
 export type CVATraits<T extends Record<string, any>> = {
   [K in keyof T]?: T[K] extends ""
-    ? ClassNameValue
+    ? ClassNameValue | Partial<Record<PropertyKey, ClassNameValue>>
     : T[K] extends "number"
       ? Partial<Record<PropertyKey, ClassNameValue>>
       : T[K] extends string
@@ -512,7 +512,7 @@ export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>>
 export type SVATraits<Slots extends string, T extends { [S in Slots]?: Record<string, any> }> = {
   [K in keyof T]?: {
     [P in keyof T[K]]?: T[K][P] extends ""
-      ? ClassNameValue
+      ? ClassNameValue | Partial<Record<PropertyKey, ClassNameValue>>
       : T[K][P] extends "number"
         ? Partial<Record<PropertyKey, ClassNameValue>>
         : T[K][P] extends string
