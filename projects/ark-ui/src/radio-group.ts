@@ -20,4 +20,27 @@ export type Slots = (typeof slots)[number];
  * @description Allows single selection from multiple options.
  * @see [source](https://ark-ui.com/docs/components/radio-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; label: {}; item: {}; itemText: {}; itemControl: {}; indicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "radio-group";
+      part: "root";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+    };
+    label: {
+      scope: "radio-group";
+      part: "label";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+    };
+    itemControl: { scope: "radio-group"; part: "item-control"; active: "" };
+    indicator: {
+      scope: "radio-group";
+      part: "indicator";
+      disabled: "";
+      orientation: "horizontal" | "vertical";
+    };
+  }
+>;

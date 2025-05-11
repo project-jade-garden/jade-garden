@@ -29,7 +29,4 @@ export type Slots = (typeof slots)[number];
  * @description Provides a flexible container for form inputs, labels, and helper text.
  * @see [source](https://ark-ui.com/docs/components/field#api-reference)
  */
-export type Traits = SVATraits<
-  Slots,
-  { root: {}; errorText: {}; helperText: {}; input: {}; label: {}; select: {}; textarea: {}; requiredIndicator: {} }
->;
+export type Traits = SVATraits<Slots, {}>;

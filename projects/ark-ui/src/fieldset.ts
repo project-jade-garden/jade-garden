@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A set of form controls optionally grouped under a common name.
  * @see [source](https://ark-ui.com/docs/components/fieldset#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; errorText: {}; helperText: {}; legend: {} }>;
+export type Traits = SVATraits<Slots, {}>;

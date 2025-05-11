@@ -20,4 +20,19 @@ export type Slots = (typeof slots)[number];
  * @description A label that provides information on hover or focus.
  * @see [source](https://ark-ui.com/docs/components/tooltip#api-reference)
  */
-export type Traits = SVATraits<Slots, { trigger: {}; arrow: {}; arrowTip: {}; positioner: {}; content: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    trigger: {
+      scope: "tooltip";
+      part: "trigger";
+      expanded: "";
+    };
+    content: {
+      scope: "tooltip";
+      part: "content";
+      state: "open" | "closed";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
+  }
+>;

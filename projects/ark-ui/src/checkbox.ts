@@ -20,4 +20,44 @@ export type Slots = (typeof slots)[number];
  * @description A control element that allows for multiple selections within a set.
  * @see [source](https://ark-ui.com/docs/components/checkbox#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; label: {}; control: {}; indicator: {}; group: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "indeterminate" | "checked" | "unchecked";
+      invalid: "";
+    };
+    label: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "indeterminate" | "checked" | "unchecked";
+      invalid: "";
+    };
+    control: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "indeterminate" | "checked" | "unchecked";
+      invalid: "";
+    };
+    indicator: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "indeterminate" | "checked" | "unchecked";
+      invalid: "";
+    };
+  }
+>;

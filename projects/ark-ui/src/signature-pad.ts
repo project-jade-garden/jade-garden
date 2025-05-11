@@ -22,5 +22,26 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { root: {}; control: {}; segment: {}; segmentPath: {}; guide: {}; clearTrigger: {}; label: {} }
+  {
+    root: {
+      scope: "signature-pad";
+      part: "root";
+      disabled: "";
+    };
+    control: {
+      scope: "signature-pad";
+      part: "control";
+      disabled: "";
+    };
+    guide: {
+      scope: "signature-pad";
+      part: "guide";
+      disabled: "";
+    };
+    label: {
+      scope: "signature-pad";
+      part: "label";
+      disabled: "";
+    };
+  }
 >;

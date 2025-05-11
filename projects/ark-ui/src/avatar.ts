@@ -20,4 +20,18 @@ export type Slots = (typeof slots)[number];
  * @description A graphical representation of the user, often used in profile sections.
  * @see [source](https://ark-ui.com/docs/components/avatar#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; image: {}; fallback: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    image: {
+      scope: "avatar";
+      part: "image";
+      state: "visible" | "hidden";
+    };
+    fallback: {
+      scope: "avatar";
+      part: "fallback";
+      state: "hidden" | "visible";
+    };
+  }
+>;

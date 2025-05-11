@@ -35,5 +35,40 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { root: {}; label: {}; track: {}; range: {}; valueText: {}; view: {}; circle: {}; circleTrack: {}; circleRange: {} }
+  {
+    root: {
+      scope: "progress";
+      part: "root";
+      max: "";
+      value: "";
+      state: "";
+      orientation: "horizontal" | "vertical";
+    };
+    label: {
+      scope: "progress";
+      part: "label";
+      orientation: "horizontal" | "vertical";
+    };
+    range: {
+      scope: "progress";
+      part: "range";
+      orientation: "horizontal" | "vertical";
+      state: "";
+    };
+    circleTrack: {
+      scope: "progress";
+      part: "circle-track";
+      orientation: "horizontal" | "vertical";
+    };
+    circleRange: {
+      scope: "progress";
+      part: "circle-range";
+      state: "";
+    };
+    view: {
+      scope: "progress";
+      part: "view";
+      state: "";
+    };
+  }
 >;

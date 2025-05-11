@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description A component that generates a QR code based on the provided data.
  * @see [source](https://ark-ui.com/docs/components/qr-code#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; frame: {}; pattern: {}; overlay: {}; downloadTrigger: {} }>;
+export type Traits = SVATraits<Slots, {}>;

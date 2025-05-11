@@ -20,4 +20,24 @@ export type Slots = (typeof slots)[number];
  * @description A navigation component that allows users to browse through pages.
  * @see [source](https://ark-ui.com/docs/components/pagination#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; item: {}; ellipsis: {}; prevTrigger: {}; nextTrigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    item: {
+      scope: "pagination";
+      part: "item";
+      index: "number";
+      selected: "";
+    };
+    prevTrigger: {
+      scope: "pagination";
+      part: "prev-trigger";
+      disabled: "";
+    };
+    nextTrigger: {
+      scope: "pagination";
+      part: "next-trigger";
+      disabled: "";
+    };
+  }
+>;

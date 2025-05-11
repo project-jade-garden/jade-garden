@@ -3,21 +3,51 @@ import type { SVATraits } from "jade-garden";
 
 /**
  * **Clipboard**
- * @description A component to copy text to the clipboard.
+ * @description A component to copy text to the clipboard
  * @see [source](https://ark-ui.com/docs/components/clipboard#anatomy)
  */
 export const slots = ["root", "control", "trigger", "indicator", "input", "label"] as const;
 
 /**
  * **Clipboard**
- * @description A component to copy text to the clipboard.
+ * @description A component to copy text to the clipboard
  * @see [source](https://ark-ui.com/docs/components/clipboard#anatomy)
  */
 export type Slots = (typeof slots)[number];
 
 /**
  * **Clipboard**
- * @description A component to copy text to the clipboard.
+ * @description A component to copy text to the clipboard
  * @see [source](https://ark-ui.com/docs/components/clipboard#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; control: {}; trigger: {}; indicator: {}; input: {}; label: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "clipboard";
+      part: "root";
+      copied: "";
+    };
+    control: {
+      scope: "clipboard";
+      part: "control";
+      copied: "";
+    };
+    trigger: {
+      scope: "clipboard";
+      part: "trigger";
+      copied: "";
+    };
+    input: {
+      scope: "clipboard";
+      part: "input";
+      copied: "";
+      readonly: "";
+    };
+    label: {
+      scope: "clipboard";
+      part: "label";
+      copied: "";
+    };
+  }
+>;

@@ -34,15 +34,23 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    arrow: {};
-    arrowTip: {};
-    anchor: {};
-    trigger: {};
-    indicator: {};
-    positioner: {};
-    content: {};
-    title: {};
-    description: {};
-    closeTrigger: {};
+    trigger: {
+      scope: "popover";
+      part: "trigger";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+      state: "open" | "closed";
+    };
+    indicator: {
+      scope: "popover";
+      part: "indicator";
+      state: "open" | "closed";
+    };
+    content: {
+      scope: "popover";
+      part: "content";
+      state: "open" | "closed";
+      expanded: "";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
   }
 >;

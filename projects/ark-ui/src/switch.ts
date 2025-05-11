@@ -20,4 +20,44 @@ export type Slots = (typeof slots)[number];
  * @description A control element that allows for a binary selection.
  * @see [source](https://ark-ui.com/docs/components/switch#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; label: {}; control: {}; thumb: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "checked" | "unchecked";
+      invalid: "";
+    };
+    label: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "checked" | "unchecked";
+      invalid: "";
+    };
+    control: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "checked" | "unchecked";
+      invalid: "";
+    };
+    thumb: {
+      active: "";
+      focus: "";
+      readonly: "";
+      hover: "";
+      disabled: "";
+      state: "checked" | "unchecked";
+      invalid: "";
+    };
+  }
+>;

@@ -36,17 +36,46 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    content: {};
-    actionTrigger: {};
-    closeTrigger: {};
-    progressText: {};
-    title: {};
-    description: {};
-    positioner: {};
-    arrow: {};
-    arrowTip: {};
-    backdrop: {};
-    spotlight: {};
-    control: {};
+    content: {
+      scope: "tour";
+      part: "content";
+      state: "open" | "closed";
+      type: "dialog" | "floating" | "tooltip" | "wait";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+      step: "";
+    };
+    actionTrigger: {
+      scope: "tour";
+      part: "action-trigger";
+      type: "dialog" | "floating" | "tooltip" | "wait";
+      disabled: "";
+    };
+    closeTrigger: {
+      scope: "tour";
+      part: "close-trigger";
+      type: "dialog" | "floating" | "tooltip" | "wait";
+    };
+    title: {
+      scope: "tour";
+      part: "title";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
+    description: {
+      scope: "tour";
+      part: "description";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
+    positioner: {
+      scope: "tour";
+      part: "positioner";
+      type: "dialog" | "floating" | "tooltip" | "wait";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
+    backdrop: {
+      scope: "tour";
+      part: "backdrop";
+      state: "open" | "closed";
+      type: "dialog" | "floating" | "tooltip" | "wait";
+    };
   }
 >;

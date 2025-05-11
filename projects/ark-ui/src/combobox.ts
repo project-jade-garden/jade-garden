@@ -38,19 +38,82 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    root: {};
-    clearTrigger: {};
-    content: {};
-    control: {};
-    input: {};
-    item: {};
-    itemGroup: {};
-    itemGroupLabel: {};
-    itemIndicator: {};
-    itemText: {};
-    label: {};
-    list: {};
-    positioner: {};
-    trigger: {};
+    root: {
+      scope: "combobox";
+      part: "root";
+      invalid: "";
+    };
+    clearTrigger: {
+      scope: "combobox";
+      part: "clear-trigger";
+      invalid: "";
+    };
+    content: {
+      scope: "combobox";
+      part: "content";
+      state: "open" | "closed";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+      empty: "";
+    };
+    control: {
+      scope: "combobox";
+      part: "control";
+      state: "open" | "closed";
+      focus: "";
+      disabled: "";
+      invalid: "";
+    };
+    input: {
+      scope: "combobox";
+      part: "input";
+      invalid: "";
+    };
+    item: {
+      scope: "combobox";
+      part: "item";
+      highlighted: "";
+      state: "checked" | "unchecked";
+      disabled: "";
+      value: "";
+    };
+    itemGroup: {
+      scope: "combobox";
+      part: "item-group";
+      empty: "";
+    };
+    itemIndicator: {
+      scope: "combobox";
+      part: "item-indicator";
+      state: "checked" | "unchecked";
+    };
+    itemText: {
+      scope: "combobox";
+      part: "item-text";
+      state: "checked" | "unchecked";
+      disabled: "";
+      highlighted: "";
+    };
+    label: {
+      scope: "combobox";
+      part: "label";
+      readonly: "";
+      disabled: "";
+      invalid: "";
+      focus: "";
+    };
+    list: {
+      scope: "combobox";
+      part: "list";
+      empty: "";
+    };
+    trigger: {
+      scope: "combobox";
+      part: "trigger";
+      state: "open" | "closed";
+      invalid: "";
+      focusable: "";
+      readonly: "";
+      disabled: "";
+    };
   }
 >;

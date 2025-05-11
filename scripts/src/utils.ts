@@ -1,4 +1,5 @@
 import type { CheerioAPI } from "cheerio";
+import * as cheerio from "cheerio";
 import { kebabCase, pascalCase } from "es-toolkit";
 
 export const cheerioSiteMaps = {
@@ -7,7 +8,24 @@ export const cheerioSiteMaps = {
     const traitsType: Record<string, Record<string, string>> = {};
 
     for (const slot of slots) {
-      traitsType[slot] = {};
+      const $slotHeader = $(`h3:contains("${pascalCase(slot)}")`).filter(function () {
+        return $(this).text() === pascalCase(slot);
+      });
+      const $tableRows = $slotHeader.next().next().find("table tbody tr");
+
+      if ($tableRows.length > 0) {
+        const traits: Record<string, string> = {};
+
+        $tableRows.each((_, _tableRow) => {
+          const $tableRow = cheerio.load(_tableRow);
+          const [dataAttribute, value] = $tableRow("td").text().split("]");
+
+          const trait = dataAttribute.split("-")[1];
+          traits[trait] = value;
+        });
+
+        traitsType[slot] = traits;
+      }
     }
 
     return { description, traitsType };

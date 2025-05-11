@@ -34,15 +34,58 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    root: {};
-    label: {};
-    control: {};
-    input: {};
-    clearTrigger: {};
-    item: {};
-    itemPreview: {};
-    itemInput: {};
-    itemText: {};
-    itemDeleteTrigger: {};
+    root: {
+      scope: "tags-input";
+      part: "root";
+      invalid: "";
+      readonly: "";
+      disabled: "";
+      focus: "";
+      empty: "";
+    };
+    label: {
+      scope: "tags-input";
+      part: "label";
+      disabled: "";
+      invalid: "";
+      readonly: "";
+    };
+    control: {
+      scope: "tags-input";
+      part: "control";
+      disabled: "";
+      readonly: "";
+      invalid: "";
+      focus: "";
+    };
+    input: {
+      scope: "tags-input";
+      part: "input";
+      invalid: "";
+    };
+    clearTrigger: {
+      scope: "tags-input";
+      part: "clear-trigger";
+      readonly: "";
+    };
+    item: {
+      scope: "tags-input";
+      part: "item";
+      value: "";
+      disabled: "";
+    };
+    itemPreview: {
+      scope: "tags-input";
+      part: "item-preview";
+      value: "";
+      disabled: "";
+      highlighted: "";
+    };
+    itemText: {
+      scope: "tags-input";
+      part: "item-text";
+      disabled: "";
+      highlighted: "";
+    };
   }
 >;

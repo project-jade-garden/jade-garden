@@ -20,4 +20,32 @@ export type Slots = (typeof slots)[number];
  * @description An interactive component that can be expanded or collapsed.
  * @see [source](https://ark-ui.com/docs/components/collapsible#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; trigger: {}; content: {}; indicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "collapsible";
+      part: "root";
+      state: "open" | "closed";
+    };
+    trigger: {
+      scope: "collapsible";
+      part: "trigger";
+      state: "open" | "closed";
+      disabled: "";
+    };
+    content: {
+      scope: "collapsible";
+      part: "content";
+      collapsible: "";
+      state: "open" | "closed";
+      disabled: "";
+    };
+    indicator: {
+      scope: "collapsible";
+      part: "indicator";
+      state: "open" | "closed";
+      disabled: "";
+    };
+  }
+>;

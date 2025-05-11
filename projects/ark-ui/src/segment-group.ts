@@ -20,4 +20,31 @@ export type Slots = (typeof slots)[number];
  * @description Organizes and navigates between sections in a view.
  * @see [source](https://ark-ui.com/docs/components/segment-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; label: {}; item: {}; itemText: {}; itemControl: {}; indicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "segment-group";
+      part: "root";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+    };
+    label: {
+      scope: "segment-group";
+      part: "label";
+      orientation: "horizontal" | "vertical";
+      disabled: "";
+    };
+    itemControl: {
+      scope: "segment-group";
+      part: "item-control";
+      active: "";
+    };
+    indicator: {
+      scope: "segment-group";
+      part: "indicator";
+      disabled: "";
+      orientation: "horizontal" | "vertical";
+    };
+  }
+>;

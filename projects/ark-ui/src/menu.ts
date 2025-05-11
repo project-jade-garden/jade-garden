@@ -38,19 +38,43 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    arrow: {};
-    arrowTip: {};
-    content: {};
-    contextTrigger: {};
-    indicator: {};
-    item: {};
-    itemGroup: {};
-    itemGroupLabel: {};
-    itemIndicator: {};
-    itemText: {};
-    positioner: {};
-    separator: {};
-    trigger: {};
-    triggerItem: {};
+    content: {
+      scope: "menu";
+      part: "content";
+      state: "open" | "closed";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
+    indicator: {
+      scope: "menu";
+      part: "indicator";
+      state: "open" | "closed";
+    };
+    item: {
+      scope: "menu";
+      part: "item";
+      disabled: "";
+      highlighted: "";
+      value: "";
+      valuetext: "";
+    };
+    itemIndicator: {
+      scope: "menu";
+      part: "item-indicator";
+      disabled: "";
+      highlighted: "";
+      state: "checked" | "unchecked";
+    };
+    itemText: {
+      scope: "menu";
+      part: "item-text";
+      disabled: "";
+      highlighted: "";
+      state: "checked" | "unchecked";
+    };
+    trigger: {
+      scope: "menu";
+      part: "trigger";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
   }
 >;

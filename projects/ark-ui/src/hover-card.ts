@@ -20,4 +20,20 @@ export type Slots = (typeof slots)[number];
  * @description A card that appears when a user hovers over an element.
  * @see [source](https://ark-ui.com/docs/components/hover-card#api-reference)
  */
-export type Traits = SVATraits<Slots, { arrow: {}; arrowTip: {}; trigger: {}; positioner: {}; content: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    trigger: {
+      scope: "hover-card";
+      part: "trigger";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+      state: "open" | "closed";
+    };
+    content: {
+      scope: "hover-card";
+      part: "content";
+      state: "open" | "closed";
+      placement: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
+    };
+  }
+>;

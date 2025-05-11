@@ -22,5 +22,21 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { trigger: {}; backdrop: {}; positioner: {}; content: {}; title: {}; description: {}; closeTrigger: {} }
+  {
+    trigger: {
+      scope: "dialog";
+      part: "trigger";
+      state: "open" | "closed";
+    };
+    backdrop: {
+      scope: "dialog";
+      part: "backdrop";
+      state: "open" | "closed";
+    };
+    content: {
+      scope: "dialog";
+      part: "content";
+      state: "open" | "closed";
+    };
+  }
 >;

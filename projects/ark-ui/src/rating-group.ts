@@ -20,4 +20,28 @@ export type Slots = (typeof slots)[number];
  * @description Allows users to rate items using a set of icons.
  * @see [source](https://ark-ui.com/docs/components/rating-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; label: {}; item: {}; control: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    label: {
+      scope: "rating-group";
+      part: "label";
+      disabled: "";
+    };
+    item: {
+      scope: "rating-group";
+      part: "item";
+      disabled: "";
+      readonly: "";
+      checked: "";
+      highlighted: "";
+      half: "";
+    };
+    control: {
+      scope: "rating-group";
+      part: "control";
+      readonly: "";
+      disabled: "";
+    };
+  }
+>;

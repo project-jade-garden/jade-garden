@@ -20,4 +20,43 @@ export type Slots = (typeof slots)[number];
  * @description A collapsible component for displaying content in a vertical stack.
  * @see [source](https://ark-ui.com/docs/components/accordion#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; item: {}; itemTrigger: {}; itemContent: {}; itemIndicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "accordion";
+      part: "root";
+      orientation: "horizontal" | "vertical";
+    };
+    item: {
+      scope: "accordion";
+      part: "item";
+      state: "open" | "closed";
+      focus: "";
+      disabled: "";
+      orientation: "horizontal" | "vertical";
+    };
+    itemTrigger: {
+      scope: "accordion";
+      part: "item-trigger";
+      orientation: "horizontal" | "vertical";
+      state: "open" | "closed";
+    };
+    itemContent: {
+      scope: "accordion";
+      part: "item-content";
+      state: "open" | "closed";
+      disabled: "";
+      focus: "";
+      orientation: "horizontal" | "vertical";
+    };
+    itemIndicator: {
+      scope: "accordion";
+      part: "item-indicator";
+      state: "open" | "closed";
+      disabled: "";
+      focus: "";
+      orientation: "horizontal" | "vertical";
+    };
+  }
+>;

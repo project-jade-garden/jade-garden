@@ -35,16 +35,42 @@ export type Slots = (typeof slots)[number];
 export type Traits = SVATraits<
   Slots,
   {
-    trigger: {};
-    positioner: {};
-    content: {};
-    header: {};
-    body: {};
-    title: {};
-    resizeTrigger: {};
-    dragTrigger: {};
-    stageTrigger: {};
-    closeTrigger: {};
-    control: {};
+    trigger: {
+      scope: "floating-panel";
+      part: "trigger";
+      state: "open" | "closed";
+      dragging: "";
+    };
+    content: {
+      scope: "floating-panel";
+      part: "content";
+      state: "open" | "closed";
+      dragging: "";
+      topmost: "";
+      behind: "";
+    };
+    header: {
+      scope: "floating-panel";
+      part: "header";
+      dragging: "";
+      topmost: "";
+      behind: "";
+    };
+    body: {
+      scope: "floating-panel";
+      part: "body";
+      dragging: "";
+    };
+    resizeTrigger: {
+      scope: "floating-panel";
+      part: "resize-trigger";
+      disabled: "";
+      axis: "s" | "w" | "e" | "n" | "sw" | "nw" | "se" | "ne";
+    };
+    dragTrigger: {
+      scope: "floating-panel";
+      part: "drag-trigger";
+      disabled: "";
+    };
   }
 >;

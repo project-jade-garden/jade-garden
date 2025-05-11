@@ -31,5 +31,11 @@ export type Slots = (typeof slots)[number];
  */
 export type Traits = SVATraits<
   Slots,
-  { root: {}; area: {}; control: {}; item: {}; itemValue: {}; itemLabel: {}; actionTrigger: {}; separator: {} }
+  {
+    item: {
+      scope: "timer";
+      part: "item";
+      type: "days" | "hours" | "minutes" | "seconds" | "milliseconds";
+    };
+  }
 >;

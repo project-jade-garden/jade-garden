@@ -20,4 +20,13 @@ export type Slots = (typeof slots)[number];
  * @description Flexible navigation tool with various modes and features.
  * @see [source](https://ark-ui.com/docs/components/tabs#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; list: {}; trigger: {}; content: {}; indicator: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "tabs";
+      part: "root";
+      orientation: "horizontal" | "vertical";
+    };
+  }
+>;

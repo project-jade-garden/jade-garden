@@ -20,4 +20,32 @@ export type Slots = (typeof slots)[number];
  * @description For pin or verification codes with auto-focus transfer and masking options.
  * @see [source](https://ark-ui.com/docs/components/pin-input#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {}; label: {}; input: {}; control: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      scope: "pin-input";
+      part: "root";
+      invalid: "";
+      disabled: "";
+      complete: "";
+      readonly: "";
+    };
+    label: {
+      scope: "pin-input";
+      part: "label";
+      invalid: "";
+      disabled: "";
+      complete: "";
+      readonly: "";
+    };
+    input: {
+      scope: "pin-input";
+      part: "input";
+      disabled: "";
+      complete: "";
+      index: "number";
+      invalid: "";
+    };
+  }
+>;
