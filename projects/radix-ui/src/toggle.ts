@@ -20,4 +20,12 @@ export type Slots = (typeof slots)[number];
  * @description A two-state button that can be either on or off.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/toggle#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    root: {
+      state: "on" | "off";
+      disabled: "";
+    };
+  }
+>;

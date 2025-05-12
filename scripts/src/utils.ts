@@ -9,7 +9,7 @@ const findTable = ($any: Cheerio<any>): Cheerio<any> | undefined => {
   if (!tagName || tagName === "h2" || tagName === "h3") return undefined;
 
   const tableHead = $el.find("table thead th").text();
-  return tableHead.includes("Data Attribute") ? $el.find("table tbody tr") : findTable($el);
+  return tableHead.toLowerCase().includes("data attribute") ? $el.find("table tbody tr") : findTable($el);
 };
 
 export const cheerioSiteMaps = {
@@ -91,7 +91,22 @@ export const cheerioSiteMaps = {
     const traitsType: Record<string, Record<string, string>> = {};
 
     for (const slot of slots) {
-      traitsType[slot] = {};
+      const $slotHeader = $(`#${kebabCase(slot)}`);
+      const $tableRows = findTable($slotHeader);
+
+      if ($tableRows) {
+        const traits: Record<string, string> = {};
+
+        $tableRows.each((_, _tableRow) => {
+          const $tableRow = cheerio.load(_tableRow);
+          const [dataAttribute, value] = $tableRow("th, td").text().split("]");
+
+          const trait = dataAttribute.split("data-")[1];
+          traits[trait] = value;
+        });
+
+        traitsType[slot] = traits;
+      }
     }
 
     return { description, traitsType };

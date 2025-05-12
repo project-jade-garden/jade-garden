@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description An image element with a fallback for representing the user.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/avatar#api-reference)
  */
-export type Traits = SVATraits<Slots, { fallback: {}; image: {}; root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

@@ -20,4 +20,31 @@ export type Slots = (typeof slots)[number];
  * @description A vertically stacked set of interactive headings that each reveal an associated section of content.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/accordion#api-reference)
  */
-export type Traits = SVATraits<Slots, { content: {}; header: {}; item: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    content: {
+      state: "open" | "closed";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    header: {
+      state: "open" | "closed";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    item: {
+      state: "open" | "closed";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    root: {
+      orientation: "vertical" | "horizontal";
+    };
+    trigger: {
+      state: "open" | "closed";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+  }
+>;

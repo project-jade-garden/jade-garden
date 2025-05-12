@@ -20,4 +20,20 @@ export type Slots = (typeof slots)[number];
  * @description An interactive component which expands/collapses a panel.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference)
  */
-export type Traits = SVATraits<Slots, { content: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    content: {
+      state: "open" | "closed";
+      disabled: "";
+    };
+    root: {
+      state: "open" | "closed";
+      disabled: "";
+    };
+    trigger: {
+      state: "open" | "closed";
+      disabled: "";
+    };
+  }
+>;

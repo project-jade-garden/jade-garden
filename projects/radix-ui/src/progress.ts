@@ -20,4 +20,18 @@ export type Slots = (typeof slots)[number];
  * @description Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/progress#api-reference)
  */
-export type Traits = SVATraits<Slots, { indicator: {}; root: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    indicator: {
+      state: "complete" | "indeterminate" | "loading";
+      value: "number";
+      max: "number";
+    };
+    root: {
+      state: "complete" | "indeterminate" | "loading";
+      value: "number";
+      max: "number";
+    };
+  }
+>;

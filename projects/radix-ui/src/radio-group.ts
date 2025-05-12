@@ -20,4 +20,19 @@ export type Slots = (typeof slots)[number];
  * @description A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/radio-group#api-reference)
  */
-export type Traits = SVATraits<Slots, { indicator: {}; item: {}; root: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    indicator: {
+      state: "checked" | "unchecked";
+      disabled: "";
+    };
+    item: {
+      state: "checked" | "unchecked";
+      disabled: "";
+    };
+    root: {
+      disabled: "";
+    };
+  }
+>;

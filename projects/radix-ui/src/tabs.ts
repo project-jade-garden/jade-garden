@@ -20,4 +20,23 @@ export type Slots = (typeof slots)[number];
  * @description A set of layered sections of content—known as tab panels—that are displayed one at a time.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/tabs#api-reference)
  */
-export type Traits = SVATraits<Slots, { content: {}; list: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    content: {
+      state: "active" | "inactive";
+      orientation: "vertical" | "horizontal";
+    };
+    list: {
+      orientation: "vertical" | "horizontal";
+    };
+    root: {
+      orientation: "vertical" | "horizontal";
+    };
+    trigger: {
+      state: "active" | "inactive";
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+  }
+>;

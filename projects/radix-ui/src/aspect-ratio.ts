@@ -20,4 +20,4 @@ export type Slots = (typeof slots)[number];
  * @description Displays content within a desired ratio.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/aspect-ratio#api-reference)
  */
-export type Traits = SVATraits<Slots, { root: {} }>;
+export type Traits = SVATraits<Slots, {}>;

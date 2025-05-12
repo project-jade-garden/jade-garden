@@ -20,4 +20,24 @@ export type Slots = (typeof slots)[number];
  * @description An input where the user selects a value from within a given range.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/slider#api-reference)
  */
-export type Traits = SVATraits<Slots, { range: {}; root: {}; thumb: {}; track: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    range: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    root: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    thumb: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+    track: {
+      disabled: "";
+      orientation: "vertical" | "horizontal";
+    };
+  }
+>;

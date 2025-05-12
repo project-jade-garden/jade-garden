@@ -20,4 +20,16 @@ export type Slots = (typeof slots)[number];
  * @description For sighted users to preview content available behind a link.
  * @see [source](https://www.radix-ui.com/primitives/docs/components/hover-card#api-reference)
  */
-export type Traits = SVATraits<Slots, { arrow: {}; content: {}; root: {}; trigger: {} }>;
+export type Traits = SVATraits<
+  Slots,
+  {
+    content: {
+      state: "open" | "closed";
+      side: "left" | "right" | "bottom" | "top";
+      align: "start" | "end" | "center";
+    };
+    trigger: {
+      state: "open" | "closed";
+    };
+  }
+>;
