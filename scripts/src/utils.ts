@@ -1,6 +1,6 @@
 import type { Cheerio, CheerioAPI } from "cheerio";
 import * as cheerio from "cheerio";
-import { kebabCase, pascalCase } from "es-toolkit";
+import { camelCase, kebabCase, pascalCase, snakeCase } from "es-toolkit";
 
 const findTable = ($any: Cheerio<any>): Cheerio<any> | undefined => {
   const $el = $any.next();
@@ -76,12 +76,82 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
-  kobalte: ($: CheerioAPI, slots: string[], _?: string) => {
+  // * NOTE: Kobalte docs inclueds "shares the same data-attributes" which requires more custom logic.
+  kobalte: ($: CheerioAPI, slots: string[], component: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
+    const findKobalteTable = (
+      $any: Cheerio<any>,
+      component: string
+    ): { $tableRows: Cheerio<any>; sharedSlots?: string[] } | undefined => {
+      const $el = $any.next();
+      const tagName = $el.get(0)?.tagName;
+
+      if (!tagName || tagName === "h2" || tagName === "h3") return undefined;
+
+      const tableHead = $el.find("table thead tr").text();
+
+      if (tableHead.toLowerCase().includes("data attribute")) {
+        const $tableRows = $el.find("table tbody tr");
+        const $p = $el.next();
+
+        if ($p.text().includes("shares the same data-attributes")) {
+          const $labels = $p.find("code");
+          let sharedSlots: string[] = [];
+
+          $labels.each((_, _label) => {
+            const $label = cheerio.load(_label);
+            const title = pascalCase(component);
+
+            sharedSlots = $label
+              .text()
+              .split(`${title}.`)
+              .map((c) => camelCase(c));
+          });
+
+          return { $tableRows, sharedSlots };
+        }
+
+        return { $tableRows };
+      }
+
+      return findKobalteTable($el, component);
+    };
+
     for (const slot of slots) {
-      traitsType[slot] = {};
+      const isRoot = slot === "root";
+      let $slotHeader = $(
+        `#${snakeCase(isRoot ? component : component + slot)
+          .split("_")
+          .join("")}`
+      );
+
+      if (!$slotHeader.length && isRoot) {
+        $slotHeader = $(
+          `#${snakeCase(isRoot ? component : component + slot)
+            .split("_")
+            .join("")}-1`
+        );
+      }
+
+      const res = findKobalteTable($slotHeader, component);
+
+      if (res?.$tableRows) {
+        const { $tableRows } = res;
+        const traits: Record<string, string> = {};
+
+        $tableRows.each((_, _tableRow) => {
+          const $tableRow = cheerio.load(_tableRow);
+          const $td = $tableRow("td");
+          const [dataAttribute, value] = [$td.eq(0).text(), $td.eq(1).text()];
+
+          const trait = dataAttribute.split("data-")[1];
+          traits[trait] = value;
+        });
+
+        traitsType[slot] = traits;
+      }
     }
 
     return { description, traitsType };
