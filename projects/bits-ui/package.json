@@ -23,7 +23,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AGS1130/project-jade-garden.git",
-    "directory": "libs/bits-ui"
+    "directory": "projects/bits-ui"
   },
   "bugs": {
     "url": "https://github.com/AGS1130/project-jade-garden/issues"

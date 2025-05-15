@@ -14,7 +14,7 @@ This directory documents types across Headless Component Libraries.
   - [Radix UI](./radix-ui)
 - 🪨 Solid:
   - [Ark UI](./ark-ui)
-  - [Kobalte](./kobalte)
+  - [Kobalte](./kobalte) (WIP)
 - 🦊 Svelte:
   - [Ark UI](./ark-ui) (not readily available)
   - [Bits UI](./bits-ui)
