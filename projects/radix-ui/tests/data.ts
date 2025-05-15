@@ -32,7 +32,13 @@ import {
 
 const toSlots = (parts: string[], name: string) =>
   parts
-    .filter((part) => !part.includes("Portal") && !part.includes(name) && !part.includes(pascalCase(name)))
+    .filter(
+      (part) =>
+        !part.includes("Portal") &&
+        !part.includes("unstable") &&
+        !part.includes(name) &&
+        !part.includes(pascalCase(name))
+    )
     .map((slot) => camelCase(slot));
 
 export const components = {
