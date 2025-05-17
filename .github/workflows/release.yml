@@ -23,13 +23,12 @@ jobs:
       - name: Build packages
         run: bun run build
 
-      # TODO: Needs to be setup
-      # - name: Publish packages
-      #   id: changesets
-      #   uses: changesets/action@v1
-      #   with:
-      #     publish: bun run release
-      #     commit: "ci(changesets): version packages"
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Publish packages
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: bun run release
+          commit: "ci(changesets): version packages"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
