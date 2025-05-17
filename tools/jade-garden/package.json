@@ -16,11 +16,12 @@
     "styles",
     "variants"
   ],
+  "author": "Gregory Salinas <ags1130@yahoo.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AGS1130/project-jade-garden.git",
-    "directory": "projects/jade-garden"
+    "directory": "tools/jade-garden"
   },
   "bugs": {
     "url": "https://github.com/AGS1130/project-jade-garden/issues"
