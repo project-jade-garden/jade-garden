@@ -66,17 +66,51 @@ export const cheerioSiteMaps = {
 
     return { description, traitsType };
   },
+  // * NOTE: Bits UI docs content elements are deeply nested and requires custom logic.
+  // TODO: Unstable - WIP
   "bits-ui": ($: CheerioAPI, slots: string[], _?: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
 
+    const findBitsTable = ($any: Cheerio<any>): Cheerio<any> | undefined => {
+      const $tableHead = $any.find("table thead tr th");
+
+      if ($tableHead.text().includes("undefined") || $tableHead.length === 0 || $tableHead.text().length === 0) {
+        return undefined;
+      }
+
+      if ($tableHead.text().toLowerCase().includes("data attribute")) {
+        console.log($any.find("table tbody tr td").text());
+        return $any.find("table tbody tr td");
+      }
+
+      return findBitsTable($any.next());
+    };
+
     for (const slot of slots) {
-      traitsType[slot] = {};
+      const $slotHeader = $(`#${snakeCase(slot).split("_").join("")}`);
+
+      const $tableRows = findBitsTable($slotHeader.parent().parent().find(".flex.flex-col.gap-4 div"));
+
+      if ($tableRows) {
+        const traits: Record<string, string> = {};
+
+        $tableRows.each((_, _tableRow) => {
+          const $tableRow = cheerio.load(_tableRow);
+          const $td = $tableRow("td");
+          const [dataAttribute, value] = [$td.eq(0).text(), $td.eq(1).text()];
+
+          const trait = dataAttribute.split("data-")[1];
+          traits[trait] = value;
+        });
+
+        traitsType[slot] = traits;
+      }
     }
 
     return { description, traitsType };
   },
-  // * NOTE: Kobalte docs inclueds "shares the same data-attributes" which requires more custom logic.
+  // * NOTE: Kobalte docs includes "shares the same data-attributes" which requires more custom logic.
   kobalte: ($: CheerioAPI, slots: string[], component: string) => {
     const description = $("h1 + p").text();
     const traitsType: Record<string, Record<string, string>> = {};
