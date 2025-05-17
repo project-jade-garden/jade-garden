@@ -1,5 +1,5 @@
 {
-  "name": "@pjg/scripts",
+  "name": "@project-jade-garden/scripts",
   "type": "module",
   "private": true,
   "scripts": {

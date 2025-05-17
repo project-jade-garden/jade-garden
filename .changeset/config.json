@@ -8,10 +8,10 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@pjg/playground-react",
-    "@pjg/playground-solid",
-    "@pjg/playground-svelte",
-    "@pjg/playground-vue",
-    "@pjg/scripts"
+    "@project-jade-garden/playground-react",
+    "@project-jade-garden/playground-solid",
+    "@project-jade-garden/playground-svelte",
+    "@project-jade-garden/playground-vue",
+    "@project-jade-garden/scripts"
   ]
 }

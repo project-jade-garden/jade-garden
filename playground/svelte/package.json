@@ -1,5 +1,5 @@
 {
-  "name": "@pjg/playground-svelte",
+  "name": "@project-jade-garden/playground-svelte",
   "private": true,
   "type": "module",
   "scripts": {

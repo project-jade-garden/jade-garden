@@ -1,4 +1,4 @@
-# @pjg/kobalte
+# @project-jade-garden/kobalte
 
 Typescript types for [Kobalte](https://kobalte.dev/)
 

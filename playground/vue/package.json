@@ -1,5 +1,5 @@
 {
-  "name": "@pjg/playground-vue",
+  "name": "@project-jade-garden/playground-vue",
   "private": true,
   "type": "module",
   "scripts": {

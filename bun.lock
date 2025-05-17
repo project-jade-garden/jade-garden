@@ -17,7 +17,7 @@
       },
     },
     "playground/react": {
-      "name": "@pjg/playground-react",
+      "name": "@project-jade-garden/playground-react",
       "dependencies": {
         "@ark-ui/react": "5.9.0",
         "@base-ui-components/react": "1.0.0-alpha.8",
@@ -47,7 +47,7 @@
       },
     },
     "playground/solid": {
-      "name": "@pjg/playground-solid",
+      "name": "@project-jade-garden/playground-solid",
       "dependencies": {
         "@ark-ui/solid": "5.9.0",
         "@kobalte/core": "0.13.9",
@@ -73,7 +73,7 @@
       },
     },
     "playground/svelte": {
-      "name": "@pjg/playground-svelte",
+      "name": "@project-jade-garden/playground-svelte",
       "dependencies": {
         "@ark-ui/svelte": "0.4.0",
         "bits-ui": "1.4.7",
@@ -99,7 +99,7 @@
       },
     },
     "playground/vue": {
-      "name": "@pjg/playground-vue",
+      "name": "@project-jade-garden/playground-vue",
       "dependencies": {
         "@ark-ui/vue": "5.9.0",
         "@iconify/vue": "5.0.0",
@@ -124,7 +124,7 @@
       },
     },
     "projects/ark-ui": {
-      "name": "@pjg/ark-ui",
+      "name": "@project-jade-garden/ark-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -179,7 +179,7 @@
       },
     },
     "projects/base-ui": {
-      "name": "@pjg/base-ui",
+      "name": "@project-jade-garden/base-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@base-ui-components/react": "1.0.0-alpha.8",
@@ -194,7 +194,7 @@
       },
     },
     "projects/bits-ui": {
-      "name": "@pjg/bits-ui",
+      "name": "@project-jade-garden/bits-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -209,7 +209,7 @@
       },
     },
     "projects/kobalte": {
-      "name": "@pjg/kobalte",
+      "name": "@project-jade-garden/kobalte",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -224,7 +224,7 @@
       },
     },
     "projects/radix-ui": {
-      "name": "@pjg/radix-ui",
+      "name": "@project-jade-garden/radix-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -239,7 +239,7 @@
       },
     },
     "projects/reka-ui": {
-      "name": "@pjg/reka-ui",
+      "name": "@project-jade-garden/reka-ui",
       "version": "0.0.0",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -254,7 +254,7 @@
       },
     },
     "scripts": {
-      "name": "@pjg/scripts",
+      "name": "@project-jade-garden/scripts",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "cheerio": "1.0.0",
@@ -575,31 +575,31 @@
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
-    "@pjg/ark-ui": ["@pjg/ark-ui@workspace:projects/ark-ui"],
-
-    "@pjg/base-ui": ["@pjg/base-ui@workspace:projects/base-ui"],
-
-    "@pjg/bits-ui": ["@pjg/bits-ui@workspace:projects/bits-ui"],
-
-    "@pjg/kobalte": ["@pjg/kobalte@workspace:projects/kobalte"],
-
-    "@pjg/playground-react": ["@pjg/playground-react@workspace:playground/react"],
-
-    "@pjg/playground-solid": ["@pjg/playground-solid@workspace:playground/solid"],
-
-    "@pjg/playground-svelte": ["@pjg/playground-svelte@workspace:playground/svelte"],
-
-    "@pjg/playground-vue": ["@pjg/playground-vue@workspace:playground/vue"],
-
-    "@pjg/radix-ui": ["@pjg/radix-ui@workspace:projects/radix-ui"],
-
-    "@pjg/reka-ui": ["@pjg/reka-ui@workspace:projects/reka-ui"],
-
-    "@pjg/scripts": ["@pjg/scripts@workspace:scripts"],
-
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
     "@polka/url": ["@polka/url@1.0.0-next.28", "", {}, "sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw=="],
+
+    "@project-jade-garden/ark-ui": ["@project-jade-garden/ark-ui@workspace:projects/ark-ui"],
+
+    "@project-jade-garden/base-ui": ["@project-jade-garden/base-ui@workspace:projects/base-ui"],
+
+    "@project-jade-garden/bits-ui": ["@project-jade-garden/bits-ui@workspace:projects/bits-ui"],
+
+    "@project-jade-garden/kobalte": ["@project-jade-garden/kobalte@workspace:projects/kobalte"],
+
+    "@project-jade-garden/playground-react": ["@project-jade-garden/playground-react@workspace:playground/react"],
+
+    "@project-jade-garden/playground-solid": ["@project-jade-garden/playground-solid@workspace:playground/solid"],
+
+    "@project-jade-garden/playground-svelte": ["@project-jade-garden/playground-svelte@workspace:playground/svelte"],
+
+    "@project-jade-garden/playground-vue": ["@project-jade-garden/playground-vue@workspace:playground/vue"],
+
+    "@project-jade-garden/radix-ui": ["@project-jade-garden/radix-ui@workspace:projects/radix-ui"],
+
+    "@project-jade-garden/reka-ui": ["@project-jade-garden/reka-ui@workspace:projects/reka-ui"],
+
+    "@project-jade-garden/scripts": ["@project-jade-garden/scripts@workspace:scripts"],
 
     "@radix-ui/number": ["@radix-ui/number@1.1.1", "", {}, "sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g=="],
 
