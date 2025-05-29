@@ -10,23 +10,23 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/solid": "5.9.0",
+    "@ark-ui/solid": "5.10.0",
     "@kobalte/core": "0.13.9",
     "@modular-forms/solid": "0.25.1",
-    "lucide-solid": "0.508.0",
+    "lucide-solid": "0.511.0",
     "solid-icons": "1.1.0",
-    "solid-js": "1.9.6"
+    "solid-js": "1.9.7"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "8.6.12",
-    "@storybook/addon-essentials": "8.6.12",
-    "@storybook/addon-themes": "8.6.12",
-    "@storybook/test": "8.6.12",
-    "@tailwindcss/vite": "4.1.5",
-    "storybook": "8.6.12",
+    "@storybook/addon-a11y": "8.6.14",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/addon-themes": "8.6.14",
+    "@storybook/test": "8.6.14",
+    "@tailwindcss/vite": "4.1.8",
+    "storybook": "8.6.14",
     "storybook-solidjs": "1.0.0-beta.6",
     "storybook-solidjs-vite": "1.0.0-beta.6",
-    "tailwindcss": "4.1.5",
+    "tailwindcss": "4.1.8",
     "typescript": "5.8.3",
     "vite": "6.3.5",
     "vite-plugin-solid": "2.11.6",

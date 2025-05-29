@@ -484,13 +484,13 @@
   "sideEffects": false,
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "bits-ui": "1.4.7",
+    "bits-ui": "2.3.0",
     "clean-package": "2.2.0",
-    "es-toolkit": "1.37.2",
+    "es-toolkit": "1.38.0",
     "globby": "14.1.0",
     "jade-garden": "workspace:*",
     "typescript": "5.8.3",
     "vite": "6.3.5",
-    "vite-plugin-dts": "4.5.3"
+    "vite-plugin-dts": "4.5.4"
   }
 }

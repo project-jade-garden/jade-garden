@@ -10,24 +10,24 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/vue": "5.9.0",
+    "@ark-ui/vue": "5.10.0",
     "@iconify/vue": "5.0.0",
-    "lucide-vue-next": "0.508.0",
-    "reka-ui": "2.2.1",
-    "vue": "3.5.13",
+    "lucide-vue-next": "0.511.0",
+    "reka-ui": "2.3.0",
+    "vue": "3.5.16",
     "vue-tsc": "2.2.10"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "8.6.12",
-    "@storybook/addon-essentials": "8.6.12",
-    "@storybook/addon-themes": "8.6.12",
-    "@storybook/test": "8.6.12",
-    "@storybook/vue3": "8.6.12",
-    "@storybook/vue3-vite": "8.6.12",
-    "@tailwindcss/vite": "4.1.5",
-    "@vitejs/plugin-vue": "5.2.3",
-    "storybook": "8.6.12",
-    "tailwindcss": "4.1.5",
+    "@storybook/addon-a11y": "8.6.14",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/addon-themes": "8.6.14",
+    "@storybook/test": "8.6.14",
+    "@storybook/vue3": "8.6.14",
+    "@storybook/vue3-vite": "8.6.14",
+    "@tailwindcss/vite": "4.1.8",
+    "@vitejs/plugin-vue": "5.2.4",
+    "storybook": "8.6.14",
+    "tailwindcss": "4.1.8",
     "typescript": "5.8.3",
     "vite": "6.3.5"
   }
