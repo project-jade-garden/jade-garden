@@ -1,8 +1,8 @@
 // * For relative types import: https://stackoverflow.com/a/78037438
-import "../../../../../jade-garden/src/types";
-import { defineCVA, rawCVA } from "jade-garden";
+import "../../../../jade-garden/src/types";
+import { defineCVA } from "jade-garden";
 
-const buttonConfig = defineCVA({
+export const buttonConfig = defineCVA({
   name: "button",
   base: "rounded-full",
   variants: {
@@ -21,5 +21,3 @@ const buttonConfig = defineCVA({
     size: "medium"
   }
 });
-
-export const button = rawCVA(buttonConfig);

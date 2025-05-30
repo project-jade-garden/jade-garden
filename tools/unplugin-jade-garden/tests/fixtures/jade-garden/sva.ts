@@ -1,10 +1,8 @@
 // * For relative types import: https://stackoverflow.com/a/78037438
-import "../../../../../jade-garden/src/types";
-import { type defineSVA, rawSVA } from "jade-garden";
+import "../../../../jade-garden/src/types";
+import { defineSVA } from "jade-garden";
 
-const defineSVAConfig: ReturnType<typeof defineSVA<"root" | "title" | "message">> = (config) => config;
-
-const alertConfig = defineSVAConfig({
+export const alertConfig = defineSVA<"root" | "title" | "message">()({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",
@@ -23,8 +21,46 @@ const alertConfig = defineSVAConfig({
     severity: {
       error: {},
       success: {}
+    },
+    size: {
+      xs: {},
+      sm: {},
+      md: {}
     }
   },
+  compoundSlots: [
+    {
+      slots: ["root", "title", "message"],
+      class: [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      slots: ["root", "title", "message"],
+      size: "xs",
+      class: "w-7 h-7 text-xs"
+    },
+    {
+      slots: ["root", "title", "message"],
+      size: "sm",
+      class: "w-8 h-8 text-sm"
+    },
+    {
+      slots: ["root", "title", "message"],
+      size: "md",
+      class: "w-9 h-9 text-base"
+    }
+  ],
   compoundVariants: [
     {
       variant: "outlined",
@@ -35,6 +71,7 @@ const alertConfig = defineSVAConfig({
         message: "text-red-600 dark:text-red-500"
       }
     },
+
     {
       variant: "outlined",
       severity: "success",
@@ -44,6 +81,7 @@ const alertConfig = defineSVAConfig({
         message: "text-green-600 dark:text-green-500"
       }
     },
+
     {
       variant: "filled",
       severity: "error",
@@ -53,6 +91,7 @@ const alertConfig = defineSVAConfig({
         message: "text-red-700 dark:text-red-200"
       }
     },
+
     {
       variant: "filled",
       severity: "success",
@@ -68,5 +107,3 @@ const alertConfig = defineSVAConfig({
     severity: "success"
   }
 });
-
-export const alert = rawSVA(alertConfig);
