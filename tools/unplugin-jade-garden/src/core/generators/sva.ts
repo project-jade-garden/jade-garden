@@ -17,7 +17,7 @@ export const generateSVAStyles = (config: SVA, mergeFn: Exclude<Options["mergeFn
         .join("");
 
       const combinedSelectors = compoundSlot.slots
-        .map((slot) => `.${componentName}--${kebabCase(slot)}${variantConditions}`)
+        .map((slot) => `.${componentName}--${kebabCase(String(slot))}${variantConditions}`)
         .join(",\n  ");
 
       const applyRules = mergeFn(compoundSlot.class, compoundSlot.className);

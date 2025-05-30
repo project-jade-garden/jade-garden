@@ -2,9 +2,9 @@
 // * Install when there is a better understanding of how the Tailwind compiler works
 // import { optimize } from "@tailwindcss/node";
 // import { compile } from "tailwindcss";
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { kebabCase } from "es-toolkit";
+import { isEqual, kebabCase } from "es-toolkit";
 import { cx } from "jade-garden";
 import type { UnpluginFactory } from "unplugin";
 import { createFilter } from "unplugin-utils";
@@ -31,7 +31,7 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
   const filter = createFilter(options.entry);
 
   // let tailwindImport = "";
-  const transformedFiles = new Map<string, string>();
+  const buildCache = new Map<string, CVA | SVA>();
 
   const writeFiles = (props: {
     components: CVA[] | SVA[];
@@ -42,9 +42,7 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
     const { components, id, mergeFn, type } = props;
     const dir = join(id, `../components/${type}`);
 
-    if (existsSync(dir)) rmSync(dir, { force: true, recursive: true });
-
-    mkdirSync(dir, { recursive: true });
+    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 
     let count = 0;
     let indexFile = "";
@@ -58,13 +56,11 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
       }
 
       const fileName = `${kebabCase(name)}.css`;
+      indexFile += `@import "./${fileName}";\n`;
 
-      if (existsSync(`${dir}/${fileName}`)) {
-        console.warn(`\x1b[33m[WARN]: File name "${fileName}" exists, please rename.\x1b[0m`);
-        console.info("\x1b[36mSkipping CSS file generation.\x1b[0m");
-        continue;
-      }
+      if (buildCache.has(name) && isEqual(buildCache.get(name), component)) continue;
 
+      buildCache.set(name, component);
       const fileToWrite =
         type === "cva" ? generateCVAStyles(component as CVA, mergeFn) : generateSVAStyles(component as SVA, mergeFn);
 
@@ -85,7 +81,6 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
       // }
 
       count++;
-      indexFile += `@import "./${fileName}";\n`;
       writeFileSync(`${dir}/${fileName}`, fileToWrite);
     }
 

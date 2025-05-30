@@ -13,9 +13,11 @@ export const generateCVAStyles = (config: CVA, mergeFn: Exclude<Options["mergeFn
     for (const compoundVariant of config.compoundVariants) {
       const variantConditions = Object.keys(compoundVariant)
         .filter((key) => key !== "class" && key !== "className")
-        .map(
-          (key) => `.${componentName}.${componentName}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`
-        )
+        .map((key) => {
+          // TODO: Need to resolve `any`
+          // @ts-expect-error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type.
+          return `.${componentName}.${componentName}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`;
+        })
         .join(",\n  ");
 
       const applyRules = mergeFn(compoundVariant.class, compoundVariant.className);

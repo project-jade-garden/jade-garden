@@ -1,16 +1,9 @@
 // * Workaround to prevent internal types from being exposed to developers in "jade-garden"
-import type {
-  CVAConfig,
-  MergeClassFn,
-  RecordClassValue,
-  SVAConfig,
-  Variant,
-  Variants
-} from "../../../jade-garden/src/types";
+import type { CVAConfig, MergeClassFn, SVAConfig } from "../../../jade-garden/src/types";
 
 /* ===================== Types ===================== */
 
-export type CVA = CVAConfig<Variant>;
+export type CVA = CVAConfig<any>;
 
 export type Options = {
   /**
@@ -45,4 +38,4 @@ export type Options = {
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
 
-export type SVA = SVAConfig<RecordClassValue, Variants<RecordClassValue>>;
+export type SVA = SVAConfig<any, any>;
