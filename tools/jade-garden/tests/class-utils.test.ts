@@ -211,10 +211,18 @@ describe("class-utils", () => {
       expect(traits({ data: dataArr })).toBe("data-[focus]:is-focused data-[focus]:active");
     });
 
-    test("undefined data values", () => {
+    test("empty string data value", () => {
       const data: CVATraits<{ name: ""; id: "" }> = {
         name: "John Doe",
-        // @ts-expect-error
+        id: ""
+      };
+      expect(traits({ data })).toBe("data-[name]:John Doe");
+    });
+
+    test("undefined data value", () => {
+      // @ts-expect-error
+      const data: CVATraits<{ name: ""; id: "" }> = {
+        name: "John Doe",
         id: undefined
       };
       expect(traits({ data })).toBe("data-[name]:John Doe");
