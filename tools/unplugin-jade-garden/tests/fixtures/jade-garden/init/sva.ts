@@ -1,6 +1,10 @@
-import { defineSVA, rawSVA } from "jade-garden/sva";
+// * For relative types import: https://stackoverflow.com/a/78037438
+import "../../../../../jade-garden/src/types";
+import { type defineSVA, rawSVA } from "jade-garden";
 
-const alertConfig = defineSVA({
+const defineSVAConfig: ReturnType<typeof defineSVA<"root" | "title" | "message">> = (config) => config;
+
+const alertConfig = defineSVAConfig({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",

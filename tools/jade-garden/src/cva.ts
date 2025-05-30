@@ -10,7 +10,7 @@ import { getRawClasses, getVariantClasses, hasProps } from "./utils";
  * @param {MergeClassFn} mergeClass - The function to merge class names.
  * @returns {CVA} The cva function.
  */
-export const create = (mergeClass: MergeClassFn = cx): CVA => {
+export const createCVA = (mergeClass: MergeClassFn = cx): CVA => {
   return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
     const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       // * Exit early if `base` is not defined or has a falsey value
@@ -100,7 +100,7 @@ export const create = (mergeClass: MergeClassFn = cx): CVA => {
  * const buttonClasses = button({ size: "small", intent: "primary" });
  * ```
  */
-export const cva: CVA = create();
+export const cva: CVA = createCVA();
 
 /**
  * Defines a type-safe structure for an CVA configuration object.
@@ -110,7 +110,7 @@ export const cva: CVA = create();
  *
  * @example
  * ```ts
- * const buttonConfig = define({
+ * const buttonConfig = defineCVA({
  *   base: "rounded-md",
  *   variants: {
  *     size: {
@@ -121,7 +121,7 @@ export const cva: CVA = create();
  * });
  * ```
  */
-export const define = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
+export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
 
 /**
  * Generates `raw` class names based on the cva's configuration.
@@ -130,7 +130,7 @@ export const define = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> =>
  *
  * @example
  * ```ts
- * const button = raw({
+ * const button = rawCVA({
  *   name: "button",
  *   variants: {
  *     size: {
@@ -147,7 +147,7 @@ export const define = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> =>
  * button({ size: "small", variant: "primary" }) // "button button__size--small button__variant--primary"
  * ```
  */
-export const raw: CVA = <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
+export const rawCVA: CVA = <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
   const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
     return getRawClasses({
       compoundVariants: config.compoundVariants,

@@ -20,7 +20,7 @@ import { getRawClasses, getVariantClasses, hasProps } from "./utils";
  * @param {MergeClassFn} mergeClass - The function to merge class names.
  * @returns {SVA} The sva function.
  */
-export const create = (mergeClass: MergeClassFn = cx): SVA => {
+export const createSVA = (mergeClass: MergeClassFn = cx): SVA => {
   return <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVAConfig<RCV, V>): SVAReturnType<RCV, V> => {
     const components = (props?: SVAVariants<RCV, V>) => {
       type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
@@ -154,7 +154,7 @@ export const create = (mergeClass: MergeClassFn = cx): SVA => {
  *
  * @example
  * ```ts
- * const buttonConfig = define<"root" | "label">()({
+ * const buttonConfig = defineSVA<"root" | "label">()({
  *   name: "button",
  *   slots: {
  *     root: "base-button",
@@ -188,14 +188,14 @@ export const create = (mergeClass: MergeClassFn = cx): SVA => {
  *
  * // OR
  *
- * const defineConfig: ReturnType<typeof define<"root" | "label">> = (config) => config;
+ * const defineSVAConfig: ReturnType<typeof defineSVA<"root" | "label">> = (config) => config;
  *
- * const buttonConfig = defineConfig({
+ * const buttonConfig = defineSVAConfig({
  *   // ... config object
  * });
  * ```
  */
-export const define = <Slots extends string>() => {
+export const defineSVA = <Slots extends string>() => {
   return <RCV extends { [S in Slots]?: ClassValue }, V extends Variants<RCV>>(
     config: SVAConfig<RCV, V>
   ): SVAConfig<RCV, V> => config;
@@ -233,7 +233,7 @@ export const define = <Slots extends string>() => {
  * const buttonClasses = button({ size: "small" });
  * ```
  */
-export const sva: SVA = create();
+export const sva: SVA = createSVA();
 
 /**
  * Generates `raw` class names based on the sva's configuration.
@@ -242,7 +242,7 @@ export const sva: SVA = create();
  *
  * @example
  * ```ts
- * const button = raw({
+ * const button = rawSVA({
  *   name: "button",
  *   slots: { root: "root-class" },
  *   variants: {
@@ -261,7 +261,7 @@ export const sva: SVA = create();
  * root(); // "button--root button--root__size--small button--root__variant--primary"
  * ```
  */
-export const raw: SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
+export const rawSVA: SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
   config: SVAConfig<RCV, V>
 ): SVAReturnType<RCV, V> => {
   const components = (props?: SVAVariants<RCV, V>) => {
