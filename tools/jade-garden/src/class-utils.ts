@@ -38,19 +38,6 @@ export const cm = <T extends ClassValue>(input: T, exclude?: ClassNameValue, inc
 
 export {
   /**
-   * **This is an alias for [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite)**.
-   * - Conditionally generates a string of class names from string arguments.
-   * - It concatenates the provided string arguments, separated by spaces,
-   * excluding any falsy values (null, undefined, '', 0, false).
-   *
-   * @param {...string} args - String arguments to conditionally include in the class name string.
-   * @returns {string} A string of class names.
-   */
-  clsx as cn
-} from "clsx/lite";
-
-export {
-  /**
    * **This is an alias for [clsx](https://github.com/lukeed/clsx)**.
    * - Conditionally generates a string of class names.
    * - Accepts multiple arguments of various types to build a class name string.
@@ -64,6 +51,18 @@ export {
    */
   clsx as cx
 } from "clsx";
+export {
+  /**
+   * **This is an alias for [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite)**.
+   * - Conditionally generates a string of class names from string arguments.
+   * - It concatenates the provided string arguments, separated by spaces,
+   * excluding any falsy values (null, undefined, '', 0, false).
+   *
+   * @param {...string} args - String arguments to conditionally include in the class name string.
+   * @returns {string} A string of class names.
+   */
+  clsx as cn
+} from "clsx/lite";
 
 /**
  * Generates CSS class names and data attributes for a part of an anatomy.

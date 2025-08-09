@@ -1,5 +1,5 @@
 import { cx } from "./class-utils";
-import type { CVA, CVAConfig, CVAReturnType, CVAVariants, ClassProp, MergeClassFn, Variant } from "./types";
+import type { ClassProp, CVA, CVAConfig, CVAReturnType, CVAVariants, MergeClassFn, Variant } from "./types";
 import { getRawClasses, getVariantClasses, hasProps } from "./utils";
 
 /* ====================== CVA ====================== */

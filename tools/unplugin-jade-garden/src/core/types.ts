@@ -1,5 +1,4 @@
-// * Workaround to prevent internal types from being exposed to developers in "jade-garden"
-import type { CVAConfig, MergeClassFn, SVAConfig } from "../../../jade-garden/src/types";
+import type { CVAConfig, MergeClassFn, SVAConfig } from "jade-garden";
 
 /* ===================== Types ===================== */
 

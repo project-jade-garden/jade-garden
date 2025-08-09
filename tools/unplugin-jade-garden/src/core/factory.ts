@@ -5,7 +5,7 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { isEqual, kebabCase } from "es-toolkit";
-import { cx } from "jade-garden";
+import { cx } from "jade-garden/class-utils";
 import type { UnpluginFactory } from "unplugin";
 import { createFilter } from "unplugin-utils";
 import { generateCVAStyles } from "./generators/cva";
