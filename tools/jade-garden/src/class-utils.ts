@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ClassNameValue, ClassProp, ClassValue, NestedTraits } from "./types";
+import type { ClassValue, JadeGarden } from "./types";
 
 /* ================== Class Utils ================= */
 
@@ -8,11 +8,15 @@ import type { ClassNameValue, ClassProp, ClassValue, NestedTraits } from "./type
  *
  * @template T - The type of the input class value, which can be a string, number, array, or object.
  * @param {T} input - The input class value to be processed by `cx`.
- * @param {ClassNameValue} [exclude] - Class names to exclude from the result.
- * @param {ClassNameValue} [include] - Class names to include in the result.
+ * @param {JadeGarden.ClassNameValue} [exclude] - Class names to exclude from the result.
+ * @param {JadeGarden.ClassNameValue} [include] - Class names to include in the result.
  * @returns {string} A string of class names, conditionally combined and modified based on the options.
  */
-export const cm = <T extends ClassValue>(input: T, exclude?: ClassNameValue, include?: ClassNameValue): string => {
+export const cm = <T extends ClassValue>(
+  input: T,
+  exclude?: JadeGarden.ClassNameValue,
+  include?: JadeGarden.ClassNameValue
+): string => {
   if (typeof exclude === "undefined" && typeof include === "undefined") return clsx(input);
 
   let result = clsx(input).split(" ");
@@ -70,13 +74,13 @@ export {
  * @template T - An interface defining the shape of the data attributes.
  * @returns {string} A string of merged class names and data attributes.
  */
-export const traits = <T extends Record<string, NestedTraits | ClassNameValue>>(
-  props?: ClassProp & { data?: T }
+export const traits = <T extends Record<string, JadeGarden.NestedTraits | JadeGarden.ClassNameValue>>(
+  props?: JadeGarden.ClassProp & { data?: T }
 ): string => {
   const appendDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
-    attributeValue: ClassNameValue
+    attributeValue: JadeGarden.ClassNameValue
   ): string => {
     const prefix = dataAttributes.length ? " " : "";
     const dataAttributeStr = `data-[${attributeKey}]`;
@@ -95,7 +99,7 @@ export const traits = <T extends Record<string, NestedTraits | ClassNameValue>>(
   const appendConditionalDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
-    attributeValue: NestedTraits
+    attributeValue: JadeGarden.NestedTraits
   ): string => {
     let result = dataAttributes;
 

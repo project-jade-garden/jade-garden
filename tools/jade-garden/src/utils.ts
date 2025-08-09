@@ -1,6 +1,6 @@
 import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
-import type { MergeClassFn } from "./types";
+import type { JadeGarden } from "./types";
 
 /* ===================== Utils ===================== */
 
@@ -70,7 +70,7 @@ export const getRawClasses = (options: {
  *
  * @param {object} options - The options object.
  * @param {Record<string, any> | undefined} options.defaultVariants - The default variants object.
- * @param {MergeClassFn} options.mergeClass - The function to merge class names.
+ * @param {JadeGarden.MergeClassFn} options.mergeClass - The function to merge class names.
  * @param {Record<string, any> | undefined} options.props - The props object.
  * @param {Record<string, any> | undefined} options.variants - The variants object.
  * @param {string | undefined} [options.slotKey] - The slot key (for `sva`).
@@ -79,7 +79,7 @@ export const getRawClasses = (options: {
  */
 export const getVariantClasses = (options: {
   defaultVariants: Record<string, any> | undefined;
-  mergeClass: MergeClassFn;
+  mergeClass: JadeGarden.MergeClassFn;
   props: Record<string, any> | undefined;
   variants: Record<string, any> | undefined;
   slotKey?: string;

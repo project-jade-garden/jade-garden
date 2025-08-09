@@ -1,8 +1,8 @@
-import type { CVAConfig, MergeClassFn, SVAConfig } from "jade-garden/types";
+import type { JadeGarden } from "jade-garden/types";
 
 /* ===================== Types ===================== */
 
-export type CVA = CVAConfig<any>;
+export type CVA = JadeGarden.CVAConfig<any>;
 
 export type Options = {
   /**
@@ -32,9 +32,9 @@ export type Options = {
    * You might provide this if you are using `tailwind-merge` or a similar utility
    * to handle class conflicts.
    */
-  mergeFn?: MergeClassFn;
+  mergeFn?: JadeGarden.MergeClassFn;
 };
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
 
-export type SVA = SVAConfig<any, any>;
+export type SVA = JadeGarden.SVAConfig<any, any>;
