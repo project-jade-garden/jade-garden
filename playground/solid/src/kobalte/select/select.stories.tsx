@@ -1,4 +1,4 @@
-import type { Meta } from "storybook-solidjs";
+import type { Meta } from "storybook-solidjs-vite";
 
 export default {
   title: "Kobalte / Select"

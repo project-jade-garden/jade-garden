@@ -1,20 +1,20 @@
 {
-  "name": "@project-jade-garden/scripts",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "create": "bun run src/create.ts",
-    "setup": "bun run src/setup.ts",
-    "clean": "rm -rf .turbo dist node_modules",
-    "format": "biome format --write .",
-    "lint": "biome lint .",
-    "typecheck": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "cheerio": "1.0.0",
-    "es-toolkit": "1.38.0",
-    "globby": "14.1.0",
-    "typescript": "5.8.3"
-  }
+	"name": "@project-jade-garden/scripts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"create": "bun run src/create.ts",
+		"setup": "bun run src/setup.ts",
+		"clean": "rm -rf .turbo dist node_modules",
+		"format": "biome format --write .",
+		"lint": "biome lint",
+		"typecheck": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.1.4",
+		"cheerio": "1.1.2",
+		"es-toolkit": "1.39.8",
+		"globby": "14.1.0",
+		"typescript": "5.9.2"
+	}
 }

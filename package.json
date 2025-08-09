@@ -2,7 +2,12 @@
   "name": "project-jade-garden",
   "type": "module",
   "private": true,
-  "workspaces": ["playground/*", "projects/*", "scripts", "tools/*"],
+  "workspaces": [
+    "playground/*",
+    "projects/*",
+    "scripts",
+    "tools/*"
+  ],
   "scripts": {
     "postinstall": "lefthook install",
     "fresh": "bun clean && bun i && bun typecheck",
@@ -24,16 +29,19 @@
     "project-jade-garden": "."
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@changesets/cli": "2.29.4",
+    "@biomejs/biome": "2.1.4",
+    "@changesets/cli": "2.29.5",
     "@changesets/changelog-github": "0.5.1",
-    "@types/bun": "1.2.15",
-    "lefthook": "1.11.13",
-    "typescript": "5.8.3",
-    "turbo": "2.5.3"
+    "@types/bun": "1.2.19",
+    "lefthook": "1.12.2",
+    "typescript": "5.9.2",
+    "turbo": "2.5.5"
   },
-  "packageManager": "bun@1.2.12",
-  "trustedDependencies": ["@biomejs/biome", "lefthook"],
+  "packageManager": "bun@1.2.19",
+  "trustedDependencies": [
+    "@biomejs/biome",
+    "lefthook"
+  ],
   "patchedDependencies": {
     "lightningcss@1.29.2": "patches/lightningcss@1.29.2.patch"
   }

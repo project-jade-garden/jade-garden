@@ -1,14 +1,12 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["**/*.css"]
+    "includes": ["**", "!**/*.css"]
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "formatter": {
     "enabled": true,
-    "ignore": ["**/*.svelte", "**/*.vue"],
+    "includes": ["**", "!**/*.svelte", "!**/*.vue"],
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 120
@@ -24,7 +22,7 @@
   },
   "linter": {
     "enabled": true,
-    "ignore": ["dist"],
+    "includes": ["**", "!**/dist"],
     "rules": {
       "recommended": true,
       "complexity": {

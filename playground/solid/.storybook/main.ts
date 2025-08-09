@@ -4,14 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default {
   stories: ["../src/**/*.stories.tsx"],
-  addons: [
-    {
-      name: "@storybook/addon-essentials",
-      options: { backgrounds: false, actions: false }
-    },
-    "@storybook/addon-a11y",
-    "@storybook/addon-themes"
-  ],
+  addons: ["@storybook/addon-a11y", "@storybook/addon-themes"],
   framework: {
     name: "storybook-solidjs-vite",
     options: {}

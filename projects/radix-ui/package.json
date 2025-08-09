@@ -30,7 +30,9 @@
     "url": "https://github.com/AGS1130/project-jade-garden/issues"
   },
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -360,27 +362,30 @@
     "clean": "rm -rf .turbo dist node_modules",
     "dev": "vite build --watch",
     "format": "biome format --write .",
-    "lint": "biome lint .",
+    "lint": "biome lint",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
     "typecheck": "tsc --noEmit"
   },
   "clean-package": {
-    "remove": ["exports.\\..source", "exports.\\./*.source"]
+    "remove": [
+      "exports.\\..source",
+      "exports.\\./*.source"
+    ]
   },
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": false,
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.1.4",
     "clean-package": "2.2.0",
-    "es-toolkit": "1.38.0",
+    "es-toolkit": "1.39.8",
     "globby": "14.1.0",
     "jade-garden": "workspace:*",
     "radix-ui": "1.4.2",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "typescript": "5.9.2",
+    "vite": "7.1.1",
     "vite-plugin-dts": "4.5.4"
   }
 }
