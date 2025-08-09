@@ -1,5 +1,5 @@
 // * https://github.com/kobaltedev/kobalte/blob/main/packages/core/src/color-wheel/index.tsx
-import type { SVATraits } from "jade-garden";
+import type { SVATraits } from "jade-garden/types";
 
 /**
  * **Color Wheel**

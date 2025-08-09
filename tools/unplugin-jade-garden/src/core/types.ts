@@ -1,4 +1,4 @@
-import type { CVAConfig, MergeClassFn, SVAConfig } from "jade-garden";
+import type { CVAConfig, MergeClassFn, SVAConfig } from "jade-garden/types";
 
 /* ===================== Types ===================== */
 

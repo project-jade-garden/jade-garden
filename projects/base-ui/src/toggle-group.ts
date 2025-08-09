@@ -1,5 +1,5 @@
 // * https://github.com/mui/base-ui/blob/master/packages/react/src/toggle/index.ts
-import type { SVATraits } from "jade-garden";
+import type { SVATraits } from "jade-garden/types";
 
 /**
  * **Toggle Group**

@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { cm, sva } from "../../src";
+import { cm } from "../../src/class-utils";
+import { sva } from "../../src/sva";
 
 function parseClasses(result: string | string[]) {
   return (typeof result === "string" ? result.split(" ") : result).slice().sort();

@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { type CVATraits, cm, cn, cx, traits } from "../src";
+import { cm, cn, cx, traits } from "../src/class-utils";
+import type { CVATraits } from "../src/types";
 
 describe("class-utils", () => {
   describe("cm", () => {

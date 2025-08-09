@@ -1,6 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { twMerge as tm } from "tailwind-merge";
-import { type ClassValue, cn, createSVA } from "../../src";
+import { cn } from "../../src/class-utils";
+import { createSVA } from "../../src/sva";
+import type { ClassValue } from "../../src/types";
 
 type TWMergeFn = (...inputs: ClassValue[]) => string;
 

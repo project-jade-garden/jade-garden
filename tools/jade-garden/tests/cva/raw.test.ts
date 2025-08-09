@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { rawCVA } from "../../src";
+import { rawCVA } from "../../src/cva";
 
 describe("rawCVA", () => {
   test("should generate base class name with prefix and default case convention", () => {

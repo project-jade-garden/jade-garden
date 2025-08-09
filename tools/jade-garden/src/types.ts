@@ -4,12 +4,14 @@ import type { ClassValue as CV } from "clsx";
 
 /**
  * Represents the minimum structure to work with class names.
+ * @internal
  */
 export type ClassNameValue = string | string[];
 
 /**
  * Represents the `class` and `className` props for `cva` and `sva`.
  * Ensures that only one of `class` or `className` is present.
+ * @internal
  */
 export type ClassProp =
   | {
@@ -33,9 +35,14 @@ export type ClassValue = CV;
  *
  * @param {...ClassValue[]} classes - An array of class names to merge.
  * @returns {string} The merged class name string.
+ * @internal
  */
 export type MergeClassFn = (...classes: ClassValue[]) => string;
 
+/**
+ * The shape of data attributes in a component's Headless Design System.
+ * @internal
+ */
 export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassNameValue>> | ClassNameValue>>;
 
 /**
@@ -48,6 +55,7 @@ type OmitUndefined<T> = T extends undefined ? never : T;
 
 /**
  * Represents a dictionary where keys are strings and values are ClassValue.
+ * @internal
  */
 export type RecordClassValue = Record<string, ClassValue>;
 
@@ -57,6 +65,7 @@ export type RecordClassValue = Record<string, ClassValue>;
  *
  * @template T - The type to convert.
  * @returns {T extends "true" | "false" ? boolean : T} The converted type.
+ * @internal
  */
 export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
 
@@ -90,6 +99,7 @@ export type VariantProps<Component extends (...args: any) => any> = Omit<
  *   }
  * }
  * ```
+ * @internal
  */
 export type Variant = Record<string, RecordClassValue>;
 
@@ -106,6 +116,7 @@ export type Variant = Record<string, RecordClassValue>;
  * }>;
  * // ButtonVariants = { size?: "small" | "medium"; intent?: "primary" | "secondary" };
  * ```
+ * @internal
  */
 export type CVAVariants<V extends Variant> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]>;
@@ -151,6 +162,7 @@ export type CVAVariants<V extends Variant> = {
  *   }
  * };
  * ```
+ * @internal
  */
 export type CVAConfig<V extends Variant> = {
   /**
@@ -188,6 +200,7 @@ export type CVAConfig<V extends Variant> = {
  *
  * @template V - The type of variants.
  * @returns {(props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string} A function that generates class names based on props.
+ * @internal
  */
 export type CVAReturnType<V extends Variant> = (
   props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
@@ -247,6 +260,7 @@ export type CVATraits<T extends Record<string, any>> = {
  * @template V - The type of variants.
  * @param {CVAConfig<V>} config - The cva configuration object.
  * @returns {CVAReturnType<V>} A function that generates class names based on props.
+ * @internal
  */
 export type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
 
@@ -317,6 +331,7 @@ type DefaultVariants<RCV extends RecordClassValue> = {
  * // | { size?: { small?: { root?: ClassValue }; medium?: { root?: ClassValue } } }
  * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
  * ```
+ * @internal
  */
 export type Variants<RCV extends RecordClassValue, V extends DefaultVariants<RCV> = DefaultVariants<RCV>> =
   | {
@@ -357,6 +372,7 @@ type CompoundBase<RCV extends RecordClassValue, V extends Variants<RCV>> = {
  * >;
  * // ButtonProps = { size?: "small" | "medium" };
  * ```
+ * @internal
  */
 export type SVAVariants<RCV extends RecordClassValue, V extends Variants<RCV>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]>;
@@ -401,6 +417,7 @@ export type SVAVariants<RCV extends RecordClassValue, V extends Variants<RCV>> =
  *   }
  * };
  * ```
+ * @internal
  */
 export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
   /**
@@ -447,6 +464,7 @@ export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
  * @template RCV - The type of record class values.
  * @template V - The type of variants.
  * @returns {(props?: SVAVariants<RCV, V>) => { [K in keyof S]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
+ * @internal
  */
 export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = (props?: SVAVariants<RCV, V>) => {
   [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
@@ -530,6 +548,7 @@ export type SVATraits<Slots extends string, T extends { [S in Slots]?: Record<st
  * @template V - The type of variants.
  * @param {SVAConfig<RCV, V>} config - Configuration options for the SVA function.
  * @returns {SVAReturnType<RCV, V>} The return type of the SVA function.
+ * @internal
  */
 export type SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
   config: SVAConfig<RCV, V>

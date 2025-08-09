@@ -1,5 +1,5 @@
 // * https://github.com/radix-ui/primitives/blob/main/packages/react/form/src/index.ts
-import type { SVATraits } from "jade-garden";
+import type { SVATraits } from "jade-garden/types";
 
 /**
  * **Form**
