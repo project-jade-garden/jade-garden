@@ -11,10 +11,10 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.1.4",
+		"@biomejs/biome": "catalog:",
 		"cheerio": "1.1.2",
-		"es-toolkit": "1.39.8",
-		"globby": "14.1.0",
-		"typescript": "5.9.2"
+		"es-toolkit": "catalog:",
+		"globby": "catalog:build",
+		"typescript": "catalog:"
 	}
 }

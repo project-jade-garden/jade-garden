@@ -565,14 +565,14 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@biomejs/biome": "2.1.4",
-    "clean-package": "2.2.0",
-    "es-toolkit": "1.39.8",
-    "globby": "14.1.0",
+    "@biomejs/biome": "catalog:",
+    "clean-package": "catalog:build",
+    "es-toolkit": "catalog:",
+    "globby": "catalog:build",
     "jade-garden": "workspace:*",
     "reka-ui": "2.3.0",
-    "typescript": "5.9.2",
-    "vite": "7.1.1",
-    "vite-plugin-dts": "4.5.4"
+    "typescript": "catalog:",
+    "vite": "catalog:build",
+    "vite-plugin-dts": "catalog:build"
   }
 }
