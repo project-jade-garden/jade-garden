@@ -1,5 +1,5 @@
 // * https://github.com/huntabyte/bits-ui/blob/main/packages/bits-ui/src/lib/bits/date-range-picker/exports.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Date Range Picker**

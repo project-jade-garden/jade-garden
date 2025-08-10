@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { rawSVA } from "../../src/sva";
+import { rawSVA } from "../../src";
 
 describe("rawSVA", () => {
   test("should generate slot class names with prefix and default case convention", () => {

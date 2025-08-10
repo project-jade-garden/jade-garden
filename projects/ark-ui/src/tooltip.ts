@@ -1,5 +1,5 @@
 // * https://github.com/chakra-ui/ark/blob/main/packages/vue/src/components/tooltip/tooltip.anatomy.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Tooltip**

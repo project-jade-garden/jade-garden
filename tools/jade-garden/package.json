@@ -30,7 +30,21 @@
   "files": [
     "dist"
   ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
     "./class-utils": {
       "source": "./src/class-utils.ts",
       "import": {
@@ -62,13 +76,6 @@
       "require": {
         "types": "./dist/sva.d.cts",
         "default": "./dist/sva.cjs"
-      }
-    },
-    "./types": {
-      "source": "./src/types.ts",
-      "types": {
-        "import": "./dist/types.d.ts",
-        "require": "./dist/types.d.cts"
       }
     }
   },

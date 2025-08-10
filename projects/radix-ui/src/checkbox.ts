@@ -1,5 +1,5 @@
 // * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/index.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Checkbox**

@@ -1,4 +1,4 @@
-import type { JadeGarden } from "jade-garden/types";
+import type { JadeGarden } from "jade-garden";
 
 /* ===================== Types ===================== */
 

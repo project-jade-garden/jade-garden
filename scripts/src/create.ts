@@ -46,7 +46,7 @@ const main = async () => {
 		writeFileSync(
 			`${srcDir}/${kebabCase(component)}.ts`,
 			`// * ${repo(component)}
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **${startCase(component)}**

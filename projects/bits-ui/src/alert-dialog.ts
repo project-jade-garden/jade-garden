@@ -1,5 +1,5 @@
 // * https://github.com/huntabyte/bits-ui/blob/main/packages/bits-ui/src/lib/bits/alert-dialog/exports.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Alert Dialog**

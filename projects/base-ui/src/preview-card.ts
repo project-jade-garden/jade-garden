@@ -1,5 +1,5 @@
 // * https://github.com/mui/base-ui/blob/master/packages/react/src/preview-card/index.parts.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Preview Card**

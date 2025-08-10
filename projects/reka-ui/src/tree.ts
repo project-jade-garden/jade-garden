@@ -1,5 +1,5 @@
 // * https://github.com/unovue/reka-ui/blob/v2/packages/core/src/Tree/index.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Tree**

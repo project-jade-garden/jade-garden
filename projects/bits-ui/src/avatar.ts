@@ -1,5 +1,5 @@
 // * https://github.com/huntabyte/bits-ui/blob/main/packages/bits-ui/src/lib/bits/avatar/exports.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Avatar**

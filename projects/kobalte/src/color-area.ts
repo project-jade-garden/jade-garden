@@ -1,5 +1,5 @@
 // * https://github.com/kobaltedev/kobalte/blob/main/packages/core/src/color-area/index.tsx
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Color Area**

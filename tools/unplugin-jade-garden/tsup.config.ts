@@ -1,13 +1,14 @@
-// import { existsSync, rmSync } from "node:fs";
-// import { dirname, join } from "node:path";
-// import { fileURLToPath } from "node:url";
+import { existsSync, rmSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "tsup";
 
-// const __dirname = join(dirname(fileURLToPath(import.meta.url)));
+const __dirname = join(dirname(fileURLToPath(import.meta.url)));
 
 export default defineConfig({
   entry: [
     // "./src/esbuild.ts",
+    "./src/index.ts",
     "./src/rollup.ts",
     "./src/rspack.ts",
     "./src/vite.ts",

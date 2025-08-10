@@ -1,5 +1,5 @@
 // * https://github.com/radix-ui/primitives/blob/main/packages/react/aspect-ratio/src/index.ts
-import type { SVATraits } from "jade-garden/types";
+import type { SVATraits } from "jade-garden";
 
 /**
  * **Aspect Ratio**

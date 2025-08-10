@@ -1,6 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { cva } from "../../src/cva";
-import type { VariantProps } from "../../src/types";
+import { cva, type VariantProps } from "../../src";
 
 describe("cva", () => {
   describe("without base", () => {
