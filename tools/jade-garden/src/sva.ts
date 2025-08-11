@@ -63,10 +63,7 @@ export const createSVA = (mergeClass: JadeGarden.MergeClassFn = cx): JadeGarden.
       };
 
       // * Exit early if variants do not exist or is not an object
-      if (
-        typeof config?.variants !== "object" ||
-        (typeof config.variants === "object" && Array.isArray(config.variants))
-      ) {
+      if (typeof config?.variants !== "object" || Array.isArray(config.variants)) {
         for (const slotKey of Object.keys(slots)) {
           slotsFns[slotKey] = (slotProps: JadeGarden.SVAVariants<RCV, V> & JadeGarden.ClassProp = {}) => {
             return mergeClass(

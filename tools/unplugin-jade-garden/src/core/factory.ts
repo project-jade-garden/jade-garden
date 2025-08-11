@@ -113,7 +113,7 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
       const { cva, sva } = options.components;
 
       // * Exit early if "cva" and "sva" are undefined or not arrays
-      if ((!cva || !Array.isArray(cva)) && (!sva || !Array.isArray(sva))) {
+      if (!Array.isArray(cva) && !Array.isArray(sva)) {
         console.warn(`\n\x1b[33m[WARN]: "components.cva" and "components.sva" props must be arrays.\x1b[0m`);
         console.info("\n\x1b[36mcva: 0 files written\x1b[0m\n\x1b[36msva: 0 files written\x1b[0m");
         return;

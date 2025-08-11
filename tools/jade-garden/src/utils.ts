@@ -43,7 +43,7 @@ export const getRawClasses = (options: {
   const prefix = `${kebabCase(name)}${slotKey ? `--${kebabCase(slotKey)}` : ""}`;
 
   // * Exit early if variants do not exist or is not an object
-  if (typeof variants !== "object" || (typeof variants === "object" && Array.isArray(variants))) {
+  if (typeof variants !== "object" || Array.isArray(variants)) {
     return cx(prefix, props?.["class"], props?.["className"]);
   }
 

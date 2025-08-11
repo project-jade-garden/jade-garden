@@ -1,5 +1,5 @@
-import { type RollupPlugin, createRollupPlugin } from "unplugin";
-import { type PluginInstance, factory } from "./core";
+import { createRollupPlugin, type RollupPlugin } from "unplugin";
+import { factory, type PluginInstance } from "./core";
 
 /**
  * Rollup plugin

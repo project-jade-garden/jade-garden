@@ -1,5 +1,5 @@
-import { type VitePlugin, createVitePlugin } from "unplugin";
-import { type PluginInstance, factory } from "./core";
+import { createVitePlugin, type VitePlugin } from "unplugin";
+import { factory, type PluginInstance } from "./core";
 
 /**
  * Vite plugin

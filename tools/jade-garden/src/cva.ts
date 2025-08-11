@@ -21,10 +21,7 @@ export const createCVA = (mergeClass: JadeGarden.MergeClassFn = cx): JadeGarden.
       const base = config.base;
 
       // * Exit early if variants do not exist or is not an object
-      if (
-        typeof config?.variants !== "object" ||
-        (typeof config.variants === "object" && Array.isArray(config.variants))
-      ) {
+      if (typeof config?.variants !== "object" || Array.isArray(config.variants)) {
         return mergeClass(base, props?.class, props?.className);
       }
 
