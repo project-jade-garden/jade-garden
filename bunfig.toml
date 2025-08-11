@@ -1,2 +1,9 @@
 [install]
+# https://bun.sh/docs/runtime/bunfig#package-manager
 exact = true
+
+[test]
+# https://bun.sh/docs/runtime/bunfig#test-runner
+coverage = true
+coveragePathIgnorePatterns = "**/dist/**"
+coverageThreshold = 0.7
