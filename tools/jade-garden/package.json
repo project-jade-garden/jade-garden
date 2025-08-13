@@ -30,54 +30,9 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "source": "./src/index.ts",
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./class-utils": {
-      "source": "./src/class-utils.ts",
-      "import": {
-        "types": "./dist/class-utils.d.ts",
-        "default": "./dist/class-utils.js"
-      },
-      "require": {
-        "types": "./dist/class-utils.d.cts",
-        "default": "./dist/class-utils.cjs"
-      }
-    },
-    "./cva": {
-      "source": "./src/cva.ts",
-      "import": {
-        "types": "./dist/cva.d.ts",
-        "default": "./dist/cva.js"
-      },
-      "require": {
-        "types": "./dist/cva.d.cts",
-        "default": "./dist/cva.cjs"
-      }
-    },
-    "./sva": {
-      "source": "./src/sva.ts",
-      "import": {
-        "types": "./dist/sva.d.ts",
-        "default": "./dist/sva.js"
-      },
-      "require": {
-        "types": "./dist/sva.d.cts",
-        "default": "./dist/sva.cjs"
-      }
-    }
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
   },
   "scripts": {
     "build": "bun typecheck && vite build",
@@ -87,13 +42,8 @@
     "lint": "biome lint",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
+    "release-it": "release-it --config ../../release-it.json",
     "typecheck": "tsc --noEmit"
-  },
-  "clean-package": {
-    "remove": [
-      "exports.\\..source",
-      "exports.\\./*.source"
-    ]
   },
   "publishConfig": {
     "access": "public"

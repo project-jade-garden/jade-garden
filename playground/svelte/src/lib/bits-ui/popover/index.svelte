@@ -12,7 +12,7 @@ let height = $state(768);
 <Popover.Root>
   <Popover.Trigger
     class="rounded-input bg-dark
-	text-background shadow-mini hover:bg-dark/95 inline-flex h-10 select-none items-center justify-center whitespace-nowrap px-[21px] text-[15px] font-medium transition-all hover:cursor-pointer active:scale-[0.98]"
+  text-background shadow-mini hover:bg-dark/95 inline-flex h-10 select-none items-center justify-center whitespace-nowrap px-[21px] text-[15px] font-medium transition-all hover:cursor-pointer active:scale-[0.98]"
   >
     Resize
   </Popover.Trigger>
