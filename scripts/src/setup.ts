@@ -6,6 +6,15 @@ import { globbySync } from "globby";
 
 const EXCLUDE_DIRS: string[] = [".DS_Store", "README.md"];
 
+type CleanPkg = {
+  replace: {
+    main: string;
+    module: string;
+    types: string;
+    exports: PkgExports;
+  };
+};
+
 type PkgExports = {
   [key: string]: {
     import: {
@@ -22,11 +31,11 @@ type PkgExports = {
 const __dirname = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "projects");
 const libDirs = readdirSync(__dirname);
 
-// TODO: Refactor for `clean-package.config.json`
 const main = async () => {
   for (const libDir of libDirs.filter((libDir) => !EXCLUDE_DIRS.includes(libDir))) {
     const dir = `${__dirname}/${libDir}`;
-    const pkg = JSON.parse(readFileSync(`${dir}/clean-package.config.json`, "utf-8"));
+    const pkgDir = `${dir}/clean-package.config.json`;
+    const pkg: CleanPkg = JSON.parse(readFileSync(pkgDir, "utf-8"));
     const files = globbySync(`${dir}/src/*.ts`).sort();
     const pkgExports: PkgExports = {
       ".": {
@@ -64,10 +73,10 @@ const main = async () => {
       } from ".${component}";`;
     }
 
-    pkg.exports = pkgExports;
+    pkg.replace.exports = pkgExports;
 
     writeFileSync(`${dir}/src/index.ts`, srcExports);
-    writeFileSync(`${dir}/package.json`, pkg);
+    writeFileSync(pkgDir, JSON.stringify(pkg, null, 2));
   }
 };
 
