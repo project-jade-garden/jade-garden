@@ -1,5 +1,12 @@
 # unplugin-jade-garden
 
+## 0.1.3
+
+### Patch Changes
+
+- e35d0a1: - Remove workspaces protocol in `projects`
+  - Refactors clean package output for publications
+
 ## 0.1.2
 
 ### Patch Changes
