@@ -26,17 +26,11 @@ jobs:
       - name: Build packages
         run: bun run build
 
-      # ! Needed for changesets
-      - name: Setup Node.js 20.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-
       - name: Publish packages
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: bun run release
+          publish: bun publish && changeset tag
           commit: "ci(changesets): version packages"
           setupGitUser: false
         env:
