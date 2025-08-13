@@ -20,10 +20,10 @@
   "devDependencies": {
     "@storybook/addon-a11y": "catalog:playground",
     "@storybook/addon-themes": "catalog:playground",
-    "@tailwindcss/vite": "catalog:tailwind",
+    "@tailwindcss/vite": "catalog:",
     "storybook": "catalog:playground",
     "storybook-solidjs-vite": "9.0.2",
-    "tailwindcss": "catalog:tailwind",
+    "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:build",
     "vite-plugin-solid": "2.11.8",

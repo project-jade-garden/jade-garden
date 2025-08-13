@@ -101,15 +101,15 @@
   "sideEffects": false,
   "dependencies": {
     "clsx": "2.1.1",
-    "es-toolkit": "catalog:"
+    "es-toolkit": "1.39.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "catalog:",
-    "clean-package": "catalog:build",
-    "globby": "catalog:build",
+    "@biomejs/biome": "2.1.4",
+    "clean-package": "2.2.0",
+    "globby": "14.1.0",
     "tailwind-merge": "3.3.1",
-    "typescript": "catalog:",
-    "vite": "catalog:build",
-    "vite-plugin-dts": "catalog:build"
+    "typescript": "5.9.2",
+    "vite": "7.1.1",
+    "vite-plugin-dts": "4.5.4"
   }
 }
