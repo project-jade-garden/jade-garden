@@ -42,7 +42,6 @@
     "lint": "biome lint",
     "postpack": "clean-package restore",
     "prepack": "clean-package",
-    "release-it": "release-it --config ../../release-it.json",
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {

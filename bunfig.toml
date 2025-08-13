@@ -1,6 +1,7 @@
 [install]
 # https://bun.sh/docs/runtime/bunfig#package-manager
 exact = true
+registry = { url = "https://registry.npmjs.org", token = "$NPM_TOKEN" }
 
 [test]
 # https://bun.sh/docs/runtime/bunfig#test-runner
