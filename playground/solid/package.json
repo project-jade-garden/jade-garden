@@ -15,14 +15,14 @@
     "@modular-forms/solid": "0.25.1",
     "lucide-solid": "0.539.0",
     "solid-icons": "1.1.0",
-    "solid-js": "1.9.8"
+    "solid-js": "1.9.9"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "catalog:playground",
     "@storybook/addon-themes": "catalog:playground",
     "@tailwindcss/vite": "catalog:",
     "storybook": "catalog:playground",
-    "storybook-solidjs-vite": "9.0.2",
+    "storybook-solidjs-vite": "9.0.3",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:build",
