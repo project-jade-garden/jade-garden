@@ -1,5 +1,13 @@
 # jade-garden
 
+## 1.1.1
+
+### Patch Changes
+
+- 10ffe72: Remove redundant type checking
+- e1a924b: Update dependencies
+- 11bb816: Fixes breaking installation of packages due to no [bun publishing](https://bun.sh/docs/install/catalogs#publishing) command in project.
+
 ## 1.1.0
 
 ### Minor Changes
