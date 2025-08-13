@@ -1,5 +1,12 @@
 # @project-jade-garden/radix-ui
 
+## 0.0.2
+
+### Patch Changes
+
+- e35d0a1: - Remove workspaces protocol in `projects`
+  - Refactors clean package output for publications
+
 ## 0.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@project-jade-garden/bits-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bits UI anatomy slots for headless design",
   "keywords": [
     "bits-ui",
@@ -57,7 +57,7 @@
     "clean-package": "2.2.0",
     "es-toolkit": "1.39.9",
     "globby": "14.1.0",
-    "jade-garden": "1.1.1",
+    "jade-garden": "1.1.2",
     "typescript": "5.9.2",
     "vite": "7.1.2",
     "vite-plugin-dts": "4.5.4"
