@@ -71,8 +71,5 @@
   "trustedDependencies": [
     "@biomejs/biome",
     "lefthook"
-  ],
-  "patchedDependencies": {
-    "lightningcss@1.29.2": "patches/lightningcss@1.29.2.patch"
-  }
+  ]
 }
