@@ -56,7 +56,7 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@biomejs/biome": "2.1.4",
+    "@biomejs/biome": "2.2.0",
     "@zag-js/accordion": "1.14.0",
     "@zag-js/anatomy": "1.14.0",
     "@zag-js/angle-slider": "1.14.0",
@@ -99,11 +99,11 @@
     "@zag-js/tour": "1.14.0",
     "@zag-js/tree-view": "1.14.0",
     "clean-package": "2.2.0",
-    "es-toolkit": "1.39.9",
+    "es-toolkit": "1.39.10",
     "globby": "14.1.0",
     "jade-garden": "1.1.2",
     "typescript": "5.9.2",
-    "vite": "7.1.2",
+    "vite": "7.1.3",
     "vite-plugin-dts": "4.5.4"
   }
 }

@@ -24,9 +24,10 @@ export default defineConfig({
   plugins: [
     dts({
       afterBuild: () => {
-        globbySync("dist/**.d.ts").map((file) => {
+        const files = globbySync("dist/**.d.ts");
+        for (const file of files) {
           copyFileSync(file, file.replace(/\.d\.ts$/, ".d.cts"));
-        });
+        }
       }
     })
   ],
