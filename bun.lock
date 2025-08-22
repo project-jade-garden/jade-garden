@@ -21,6 +21,7 @@
       "dependencies": {
         "@ark-ui/react": "5.10.0",
         "@base-ui-components/react": "1.0.0-beta.0",
+        "jade-garden": "workspace:*",
         "lucide-react": "0.541.0",
         "radix-ui": "1.4.2",
         "react": "19.1.1",
@@ -49,6 +50,7 @@
         "@ark-ui/solid": "5.10.0",
         "@kobalte/core": "0.13.9",
         "@modular-forms/solid": "0.25.1",
+        "jade-garden": "workspace:*",
         "lucide-solid": "0.541.0",
         "solid-icons": "1.1.0",
         "solid-js": "1.9.9",
@@ -71,6 +73,7 @@
       "dependencies": {
         "@ark-ui/svelte": "5.3.3",
         "bits-ui": "2.3.0",
+        "jade-garden": "workspace:*",
         "lucide-svelte": "0.541.0",
         "phosphor-svelte": "3.0.1",
       },
@@ -95,6 +98,7 @@
       "dependencies": {
         "@ark-ui/vue": "5.10.0",
         "@iconify/vue": "5.0.0",
+        "jade-garden": "workspace:*",
         "lucide-vue-next": "0.541.0",
         "reka-ui": "2.3.0",
         "vue": "3.5.19",

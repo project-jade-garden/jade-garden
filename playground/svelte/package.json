@@ -12,6 +12,7 @@
   "dependencies": {
     "@ark-ui/svelte": "5.3.3",
     "bits-ui": "2.3.0",
+    "jade-garden": "workspace:*",
     "lucide-svelte": "0.541.0",
     "phosphor-svelte": "3.0.1"
   },

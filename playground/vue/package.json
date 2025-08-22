@@ -12,6 +12,7 @@
   "dependencies": {
     "@ark-ui/vue": "5.10.0",
     "@iconify/vue": "5.0.0",
+    "jade-garden": "workspace:*",
     "lucide-vue-next": "0.541.0",
     "reka-ui": "2.3.0",
     "vue": "3.5.19",
