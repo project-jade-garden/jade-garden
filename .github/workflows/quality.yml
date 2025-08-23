@@ -13,9 +13,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-
       - name: Install
         uses: ./.github/composite-actions/install
 
@@ -26,9 +23,6 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-
       - name: Install
         uses: ./.github/composite-actions/install
 
@@ -39,9 +33,6 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-
       - name: Install
         uses: ./.github/composite-actions/install
 
@@ -52,9 +43,6 @@ jobs:
     name: Typecheck
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-
       - name: Install
         uses: ./.github/composite-actions/install
 

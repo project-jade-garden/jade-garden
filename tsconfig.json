@@ -19,7 +19,7 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": false,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

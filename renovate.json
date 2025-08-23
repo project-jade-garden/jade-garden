@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)", "schedule:earlyMondays"],
+  "labels": ["dependencies"],
+  "dependencyDashboard": false,
+  "rebaseWhen": "conflicted",
+  "timezone": "UTC",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "prConcurrentLimit": 20,
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    }
+  ]
+}

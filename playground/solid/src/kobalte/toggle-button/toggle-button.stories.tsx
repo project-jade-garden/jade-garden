@@ -1,7 +1,0 @@
-import type { Meta } from "storybook-solidjs-vite";
-
-export default {
-  title: "Kobalte / Toggle Button"
-} satisfies Meta;
-
-export { Basic } from ".";

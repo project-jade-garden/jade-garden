@@ -11,22 +11,19 @@
   },
   "dependencies": {
     "@ark-ui/solid": "5.10.0",
-    "@kobalte/core": "0.13.9",
-    "@modular-forms/solid": "0.25.1",
     "jade-garden": "workspace:*",
     "lucide-solid": "0.541.0",
-    "solid-icons": "1.1.0",
     "solid-js": "1.9.9"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "catalog:playground",
     "@storybook/addon-themes": "catalog:playground",
-    "@tailwindcss/vite": "catalog:",
+    "@tailwindcss/vite": "catalog:playground",
     "storybook": "catalog:playground",
     "storybook-solidjs-vite": "9.0.3",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:build",
+    "vite": "catalog:",
     "vite-plugin-solid": "2.11.8",
     "vite-tsconfig-paths": "catalog:playground"
   }

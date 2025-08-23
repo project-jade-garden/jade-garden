@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "$schema": "../node_modules/@changesets/config/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
@@ -11,7 +11,6 @@
     "@project-jade-garden/playground-react",
     "@project-jade-garden/playground-solid",
     "@project-jade-garden/playground-svelte",
-    "@project-jade-garden/playground-vue",
-    "@project-jade-garden/scripts"
+    "@project-jade-garden/playground-vue"
   ]
 }

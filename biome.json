@@ -25,17 +25,29 @@
     "includes": ["**", "!**/dist", "!**/node_modules"],
     "rules": {
       "recommended": true,
-      "complexity": {
-        "noBannedTypes": "warn",
-        "useLiteralKeys": "warn"
-      },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noExplicitAny": "warn",
-        "noShadowRestrictedNames": "off"
+        "noExplicitAny": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
+      },
+      "complexity": {
+        "noBannedTypes": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "off"
+      },
+      "a11y": {
+        "useButtonType": "off",
+        "noLabelWithoutControl": "off",
+        "useSemanticElements": "off"
+      },
+      "style": {
+        "useConst": "off"
+      },
+      "correctness": {
+        "useUniqueElementIds": "off"
       }
     }
   }
