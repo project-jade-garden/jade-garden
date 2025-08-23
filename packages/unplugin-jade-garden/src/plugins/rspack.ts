@@ -1,5 +1,5 @@
 import { createRspackPlugin, type RspackPluginInstance } from "unplugin";
-import { factory, type PluginInstance } from "./core";
+import { factory, type PluginInstance } from "../core";
 
 /**
  * Rspack plugin

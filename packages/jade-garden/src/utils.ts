@@ -34,7 +34,7 @@ export const getVariantClasses = (options: {
   slotProps?: Record<string, any>;
 }): string => {
   const { defaultVariants, mergeClass, props, slotKey, slotProps, variants } = options;
-  if (!variants || typeof variants !== "object" || Array.isArray(variants)) return "";
+  if (typeof variants !== "object" || Array.isArray(variants)) return "";
 
   let result = "";
 

@@ -1,5 +1,5 @@
 import { kebabCase } from "es-toolkit";
-import type { CVA, Options } from "../types";
+import type { CVA, Options } from "../../types";
 
 /* ===================== CVA ===================== */
 

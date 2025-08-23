@@ -1,5 +1,5 @@
 import { cx } from "./class-utils";
-import type { JadeGarden } from "./types";
+import type { ClassValue, JadeGarden } from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
 /* ====================== SVA ====================== */
@@ -20,13 +20,7 @@ export const createSVA = (mergeClass: JadeGarden.MergeClassFn = cx): JadeGarden.
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
       // * Exit early if slots is not defined or does not have keys
-      if (
-        typeof config?.slots !== "object" ||
-        Object.keys(config.slots).length === 0 ||
-        (typeof config.slots === "object" && Array.isArray(config.slots))
-      ) {
-        return slotsFns;
-      }
+      if (!config?.slots || Object.keys(config?.slots).length === 0) return slotsFns;
 
       const slots = config.slots;
       const compoundSlots = config?.compoundSlots ?? [];
@@ -132,6 +126,62 @@ export const createSVA = (mergeClass: JadeGarden.MergeClassFn = cx): JadeGarden.
 
     return components as JadeGarden.SVAReturnType<RCV, V>;
   };
+};
+
+/**
+ * Defines a type-safe structure for an SVA configuration object.
+ * This utility allows you to define a SVA config with type checking based on the specified slots.
+ *
+ * @template S - A string or union of strings representing the slot keys for the component.
+ * @returns A function that takes an `SVAConfig` object with the specified slot keys and returns that same configuration object, ensuring type safety.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig = defineSVA(["root", "label"])({
+ *   name: "button",
+ *   slots: {
+ *     root: "base-button",
+ *     label: "button-label",
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "button-small",
+ *         label: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "button-medium",
+ *         label: "text-base"
+ *       }
+ *     },
+ *     color: {
+ *       primary: {
+ *         root: "bg-blue-500 text-white"
+ *       },
+ *       secondary: {
+ *         root: "bg-gray-300 text-gray-800"
+ *       }
+ *     }
+ *   },
+ *   defaultVariants: {
+ *     size: "medium",
+ *     color: "primary"
+ *   }
+ * });
+ *
+ * // OR
+ *
+ * const defineSVAConfig = defineSVA(["root", "label"]);
+ *
+ * const buttonConfig = defineSVAConfig({
+ *   // ... config object
+ * });
+ * ```
+ */
+export const defineSVA = <Slots extends string>(_slots: readonly Slots[]) => {
+  return <RCV extends { [S in Slots]?: ClassValue }, V extends JadeGarden.Variants<RCV>>(
+    config: JadeGarden.SVAConfig<RCV, V>
+  ): JadeGarden.SVAConfig<RCV, V> => config;
 };
 
 /**

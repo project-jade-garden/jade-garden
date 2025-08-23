@@ -1,5 +1,5 @@
 import { createWebpackPlugin, type WebpackPluginInstance } from "unplugin";
-import { factory, type PluginInstance } from "./core";
+import { factory, type PluginInstance } from "../core";
 
 /**
  * Webpack plugin

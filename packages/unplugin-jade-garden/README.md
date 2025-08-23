@@ -7,39 +7,35 @@ based on your defined component styles, eliminating the need for manual class ma
 ## Why unplugin-jade-garden?
 
 Modern front-end development heavily relies on component-based styling and utility-first CSS frameworks like Tailwind CSS.
-While jade-garden provides a powerful programmatic way to define and manage component styles with variants and slots,
+While `jade-garden` provides a powerful programmatic way to define and manage component styles with variants and slots,
 integrating these definitions into your actual CSS output has traditionally required manual effort or complex PostCSS setups.
 
 `unplugin-jade-garden` solves this challenge by:
 
-- **Automating CSS Generation**: It reads your `jade-garden` CVA and SVA configurations and automatically writes corresponding CSS files using `@apply` directives. This means your jade-garden definitions directly translate into optimized, static CSS.
-- **Streamlining Tailwind Integration:** Forget manually mapping Tailwind classes to jade-garden variants. The plugin handles this intelligently, ensuring your component styles are correctly applied in your final stylesheet.
+- **Automating CSS Generation**: It reads your `jade-garden` CVA and SVA configurations and automatically writes corresponding CSS files using `@apply` directives. This means your `jade-garden` definitions directly translate into optimized, static CSS.
+- **Streamlining Tailwind Integration:** Forget manually mapping Tailwind classes to `jade-garden` variants. The plugin handles this intelligently, ensuring your component styles are correctly applied in your final stylesheet.
 - **Enhancing Performance:** By generating static CSS at build time, it reduces the amount of JavaScript needed for runtime styling, leading to faster page loads and a more performant user experience.
-- **Improving Developer Experience:** Focus on defining your design system programmatically with jade-garden's type safety; the plugin takes care of the build-time CSS output.
+- **Improving Developer Experience:** Focus on defining your design system programmatically with `jade-garden`'s type safety; the plugin takes care of the build-time CSS output.
 - **Cross-Build Tool Compatibility:** Leveraging unplugin.js, it offers native support for popular bundlers like **Rollup**, **Rspack**, **Vite**, and **Webpack**, ensuring a consistent setup across different projects.
 
 ## Quick Start
 
 ### Installation
 
-Install unplugin-jade-garden and its peer dependency jade-garden:
+Install `unplugin-jade-garden` and `jade-garden`:
 
 ```bash
 # Using npm
-npm install jade-garden
-npm install -D unplugin-jade-garden
+npm install jade-garden unplugin-jade-garden
 
 # Using yarn
-yarn add jade-garden
-yarn add -D unplugin-jade-garden
+yarn add jade-garden unplugin-jade-garden
 
 # Using pnpm
-pnpm add jade-garden
-pnpm add -D unplugin-jade-garden
+pnpm add jade-garden unplugin-jade-garden
 
 # Using bun
-bun add jade-garden
-bun add -D unplugin-jade-garden
+bun add jade-garden unplugin-jade-garden
 ```
 
 ## Usage
@@ -57,12 +53,12 @@ import { defineCVA, defineSVA } from "jade-garden";
 // Define some example CVA and SVA configs
 const buttonConfig = defineCVA({
   base: "...",
-  variants: { ... },
+  variants: { ... }
 });
 
-const cardConfig = defineSVA<CardSlots>()({
+const cardConfig = defineSVA(["content", "footer", "header"])({
   slots: { ... },
-  variants: { ... },
+  variants: { ... }
 });
 
 export default defineConfig({
@@ -81,8 +77,8 @@ export default defineConfig({
 
       // Optional: Custom class merging function (defaults to `jade-garden`'s `cx`)
       // mergeFn: customMergeFunction,
-    }),
-  ],
+    })
+  ]
 });
 ```
 
@@ -92,8 +88,8 @@ export default defineConfig({
 
 ```js
 // vite.config.js
-import { defineConfig } from 'vite';
-import jadeGardenPlugin from 'unplugin-jade-garden/vite';
+import { defineConfig } from "vite";
+import jadeGardenPlugin from "unplugin-jade-garden/vite";
 
 export default defineConfig({
   plugins: [
@@ -106,7 +102,7 @@ export default defineConfig({
 
 ```js
 // rollup.config.js
-import jadeGardenPlugin from 'unplugin-jade-garden/rollup';
+import jadeGardenPlugin from "unplugin-jade-garden/rollup";
 
 export default {
   plugins: [
@@ -119,7 +115,7 @@ export default {
 
 ```js
 // webpack.config.js
-const jadeGardenPlugin = require('unplugin-jade-garden/webpack');
+const jadeGardenPlugin = require("unplugin-jade-garden/webpack");
 
 module.exports = {
   plugins: [
@@ -132,7 +128,7 @@ module.exports = {
 
 ```js
 // rspack.config.js
-const jadeGardenPlugin = require('unplugin-jade-garden/rspack');
+const jadeGardenPlugin = require("unplugin-jade-garden/rspack");
 
 module.exports = {
   plugins: [
@@ -188,11 +184,11 @@ type Options = {
   @apply inline-flex items-center justify-center rounded-md font-medium;
 }
 
-.button__variant--primary {
+.button.button__variant--primary {
   @apply bg-blue-600 text-white hover:bg-blue-700;
 }
 
-.button__variant--secondary {
+.button.button__variant--secondary {
   @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
 }
 
@@ -212,7 +208,7 @@ type Options = {
 }
 
 /* ... and their variants, e.g., */
-.card--root__flat--true {
+.card--root.card--root__flat--true {
   @apply shadow-none border border-gray-200;
 }
 ```
@@ -237,15 +233,13 @@ The only direct API surface for unplugin-jade-garden is its configuration Option
   - **Description**: An object containing arrays of your `jade-garden` CVA and SVA configuration objects. These are the definitions the plugin will use to generate CSS.
 
 - **`mergeFn`** (Optional)
-  - **Type**: `MergeClassFn` (from `jade-garden/types`)
+  - **Type**: `JadeGarden.MergeClassFn`
   - **Description:** A custom function to merge class names. If not provided, `jade-garden`'s `cx` utility will be used.
 
 <!-- TODO: Update Docs -->
 ## Helpers
-  - `defineCVA`: Type-safe helper for CVA configurations.
-  - `rawCVA`: Generates "raw" class names based on CVA config.
-  - `defineSVA`: Type-safe helper for SVA configurations.
-  - `rawSVA`: Generates "raw" class names based on SVA config for slots.
-  - `CVATraits`: Helps define the structure for configuring and using CVA functions (`cva`, `defineCVA`, `rawCVA`).
-  - `SVATraits`: Helps define the structure for configuring and using SVA functions (`sva`, `defineSVA`, `rawSVA`).
+  - `convertCVA`: Generates class names based on `JadeGarden.CVA` config.
+  - `convertSVA`: Generates class names based on `JadeGarden.SVA` config.
+  - `CVATraits`: Helps define the structure for configuring and using `traits` in `cva` functions.
+  - `SVATraits`: Helps define the structure for configuring and using `traits` in `sva` functions.
   - `traits`: Generates CSS class names and data attributes.

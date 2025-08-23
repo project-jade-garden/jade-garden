@@ -131,10 +131,12 @@ const dynamicClasses = cx("flex", { "items-center": true, "justify-between": fal
 
 - **CVA (Class Variant Authority)**:
   - `createCVA`: Factory for a customizable CVA function.
+  - `defineCVA`: Type-safe helper for CVA configurations.
   - `cva`: Default CVA implementation for component variants.
 
 - **SVA (Slots Variants Authority)**:
   - `createSVA`: Factory for a customizable SVA function.
+  - `defineSVA`: Type-safe helper for SVA configurations.
   - `sva`: Default SVA implementation for multi-part component slots and variants.
 
 - **Types**:

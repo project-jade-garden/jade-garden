@@ -1,6 +1,6 @@
 // import { describe, expect, test } from "bun:test";
 // import * as webpack from "webpack";
-// import jpg from "../src/webpack";
+// import jpg from "../src/plugins/webpack";
 // import { getPath } from "./utils/build-utils";
 
 // const webpackBuild: typeof webpack.webpack = webpack.webpack || (webpack as any).default || webpack;

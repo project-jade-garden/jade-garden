@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import type { VitePlugin } from "unplugin";
-import jadeGardenPlugin from "../src/vite";
+import jadeGardenPlugin from "../src/plugins/vite";
 import { buttonConfig } from "./fixtures/jade-garden/cva";
 import { alertConfig } from "./fixtures/jade-garden/sva";
 import { build, getPath, toArray } from "./utils/build-utils";

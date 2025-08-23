@@ -1,10 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import type { CVATraits } from "../src/helpers";
-import { convertCVA, convertSVA, traits } from "../src/helpers";
+import type { CVATraits } from "../src";
+import { getClasses, traits } from "../src";
 
-describe("convertCVA", () => {
+describe("getClasses", () => {
   test("should generate base class name with prefix and default case convention", () => {
-    const component = convertCVA({
+    const component = getClasses({
       name: "button",
       base: "base-class"
     });
@@ -12,9 +12,10 @@ describe("convertCVA", () => {
     expect(component()).toBe("button");
   });
 
-  test("should generate variant class names with prefix and default case convention", () => {
-    const component = convertCVA({
+  test("should generate variant class name with prefix and default case convention", () => {
+    const component = getClasses({
       name: "button",
+      base: "base-class",
       variants: {
         size: {
           small: "size-small",
@@ -26,8 +27,8 @@ describe("convertCVA", () => {
     expect(component({ size: "small" })).toBe("button button__size--small");
   });
 
-  test("should generate class names with custom case convention", () => {
-    const component = convertCVA({
+  test("should generate class name with custom case convention", () => {
+    const component = getClasses({
       name: "myButton",
       base: "base-class"
     });
@@ -35,9 +36,10 @@ describe("convertCVA", () => {
     expect(component()).toBe("my-button");
   });
 
-  test("should generate class names with compound variants", () => {
-    const component = convertCVA({
+  test("should generate class name with compound variants", () => {
+    const component = getClasses({
       name: "button",
+      base: "",
       variants: {
         size: {
           small: "size-small",
@@ -57,17 +59,15 @@ describe("convertCVA", () => {
   });
 
   test("should return empty string if name is not defined", () => {
-    const component = convertCVA({
+    const component = getClasses({
       base: "base-class"
     });
 
     expect(component()).toBe("");
   });
-});
 
-describe("convertSVA", () => {
-  test("should generate slot class names with prefix and default case convention", () => {
-    const component = convertSVA({
+  test("should generate slot class name with prefix and default case convention", () => {
+    const component = getClasses({
       name: "button",
       slots: {
         root: "root-class",
@@ -80,8 +80,8 @@ describe("convertSVA", () => {
     expect(slots.inner()).toBe("button--inner");
   });
 
-  test("should generate slot variant class names with prefix and default case convention", () => {
-    const component = convertSVA({
+  test("should generate slot variant class name with prefix and default case convention", () => {
+    const component = getClasses({
       name: "button",
       slots: { root: "root-class" },
       variants: {
@@ -96,8 +96,8 @@ describe("convertSVA", () => {
     expect(slots.root()).toBe("button--root button--root__size--small");
   });
 
-  test("should generate slot class names with custom case convention", () => {
-    const component = convertSVA({
+  test("should generate slot class name with custom case convention", () => {
+    const component = getClasses({
       name: "myButton",
       slots: { root: "root-class" }
     });
@@ -106,8 +106,8 @@ describe("convertSVA", () => {
     expect(slots.root()).toBe("my-button--root");
   });
 
-  test("should generate class names with compound variants", () => {
-    const component = convertSVA({
+  test("should generate class name with compound variants", () => {
+    const component = getClasses({
       name: "button",
       slots: { root: "root-class" },
       variants: {
@@ -128,7 +128,7 @@ describe("convertSVA", () => {
   });
 
   test("should return empty string if name is not defined", () => {
-    const component = convertSVA({
+    const component = getClasses({
       slots: { root: "root-class" }
     });
 
@@ -175,7 +175,7 @@ describe("traits", () => {
     expect(traits({ data })).toBe("data-[state=open]:is-open data-[state=closed]:is-closed");
   });
 
-  test("mix of class names and data attributes", () => {
+  test("mix of class name and data attributes", () => {
     const data: CVATraits<{ size: "small" | "large"; loading: "true" | "false" }> = {
       size: { small: "button-small", large: "button-large" },
       loading: { true: "button-loading" }

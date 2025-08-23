@@ -1,4 +1,4 @@
-import { defineCVA } from "../../../src/helpers";
+import { defineCVA } from "jade-garden/cva";
 
 export const buttonConfig = defineCVA({
   name: "button",

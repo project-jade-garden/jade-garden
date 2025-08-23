@@ -1,6 +1,6 @@
-import { defineSVA } from "../../../src/helpers";
+import { defineSVA } from "jade-garden/sva";
 
-export const alertConfig = defineSVA<"root" | "title" | "message">()({
+export const alertConfig = defineSVA(["root", "title", "message"])({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",

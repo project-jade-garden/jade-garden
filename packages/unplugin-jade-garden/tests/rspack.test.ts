@@ -1,5 +1,5 @@
 // import { describe, expect, test } from "bun:test";
-// import jpg from "../src/rspack";
+// import jpg from "../src/plugins/rspack";
 // import { build, getPath } from "./utils/build-utils";
 
 // describe("rspack", async () => {

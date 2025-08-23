@@ -9,10 +9,11 @@ export default defineConfig({
   entry: [
     // "./src/esbuild.ts",
     "./src/helpers/index.ts",
-    "./src/rollup.ts",
-    "./src/rspack.ts",
-    "./src/vite.ts",
-    "./src/webpack.ts"
+    "./src/index.ts",
+    "./src/plugins/rollup.ts",
+    "./src/plugins/rspack.ts",
+    "./src/plugins/vite.ts",
+    "./src/plugins/webpack.ts"
   ],
   format: ["cjs", "esm"],
   target: "es2022",

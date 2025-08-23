@@ -1,6 +1,6 @@
 // import { describe, expect, test } from "bun:test";
 // import postcss from "rollup-plugin-postcss";
-// import jpg from "../src/rollup";
+// import jpg from "../src/plugins/rollup";
 // import { build, getPath } from "./utils/build-utils";
 
 // describe("rollup", async () => {

@@ -8,9 +8,9 @@ import { isEqual, kebabCase } from "es-toolkit";
 import { cx } from "jade-garden/class-utils";
 import type { UnpluginFactory } from "unplugin";
 import { createFilter } from "unplugin-utils";
+import type { CVA, Options, SVA } from "../types";
 import { generateCVAStyles } from "./generators/cva";
 import { generateSVAStyles } from "./generators/sva";
-import type { CVA, Options, SVA } from "./types";
 
 // * Taken from: https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/src/test-utils/run.ts
 // const compileCss = async (css: string, candidates: string[] = [], options: Parameters<typeof compile>[1] = {}) => {
