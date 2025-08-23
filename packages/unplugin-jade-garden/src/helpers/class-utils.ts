@@ -1,6 +1,6 @@
 import type { JadeGarden } from "jade-garden";
 import { cx } from "jade-garden/class-utils";
-import type { UnpluginJadeGarden } from "./types";
+import type { ClassNameValue, NestedTraits } from "./types";
 
 /**
  * Generates CSS class names and data attributes for a part of an anatomy.
@@ -8,13 +8,13 @@ import type { UnpluginJadeGarden } from "./types";
  * @template T - An interface defining the shape of the data attributes.
  * @returns {string} A string of merged class names and data attributes.
  */
-export const traits = <T extends Record<string, UnpluginJadeGarden.NestedTraits | UnpluginJadeGarden.ClassNameValue>>(
+export const traits = <T extends Record<string, NestedTraits | ClassNameValue>>(
   props?: JadeGarden.ClassProp & { data?: T }
 ): string => {
   const appendDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
-    attributeValue: UnpluginJadeGarden.ClassNameValue
+    attributeValue: ClassNameValue
   ): string => {
     const prefix = dataAttributes.length ? " " : "";
     const dataAttributeStr = `data-[${attributeKey}]`;
@@ -33,7 +33,7 @@ export const traits = <T extends Record<string, UnpluginJadeGarden.NestedTraits 
   const appendConditionalDataAttribute = (
     dataAttributes: string,
     attributeKey: string,
-    attributeValue: UnpluginJadeGarden.NestedTraits
+    attributeValue: NestedTraits
   ): string => {
     let result = dataAttributes;
 

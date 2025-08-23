@@ -1,5 +1,15 @@
 /* ===================== Types ===================== */
 
+/**
+ * Represents the minimum structure to work with class names.
+ */
+export type ClassNameValue = string | string[];
+
+/**
+ * The shape of data attributes in a component's Headless Design System.
+ */
+export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassNameValue>> | ClassNameValue>>;
+
 /* ====================== CVA ====================== */
 
 /**
@@ -39,13 +49,13 @@
  */
 export type CVATraits<T extends Record<string, any>> = {
   [K in keyof T]?: T[K] extends ""
-    ? UnpluginJadeGarden.ClassNameValue | Partial<Record<PropertyKey, UnpluginJadeGarden.ClassNameValue>>
+    ? ClassNameValue | Partial<Record<PropertyKey, ClassNameValue>>
     : T[K] extends "number"
-      ? Partial<Record<PropertyKey, UnpluginJadeGarden.ClassNameValue>>
+      ? Partial<Record<PropertyKey, ClassNameValue>>
       : T[K] extends string
         ? string extends T[K]
           ? never
-          : Partial<Record<T[K], UnpluginJadeGarden.ClassNameValue>>
+          : Partial<Record<T[K], ClassNameValue>>
         : never;
 };
 
@@ -111,34 +121,13 @@ export type CVATraits<T extends Record<string, any>> = {
 export type SVATraits<Slots extends string, T extends { [S in Slots]?: Record<string, any> }> = {
   [K in keyof T]?: {
     [P in keyof T[K]]?: T[K][P] extends ""
-      ? UnpluginJadeGarden.ClassNameValue | Partial<Record<PropertyKey, UnpluginJadeGarden.ClassNameValue>>
+      ? ClassNameValue | Partial<Record<PropertyKey, ClassNameValue>>
       : T[K][P] extends "number"
-        ? Partial<Record<PropertyKey, UnpluginJadeGarden.ClassNameValue>>
+        ? Partial<Record<PropertyKey, ClassNameValue>>
         : T[K][P] extends string
           ? string extends T[K][P]
             ? never
-            : Partial<Record<T[K][P], UnpluginJadeGarden.ClassNameValue>>
+            : Partial<Record<T[K][P], ClassNameValue>>
           : never;
   };
 };
-
-/* =================== Internals =================== */
-
-/**
- * **FOR INTERNAL USE ONLY**
- *
- * Variety of types for the `unplugin-jade-garden` library.
- *
- * @internal
- */
-export namespace UnpluginJadeGarden {
-  /**
-   * Represents the minimum structure to work with class names.
-   */
-  export type ClassNameValue = string | string[];
-
-  /**
-   * The shape of data attributes in a component's Headless Design System.
-   */
-  export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassNameValue>> | ClassNameValue>>;
-}
