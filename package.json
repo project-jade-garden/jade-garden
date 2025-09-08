@@ -42,8 +42,8 @@
     "format": "turbo run format",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
-    "version": "changeset version && bun update",
-    "release": "for dir in packages/*; do (cd \"$dir\" && bun publish || true); done && changeset tag"
+    "version": "turbo run prepack && changeset version && bun update",
+    "release": "for dir in packages/*; do (cd \"$dir\" && bun publish || true); done && turbo run postpack && changeset tag"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
