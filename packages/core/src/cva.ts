@@ -1,5 +1,5 @@
 import { cx } from "./class-utils";
-import type { JadeGarden, MergeFn } from "./types";
+import type { ClassProp, CVA, CVAConfig, CVAReturnType, CVAVariants, MergeFn, Variant } from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
 /* ====================== CVA ====================== */
@@ -8,13 +8,11 @@ import { getVariantClasses, hasProps } from "./utils";
  * Creates a class variant authority (cva) function with a custom merge function.
  *
  * @param {MergeFn} mergeFn - The function to merge class names.
- * @returns {JadeGarden.CVA} The cva function.
+ * @returns {CVA} The cva function.
  */
-export const createCVA = (mergeFn: MergeFn = cx): JadeGarden.CVA => {
-  return <V extends JadeGarden.Variant>(config: JadeGarden.CVAConfig<V>): JadeGarden.CVAReturnType<V> => {
-    const component = (
-      props?: V extends JadeGarden.Variant ? JadeGarden.CVAVariants<V> & JadeGarden.ClassProp : JadeGarden.ClassProp
-    ): string => {
+export const createCVA = (mergeFn: MergeFn = cx): CVA => {
+  return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
+    const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
       // * Exit early if `base` is not defined or has a falsey value
       if (typeof config?.base === "undefined" || !config.base) return mergeFn(props?.class, props?.className);
 
@@ -68,7 +66,7 @@ export const createCVA = (mergeFn: MergeFn = cx): JadeGarden.CVA => {
  * Defines a type-safe structure for an CVA configuration object.
  * This utility allows you to define a CVA config with type checking.
  *
- * @returns {JadeGarden.CVAConfig<JadeGarden.Variant>} The CVA configuration object.
+ * @returns {CVAConfig<Variant>} The CVA configuration object.
  *
  * @example
  * ```ts
@@ -83,13 +81,12 @@ export const createCVA = (mergeFn: MergeFn = cx): JadeGarden.CVA => {
  * });
  * ```
  */
-export const defineCVA = <V extends JadeGarden.Variant>(config: JadeGarden.CVAConfig<V>): JadeGarden.CVAConfig<V> =>
-  config;
+export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
 
 /**
  * Implementation of the class variant authority (cva) function using the default class merging function.
  *
- * @type {JadeGarden.CVA}
+ * @type {CVA}
  *
  * @example
  * ```ts
@@ -121,4 +118,4 @@ export const defineCVA = <V extends JadeGarden.Variant>(config: JadeGarden.CVACo
  * const buttonClasses = button({ size: "small", intent: "primary" });
  * ```
  */
-export const cva: JadeGarden.CVA = createCVA();
+export const cva: CVA = createCVA();

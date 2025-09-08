@@ -1,6 +1,19 @@
 import { clsx } from "clsx";
 import { kebabCase } from "es-toolkit";
-import type { ClassStrings, ClassValue, JadeGarden, Traits } from "./types";
+import type {
+  ClassNameConfig,
+  ClassProp,
+  ClassStrings,
+  ClassValue,
+  CVAConfig,
+  CVAReturnType,
+  RecordClassValue,
+  SVAConfig,
+  SVAReturnType,
+  Traits,
+  Variant,
+  Variants
+} from "./types";
 
 /* ================== Class Utils ================= */
 
@@ -83,10 +96,10 @@ export {
  * type-safety for both CVA and SVA consumers.
  *
  * @overload
- * @template {JadeGarden.Variant} V
- * @param {JadeGarden.CVAConfig<V>} styleConfig A CVA configuration object.
- * @param {Omit<JadeGarden.ClassNameConfig, "twPrefix">} classNameConfig A shared (`unplugin-jade-garden`) options object for overriding generated classes.
- * @returns {JadeGarden.CVAReturnType<V>} A function that takes props and returns a class name string.
+ * @template {Variant} V
+ * @param {CVAConfig<V>} styleConfig A CVA configuration object.
+ * @param {Omit<ClassNameConfig, "twPrefix">} classNameConfig A shared (`unplugin-jade-garden`) options object for overriding generated classes.
+ * @returns {CVAReturnType<V>} A function that takes props and returns a class name string.
  *
  * @example
  * ```ts
@@ -102,10 +115,10 @@ export {
  * button({ size: "small", variant: "primary" }); // "button button__size--small button__variant--primary"
  * ```
  */
-export function getClasses<V extends JadeGarden.Variant>(
-  styleConfig: JadeGarden.CVAConfig<V>,
-  classNameConfig?: Omit<JadeGarden.ClassNameConfig, "twPrefix">
-): JadeGarden.CVAReturnType<V>;
+export function getClasses<V extends Variant>(
+  styleConfig: CVAConfig<V>,
+  classNameConfig?: Omit<ClassNameConfig, "twPrefix">
+): CVAReturnType<V>;
 
 /**
  * **SVA**
@@ -117,11 +130,11 @@ export function getClasses<V extends JadeGarden.Variant>(
  * type-safety for both CVA and SVA consumers.
  *
  * @overload
- * @template {JadeGarden.RecordClassValue} RCV
- * @template {JadeGarden.Variants<RCV>} VS
- * @param {JadeGarden.SVAConfig<RCV, VS>} styleConfig An SVA configuration object.
- * @param {Omit<JadeGarden.ClassNameConfig, "twPrefix">} classNameConfig A shared (`unplugin-jade-garden`) options object for overriding generated classes.
- * @returns {JadeGarden.SVAReturnType<RCV, VS>} An object of functions where each key corresponds to a slot.
+ * @template {RecordClassValue} RCV
+ * @template {Variants<RCV>} VS
+ * @param {SVAConfig<RCV, VS>} styleConfig An SVA configuration object.
+ * @param {Omit<ClassNameConfig, "twPrefix">} classNameConfig A shared (`unplugin-jade-garden`) options object for overriding generated classes.
+ * @returns {SVAReturnType<RCV, VS>} An object of functions where each key corresponds to a slot.
  *
  * @example
  * ```ts
@@ -140,14 +153,14 @@ export function getClasses<V extends JadeGarden.Variant>(
  * content(); // "card--content card--content__size--small"
  * ```
  */
-export function getClasses<RCV extends JadeGarden.RecordClassValue, VS extends JadeGarden.Variants<RCV>>(
-  styleConfig: JadeGarden.SVAConfig<RCV, VS>,
-  classNameConfig?: Omit<JadeGarden.ClassNameConfig, "twPrefix">
-): JadeGarden.SVAReturnType<RCV, VS>;
+export function getClasses<RCV extends RecordClassValue, VS extends Variants<RCV>>(
+  styleConfig: SVAConfig<RCV, VS>,
+  classNameConfig?: Omit<ClassNameConfig, "twPrefix">
+): SVAReturnType<RCV, VS>;
 
 export function getClasses(
-  styleConfig: JadeGarden.CVAConfig<any> | JadeGarden.SVAConfig<any, any>,
-  classNameConfig?: Omit<JadeGarden.ClassNameConfig, "twPrefix">
+  styleConfig: CVAConfig<any> | SVAConfig<any, any>,
+  classNameConfig?: Omit<ClassNameConfig, "twPrefix">
 ): any {
   const mergeFn = classNameConfig?.mergeFn ?? clsx;
   const jgPrefix = classNameConfig?.jgPrefix;
@@ -277,9 +290,7 @@ export const prefixClasses = (
  * @template T - An interface defining the shape of the data attributes.
  * @returns {string} A string of merged class names and data attributes.
  */
-export const traits = <T extends Traits<Record<string, any>>>(
-  options?: JadeGarden.ClassProp & { data?: T }
-): string => {
+export const traits = <T extends Traits<Record<string, any>>>(options?: ClassProp & { data?: T }): string => {
   const appendDataAttribute = (dataAttributes: string, attributeKey: string, attributeValue: ClassStrings): string => {
     const prefix = dataAttributes.length ? " " : "";
     const dataAttributeStr = `data-[${attributeKey}]`;

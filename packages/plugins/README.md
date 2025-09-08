@@ -259,7 +259,7 @@ export type Options = {
    * }
    * ```
    */
-  classNameConfig?: JadeGarden.ClassNameConfig;
+  classNameConfig?: ClassNameConfig;
 };
 ```
 

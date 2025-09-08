@@ -1,10 +1,10 @@
 import { kebabCase } from "es-toolkit";
-import { cx, type JadeGarden, prefixClasses } from "jade-garden";
+import { type ClassNameConfig, cx, prefixClasses } from "jade-garden";
 import type { CVA } from "../types";
 
 /* ===================== CVA ===================== */
 
-export const generateCVAStyles = (config: CVA, classNameConfig: JadeGarden.ClassNameConfig): string => {
+export const generateCVAStyles = (config: CVA, classNameConfig: ClassNameConfig): string => {
   const mergeFn = classNameConfig?.mergeFn ?? cx;
   const jgPrefix = classNameConfig?.jgPrefix;
   const twPrefix = classNameConfig?.twPrefix;
@@ -29,8 +29,9 @@ export const generateCVAStyles = (config: CVA, classNameConfig: JadeGarden.Class
       const variantConditions = Object.keys(compoundVariant)
         .filter((key) => key !== "class" && key !== "className")
         .map((key) => {
-          // TODO: Need to resolve `any`
-          // @ts-expect-error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type.
+          // TODO
+          // biome-ignore lint/suspicious/noTsIgnore: There seems to be an internal build issue with `unplugin-jade-garden` in the `generators` directory. Switching between `dist` and `src` you will see the issue. Setting "@ts-ignore" for now.
+          // @ts-ignore: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type.
           return `.${componentName}.${componentName}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`;
         })
         .join(",\n  ");

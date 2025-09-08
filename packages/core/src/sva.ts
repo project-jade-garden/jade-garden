@@ -1,5 +1,15 @@
 import { cx } from "./class-utils";
-import type { ClassValue, JadeGarden, MergeFn } from "./types";
+import type {
+  ClassProp,
+  ClassValue,
+  MergeFn,
+  RecordClassValue,
+  SVA,
+  SVAConfig,
+  SVAReturnType,
+  SVAVariants,
+  Variants
+} from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
 /* ====================== SVA ====================== */
@@ -8,14 +18,12 @@ import { getVariantClasses, hasProps } from "./utils";
  * Creates a slots variants authority (SVA) function with a custom merge function.
  *
  * @param {MergeFn} mergeFn - The function to merge class names.
- * @returns {JadeGarden.SVA} The sva function.
+ * @returns {SVA} The sva function.
  */
-export const createSVA = (mergeFn: MergeFn = cx): JadeGarden.SVA => {
-  return <RCV extends JadeGarden.RecordClassValue, V extends JadeGarden.Variants<RCV>>(
-    config: JadeGarden.SVAConfig<RCV, V>
-  ): JadeGarden.SVAReturnType<RCV, V> => {
-    const components = (props?: JadeGarden.SVAVariants<RCV, V>) => {
-      type SlotProps = JadeGarden.SVAVariants<typeof slots, typeof variants> & JadeGarden.ClassProp;
+export const createSVA = (mergeFn: MergeFn = cx): SVA => {
+  return <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVAConfig<RCV, V>): SVAReturnType<RCV, V> => {
+    const components = (props?: SVAVariants<RCV, V>) => {
+      type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
@@ -59,7 +67,7 @@ export const createSVA = (mergeFn: MergeFn = cx): JadeGarden.SVA => {
       // * Exit early if variants do not exist or is not an object
       if (typeof config?.variants !== "object" || Array.isArray(config.variants)) {
         for (const slotKey of Object.keys(slots)) {
-          slotsFns[slotKey] = (slotProps: JadeGarden.SVAVariants<RCV, V> & JadeGarden.ClassProp = {}) => {
+          slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
             return mergeFn(
               slots[slotKey],
               getCompoundSlotClasses({ ...props, ...slotProps })[slotKey],
@@ -108,7 +116,7 @@ export const createSVA = (mergeFn: MergeFn = cx): JadeGarden.SVA => {
 
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: JadeGarden.SVAVariants<RCV, V> & JadeGarden.ClassProp = {}) => {
+        slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
           const configProps = { ...defaultsAndProps, ...slotProps };
           return mergeFn(
             slots[slotKey],
@@ -124,7 +132,7 @@ export const createSVA = (mergeFn: MergeFn = cx): JadeGarden.SVA => {
       return slotsFns;
     };
 
-    return components as JadeGarden.SVAReturnType<RCV, V>;
+    return components as SVAReturnType<RCV, V>;
   };
 };
 
@@ -179,15 +187,15 @@ export const createSVA = (mergeFn: MergeFn = cx): JadeGarden.SVA => {
  * ```
  */
 export const defineSVA = <Slots extends string>(_slots: readonly Slots[]) => {
-  return <RCV extends { [S in Slots]?: ClassValue }, V extends JadeGarden.Variants<RCV>>(
-    config: JadeGarden.SVAConfig<RCV, V>
-  ): JadeGarden.SVAConfig<RCV, V> => config;
+  return <RCV extends { [S in Slots]?: ClassValue }, V extends Variants<RCV>>(
+    config: SVAConfig<RCV, V>
+  ): SVAConfig<RCV, V> => config;
 };
 
 /**
  * Implementation of the slots variants authority (SVA) function using the default class merging function.
  *
- * @type {JadeGarden.SVA}
+ * @type {SVA}
  *
  * @example
  * ```ts
@@ -216,4 +224,4 @@ export const defineSVA = <Slots extends string>(_slots: readonly Slots[]) => {
  * const buttonClasses = button({ size: "small" });
  * ```
  */
-export const sva: JadeGarden.SVA = createSVA();
+export const sva: SVA = createSVA();

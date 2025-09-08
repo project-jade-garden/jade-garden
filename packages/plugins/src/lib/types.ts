@@ -1,6 +1,6 @@
-import type { JadeGarden } from "jade-garden";
-
 /* ===================== Types ===================== */
+
+import type { ClassNameConfig, CVAConfig, SVAConfig } from "jade-garden";
 
 export type Options = {
   /**
@@ -123,7 +123,7 @@ export type Options = {
    * }
    * ```
    */
-  classNameConfig?: JadeGarden.ClassNameConfig;
+  classNameConfig?: ClassNameConfig;
 };
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
@@ -134,8 +134,8 @@ export type StyleConfigs = {
 
 /* ====================== CVA ====================== */
 
-export type CVA = JadeGarden.CVAConfig<any>;
+export type CVA = CVAConfig<any>;
 
 /* ====================== SVA ====================== */
 
-export type SVA = JadeGarden.SVAConfig<any, any>;
+export type SVA = SVAConfig<any, any>;

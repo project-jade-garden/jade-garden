@@ -121,415 +121,414 @@ export type VariantProps<Component extends (...args: any) => any> = Omit<
  *
  * @internal
  */
-export namespace JadeGarden {
-  /* ===================== Types ===================== */
 
-  /**
-   * Represents the `class` and `className` props for `cva` and `sva`.
-   * Ensures that only one of `class` or `className` is present.
-   */
-  export type ClassProp =
-    | {
-        class?: ClassValue;
-        className?: never;
-      }
-    | {
-        class?: never;
-        className?: ClassValue;
-      };
+/* ===================== Types ===================== */
 
-  /**
-   * The shape of data attributes in a component's Headless Design System.
-   */
-  export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassStrings>> | ClassStrings>>;
-
-  /**
-   * A shared options object for overriding generated classes in `getClasses`.
-   *
-   * Used in conjunction with `unplugin-jade-garden`.
-   */
-  export type ClassNameConfig = {
-    /**
-     * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
-     *
-     * You may provide your own custom function to handle merging class names,
-     * use `tailwind-merge` for handling class conflicts,
-     * or `jade-garden`'s `cn` utility for more performant runtimes.
-     */
-    mergeFn?: MergeFn;
-
-    /**
-     * An optional prefix to modify `jade-garden` generated class names.
-     *
-     * i.e. "*prefix:componentName--componentSlot__variantName--variantType*"
-     */
-    jgPrefix?: string;
-
-    /**
-     * An optional prefix to modify `tailwind` class names.
-     *
-     * @see [source](https://tailwindcss.com/docs/upgrade-guide#using-a-prefix)
-     */
-    twPrefix?: string;
-  };
-
-  /**
-   * Represents a dictionary where keys are strings and values are ClassValue.
-   */
-  export type RecordClassValue = Record<string, ClassValue>;
-
-  /**
-   * Converts "true" or "false" string literals to boolean types.
-   * Otherwise, returns the original type.
-   *
-   * @template T - The type to convert.
-   * @returns {T extends "true" | "false" ? boolean : T} The converted type.
-   */
-  export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
-
-  /* ====================== CVA ====================== */
-
-  /**
-   * Represents the variant configurations for `cva`.
-   * Each variant is a record of class names, keyed by variant values.
-   *
-   * @example
-   * ```ts
-   * {
-   *   size: {
-   *     small: "text-sm py-1 px-2",
-   *     medium: "text-base py-2 px-4",
-   *   },
-   *   intent: {
-   *     primary: "bg-blue-500 text-white",
-   *     secondary: "bg-gray-200 text-gray-800",
-   *   }
-   * }
-   * ```
-   */
-  export type Variant = Record<string, RecordClassValue>;
-
-  /**
-   * Represents the schema for variant props in `cva`.
-   * Each variant prop is typed as a StringToBoolean of the corresponding variant value keys.
-   *
-   * @template V - The type of variants.
-   * @example
-   * ```ts
-   * type ButtonVariants = CVAVariants<{
-   *   size: { small: string; medium: string };
-   *   intent: { primary: string; secondary: string };
-   * }>;
-   * // ButtonVariants = { size?: "small" | "medium"; intent?: "primary" | "secondary" };
-   * ```
-   */
-  export type CVAVariants<V extends Variant> = {
-    [K in keyof V]?: StringToBoolean<keyof V[K]>;
-  };
-
-  /**
-   * Represents the configuration object for the `cva` function.
-   *
-   * @template V - The type of variants.
-   * @property {string=} name - Optional component name.
-   * @property {ClassValue=} base - The base class name for the component.
-   * @property {V=} variants - Variants allow you to create multiple versions of the same component.
-   * @property {(V extends Variant ? (CVAVariants<V> | { [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[]; }) & ClassProp : ClassProp)[]=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
-   * @property {CVAVariants<V>=} defaultVariants - Default variants allow you to set default variants for a component.
-   *
-   * @example
-   * ```ts
-   * const buttonConfig: CVAConfig<{
-   *   size: { small: string; medium: string };
-   *   intent: { primary: string; secondary: string };
-   * }> = {
-   *   base: "rounded-md",
-   *   variants: {
-   *     size: {
-   *       small: "text-sm",
-   *       medium: "text-base"
-   *     },
-   *     intent: {
-   *       primary: "bg-blue-500",
-   *       secondary: "bg-gray-200"
-   *     }
-   *   },
-   *   compoundVariants: [
-   *     {
-   *       size: "small",
-   *       intent: "primary",
-   *       class: "font-bold"
-   *     }
-   *   ],
-   *   defaultVariants: {
-   *     size: "medium",
-   *     intent: "primary"
-   *   }
-   * };
-   * ```
-   */
-  export type CVAConfig<V extends Variant> = {
-    /**
-     * The name of the cva component.
-     */
-    name?: string;
-    /**
-     * The base class name for the component.
-     */
-    base?: ClassValue;
-    /**
-     * Variants allow you to create multiple versions of the same component.
-     */
-    variants?: V;
-    /**
-     * Compound variants allow you to apply classes to multiple variants at once.
-     */
-    compoundVariants?: (V extends Variant
-      ? (
-          | CVAVariants<V>
-          | {
-              [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
-            }
-        ) &
-          ClassProp
-      : ClassProp)[];
-    /**
-     * Default variants allow you to set default variants for a component.
-     */
-    defaultVariants?: CVAVariants<V>;
-  };
-
-  /**
-   * Represents the return type of the CVA function.
-   *
-   * @template V - The type of variants.
-   * @returns {(props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string} A function that generates class names based on props.
-   */
-  export type CVAReturnType<V extends Variant> = (
-    props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
-  ) => string;
-
-  /**
-   * Creates a class variant authority (cva) function.
-   * Generates class names based on provided variants and props.
-   *
-   * @template V - The type of variants.
-   * @param {CVAConfig<V>} config - The cva configuration object.
-   * @returns {CVAReturnType<V>} A function that generates class names based on props.
-   */
-  export type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
-
-  /* ====================== SVA ====================== */
-
-  /**
-   * Represents the class values for slots, where keys are slot names and values are class names.
-   *
-   * @template RCV - The type of record class values.
-   * @example
-   * ```ts
-   * type ButtonSlots = SlotsClassValue<{ root: string; item: string }>;
-   * // ButtonSlots = { root?: ClassValue; item?: ClassValue };
-   * ```
-   */
-  type SlotsClassValue<RCV extends JadeGarden.RecordClassValue> = {
-    [K in keyof RCV]?: ClassValue;
-  };
-
-  /**
-   * Represents the default variants for a component.
-   *
-   * @template RCV - The type of record class values.
-   * @example
-   * ```ts
-   * {
-   *   size: {
-   *     small: {
-   *       root: "text-sm"
-   *     },
-   *     medium: {
-   *       root: "text-base"
-   *     }
-   *   }
-   * }
-   * ```
-   */
-  type DefaultVariants<RCV extends JadeGarden.RecordClassValue> = {
-    [key: string]: {
-      [key: string]: SlotsClassValue<RCV>;
+/**
+ * Represents the `class` and `className` props for `cva` and `sva`.
+ * Ensures that only one of `class` or `className` is present.
+ */
+export type ClassProp =
+  | {
+      class?: ClassValue;
+      className?: never;
+    }
+  | {
+      class?: never;
+      className?: ClassValue;
     };
+
+/**
+ * The shape of data attributes in a component's Headless Design System.
+ */
+export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassStrings>> | ClassStrings>>;
+
+/**
+ * A shared options object for overriding generated classes in `getClasses`.
+ *
+ * Used in conjunction with `unplugin-jade-garden`.
+ */
+export type ClassNameConfig = {
+  /**
+   * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
+   *
+   * You may provide your own custom function to handle merging class names,
+   * use `tailwind-merge` for handling class conflicts,
+   * or `jade-garden`'s `cn` utility for more performant runtimes.
+   */
+  mergeFn?: MergeFn;
+
+  /**
+   * An optional prefix to modify `jade-garden` generated class names.
+   *
+   * i.e. "*prefix:componentName--componentSlot__variantName--variantType*"
+   */
+  jgPrefix?: string;
+
+  /**
+   * An optional prefix to modify `tailwind` class names.
+   *
+   * @see [source](https://tailwindcss.com/docs/upgrade-guide#using-a-prefix)
+   */
+  twPrefix?: string;
+};
+
+/**
+ * Represents a dictionary where keys are strings and values are ClassValue.
+ */
+export type RecordClassValue = Record<string, ClassValue>;
+
+/**
+ * Converts "true" or "false" string literals to boolean types.
+ * Otherwise, returns the original type.
+ *
+ * @template T - The type to convert.
+ * @returns {T extends "true" | "false" ? boolean : T} The converted type.
+ */
+export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
+
+/* ====================== CVA ====================== */
+
+/**
+ * Represents the variant configurations for `cva`.
+ * Each variant is a record of class names, keyed by variant values.
+ *
+ * @example
+ * ```ts
+ * {
+ *   size: {
+ *     small: "text-sm py-1 px-2",
+ *     medium: "text-base py-2 px-4",
+ *   },
+ *   intent: {
+ *     primary: "bg-blue-500 text-white",
+ *     secondary: "bg-gray-200 text-gray-800",
+ *   }
+ * }
+ * ```
+ */
+export type Variant = Record<string, RecordClassValue>;
+
+/**
+ * Represents the schema for variant props in `cva`.
+ * Each variant prop is typed as a StringToBoolean of the corresponding variant value keys.
+ *
+ * @template V - The type of variants.
+ * @example
+ * ```ts
+ * type ButtonVariants = CVAVariants<{
+ *   size: { small: string; medium: string };
+ *   intent: { primary: string; secondary: string };
+ * }>;
+ * // ButtonVariants = { size?: "small" | "medium"; intent?: "primary" | "secondary" };
+ * ```
+ */
+export type CVAVariants<V extends Variant> = {
+  [K in keyof V]?: StringToBoolean<keyof V[K]>;
+};
+
+/**
+ * Represents the configuration object for the `cva` function.
+ *
+ * @template V - The type of variants.
+ * @property {string=} name - Optional component name.
+ * @property {ClassValue=} base - The base class name for the component.
+ * @property {V=} variants - Variants allow you to create multiple versions of the same component.
+ * @property {(V extends Variant ? (CVAVariants<V> | { [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[]; }) & ClassProp : ClassProp)[]=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
+ * @property {CVAVariants<V>=} defaultVariants - Default variants allow you to set default variants for a component.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig: CVAConfig<{
+ *   size: { small: string; medium: string };
+ *   intent: { primary: string; secondary: string };
+ * }> = {
+ *   base: "rounded-md",
+ *   variants: {
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     },
+ *     intent: {
+ *       primary: "bg-blue-500",
+ *       secondary: "bg-gray-200"
+ *     }
+ *   },
+ *   compoundVariants: [
+ *     {
+ *       size: "small",
+ *       intent: "primary",
+ *       class: "font-bold"
+ *     }
+ *   ],
+ *   defaultVariants: {
+ *     size: "medium",
+ *     intent: "primary"
+ *   }
+ * };
+ * ```
+ */
+export type CVAConfig<V extends Variant> = {
+  /**
+   * The name of the cva component.
+   */
+  name?: string;
+  /**
+   * The base class name for the component.
+   */
+  base?: ClassValue;
+  /**
+   * Variants allow you to create multiple versions of the same component.
+   */
+  variants?: V;
+  /**
+   * Compound variants allow you to apply classes to multiple variants at once.
+   */
+  compoundVariants?: (V extends Variant
+    ? (
+        | CVAVariants<V>
+        | {
+            [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
+          }
+      ) &
+        ClassProp
+    : ClassProp)[];
+  /**
+   * Default variants allow you to set default variants for a component.
+   */
+  defaultVariants?: CVAVariants<V>;
+};
+
+/**
+ * Represents the return type of the CVA function.
+ *
+ * @template V - The type of variants.
+ * @returns {(props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string} A function that generates class names based on props.
+ */
+export type CVAReturnType<V extends Variant> = (
+  props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
+) => string;
+
+/**
+ * Creates a class variant authority (cva) function.
+ * Generates class names based on provided variants and props.
+ *
+ * @template V - The type of variants.
+ * @param {CVAConfig<V>} config - The cva configuration object.
+ * @returns {CVAReturnType<V>} A function that generates class names based on props.
+ */
+export type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
+
+/* ====================== SVA ====================== */
+
+/**
+ * Represents the class values for slots, where keys are slot names and values are class names.
+ *
+ * @template RCV - The type of record class values.
+ * @example
+ * ```ts
+ * type ButtonSlots = SlotsClassValue<{ root: string; item: string }>;
+ * // ButtonSlots = { root?: ClassValue; item?: ClassValue };
+ * ```
+ */
+type SlotsClassValue<RCV extends RecordClassValue> = {
+  [K in keyof RCV]?: ClassValue;
+};
+
+/**
+ * Represents the default variants for a component.
+ *
+ * @template RCV - The type of record class values.
+ * @example
+ * ```ts
+ * {
+ *   size: {
+ *     small: {
+ *       root: "text-sm"
+ *     },
+ *     medium: {
+ *       root: "text-base"
+ *     }
+ *   }
+ * }
+ * ```
+ */
+type DefaultVariants<RCV extends RecordClassValue> = {
+  [key: string]: {
+    [key: string]: SlotsClassValue<RCV>;
   };
+};
 
-  /**
-   * Reusable type for compound styles that apply based on multiple variant combinations.
-   *
-   * @template RCV - The type of record class values.
-   * @template V - The type of variants.
-   * @example
-   * ```ts
-   * type ButtonCompound = CompoundBase<
-   *   { root: string; item: string },
-   *   { size: { small: { root: string }; medium: { root: string } } }
-   * >;
-   * // ButtonCompound = { size?: "small" | "medium" | ("small" | "medium")[] };
-   * ```
-   */
-  type CompoundBase<RCV extends JadeGarden.RecordClassValue, V extends JadeGarden.Variants<RCV>> = {
-    [K in keyof V]?: JadeGarden.StringToBoolean<keyof V[K]> | JadeGarden.StringToBoolean<keyof V[K]>[];
-  };
+/**
+ * Reusable type for compound styles that apply based on multiple variant combinations.
+ *
+ * @template RCV - The type of record class values.
+ * @template V - The type of variants.
+ * @example
+ * ```ts
+ * type ButtonCompound = CompoundBase<
+ *   { root: string; item: string },
+ *   { size: { small: { root: string }; medium: { root: string } } }
+ * >;
+ * // ButtonCompound = { size?: "small" | "medium" | ("small" | "medium")[] };
+ * ```
+ */
+type CompoundBase<RCV extends RecordClassValue, V extends Variants<RCV>> = {
+  [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
+};
 
-  /**
-   * Represents the variants for a component.
-   *
-   * @template RCV - The type of record class values.
-   * @template V - The type of variants.
-   * @example
-   * ```ts
-   * type ButtonVariants = Variants<
-   *   {
-   *     root: string;
-   *     item: string;
-   *   },
-   *   {
-   *     size: {
-   *       small: {
-   *         root: string;
-   *       };
-   *       medium: {
-   *         root: string;
-   *       };
-   *     };
-   *   }
-   * >;
-   * // type ButtonVariants =
-   * // | { size?: { small?: { root?: ClassValue }; medium?: { root?: ClassValue } } }
-   * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
-   * ```
-   */
-  export type Variants<RCV extends RecordClassValue, V extends DefaultVariants<RCV> = DefaultVariants<RCV>> =
-    | {
-        [K in keyof V]?: {
-          [K2 in keyof V[K]]?: SlotsClassValue<RCV>;
-        };
-      }
-    | DefaultVariants<RCV>;
+/**
+ * Represents the variants for a component.
+ *
+ * @template RCV - The type of record class values.
+ * @template V - The type of variants.
+ * @example
+ * ```ts
+ * type ButtonVariants = Variants<
+ *   {
+ *     root: string;
+ *     item: string;
+ *   },
+ *   {
+ *     size: {
+ *       small: {
+ *         root: string;
+ *       };
+ *       medium: {
+ *         root: string;
+ *       };
+ *     };
+ *   }
+ * >;
+ * // type ButtonVariants =
+ * // | { size?: { small?: { root?: ClassValue }; medium?: { root?: ClassValue } } }
+ * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
+ * ```
+ */
+export type Variants<RCV extends RecordClassValue, V extends DefaultVariants<RCV> = DefaultVariants<RCV>> =
+  | {
+      [K in keyof V]?: {
+        [K2 in keyof V[K]]?: SlotsClassValue<RCV>;
+      };
+    }
+  | DefaultVariants<RCV>;
 
-  /**
-   * Represents the props for a component with variants and slots.
-   *
-   * @template RCV - The type of record class values.
-   * @template V - The type of variants.
-   * @example
-   * ```ts
-   * type ButtonProps = SVAVariants<
-   *   { root: string; item: string },
-   *   { size: { small: { root: string }; medium: { root: string } } }
-   * >;
-   * // ButtonProps = { size?: "small" | "medium" };
-   * ```
-   */
-  export type SVAVariants<RCV extends RecordClassValue, V extends Variants<RCV>> = {
-    [K in keyof V]?: StringToBoolean<keyof V[K]>;
-  };
+/**
+ * Represents the props for a component with variants and slots.
+ *
+ * @template RCV - The type of record class values.
+ * @template V - The type of variants.
+ * @example
+ * ```ts
+ * type ButtonProps = SVAVariants<
+ *   { root: string; item: string },
+ *   { size: { small: { root: string }; medium: { root: string } } }
+ * >;
+ * // ButtonProps = { size?: "small" | "medium" };
+ * ```
+ */
+export type SVAVariants<RCV extends RecordClassValue, V extends Variants<RCV>> = {
+  [K in keyof V]?: StringToBoolean<keyof V[K]>;
+};
 
+/**
+ * Represents the configuration object for the `sva` function.
+ *
+ * @template RCV - The type of record class values.
+ * @template V - The type of variants.
+ * @property {string=} name - Optional component name.
+ * @property {S=} slots - Slots allow you to separate a component into multiple parts.
+ * @property {V=} variants - Variants allow you to create multiple versions of the same component.
+ * @property {Array<CompoundBase<RCV, V> & ( { class?: SlotsClassValue<RCV>; className?: never; } | { class?: never; className?: SlotsClassValue<RCV>; } )>=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
+ * @property {Array<{ slots: Array<keyof S> } & CompoundBase<RCV, V> & ClassProp>=} compoundSlots - Compound slots allow you to apply classes to multiple slots at once.
+ * @property {SVAVariants<RCV, V>=} defaultVariants - Default variants allow you to set default variants for a component.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig: SVAConfig<
+ *   { root: string; item: string },
+ *   { size: { small: { root: string }; medium: { root: string } } }
+ * > = {
+ *   slots: {
+ *     root: "flex",
+ *     item: "px-2 py-1"
+ *   },
+ *   variants: {
+ *     size: {
+ *       small: {
+ *         root: "text-sm"
+ *       },
+ *       medium: {
+ *         root: "text-base"
+ *       }
+ *     }
+ *   },
+ *   compoundVariants: [{ size: "small", class: { root: "font-bold" } }],
+ *   compoundSlots: [{ slots: ["root", "item"], class: "rounded" }],
+ *   defaultVariants: {
+ *     size: "medium"
+ *   }
+ * };
+ * ```
+ */
+export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
   /**
-   * Represents the configuration object for the `sva` function.
-   *
-   * @template RCV - The type of record class values.
-   * @template V - The type of variants.
-   * @property {string=} name - Optional component name.
-   * @property {S=} slots - Slots allow you to separate a component into multiple parts.
-   * @property {V=} variants - Variants allow you to create multiple versions of the same component.
-   * @property {Array<CompoundBase<RCV, V> & ( { class?: SlotsClassValue<RCV>; className?: never; } | { class?: never; className?: SlotsClassValue<RCV>; } )>=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
-   * @property {Array<{ slots: Array<keyof S> } & CompoundBase<RCV, V> & ClassProp>=} compoundSlots - Compound slots allow you to apply classes to multiple slots at once.
-   * @property {SVAVariants<RCV, V>=} defaultVariants - Default variants allow you to set default variants for a component.
-   *
-   * @example
-   * ```ts
-   * const buttonConfig: SVAConfig<
-   *   { root: string; item: string },
-   *   { size: { small: { root: string }; medium: { root: string } } }
-   * > = {
-   *   slots: {
-   *     root: "flex",
-   *     item: "px-2 py-1"
-   *   },
-   *   variants: {
-   *     size: {
-   *       small: {
-   *         root: "text-sm"
-   *       },
-   *       medium: {
-   *         root: "text-base"
-   *       }
-   *     }
-   *   },
-   *   compoundVariants: [{ size: "small", class: { root: "font-bold" } }],
-   *   compoundSlots: [{ slots: ["root", "item"], class: "rounded" }],
-   *   defaultVariants: {
-   *     size: "medium"
-   *   }
-   * };
-   * ```
+   * The name of the sva component.
    */
-  export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
-    /**
-     * The name of the sva component.
-     */
-    name?: string;
-    /**
-     * Slots allow you to separate a component into multiple parts.
-     */
-    slots?: RCV;
-    /**
-     * Variants allow you to create multiple versions of the same component.
-     */
-    variants?: V;
-    /**
-     * Compound variants allow you to apply classes to multiple variants at once.
-     */
-    compoundVariants?: Array<
-      CompoundBase<RCV, V> &
-        (
-          | {
-              class?: SlotsClassValue<RCV>;
-              className?: never;
-            }
-          | {
-              class?: never;
-              className?: SlotsClassValue<RCV>;
-            }
-        )
-    >;
-    /**
-     * Compound slots allow you to apply classes to multiple slots at once.
-     */
-    compoundSlots?: Array<{ slots: Array<keyof RCV> } & CompoundBase<RCV, V> & ClassProp>;
-    /**
-     * Default variants allow you to set default variants for a component.
-     */
-    defaultVariants?: SVAVariants<RCV, V>;
-  };
+  name?: string;
+  /**
+   * Slots allow you to separate a component into multiple parts.
+   */
+  slots?: RCV;
+  /**
+   * Variants allow you to create multiple versions of the same component.
+   */
+  variants?: V;
+  /**
+   * Compound variants allow you to apply classes to multiple variants at once.
+   */
+  compoundVariants?: Array<
+    CompoundBase<RCV, V> &
+      (
+        | {
+            class?: SlotsClassValue<RCV>;
+            className?: never;
+          }
+        | {
+            class?: never;
+            className?: SlotsClassValue<RCV>;
+          }
+      )
+  >;
+  /**
+   * Compound slots allow you to apply classes to multiple slots at once.
+   */
+  compoundSlots?: Array<{ slots: Array<keyof RCV> } & CompoundBase<RCV, V> & ClassProp>;
+  /**
+   * Default variants allow you to set default variants for a component.
+   */
+  defaultVariants?: SVAVariants<RCV, V>;
+};
 
-  /**
-   * Represents the return type of the SVA function.
-   *
-   * @template RCV - The type of record class values.
-   * @template V - The type of variants.
-   * @returns {(props?: SVAVariants<RCV, V>) => { [K in keyof S]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
-   */
-  export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = (props?: SVAVariants<RCV, V>) => {
-    [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
-  };
+/**
+ * Represents the return type of the SVA function.
+ *
+ * @template RCV - The type of record class values.
+ * @template V - The type of variants.
+ * @returns {(props?: SVAVariants<RCV, V>) => { [K in keyof S]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
+ */
+export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = (props?: SVAVariants<RCV, V>) => {
+  [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
+};
 
-  /**
-   * Creates a slots variants authority (SVA) function for a component.
-   *
-   * @template RCV - The type of record class values.
-   * @template V - The type of variants.
-   * @param {SVAConfig<RCV, V>} config - Configuration options for the SVA function.
-   * @returns {SVAReturnType<RCV, V>} The return type of the SVA function.
-   */
-  export type SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
-    config: SVAConfig<RCV, V>
-  ) => SVAReturnType<RCV, V>;
-}
+/**
+ * Creates a slots variants authority (SVA) function for a component.
+ *
+ * @template RCV - The type of record class values.
+ * @template V - The type of variants.
+ * @param {SVAConfig<RCV, V>} config - Configuration options for the SVA function.
+ * @returns {SVAReturnType<RCV, V>} The return type of the SVA function.
+ */
+export type SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
+  config: SVAConfig<RCV, V>
+) => SVAReturnType<RCV, V>;
