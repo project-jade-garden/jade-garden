@@ -1,3 +1,8 @@
 {
-  "recommendations": ["biomejs.biome", "bradlc.vscode-tailwindcss", "svelte.svelte-vscode", "Vue.volar"]
+  "recommendations": [
+    "biomejs.biome",
+    "bradlc.vscode-tailwindcss",
+    "Nuxtr.nuxt-vscode-extentions",
+    "svelte.svelte-vscode"
+  ]
 }

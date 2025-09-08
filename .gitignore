@@ -34,6 +34,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 
 coverage
+packages/**/components/**/*.css
 *.lcov
 
 # nyc test coverage
@@ -55,6 +56,7 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 
 build/Release
+package.json.backup
 
 # Dependency directories
 
@@ -123,7 +125,11 @@ out
 
 # Nuxt.js build / generate output
 
+.cache
+.data
+.nitro
 .nuxt
+.output
 dist
 
 # SvelteKit build output

@@ -3,7 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+
+    // * Overrides to '@internationalized/date'
+    "exactOptionalPropertyTypes": false,
+    "noImplicitAny": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "verbatimModuleSyntax": false
   },
   "exclude": ["node_modules", "dist"],
   "include": ["src"]

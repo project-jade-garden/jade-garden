@@ -1,3 +1,0 @@
-# Jade Garden
-
-TODO

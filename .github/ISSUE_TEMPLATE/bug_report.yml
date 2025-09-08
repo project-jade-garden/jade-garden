@@ -1,0 +1,69 @@
+name: "Bug Report"
+description: "Submit a bug report"
+labels: ["triage"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+        Kindly check for existing open or closed issues prior to submitting.
+        There's a possibility that your report has already been addressed! 😊
+  - type: "textarea"
+    id: "description"
+    attributes:
+      label: "Description"
+      description: "A brief description of the issue."
+      placeholder: |
+        When I ____, I expected ____ to happen but ____ happened instead.
+    validations:
+      required: true
+  - type: "input"
+    id: "reproduction"
+    attributes:
+      label: "Link to Reproduction (or Detailed Explanation)"
+      description: |
+        Issues without a reproduction will be closed.
+    validations:
+      required: true
+  - type: "textarea"
+    id: "steps"
+    attributes:
+      label: "Steps to Reproduce"
+      description: |
+        Explain how to trigger the issue in the provided reproduction.
+      placeholder: |
+        1. Go to "..."
+        2. Click on "..."
+        3. Scroll down to "..."
+        4. See error
+    validations:
+      required: true
+  - type: "input"
+    id: "version"
+    attributes:
+      label: "Version"
+      description: "The version of Jade Garden you are using."
+      placeholder: "e.g., 1.0.0"
+    validations:
+      required: true
+  - type: "checkboxes"
+    id: "library"
+    attributes:
+      label: "Library"
+      description: "The library in use (select all that apply)"
+      options:
+        - label: "jade-garden"
+        - label: "unplugin-jade-garden"
+  - type: "input"
+    id: "tailwindcss-version"
+    attributes:
+      label: "Tailwind CSS Version"
+      description: "The version of Tailwind CSS you are using, if applicable."
+      placeholder: "e.g., 4.0.0"
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "Additional Information"
+      description: |
+        Provide any additional information that might be helpful, such as screenshots, logs, error messages, or the impact of the bug. Links to relevant discussions or ideas are also welcome.

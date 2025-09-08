@@ -4,6 +4,8 @@
     "source.organizeImports.biome": "always"
   },
   "files.exclude": {
+    "**/.data": true,
+    "**/.nuxt": true,
     "**/.turbo": true,
     "**/dist": true,
     "**/node_modules": true,
@@ -13,13 +15,34 @@
     "react": "React-components",
     "solid": "Core"
   },
-  // https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
-  "tailwindCSS.experimental.classRegex": [["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]],
+
+  "mdc.enableComponentMetadataCompletions": true,
+  // https://github.com/nuxtlabs/vscode-mdc?tab=readme-ov-file#formatting
+  "mdc.enableFormatting": true,
+  "[mdc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": true
+  },
+  "tailwindCSS.classFunctions": [
+    "cm",
+    "cn",
+    "cva",
+    "cx",
+    "defineCVA",
+    "defineSVA",
+    "getClasses",
+    "prefixClasses",
+    "sva",
+    "traits"
+  ],
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "svg.preview.background": "transparent"
 }

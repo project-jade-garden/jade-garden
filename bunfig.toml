@@ -6,5 +6,8 @@ registry = { url = "https://registry.npmjs.org", token = "$NPM_TOKEN" }
 [test]
 # https://bun.sh/docs/runtime/bunfig#test-runner
 coverage = true
-coveragePathIgnorePatterns = "**/dist/**"
+coveragePathIgnorePatterns = [
+  "**/dist/**",
+  "**/tests/**"
+]
 coverageThreshold = 0.7

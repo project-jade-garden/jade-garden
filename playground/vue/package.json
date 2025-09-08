@@ -10,14 +10,13 @@
     "typecheck": "vue-tsc"
   },
   "dependencies": {
-    "@ark-ui/vue": "5.10.0",
+    "@ark-ui/vue": "5.22.0",
     "jade-garden": "workspace:*",
-    "lucide-vue-next": "0.541.0",
+    "lucide-vue-next": "0.542.0",
     "vue": "3.5.19",
     "vue-tsc": "3.0.6"
   },
   "devDependencies": {
-    "@internationalized/date": "3.8.1",
     "@storybook/addon-a11y": "catalog:playground",
     "@storybook/addon-themes": "catalog:playground",
     "@storybook/vue3": "9.1.3",

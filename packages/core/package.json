@@ -1,0 +1,72 @@
+{
+  "name": "jade-garden",
+  "version": "1.1.2",
+  "description": "Tools for developing with Headless Design Systems",
+  "keywords": [
+    "tailwindcss",
+    "tailwind",
+    "class-variance-authority",
+    "slots-variance-authority",
+    "classes",
+    "classname",
+    "classnames",
+    "css",
+    "cva",
+    "sva",
+    "styles",
+    "variants"
+  ],
+  "author": "Gregory Salinas <ags1130@yahoo.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-jade-garden/jade-garden.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/project-jade-garden/jade-garden/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "build": "bun typecheck && vite build",
+    "clean": "rm -rf .turbo dist node_modules",
+    "dev": "vite build --watch",
+    "format": "biome format --write .",
+    "lint": "biome lint",
+    "perf": "bun run perf:cva && bun run perf:sva",
+    "perf:cva": "bun tests/cva/performance.bench.ts",
+    "perf:sva": "bun tests/sva/performance.bench.ts",
+    "postpack": "clean-package restore",
+    "prepack": "clean-package",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "clsx": "2.1.1",
+    "es-toolkit": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/benchmark": "2.1.5",
+    "benchmark": "2.1.4",
+    "class-variance-authority": "0.7.1",
+    "clean-package": "catalog:",
+    "cva": "1.0.0-beta.4",
+    "esbuild": "0.25.9",
+    "globby": "14.1.0",
+    "tailwind-variants": "3.1.0",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "4.5.4"
+  }
+}

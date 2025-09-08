@@ -10,9 +10,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/solid": "5.10.0",
+    "@ark-ui/solid": "5.22.0",
     "jade-garden": "workspace:*",
-    "lucide-solid": "0.541.0",
+    "lucide-solid": "0.542.0",
     "solid-js": "1.9.9"
   },
   "devDependencies": {

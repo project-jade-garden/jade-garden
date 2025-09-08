@@ -1,3 +1,0 @@
-# Project Jade Garden
-
-TODO
