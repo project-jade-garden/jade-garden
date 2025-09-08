@@ -1,5 +1,15 @@
 # unplugin-jade-garden
 
+## 0.2.1
+
+### Patch Changes
+
+- aef3833: - Fixes exports.
+  - Fixes existing bug where internal types in `jade-garden` were moved to the `JadeGarden` namespace.
+    - This failed to generate the namespace in `.dts` files.
+- Updated dependencies [aef3833]
+  - jade-garden@1.2.1
+
 ## 0.2.0
 
 ### Minor Changes
