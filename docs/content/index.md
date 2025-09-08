@@ -2,7 +2,7 @@
 seo:
   title: Jade Garden
   description: Tools for developing with Headless Design Systems.
-  ogImage: /og.png
+  ogImage: www.jade-garden.org/og.png
 ---
 
 ::u-page-hero

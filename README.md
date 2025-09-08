@@ -11,6 +11,6 @@
 - 🌱 [Read the documentation](https://jade-garden.org)
 - 🌿 [Jade Garden](./packages/core/README.md)
 - 🌳 [Unplugin Jade Garden](./packages/plugins/README.md)
-- 🍃 [Design Systems](https://github.com/project-jade-garden/jade-garden/releases)
+- 🍃 [Releases](https://github.com/project-jade-garden/jade-garden/releases)
 - 💚 [Contribute](./CONTRIBUTING.md)
 - ⚖️ [License](./LICENSE)
