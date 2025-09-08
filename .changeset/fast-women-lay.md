@@ -3,4 +3,4 @@
 "unplugin-jade-garden": patch
 ---
 
-ci: fixes exports
+Fixes exports.
