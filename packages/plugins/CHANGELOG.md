@@ -1,5 +1,18 @@
 # unplugin-jade-garden
 
+## 0.2.2
+
+### Patch Changes
+
+- 18c71ff: Updates dependencies
+
+  ### `unplugin-jade-garden`
+
+  Removes dead exports
+
+- Updated dependencies [18c71ff]
+  - jade-garden@1.2.2
+
 ## 0.2.1
 
 ### Patch Changes
