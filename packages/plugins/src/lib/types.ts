@@ -18,19 +18,77 @@ export type Options = {
    */
   build?: {
     /**
-     * Utilizes [`Map`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)
-     * to cache configs for faster rebuilds.
-     *
-     * @default true
-     */
-    cache?: boolean;
-
-    /**
      * Will empty the output directory on every build.
      *
      * @default false
      */
     clean?: boolean;
+
+    /**
+     * The main TailwindCSS file (relative to **project root**) where the generated CSS files will output.
+     *
+     * It is **recommended** that the main TailwindCSS file live in a dedicated directory
+     * (e.g., `assets`, `css`, `styles`, etc.).
+     *
+     * @example
+     * ```ts
+     * {
+     *   entry: "./styles/main.css"
+     * }
+     * ```
+     */
+    entry?: string;
+
+    /**
+     * Specify the max depth of nested objects to walk through directory.
+     *
+     * @default 5
+     */
+    maxDepth?: number;
+
+    /**
+     * Nested objects containing arrays of your `jade-garden` CVA and SVA configurations.
+     *
+     * The plugin will process these configurations to generate the corresponding CSS.
+     *
+     * Object keys will generate directories in root of `outDir`.
+     *
+     * @example
+     * ```ts
+     * {
+     *   entry: "./styles/main.css",
+     *   styleConfigs: {
+     *     path: {
+     *       to: {
+     *         output: [alertSVA, buttonCVA, cardSVA]
+     *       }
+     *     }
+     *   }
+     * }
+     * // jade-garden/path/to/output -> alert.css button.css card.css index.css
+     * ```
+     */
+    styleConfigs?: StyleConfigs;
+  };
+
+  css?: {
+    /**
+     * Options for overriding generated classes.
+     *
+     * @default {}
+     *
+     * @example
+     * ```ts
+     * {
+     *   classNameOptions: {
+     *     jgPrefix: "jg",
+     *     mergeFn: twMerge as (...inputs: ClassValue[]) => string;,
+     *     twPrefix: "tw"
+     *   }
+     * }
+     * ```
+     */
+    classNameOptions?: ClassNameConfig;
 
     // TODO
     /**
@@ -45,13 +103,6 @@ export type Options = {
     // compile?: boolean;
 
     /**
-     * Specify the max depth of nested objects to walk through directory.
-     *
-     * @default 5
-     */
-    maxDepth?: number;
-
-    /**
      * Specify the output directory (relative to **`entry`**).
      *
      * @default "jade-garden"
@@ -64,66 +115,34 @@ export type Options = {
      * ```
      */
     outDir?: string;
+
+    write?: boolean;
   };
 
-  /**
-   * Nested objects containing arrays of your `jade-garden` CVA and SVA configurations.
-   *
-   * The plugin will process these configurations to generate the corresponding CSS.
-   *
-   * Object keys will generate directories in root of `outDir`.
-   *
-   * @example
-   * ```ts
-   * {
-   *   entry: "./styles/main.css",
-   *   styleConfigs: {
-   *     path: {
-   *       to: {
-   *         output: [alertSVA, buttonCVA, cardSVA]
-   *       }
-   *     }
-   *   }
-   * }
-   * // jade-garden/path/to/output -> alert.css button.css card.css index.css
-   * ```
-   */
-  styleConfigs: StyleConfigs;
+  eject?: {
+    /**
+     * The file type that `styleConfigs` will output in.
+     *
+     * @default "ts"
+     */
+    fileFormat?: "js" | "ts";
 
-  /**
-   * The main TailwindCSS file (relative to **project root**) where the generated CSS files will output.
-   *
-   * It is **recommended** that the main TailwindCSS file live in a dedicated directory
-   * (e.g., `assets`, `css`, `styles`, etc.).
-   *
-   * @example
-   * ```ts
-   * {
-   *   entry: "./styles/main.css"
-   * }
-   * ```
-   */
-  entry: string;
+    /**
+     * Specify the output directory (relative to **`entry`**).
+     *
+     * @default "jade-garden/{eject.format}"
+     *
+     * @example
+     * ```ts
+     * {
+     *   outDir: "../src/styles"
+     * }
+     * ```
+     */
+    outDir?: string;
 
-  /**
-   * The shared options object for overriding generated classes.
-   *
-   * Used in conjunction with `jade-garden`'s `getClasses` function.
-   *
-   * @default {}
-   *
-   * @example
-   * ```ts
-   * {
-   *   classNameConfig: {
-   *     jgPrefix: "jg",
-   *     mergeFn: twMerge as (...inputs: ClassValue[]) => string;,
-   *     twPrefix: "tw"
-   *   }
-   * }
-   * ```
-   */
-  classNameConfig?: ClassNameConfig;
+    write?: boolean;
+  };
 };
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
@@ -131,6 +150,13 @@ export type PluginInstance<T> = (options?: Options | undefined) => T;
 export type StyleConfigs = {
   [key: string]: (CVA | SVA)[] | StyleConfigs;
 };
+
+export type WalkFn = (args: {
+  depth: number;
+  isArray: boolean;
+  path: string[];
+  value: (CVA | SVA)[] | StyleConfigs;
+}) => void;
 
 /* ====================== CVA ====================== */
 

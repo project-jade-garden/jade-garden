@@ -6,7 +6,7 @@ import * as webpack from "webpack";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA } from "./fixtures/jade-garden/cva";
 import { alertConfig, noSlotsSVA } from "./fixtures/jade-garden/sva";
-import { configs, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig, writeTestCases } from "./mocks/configs";
+import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig } from "./mocks/configs";
 import { entryDir, outputDir, rootDir } from "./mocks/dirPaths";
 import { getPath } from "./utils";
 
@@ -53,9 +53,9 @@ describe("webpack", async () => {
 
   describe("edge cases", () => {
     test("empties `outDir`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = configs;
+      opts.build.styleConfigs = configs;
       await webpackBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -63,7 +63,7 @@ describe("webpack", async () => {
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
 
       opts.build = { clean: true };
-      opts.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
+      opts.build.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
       await webpackBuild(opts);
 
       // Deleted files
@@ -79,10 +79,9 @@ describe("webpack", async () => {
     });
 
     test("override `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
-      opts.build = { maxDepth: 10 };
+      opts.build = { maxDepth: 10, styleConfigs: throwsConfig };
       await webpackBuild(opts);
 
       const output = getPath(`${rootDir}/jade-garden/1/2/3/4/5/configs/components`);
@@ -92,9 +91,9 @@ describe("webpack", async () => {
     });
 
     test("prevents name conflicts", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
+      opts.build.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
       await webpackBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -107,9 +106,9 @@ describe("webpack", async () => {
 
   describe("no writes", () => {
     test("no names", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noNames;
+      opts.build.styleConfigs = noNames;
       await webpackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -119,9 +118,9 @@ describe("webpack", async () => {
     });
 
     test("no base", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noBaseCVA] };
+      opts.build.styleConfigs = { components: [noBaseCVA] };
       await webpackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -131,9 +130,9 @@ describe("webpack", async () => {
     });
 
     test("no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noSlotsSVA] };
+      opts.build.styleConfigs = { components: [noSlotsSVA] };
       await webpackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -143,9 +142,9 @@ describe("webpack", async () => {
     });
 
     test("no base and no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noBaseAndSlots;
+      opts.build.styleConfigs = noBaseAndSlots;
       await webpackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -157,10 +156,10 @@ describe("webpack", async () => {
 
   describe("throws", () => {
     test("`configs` is not valid", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'string' is not assignable to type.
-      opts.styleConfigs = "";
+      opts.build.styleConfigs = "";
       try {
         await webpackBuild(opts);
       } catch (error) {
@@ -169,9 +168,9 @@ describe("webpack", async () => {
     });
 
     test("exceeds `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
+      opts.build.styleConfigs = throwsConfig;
       try {
         await webpackBuild(opts);
       } catch (error) {
@@ -180,10 +179,10 @@ describe("webpack", async () => {
     });
 
     test("invalid config value", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'undefined' is not assignable to type.
-      opts.styleConfigs = { 1: { 2: undefined } };
+      opts.build.styleConfigs = { 1: { 2: undefined } };
       try {
         await webpackBuild(opts);
       } catch (error) {
@@ -193,8 +192,8 @@ describe("webpack", async () => {
   });
 
   describe("writes", () => {
-    test.each(writeTestCases)("cva file $label", async ({ opts }) => {
-      opts.styleConfigs = cvaConfig;
+    test.each(cssTestCases)("cva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = cvaConfig;
       await webpackBuild(opts);
 
       const buttonFile = `${outputDir}/cva/button.css`;
@@ -207,8 +206,8 @@ describe("webpack", async () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("sva file $label", async ({ opts }) => {
-      opts.styleConfigs = svaConfig;
+    test.each(cssTestCases)("sva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = svaConfig;
       await webpackBuild(opts);
 
       const alertFile = `${outputDir}/sva/alert.css`;
@@ -221,8 +220,8 @@ describe("webpack", async () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("cva and sva files $label", async ({ opts }) => {
-      opts.styleConfigs = configs;
+    test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
+      opts.build.styleConfigs = configs;
       await webpackBuild(opts);
 
       const alertFile = `${outputDir}/alert.css`;

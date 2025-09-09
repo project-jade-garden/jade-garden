@@ -6,7 +6,7 @@ import vitePlugin from "unplugin-jade-garden/vite";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA } from "./fixtures/jade-garden/cva";
 import { alertConfig, noSlotsSVA } from "./fixtures/jade-garden/sva";
-import { configs, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig, writeTestCases } from "./mocks/configs";
+import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig } from "./mocks/configs";
 import { entryDir, outputDir, rootDir } from "./mocks/dirPaths";
 import { build, getPath } from "./utils";
 
@@ -33,9 +33,9 @@ describe("vite", async () => {
 
   describe("edge cases", () => {
     test("empties `outDir`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = configs;
+      opts.build.styleConfigs = configs;
       await viteBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -43,7 +43,7 @@ describe("vite", async () => {
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
 
       opts.build = { clean: true };
-      opts.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
+      opts.build.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
       await viteBuild(opts);
 
       // Deleted files
@@ -59,12 +59,9 @@ describe("vite", async () => {
     });
 
     test("override `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      console.log(opts);
-      opts.styleConfigs = throwsConfig;
-      opts.build = { maxDepth: 10 };
-      console.log(opts);
+      opts.build = { maxDepth: 10, styleConfigs: throwsConfig };
       await viteBuild(opts);
 
       const output = getPath(`${rootDir}/jade-garden/1/2/3/4/5/configs/components`);
@@ -74,9 +71,9 @@ describe("vite", async () => {
     });
 
     test("prevents name conflicts", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
+      opts.build.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
       await viteBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -89,9 +86,9 @@ describe("vite", async () => {
 
   describe("no writes", () => {
     test("no names", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noNames;
+      opts.build.styleConfigs = noNames;
       await viteBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -101,9 +98,9 @@ describe("vite", async () => {
     });
 
     test("no base", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noBaseCVA] };
+      opts.build.styleConfigs = { components: [noBaseCVA] };
       await viteBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -113,9 +110,9 @@ describe("vite", async () => {
     });
 
     test("no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noSlotsSVA] };
+      opts.build.styleConfigs = { components: [noSlotsSVA] };
       await viteBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -125,9 +122,9 @@ describe("vite", async () => {
     });
 
     test("no base and no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noBaseAndSlots;
+      opts.build.styleConfigs = noBaseAndSlots;
       await viteBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -139,32 +136,32 @@ describe("vite", async () => {
 
   describe("throws", () => {
     test("`configs` is not valid", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'string' is not assignable to type.
-      opts.styleConfigs = "";
+      opts.build.styleConfigs = "";
       expect(async () => await viteBuild(opts)).toThrow();
     });
 
     test("exceeds `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
+      opts.build.styleConfigs = throwsConfig;
       expect(async () => await viteBuild(opts)).toThrow();
     });
 
     test("invalid config value", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'undefined' is not assignable to type.
-      opts.styleConfigs = { 1: { 2: undefined } };
+      opts.build.styleConfigs = { 1: { 2: undefined } };
       expect(async () => await viteBuild(opts)).toThrow();
     });
   });
 
   describe("writes", () => {
-    test.each(writeTestCases)("cva file $label", async ({ opts }) => {
-      opts.styleConfigs = cvaConfig;
+    test.each(cssTestCases)("cva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = cvaConfig;
       await viteBuild(opts);
 
       const buttonFile = `${outputDir}/cva/button.css`;
@@ -177,8 +174,8 @@ describe("vite", async () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("sva file $label", async ({ opts }) => {
-      opts.styleConfigs = svaConfig;
+    test.each(cssTestCases)("sva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = svaConfig;
       await viteBuild(opts);
 
       const alertFile = `${outputDir}/sva/alert.css`;
@@ -191,8 +188,8 @@ describe("vite", async () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("cva and sva files $label", async ({ opts }) => {
-      opts.styleConfigs = configs;
+    test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
+      opts.build.styleConfigs = configs;
       await viteBuild(opts);
 
       const alertFile = `${outputDir}/alert.css`;

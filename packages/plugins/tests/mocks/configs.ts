@@ -18,92 +18,113 @@ export const throwsConfig = {
             configs
           }
         }
-      }
+      },
+      eject: {}
     }
   }
 };
 
-export const writeTestCases: { label: string; opts: Options }[] = [
+const build = {
+  styleConfigs: {},
+  entry: targetDir
+};
+
+export const cssTestCases: { label: string; opts: Required<Options> }[] = [
   {
     label: "without `classNameConfig`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir
+      build,
+      css: {},
+      eject: {}
     }
   },
   {
     label: "with `classNameConfig.jgPrefix`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        jgPrefix: "jg"
-      }
+      build,
+      css: {
+        classNameOptions: {
+          jgPrefix: "jg"
+        }
+      },
+      eject: {}
     }
   },
   {
     label: "with `classNameConfig.twPrefix`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        twPrefix: "tw"
-      }
+      build,
+      css: {
+        classNameOptions: {
+          twPrefix: "tw"
+        }
+      },
+      eject: {}
     }
   },
   {
     label: "with `classNameConfig.mergeFn`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        mergeFn: cn
-      }
+      build,
+      css: {
+        classNameOptions: {
+          mergeFn: cn
+        }
+      },
+      eject: {}
     }
   },
   {
     label: "with `classNameConfig.jgPrefix` and `classNameConfig.mergeFn`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        jgPrefix: "jg",
-        mergeFn: cn
-      }
+      build,
+      css: {
+        classNameOptions: {
+          jgPrefix: "jg",
+          mergeFn: cn
+        }
+      },
+      eject: {}
     }
   },
   {
     label: "with `classNameConfig.jgPrefix` and `classNameConfig.twPrefix`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        jgPrefix: "jg",
-        twPrefix: "tw"
-      }
+      build,
+      css: {
+        classNameOptions: {
+          jgPrefix: "jg",
+          twPrefix: "tw"
+        }
+      },
+      eject: {}
     }
   },
   {
     label: "with `classNameConfig.mergeFn` and `classNameConfig.twPrefix`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        twPrefix: "tw",
-        mergeFn: cn
-      }
+      build,
+      css: {
+        classNameOptions: {
+          twPrefix: "tw",
+          mergeFn: cn
+        }
+      },
+      eject: {}
     }
   },
   {
     label: "with full `classNameConfig`",
     opts: {
-      styleConfigs: {},
-      entry: targetDir,
-      classNameConfig: {
-        jgPrefix: "jg",
-        twPrefix: "tw",
-        mergeFn: cn
-      }
+      build,
+      css: {
+        classNameOptions: {
+          jgPrefix: "jg",
+          twPrefix: "tw",
+          mergeFn: cn
+        }
+      },
+      eject: {}
     }
   }
 ];

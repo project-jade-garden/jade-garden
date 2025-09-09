@@ -6,7 +6,7 @@ import rollupPlugin from "unplugin-jade-garden/rollup";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA } from "./fixtures/jade-garden/cva";
 import { alertConfig, noSlotsSVA } from "./fixtures/jade-garden/sva";
-import { configs, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig, writeTestCases } from "./mocks/configs";
+import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig } from "./mocks/configs";
 import { entryDir, outputDir, rootDir } from "./mocks/dirPaths";
 import { build, getPath } from "./utils";
 
@@ -31,9 +31,9 @@ describe("rollup", () => {
 
   describe("edge cases", () => {
     test("empties `outDir`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = configs;
+      opts.build.styleConfigs = configs;
       await rollupBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -41,7 +41,7 @@ describe("rollup", () => {
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
 
       opts.build = { clean: true };
-      opts.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
+      opts.build.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
       await rollupBuild(opts);
 
       // Deleted files
@@ -57,10 +57,9 @@ describe("rollup", () => {
     });
 
     test("override `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
-      opts.build = { maxDepth: 10 };
+      opts.build = { maxDepth: 10, styleConfigs: throwsConfig };
       await rollupBuild(opts);
 
       const output = getPath(`${rootDir}/jade-garden/1/2/3/4/5/configs/components`);
@@ -70,9 +69,9 @@ describe("rollup", () => {
     });
 
     test("prevents name conflicts", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
+      opts.build.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
       await rollupBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -85,9 +84,9 @@ describe("rollup", () => {
 
   describe("no writes", () => {
     test("no names", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noNames;
+      opts.build.styleConfigs = noNames;
       await rollupBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -97,9 +96,9 @@ describe("rollup", () => {
     });
 
     test("no base", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noBaseCVA] };
+      opts.build.styleConfigs = { components: [noBaseCVA] };
       await rollupBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -109,9 +108,9 @@ describe("rollup", () => {
     });
 
     test("no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noSlotsSVA] };
+      opts.build.styleConfigs = { components: [noSlotsSVA] };
       await rollupBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -121,9 +120,9 @@ describe("rollup", () => {
     });
 
     test("no base and no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noBaseAndSlots;
+      opts.build.styleConfigs = noBaseAndSlots;
       await rollupBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -135,32 +134,32 @@ describe("rollup", () => {
 
   describe("throws", () => {
     test("`configs` is not valid", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'string' is not assignable to type.
-      opts.styleConfigs = "";
+      opts.build.styleConfigs = "";
       expect(async () => await rollupBuild(opts)).toThrow();
     });
 
     test("exceeds `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
+      opts.build.styleConfigs = throwsConfig;
       expect(async () => await rollupBuild(opts)).toThrow();
     });
 
     test("invalid config value", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'undefined' is not assignable to type.
-      opts.styleConfigs = { 1: { 2: undefined } };
+      opts.build.styleConfigs = { 1: { 2: undefined } };
       expect(async () => await rollupBuild(opts)).toThrow();
     });
   });
 
   describe("writes", () => {
-    test.each(writeTestCases)("cva file $label", async ({ opts }) => {
-      opts.styleConfigs = cvaConfig;
+    test.each(cssTestCases)("cva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = cvaConfig;
       await rollupBuild(opts);
 
       const buttonFile = `${outputDir}/cva/button.css`;
@@ -173,8 +172,8 @@ describe("rollup", () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("sva file $label", async ({ opts }) => {
-      opts.styleConfigs = svaConfig;
+    test.each(cssTestCases)("sva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = svaConfig;
       await rollupBuild(opts);
 
       const alertFile = `${outputDir}/sva/alert.css`;
@@ -187,8 +186,8 @@ describe("rollup", () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("cva and sva files $label", async ({ opts }) => {
-      opts.styleConfigs = configs;
+    test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
+      opts.build.styleConfigs = configs;
       await rollupBuild(opts);
 
       const alertFile = `${outputDir}/alert.css`;

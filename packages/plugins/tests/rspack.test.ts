@@ -5,7 +5,7 @@ import rspackPlugin from "unplugin-jade-garden/rspack";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA } from "./fixtures/jade-garden/cva";
 import { alertConfig, noSlotsSVA } from "./fixtures/jade-garden/sva";
-import { configs, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig, writeTestCases } from "./mocks/configs";
+import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig } from "./mocks/configs";
 import { entryDir, outputDir, rootDir } from "./mocks/dirPaths";
 import { build, getPath } from "./utils";
 
@@ -50,9 +50,9 @@ describe("rspack", () => {
 
   describe("edge cases", () => {
     test("empties `outDir`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = configs;
+      opts.build.styleConfigs = configs;
       await rspackBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -60,7 +60,7 @@ describe("rspack", () => {
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
 
       opts.build = { clean: true };
-      opts.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
+      opts.build.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
       await rspackBuild(opts);
 
       // Deleted files
@@ -76,10 +76,9 @@ describe("rspack", () => {
     });
 
     test("override `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
-      opts.build = { maxDepth: 10 };
+      opts.build = { maxDepth: 10, styleConfigs: throwsConfig };
       await rspackBuild(opts);
 
       const output = getPath(`${rootDir}/jade-garden/1/2/3/4/5/configs/components`);
@@ -89,9 +88,9 @@ describe("rspack", () => {
     });
 
     test("prevents name conflicts", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
+      opts.build.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
       await rspackBuild(opts);
 
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
@@ -104,9 +103,9 @@ describe("rspack", () => {
 
   describe("no writes", () => {
     test("no names", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noNames;
+      opts.build.styleConfigs = noNames;
       await rspackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -116,9 +115,9 @@ describe("rspack", () => {
     });
 
     test("no base", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noBaseCVA] };
+      opts.build.styleConfigs = { components: [noBaseCVA] };
       await rspackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -128,9 +127,9 @@ describe("rspack", () => {
     });
 
     test("no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = { components: [noSlotsSVA] };
+      opts.build.styleConfigs = { components: [noSlotsSVA] };
       await rspackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -140,9 +139,9 @@ describe("rspack", () => {
     });
 
     test("no base and no slots", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = noBaseAndSlots;
+      opts.build.styleConfigs = noBaseAndSlots;
       await rspackBuild(opts);
 
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
@@ -154,10 +153,10 @@ describe("rspack", () => {
 
   describe("throws", () => {
     test("`configs` is not valid", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'string' is not assignable to type.
-      opts.styleConfigs = "";
+      opts.build.styleConfigs = "";
       try {
         await rspackBuild(opts);
       } catch (error) {
@@ -166,9 +165,9 @@ describe("rspack", () => {
     });
 
     test("exceeds `maxDepth`", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
+      opts.build.styleConfigs = throwsConfig;
       try {
         await rspackBuild(opts);
       } catch (error) {
@@ -177,10 +176,10 @@ describe("rspack", () => {
     });
 
     test("invalid config value", async () => {
-      const { opts: _opts } = writeTestCases[0];
+      const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'undefined' is not assignable to type.
-      opts.styleConfigs = { 1: { 2: undefined } };
+      opts.build.styleConfigs = { 1: { 2: undefined } };
       try {
         await rspackBuild(opts);
       } catch (error) {
@@ -190,8 +189,8 @@ describe("rspack", () => {
   });
 
   describe("writes", () => {
-    test.each(writeTestCases)("cva file $label", async ({ opts }) => {
-      opts.styleConfigs = cvaConfig;
+    test.each(cssTestCases)("cva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = cvaConfig;
       await rspackBuild(opts);
 
       const buttonFile = `${outputDir}/cva/button.css`;
@@ -204,8 +203,8 @@ describe("rspack", () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("sva file $label", async ({ opts }) => {
-      opts.styleConfigs = svaConfig;
+    test.each(cssTestCases)("sva file $label", async ({ opts }) => {
+      opts.build.styleConfigs = svaConfig;
       await rspackBuild(opts);
 
       const alertFile = `${outputDir}/sva/alert.css`;
@@ -218,8 +217,8 @@ describe("rspack", () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(writeTestCases)("cva and sva files $label", async ({ opts }) => {
-      opts.styleConfigs = configs;
+    test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
+      opts.build.styleConfigs = configs;
       await rspackBuild(opts);
 
       const alertFile = `${outputDir}/alert.css`;
