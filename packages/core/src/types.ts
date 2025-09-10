@@ -53,6 +53,21 @@ export type MergeFn = (...classes: ClassValue[]) => string;
  */
 type OmitUndefined<T> = T extends undefined ? never : T;
 
+export type PluginConfig = {
+  fileFormat?: "css" | "js" | "ts";
+
+  /**
+   * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
+   *
+   * You may provide your own custom function to handle merging class names,
+   * use `tailwind-merge` for handling class conflicts,
+   * or `jade-garden`'s `cn` utility for more performant runtimes.
+   */
+  mergeFn?: MergeFn;
+
+  prefix?: string;
+};
+
 /**
  * Provides type safety for the `data` prop within the `traits` function.
  * This type helps define the structure of data attributes based on component properties.
@@ -142,36 +157,6 @@ export type ClassProp =
  * The shape of data attributes in a component's Headless Design System.
  */
 export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassStrings>> | ClassStrings>>;
-
-/**
- * A shared options object for overriding generated classes in `getClasses`.
- *
- * Used in conjunction with `unplugin-jade-garden`.
- */
-export type ClassNameConfig = {
-  /**
-   * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
-   *
-   * You may provide your own custom function to handle merging class names,
-   * use `tailwind-merge` for handling class conflicts,
-   * or `jade-garden`'s `cn` utility for more performant runtimes.
-   */
-  mergeFn?: MergeFn;
-
-  /**
-   * An optional prefix to modify `jade-garden` generated class names.
-   *
-   * i.e. "*prefix:componentName--componentSlot__variantName--variantType*"
-   */
-  jgPrefix?: string;
-
-  /**
-   * An optional prefix to modify `tailwind` class names.
-   *
-   * @see [source](https://tailwindcss.com/docs/upgrade-guide#using-a-prefix)
-   */
-  twPrefix?: string;
-};
 
 /**
  * Represents a dictionary where keys are strings and values are ClassValue.
@@ -305,9 +290,12 @@ export type CVAConfig<V extends Variant> = {
  * @template V - The type of variants.
  * @returns {(props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string} A function that generates class names based on props.
  */
-export type CVAReturnType<V extends Variant> = (
+export type CVAReturnType<V extends Variant> = ((
   props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
-) => string;
+) => string) & {
+  pluginConfig: PluginConfig;
+  styleConfig: CVAConfig<V>;
+};
 
 /**
  * Creates a class variant authority (cva) function.
@@ -517,8 +505,11 @@ export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
  * @template V - The type of variants.
  * @returns {(props?: SVAVariants<RCV, V>) => { [K in keyof S]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
  */
-export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = (props?: SVAVariants<RCV, V>) => {
+export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = ((props?: SVAVariants<RCV, V>) => {
   [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
+}) & {
+  pluginConfig: PluginConfig;
+  styleConfig: SVAConfig<RCV, V>;
 };
 
 /**

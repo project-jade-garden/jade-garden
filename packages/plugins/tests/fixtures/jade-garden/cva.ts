@@ -1,6 +1,8 @@
-import { defineCVA } from "jade-garden/cva";
+import { createCVA } from "jade-garden/cva";
 
-export const buttonConfig = defineCVA({
+const cva = createCVA({ fileFormat: "css" });
+
+export const buttonConfig = cva({
   name: "button",
   base: "rounded-full",
   variants: {
@@ -20,7 +22,7 @@ export const buttonConfig = defineCVA({
   }
 });
 
-export const noNameCVA = defineCVA({
+export const noNameCVA = cva({
   base: "rounded-full",
   variants: {
     intent: {
@@ -39,7 +41,7 @@ export const noNameCVA = defineCVA({
   }
 });
 
-export const noBaseCVA = defineCVA({
+export const noBaseCVA = cva({
   name: "button",
   variants: {
     intent: {

@@ -7,8 +7,7 @@ import { join } from "node:path";
 import { kebabCase } from "es-toolkit";
 import type { UnpluginFactory } from "unplugin";
 import { createFilter } from "unplugin-utils";
-import { generateCVAStyles } from "./generators/cva";
-import { generateSVAStyles } from "./generators/sva";
+import { generateCVAStyles, generateSVAStyles } from "./generators";
 import type { CVA, Options, StyleConfigs, SVA, WalkFn } from "./types";
 
 // * Taken from: https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/src/test-utils/run.ts
@@ -49,11 +48,13 @@ const walkConfigs = (root: StyleConfigs, maxDepth: number, fn: WalkFn): void => 
 
 export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions) => {
   const options = {
-    build: rawOptions?.build ?? {},
-    css: rawOptions?.css ?? {},
-    eject: rawOptions?.eject ?? {}
+    clean: rawOptions?.clean ?? false,
+    entry: rawOptions?.entry ?? process.cwd(),
+    maxDepth: rawOptions?.maxDepth ?? 5,
+    outDir: rawOptions?.outDir ?? "jade-garden",
+    styleConfigs: rawOptions?.styleConfigs ?? {}
   } satisfies Required<Options>;
-  const filter = createFilter(options.build.entry);
+  const filter = createFilter(options.entry);
 
   return {
     name: "unplugin-jade-garden",
@@ -62,148 +63,137 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
     transform(_, id) {
       if (!filter(id)) return;
 
-      if (typeof options.build.styleConfigs !== "object" || Array.isArray(options.build.styleConfigs)) {
+      if (typeof options.styleConfigs !== "object" || Array.isArray(options.styleConfigs)) {
         throw new Error(`\n"styleConfigs" must be objects containing arrays of CVA and SVA configurations.`);
       }
 
-      const { clean, maxDepth = 5, styleConfigs } = options.build;
+      const { clean, maxDepth = 5, styleConfigs } = options;
 
-      // * CSS setup
-      const cssOutDir = join(id, `../${options.css.outDir ?? "jade-garden"}`);
-      const cssWrite = options.css.write ?? true;
-
-      // * Eject setup
-      const ejectOutDir = join(id, `../${options.eject.outDir ?? "jade-garden/ts"}`);
-      const ejectWrite = options.eject.write ?? false;
+      // * Get output directory path
+      const outDirPath = join(id, `../${options.outDir ?? "jade-garden"}`);
 
       // * Clean
-      if (clean) {
-        if (existsSync(cssOutDir)) rmSync(cssOutDir, { recursive: true });
-        if (existsSync(ejectOutDir)) rmSync(ejectOutDir, { recursive: true });
-      }
+      if (clean && existsSync(outDirPath)) rmSync(outDirPath, { recursive: true });
 
       // * Write
-      if (cssWrite || ejectWrite) {
-        const classNameOptions = options.css.classNameOptions ?? {};
-        const fileFormat = options.eject.fileFormat ?? "ts";
+      // let tailwindImport = "";
 
-        // let tailwindImport = "";
+      // * Warn if "compile" is true and code does not include "@theme", and set default import
+      // if (options.css.compile && !_.includes("@theme")) {
+      //   console.warn(`\n\x1b[33m[WARN]: "entry" file does not contain a theme; setting to default theme.\x1b[0m`);
+      //   tailwindImport = '@import "tailwindcss";';
+      // }
 
-        // * Warn if "compile" is true and code does not include "@theme", and set default import
-        // if (options.css.compile && !_.includes("@theme")) {
-        //   console.warn(`\n\x1b[33m[WARN]: "entry" file does not contain a theme; setting to default theme.\x1b[0m`);
-        //   tailwindImport = '@import "tailwindcss";';
-        // }
+      walkConfigs(styleConfigs, maxDepth, ({ isArray, path, value }) => {
+        if (isArray) {
+          const configsArr = value as (CVA | SVA)[];
 
-        walkConfigs(styleConfigs, maxDepth, ({ isArray, path, value }) => {
-          if (isArray) {
-            const configsArr = value as (CVA | SVA)[];
+          // * Dirctory to write to
+          const outDirWrite = `${outDirPath}/${path.join("/")}`;
 
-            // * Dirctories to write to
-            const cssWriteDir = `${cssOutDir}/${path.join("/")}`;
-            const ejectWriteDir = `${ejectOutDir}/${path.join("/")}`;
+          // * `mkdir` if it doesn't exist
+          if (!existsSync(outDirWrite)) mkdirSync(outDirWrite, { recursive: true });
 
-            // * `mkdir` if it doesn't exist
-            if (cssWrite && !existsSync(cssWriteDir)) mkdirSync(cssWriteDir, { recursive: true });
-            if (ejectWrite && !existsSync(ejectWriteDir)) mkdirSync(ejectWriteDir, { recursive: true });
+          const objKeys = path.join(".");
 
-            const objKeys = path.join(".");
+          const configNames: Record<string, number> = {};
 
-            const configNames: Record<string, number> = {};
+          // * The index files that will hold the css imports and js/ts exports
+          let cssIndexFile = "";
+          let jsIndexFile = "";
+          let tsIndexFile = "";
 
-            // * The index files that will hold the css imports or js/ts exports
-            let cssIndexFile = "";
-            let ejectIndexFile = "";
+          for (const { pluginConfig, styleConfig } of configsArr) {
+            const { fileFormat = "ts" } = pluginConfig;
+            const { name } = styleConfig;
 
-            for (const config of configsArr) {
-              const name = config.name;
-
-              if (!name) {
-                console.warn(`\x1b[33m[WARN]: The config in "${objKeys}" requires a "name" property.\x1b[0m`);
-                console.info(`\x1b[36mConfig:\n${JSON.stringify(config, null, "\t")}\x1b[0m`);
-                continue;
-              }
-
-              // * Resolve name conflicts
-              const fileName = kebabCase(name);
-              if (Object.hasOwn(configNames, name)) {
-                // const newFileName = `${fileName}-${configNames[fileName]}`;
-                console.warn(
-                  `\x1b[33m[WARN]: Duplicate "name" property detected. Rename ${name} to output CSS file.\x1b[0m`
-                );
-                console.info(`\x1b[36mConfig:\n${JSON.stringify(config, null, "\t")}\x1b[0m`);
-
-                // fileName = newFileName;
-                configNames[name] += 1;
-
-                // ! While we can rename the output files and CSS,
-                // ! it will cause a bug due to `getClasses` being unaware of the changes.
-                continue;
-              } else {
-                configNames[name] = 1;
-              }
-
-              // * The file paths to write to
-              const cssOutputPath = `${cssWriteDir}/${fileName}.css`;
-              const ejectOutputPath = `${ejectWriteDir}/${fileName}.${fileFormat}`;
-
-              // * Write individual css or js/ts files
-              if ("base" in config) {
-                if (cssWrite) {
-                  cssIndexFile += `@import "./${fileName}.css";\n`;
-                  writeFileSync(cssOutputPath, generateCVAStyles(config, classNameOptions));
-                }
-
-                if (ejectWrite) {
-                  ejectIndexFile += `export * from "./${fileName}";\n`;
-                  writeFileSync(
-                    ejectOutputPath,
-                    `import { defineCVA } from "jade-garden/cva"\n\nexport const ${config.name} = defineCVA(${JSON.stringify(config, null, 2)});\n`
-                  );
-                }
-              } else if ("slots" in config) {
-                if (cssWrite) {
-                  cssIndexFile += `@import "./${fileName}.css";\n`;
-                  writeFileSync(cssOutputPath, generateSVAStyles(config, classNameOptions));
-                }
-
-                if (ejectWrite) {
-                  ejectIndexFile += `export * from "./${fileName}";\n`;
-                  writeFileSync(
-                    ejectOutputPath,
-                    `import { defineSVA } from "jade-garden/sva"\n\nexport const ${config.name} = defineSVA(${JSON.stringify(Object.keys(config.slots))})(${JSON.stringify(config, null, 2)});\n`
-                  );
-                }
-              } else {
-                console.warn(
-                  `\x1b[33m[WARN]: The config in "${objKeys}" requires a "base" property for cva or a "slots" property for sva.\x1b[0m`
-                );
-                console.info(`\x1b[36mConfig:\n${JSON.stringify(config, null, "\t")}\x1b[0m`);
-              }
-
-              /**
-               * TODO - Figure out how the Tailwind compiler works (intake, when it throws, etc.)
-               *
-               * *NOTE*
-               * Sample code was taken from [this test](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/src/index.test.ts#L288)
-               */
-              // if (options.compile) {
-              //   const styles = await compileCss(
-              //     String.raw`
-              //     ${tailwindImport}
-
-              //     ${fileToWrite}
-              //     `
-              //   );
-              // }
+            if (!name) {
+              console.warn(`\x1b[33m[WARN]: The config in "${objKeys}" requires a "name" property.\x1b[0m`);
+              console.info(`\x1b[36mConfig:\n${JSON.stringify(styleConfig, null, "\t")}\x1b[0m`);
+              continue;
             }
 
-            // * Write index files
-            if (cssWrite) writeFileSync(`${cssWriteDir}/index.css`, cssIndexFile);
-            if (ejectWrite) writeFileSync(`${ejectWriteDir}/index.${fileFormat}`, ejectIndexFile);
+            // * Resolve name conflicts
+            const fileName = kebabCase(name);
+            if (Object.hasOwn(configNames, name)) {
+              // const newFileName = `${fileName}-${configNames[fileName]}`;
+              console.warn(
+                `\x1b[33m[WARN]: Duplicate "name" property detected. Rename ${name} to output ".${fileFormat}" file.\x1b[0m`
+              );
+              console.info(`\x1b[36mConfig:\n${JSON.stringify(styleConfig, null, "\t")}\x1b[0m`);
+
+              // fileName = newFileName;
+              configNames[name] += 1;
+
+              // ! While we can rename the output files and CSS, it will cause a bug due to seperate invocation from plugin to markup.
+              continue;
+            } else {
+              configNames[name] = 1;
+            }
+
+            // * The file paths to write to
+            const outFile = `${outDirWrite}/${fileName}.${fileFormat}`;
+
+            // * Write individual css or js/ts files
+            if ("base" in styleConfig) {
+              if (fileFormat === "css") {
+                cssIndexFile += `@import "./${fileName}.css";\n`;
+                writeFileSync(outFile, generateCVAStyles(styleConfig, pluginConfig));
+              } else {
+                if (fileFormat === "js") jsIndexFile += `export * from "./${fileName}";\n`;
+                if (fileFormat === "ts") tsIndexFile += `export * from "./${fileName}";\n`;
+
+                writeFileSync(
+                  outFile,
+                  `import { cva } from "jade-garden/cva"\n\nexport const ${name} = cva(${JSON.stringify(styleConfig, null, 2)});\n`
+                );
+              }
+            } else if ("slots" in styleConfig) {
+              if (fileFormat === "css") {
+                cssIndexFile += `@import "./${fileName}.css";\n`;
+                writeFileSync(outFile, generateSVAStyles(styleConfig, pluginConfig));
+              } else {
+                if (fileFormat === "js") jsIndexFile += `export * from "./${fileName}";\n`;
+                if (fileFormat === "ts") tsIndexFile += `export * from "./${fileName}";\n`;
+
+                writeFileSync(
+                  outFile,
+                  `import { sva } from "jade-garden/sva"\n\nexport const ${name} = sva(${JSON.stringify(styleConfig, null, 2)});\n`
+                );
+              }
+            } else {
+              console.warn(
+                `\x1b[33m[WARN]: The config in "${objKeys}" requires a "base" property for cva or a "slots" property for sva.\x1b[0m`
+              );
+              console.info(`\x1b[36mConfig:\n${JSON.stringify(styleConfig, null, "\t")}\x1b[0m`);
+            }
+
+            /**
+             * TODO - Figure out how the Tailwind compiler works (intake, when it throws, etc.)
+             *
+             * *NOTE*
+             * Sample code was taken from [this test](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/src/index.test.ts#L288)
+             */
+            // if (options.compile) {
+            //   const styles = await compileCss(
+            //     String.raw`
+            //     ${tailwindImport}
+
+            //     ${fileToWrite}
+            //     `
+            //   );
+            // }
           }
-        });
-      }
+
+          // * Write index files
+          if (cssIndexFile) writeFileSync(`${outDirWrite}/index.css`, cssIndexFile);
+          if (jsIndexFile) writeFileSync(`${outDirWrite}/index.js`, jsIndexFile);
+          if (tsIndexFile) writeFileSync(`${outDirWrite}/index.ts`, tsIndexFile);
+
+          // * Clean directory if no files were output
+          if (!cssIndexFile && !jsIndexFile && !tsIndexFile) rmSync(outDirWrite, { recursive: true });
+        }
+      });
     }
   };
 };

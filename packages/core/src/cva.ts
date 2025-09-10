@@ -1,5 +1,6 @@
+import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
-import type { ClassProp, CVA, CVAConfig, CVAReturnType, CVAVariants, MergeFn, Variant } from "./types";
+import type { ClassProp, CVA, CVAConfig, CVAReturnType, CVAVariants, PluginConfig, Variant } from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
 /* ====================== CVA ====================== */
@@ -10,24 +11,26 @@ import { getVariantClasses, hasProps } from "./utils";
  * @param {MergeFn} mergeFn - The function to merge class names.
  * @returns {CVA} The cva function.
  */
-export const createCVA = (mergeFn: MergeFn = cx): CVA => {
-  return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
-    const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
-      // * Exit early if `base` is not defined or has a falsey value
-      if (typeof config?.base === "undefined" || !config.base) return mergeFn(props?.class, props?.className);
+export const createCVA = (options?: PluginConfig): CVA => {
+  const { fileFormat = "ts", mergeFn = cx, prefix = "" } = options ?? {};
 
-      const base = config.base;
+  return <V extends Variant>(styleConfig: CVAConfig<V>): CVAReturnType<V> => {
+    const jg = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
+      // * Exit early if `base` is not defined or has a falsey value
+      if (typeof styleConfig?.base === "undefined" || !styleConfig.base) return mergeFn(props?.class, props?.className);
+
+      const base = styleConfig.base;
 
       // * Exit early if variants do not exist or is not an object
-      if (typeof config?.variants !== "object" || Array.isArray(config.variants)) {
+      if (typeof styleConfig?.variants !== "object" || Array.isArray(styleConfig.variants)) {
         return mergeFn(base, props?.class, props?.className);
       }
 
-      const variants = config.variants;
-      const compoundVariants = Array.isArray(config?.compoundVariants) ? config.compoundVariants : [];
+      const variants = styleConfig.variants;
+      const compoundVariants = Array.isArray(styleConfig?.compoundVariants) ? styleConfig.compoundVariants : [];
       const defaultVariants =
-        typeof config?.defaultVariants === "object" && !Array.isArray(config.defaultVariants)
-          ? config.defaultVariants
+        typeof styleConfig?.defaultVariants === "object" && !Array.isArray(styleConfig.defaultVariants)
+          ? styleConfig.defaultVariants
           : {};
 
       const defaultsAndProps = { ...defaultVariants, ...(props ?? {}) };
@@ -58,30 +61,49 @@ export const createCVA = (mergeFn: MergeFn = cx): CVA => {
       );
     };
 
+    const ujg = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
+      const { compoundVariants, name, variants } = styleConfig;
+      if (!name) return mergeFn(props?.class, props?.className);
+
+      // * "jgPrefix:componentName"
+      const component = `${prefix ? `${prefix}:` : ""}${kebabCase(name)}`;
+
+      // * Exit early if variants do not exist or is not an object
+      if (typeof variants !== "object" || Array.isArray(variants)) {
+        return mergeFn(component, props?.class, props?.className);
+      }
+
+      let result = component;
+      for (const variantName of Object.keys(variants)) {
+        const variantObj = variants[variantName];
+        if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
+
+        // @ts-expect-error: Element implicitly has an 'any' type because index expression is not of type 'number'.
+        const variantType = props?.[variantName] ?? compoundVariants?.[variantName];
+
+        // * "__variantName--variantType"
+        const variant = variantName
+          ? `__${kebabCase(variantName)}${variantType ? `--${kebabCase(variantType)}` : ""}`
+          : "";
+
+        // * "jgPrefix:componentName__variantName--variantType"
+        result += ` ${component}${variant}`;
+      }
+
+      return mergeFn(result, props?.class, props?.className);
+    };
+
+    const component = (fileFormat !== "css" ? jg : ujg) as CVAReturnType<V>;
+    component.pluginConfig = {
+      fileFormat,
+      mergeFn,
+      prefix
+    };
+    component.styleConfig = styleConfig;
+
     return component;
   };
 };
-
-/**
- * Defines a type-safe structure for an CVA configuration object.
- * This utility allows you to define a CVA config with type checking.
- *
- * @returns {CVAConfig<Variant>} The CVA configuration object.
- *
- * @example
- * ```ts
- * const buttonConfig = defineCVA({
- *   base: "rounded-md",
- *   variants: {
- *     size: {
- *       small: "text-sm",
- *       medium: "text-base"
- *     }
- *   }
- * });
- * ```
- */
-export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
 
 /**
  * Implementation of the class variant authority (cva) function using the default class merging function.

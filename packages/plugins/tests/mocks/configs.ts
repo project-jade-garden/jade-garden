@@ -1,4 +1,3 @@
-import { cn } from "jade-garden";
 import type { Options } from "../../src/lib/types";
 import { buttonConfig, noBaseCVA, noNameCVA } from "../fixtures/jade-garden/cva";
 import { alertConfig, noNameSVA, noSlotsSVA } from "../fixtures/jade-garden/sva";
@@ -24,107 +23,31 @@ export const throwsConfig = {
   }
 };
 
-const build = {
-  styleConfigs: {},
-  entry: targetDir
-};
+const entry = targetDir;
 
-export const cssTestCases: { label: string; opts: Required<Options> }[] = [
+export const cssTestCases: { label: string; opts: Options }[] = [
   {
-    label: "without `classNameConfig`",
+    label: "default `styleConfig`",
     opts: {
-      build,
-      css: {},
-      eject: {}
+      entry
     }
   },
   {
-    label: "with `classNameConfig.jgPrefix`",
+    label: "with `classNameConfig.prefix`",
     opts: {
-      build,
-      css: {
-        classNameOptions: {
-          jgPrefix: "jg"
-        }
-      },
-      eject: {}
-    }
-  },
-  {
-    label: "with `classNameConfig.twPrefix`",
-    opts: {
-      build,
-      css: {
-        classNameOptions: {
-          twPrefix: "tw"
-        }
-      },
-      eject: {}
+      entry
     }
   },
   {
     label: "with `classNameConfig.mergeFn`",
     opts: {
-      build,
-      css: {
-        classNameOptions: {
-          mergeFn: cn
-        }
-      },
-      eject: {}
+      entry
     }
   },
   {
-    label: "with `classNameConfig.jgPrefix` and `classNameConfig.mergeFn`",
+    label: "with `classNameConfig.prefix` and `classNameConfig.mergeFn`",
     opts: {
-      build,
-      css: {
-        classNameOptions: {
-          jgPrefix: "jg",
-          mergeFn: cn
-        }
-      },
-      eject: {}
-    }
-  },
-  {
-    label: "with `classNameConfig.jgPrefix` and `classNameConfig.twPrefix`",
-    opts: {
-      build,
-      css: {
-        classNameOptions: {
-          jgPrefix: "jg",
-          twPrefix: "tw"
-        }
-      },
-      eject: {}
-    }
-  },
-  {
-    label: "with `classNameConfig.mergeFn` and `classNameConfig.twPrefix`",
-    opts: {
-      build,
-      css: {
-        classNameOptions: {
-          twPrefix: "tw",
-          mergeFn: cn
-        }
-      },
-      eject: {}
-    }
-  },
-  {
-    label: "with full `classNameConfig`",
-    opts: {
-      build,
-      css: {
-        classNameOptions: {
-          jgPrefix: "jg",
-          twPrefix: "tw",
-          mergeFn: cn
-        }
-      },
-      eject: {}
+      entry
     }
   }
 ];

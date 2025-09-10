@@ -1,31 +1,25 @@
 import { kebabCase } from "es-toolkit";
-import { type ClassNameConfig, cx, prefixClasses } from "jade-garden";
-import type { CVA } from "../types";
+import { type CVAConfig, cx, type PluginConfig } from "jade-garden";
 
 /* ===================== CVA ===================== */
 
-export const generateCVAStyles = (config: CVA, classNameConfig: ClassNameConfig): string => {
-  const mergeFn = classNameConfig?.mergeFn ?? cx;
-  const jgPrefix = classNameConfig?.jgPrefix;
-  const twPrefix = classNameConfig?.twPrefix;
+export const generateCVAStyles = (styleConfig: CVAConfig<any>, pluginConfig: PluginConfig): string => {
+  const mergeFn = pluginConfig?.mergeFn ?? cx;
+  const prefix = pluginConfig?.prefix;
 
-  const componentName = `${jgPrefix ? `${jgPrefix}\\:` : ""}${kebabCase(config.name as string)}`;
+  const componentName = `${prefix ? `${prefix}\\:` : ""}${kebabCase(styleConfig.name as string)}`;
 
   let cssOutput = "";
 
   // Base class
-  if (config.base) {
-    let applyRules = mergeFn(config.base);
-    if (applyRules && twPrefix) {
-      applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-    }
-
+  if (styleConfig.base) {
+    const applyRules = mergeFn(styleConfig.base);
     cssOutput = `  .${componentName} {\n    @apply ${applyRules};\n  }`;
   }
 
   // Compound variants
-  if (config.compoundVariants) {
-    for (const compoundVariant of config.compoundVariants) {
+  if (styleConfig.compoundVariants) {
+    for (const compoundVariant of styleConfig.compoundVariants) {
       const variantConditions = Object.keys(compoundVariant)
         .filter((key) => key !== "class" && key !== "className")
         .map((key) => {
@@ -36,10 +30,7 @@ export const generateCVAStyles = (config: CVA, classNameConfig: ClassNameConfig)
         })
         .join(",\n  ");
 
-      let applyRules = mergeFn(compoundVariant.class, compoundVariant.className);
-      if (applyRules && twPrefix) {
-        applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-      }
+      const applyRules = mergeFn(compoundVariant.class, compoundVariant.className);
 
       if (variantConditions && applyRules) {
         cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${variantConditions} {\n    @apply ${applyRules};\n  }`;
@@ -48,15 +39,12 @@ export const generateCVAStyles = (config: CVA, classNameConfig: ClassNameConfig)
   }
 
   // Variants
-  if (config.variants) {
-    for (const variantName in config.variants) {
-      const variantTypes = config.variants[variantName];
+  if (styleConfig.variants) {
+    for (const variantName in styleConfig.variants) {
+      const variantTypes = styleConfig.variants[variantName];
 
       for (const variantType in variantTypes) {
-        let applyRules = mergeFn(variantTypes[variantType]);
-        if (applyRules && twPrefix) {
-          applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-        }
+        const applyRules = mergeFn(variantTypes[variantType]);
 
         if (applyRules) {
           cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}.${componentName}__${kebabCase(variantName)}--${kebabCase(variantType)} {\n    @apply ${applyRules};\n  }`;

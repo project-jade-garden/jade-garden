@@ -109,7 +109,7 @@ Leverage powerful functions for combining, filtering, and generating class names
 > Styles are generated through [`unplugin-jade-garden`](https://www.npmjs.com/package/unplugin-jade-garden).
 
 ```ts
-import { cm, cn, cx, getClasses, prefixClasses, type Traits, traits } from "jade-garden";
+import { cm, cn, cx, prefixClasses, type Traits, traits } from "jade-garden";
 
 // cm (Class Manipulator)
 const specialClasses = cm("button-primary focus:outline-none", "button-primary", "custom-animation");
@@ -120,31 +120,6 @@ const baseClasses = cn("text-center", true && "font-bold", false && "hidden"); /
 
 // cx (alias for clsx)
 const dynamicClasses = cx("flex", { "items-center": true, "justify-between": false }); // "flex items-center"
-
-// getClasses (use in conjunction with unplugin-jade-garden)
-// CVA
-const button = getClasses({
-  name: "button",
-  base: "button",
-  variants: {
-    size: { small: "size-2", medium: "size-4" },
-    variant: { primary: "bg-red-500", secondary: "bg-blue-500" }
-  }
-});
-button({ size: "small", variant: "primary" }); // "button button__size--small button__variant--primary"
-// SVA
-const card = getClasses({
-  name: "card",
-  slots: { content: "content-class", footer: "footer-class" },
-  variants: {
-    size: {
-      small: { content: "size-2" },
-      medium: { content: "size-4" }
-    }
-  }
-});
-const { content, footer } = card({ size: "small" });
-content(); // "card--content card--content__size--small"
 
 // prefixClasses (for Tailwind variants)
 const hasCheckedPrefixes = prefixClasses("has-checked", [
@@ -184,18 +159,15 @@ const elementTraits = traits<CustomTraits>({
   - `cn`: Alias for clsx/lite.
   - `cx`: Alias for clsx.
   - **Plugin Functions**:
-    - `getClasses`: A function that generates class names based on a CVA or SVA configuration.
     - `prefixClasses`: A utility to simplify the maintenance of prefixed CSS classes.
     - `traits`: Generates CSS class names and data attributes.
 
 ### CVA (Class Variant Authority)
   - `createCVA`: Factory for a customizable CVA function.
-  - `defineCVA`: Type-safe helper for CVA configurations.
   - `cva`: Default CVA implementation for component variants.
 
 ### SVA (Slots Variants Authority)
   - `createSVA`: Factory for a customizable SVA function.
-  - `defineSVA`: Type-safe helper for SVA configurations.
   - `sva`: Default SVA implementation for multi-part component slots and variants.
 
 ### Types

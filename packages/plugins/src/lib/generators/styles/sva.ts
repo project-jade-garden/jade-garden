@@ -1,15 +1,13 @@
 import { kebabCase } from "es-toolkit";
-import { type ClassNameConfig, cx, prefixClasses } from "jade-garden";
-import type { SVA } from "../types";
+import { cx, type PluginConfig, type SVAConfig } from "jade-garden";
 
 /* ===================== SVA ===================== */
 
-export const generateSVAStyles = (config: SVA, classNameConfig: ClassNameConfig): string => {
-  const mergeFn = classNameConfig?.mergeFn ?? cx;
-  const jgPrefix = classNameConfig?.jgPrefix;
-  const twPrefix = classNameConfig?.twPrefix;
+export const generateSVAStyles = (config: SVAConfig<any, any>, pluginConfig: PluginConfig): string => {
+  const mergeFn = pluginConfig?.mergeFn ?? cx;
+  const prefix = pluginConfig?.prefix;
 
-  const componentName = `${jgPrefix ? `${jgPrefix}\\:` : ""}${kebabCase(config.name as string)}`;
+  const componentName = `${prefix ? `${prefix}\\:` : ""}${kebabCase(config.name as string)}`;
 
   let cssOutput = "";
 
@@ -28,10 +26,7 @@ export const generateSVAStyles = (config: SVA, classNameConfig: ClassNameConfig)
         .map((slot) => `.${componentName}--${kebabCase(String(slot))}${variantConditions}`)
         .join(",\n  ");
 
-      let applyRules = mergeFn(compoundSlot.class, compoundSlot.className);
-      if (applyRules && twPrefix) {
-        applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-      }
+      const applyRules = mergeFn(compoundSlot.class, compoundSlot.className);
 
       if (applyRules) {
         cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${combinedSelectors} {\n    @apply ${applyRules};\n  }`;
@@ -41,10 +36,7 @@ export const generateSVAStyles = (config: SVA, classNameConfig: ClassNameConfig)
 
   // Slots and their base classes
   for (const slot in config.slots) {
-    let applyRules = mergeFn(config.slots[slot]);
-    if (applyRules && twPrefix) {
-      applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-    }
+    const applyRules = mergeFn(config.slots[slot]);
 
     if (applyRules) {
       cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}--${kebabCase(slot)} {\n    @apply ${applyRules};\n  }`;
@@ -62,10 +54,7 @@ export const generateSVAStyles = (config: SVA, classNameConfig: ClassNameConfig)
             .map((key) => `${componentSlot}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`)
             .join("");
 
-          let applyRules = mergeFn(compoundVariant.class?.[slot], compoundVariant.className?.[slot]);
-          if (applyRules && twPrefix) {
-            applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-          }
+          const applyRules = mergeFn(compoundVariant.class?.[slot], compoundVariant.className?.[slot]);
 
           if (applyRules) {
             cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${componentSlot}${variantConditions} {\n    @apply ${applyRules};\n  }`;
@@ -84,10 +73,7 @@ export const generateSVAStyles = (config: SVA, classNameConfig: ClassNameConfig)
         const slots = variantTypes[variantType];
 
         for (const slot in slots) {
-          let applyRules = mergeFn(slots[slot]);
-          if (applyRules && twPrefix) {
-            applyRules = prefixClasses(twPrefix, applyRules.split(" "));
-          }
+          const applyRules = mergeFn(slots[slot]);
 
           if (applyRules) {
             const componentSlot = `.${componentName}--${kebabCase(slot)}`;

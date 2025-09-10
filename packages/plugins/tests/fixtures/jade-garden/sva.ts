@@ -1,6 +1,8 @@
-import { defineSVA } from "jade-garden/sva";
+import { createSVA } from "jade-garden/sva";
 
-export const alertConfig = defineSVA(["root", "title", "message"])({
+const sva = createSVA({ fileFormat: "css" });
+
+export const alertConfig = sva({
   name: "alert",
   slots: {
     root: "rounded py-3 px-5 mb-4",
@@ -106,7 +108,7 @@ export const alertConfig = defineSVA(["root", "title", "message"])({
   }
 });
 
-export const noNameSVA = defineSVA(["root", "title", "message"])({
+export const noNameSVA = sva({
   slots: {
     root: "rounded py-3 px-5 mb-4",
     title: "font-bold mb-1",
@@ -211,7 +213,7 @@ export const noNameSVA = defineSVA(["root", "title", "message"])({
   }
 });
 
-export const noSlotsSVA = defineSVA(["root", "title", "message"])({
+export const noSlotsSVA = sva({
   name: "alert",
   variants: {
     variant: {
