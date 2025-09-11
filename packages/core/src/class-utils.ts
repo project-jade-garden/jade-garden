@@ -131,57 +131,62 @@ export const prefixClasses = (
 };
 
 /**
- * Generates CSS class names with data attributes for a part of an anatomy.
+ * Generates CSS class names with HTML attributes.
  *
- * @template T - An interface defining the shape of the data attributes.
- * @returns {string} A string of merged class names and data attributes.
+ * @template {Traits<Record<string, any>>} T - An interface defining the shape of the attributes.
+ * @param {Record<string, T>} attributes - The values to convert.
+ * @returns {string} A string of attributes.
  */
-export const traits = <T extends Traits<Record<string, any>>>(options?: ClassProp & { data?: T }): string => {
-  let dataAttributes = "";
+export const traits = <T extends Traits<Record<string, any>>>(attributes: Record<string, T>): string => {
+  let result = "";
 
-  if (typeof options?.data === "object" && !Array.isArray(options?.data) && Object.keys(options?.data).length > 0) {
-    for (const key of Object.keys(options?.data)) {
-      const value = options?.data[key];
+  if (typeof attributes === "object" && !Array.isArray(attributes) && Object.keys(attributes).length > 0) {
+    for (const attributeKey of Object.keys(attributes)) {
+      const attributeValues = attributes[attributeKey];
 
-      if (typeof value === "object" && !Array.isArray(value)) {
-        const attributeValue = value;
+      for (const valueKey of Object.keys(attributeValues)) {
+        const value = attributeValues[valueKey];
 
-        for (const condition in value) {
-          const prefix = dataAttributes.length ? " " : "";
+        if (typeof value === "object" && !Array.isArray(value)) {
+          const attributeValue = value;
 
-          if (Object.hasOwn(attributeValue, condition)) {
-            const value = attributeValue[condition as keyof typeof attributeValue];
-            const dataAttributeStr = `data-[${key}=${condition}]`;
+          for (const condition in value) {
+            const prefix = result.length ? " " : "";
 
-            if (Array.isArray(value)) {
-              let values = "";
-              for (const v of value) {
-                values += `${values.length ? " " : ""}${dataAttributeStr}:${v}`;
+            if (Object.hasOwn(attributeValue, condition)) {
+              const value = attributeValue[condition as keyof typeof attributeValue];
+              const dataAttributeStr = `${attributeKey}-[${valueKey}=${condition}]`;
+
+              if (Array.isArray(value)) {
+                let values = "";
+                for (const v of value) {
+                  values += `${values.length ? " " : ""}${dataAttributeStr}:${v}`;
+                }
+
+                result += prefix + values;
+              } else if (typeof value === "string" && value.length) {
+                result += `${prefix}${dataAttributeStr}:${value}`;
               }
-
-              dataAttributes += prefix + values;
-            } else if (typeof value === "string" && value.length) {
-              dataAttributes += `${prefix + dataAttributeStr}:${value}`;
             }
           }
-        }
-      } else if (typeof value !== "undefined") {
-        const prefix = dataAttributes.length ? " " : "";
-        const dataAttributeStr = `data-[${key}]`;
+        } else if (typeof value !== "undefined") {
+          const prefix = result.length ? " " : "";
+          const dataAttributeStr = `${attributeKey}-[${valueKey}]`;
 
-        if (Array.isArray(value)) {
-          let attributeValues = "";
-          for (const v of value) {
-            attributeValues += `${attributeValues.length ? " " : ""}${dataAttributeStr}:${v}`;
+          if (Array.isArray(value)) {
+            let attributeValues = "";
+            for (const v of value) {
+              attributeValues += `${attributeValues.length ? " " : ""}${dataAttributeStr}:${v}`;
+            }
+
+            result += prefix + attributeValues;
+          } else if (typeof value === "string" && value.length) {
+            result += `${prefix}${dataAttributeStr}:${value}`;
           }
-
-          dataAttributes += prefix + attributeValues;
-        } else if (typeof value === "string" && value.length) {
-          dataAttributes += `${prefix + dataAttributeStr}:${value}`;
         }
       }
     }
   }
 
-  return clsx(options?.class, options?.className, dataAttributes);
+  return result;
 };

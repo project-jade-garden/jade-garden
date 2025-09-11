@@ -209,15 +209,6 @@ describe("class-utils", () => {
   });
 
   describe("traits", () => {
-    test("return class and className when data is empty or invalid", () => {
-      const propsWithNoData: Traits<{}> = { class: "base-class", className: "extra-class" };
-      const data: Traits<{}> = {};
-
-      expect(traits({ ...propsWithNoData, data })).toBe("base-class extra-class");
-      expect(traits({ ...propsWithNoData, data: [] as any })).toBe("base-class extra-class");
-      expect(traits({ ...propsWithNoData })).toBe("base-class extra-class");
-    });
-
     test("generate data attributes for simple string values", () => {
       const data: Traits<{ scope: "avatar"; part: "fallback" }> = {
         scope: { avatar: "avatar" },
@@ -246,18 +237,6 @@ describe("class-utils", () => {
         }
       };
       expect(traits({ data })).toBe("data-[state=open]:is-open data-[state=closed]:is-closed");
-    });
-
-    test("mix of class name and data attributes", () => {
-      const data: Traits<{ size: "small" | "large"; loading: "true" | "false" }> = {
-        size: { small: "button-small", large: "button-large" },
-        loading: { true: "button-loading" }
-      };
-
-      // @ts-expect-error
-      expect(traits({ class: "base-button", className: ["primary", "animated"], data })).toBe(
-        "base-button primary animated data-[size=small]:button-small data-[size=large]:button-large data-[loading=true]:button-loading"
-      );
     });
 
     test("boolean data attributes", () => {
