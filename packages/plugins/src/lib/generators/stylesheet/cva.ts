@@ -25,10 +25,7 @@ export const generateCVAStylesheet = (styleConfig: CVAConfig<any>, options: Crea
       const variantConditions = Object.keys(compoundVariant)
         .filter((key) => key !== "class" && key !== "className")
         .map((key) => {
-          // TODO
-          // biome-ignore lint/suspicious/noTsIgnore: There seems to be an internal build issue with `unplugin-jade-garden` in the `generators` directory. Switching between `dist` and `src` you will see the issue. Setting "@ts-ignore" for now.
-          // @ts-ignore: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type.
-          return `.${componentName}.${componentName}__${kebabCase(key)}--${kebabCase(compoundVariant[key] as string)}`;
+          return `.${componentName}.${componentName}__${kebabCase(key)}--${kebabCase(compoundVariant[key as keyof typeof compoundVariant] as string)}`;
         })
         .join(",\n  ");
 

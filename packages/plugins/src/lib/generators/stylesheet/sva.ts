@@ -22,9 +22,6 @@ export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, options:
         .join("");
 
       const combinedSelectors = compoundSlot.slots
-        // TODO
-        // biome-ignore lint/suspicious/noTsIgnore: There seems to be an internal build issue with `unplugin-jade-garden` in the `generators` directory. Switching between `dist` and `src` you will see the issue. Setting "@ts-ignore" for now.
-        // @ts-ignore: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type.
         .map((slot) => `.${componentName}--${kebabCase(String(slot))}${variantConditions}`)
         .join(",\n  ");
 
