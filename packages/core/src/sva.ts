@@ -12,7 +12,9 @@ import type {
 } from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
-/* ====================== SVA ====================== */
+/* -----------------------------------------------------------------------------
+ * SVA
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Creates a slots variants authority (SVA) function with a custom merge function.

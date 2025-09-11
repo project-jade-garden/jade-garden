@@ -1,6 +1,8 @@
 import type { MergeFn } from "./types";
 
-/* ===================== Utils ===================== */
+/* -----------------------------------------------------------------------------
+ * Utils
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Converts a boolean to its string representation ("true" or "false"), or returns the value as is.

@@ -1,7 +1,9 @@
 import { clsx } from "clsx";
 import type { ClassProp, ClassStrings, ClassValue, Traits } from "./types";
 
-/* ================== Class Utils ================= */
+/* -----------------------------------------------------------------------------
+ * Class Utils
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Conditionally combines class names, allowing for exclusion and inclusion of specific classes.

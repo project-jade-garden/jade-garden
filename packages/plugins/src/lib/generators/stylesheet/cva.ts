@@ -1,9 +1,11 @@
 import { kebabCase } from "es-toolkit";
 import { type CreateOptions, type CVAConfig, cx } from "jade-garden";
 
-/* ===================== CVA ===================== */
+/* -----------------------------------------------------------------------------
+ * CVA
+ * -----------------------------------------------------------------------------*/
 
-export const generateCVAStyles = (styleConfig: CVAConfig<any>, options: CreateOptions): string => {
+export const generateCVAStylesheet = (styleConfig: CVAConfig<any>, options: CreateOptions): string => {
   const mergeFn = options?.mergeFn ?? cx;
   const prefix = options?.prefix;
 

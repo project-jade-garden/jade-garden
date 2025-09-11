@@ -1,19 +1,21 @@
 import { kebabCase } from "es-toolkit";
 import { type CreateOptions, cx, type SVAConfig } from "jade-garden";
 
-/* ===================== SVA ===================== */
+/* -----------------------------------------------------------------------------
+ * SVA
+ * -----------------------------------------------------------------------------*/
 
-export const generateSVAStyles = (config: SVAConfig<any, any>, options: CreateOptions): string => {
+export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, options: CreateOptions): string => {
   const mergeFn = options?.mergeFn ?? cx;
   const prefix = options?.prefix;
 
-  const componentName = `${prefix ? `${prefix}\\:` : ""}${kebabCase(config.name as string)}`;
+  const componentName = `${prefix ? `${prefix}\\:` : ""}${kebabCase(styleConfig.name as string)}`;
 
   let cssOutput = "";
 
   // Compound slots
-  if (config.compoundSlots) {
-    for (const compoundSlot of config.compoundSlots) {
+  if (styleConfig.compoundSlots) {
+    for (const compoundSlot of styleConfig.compoundSlots) {
       const variantConditions = Object.keys(compoundSlot)
         .filter((key) => key !== "slots" && key !== "class" && key !== "className")
         .map((key) => `__${kebabCase(key)}--${kebabCase(compoundSlot[key] as string)}`)
@@ -35,8 +37,8 @@ export const generateSVAStyles = (config: SVAConfig<any, any>, options: CreateOp
   }
 
   // Slots and their base classes
-  for (const slot in config.slots) {
-    const applyRules = mergeFn(config.slots[slot]);
+  for (const slot in styleConfig.slots) {
+    const applyRules = mergeFn(styleConfig.slots[slot]);
 
     if (applyRules) {
       cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}--${kebabCase(slot)} {\n    @apply ${applyRules};\n  }`;
@@ -44,9 +46,9 @@ export const generateSVAStyles = (config: SVAConfig<any, any>, options: CreateOp
   }
 
   // Compound variants
-  if (config.compoundVariants) {
-    for (const compoundVariant of config.compoundVariants) {
-      for (const slot in config.slots) {
+  if (styleConfig.compoundVariants) {
+    for (const compoundVariant of styleConfig.compoundVariants) {
+      for (const slot in styleConfig.slots) {
         if (compoundVariant.class?.[slot] || compoundVariant.className?.[slot]) {
           const componentSlot = `.${componentName}--${kebabCase(slot)}`;
           const variantConditions = Object.keys(compoundVariant)
@@ -65,9 +67,9 @@ export const generateSVAStyles = (config: SVAConfig<any, any>, options: CreateOp
   }
 
   // Slot variants
-  if (config.variants) {
-    for (const variantName in config.variants) {
-      const variantTypes = config.variants[variantName];
+  if (styleConfig.variants) {
+    for (const variantName in styleConfig.variants) {
+      const variantTypes = styleConfig.variants[variantName];
 
       for (const variantType in variantTypes) {
         const slots = variantTypes[variantType];

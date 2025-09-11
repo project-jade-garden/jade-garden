@@ -6,7 +6,15 @@ import * as webpack from "webpack";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA } from "./fixtures/jade-garden/cva";
 import { alertConfig, noSlotsSVA } from "./fixtures/jade-garden/sva";
-import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig } from "./mocks/configs";
+import {
+  configs,
+  configTestCases,
+  cvaConfig,
+  noBaseAndSlots,
+  noNames,
+  stylesheetTestCases,
+  svaConfig
+} from "./mocks/configs";
 import { entryDir, outputDir, rootDir } from "./mocks/dirPaths";
 import { getPath } from "./utils";
 
@@ -54,7 +62,7 @@ describe("webpack", async () => {
 
   describe("edge cases", () => {
     test("empties `outDir`", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       opts.styleConfigs = configs;
       await webpackBuild(opts);
@@ -80,7 +88,7 @@ describe("webpack", async () => {
     });
 
     test("prevents name conflicts", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       opts.styleConfigs = { components: [alertConfig, alertConfig, buttonConfig, buttonConfig] };
       await webpackBuild(opts);
@@ -95,7 +103,7 @@ describe("webpack", async () => {
 
   describe("no writes", () => {
     test("no names", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       opts.styleConfigs = noNames;
       await webpackBuild(opts);
@@ -104,7 +112,7 @@ describe("webpack", async () => {
     });
 
     test("no base", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       opts.styleConfigs = { components: [noBaseCVA] };
       await webpackBuild(opts);
@@ -113,7 +121,7 @@ describe("webpack", async () => {
     });
 
     test("no slots", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       opts.styleConfigs = { components: [noSlotsSVA] };
       await webpackBuild(opts);
@@ -122,7 +130,7 @@ describe("webpack", async () => {
     });
 
     test("no base and no slots", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       opts.styleConfigs = noBaseAndSlots;
       await webpackBuild(opts);
@@ -133,7 +141,7 @@ describe("webpack", async () => {
 
   describe("throws", () => {
     test("`configs` is not valid", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'string' is not assignable to type.
       opts.styleConfigs = "";
@@ -145,7 +153,7 @@ describe("webpack", async () => {
     });
 
     test("invalid config value", async () => {
-      const { opts: _opts } = cssTestCases[0];
+      const { opts: _opts } = stylesheetTestCases[0];
       const opts = cloneDeep(_opts);
       // @ts-expect-error: Type 'undefined' is not assignable to type.
       opts.styleConfigs = { 1: { 2: undefined } };
@@ -158,7 +166,7 @@ describe("webpack", async () => {
   });
 
   describe("writes", () => {
-    test.each(cssTestCases)("cva file $label", async ({ opts }) => {
+    test.each(stylesheetTestCases)("cva file $label", async ({ opts }) => {
       opts.styleConfigs = cvaConfig;
       await webpackBuild(opts);
 
@@ -172,7 +180,22 @@ describe("webpack", async () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(cssTestCases)("sva file $label", async ({ opts }) => {
+    test.each(configTestCases)("cva file $label", async ({ opts }) => {
+      const fileFormat = opts.configOutput ?? "ts";
+      opts.styleConfigs = cvaConfig;
+      await webpackBuild(opts);
+
+      const buttonFile = `${targetDir}/cva/button.${fileFormat}`;
+      const indexFile = `${targetDir}/cva/index.${fileFormat}`;
+
+      expect(readFileSync(buttonFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
+
+      expect(existsSync(buttonFile)).toBe(true);
+      expect(existsSync(indexFile)).toBe(true);
+    });
+
+    test.each(stylesheetTestCases)("sva file $label", async ({ opts }) => {
       opts.styleConfigs = svaConfig;
       await webpackBuild(opts);
 
@@ -186,7 +209,22 @@ describe("webpack", async () => {
       expect(existsSync(indexFile)).toBe(true);
     });
 
-    test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
+    test.each(configTestCases)("sva file $label", async ({ opts }) => {
+      const fileFormat = opts.configOutput ?? "ts";
+      opts.styleConfigs = svaConfig;
+      await webpackBuild(opts);
+
+      const alertFile = `${targetDir}/sva/alert.${fileFormat}`;
+      const indexFile = `${targetDir}/sva/index.${fileFormat}`;
+
+      expect(readFileSync(alertFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
+
+      expect(existsSync(alertFile)).toBe(true);
+      expect(existsSync(indexFile)).toBe(true);
+    });
+
+    test.each(stylesheetTestCases)("cva and sva files $label", async ({ opts }) => {
       opts.styleConfigs = configs;
       await webpackBuild(opts);
 
@@ -201,6 +239,24 @@ describe("webpack", async () => {
       expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
       expect(existsSync(`${outputDir}/button.css`)).toBe(true);
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
+    });
+
+    test.each(configTestCases)("cva and sva files $label", async ({ opts }) => {
+      const fileFormat = opts.configOutput ?? "ts";
+      opts.styleConfigs = configs;
+      await webpackBuild(opts);
+
+      const alertFile = `${outputDir}/alert.${fileFormat}`;
+      const buttonFile = `${outputDir}/button.${fileFormat}`;
+      const indexFile = `${outputDir}/index.${fileFormat}`;
+
+      expect(readFileSync(alertFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(buttonFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
+
+      expect(existsSync(`${outputDir}/alert.${fileFormat}`)).toBe(true);
+      expect(existsSync(`${outputDir}/button.${fileFormat}`)).toBe(true);
+      expect(existsSync(`${outputDir}/index.${fileFormat}`)).toBe(true);
     });
   });
 });

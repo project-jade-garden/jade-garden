@@ -3,7 +3,9 @@ import { cx } from "./class-utils";
 import type { ClassProp, CreateOptions, CVA, CVAConfig, CVAReturnType, CVAVariants, Variant } from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
-/* ====================== CVA ====================== */
+/* -----------------------------------------------------------------------------
+ * CVA
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Creates a class variant authority (cva) function with a custom merge function.

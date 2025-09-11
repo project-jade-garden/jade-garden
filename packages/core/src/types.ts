@@ -1,6 +1,8 @@
 import type { ClassValue as CV } from "clsx";
 
-/* ===================== Types ===================== */
+/* -----------------------------------------------------------------------------
+ * Types
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Represents the minimum structure to work with class names.
@@ -127,17 +129,13 @@ export type VariantProps<Component extends (...args: any) => any> = Omit<
   "class" | "className"
 >;
 
-/* =================== Internals =================== */
+/* -----------------------------------------------------------------------------
+ * Internals: FOR INTERNAL USE ONLY
+ * -----------------------------------------------------------------------------*/
 
-/**
- * **FOR INTERNAL USE ONLY**
- *
- * Variety of types for the `jade-garden` library.
- *
- * @internal
- */
-
-/* ===================== Types ===================== */
+/* -----------------------------------------------------------------------------
+ * Types
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Represents the `class` and `className` props for `cva` and `sva`.
@@ -172,7 +170,9 @@ export type RecordClassValue = Record<string, ClassValue>;
  */
 export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
 
-/* ====================== CVA ====================== */
+/* -----------------------------------------------------------------------------
+ * CVA
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Represents the variant configurations for `cva`.
@@ -306,7 +306,9 @@ export type CVAReturnType<V extends Variant> = ((
  */
 export type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
 
-/* ====================== SVA ====================== */
+/* -----------------------------------------------------------------------------
+ * SVA
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Represents the class values for slots, where keys are slot names and values are class names.

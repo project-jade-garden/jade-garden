@@ -1,2 +1,2 @@
-export * from "./configs";
-export * from "./styles";
+export * from "./config";
+export * from "./stylesheet";

@@ -7,7 +7,7 @@ import { join } from "node:path";
 import { kebabCase } from "es-toolkit";
 import type { UnpluginFactory } from "unplugin";
 import { createFilter } from "unplugin-utils";
-import { generateCVAStyles, generateSVAStyles } from "./generators";
+import { generateCVAConfig, generateCVAStylesheet, generateSVAConfig, generateSVAStylesheet } from "./generators";
 import type { Options } from "./types";
 
 // * Taken from: https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/src/test-utils/run.ts
@@ -56,6 +56,8 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
       //   tailwindImport = '@import "tailwindcss";';
       // }
 
+      let writtenDirs = "";
+
       for (const key of Object.keys(styleConfigs)) {
         const configsArr = styleConfigs[key];
 
@@ -67,10 +69,8 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
 
         const configNames: Record<string, number> = {};
 
-        // * The index files that will hold the css imports and js/ts exports
-        let cssIndexFile = "";
-        let jsIndexFile = "";
-        let tsIndexFile = "";
+        // * The index file that will hold the css imports or js/ts exports
+        let indexFile = "";
 
         for (const { styleConfig } of configsArr) {
           const { name } = styleConfig;
@@ -105,29 +105,19 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
           // * Write individual css or js/ts files
           if ("base" in styleConfig) {
             if (fileFormat === "css") {
-              cssIndexFile += `@import "./${fileName}.css";\n`;
-              writeFileSync(outFile, generateCVAStyles(styleConfig, createOptions));
+              indexFile += `@import "./${fileName}.css";\n`;
+              writeFileSync(outFile, generateCVAStylesheet(styleConfig, createOptions));
             } else {
-              if (fileFormat === "js") jsIndexFile += `export * from "./${fileName}";\n`;
-              if (fileFormat === "ts") tsIndexFile += `export * from "./${fileName}";\n`;
-
-              writeFileSync(
-                outFile,
-                `import { cva } from "jade-garden/cva"\n\nexport const ${name} = cva(${JSON.stringify(styleConfig, null, 2)});\n`
-              );
+              indexFile += `export * from "./${fileName}";\n`;
+              writeFileSync(outFile, generateCVAConfig(styleConfig));
             }
           } else if ("slots" in styleConfig) {
             if (fileFormat === "css") {
-              cssIndexFile += `@import "./${fileName}.css";\n`;
-              writeFileSync(outFile, generateSVAStyles(styleConfig, createOptions));
+              indexFile += `@import "./${fileName}.css";\n`;
+              writeFileSync(outFile, generateSVAStylesheet(styleConfig, createOptions));
             } else {
-              if (fileFormat === "js") jsIndexFile += `export * from "./${fileName}";\n`;
-              if (fileFormat === "ts") tsIndexFile += `export * from "./${fileName}";\n`;
-
-              writeFileSync(
-                outFile,
-                `import { sva } from "jade-garden/sva"\n\nexport const ${name} = sva(${JSON.stringify(styleConfig, null, 2)});\n`
-              );
+              indexFile += `export * from "./${fileName}";\n`;
+              writeFileSync(outFile, generateSVAConfig(styleConfig));
             }
           } else {
             console.warn(
@@ -153,12 +143,32 @@ export const factory: UnpluginFactory<Options | undefined, false> = (rawOptions)
         }
 
         // * Write index files
-        if (cssIndexFile) writeFileSync(`${outDirWrite}/index.css`, cssIndexFile);
-        if (jsIndexFile) writeFileSync(`${outDirWrite}/index.js`, jsIndexFile);
-        if (tsIndexFile) writeFileSync(`${outDirWrite}/index.ts`, tsIndexFile);
-
+        if (indexFile) {
+          writeFileSync(`${outDirWrite}/index.${fileFormat}`, indexFile);
+          writtenDirs += fileFormat === "css" ? `@import "./${key}/index.css";\n` : `export * from "./${key}";\n`;
+        }
         // * Clean directory if no files were output
-        if (!cssIndexFile && !jsIndexFile && !tsIndexFile) rmSync(outDirWrite, { recursive: true });
+        else {
+          rmSync(outDirWrite, { recursive: true });
+        }
+      }
+
+      // * Write root imports/exports
+      if (writtenDirs) writeFileSync(`${outDirPath}/index.${fileFormat}`, writtenDirs);
+
+      // * Write util file
+      if (writtenDirs && fileFormat !== "css") {
+        writeFileSync(
+          `${outDirPath}/utils.${fileFormat}`,
+          `/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ * -----------------------------------------------------------------------------*/
+import { createCVA, createSVA } from "jade-garden";
+
+export const cva = createCVA();
+export const sva = createSVA();
+`
+        );
       }
     }
   };

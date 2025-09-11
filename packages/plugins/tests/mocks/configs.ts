@@ -4,6 +4,8 @@ import { buttonConfig, noBaseCVA, noNameCVA } from "../fixtures/jade-garden/cva"
 import { alertConfig, noNameSVA, noSlotsSVA } from "../fixtures/jade-garden/sva";
 import { targetDir } from "./dirPaths";
 
+type TestCase = { label: string; opts: Options };
+
 export const configs = { components: [alertConfig, buttonConfig] };
 export const cvaConfig = { cva: [buttonConfig] };
 export const noBaseAndSlots = { components: [noBaseCVA, noSlotsSVA] };
@@ -12,7 +14,29 @@ export const svaConfig = { sva: [alertConfig] };
 
 const entry = targetDir;
 
-export const cssTestCases: { label: string; opts: Options }[] = [
+export const configTestCases: TestCase[] = [
+  {
+    label: "default `configOutput`",
+    opts: {
+      createOptions: {
+        useStylesheet: false
+      },
+      entry
+    }
+  },
+  {
+    label: '`configOutput` set to "js"',
+    opts: {
+      configOutput: "js",
+      createOptions: {
+        useStylesheet: false
+      },
+      entry
+    }
+  }
+];
+
+export const stylesheetTestCases: TestCase[] = [
   {
     label: "default `styleConfig`",
     opts: {
