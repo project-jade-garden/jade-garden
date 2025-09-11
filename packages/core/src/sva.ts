@@ -2,7 +2,7 @@ import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
 import type {
   ClassProp,
-  PluginConfig,
+  CreateOptions,
   RecordClassValue,
   SVA,
   SVAConfig,
@@ -17,11 +17,11 @@ import { getVariantClasses, hasProps } from "./utils";
 /**
  * Creates a slots variants authority (SVA) function with a custom merge function.
  *
- * @param {MergeFn} mergeFn - The function to merge class names.
+ * @param {CreateOptions} [options] - Options to manage class names.
  * @returns {SVA} The sva function.
  */
-export const createSVA = (options?: PluginConfig): SVA => {
-  const { fileFormat = "ts", mergeFn = cx, prefix = "" } = options ?? {};
+export const createSVA = (options?: CreateOptions): SVA => {
+  const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
   return <RCV extends RecordClassValue, V extends Variants<RCV>>(
     styleConfig: SVAConfig<RCV, V>
@@ -188,12 +188,8 @@ export const createSVA = (options?: PluginConfig): SVA => {
       return slotsFns;
     };
 
-    const component = (fileFormat !== "css" ? jg : ujg) as SVAReturnType<RCV, V>;
-    component.pluginConfig = {
-      fileFormat,
-      mergeFn,
-      prefix
-    };
+    const component = (useStylesheet ? ujg : jg) as SVAReturnType<RCV, V>;
+
     component.styleConfig = styleConfig;
 
     return component;

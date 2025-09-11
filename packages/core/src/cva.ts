@@ -1,6 +1,6 @@
 import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
-import type { ClassProp, CVA, CVAConfig, CVAReturnType, CVAVariants, PluginConfig, Variant } from "./types";
+import type { ClassProp, CreateOptions, CVA, CVAConfig, CVAReturnType, CVAVariants, Variant } from "./types";
 import { getVariantClasses, hasProps } from "./utils";
 
 /* ====================== CVA ====================== */
@@ -8,11 +8,11 @@ import { getVariantClasses, hasProps } from "./utils";
 /**
  * Creates a class variant authority (cva) function with a custom merge function.
  *
- * @param {MergeFn} mergeFn - The function to merge class names.
+ * @param {CreateOptions} [options] - Options to manage class names.
  * @returns {CVA} The cva function.
  */
-export const createCVA = (options?: PluginConfig): CVA => {
-  const { fileFormat = "ts", mergeFn = cx, prefix = "" } = options ?? {};
+export const createCVA = (options?: CreateOptions): CVA => {
+  const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
   return <V extends Variant>(styleConfig: CVAConfig<V>): CVAReturnType<V> => {
     const jg = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
@@ -93,12 +93,8 @@ export const createCVA = (options?: PluginConfig): CVA => {
       return mergeFn(result, props?.class, props?.className);
     };
 
-    const component = (fileFormat !== "css" ? jg : ujg) as CVAReturnType<V>;
-    component.pluginConfig = {
-      fileFormat,
-      mergeFn,
-      prefix
-    };
+    const component = (useStylesheet ? ujg : jg) as CVAReturnType<V>;
+
     component.styleConfig = styleConfig;
 
     return component;

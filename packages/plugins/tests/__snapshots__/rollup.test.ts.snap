@@ -1,6 +1,6 @@
 // Bun Snapshot v1, https://bun.sh/docs/test/snapshots
 
-exports[`rollup writes cva file "without \`classNameConfig\`" 1`] = `
+exports[`rollup writes cva file "default \`styleConfig\`" 1`] = `
 "@layer components {
   .button {
     @apply rounded-full;
@@ -30,12 +30,12 @@ exports[`rollup writes cva file "without \`classNameConfig\`" 1`] = `
 "
 `;
 
-exports[`rollup writes cva file "without \`classNameConfig\`" 2`] = `
+exports[`rollup writes cva file "default \`styleConfig\`" 2`] = `
 "@import "./button.css";
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\`" 1`] = `
+exports[`rollup writes cva file "with \`createOptions.prefix\`" 1`] = `
 "@layer components {
   .jg\\:button {
     @apply rounded-full;
@@ -65,47 +65,12 @@ exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\`" 1`] = `
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\`" 2`] = `
+exports[`rollup writes cva file "with \`createOptions.prefix\`" 2`] = `
 "@import "./button.css";
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .button {
-    @apply tw:rounded-full;
-  }
-
-  .button.button__intent--primary,
-  .button.button__size--medium {
-    @apply tw:uppercase;
-  }
-
-  .button.button__intent--primary {
-    @apply tw:bg-blue-500 tw:text-white tw:border-transparent tw:hover:bg-blue-600;
-  }
-
-  .button.button__intent--secondary {
-    @apply tw:bg-white tw:text-gray-800 tw:border-gray-400 tw:hover:bg-gray-100;
-  }
-
-  .button.button__size--small {
-    @apply tw:text-sm tw:py-1 tw:px-2;
-  }
-
-  .button.button__size--medium {
-    @apply tw:text-base tw:py-2 tw:px-4;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva file "with \`classNameConfig.twPrefix\`" 2`] = `
-"@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva file "with \`classNameConfig.mergeFn\`" 1`] = `
+exports[`rollup writes cva file "with \`createOptions.mergeFn\`" 1`] = `
 "@layer components {
   .button {
     @apply rounded-full;
@@ -119,12 +84,12 @@ exports[`rollup writes cva file "with \`classNameConfig.mergeFn\`" 1`] = `
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.mergeFn\`" 2`] = `
+exports[`rollup writes cva file "with \`createOptions.mergeFn\`" 2`] = `
 "@import "./button.css";
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 1`] = `
+exports[`rollup writes cva file "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
 "@layer components {
   .jg\\:button {
     @apply rounded-full;
@@ -138,85 +103,12 @@ exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\` and \`classNa
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 2`] = `
+exports[`rollup writes cva file "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
 "@import "./button.css";
 "
 `;
 
-exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .jg\\:button {
-    @apply tw:rounded-full;
-  }
-
-  .jg\\:button.jg\\:button__intent--primary,
-  .jg\\:button.jg\\:button__size--medium {
-    @apply tw:uppercase;
-  }
-
-  .jg\\:button.jg\\:button__intent--primary {
-    @apply tw:bg-blue-500 tw:text-white tw:border-transparent tw:hover:bg-blue-600;
-  }
-
-  .jg\\:button.jg\\:button__intent--secondary {
-    @apply tw:bg-white tw:text-gray-800 tw:border-gray-400 tw:hover:bg-gray-100;
-  }
-
-  .jg\\:button.jg\\:button__size--small {
-    @apply tw:text-sm tw:py-1 tw:px-2;
-  }
-
-  .jg\\:button.jg\\:button__size--medium {
-    @apply tw:text-base tw:py-2 tw:px-4;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 2`] = `
-"@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva file "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .button {
-    @apply tw:rounded-full;
-  }
-
-  .button.button__intent--primary,
-  .button.button__size--medium {
-    @apply tw:uppercase;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva file "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 2`] = `
-"@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva file "with full \`classNameConfig\`" 1`] = `
-"@layer components {
-  .jg\\:button {
-    @apply tw:rounded-full;
-  }
-
-  .jg\\:button.jg\\:button__intent--primary,
-  .jg\\:button.jg\\:button__size--medium {
-    @apply tw:uppercase;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva file "with full \`classNameConfig\`" 2`] = `
-"@import "./button.css";
-"
-`;
-
-exports[`rollup writes sva file "without \`classNameConfig\`" 1`] = `
+exports[`rollup writes sva file "default \`styleConfig\`" 1`] = `
 "@layer components {
   .alert--root,
   .alert--title,
@@ -305,12 +197,12 @@ exports[`rollup writes sva file "without \`classNameConfig\`" 1`] = `
 "
 `;
 
-exports[`rollup writes sva file "without \`classNameConfig\`" 2`] = `
+exports[`rollup writes sva file "default \`styleConfig\`" 2`] = `
 "@import "./alert.css";
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\`" 1`] = `
+exports[`rollup writes sva file "with \`createOptions.prefix\`" 1`] = `
 "@layer components {
   .jg\\:alert--root,
   .jg\\:alert--title,
@@ -399,106 +291,12 @@ exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\`" 1`] = `
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\`" 2`] = `
+exports[`rollup writes sva file "with \`createOptions.prefix\`" 2`] = `
 "@import "./alert.css";
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .alert--root,
-  .alert--title,
-  .alert--message {
-    @apply tw:flex tw:flex-wrap tw:truncate tw:box-border tw:outline-none tw:items-center tw:justify-center tw:bg-neutral-100 tw:hover:bg-neutral-200 tw:active:bg-neutral-300 tw:text-neutral-500;
-  }
-
-  .alert--root__size--xs,
-  .alert--title__size--xs,
-  .alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .alert--root__size--sm,
-  .alert--title__size--sm,
-  .alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .alert--root__size--md,
-  .alert--title__size--md,
-  .alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .alert--root.alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes sva file "with \`classNameConfig.twPrefix\`" 2`] = `
-"@import "./alert.css";
-"
-`;
-
-exports[`rollup writes sva file "with \`classNameConfig.mergeFn\`" 1`] = `
+exports[`rollup writes sva file "with \`createOptions.mergeFn\`" 1`] = `
 "@layer components {
   .alert--root__size--xs,
   .alert--title__size--xs,
@@ -581,12 +379,12 @@ exports[`rollup writes sva file "with \`classNameConfig.mergeFn\`" 1`] = `
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.mergeFn\`" 2`] = `
+exports[`rollup writes sva file "with \`createOptions.mergeFn\`" 2`] = `
 "@import "./alert.css";
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 1`] = `
+exports[`rollup writes sva file "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
 "@layer components {
   .jg\\:alert--root__size--xs,
   .jg\\:alert--title__size--xs,
@@ -669,282 +467,12 @@ exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\` and \`classNa
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 2`] = `
+exports[`rollup writes sva file "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
 "@import "./alert.css";
 "
 `;
 
-exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .jg\\:alert--root,
-  .jg\\:alert--title,
-  .jg\\:alert--message {
-    @apply tw:flex tw:flex-wrap tw:truncate tw:box-border tw:outline-none tw:items-center tw:justify-center tw:bg-neutral-100 tw:hover:bg-neutral-200 tw:active:bg-neutral-300 tw:text-neutral-500;
-  }
-
-  .jg\\:alert--root__size--xs,
-  .jg\\:alert--title__size--xs,
-  .jg\\:alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .jg\\:alert--root__size--sm,
-  .jg\\:alert--title__size--sm,
-  .jg\\:alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .jg\\:alert--root__size--md,
-  .jg\\:alert--title__size--md,
-  .jg\\:alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .jg\\:alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .jg\\:alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes sva file "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 2`] = `
-"@import "./alert.css";
-"
-`;
-
-exports[`rollup writes sva file "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .alert--root__size--xs,
-  .alert--title__size--xs,
-  .alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .alert--root__size--sm,
-  .alert--title__size--sm,
-  .alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .alert--root__size--md,
-  .alert--title__size--md,
-  .alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .alert--root.alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes sva file "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 2`] = `
-"@import "./alert.css";
-"
-`;
-
-exports[`rollup writes sva file "with full \`classNameConfig\`" 1`] = `
-"@layer components {
-  .jg\\:alert--root__size--xs,
-  .jg\\:alert--title__size--xs,
-  .jg\\:alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .jg\\:alert--root__size--sm,
-  .jg\\:alert--title__size--sm,
-  .jg\\:alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .jg\\:alert--root__size--md,
-  .jg\\:alert--title__size--md,
-  .jg\\:alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .jg\\:alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .jg\\:alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes sva file "with full \`classNameConfig\`" 2`] = `
-"@import "./alert.css";
-"
-`;
-
-exports[`rollup writes cva and sva files "without \`classNameConfig\`" 1`] = `
+exports[`rollup writes cva and sva files "default \`styleConfig\`" 1`] = `
 "@layer components {
   .alert--root,
   .alert--title,
@@ -1033,7 +561,7 @@ exports[`rollup writes cva and sva files "without \`classNameConfig\`" 1`] = `
 "
 `;
 
-exports[`rollup writes cva and sva files "without \`classNameConfig\`" 2`] = `
+exports[`rollup writes cva and sva files "default \`styleConfig\`" 2`] = `
 "@layer components {
   .button {
     @apply rounded-full;
@@ -1063,13 +591,13 @@ exports[`rollup writes cva and sva files "without \`classNameConfig\`" 2`] = `
 "
 `;
 
-exports[`rollup writes cva and sva files "without \`classNameConfig\`" 3`] = `
+exports[`rollup writes cva and sva files "default \`styleConfig\`" 3`] = `
 "@import "./alert.css";
 @import "./button.css";
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\`" 1`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.prefix\`" 1`] = `
 "@layer components {
   .jg\\:alert--root,
   .jg\\:alert--title,
@@ -1158,7 +686,7 @@ exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\`" 1`]
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\`" 2`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.prefix\`" 2`] = `
 "@layer components {
   .jg\\:button {
     @apply rounded-full;
@@ -1188,138 +716,13 @@ exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\`" 2`]
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\`" 3`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.prefix\`" 3`] = `
 "@import "./alert.css";
 @import "./button.css";
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .alert--root,
-  .alert--title,
-  .alert--message {
-    @apply tw:flex tw:flex-wrap tw:truncate tw:box-border tw:outline-none tw:items-center tw:justify-center tw:bg-neutral-100 tw:hover:bg-neutral-200 tw:active:bg-neutral-300 tw:text-neutral-500;
-  }
-
-  .alert--root__size--xs,
-  .alert--title__size--xs,
-  .alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .alert--root__size--sm,
-  .alert--title__size--sm,
-  .alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .alert--root__size--md,
-  .alert--title__size--md,
-  .alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .alert--root.alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.twPrefix\`" 2`] = `
-"@layer components {
-  .button {
-    @apply tw:rounded-full;
-  }
-
-  .button.button__intent--primary,
-  .button.button__size--medium {
-    @apply tw:uppercase;
-  }
-
-  .button.button__intent--primary {
-    @apply tw:bg-blue-500 tw:text-white tw:border-transparent tw:hover:bg-blue-600;
-  }
-
-  .button.button__intent--secondary {
-    @apply tw:bg-white tw:text-gray-800 tw:border-gray-400 tw:hover:bg-gray-100;
-  }
-
-  .button.button__size--small {
-    @apply tw:text-sm tw:py-1 tw:px-2;
-  }
-
-  .button.button__size--medium {
-    @apply tw:text-base tw:py-2 tw:px-4;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.twPrefix\`" 3`] = `
-"@import "./alert.css";
-@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\`" 1`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.mergeFn\`" 1`] = `
 "@layer components {
   .alert--root__size--xs,
   .alert--title__size--xs,
@@ -1402,7 +805,7 @@ exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\`" 1`] 
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\`" 2`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.mergeFn\`" 2`] = `
 "@layer components {
   .button {
     @apply rounded-full;
@@ -1416,13 +819,13 @@ exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\`" 2`] 
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\`" 3`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.mergeFn\`" 3`] = `
 "@import "./alert.css";
 @import "./button.css";
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 1`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
 "@layer components {
   .jg\\:alert--root__size--xs,
   .jg\\:alert--title__size--xs,
@@ -1505,7 +908,7 @@ exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and 
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 2`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
 "@layer components {
   .jg\\:button {
     @apply rounded-full;
@@ -1519,338 +922,7 @@ exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and 
 "
 `;
 
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and \`classNameConfig.mergeFn\`" 3`] = `
-"@import "./alert.css";
-@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .jg\\:alert--root,
-  .jg\\:alert--title,
-  .jg\\:alert--message {
-    @apply tw:flex tw:flex-wrap tw:truncate tw:box-border tw:outline-none tw:items-center tw:justify-center tw:bg-neutral-100 tw:hover:bg-neutral-200 tw:active:bg-neutral-300 tw:text-neutral-500;
-  }
-
-  .jg\\:alert--root__size--xs,
-  .jg\\:alert--title__size--xs,
-  .jg\\:alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .jg\\:alert--root__size--sm,
-  .jg\\:alert--title__size--sm,
-  .jg\\:alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .jg\\:alert--root__size--md,
-  .jg\\:alert--title__size--md,
-  .jg\\:alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .jg\\:alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .jg\\:alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 2`] = `
-"@layer components {
-  .jg\\:button {
-    @apply tw:rounded-full;
-  }
-
-  .jg\\:button.jg\\:button__intent--primary,
-  .jg\\:button.jg\\:button__size--medium {
-    @apply tw:uppercase;
-  }
-
-  .jg\\:button.jg\\:button__intent--primary {
-    @apply tw:bg-blue-500 tw:text-white tw:border-transparent tw:hover:bg-blue-600;
-  }
-
-  .jg\\:button.jg\\:button__intent--secondary {
-    @apply tw:bg-white tw:text-gray-800 tw:border-gray-400 tw:hover:bg-gray-100;
-  }
-
-  .jg\\:button.jg\\:button__size--small {
-    @apply tw:text-sm tw:py-1 tw:px-2;
-  }
-
-  .jg\\:button.jg\\:button__size--medium {
-    @apply tw:text-base tw:py-2 tw:px-4;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.jgPrefix\` and \`classNameConfig.twPrefix\`" 3`] = `
-"@import "./alert.css";
-@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 1`] = `
-"@layer components {
-  .alert--root__size--xs,
-  .alert--title__size--xs,
-  .alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .alert--root__size--sm,
-  .alert--title__size--sm,
-  .alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .alert--root__size--md,
-  .alert--title__size--md,
-  .alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .alert--root.alert--root__variant--filled.alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .alert--title.alert--title__variant--filled.alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .alert--message.alert--message__variant--filled.alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .alert--root.alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 2`] = `
-"@layer components {
-  .button {
-    @apply tw:rounded-full;
-  }
-
-  .button.button__intent--primary,
-  .button.button__size--medium {
-    @apply tw:uppercase;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with \`classNameConfig.mergeFn\` and \`classNameConfig.twPrefix\`" 3`] = `
-"@import "./alert.css";
-@import "./button.css";
-"
-`;
-
-exports[`rollup writes cva and sva files "with full \`classNameConfig\`" 1`] = `
-"@layer components {
-  .jg\\:alert--root__size--xs,
-  .jg\\:alert--title__size--xs,
-  .jg\\:alert--message__size--xs {
-    @apply tw:w-7 tw:h-7 tw:text-xs;
-  }
-
-  .jg\\:alert--root__size--sm,
-  .jg\\:alert--title__size--sm,
-  .jg\\:alert--message__size--sm {
-    @apply tw:w-8 tw:h-8 tw:text-sm;
-  }
-
-  .jg\\:alert--root__size--md,
-  .jg\\:alert--title__size--md,
-  .jg\\:alert--message__size--md {
-    @apply tw:w-9 tw:h-9 tw:text-base;
-  }
-
-  .jg\\:alert--root {
-    @apply tw:rounded tw:py-3 tw:px-5 tw:mb-4;
-  }
-
-  .jg\\:alert--title {
-    @apply tw:font-bold tw:mb-1;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
-    @apply tw:border-red-700 tw:dark:border-red-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
-    @apply tw:text-red-600 tw:dark:text-red-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
-    @apply tw:border-green-700 tw:dark:border-green-500;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
-    @apply tw:text-green-600 tw:dark:text-green-500;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
-    @apply tw:bg-red-100 tw:dark:bg-red-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
-    @apply tw:text-red-900 tw:dark:text-red-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
-    @apply tw:text-red-700 tw:dark:text-red-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
-    @apply tw:bg-green-100 tw:dark:bg-green-800;
-  }
-
-  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
-    @apply tw:text-green-900 tw:dark:text-green-50;
-  }
-
-  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
-    @apply tw:text-green-700 tw:dark:text-green-200;
-  }
-
-  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
-    @apply tw:border;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with full \`classNameConfig\`" 2`] = `
-"@layer components {
-  .jg\\:button {
-    @apply tw:rounded-full;
-  }
-
-  .jg\\:button.jg\\:button__intent--primary,
-  .jg\\:button.jg\\:button__size--medium {
-    @apply tw:uppercase;
-  }
-}
-"
-`;
-
-exports[`rollup writes cva and sva files "with full \`classNameConfig\`" 3`] = `
+exports[`rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 3`] = `
 "@import "./alert.css";
 @import "./button.css";
 "

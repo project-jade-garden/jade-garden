@@ -6,14 +6,15 @@ import vitePlugin from "unplugin-jade-garden/vite";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA } from "./fixtures/jade-garden/cva";
 import { alertConfig, noSlotsSVA } from "./fixtures/jade-garden/sva";
-import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig, throwsConfig } from "./mocks/configs";
+import { configs, cssTestCases, cvaConfig, noBaseAndSlots, noNames, svaConfig } from "./mocks/configs";
 import { entryDir, outputDir, rootDir } from "./mocks/dirPaths";
 import { build, getPath } from "./utils";
 
+const targetDir = getPath(`${rootDir}/jade-garden`);
+
 describe("vite", async () => {
   beforeEach(() => {
-    const outputDir = getPath(`${rootDir}/jade-garden`);
-    if (existsSync(outputDir)) rmdirSync(outputDir, { recursive: true });
+    if (existsSync(targetDir)) rmdirSync(targetDir, { recursive: true });
   });
 
   const viteBuild = async (config: Options) => {
@@ -43,7 +44,7 @@ describe("vite", async () => {
       expect(existsSync(`${outputDir}/index.css`)).toBe(true);
 
       opts.clean = true;
-      opts.styleConfigs = { components: { cva: [buttonConfig], sva: [alertConfig] } };
+      opts.styleConfigs = { cva: [buttonConfig], sva: [alertConfig] };
       await viteBuild(opts);
 
       // Deleted files
@@ -52,23 +53,10 @@ describe("vite", async () => {
       expect(existsSync(`${outputDir}/index.css`)).toBe(false);
 
       // Written files
-      expect(existsSync(`${outputDir}/cva/button.css`)).toBe(true);
-      expect(existsSync(`${outputDir}/cva/index.css`)).toBe(true);
-      expect(existsSync(`${outputDir}/sva/alert.css`)).toBe(true);
-      expect(existsSync(`${outputDir}/sva/index.css`)).toBe(true);
-    });
-
-    test("override `maxDepth`", async () => {
-      const { opts: _opts } = cssTestCases[0];
-      const opts = cloneDeep(_opts);
-      opts.maxDepth = 10;
-      opts.styleConfigs = throwsConfig;
-      await viteBuild(opts);
-
-      const output = getPath(`${rootDir}/jade-garden/1/2/3/4/5/configs/components`);
-      expect(existsSync(`${output}/alert.css`)).toBe(true);
-      expect(existsSync(`${output}/button.css`)).toBe(true);
-      expect(existsSync(`${output}/index.css`)).toBe(true);
+      expect(existsSync(`${targetDir}/cva/button.css`)).toBe(true);
+      expect(existsSync(`${targetDir}/cva/index.css`)).toBe(true);
+      expect(existsSync(`${targetDir}/sva/alert.css`)).toBe(true);
+      expect(existsSync(`${targetDir}/sva/index.css`)).toBe(true);
     });
 
     test("prevents name conflicts", async () => {
@@ -132,13 +120,6 @@ describe("vite", async () => {
       expect(async () => await viteBuild(opts)).toThrow();
     });
 
-    test("exceeds `maxDepth`", async () => {
-      const { opts: _opts } = cssTestCases[0];
-      const opts = cloneDeep(_opts);
-      opts.styleConfigs = throwsConfig;
-      expect(async () => await viteBuild(opts)).toThrow();
-    });
-
     test("invalid config value", async () => {
       const { opts: _opts } = cssTestCases[0];
       const opts = cloneDeep(_opts);
@@ -148,50 +129,50 @@ describe("vite", async () => {
     });
   });
 
-  // describe("writes", () => {
-  //   test.each(cssTestCases)("cva file $label", async ({ opts }) => {
-  //     opts.styleConfigs = cvaConfig;
-  //     await viteBuild(opts);
+  describe("writes", () => {
+    test.each(cssTestCases)("cva file $label", async ({ opts }) => {
+      opts.styleConfigs = cvaConfig;
+      await viteBuild(opts);
 
-  //     const buttonFile = `${outputDir}/cva/button.css`;
-  //     const indexFile = `${outputDir}/cva/index.css`;
+      const buttonFile = `${targetDir}/cva/button.css`;
+      const indexFile = `${targetDir}/cva/index.css`;
 
-  //     expect(readFileSync(buttonFile, { encoding: "utf-8" })).toMatchSnapshot();
-  //     expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(buttonFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
 
-  //     expect(existsSync(buttonFile)).toBe(true);
-  //     expect(existsSync(indexFile)).toBe(true);
-  //   });
+      expect(existsSync(buttonFile)).toBe(true);
+      expect(existsSync(indexFile)).toBe(true);
+    });
 
-  //   test.each(cssTestCases)("sva file $label", async ({ opts }) => {
-  //     opts.styleConfigs = svaConfig;
-  //     await viteBuild(opts);
+    test.each(cssTestCases)("sva file $label", async ({ opts }) => {
+      opts.styleConfigs = svaConfig;
+      await viteBuild(opts);
 
-  //     const alertFile = `${outputDir}/sva/alert.css`;
-  //     const indexFile = `${outputDir}/sva/index.css`;
+      const alertFile = `${targetDir}/sva/alert.css`;
+      const indexFile = `${targetDir}/sva/index.css`;
 
-  //     expect(readFileSync(alertFile, { encoding: "utf-8" })).toMatchSnapshot();
-  //     expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(alertFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
 
-  //     expect(existsSync(alertFile)).toBe(true);
-  //     expect(existsSync(indexFile)).toBe(true);
-  //   });
+      expect(existsSync(alertFile)).toBe(true);
+      expect(existsSync(indexFile)).toBe(true);
+    });
 
-  //   test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
-  //     opts.styleConfigs = configs;
-  //     await viteBuild(opts);
+    test.each(cssTestCases)("cva and sva files $label", async ({ opts }) => {
+      opts.styleConfigs = configs;
+      await viteBuild(opts);
 
-  //     const alertFile = `${outputDir}/alert.css`;
-  //     const buttonFile = `${outputDir}/button.css`;
-  //     const indexFile = `${outputDir}/index.css`;
+      const alertFile = `${outputDir}/alert.css`;
+      const buttonFile = `${outputDir}/button.css`;
+      const indexFile = `${outputDir}/index.css`;
 
-  //     expect(readFileSync(alertFile, { encoding: "utf-8" })).toMatchSnapshot();
-  //     expect(readFileSync(buttonFile, { encoding: "utf-8" })).toMatchSnapshot();
-  //     expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(alertFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(buttonFile, { encoding: "utf-8" })).toMatchSnapshot();
+      expect(readFileSync(indexFile, { encoding: "utf-8" })).toMatchSnapshot();
 
-  //     expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
-  //     expect(existsSync(`${outputDir}/button.css`)).toBe(true);
-  //     expect(existsSync(`${outputDir}/index.css`)).toBe(true);
-  //   });
-  // });
+      expect(existsSync(`${outputDir}/alert.css`)).toBe(true);
+      expect(existsSync(`${outputDir}/button.css`)).toBe(true);
+      expect(existsSync(`${outputDir}/index.css`)).toBe(true);
+    });
+  });
 });

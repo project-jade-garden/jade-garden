@@ -1,6 +1,6 @@
 /* ===================== Types ===================== */
 
-import type { CVAReturnType, SVAReturnType } from "jade-garden";
+import type { CreateOptions, CVAReturnType, SVAReturnType } from "jade-garden";
 
 export type Options = {
   /**
@@ -22,10 +22,21 @@ export type Options = {
   // compile?: boolean;
 
   /**
+   * The file format for the generated configs, if `options.useStylesheet` is set to `false`.
+   *
+   * @default "ts"
+   */
+  configOutput?: "js" | "ts";
+
+  createOptions?: CreateOptions;
+
+  /**
    * The main TailwindCSS file (relative to **project root**) where the generated CSS files will output.
    *
    * It is **recommended** that the main TailwindCSS file live in a dedicated directory
    * (e.g., `assets`, `css`, `styles`, etc.).
+   *
+   * @default process.cwd()
    *
    * @example
    * ```ts
@@ -35,13 +46,6 @@ export type Options = {
    * ```
    */
   entry?: string;
-
-  /**
-   * Specify the max depth of nested objects to walk through directory.
-   *
-   * @default 5
-   */
-  maxDepth?: number;
 
   /**
    * Specify the output directory (relative to **`entry`**).
@@ -60,9 +64,11 @@ export type Options = {
   /**
    * Nested objects containing arrays of your `jade-garden` CVA and SVA configurations.
    *
-   * The plugin will process these configurations to generate the corresponding CSS.
+   * The plugin will process these configurations to generate files based on `fileOutput`.
    *
    * Object keys will generate directories in root of `outDir`.
+   *
+   * @default {}
    *
    * @example
    * ```ts
@@ -76,24 +82,12 @@ export type Options = {
    *     }
    *   }
    * }
-   * // jade-garden/path/to/output -> alert.css button.css card.css index.css
    * ```
    */
-  styleConfigs?: StyleConfigs;
+  styleConfigs?: Record<string, (CVA | SVA)[]>;
 };
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
-
-export type StyleConfigs = {
-  [key: string]: (CVA | SVA)[] | StyleConfigs;
-};
-
-export type WalkFn = (args: {
-  depth: number;
-  isArray: boolean;
-  path: string[];
-  value: (CVA | SVA)[] | StyleConfigs;
-}) => void;
 
 /* ====================== CVA ====================== */
 

@@ -3,156 +3,6 @@ import { twMerge as tm } from "tailwind-merge";
 import { cn, createSVA, type MergeFn } from "../../src";
 
 describe("createSVA", () => {
-  describe("fileFormat", () => {
-    describe("css", () => {
-      const sva = createSVA({ fileFormat: "css" });
-
-      test("should generate slot class name with prefix and default case convention", () => {
-        const component = sva({
-          name: "button",
-          slots: {
-            root: "root-class",
-            inner: "inner-class"
-          }
-        });
-
-        const slots = component();
-        expect(slots.root()).toBe("button--root");
-        expect(slots.inner()).toBe("button--inner");
-      });
-
-      test("should generate slot variant class name with prefix and default case convention", () => {
-        const component = sva({
-          name: "button",
-          slots: { root: "root-class" },
-          variants: {
-            size: {
-              small: { root: "size-small" },
-              medium: { root: "size-medium" }
-            }
-          }
-        });
-
-        const slots = component({ size: "small" });
-        expect(slots.root()).toBe("button--root button--root__size--small");
-      });
-
-      test("should generate slot class name with custom case convention", () => {
-        const component = sva({
-          name: "myButton",
-          slots: { root: "root-class" }
-        });
-
-        const slots = component();
-        expect(slots.root()).toBe("my-button--root");
-      });
-
-      test("should generate class name with compound variants", () => {
-        const component = sva({
-          name: "button",
-          slots: { root: "root-class" },
-          variants: {
-            size: {
-              small: { root: "size-small" },
-              medium: { root: "size-medium" }
-            },
-            variant: {
-              primary: { root: "variant-primary" },
-              secondary: { root: "variant-secondary" }
-            }
-          },
-          compoundVariants: [{ size: "small", variant: "primary", class: { root: "compound-small-primary" } }]
-        });
-
-        const slots = component({ size: "small", variant: "primary" });
-        expect(slots.root()).toBe("button--root button--root__size--small button--root__variant--primary");
-      });
-
-      test("should return empty string if name is not defined", () => {
-        const component = sva({
-          slots: { root: "root-class" }
-        });
-
-        const slots = component();
-        expect(slots.root()).toBe("");
-      });
-    });
-
-    describe("js/ts", () => {
-      const sva = createSVA();
-
-      test("should generate slot class name with prefix and default case convention", () => {
-        const component = sva({
-          name: "button",
-          slots: {
-            root: "root-class",
-            inner: "inner-class"
-          }
-        });
-
-        const slots = component();
-        expect(slots.root()).toBe("root-class");
-        expect(slots.inner()).toBe("inner-class");
-      });
-
-      test("should generate slot variant class name with prefix and default case convention", () => {
-        const component = sva({
-          name: "button",
-          slots: { root: "root-class" },
-          variants: {
-            size: {
-              small: { root: "size-small" },
-              medium: { root: "size-medium" }
-            }
-          }
-        });
-
-        const slots = component({ size: "small" });
-        expect(slots.root()).toBe("root-class size-small");
-      });
-
-      test("should generate slot class name with custom case convention", () => {
-        const component = sva({
-          name: "myButton",
-          slots: { root: "root-class" }
-        });
-
-        const slots = component();
-        expect(slots.root()).toBe("root-class");
-      });
-
-      test("should generate class name with compound variants", () => {
-        const component = sva({
-          name: "button",
-          slots: { root: "root-class" },
-          variants: {
-            size: {
-              small: { root: "size-small" },
-              medium: { root: "size-medium" }
-            },
-            variant: {
-              primary: { root: "variant-primary" },
-              secondary: { root: "variant-secondary" }
-            }
-          },
-          compoundVariants: [{ size: "small", variant: "primary", class: { root: "compound-small-primary" } }]
-        });
-
-        const slots = component({ size: "small", variant: "primary" });
-        expect(slots.root()).toBe("root-class size-small variant-primary compound-small-primary");
-      });
-
-      test("should return empty string if name is not defined", () => {
-        const component = sva({
-          slots: { root: "root-class" }
-        });
-
-        const slots = component();
-        expect(slots.root()).toBe("root-class");
-      });
-    });
-  });
-
   describe("mergeFn", () => {
     describe("cn", () => {
       const sva = createSVA({ mergeFn: cn });
@@ -464,6 +314,156 @@ describe("createSVA", () => {
         });
         const slotFunctionsComplex = complexTailwind({ style: "mergedComplex" });
         expect(slotFunctionsComplex.root()).toBe("root-class p-2 m-1 flex items-center flex-col");
+      });
+    });
+  });
+
+  describe("useStylesheet", () => {
+    describe("true", () => {
+      const sva = createSVA({ useStylesheet: true });
+
+      test("should generate slot class name with prefix and default case convention", () => {
+        const component = sva({
+          name: "button",
+          slots: {
+            root: "root-class",
+            inner: "inner-class"
+          }
+        });
+
+        const slots = component();
+        expect(slots.root()).toBe("button--root");
+        expect(slots.inner()).toBe("button--inner");
+      });
+
+      test("should generate slot variant class name with prefix and default case convention", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        const slots = component({ size: "small" });
+        expect(slots.root()).toBe("button--root button--root__size--small");
+      });
+
+      test("should generate slot class name with custom case convention", () => {
+        const component = sva({
+          name: "myButton",
+          slots: { root: "root-class" }
+        });
+
+        const slots = component();
+        expect(slots.root()).toBe("my-button--root");
+      });
+
+      test("should generate class name with compound variants", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            },
+            variant: {
+              primary: { root: "variant-primary" },
+              secondary: { root: "variant-secondary" }
+            }
+          },
+          compoundVariants: [{ size: "small", variant: "primary", class: { root: "compound-small-primary" } }]
+        });
+
+        const slots = component({ size: "small", variant: "primary" });
+        expect(slots.root()).toBe("button--root button--root__size--small button--root__variant--primary");
+      });
+
+      test("should return empty string if name is not defined", () => {
+        const component = sva({
+          slots: { root: "root-class" }
+        });
+
+        const slots = component();
+        expect(slots.root()).toBe("");
+      });
+    });
+
+    describe("false", () => {
+      const sva = createSVA();
+
+      test("should generate slot class name with prefix and default case convention", () => {
+        const component = sva({
+          name: "button",
+          slots: {
+            root: "root-class",
+            inner: "inner-class"
+          }
+        });
+
+        const slots = component();
+        expect(slots.root()).toBe("root-class");
+        expect(slots.inner()).toBe("inner-class");
+      });
+
+      test("should generate slot variant class name with prefix and default case convention", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        const slots = component({ size: "small" });
+        expect(slots.root()).toBe("root-class size-small");
+      });
+
+      test("should generate slot class name with custom case convention", () => {
+        const component = sva({
+          name: "myButton",
+          slots: { root: "root-class" }
+        });
+
+        const slots = component();
+        expect(slots.root()).toBe("root-class");
+      });
+
+      test("should generate class name with compound variants", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            },
+            variant: {
+              primary: { root: "variant-primary" },
+              secondary: { root: "variant-secondary" }
+            }
+          },
+          compoundVariants: [{ size: "small", variant: "primary", class: { root: "compound-small-primary" } }]
+        });
+
+        const slots = component({ size: "small", variant: "primary" });
+        expect(slots.root()).toBe("root-class size-small variant-primary compound-small-primary");
+      });
+
+      test("should return empty string if name is not defined", () => {
+        const component = sva({
+          slots: { root: "root-class" }
+        });
+
+        const slots = component();
+        expect(slots.root()).toBe("root-class");
       });
     });
   });

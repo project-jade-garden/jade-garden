@@ -3,140 +3,6 @@ import { twMerge as tm } from "tailwind-merge";
 import { cn, createCVA, type MergeFn } from "../../src";
 
 describe("createCVA", () => {
-  describe("fileFormat", () => {
-    describe("css", () => {
-      const cva = createCVA({ fileFormat: "css" });
-
-      test("should generate base class name with prefix and default case convention", () => {
-        const component = cva({
-          name: "button",
-          base: "base-class"
-        });
-
-        expect(component()).toBe("button");
-      });
-
-      test("should generate variant class name with prefix and default case convention", () => {
-        const component = cva({
-          name: "button",
-          base: "base-class",
-          variants: {
-            size: {
-              small: "size-small",
-              medium: "size-medium"
-            }
-          }
-        });
-
-        expect(component({ size: "small" })).toBe("button button__size--small");
-      });
-
-      test("should generate class name with custom case convention", () => {
-        const component = cva({
-          name: "myButton",
-          base: "base-class"
-        });
-
-        expect(component()).toBe("my-button");
-      });
-
-      test("should generate class name with compound variants", () => {
-        const component = cva({
-          name: "button",
-          base: "",
-          variants: {
-            size: {
-              small: "size-small",
-              medium: "size-medium"
-            },
-            variant: {
-              primary: "variant-primary",
-              secondary: "variant-secondary"
-            }
-          },
-          compoundVariants: [{ size: "small", variant: "primary", class: "compound-small-primary" }]
-        });
-
-        expect(component({ size: "small", variant: "primary" })).toBe(
-          "button button__size--small button__variant--primary"
-        );
-      });
-
-      test("should return empty string if name is not defined", () => {
-        const component = cva({
-          base: "base-class"
-        });
-
-        expect(component()).toBe("");
-      });
-    });
-
-    describe("js/ts", () => {
-      const cva = createCVA();
-
-      test("should generate base class name with prefix and default case convention", () => {
-        const component = cva({
-          name: "button",
-          base: "base-class"
-        });
-
-        expect(component()).toBe("base-class");
-      });
-
-      test("should generate variant class name with prefix and default case convention", () => {
-        const component = cva({
-          name: "button",
-          base: "base-class",
-          variants: {
-            size: {
-              small: "size-small",
-              medium: "size-medium"
-            }
-          }
-        });
-
-        expect(component({ size: "small" })).toBe("base-class size-small");
-      });
-
-      test("should generate class name with custom case convention", () => {
-        const component = cva({
-          name: "myButton",
-          base: "base-class"
-        });
-
-        expect(component()).toBe("base-class");
-      });
-
-      test("should generate class name with compound variants", () => {
-        const component = cva({
-          name: "button",
-          base: "",
-          variants: {
-            size: {
-              small: "size-small",
-              medium: "size-medium"
-            },
-            variant: {
-              primary: "variant-primary",
-              secondary: "variant-secondary"
-            }
-          },
-          compoundVariants: [{ size: "small", variant: "primary", class: "compound-small-primary" }]
-        });
-
-        expect(component({ size: "small", variant: "primary" })).toBe("");
-      });
-
-      test("should return empty string if name is not defined", () => {
-        const component = cva({
-          base: "base-class"
-        });
-
-        expect(component()).toBe("base-class");
-      });
-    });
-  });
-
   describe("mergeFn", () => {
     describe("cn", () => {
       const cva = createCVA({ mergeFn: cn });
@@ -443,6 +309,140 @@ describe("createCVA", () => {
           base: "p-4 m-2 p-2 m-1 flex items-center flex-col"
         });
         expect(complexTailwind()).toBe("p-2 m-1 flex items-center flex-col");
+      });
+    });
+  });
+
+  describe("useStylesheet", () => {
+    describe("true", () => {
+      const cva = createCVA({ useStylesheet: true });
+
+      test("should generate base class name with prefix and default case convention", () => {
+        const component = cva({
+          name: "button",
+          base: "base-class"
+        });
+
+        expect(component()).toBe("button");
+      });
+
+      test("should generate variant class name with prefix and default case convention", () => {
+        const component = cva({
+          name: "button",
+          base: "base-class",
+          variants: {
+            size: {
+              small: "size-small",
+              medium: "size-medium"
+            }
+          }
+        });
+
+        expect(component({ size: "small" })).toBe("button button__size--small");
+      });
+
+      test("should generate class name with custom case convention", () => {
+        const component = cva({
+          name: "myButton",
+          base: "base-class"
+        });
+
+        expect(component()).toBe("my-button");
+      });
+
+      test("should generate class name with compound variants", () => {
+        const component = cva({
+          name: "button",
+          base: "",
+          variants: {
+            size: {
+              small: "size-small",
+              medium: "size-medium"
+            },
+            variant: {
+              primary: "variant-primary",
+              secondary: "variant-secondary"
+            }
+          },
+          compoundVariants: [{ size: "small", variant: "primary", class: "compound-small-primary" }]
+        });
+
+        expect(component({ size: "small", variant: "primary" })).toBe(
+          "button button__size--small button__variant--primary"
+        );
+      });
+
+      test("should return empty string if name is not defined", () => {
+        const component = cva({
+          base: "base-class"
+        });
+
+        expect(component()).toBe("");
+      });
+    });
+
+    describe("false", () => {
+      const cva = createCVA();
+
+      test("should generate base class name with prefix and default case convention", () => {
+        const component = cva({
+          name: "button",
+          base: "base-class"
+        });
+
+        expect(component()).toBe("base-class");
+      });
+
+      test("should generate variant class name with prefix and default case convention", () => {
+        const component = cva({
+          name: "button",
+          base: "base-class",
+          variants: {
+            size: {
+              small: "size-small",
+              medium: "size-medium"
+            }
+          }
+        });
+
+        expect(component({ size: "small" })).toBe("base-class size-small");
+      });
+
+      test("should generate class name with custom case convention", () => {
+        const component = cva({
+          name: "myButton",
+          base: "base-class"
+        });
+
+        expect(component()).toBe("base-class");
+      });
+
+      test("should generate class name with compound variants", () => {
+        const component = cva({
+          name: "button",
+          base: "",
+          variants: {
+            size: {
+              small: "size-small",
+              medium: "size-medium"
+            },
+            variant: {
+              primary: "variant-primary",
+              secondary: "variant-secondary"
+            }
+          },
+          compoundVariants: [{ size: "small", variant: "primary", class: "compound-small-primary" }]
+        });
+
+        expect(component({ size: "small", variant: "primary" })).toBe("");
+      });
+
+      test("should return empty string if name is not defined", () => {
+        const component = cva({
+          base: "base-class"
+        });
+
+        expect(component()).toBe("base-class");
       });
     });
   });

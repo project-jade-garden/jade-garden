@@ -15,6 +15,21 @@ export type ClassStrings = string | string[];
  */
 export type ClassValue = CV;
 
+export type CreateOptions = {
+  /**
+   * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
+   *
+   * You may provide your own custom function to handle merging class names,
+   * use `tailwind-merge` for handling class conflicts,
+   * or `jade-garden`'s `cn` utility for more performant runtimes.
+   */
+  mergeFn?: MergeFn;
+
+  prefix?: string;
+
+  useStylesheet?: boolean;
+};
+
 /**
  * A helper type to define the shape of a single data attribute.
  *
@@ -52,21 +67,6 @@ export type MergeFn = (...classes: ClassValue[]) => string;
  * @returns {T extends undefined ? never : T} The type with undefined removed.
  */
 type OmitUndefined<T> = T extends undefined ? never : T;
-
-export type PluginConfig = {
-  fileFormat?: "css" | "js" | "ts";
-
-  /**
-   * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
-   *
-   * You may provide your own custom function to handle merging class names,
-   * use `tailwind-merge` for handling class conflicts,
-   * or `jade-garden`'s `cn` utility for more performant runtimes.
-   */
-  mergeFn?: MergeFn;
-
-  prefix?: string;
-};
 
 /**
  * Provides type safety for the `data` prop within the `traits` function.
@@ -293,7 +293,6 @@ export type CVAConfig<V extends Variant> = {
 export type CVAReturnType<V extends Variant> = ((
   props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
 ) => string) & {
-  pluginConfig: PluginConfig;
   styleConfig: CVAConfig<V>;
 };
 
@@ -508,7 +507,6 @@ export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
 export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = ((props?: SVAVariants<RCV, V>) => {
   [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
 }) & {
-  pluginConfig: PluginConfig;
   styleConfig: SVAConfig<RCV, V>;
 };
 
