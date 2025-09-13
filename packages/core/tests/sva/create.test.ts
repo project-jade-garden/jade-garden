@@ -87,7 +87,7 @@ describe("createSVA", () => {
       test("should merge class and className props for slots", () => {
         const components = sva({ slots: { root: "root-class" } });
         const slotFunctions = components({});
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(slotFunctions.root({ class: "extra-class", className: "another-class" })).toBe(
           "root-class extra-class another-class"
         );
@@ -177,7 +177,7 @@ describe("createSVA", () => {
       test("should merge class and className props for slots", () => {
         const components = sva({ slots: { root: "root-class" } });
         const slotFunctions = components({});
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(slotFunctions.root({ class: "extra-class", className: "another-class" })).toBe(
           "root-class extra-class another-class"
         );
@@ -282,7 +282,7 @@ describe("createSVA", () => {
       test("should merge class and className props for slots", () => {
         const components = sva({ slots: { root: "root-class" } });
         const slotFunctions = components({});
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(slotFunctions.root({ class: "extra-class", className: "another-class" })).toBe(
           "root-class extra-class another-class"
         );
@@ -322,7 +322,7 @@ describe("createSVA", () => {
     describe("true", () => {
       const sva = createSVA({ useStylesheet: true });
 
-      test("should generate slot class name with prefix and default case convention", () => {
+      test("should generate class name with slot", () => {
         const component = sva({
           name: "button",
           slots: {
@@ -336,7 +336,7 @@ describe("createSVA", () => {
         expect(slots.inner()).toBe("button--inner");
       });
 
-      test("should generate slot variant class name with prefix and default case convention", () => {
+      test("should generate class name with variants", () => {
         const component = sva({
           name: "button",
           slots: { root: "root-class" },
@@ -350,6 +350,95 @@ describe("createSVA", () => {
 
         const slots = component({ size: "small" });
         expect(slots.root()).toBe("button--root button--root__size--small");
+      });
+
+      test("should generate slot class name with variants", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        const slots = component({ size: "small" });
+        expect(slots.root()).toBe("button--root button--root__size--small");
+        expect(slots.root({ size: "medium" })).toBe("button--root button--root__size--medium");
+      });
+
+      test("should not generate class name with variants if variant key does not exist", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        // @ts-expect-error: for testing
+        const slots = component({ variant: "primary" });
+        expect(slots.root()).toBe("button--root");
+      });
+
+      test("should not generate class name with variants if variant type does not exist", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        // @ts-expect-error: for testing
+        const slots = component({ size: "large" });
+        expect(slots.root()).toBe("button--root");
+      });
+
+      test("should not generate slot class name with variants if variant key does not exist", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        // @ts-expect-error: for testing
+        const slots = component({ variant: "primary" });
+        expect(slots.root()).toBe("button--root");
+        // @ts-expect-error: for testing
+        expect(slots.root({ variant: "secondary" })).toBe("button--root");
+      });
+
+      test("should not generate slot class name with variants if variant type does not exist", () => {
+        const component = sva({
+          name: "button",
+          slots: { root: "root-class" },
+          variants: {
+            size: {
+              small: { root: "size-small" },
+              medium: { root: "size-medium" }
+            }
+          }
+        });
+
+        // @ts-expect-error: for testing
+        const slots = component({ size: "large" });
+        expect(slots.root()).toBe("button--root");
+        // @ts-expect-error: for testing
+        expect(slots.root({ size: "xl" })).toBe("button--root");
       });
 
       test("should generate slot class name with custom case convention", () => {

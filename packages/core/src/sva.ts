@@ -3,14 +3,15 @@ import { cx } from "./class-utils";
 import type {
   ClassProp,
   CreateOptions,
+  MetaConfig,
   RecordClassValue,
   SVA,
+  SVAComponent,
   SVAConfig,
-  SVAReturnType,
   SVAVariants,
   Variants
 } from "./types";
-import { getVariantClasses, hasProps } from "./utils";
+import { falsyToString, hasProps } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * SVA
@@ -26,15 +27,16 @@ export const createSVA = (options?: CreateOptions): SVA => {
   const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
   return <RCV extends RecordClassValue, V extends Variants<RCV>>(
-    styleConfig: SVAConfig<RCV, V>
-  ): SVAReturnType<RCV, V> => {
+    styleConfig: SVAConfig<RCV, V>,
+    metaConfig?: MetaConfig
+  ): SVAComponent<RCV, V> => {
     const jg = (props?: SVAVariants<RCV, V>) => {
       type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
 
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
       // * Exit early if slots is not defined or does not have keys
-      if (!styleConfig?.slots || Object.keys(styleConfig?.slots).length === 0) return slotsFns;
+      if (!styleConfig?.slots || !Object.keys(styleConfig?.slots).length) return slotsFns;
 
       const slots = styleConfig.slots;
       const compoundSlots = styleConfig?.compoundSlots ?? [];
@@ -65,7 +67,7 @@ export const createSVA = (options?: CreateOptions): SVA => {
 
                 if (!Object.hasOwn(result, slot)) result[slot] = "";
                 const value = mergeFn(...classes);
-                result[slot] += result[slot].length === 0 ? value : ` ${value}`;
+                result[slot] += !result[slot].length ? value : ` ${value}`;
               }
             }
           }
@@ -92,12 +94,30 @@ export const createSVA = (options?: CreateOptions): SVA => {
 
       const variants = styleConfig.variants;
       const compoundVariants = Array.isArray(styleConfig.compoundVariants) ? styleConfig.compoundVariants : [];
-      const defaultVariants =
+      const defaultVariants: SVAVariants<RCV, V> =
         typeof styleConfig?.defaultVariants === "object" && !Array.isArray(styleConfig.defaultVariants)
           ? styleConfig.defaultVariants
           : {};
 
-      const defaultsAndProps = { ...defaultVariants, ...(props ?? {}) };
+      const getVariantClasses = (slotKey: string, slotProps: SVAVariants<RCV, V> & ClassProp) => {
+        if (typeof variants !== "object" || Array.isArray(variants)) return "";
+        let result = "";
+
+        for (const variant of Object.keys(variants)) {
+          const variantObj = variants[variant];
+          if (typeof variantObj !== "object" || Array.isArray(variantObj)) continue;
+
+          const variantKey = slotProps?.[variant] ?? props?.[variant] ?? defaultVariants?.[variant];
+          const validKey = falsyToString(variantKey) ?? "false";
+          const value = slotKey
+            ? mergeFn(variantObj[validKey as keyof (typeof variants)[typeof variant]]?.[slotKey])
+            : mergeFn(variantObj[validKey as keyof (typeof variants)[typeof variant]]);
+
+          if (value) result += !result.length ? value : ` ${value}`;
+        }
+
+        return result;
+      };
 
       const getCompoundVariantClasses = (configProps: SlotProps) => {
         if (!Array.isArray(compoundVariants)) return {};
@@ -115,7 +135,7 @@ export const createSVA = (options?: CreateOptions): SVA => {
               if (!Object.hasOwn(result, slot)) result[slot] = "";
               if (typeof className === "string") {
                 const value = mergeFn(className);
-                result[slot] += result[slot].length === 0 ? value : ` ${value}`;
+                result[slot] += !result[slot].length ? value : ` ${value}`;
               }
             }
           }
@@ -127,10 +147,10 @@ export const createSVA = (options?: CreateOptions): SVA => {
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
         slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
-          const configProps = { ...defaultsAndProps, ...slotProps };
+          const configProps = { ...defaultVariants, ...(props ?? {}), ...slotProps };
           return mergeFn(
             slots[slotKey],
-            getVariantClasses({ defaultVariants, mergeFn, props, variants, slotKey, slotProps }),
+            getVariantClasses(slotKey, slotProps),
             getCompoundVariantClasses(configProps)[slotKey],
             getCompoundSlotClasses(configProps)[slotKey],
             slotProps?.class,
@@ -148,7 +168,7 @@ export const createSVA = (options?: CreateOptions): SVA => {
       const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
 
       // * Exit early if slots are not defined or do not have keys
-      if (!styleConfig?.slots || Object.keys(styleConfig.slots).length === 0) return slotsFns;
+      if (!styleConfig?.slots || !Object.keys(styleConfig.slots).length) return slotsFns;
 
       // * For `SlotProps` type
       const slots = styleConfig.slots;
@@ -157,11 +177,11 @@ export const createSVA = (options?: CreateOptions): SVA => {
       // * Set `slotsFns`
       for (const slotKey of Object.keys(slots)) {
         slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
-          const { compoundVariants, name, variants } = styleConfig;
+          const { name, variants } = styleConfig;
           if (!name) return mergeFn(slotProps?.class, slotProps?.className);
 
           // * "jgPrefix:componentName--componentSlot"
-          const component = `${prefix ? `${prefix}:` : ""}${kebabCase(name)}${slotKey ? `--${kebabCase(slotKey)}` : ""}`;
+          const component = `${prefix ? `${prefix}:` : ""}${kebabCase(name)}--${kebabCase(slotKey)}`;
 
           // * Exit early if variants do not exist or is not an object
           if (typeof variants !== "object" || Array.isArray(variants)) return component;
@@ -169,18 +189,15 @@ export const createSVA = (options?: CreateOptions): SVA => {
           let result = component;
           for (const variantName of Object.keys(variants)) {
             const variantObj = variants[variantName];
-            if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
 
-            // @ts-expect-error: Element implicitly has an 'any' type because index expression is not of type 'number'.
-            const variantType = slotProps?.[variantName] ?? props?.[variantName] ?? compoundVariants?.[variantName];
+            if (variantObj && typeof variantObj === "object") {
+              const variantType = slotProps?.[variantName] ?? props?.[variantName];
 
-            // * "__variantName--variantType"
-            const variant = variantName
-              ? `__${kebabCase(variantName)}${variantType ? `--${kebabCase(variantType)}` : ""}`
-              : "";
-
-            // * "jgPrefix:componentName--componentSlot__variantName--variantType"
-            result += ` ${component}${variant}`;
+              if (typeof variantType === "string" && variantType in variantObj) {
+                // * "jgPrefix:componentName--componentSlot__variantName--variantType"
+                result += ` ${component}__${kebabCase(variantName)}--${kebabCase(variantType)}`;
+              }
+            }
           }
 
           return mergeFn(result, slotProps?.class, slotProps?.className);
@@ -190,9 +207,10 @@ export const createSVA = (options?: CreateOptions): SVA => {
       return slotsFns;
     };
 
-    const component = (useStylesheet ? ujg : jg) as SVAReturnType<RCV, V>;
+    const component = (useStylesheet ? ujg : jg) as SVAComponent<RCV, V>;
 
     component.styleConfig = styleConfig;
+    component.metaConfig = metaConfig ?? {};
 
     return component;
   };

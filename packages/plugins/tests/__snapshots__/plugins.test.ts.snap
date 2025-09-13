@@ -1,0 +1,4537 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`plugins rollup writes cva and sva files "default" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root,
+  .alert--title,
+  .alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .button.button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .button.button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .button.button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .button.button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root,
+  .jg\\:alert--title,
+  .jg\\:alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .jg\\:button.jg\\:button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .jg\\:button.jg\\:button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .jg\\:button.jg\\:button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .jg\\:button.jg\\:button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 6`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 7`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 8`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "default" 9`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \\"js\\"" 1`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \\"js\\"" 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \\"js\\"" 3`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \\"js\\"" 5`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root,
+  .alert--title,
+  .alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .button.button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .button.button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .button.button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .button.button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root,
+  .jg\\:alert--title,
+  .jg\\:alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .jg\\:button.jg\\:button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .jg\\:button.jg\\:button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .jg\\:button.jg\\:button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .jg\\:button.jg\\:button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 6`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 7`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 8`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "default" 9`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 1`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 3`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 5`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root,
+  .alert--title,
+  .alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .button.button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .button.button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .button.button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .button.button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root,
+  .jg\\:alert--title,
+  .jg\\:alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .jg\\:button.jg\\:button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .jg\\:button.jg\\:button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .jg\\:button.jg\\:button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .jg\\:button.jg\\:button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 6`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 7`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 8`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins vite writes cva and sva files "default" 9`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"js\\"" 1`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"js\\"" 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"js\\"" 3`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"js\\"" 5`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root,
+  .alert--title,
+  .alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .button.button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .button.button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .button.button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .button.button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root,
+  .jg\\:alert--title,
+  .jg\\:alert--message {
+    @apply flex flex-wrap truncate box-border outline-none items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 text-neutral-500;
+  }
+
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+
+  /* Variants */
+  .jg\\:button.jg\\:button__intent--primary {
+    @apply bg-blue-500 text-white border-transparent hover:bg-blue-600;
+  }
+
+  .jg\\:button.jg\\:button__intent--secondary {
+    @apply bg-white text-gray-800 border-gray-400 hover:bg-gray-100;
+  }
+
+  .jg\\:button.jg\\:button__size--small {
+    @apply text-sm py-1 px-2;
+  }
+
+  .jg\\:button.jg\\:button__size--medium {
+    @apply text-base py-2 px-4;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .alert--root__size--xs,
+  .alert--title__size--xs,
+  .alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .alert--root__size--sm,
+  .alert--title__size--sm,
+  .alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .alert--root__size--md,
+  .alert--title__size--md,
+  .alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .alert--root.alert--root__variant--outlined.alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .alert--root.alert--root__variant--outlined.alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .alert--title.alert--title__variant--outlined.alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .alert--message.alert--message__variant--outlined.alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .alert--root.alert--root__variant--filled.alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .alert--title.alert--title__variant--filled.alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .alert--message.alert--message__variant--filled.alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .alert--root.alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .button.button__intent--primary,
+  .button.button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 1`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Compound Slots */
+  .jg\\:alert--root__size--xs,
+  .jg\\:alert--title__size--xs,
+  .jg\\:alert--message__size--xs {
+    @apply w-7 h-7 text-xs;
+  }
+
+  .jg\\:alert--root__size--sm,
+  .jg\\:alert--title__size--sm,
+  .jg\\:alert--message__size--sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .jg\\:alert--root__size--md,
+  .jg\\:alert--title__size--md,
+  .jg\\:alert--message__size--md {
+    @apply w-9 h-9 text-base;
+  }
+
+  /* Slots */
+  .jg\\:alert--root {
+    @apply rounded py-3 px-5 mb-4;
+  }
+
+  .jg\\:alert--title {
+    @apply font-bold mb-1;
+  }
+
+  /* Compound Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--error {
+    @apply border-red-700 dark:border-red-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--error {
+    @apply text-red-700 dark:text-red-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined.jg\\:alert--root__severity--success {
+    @apply border-green-700 dark:border-green-500;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--outlined.jg\\:alert--title__severity--success {
+    @apply text-green-700 dark:text-green-500;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--outlined.jg\\:alert--message__severity--success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--error {
+    @apply bg-red-100 dark:bg-red-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--error {
+    @apply text-red-900 dark:text-red-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--error {
+    @apply text-red-700 dark:text-red-200;
+  }
+
+  .jg\\:alert--root.jg\\:alert--root__variant--filled.jg\\:alert--root__severity--success {
+    @apply bg-green-100 dark:bg-green-800;
+  }
+
+  .jg\\:alert--title.jg\\:alert--title__variant--filled.jg\\:alert--title__severity--success {
+    @apply text-green-900 dark:text-green-50;
+  }
+
+  .jg\\:alert--message.jg\\:alert--message__variant--filled.jg\\:alert--message__severity--success {
+    @apply text-green-700 dark:text-green-200;
+  }
+
+  /* Slot Variants */
+  .jg\\:alert--root.jg\\:alert--root__variant--outlined {
+    @apply border;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 2`] = `
+"/* -----------------------------------------------------------------------------
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ * -----------------------------------------------------------------------------*/
+@layer components {
+  /* Base */
+  .jg\\:button {
+    @apply rounded-full;
+  }
+
+  /* Compound Variants */
+  .jg\\:button.jg\\:button__intent--primary,
+  .jg\\:button.jg\\:button__size--medium {
+    @apply uppercase;
+  }
+}
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 3`] = `
+"@import "./alert.css";
+@import "./button.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`createOptions.prefix\` and \`createOptions.mergeFn\`" 4`] = `
+"@import "./components/index.css";
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 6`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 7`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 8`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "default" 9`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 1`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": {
+    "root": "rounded py-3 px-5 mb-4",
+    "title": "font-bold mb-1",
+    "message": ""
+  },
+  "variants": {
+    "variant": {
+      "outlined": {
+        "root": "border"
+      },
+      "filled": {
+        "root": ""
+      }
+    },
+    "severity": {
+      "error": {},
+      "success": {}
+    },
+    "size": {
+      "xs": {},
+      "sm": {},
+      "md": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "class": [
+        "flex",
+        "flex-wrap",
+        "truncate",
+        "box-border",
+        "outline-none",
+        "items-center",
+        "justify-center",
+        "bg-neutral-100",
+        "hover:bg-neutral-200",
+        "active:bg-neutral-300",
+        "text-neutral-500"
+      ]
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "xs",
+      "class": "w-7 h-7 text-xs"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "sm",
+      "class": "w-8 h-8 text-sm"
+    },
+    {
+      "slots": [
+        "root",
+        "title",
+        "message"
+      ],
+      "size": "md",
+      "class": "w-9 h-9 text-base"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": "outlined",
+      "severity": "error",
+      "class": {
+        "root": "border-red-700 dark:border-red-500",
+        "title": "text-red-700 dark:text-red-500",
+        "message": "text-red-600 dark:text-red-500"
+      }
+    },
+    {
+      "variant": "outlined",
+      "severity": "success",
+      "class": {
+        "root": "border-green-700 dark:border-green-500",
+        "title": "text-green-700 dark:text-green-500",
+        "message": "text-green-600 dark:text-green-500"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "error",
+      "class": {
+        "root": "bg-red-100 dark:bg-red-800",
+        "title": "text-red-900 dark:text-red-50",
+        "message": "text-red-700 dark:text-red-200"
+      }
+    },
+    {
+      "variant": "filled",
+      "severity": "success",
+      "class": {
+        "root": "bg-green-100 dark:bg-green-800",
+        "title": "text-green-900 dark:text-green-50",
+        "message": "text-green-700 dark:text-green-200"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "filled",
+    "severity": "success"
+  }
+});
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Component
+ *
+ * @description
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ * dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+ * ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+ * eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+ * mollit anim id est laborum.
+ *
+ * @deprecated
+ * The quick brown fox jumps over the lazy dog
+ *
+ * @see
+ * https://www.mozilla.org/
+ */
+export const button = cva({
+  "name": "button",
+  "base": "rounded-full",
+  "variants": {
+    "intent": {
+      "primary": [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600"
+      ],
+      "secondary": [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100"
+      ]
+    },
+    "size": {
+      "small": [
+        "text-sm",
+        "py-1",
+        "px-2"
+      ],
+      "medium": [
+        "text-base",
+        "py-2",
+        "px-4"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "intent": "primary",
+      "size": "medium",
+      "class": "uppercase"
+    }
+  ],
+  "defaultVariants": {
+    "intent": "primary",
+    "size": "medium"
+  }
+});
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 3`] = `
+"import { alert } from "./alert";
+import { button } from "./button";
+
+export const components = [
+  alert,
+  button
+];
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
+"import { components } from "./components";
+
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+export const jgComponents = {
+  components
+};
+
+// Uncomment the code below if you want to export \`components\` individually.
+// export * from "./components/exports";
+
+"
+`;
+
+exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 5`] = `
+"/* -----------------------------------------------------------------------------
+ * Jade Garden 🌿
+ *
+ * \`cva\` and \`sva\` functions are exported by default.
+ * Uncomment the code below if your class names require modifications.
+ * -----------------------------------------------------------------------------*/
+export { cva, sva } from "jade-garden";
+
+// import { createCVA, createSVA } from "jade-garden";
+
+// export const cva = createCVA();
+// export const sva = createSVA();
+"
+`;

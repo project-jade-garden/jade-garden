@@ -1,8 +1,54 @@
+import type { CreateOptions, CVAComponent, SVAComponent } from "jade-garden";
+
 /* -----------------------------------------------------------------------------
  * Types
  * -----------------------------------------------------------------------------*/
 
-import type { CreateOptions, CVAReturnType, SVAReturnType } from "jade-garden";
+/**
+ * **FOR LIBRARY AUTHORS**
+ *
+ * Add global JSDoc and CSS comments to the top of the file.
+ */
+export type MetaConfig = {
+  /**
+   * Adds a `description` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/description
+   */
+  description?: string;
+
+  /**
+   * Adds a `license` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/license
+   */
+  license?: string;
+
+  /**
+   * Adds a `name` tag.
+   *
+   * `name` should be the same as `name` in "**package.json**".
+   *
+   * @see https://jsdoc3.vercel.app/tags/name
+   */
+  name?: string;
+
+  /**
+   * Adds a `see` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/see
+   */
+  see?: string;
+
+  /**
+   * Adds a `version` tag.
+   *
+   * `version` should be the same as `version` in "**package.json**".
+   *
+   * @see https://jsdoc3.vercel.app/tags/version
+   */
+  version?: string;
+};
 
 export type Options = {
   /**
@@ -24,12 +70,68 @@ export type Options = {
   // compile?: boolean;
 
   /**
-   * The file format for the generated configs, if `options.useStylesheet` is set to `false`.
+   * An object containing arrays of `cva` and `sva` components.
+   *
+   * If `createOptions.useStylesheet` is set to `true`, **css** files will be generated.
+   *
+   * Otherwise, components will generate based on the `configOutput`.
+   *
+   * Object keys will generate directories in root of `outDir`.
+   *
+   * @default {}
+   *
+   * @example
+   * ```ts
+   * {
+   *   components: {
+   *     components: [accordion, alert, card],
+   *     cva: [headingCVA, iconCVA, progressCVA],
+   *     sva: [menuSVA, popoverSVA, skeletonSVA],
+   *     ui: [button, image, input]
+   *   },
+   *   // Generates components if `createOptions.useStylesheet` is set to false.
+   *   // Defaults to TypeScript.
+   *   configOutput: "js",
+   *   createOptions: {
+   *     // Generates CSS files if set to `true`, otherwise output components.
+   *     // Defaults to `false`.
+   *     useStylesheet: true
+   *   },
+   *   entry: "./styles/main.css"
+   * }
+   * ```
+   */
+  components?: Record<string, (CVA | SVA)[]>;
+
+  /**
+   * The file format for the generated configs, if `createOptions.useStylesheet` is set to `false`.
    *
    * @default "ts"
    */
   configOutput?: "js" | "ts";
 
+  /**
+   * The options used to modify your custom merge functions (`createCVA` and `createSVA`).
+   *
+   * Use with `unplugin-jade-garden` to ensure consistent output of your CSS.
+   *
+   * @default {}
+   *
+   * @example
+   * ```ts
+   * import type { CreateOptions } from "jade-garden";
+   * import { cn, createCVA, createSVA } from "jade-garden";
+   *
+   * export const createOptions: CreateOptions = {
+   *   mergeFn: cn,
+   *   prefix: "jg",
+   *   useStylesheet: true
+   * };
+   *
+   * export const cva = createCVA(createOptions);
+   * export const sva = createSVA(createOptions);
+   * ```
+   */
   createOptions?: CreateOptions;
 
   /**
@@ -50,6 +152,15 @@ export type Options = {
   entry?: string;
 
   /**
+   * **FOR LIBRARY AUTHORS**
+   *
+   * Add global JSDoc and CSS comments to the top of the file.
+   *
+   * @default {}
+   */
+  metaConfig?: MetaConfig;
+
+  /**
    * Specify the output directory (relative to **`entry`**).
    *
    * @default "jade-garden"
@@ -64,29 +175,11 @@ export type Options = {
   outDir?: string;
 
   /**
-   * Nested objects containing arrays of your `jade-garden` CVA and SVA configurations.
+   * Silence warnings that occur before an operation cancels or skips.
    *
-   * The plugin will process these configurations to generate files based on `fileOutput`.
-   *
-   * Object keys will generate directories in root of `outDir`.
-   *
-   * @default {}
-   *
-   * @example
-   * ```ts
-   * {
-   *   entry: "./styles/main.css",
-   *   styleConfigs: {
-   *     path: {
-   *       to: {
-   *         output: [alertSVA, buttonCVA, cardSVA]
-   *       }
-   *     }
-   *   }
-   * }
-   * ```
+   * @default false
    */
-  styleConfigs?: Record<string, (CVA | SVA)[]>;
+  silent?: boolean;
 };
 
 export type PluginInstance<T> = (options?: Options | undefined) => T;
@@ -95,10 +188,10 @@ export type PluginInstance<T> = (options?: Options | undefined) => T;
  * CVA
  * -----------------------------------------------------------------------------*/
 
-export type CVA = CVAReturnType<any>;
+export type CVA = CVAComponent<any>;
 
 /* -----------------------------------------------------------------------------
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export type SVA = SVAReturnType<any, any>;
+export type SVA = SVAComponent<any, any>;

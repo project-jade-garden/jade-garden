@@ -1,7 +1,7 @@
 import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
-import type { ClassProp, CreateOptions, CVA, CVAConfig, CVAReturnType, CVAVariants, Variant } from "./types";
-import { getVariantClasses, hasProps } from "./utils";
+import type { ClassProp, CreateOptions, CVA, CVAComponent, CVAConfig, CVAVariants, MetaConfig, Variant } from "./types";
+import { falsyToString, hasProps } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * CVA
@@ -16,10 +16,10 @@ import { getVariantClasses, hasProps } from "./utils";
 export const createCVA = (options?: CreateOptions): CVA => {
   const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
-  return <V extends Variant>(styleConfig: CVAConfig<V>): CVAReturnType<V> => {
+  return <V extends Variant>(styleConfig: CVAConfig<V>, metaConfig?: MetaConfig): CVAComponent<V> => {
     const jg = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
-      // * Exit early if `base` is not defined or has a falsey value
-      if (typeof styleConfig?.base === "undefined" || !styleConfig.base) return mergeFn(props?.class, props?.className);
+      // * Exit early if `base` is not defined or has a falsy value
+      if (!styleConfig?.base) return mergeFn(props?.class, props?.className);
 
       const base = styleConfig.base;
 
@@ -30,41 +30,51 @@ export const createCVA = (options?: CreateOptions): CVA => {
 
       const variants = styleConfig.variants;
       const compoundVariants = Array.isArray(styleConfig?.compoundVariants) ? styleConfig.compoundVariants : [];
-      const defaultVariants =
+      const defaultVariants: CVAVariants<V> =
         typeof styleConfig?.defaultVariants === "object" && !Array.isArray(styleConfig.defaultVariants)
           ? styleConfig.defaultVariants
           : {};
 
-      const defaultsAndProps = { ...defaultVariants, ...(props ?? {}) };
+      const getVariantClasses = () => {
+        if (typeof variants !== "object" || Array.isArray(variants)) return "";
+        let result = "";
+
+        for (const variant of Object.keys(variants)) {
+          const variantObj = variants[variant];
+          if (typeof variantObj !== "object" || Array.isArray(variantObj)) continue;
+
+          const variantKey = props?.[variant] ?? defaultVariants?.[variant];
+          const validKey = falsyToString(variantKey) ?? "false";
+          const value = mergeFn(variantObj[validKey as keyof (typeof variants)[typeof variant]]);
+
+          if (value) result += !result.length ? value : ` ${value}`;
+        }
+
+        return result;
+      };
 
       const getCompoundVariantClasses = () => {
         if (!Array.isArray(compoundVariants)) return "";
         let result = "";
 
         for (const { class: variantClass, className: variantClassName, ...variantConfig } of compoundVariants) {
-          if (hasProps(variantConfig, defaultsAndProps)) {
+          if (hasProps(variantConfig, { ...defaultVariants, ...(props ?? {}) })) {
             const classValue = mergeFn(variantClass);
             const classNameValue = mergeFn(variantClassName);
 
-            if (classValue) result += result.length === 0 ? classValue : ` ${classValue}`;
-            if (classNameValue) result += result.length === 0 ? classNameValue : ` ${classNameValue}`;
+            if (classValue) result += !result.length ? classValue : ` ${classValue}`;
+            if (classNameValue) result += !result.length ? classNameValue : ` ${classNameValue}`;
           }
         }
 
         return result;
       };
 
-      return mergeFn(
-        base,
-        getVariantClasses({ defaultVariants, mergeFn, props, variants }),
-        getCompoundVariantClasses(),
-        props?.class,
-        props?.className
-      );
+      return mergeFn(base, getVariantClasses(), getCompoundVariantClasses(), props?.class, props?.className);
     };
 
     const ujg = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
-      const { compoundVariants, name, variants } = styleConfig;
+      const { name, variants } = styleConfig;
       if (!name) return mergeFn(props?.class, props?.className);
 
       // * "jgPrefix:componentName"
@@ -78,26 +88,24 @@ export const createCVA = (options?: CreateOptions): CVA => {
       let result = component;
       for (const variantName of Object.keys(variants)) {
         const variantObj = variants[variantName];
-        if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
 
-        // @ts-expect-error: Element implicitly has an 'any' type because index expression is not of type 'number'.
-        const variantType = props?.[variantName] ?? compoundVariants?.[variantName];
+        if (variantObj && typeof variantObj === "object") {
+          const variantType = props?.[variantName];
 
-        // * "__variantName--variantType"
-        const variant = variantName
-          ? `__${kebabCase(variantName)}${variantType ? `--${kebabCase(variantType)}` : ""}`
-          : "";
-
-        // * "jgPrefix:componentName__variantName--variantType"
-        result += ` ${component}${variant}`;
+          if (typeof variantType === "string" && variantType in variantObj) {
+            // * "jgPrefix:componentName__variantName--variantType"
+            result += ` ${component}__${kebabCase(variantName)}--${kebabCase(variantType)}`;
+          }
+        }
       }
 
       return mergeFn(result, props?.class, props?.className);
     };
 
-    const component = (useStylesheet ? ujg : jg) as CVAReturnType<V>;
+    const component = (useStylesheet ? ujg : jg) as CVAComponent<V>;
 
     component.styleConfig = styleConfig;
+    component.metaConfig = metaConfig ?? {};
 
     return component;
   };

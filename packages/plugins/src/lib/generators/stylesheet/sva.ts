@@ -1,20 +1,23 @@
-import { kebabCase } from "es-toolkit";
+import { kebabCase } from "es-toolkit/string";
 import { type CreateOptions, cx, type SVAConfig } from "jade-garden";
 
 /* -----------------------------------------------------------------------------
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, options: CreateOptions): string => {
-  const mergeFn = options?.mergeFn ?? cx;
-  const prefix = options?.prefix;
+export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, createOptions: CreateOptions): string => {
+  const mergeFn = createOptions?.mergeFn ?? cx;
+  const prefix = createOptions?.prefix;
 
   const componentName = `${prefix ? `${prefix}\\:` : ""}${kebabCase(styleConfig.name as string)}`;
 
+  // ! DO NOT MOVE THE ORDER OF "Output for" FOR SAKE OF CASCADE ORDER.
   let cssOutput = "";
 
-  // Compound slots
+  // * Output for compound slots
   if (styleConfig.compoundSlots) {
+    let isFirst = true;
+
     for (const compoundSlot of styleConfig.compoundSlots) {
       const variantConditions = Object.keys(compoundSlot)
         .filter((key) => key !== "slots" && key !== "class" && key !== "className")
@@ -28,22 +31,29 @@ export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, options:
       const applyRules = mergeFn(compoundSlot.class, compoundSlot.className);
 
       if (applyRules) {
-        cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${combinedSelectors} {\n    @apply ${applyRules};\n  }`;
+        cssOutput += `${!cssOutput.length ? "" : "\n\n"}${isFirst ? "  /* Compound Slots */\n  " : "  "}${combinedSelectors} {\n    @apply ${applyRules};\n  }`;
+
+        if (isFirst) isFirst = false;
       }
     }
   }
 
-  // Slots and their base classes
+  // * Output for slots and their base classes
+  let isFirst = true;
   for (const slot in styleConfig.slots) {
     const applyRules = mergeFn(styleConfig.slots[slot]);
 
     if (applyRules) {
-      cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}--${kebabCase(slot)} {\n    @apply ${applyRules};\n  }`;
+      cssOutput += `${!cssOutput.length ? "" : "\n\n"}${isFirst ? "  /* Slots */\n  " : "  "}.${componentName}--${kebabCase(slot)} {\n    @apply ${applyRules};\n  }`;
+
+      if (isFirst) isFirst = false;
     }
   }
 
-  // Compound variants
+  // * Output for compound variants
   if (styleConfig.compoundVariants) {
+    let isFirst = true;
+
     for (const compoundVariant of styleConfig.compoundVariants) {
       for (const slot in styleConfig.slots) {
         if (compoundVariant.class?.[slot] || compoundVariant.className?.[slot]) {
@@ -56,15 +66,19 @@ export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, options:
           const applyRules = mergeFn(compoundVariant.class?.[slot], compoundVariant.className?.[slot]);
 
           if (applyRules) {
-            cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${componentSlot}${variantConditions} {\n    @apply ${applyRules};\n  }`;
+            cssOutput += `${!cssOutput.length ? "" : "\n\n"}${isFirst ? "  /* Compound Variants */\n  " : "  "}${componentSlot}${variantConditions} {\n    @apply ${applyRules};\n  }`;
+
+            if (isFirst) isFirst = false;
           }
         }
       }
     }
   }
 
-  // Slot variants
+  // * Output for slot variants
   if (styleConfig.variants) {
+    let isFirst = true;
+
     for (const variantName in styleConfig.variants) {
       const variantTypes = styleConfig.variants[variantName];
 
@@ -76,7 +90,7 @@ export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any>, options:
 
           if (applyRules) {
             const componentSlot = `.${componentName}--${kebabCase(slot)}`;
-            cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${componentSlot}${componentSlot}__${kebabCase(variantName)}--${kebabCase(variantType)} {\n    @apply ${applyRules};\n  }`;
+            cssOutput += `${!cssOutput.length ? "" : "\n\n"}${isFirst ? "  /* Slot Variants */\n  " : "  "}${componentSlot}${componentSlot}__${kebabCase(variantName)}--${kebabCase(variantType)} {\n    @apply ${applyRules};\n  }`;
           }
         }
       }

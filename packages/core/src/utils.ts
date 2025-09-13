@@ -12,47 +12,8 @@ import type { MergeFn } from "./types";
  * @param {T} value - The value to convert.
  * @returns {string | T} - The string representation of the boolean, or the original value.
  */
-const falsyToString = <T>(value: T): string | T =>
+export const falsyToString = <T>(value: T): string | T =>
   typeof value === "boolean" ? `${value}` : value === 0 ? "0" : value;
-
-/**
- * Retrieves variant classes based on provided configuration and props.
- *
- * @param {object} options - The options object.
- * @param {Record<string, any> | undefined} options.defaultVariants - The default variants object.
- * @param {MergeFn} options.mergeFn - The function to merge class names.
- * @param {Record<string, any> | undefined} options.props - The props object.
- * @param {Record<string, any> | undefined} options.variants - The variants object.
- * @param {string | undefined} [options.slotKey] - The slot key (for `sva`).
- * @param {Record<string, any> | undefined} [options.slotProps] - The slot props (for `sva`).
- * @returns {string} A string of variant class names.
- */
-export const getVariantClasses = (options: {
-  defaultVariants: Record<string, any> | undefined;
-  mergeFn: MergeFn;
-  props: Record<string, any> | undefined;
-  variants: Record<string, any> | undefined;
-  slotKey?: string;
-  slotProps?: Record<string, any>;
-}): string => {
-  const { defaultVariants, mergeFn, props, slotKey, slotProps, variants } = options;
-  if (typeof variants !== "object" || Array.isArray(variants)) return "";
-
-  let result = "";
-
-  for (const variant of Object.keys(variants)) {
-    const variantObj = (variants as Record<string, any>)[variant];
-    if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
-
-    const variantKey = slotProps?.[variant] ?? props?.[variant] ?? defaultVariants?.[variant];
-    const validKey = variantKey !== undefined ? falsyToString(variantKey) : variantKey;
-    const value = slotKey ? mergeFn(variantObj[validKey ?? "false"]?.[slotKey]) : mergeFn(variantObj[validKey]);
-
-    if (value) result += result.length === 0 ? value : ` ${value}`;
-  }
-
-  return result;
-};
 
 /**
  * Checks if a given configuration object matches the provided props.

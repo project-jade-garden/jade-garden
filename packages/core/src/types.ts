@@ -5,41 +5,13 @@ import type { ClassValue as CV } from "clsx";
  * -----------------------------------------------------------------------------*/
 
 /**
- * Represents the minimum structure to work with class names.
- * Fully compatible input for `jade-garden/class-utils` functions.
- */
-export type ClassStrings = string | string[];
-
-/**
- * **This is the `ClassValue` type from [clsx](https://github.com/lukeed/clsx/tree/master)**.
- * - Represents a value that can be used as a class name.
- * - It can be a `string`, `number`, `bigint`, `null`, `boolean`, `undefined`, an array of ClassValue, or a Record with values of `any`.
- */
-export type ClassValue = CV;
-
-export type CreateOptions = {
-  /**
-   * Overrides `jade-garden`'s default `cx` utility for merging generated class names.
-   *
-   * You may provide your own custom function to handle merging class names,
-   * use `tailwind-merge` for handling class conflicts,
-   * or `jade-garden`'s `cn` utility for more performant runtimes.
-   */
-  mergeFn?: MergeFn;
-
-  prefix?: string;
-
-  useStylesheet?: boolean;
-};
-
-/**
  * A helper type to define the shape of a single data attribute.
  *
  * @template T - The type of the value for the data attribute key.
  * If a string literal union (e.g., "open" | "closed"), it creates a conditional record.
  * If a primitive (e.g., string, boolean), it allows for a simple ClassStrings value.
  */
-type DataAttribute<T> =
+type Attribute<T> =
   // biome-ignore format: make this type easy to read and understand
   // [data-readonly] [data-current="true"]
   T extends boolean ? Partial<Record<"true" | "false", ClassStrings>> | ClassStrings :
@@ -53,6 +25,131 @@ type DataAttribute<T> =
     Partial<Record<T, ClassStrings>>
   // Edge Case: only accept types `boolean`, `number`, or `string`.
   : never;
+
+/**
+ * Represents the minimum structure to work with class names.
+ * Fully compatible input for `jade-garden/class-utils` functions.
+ */
+export type ClassStrings = string | string[];
+
+/**
+ * **This is the `ClassValue` type from [clsx](https://github.com/lukeed/clsx/tree/master)**.
+ * - Represents a value that can be used as a class name.
+ * - It can be a `string`, `number`, `bigint`, `null`, `boolean`, `undefined`, an array of ClassValue, or a Record with values of `any`.
+ */
+export type ClassValue = CV;
+
+/**
+ * The options used to modify your custom merge functions (`createCVA` and `createSVA`).
+ *
+ * Use with `unplugin-jade-garden` to ensure consistent output of your CSS.
+ *
+ * @default {}
+ *
+ * @example
+ * ```ts
+ * import type { CreateOptions } from "jade-garden";
+ * import { cn, createCVA, createSVA } from "jade-garden";
+ *
+ * export const createOptions: CreateOptions = {
+ *   mergeFn: cn,
+ *   prefix: "jg",
+ *   useStylesheet: true
+ * };
+ *
+ * export const cva = createCVA(createOptions);
+ * export const sva = createSVA(createOptions);
+ * ```
+ */
+export type CreateOptions = {
+  /**
+   * Overrides the default `cx` utility used in `cva` and `sva` to merge class names.
+   *
+   * You may provide your own custom function to handle merging class names,
+   * `tailwind-merge` for handling class conflicts,
+   * or `jade-garden`'s `cn` utility for more performant runtimes.
+   *
+   * @default cx
+   */
+  mergeFn?: MergeFn;
+
+  /**
+   * The prefix that will prepend generated class names if `useStylesheet` is set to `true.`
+   *
+   * @default ""
+   */
+  prefix?: string;
+
+  /**
+   * If set to `true`, generates class names based on `name` and keys from `slots` and `variants`.
+   *
+   * @default false
+   *
+   * @example
+   * ```ts
+   * import { createCVA } from "jade-garden/cva";
+   *
+   * const cva = createCVA({ useStylesheet: true });
+   *
+   * const button = getClasses({
+   *   name: "button",
+   *   base: "button",
+   *   variants: {
+   *     size: {
+   *       small: "size-2",
+   *       medium: "size-4"
+   *     },
+   *     variant: {
+   *       primary: "bg-red-500",
+   *       secondary: "bg-blue-500"
+   *     }
+   *   }
+   * });
+   * button({ size: "small", variant: "primary" });
+   * // "button button__size--small button__variant--primary"
+   * ```
+   */
+  useStylesheet?: boolean;
+};
+
+/**
+ * **FOR LIBRARY AUTHORS**
+ *
+ * Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
+ */
+export type MetaConfig = {
+  /**
+   * Adds a `deprecated` tag.
+   *
+   * Adds a description if `deprecated` is a string.
+   *
+   * @see https://jsdoc3.vercel.app/tags/deprecated
+   */
+  deprecated?: boolean | string;
+
+  /**
+   * Adds a `description` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/description
+   */
+  description?: string;
+
+  /**
+   * Adds a `name` tag.
+   *
+   * `name` should be the same as `name` in style configuration.
+   *
+   * @see https://jsdoc3.vercel.app/tags/name
+   */
+  name?: string;
+
+  /**
+   * Adds a `see` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/see
+   */
+  see?: string;
+};
 
 /**
  * Represents a function that merges class names.
@@ -115,7 +212,7 @@ type OmitUndefined<T> = T extends undefined ? never : T;
  * ```
  */
 export type Traits<T extends Record<string, any>> = {
-  [K in keyof T]?: DataAttribute<T[K]>;
+  [K in keyof T]?: Attribute<T[K]>;
 };
 
 /**
@@ -130,7 +227,7 @@ export type VariantProps<Component extends (...args: any) => any> = Omit<
 >;
 
 /* -----------------------------------------------------------------------------
- * Internals: FOR INTERNAL USE ONLY
+ * BELOW IS INTENDED FOR INTERNAL USE ONLY
  * -----------------------------------------------------------------------------*/
 
 /* -----------------------------------------------------------------------------
@@ -150,11 +247,6 @@ export type ClassProp =
       class?: never;
       className?: ClassValue;
     };
-
-/**
- * The shape of data attributes in a component's Headless Design System.
- */
-export type NestedTraits = Partial<Record<string, Partial<Record<PropertyKey, ClassStrings>> | ClassStrings>>;
 
 /**
  * Represents a dictionary where keys are strings and values are ClassValue.
@@ -288,11 +380,12 @@ export type CVAConfig<V extends Variant> = {
  * Represents the return type of the CVA function.
  *
  * @template V - The type of variants.
- * @returns {(props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string} A function that generates class names based on props.
+ * @returns {((props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string)& { metaConfig: MetaConfig; styleConfig: CVAConfig<V>; }} A function that generates class names based on props.
  */
-export type CVAReturnType<V extends Variant> = ((
+export type CVAComponent<V extends Variant> = ((
   props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
 ) => string) & {
+  metaConfig: MetaConfig;
   styleConfig: CVAConfig<V>;
 };
 
@@ -302,9 +395,10 @@ export type CVAReturnType<V extends Variant> = ((
  *
  * @template V - The type of variants.
  * @param {CVAConfig<V>} config - The cva configuration object.
- * @returns {CVAReturnType<V>} A function that generates class names based on props.
+ * @param {MetaConfig} [metaConfig] - Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
+ * @returns {CVAComponent<V>} A function that generates class names based on props.
  */
-export type CVA = <V extends Variant = {}>(config: CVAConfig<V>) => CVAReturnType<V>;
+export type CVA = <V extends Variant = {}>(config: CVAConfig<V>, metaConfig?: MetaConfig) => CVAComponent<V>;
 
 /* -----------------------------------------------------------------------------
  * SVA
@@ -504,11 +598,12 @@ export type SVAConfig<RCV extends RecordClassValue, V extends Variants<RCV>> = {
  *
  * @template RCV - The type of record class values.
  * @template V - The type of variants.
- * @returns {(props?: SVAVariants<RCV, V>) => { [K in keyof S]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string }} A function that generates slot-specific class names based on props.
+ * @returns {((props?: SVAVariants<RCV, V>) => { [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string; }) & { metaConfig: MetaConfig; styleConfig: SVAConfig<RCV, V>; }} A function that generates slot-specific class names based on props.
  */
-export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>> = ((props?: SVAVariants<RCV, V>) => {
+export type SVAComponent<RCV extends RecordClassValue, V extends Variants<RCV>> = ((props?: SVAVariants<RCV, V>) => {
   [K in keyof RCV]: (slotProps?: SVAVariants<RCV, V> & ClassProp) => string;
 }) & {
+  metaConfig: MetaConfig;
   styleConfig: SVAConfig<RCV, V>;
 };
 
@@ -518,8 +613,10 @@ export type SVAReturnType<RCV extends RecordClassValue, V extends Variants<RCV>>
  * @template RCV - The type of record class values.
  * @template V - The type of variants.
  * @param {SVAConfig<RCV, V>} config - Configuration options for the SVA function.
- * @returns {SVAReturnType<RCV, V>} The return type of the SVA function.
+ * @param {MetaConfig} [metaConfig] - Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
+ * @returns {SVAComponent<RCV, V>} The return type of the SVA function.
  */
 export type SVA = <RCV extends RecordClassValue, V extends Variants<RCV>>(
-  config: SVAConfig<RCV, V>
-) => SVAReturnType<RCV, V>;
+  config: SVAConfig<RCV, V>,
+  metaConfig?: MetaConfig
+) => SVAComponent<RCV, V>;

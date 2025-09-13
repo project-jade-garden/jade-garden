@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ClassProp, ClassStrings, ClassValue, Traits } from "./types";
+import type { ClassStrings, ClassValue, Traits } from "./types";
 
 /* -----------------------------------------------------------------------------
  * Class Utils
@@ -20,7 +20,7 @@ export const cm = <T extends ClassValue>(
   let result = clsx(input).split(" ");
 
   if (typeof options?.include === "undefined" && typeof options?.exclude === "undefined") {
-    return clsx(Array.from(new Set(result)));
+    return Array.from(new Set(result)).join(" ");
   }
 
   const { include, exclude } = options;
@@ -111,16 +111,16 @@ export const prefixClasses = (
 
   for (const input of inputs) {
     if (typeof input === "string" && !!input) {
-      output += `${output.length ? " " : ""}${prefix ? `${prefix}:${input}` : input}`;
+      output += `${!output.length ? "" : " "}${prefix ? `${prefix}:${input}` : input}`;
     } else if (typeof input === "object" && !Array.isArray(input)) {
       const classPrefix = input.variant ? `${input.variant}:${prefix}:` : prefix ? `${prefix}:` : "";
 
       if (typeof input.classes === "string" && input.classes) {
-        output += `${output.length ? " " : ""}${classPrefix + input.classes}`;
+        output += `${!output.length ? "" : " "}${classPrefix + input.classes}`;
       } else if (Array.isArray(input.classes)) {
         for (const className of input.classes) {
           if (typeof className === "string" && className) {
-            output += `${output.length ? " " : ""}${classPrefix + className}`;
+            output += `${!output.length ? "" : " "}${classPrefix + className}`;
           }
         }
       }
@@ -140,7 +140,7 @@ export const prefixClasses = (
 export const traits = <T extends Traits<Record<string, any>>>(attributes: Record<string, T>): string => {
   let result = "";
 
-  if (typeof attributes === "object" && !Array.isArray(attributes) && Object.keys(attributes).length > 0) {
+  if (typeof attributes === "object" && !Array.isArray(attributes)) {
     for (const attributeKey of Object.keys(attributes)) {
       const attributeValues = attributes[attributeKey];
 
@@ -151,7 +151,7 @@ export const traits = <T extends Traits<Record<string, any>>>(attributes: Record
           const attributeValue = value;
 
           for (const condition in value) {
-            const prefix = result.length ? " " : "";
+            const prefix = !result.length ? "" : " ";
 
             if (Object.hasOwn(attributeValue, condition)) {
               const value = attributeValue[condition as keyof typeof attributeValue];
@@ -160,27 +160,27 @@ export const traits = <T extends Traits<Record<string, any>>>(attributes: Record
               if (Array.isArray(value)) {
                 let values = "";
                 for (const v of value) {
-                  values += `${values.length ? " " : ""}${dataAttributeStr}:${v}`;
+                  values += `${!values.length ? "" : " "}${dataAttributeStr}:${v}`;
                 }
 
                 result += prefix + values;
-              } else if (typeof value === "string" && value.length) {
+              } else if (typeof value === "string" && value.length > 0) {
                 result += `${prefix}${dataAttributeStr}:${value}`;
               }
             }
           }
         } else if (typeof value !== "undefined") {
-          const prefix = result.length ? " " : "";
+          const prefix = !result.length ? "" : " ";
           const dataAttributeStr = `${attributeKey}-[${valueKey}]`;
 
           if (Array.isArray(value)) {
             let attributeValues = "";
             for (const v of value) {
-              attributeValues += `${attributeValues.length ? " " : ""}${dataAttributeStr}:${v}`;
+              attributeValues += `${!attributeValues.length ? "" : " "}${dataAttributeStr}:${v}`;
             }
 
             result += prefix + attributeValues;
-          } else if (typeof value === "string" && value.length) {
+          } else if (typeof value === "string" && value.length > 0) {
             result += `${prefix}${dataAttributeStr}:${value}`;
           }
         }

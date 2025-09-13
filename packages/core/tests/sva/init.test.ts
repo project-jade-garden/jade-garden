@@ -202,7 +202,7 @@ describe("sva", () => {
     });
 
     test("without anything", () => {
-      // @ts-expect-error
+      // @ts-expect-error: for testing
       const noConfig = sva();
       const emptyConfig = sva({});
       const emptySlotsConfig = sva({ slots: {} });

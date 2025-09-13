@@ -1,26 +1,29 @@
-import { kebabCase } from "es-toolkit";
+import { kebabCase } from "es-toolkit/string";
 import { type CreateOptions, type CVAConfig, cx } from "jade-garden";
 
 /* -----------------------------------------------------------------------------
  * CVA
  * -----------------------------------------------------------------------------*/
 
-export const generateCVAStylesheet = (styleConfig: CVAConfig<any>, options: CreateOptions): string => {
-  const mergeFn = options?.mergeFn ?? cx;
-  const prefix = options?.prefix;
+export const generateCVAStylesheet = (styleConfig: CVAConfig<any>, createOptions: CreateOptions): string => {
+  const mergeFn = createOptions?.mergeFn ?? cx;
+  const prefix = createOptions?.prefix;
 
   const componentName = `${prefix ? `${prefix}\\:` : ""}${kebabCase(styleConfig.name as string)}`;
 
+  // ! DO NOT MOVE THE ORDER OF "Output for" FOR SAKE OF CASCADE ORDER.
   let cssOutput = "";
 
-  // Base class
+  // * Output for base class
   if (styleConfig.base) {
     const applyRules = mergeFn(styleConfig.base);
-    cssOutput = `  .${componentName} {\n    @apply ${applyRules};\n  }`;
+    cssOutput = `  /* Base */\n  .${componentName} {\n    @apply ${applyRules};\n  }`;
   }
 
-  // Compound variants
+  // * Output for compound variants
   if (styleConfig.compoundVariants) {
+    let isFirst = true;
+
     for (const compoundVariant of styleConfig.compoundVariants) {
       const variantConditions = Object.keys(compoundVariant)
         .filter((key) => key !== "class" && key !== "className")
@@ -32,13 +35,17 @@ export const generateCVAStylesheet = (styleConfig: CVAConfig<any>, options: Crea
       const applyRules = mergeFn(compoundVariant.class, compoundVariant.className);
 
       if (variantConditions && applyRules) {
-        cssOutput += `${cssOutput.length ? "\n\n" : ""}  ${variantConditions} {\n    @apply ${applyRules};\n  }`;
+        cssOutput += `${cssOutput.length ? "\n\n" : ""}${isFirst ? "  /* Compound Variants */\n  " : "  "}${variantConditions} {\n    @apply ${applyRules};\n  }`;
+
+        if (isFirst) isFirst = false;
       }
     }
   }
 
-  // Variants
+  // * Output for variants
   if (styleConfig.variants) {
+    let isFirst = true;
+
     for (const variantName in styleConfig.variants) {
       const variantTypes = styleConfig.variants[variantName];
 
@@ -46,7 +53,9 @@ export const generateCVAStylesheet = (styleConfig: CVAConfig<any>, options: Crea
         const applyRules = mergeFn(variantTypes[variantType]);
 
         if (applyRules) {
-          cssOutput += `${cssOutput.length ? "\n\n" : ""}  .${componentName}.${componentName}__${kebabCase(variantName)}--${kebabCase(variantType)} {\n    @apply ${applyRules};\n  }`;
+          cssOutput += `${cssOutput.length ? "\n\n" : ""}${isFirst ? "  /* Variants */\n  " : "  "}.${componentName}.${componentName}__${kebabCase(variantName)}--${kebabCase(variantType)} {\n    @apply ${applyRules};\n  }`;
+
+          if (isFirst) isFirst = false;
         }
       }
     }

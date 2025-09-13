@@ -74,7 +74,7 @@ describe("createCVA", () => {
 
       test("should merge class and className props", () => {
         const component = cva({ base: "base-class" });
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         const result = component({ class: "extra-class", className: "another-class" });
         expect(result).toBe("base-class extra-class another-class");
       });
@@ -158,7 +158,7 @@ describe("createCVA", () => {
 
       test("should merge class and className props", () => {
         const component = cva({ base: "base-class" });
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         const result = component({ class: "extra-class", className: "another-class" });
         expect(result).toBe("base-class extra-class another-class");
       });
@@ -261,7 +261,7 @@ describe("createCVA", () => {
 
       test("should merge class and className props", () => {
         const component = cva({ base: "base-class" });
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         const result = component({ class: "extra-class", className: "another-class" });
         expect(result).toBe("base-class extra-class another-class");
       });
@@ -326,7 +326,7 @@ describe("createCVA", () => {
         expect(component()).toBe("button");
       });
 
-      test("should generate variant class name with prefix and default case convention", () => {
+      test("should generate class name with variants", () => {
         const component = cva({
           name: "button",
           base: "base-class",
@@ -339,6 +339,38 @@ describe("createCVA", () => {
         });
 
         expect(component({ size: "small" })).toBe("button button__size--small");
+      });
+
+      test("should not generate class name with variants if variant key does not exist", () => {
+        const component = cva({
+          name: "button",
+          base: "base-class",
+          variants: {
+            size: {
+              small: "size-small",
+              medium: "size-medium"
+            }
+          }
+        });
+
+        // @ts-expect-error: for testing
+        expect(component({ variant: "primary" })).toBe("button");
+      });
+
+      test("should not generate class name with variants if variant type does not exist", () => {
+        const component = cva({
+          name: "button",
+          base: "base-class",
+          variants: {
+            size: {
+              small: "size-small",
+              medium: "size-medium"
+            }
+          }
+        });
+
+        // @ts-expect-error: for testing
+        expect(component({ size: "large" })).toBe("button");
       });
 
       test("should generate class name with custom case convention", () => {

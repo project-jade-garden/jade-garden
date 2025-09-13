@@ -4,13 +4,13 @@ import { cm, cn, cx, prefixClasses, type Traits, traits } from "../src";
 describe("class-utils", () => {
   describe("cm", () => {
     test("returns the input when no exclude or include is provided", () => {
-      // @ts-expect-error: Expected 2 arguments, but got 1.
+      // @ts-expect-error: for testing
       expect(cm("class1 class2")).toBe("class1 class2");
-      // @ts-expect-error: Expected 2 arguments, but got 1.
+      // @ts-expect-error: for testing
       expect(cm(["class1", "class2"])).toBe("class1 class2");
-      // @ts-expect-error: Expected 2 arguments, but got 1.
+      // @ts-expect-error: for testing
       expect(cm({ class1: true, class2: false })).toBe("class1");
-      // @ts-expect-error: Expected 2 arguments, but got 1.
+      // @ts-expect-error: for testing
       expect(cm(123)).toBe("123");
     });
 
@@ -55,8 +55,8 @@ describe("class-utils", () => {
     test("removes duplicate classes", () => {
       expect(cm("class1 class2 class1", { include: "class2" })).toBe("class1 class2");
       expect(cm(["class1", "class2", "class1"], { include: ["class2", "class3"] })).toBe("class1 class2 class3");
-      // @ts-expect-error
-      // biome-ignore lint/suspicious/noDuplicateObjectKeys:for testing purposes
+      // @ts-expect-error: for testing
+      // biome-ignore lint/suspicious/noDuplicateObjectKeys: for testing
       expect(cm({ class1: true, class2: true, class1: true }, { include: ["class2", "class3"] })).toBe(
         "class1 class2 class3"
       );
@@ -267,7 +267,7 @@ describe("class-utils", () => {
     });
 
     test("undefined data value", () => {
-      // @ts-expect-error
+      // @ts-expect-error: for testing
       const data: Traits<{ name: boolean; id: boolean }> = {
         name: "John Doe",
         id: undefined
