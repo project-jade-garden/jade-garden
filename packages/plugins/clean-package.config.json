@@ -1,5 +1,4 @@
 {
-  "remove": ["devDependencies"],
   "replace": {
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",

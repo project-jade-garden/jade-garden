@@ -1,7 +1,6 @@
-import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
 import type { ClassProp, CreateOptions, CVA, CVAComponent, CVAConfig, CVAVariants, MetaConfig, Variant } from "./types";
-import { falsyToString, hasProps } from "./utils";
+import { falsyToString, hasProps, kebabCase } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * CVA

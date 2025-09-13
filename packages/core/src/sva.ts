@@ -1,4 +1,3 @@
-import { kebabCase } from "es-toolkit";
 import { cx } from "./class-utils";
 import type {
   ClassProp,
@@ -11,7 +10,7 @@ import type {
   SVAVariants,
   Variants
 } from "./types";
-import { falsyToString, hasProps } from "./utils";
+import { falsyToString, hasProps, kebabCase } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * SVA

@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@rspack/core": "1.5.2",
+    "@rspack/core": "1.5.3",
     "@tailwindcss/postcss": "4.1.13",
     "@tailwindcss/vite": "4.1.13",
     "clean-package": "catalog:",

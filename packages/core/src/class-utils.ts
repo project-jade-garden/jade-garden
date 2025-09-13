@@ -1,4 +1,3 @@
-import { clsx } from "clsx";
 import type { ClassStrings, ClassValue, Traits } from "./types";
 
 /* -----------------------------------------------------------------------------
@@ -17,7 +16,7 @@ export const cm = <T extends ClassValue>(
   input: T,
   options: { [P in "include" | "exclude"]?: ClassStrings }
 ): string => {
-  let result = clsx(input).split(" ");
+  let result = cx(input).split(" ");
 
   if (typeof options?.include === "undefined" && typeof options?.exclude === "undefined") {
     return Array.from(new Set(result)).join(" ");
@@ -41,37 +40,87 @@ export const cm = <T extends ClassValue>(
     }
   }
 
-  return clsx(Array.from(new Set(result)));
+  return cx(Array.from(new Set(result)));
 };
 
-export {
-  /**
-   * **This is an alias for [clsx](https://github.com/lukeed/clsx)**.
-   * - Conditionally generates a string of class names.
-   * - Accepts multiple arguments of various types to build a class name string.
-   *
-   * @param {...*} args - Arguments to conditionally include in the class name string.
-   * Arguments can be strings, numbers, arrays, or objects.
-   * - Strings and numbers are directly appended.
-   * - Arrays are recursively processed.
-   * - Objects are processed where keys are class names and values are conditions.
-   * @returns {string} A string of class names.
-   */
-  clsx as cx
-} from "clsx";
+/**
+ * **A reimplementation of [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite)**.
+ * - Conditionally generates a string of class names from string arguments.
+ * - It concatenates the provided string arguments, separated by spaces,
+ * excluding any falsy values (null, undefined, '', 0, false).
+ *
+ * @param {...ClassValue[]} inputs - String arguments to conditionally include in the class name string.
+ * @returns {string} A string of class names.
+ */
+export const cn = (...inputs: ClassValue[]): string => {
+  let str = "",
+    i = 0,
+    arg: ClassValue;
 
-export {
-  /**
-   * **This is an alias for [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite)**.
-   * - Conditionally generates a string of class names from string arguments.
-   * - It concatenates the provided string arguments, separated by spaces,
-   * excluding any falsy values (null, undefined, '', 0, false).
-   *
-   * @param {...string} args - String arguments to conditionally include in the class name string.
-   * @returns {string} A string of class names.
-   */
-  clsx as cn
-} from "clsx/lite";
+  for (; i < inputs.length; ) {
+    arg = inputs[i++];
+    if (arg && typeof arg === "string") {
+      str += `${str ? " " : ""}${arg}`;
+    }
+  }
+
+  return str;
+};
+
+/**
+ * **A reimplementation of [clsx](https://github.com/lukeed/clsx)**.
+ * - Conditionally generates a string of class names.
+ * - Accepts multiple arguments of various types to build a class name string.
+ *
+ * @param {...ClassValue[]} inputs - Arguments to conditionally include in the class name string.
+ * Arguments can be strings, numbers, arrays, or objects.
+ * - Strings and numbers are directly appended.
+ * - Arrays are recursively processed.
+ * - Objects are processed where keys are class names and values are conditions.
+ * @returns {string} A string of class names.
+ */
+export const cx = (...inputs: ClassValue[]): string => {
+  let i = 0,
+    arg: ClassValue,
+    val: string,
+    str = "";
+
+  const getVal = (a: ClassValue): string => {
+    let str = "",
+      k = 0,
+      y: string;
+
+    if (typeof a === "string" || typeof a === "number") {
+      str += a;
+    } else if (typeof a === "object") {
+      if (Array.isArray(a)) {
+        for (; k < a.length; k++) {
+          if (a[k]) {
+            y = getVal(a[k]);
+            if (y) str += `${str ? " " : ""}${y}`;
+          }
+        }
+      } else {
+        for (y in a) {
+          if (a?.[y]) str += `${str ? " " : ""}${y}`;
+        }
+      }
+    }
+
+    return str;
+  };
+
+  for (; i < inputs.length; i++) {
+    arg = inputs[i];
+
+    if (arg) {
+      val = getVal(arg);
+      if (val) str += `${str ? " " : ""}${val}`;
+    }
+  }
+
+  return str;
+};
 
 /**
  * A utility to simplify the maintenance of prefixed CSS classes.

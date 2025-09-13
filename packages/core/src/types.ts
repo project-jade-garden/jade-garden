@@ -1,5 +1,3 @@
-import type { ClassValue as CV } from "clsx";
-
 /* -----------------------------------------------------------------------------
  * Types
  * -----------------------------------------------------------------------------*/
@@ -37,7 +35,8 @@ export type ClassStrings = string | string[];
  * - Represents a value that can be used as a class name.
  * - It can be a `string`, `number`, `bigint`, `null`, `boolean`, `undefined`, an array of ClassValue, or a Record with values of `any`.
  */
-export type ClassValue = CV;
+export type ClassValue = ClassArray | Record<string, any> | string | number | bigint | null | boolean | undefined;
+export type ClassArray = ClassValue[];
 
 /**
  * The options used to modify your custom merge functions (`createCVA` and `createSVA`).
