@@ -51,7 +51,7 @@ export const writeConfigs = (options: Required<Options>, outDirPath: string): vo
 
     if (!Array.isArray(configsArr)) {
       if (!silent) {
-        console.warn(`\x1b[33m[WARN]: The value in "components.${dir}" not an array.\x1b[0m`);
+        console.warn(`\x1b[33m[WARN]: The value in "components.${dir}" is not an array.\x1b[0m`);
       }
       continue;
     }
@@ -167,7 +167,7 @@ export const writeConfigs = (options: Required<Options>, outDirPath: string): vo
         state += `import { ${dir} } from "./${dir}";\n`;
         return state;
       }, "")}
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   ${dirs.join(",\n ")}
 };

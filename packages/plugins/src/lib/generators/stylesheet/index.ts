@@ -55,7 +55,7 @@ export const writeStylesheets = (options: Required<Options>, outDirPath: string)
 
     if (!Array.isArray(configsArr)) {
       if (!silent) {
-        console.warn(`\x1b[33m[WARN]: The value in "components.${dir}" not an array.\x1b[0m`);
+        console.warn(`\x1b[33m[WARN]: The value in "components.${dir}" is not an array.\x1b[0m`);
       }
       continue;
     }

@@ -859,7 +859,7 @@ export const components = [
 exports[`plugins rollup writes cva and sva files "default" 8`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -1107,7 +1107,7 @@ export const components = [
 exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -1993,7 +1993,7 @@ export const components = [
 exports[`plugins rspack writes cva and sva files "default" 8`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -2241,7 +2241,7 @@ export const components = [
 exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -3127,7 +3127,7 @@ export const components = [
 exports[`plugins vite writes cva and sva files "default" 8`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -3375,7 +3375,7 @@ export const components = [
 exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -4261,7 +4261,7 @@ export const components = [
 exports[`plugins webpack writes cva and sva files "default" 8`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
@@ -4509,7 +4509,7 @@ export const components = [
 exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to \\"js\\"" 4`] = `
 "import { components } from "./components";
 
-// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`
+// For convenience, this exports all \`components\` for use in \`unplugin-jade-garden\`.
 export const jgComponents = {
   components
 };
