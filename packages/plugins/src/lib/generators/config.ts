@@ -1,7 +1,6 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
-import { kebabCase } from "es-toolkit/string";
 import type { ComponentMetaConfig, CVAConfig, Options, SVAConfig } from "../types";
-import { sharedComment } from "./utils";
+import { kebabCase, sharedComment } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * Config

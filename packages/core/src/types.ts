@@ -7,7 +7,7 @@
  *
  * @template T - The type of the value for the data attribute key.
  * If a string literal union (e.g., "open" | "closed"), it creates a conditional record.
- * If a primitive (e.g., string, boolean), it allows for a simple ClassStrings value.
+ * If a primitive (e.g., `string`, `boolean`), it allows for a simple {@link ClassStrings} value.
  */
 type Attribute<T> =
   // biome-ignore format: make this type easy to read and understand
@@ -66,60 +66,25 @@ export type ClassValue = ClassArray | Record<string, any> | string | number | bi
  */
 export type CreateOptions = {
   /**
-   * Overrides the default `cx` utility used in `cva` and `sva` to merge class names.
-   *
-   * You may provide your own custom function to handle merging class names,
-   * `tailwind-merge` for handling class conflicts,
-   * or `jade-garden`'s `cn` utility for more performant runtimes.
-   *
-   * @default cx
+   * The function used to merge the classes.
    */
   mergeFn?: MergeFn;
-
   /**
-   * The prefix that will prepend generated class names if `useStylesheet` is set to `true.`
-   *
-   * @default ""
+   * The prefix for the class name.
    */
   prefix?: string;
-
   /**
-   * If set to `true`, generates class names based on `name` and keys from `slots` and `variants`.
-   *
-   * @default false
-   *
-   * @example
-   * ```ts
-   * import { createCVA } from "jade-garden/cva";
-   *
-   * const cva = createCVA({ useStylesheet: true });
-   *
-   * const button = getClasses({
-   *   name: "button",
-   *   base: "button",
-   *   variants: {
-   *     size: {
-   *       small: "size-2",
-   *       medium: "size-4"
-   *     },
-   *     variant: {
-   *       primary: "bg-red-500",
-   *       secondary: "bg-blue-500"
-   *     }
-   *   }
-   * });
-   * button({ size: "small", variant: "primary" });
-   * // "button button__size--small button__variant--primary"
-   * ```
+   * Determines if the component returns classes for a stylesheet or not.
+   * `false` for standard class merging.
+   * `true` for stylesheet generation.
    */
   useStylesheet?: boolean;
 };
 
 /**
- * Represents a function that merges class names.
- *
- * @param {...ClassValue[]} classes - An array of class names to merge.
- * @returns {string} The merged class name string.
+ * The merge function signature for `createCVA` and `createSVA`.
+ * @param {...ClassValue[]} inputs - A variadic number of arguments of type {@link ClassValue}.
+ * @returns {string} A single string of merged class names.
  */
 export type MergeFn = (...classes: ClassValue[]) => string;
 
@@ -137,43 +102,6 @@ type OmitUndefined<T> = T extends undefined ? never : T;
  *
  * @template T - A map where keys are component property names (e.g., "size", "variant")
  * and values are the allowed types for that property (e.g., "small" | "medium").
- *
- * @example
- * ```ts
- * type AccordionItemTraits = {
- *   state: "open" | "closed";
- *   disabled: boolean;
- * };
- *
- * const traits1 = traits<AccordionItemTraits>({
- *   data: {
- *     state: {
- *       open: "is-open",
- *       closed: "is-closed"
- *     },
- *     disabled: {
- *       true: "is-disabled"
- *     }
- *   }
- * });
- * // data-[state=open]:is-open data-[state=closed]:is-closed data-[disabled=true]:is-disabled
- *
- * const traits2 = traits<{
- *   value: boolean;
- *   custom: string;
- *   index: number;
- * }>({
- *   data: {
- *     value: "my-value-123",
- *     custom: "my-class",
- *     index: {
- *       0: "not-active",
- *       1: "is-active"
- *     }
- *   }
- * });
- * // data-[value]:my-value-123 data-[custom]:my-class data-[index="0"]:not-active data-[index="1"]:active
- * ```
  */
 export type Traits<T extends Record<string, any>> = {
   [K in keyof T]?: Attribute<T[K]>;

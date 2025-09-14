@@ -1,6 +1,6 @@
-import { kebabCase } from "es-toolkit/string";
 import { type CreateOptions, cx } from "jade-garden";
 import type { CVAConfig } from "../../types";
+import { kebabCase } from "../utils";
 
 /* -----------------------------------------------------------------------------
  * CVA

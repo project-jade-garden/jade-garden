@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, mock, test } from "bun:test";
 import { existsSync, readFileSync, rmdirSync } from "node:fs";
-import { cloneDeep } from "es-toolkit";
+import { cloneDeep } from "es-toolkit/object";
 import { cn, cva, sva } from "jade-garden";
 import type { Options } from "../src/lib/types";
 import { buttonConfig, noBaseCVA, noNameCVA } from "./fixtures/jade-garden/cva";

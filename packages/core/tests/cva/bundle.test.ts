@@ -14,6 +14,6 @@ describe("cva bundle size", () => {
 
   test("jade-garden", async () => {
     const bundleSize = await getBundleSize("jade-garden", "cva");
-    expect(bundleSize).toMatchInlineSnapshot("2010");
+    expect(bundleSize).toMatchInlineSnapshot("1966");
   });
 });

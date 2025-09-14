@@ -5,16 +5,18 @@ import type { ClassStrings, ClassValue, Traits } from "./types";
  * -----------------------------------------------------------------------------*/
 
 /**
- * Conditionally combines class names, allowing for exclusion and inclusion of specific classes.
+ * Conditionally combines class names, allowing for the inclusion or exclusion of specific classes.
+ * It first processes the input using `cx` to handle various data types, then filters the resulting
+ * class names based on the provided `include` and `exclude` options.
  *
- * @template T - The type of the input class value, which can be a string, number, array, or object.
- * @param {T} input - The input class value to be processed by `cx`.
- * @param {{[P in "include" | "exclude"]?: ClassStrings}} options - The options object to include or exclude class names from `input`.
+ * @template T - The type of the input, extending {@link ClassValue}.
+ * @param {T} input - The input to be processed and filtered. This can be a string, number, array, or object.
+ * @param {{ include?: ClassStrings; exclude?: ClassStrings; }} options - An object containing options to include or exclude class names from the input.
  * @returns {string} A string of class names, conditionally combined and modified based on the options.
  */
 export const cm = <T extends ClassValue>(
   input: T,
-  options: { [P in "include" | "exclude"]?: ClassStrings }
+  options: { include?: ClassStrings; exclude?: ClassStrings }
 ): string => {
   let result = cx(input).split(" ");
 
@@ -44,13 +46,12 @@ export const cm = <T extends ClassValue>(
 };
 
 /**
- * **A reimplementation of [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite)**.
- * - Conditionally generates a string of class names from string arguments.
- * - It concatenates the provided string arguments, separated by spaces,
- * excluding any falsy values (null, undefined, '', 0, false).
+ * A reimplementation of [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite).
+ * This function conditionally generates a string of class names from a list of string arguments.
+ * It concatenates the provided string arguments, separated by spaces, while excluding any falsy values (e.g., `null`, `undefined`, `''`, `0`, `false`).
  *
  * @param {...ClassValue[]} inputs - String arguments to conditionally include in the class name string.
- * @returns {string} A string of class names.
+ * @returns {string} A single string of class names.
  */
 export const cn = (...inputs: ClassValue[]): string => {
   let str = "",
@@ -68,54 +69,39 @@ export const cn = (...inputs: ClassValue[]): string => {
 };
 
 /**
- * **A reimplementation of [clsx](https://github.com/lukeed/clsx)**.
- * - Conditionally generates a string of class names.
- * - Accepts multiple arguments of various types to build a class name string.
+ * A reimplementation of [clsx](https://github.com/lukeed/clsx).
+ * Conditionally generates a string of class names. It accepts multiple arguments of various types to build the final class name string.
+ *
+ * - **Strings and numbers** are directly appended.
+ * - **Arrays** are recursively processed.
+ * - **Objects** are processed where keys are class names and values are conditions; only keys with truthy values are included.
  *
  * @param {...ClassValue[]} inputs - Arguments to conditionally include in the class name string.
- * Arguments can be strings, numbers, arrays, or objects.
- * - Strings and numbers are directly appended.
- * - Arrays are recursively processed.
- * - Objects are processed where keys are class names and values are conditions.
- * @returns {string} A string of class names.
+ * @returns {string} A single string of class names.
  */
 export const cx = (...inputs: ClassValue[]): string => {
   let i = 0,
     arg: ClassValue,
-    val: string,
-    str = "";
+    val: string;
+  let str = "";
 
-  const getVal = (a: ClassValue): string => {
-    let str = "",
-      k = 0,
-      y: string;
-
-    if (typeof a === "string" || typeof a === "number") {
-      str += a;
-    } else if (typeof a === "object") {
-      if (Array.isArray(a)) {
-        for (; k < a.length; k++) {
-          if (a[k]) {
-            y = getVal(a[k]);
-            if (y) str += `${str ? " " : ""}${y}`;
+  while (i < inputs.length) {
+    arg = inputs[i++];
+    if (arg) {
+      if (typeof arg === "string" || typeof arg === "number" || typeof arg === "bigint") {
+        str += `${str && " "}${arg}`;
+      } else if (Array.isArray(arg)) {
+        val = cx(...arg);
+        if (val) {
+          str += `${str && " "}${val}`;
+        }
+      } else if (typeof arg === "object") {
+        for (val in arg) {
+          if (Object.hasOwn(arg, val) && arg[val]) {
+            str += `${str && " "}${val}`;
           }
         }
-      } else {
-        for (y in a) {
-          if (a?.[y]) str += `${str ? " " : ""}${y}`;
-        }
       }
-    }
-
-    return str;
-  };
-
-  for (; i < inputs.length; i++) {
-    arg = inputs[i];
-
-    if (arg) {
-      val = getVal(arg);
-      if (val) str += `${str ? " " : ""}${val}`;
     }
   }
 
@@ -180,11 +166,26 @@ export const prefixes = (
 };
 
 /**
- * Generates CSS class names with HTML attributes.
+ * A helper function to generate CSS data attribute selectors.
  *
- * @template {Traits<Record<string, any>>} T - An interface defining the shape of the attributes.
- * @param {Record<string, T>} attributes - The values to convert.
- * @returns {string} A string of attributes.
+ * @template T - An object type where keys represent the data attribute names and values are the allowed types for those attributes.
+ * @param {{ data: Traits<T> }} attributes - An object with a `data` property that maps data attribute names to their possible values.
+ * @returns {string} A string of CSS data attribute selectors.
+ *
+ * @example
+ * ```ts
+ * const elementTraits = traits({
+ *   data: {
+ *     value: "my-value-123",
+ *     custom: "my-class",
+ *     index: {
+ *       0: "not-active",
+ *       1: "is-active"
+ *     }
+ *   }
+ * });
+ * // data-[value]:my-value-123 data-[custom]:my-class data-[index="0"]:not-active data-[index="1"]:active
+ * ```
  */
 export const traits = <T extends Traits<Record<string, any>>>(attributes: Record<string, T>): string => {
   let result = "";

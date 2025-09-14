@@ -25,7 +25,7 @@
     "editor.detectIndentation": false,
     "editor.formatOnPaste": true
   },
-  "tailwindCSS.classFunctions": ["cm", "cn", "cva", "cx", "prefixClasses", "sva", "traits"],
+  "tailwindCSS.classFunctions": ["cm", "cn", "cva", "cx", "prefixes", "sva", "traits"],
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },

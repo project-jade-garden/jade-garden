@@ -241,18 +241,11 @@ export const sva: SVA = createSVA();
  * -----------------------------------------------------------------------------*/
 
 /**
- * Reusable type for compound styles that apply based on multiple variant combinations.
+ * Represents the base for a compound variant or compound slot.
  *
+ * @template S - The name of the slots.
  * @template RCV - The type of record class values.
- * @template V - The type of variants.
- * @example
- * ```ts
- * type ButtonCompound = CompoundBase<
- *   { root: string; item: string },
- *   { size: { small: { root: string }; medium: { root: string } } }
- * >;
- * // ButtonCompound = { size?: "small" | "medium" | ("small" | "medium")[] };
- * ```
+ * @template SV - The slot variants.
  */
 type CompoundBase<S extends string, RCV extends RecordClassValue<S>, V extends SlotVariants<S, RCV>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
@@ -261,20 +254,8 @@ type CompoundBase<S extends string, RCV extends RecordClassValue<S>, V extends S
 /**
  * Represents the default variants for a component.
  *
+ * @template S - A union of string literals representing the slots.
  * @template RCV - The type of record class values.
- * @example
- * ```ts
- * {
- *   size: {
- *     small: {
- *       root: "text-sm"
- *     },
- *     medium: {
- *       root: "text-base"
- *     }
- *   }
- * }
- * ```
  */
 type DefaultVariants<S extends string, RCV extends RecordClassValue<S>> = {
   [key: string]: {
@@ -283,7 +264,9 @@ type DefaultVariants<S extends string, RCV extends RecordClassValue<S>> = {
 };
 
 /**
- * Represents a dictionary where keys are strings and values are ClassValue.
+ * A record of class values.
+ *
+ * @template S - The name of the slots.
  */
 type RecordClassValue<S extends string> = Record<S, ClassValue>;
 
@@ -302,125 +285,63 @@ type SlotsClassValue<S extends string, RCV extends RecordClassValue<S>> = {
 };
 
 /**
- * Represents the variants for a component.
- *
- * @template RCV - The type of record class values.
- * @template V - The type of variants.
- * @example
- * ```ts
- * type ButtonVariants = Variants<
- *   {
- *     root: string;
- *     item: string;
- *   },
- *   {
- *     size: {
- *       small: {
- *         root: string;
- *       };
- *       medium: {
- *         root: string;
- *       };
- *     };
- *   }
- * >;
- * // type ButtonVariants =
- * // | { size?: { small?: { root?: ClassValue }; medium?: { root?: ClassValue } } }
- * // | { size: { small: { root: ClassValue }; medium: { root: ClassValue } } };
- * ```
+ * Defines the structure for slot variants.
+ * @template S - A union of string literals representing the slots.
+ * @template RCV - A record of class values.
+ * @template DV - A record of default variants.
  */
 type SlotVariants<
   S extends string,
   RCV extends RecordClassValue<S>,
-  V extends DefaultVariants<S, RCV> = DefaultVariants<S, RCV>
+  DV extends DefaultVariants<S, RCV> = DefaultVariants<S, RCV>
 > =
   | {
-      [K in keyof V]?: {
-        [K2 in keyof V[K]]?: SlotsClassValue<S, RCV>;
+      [K in keyof DV]?: {
+        [K2 in keyof DV[K]]?: SlotsClassValue<S, RCV>;
       };
     }
   | DefaultVariants<S, RCV>;
 
 /**
- * Represents the props for a component with variants and slots.
+ * Extracts the variants from the `SVAConfig`.
  *
- * @template RCV - The type of record class values.
- * @template V - The type of variants.
- * @example
- * ```ts
- * type ButtonProps = SVAVariants<
- *   { root: string; item: string },
- *   { size: { small: { root: string }; medium: { root: string } } }
- * >;
- * // ButtonProps = { size?: "small" | "medium" };
- * ```
+ * @template S - The name of the slots.
+ * @template RCV - The record class values.
+ * @template V - The variants.
  */
 type SVAVariants<S extends string, RCV extends RecordClassValue<S>, V extends SlotVariants<S, RCV>> = {
   [K in keyof V]?: StringToBoolean<keyof V[K]>;
 };
 
 /**
- * Represents the configuration object for the `sva` function.
+ * Represents the SVA configuration object.
  *
- * @template S - The name the of slots.
- * @template RCV - The type of record class values.
- * @property {string} [name] - Optional component name.
- * @property {S=} [base] - Slots allow you to separate a component into multiple parts.
- * @property {V=} variants - Variants allow you to create multiple versions of the same component.
- * @property {Array<SVAVariants<S> & ( { class?: SlotsClassValue<RCV>; className?: never; } | { class?: never; className?: SlotsClassValue<RCV>; } )>=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
- * @property {Array<{ slots: Array<keyof S> } & SVAVariants<S, S> & ClassProp>=} compoundSlots - Compound slots allow you to apply classes to multiple slots at once.
- * @property {SVAVariants<S>=} defaultVariants - Default variants allow you to set default variants for a component.
- *
- * @example
- * ```ts
- * const buttonConfig: SVAConfig<
- *   { root: string; item: string },
- *   { size: { small: { root: string }; medium: { root: string } } }
- * > = {
- *   slots: {
- *     root: "flex",
- *     item: "px-2 py-1"
- *   },
- *   variants: {
- *     size: {
- *       small: {
- *         root: "text-sm"
- *       },
- *       medium: {
- *         root: "text-base"
- *       }
- *     }
- *   },
- *   compoundVariants: [{ size: "small", class: { root: "font-bold" } }],
- *   compoundSlots: [{ slots: ["root", "item"], class: "rounded" }],
- *   defaultVariants: {
- *     size: "medium"
- *   }
- * };
- * ```
+ * @template S - The name of the slots.
+ * @template RCV - The record class values.
+ * @template SV - The slot variants.
  */
-type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, V extends SlotVariants<S, RCV>> = {
+type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, SV extends SlotVariants<S, RCV>> = {
   /**
-   * The name of the sva component.
+   * An optional name for the component.
    */
   name?: string;
   /**
-   * The base styles of the component.
-   */
-  base?: RCV;
-  /**
-   * The parts/slots of the component.
+   * An array of slots for the component.
    */
   slots: S[] | Readonly<S[]>;
   /**
-   * Variants allow you to create multiple versions of the same component.
+   * The base classes for each slot.
    */
-  variants?: V;
+  base?: RCV;
+  /**
+   * The variants for the component.
+   */
+  variants?: SV;
   /**
    * Compound variants allow you to apply classes to multiple variants at once.
    */
   compoundVariants?: Array<
-    CompoundBase<S, RCV, V> &
+    CompoundBase<S, RCV, SV> &
       (
         | {
             class?: SlotsClassValue<S, RCV>;
@@ -435,11 +356,11 @@ type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, V ext
   /**
    * Compound slots allow you to apply classes to multiple slots at once.
    */
-  compoundSlots?: Array<{ slots: S[] | Readonly<S[]> } & CompoundBase<S, RCV, V> & ClassProp>;
+  compoundSlots?: Array<{ slots: S[] | Readonly<S[]> } & CompoundBase<S, RCV, SV> & ClassProp>;
   /**
    * Default variants allow you to set default variants for a component.
    */
-  defaultVariants?: SVAVariants<S, RCV, V>;
+  defaultVariants?: SVAVariants<S, RCV, SV>;
 };
 
 /**
@@ -447,7 +368,7 @@ type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, V ext
  *
  * @template S - The name the of slots.
  * @template RCV - The type of record class values.
- * @returns {((props?: SVAVariants<S>) => { [K in keyof RCV]: (slotProps?: SVAVariants<S> & ClassProp) => string; }) & { metaConfig: MetaConfig; styleConfig: SVAConfig<S>; }} A function that generates slot-specific class names based on props.
+ * @template SV - The slot variants.
  */
 type SVAComponent<S extends string, RCV extends RecordClassValue<S>, SV extends SlotVariants<S, RCV>> = ((
   props?: SVAVariants<S, RCV, SV>
@@ -457,12 +378,7 @@ type SVAComponent<S extends string, RCV extends RecordClassValue<S>, SV extends 
 };
 
 /**
- * Creates a slots variants authority (SVA) function for a component.
- *
- * @template S - The name the of slots.
- * @param {SVAConfig<S>} styleConfig - Configuration options for the SVA function.
- * @param {MetaConfig} [metaConfig] - Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
- * @returns {SVAComponent<S>} The return type of the SVA function.
+ * Defines the structure for `createSVA`.
  */
 type SVA = <S extends string, RCV extends RecordClassValue<S>, SV extends SlotVariants<S, RCV>>(
   styleConfig: SVAConfig<S, RCV, SV>,

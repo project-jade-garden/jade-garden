@@ -1,7 +1,6 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
-import { kebabCase } from "es-toolkit/string";
 import type { Options } from "../../types";
-import { sharedComment } from "../utils";
+import { kebabCase, sharedComment } from "../utils";
 import { generateCVAStylesheet } from "./cva";
 import { generateSVAStylesheet } from "./sva";
 

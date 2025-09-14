@@ -11,7 +11,6 @@
     "catalog": {
       "@biomejs/biome": "2.2.4",
       "clean-package": "2.2.0",
-      "es-toolkit": "1.39.10",
       "tailwindcss": "4.1.13",
       "typescript": "5.9.2",
       "vite": "7.1.5"

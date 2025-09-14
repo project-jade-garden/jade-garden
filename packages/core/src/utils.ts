@@ -6,21 +6,22 @@ import type { ClassValue } from "./types";
 
 /**
  * Converts a boolean to its string representation ("true" or "false"), or returns the value as is.
- * Treats 0 as "0".
+ * This is useful for handling variant keys, where `false` or `0` should not be omitted.
  *
  * @template T - The type of the value.
  * @param {T} value - The value to convert.
- * @returns {string | T} - The string representation of the boolean, or the original value.
+ * @returns {string | T} The string representation of the boolean, or the original value.
  */
 export const falsyToString = <T>(value: T): string | T =>
   typeof value === "boolean" ? `${value}` : value === 0 ? "0" : value;
 
 /**
  * Checks if a given configuration object matches the provided props.
+ * This is used to determine if a compound variant or compound slot should be applied.
  *
- * @param {Record<string, unknown>} config - The configuration object.
- * @param {Record<string, unknown>} props - The props object.
- * @returns {boolean} True if the configuration matches the props, false otherwise.
+ * @param {Record<string, unknown>} config - The configuration object, where keys are variant names and values are the required variant values.
+ * @param {Record<string, unknown>} props - The props object from the component.
+ * @returns {boolean} `true` if the configuration matches the props, `false` otherwise.
  */
 export const hasProps = (config: Record<string, unknown>, props: Record<string, unknown>): boolean => {
   let isValid = true;
@@ -41,19 +42,10 @@ export const hasProps = (config: Record<string, unknown>, props: Record<string, 
 
 /**
  * **The `kebabCase` function taken from [es-toolkit](https://github.com/toss/es-toolkit/blob/main/src/string/kebabCase.ts)**.
- *
  * Converts a string to kebab case.
  *
- * Kebab case is the naming convention in which each word is written in lowercase and separated by a dash (-) character.
- *
- * @param {string} str - The string that is to be changed to kebab case.
- * @returns {string} - The converted string to kebab case.
- *
- * @example
- * const convertedStr1 = kebabCase('camelCase') // returns 'camel-case'
- * const convertedStr2 = kebabCase('some whitespace') // returns 'some-whitespace'
- * const convertedStr3 = kebabCase('hyphen-text') // returns 'hyphen-text'
- * const convertedStr4 = kebabCase('HTTPRequest') // returns 'http-request'
+ * @param {string} str - The string to convert.
+ * @returns {string} The kebab-cased string.
  */
 export const kebabCase = (str: string): string => {
   const words = Array.from(
@@ -120,10 +112,7 @@ export type MetaConfig = {
 };
 
 /**
- * Converts "true" or "false" string literals to boolean types.
- * Otherwise, returns the original type.
- *
- * @template T - The type to convert.
- * @returns {T extends "true" | "false" ? boolean : T} The converted type.
+ * Converts a string literal "true" or "false" to its boolean type.
+ * @template T - The string literal type, e.g., "true" | "false".
  */
 export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
