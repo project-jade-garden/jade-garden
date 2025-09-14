@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { cva as cvaBeta } from "cva";
 import { tv } from "tailwind-variants";
 import { tv as tvLite } from "tailwind-variants/lite";
-import { cva as jgCva } from "../../src";
+import { createCVA, cva as jgCva } from "../../src";
 
 const cvaSuite = new Benchmark.Suite("cva");
 
@@ -118,6 +118,63 @@ cvaSuite
     image();
   })
   .add("jade-garden cva", () => {
+    const { avatar, fallback, image } = {
+      avatar: jgCva({
+        base: "relative flex shrink-0 overflow-hidden rounded-full",
+        variants: {
+          size: {
+            xs: "h-6 w-6",
+            sm: "h-8 w-8",
+            md: "h-10 w-10",
+            lg: "h-12 w-12",
+            xl: "h-14 w-14"
+          }
+        },
+        defaultVariants: {
+          size: "md"
+        },
+        compoundVariants: [
+          {
+            size: ["xs", "sm"],
+            class: "ring-1"
+          },
+          {
+            size: ["md", "lg", "xl"],
+            class: "ring-2"
+          }
+        ]
+      }),
+      image: jgCva({
+        base: "aspect-square h-full w-full",
+        variants: {
+          withBorder: {
+            true: "border-1.5 border-white"
+          }
+        }
+      }),
+      fallback: jgCva({
+        base: "flex h-full w-full items-center justify-center rounded-full bg-muted",
+        variants: {
+          size: {
+            xs: "text-xs",
+            sm: "text-sm",
+            md: "text-base",
+            lg: "text-lg",
+            xl: "text-xl"
+          }
+        },
+        defaultVariants: {
+          size: "md"
+        }
+      })
+    };
+
+    avatar({ size: "md" });
+    fallback();
+    image();
+  })
+  .add("jade-garden cva w/ useStylesheet", () => {
+    const jgCva = createCVA({ useStylesheet: true });
     const { avatar, fallback, image } = {
       avatar: jgCva({
         base: "relative flex shrink-0 overflow-hidden rounded-full",
