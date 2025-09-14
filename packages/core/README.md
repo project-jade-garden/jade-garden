@@ -109,7 +109,7 @@ Leverage powerful functions for combining, filtering, and generating class names
 > Styles are generated through [`unplugin-jade-garden`](https://www.npmjs.com/package/unplugin-jade-garden).
 
 ```ts
-import { cm, cn, cx, prefixClasses, type Traits, traits } from "jade-garden";
+import { cm, cn, cx, prefixes, type Traits, traits } from "jade-garden";
 
 // cm (Class Manipulator)
 const specialClasses = cm("button-primary focus:outline-none", "button-primary", "custom-animation");
@@ -121,8 +121,8 @@ const baseClasses = cn("text-center", true && "font-bold", false && "hidden"); /
 // cx (alias for clsx)
 const dynamicClasses = cx("flex", { "items-center": true, "justify-between": false }); // "flex items-center"
 
-// prefixClasses (for Tailwind variants)
-const hasCheckedPrefixes = prefixClasses("has-checked", [
+// prefixes (for Tailwind variants)
+const hasCheckedPrefixes = prefixes("has-checked", [
   "bg-indigo-50",
   "text-indigo-900",
   "ring-indigo-200",
@@ -159,7 +159,7 @@ const elementTraits = traits<CustomTraits>({
   - `cn`: Alias for clsx/lite.
   - `cx`: Alias for clsx.
   - **Plugin Functions**:
-    - `prefixClasses`: A utility to simplify the maintenance of prefixed CSS classes.
+    - `prefixes`: A utility to simplify the maintenance of prefixed CSS classes.
     - `traits`: Generates CSS class names and data attributes.
 
 ### CVA (Class Variant Authority)

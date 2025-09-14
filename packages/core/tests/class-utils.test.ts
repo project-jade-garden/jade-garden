@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { cm, cn, cx, prefixClasses, type Traits, traits } from "../src";
+import { cm, cn, cx, prefixes, type Traits, traits } from "../src";
 
 describe("class-utils", () => {
   describe("cm", () => {
@@ -154,35 +154,35 @@ describe("class-utils", () => {
     });
   });
 
-  describe("prefixClasses", () => {
+  describe("prefixes", () => {
     test("should apply a prefix to a single string input", () => {
-      expect(prefixClasses("has-checked", ["bg-indigo-50"])).toBe("has-checked:bg-indigo-50");
+      expect(prefixes("has-checked", ["bg-indigo-50"])).toBe("has-checked:bg-indigo-50");
     });
 
     test("should apply a prefix to multiple string inputs", () => {
-      expect(prefixClasses("has-checked", ["bg-indigo-50", "text-indigo-900"])).toBe(
+      expect(prefixes("has-checked", ["bg-indigo-50", "text-indigo-900"])).toBe(
         "has-checked:bg-indigo-50 has-checked:text-indigo-900"
       );
     });
 
-    test("should apply a prefix to an object with a variant and single class string", () => {
-      expect(prefixClasses("has-checked", [{ variant: "dark", classes: "bg-indigo-950" }])).toBe(
+    test("should apply a prefix to an object with a condition and single class string", () => {
+      expect(prefixes("has-checked", [{ condition: "dark", classes: "bg-indigo-950" }])).toBe(
         "dark:has-checked:bg-indigo-950"
       );
     });
 
-    test("should apply a prefix to an object with a variant and multiple class strings", () => {
-      expect(prefixClasses("has-checked", [{ variant: "dark", classes: ["bg-indigo-950", "text-indigo-200"] }])).toBe(
+    test("should apply a prefix to an object with a condition and multiple class strings", () => {
+      expect(prefixes("has-checked", [{ condition: "dark", classes: ["bg-indigo-950", "text-indigo-200"] }])).toBe(
         "dark:has-checked:bg-indigo-950 dark:has-checked:text-indigo-200"
       );
     });
 
-    test("should combine prefixed strings and prefixed variants", () => {
+    test("should combine prefixed strings and prefixed conditions", () => {
       expect(
-        prefixClasses("has-checked", [
+        prefixes("has-checked", [
           "bg-indigo-50",
           "text-indigo-900",
-          { variant: "dark", classes: ["bg-indigo-950", "text-indigo-200"] }
+          { condition: "dark", classes: ["bg-indigo-950", "text-indigo-200"] }
         ])
       ).toBe(
         "has-checked:bg-indigo-50 has-checked:text-indigo-900 dark:has-checked:bg-indigo-950 dark:has-checked:text-indigo-200"
@@ -190,19 +190,19 @@ describe("class-utils", () => {
     });
 
     test("should return an empty string for an empty input array", () => {
-      expect(prefixClasses("has-checked", [])).toBe("");
+      expect(prefixes("has-checked", [])).toBe("");
     });
 
     test("should handle an empty prefix", () => {
-      expect(prefixClasses("", ["bg-indigo-50"])).toBe("bg-indigo-50");
+      expect(prefixes("", ["bg-indigo-50"])).toBe("bg-indigo-50");
     });
 
     test("should handle an empty class string input", () => {
-      expect(prefixClasses("has-checked", ["", "bg-indigo-50"])).toBe("has-checked:bg-indigo-50");
+      expect(prefixes("has-checked", ["", "bg-indigo-50"])).toBe("has-checked:bg-indigo-50");
     });
 
-    test("should handle empty class strings within a variant object", () => {
-      expect(prefixClasses("has-checked", [{ variant: "dark", classes: ["", "bg-indigo-950"] }])).toBe(
+    test("should handle empty class strings within a condition object", () => {
+      expect(prefixes("has-checked", [{ condition: "dark", classes: ["", "bg-indigo-950"] }])).toBe(
         "dark:has-checked:bg-indigo-950"
       );
     });

@@ -126,31 +126,31 @@ export const cx = (...inputs: ClassValue[]): string => {
  * A utility to simplify the maintenance of prefixed CSS classes.
  *
  * It iterates through an array of inputs, applying a base prefix to each class string.
- * It also supports variant-specific prefixes, allowing for different styles based on a
+ * It also supports conditional prefixes, allowing for different styles based on a
  * condition (e.g., `dark:has-checked:bg-indigo-950`).
  *
  * @param {string} prefix - The base prefix to apply to each class name (e.g., 'has-checked').
- * @param {(string | { classes: ClassStrings; variant: string; })[]} inputs - An array of class names, which can be simple strings or objects for variants.
+ * @param {(string | { classes: ClassStrings; condition: string; })[]} inputs - An array of class names, which can be simple strings or objects for conditions.
  * @returns {string} A single string of space-separated, prefixed class names.
  *
  * @example
  * ```ts
- * prefixClasses("has-checked", [
+ * prefixes("has-checked", [
  *   "bg-indigo-50",
  *   "text-indigo-900",
  *   "ring-indigo-200",
- *   { variant: "dark", classes: ["bg-indigo-950", "text-indigo-200", "ring-indigo-900"] }
+ *   { condition: "dark", classes: ["bg-indigo-950", "text-indigo-200", "ring-indigo-900"] }
  * ]);
  * // "has-checked:bg-indigo-50 has-checked:text-indigo-900 has-checked:ring-indigo-200 dark:has-checked:bg-indigo-950 dark:has-checked:text-indigo-200 dark:has-checked:ring-indigo-900"
  * ```
  */
-export const prefixClasses = (
+export const prefixes = (
   prefix: string,
   inputs: (
     | string
     | {
         classes: ClassStrings;
-        variant: string;
+        condition: string;
       }
   )[]
 ) => {
@@ -162,7 +162,7 @@ export const prefixClasses = (
     if (typeof input === "string" && !!input) {
       output += `${!output.length ? "" : " "}${prefix ? `${prefix}:${input}` : input}`;
     } else if (typeof input === "object" && !Array.isArray(input)) {
-      const classPrefix = input.variant ? `${input.variant}:${prefix}:` : prefix ? `${prefix}:` : "";
+      const classPrefix = input.condition ? `${input.condition}:${prefix}:` : prefix ? `${prefix}:` : "";
 
       if (typeof input.classes === "string" && input.classes) {
         output += `${!output.length ? "" : " "}${classPrefix + input.classes}`;
