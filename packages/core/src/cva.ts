@@ -1,6 +1,6 @@
 import { cx } from "./class-utils";
-import type { ClassProp, CreateOptions, CVA, CVAComponent, CVAConfig, CVAVariants, MetaConfig, Variant } from "./types";
-import { falsyToString, hasProps, kebabCase } from "./utils";
+import type { ClassValue, CreateOptions } from "./types";
+import { type ClassProp, falsyToString, hasProps, kebabCase, type MetaConfig, type StringToBoolean } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * CVA
@@ -146,3 +146,141 @@ export const createCVA = (options?: CreateOptions): CVA => {
  * ```
  */
 export const cva: CVA = createCVA();
+
+/* -----------------------------------------------------------------------------
+ * Types
+ * -----------------------------------------------------------------------------*/
+
+/**
+ * Represents the variant configurations for `cva`.
+ * Each variant is a record of class names, keyed by variant values.
+ *
+ * @example
+ * ```ts
+ * {
+ *   size: {
+ *     small: "text-sm py-1 px-2",
+ *     medium: "text-base py-2 px-4",
+ *   },
+ *   intent: {
+ *     primary: "bg-blue-500 text-white",
+ *     secondary: "bg-gray-200 text-gray-800",
+ *   }
+ * }
+ * ```
+ */
+type Variant = Record<string, Record<string, ClassValue>>;
+
+/**
+ * Represents the schema for variant props in `cva`.
+ * Each variant prop is typed as a StringToBoolean of the corresponding variant value keys.
+ *
+ * @template V - The type of variants.
+ * @example
+ * ```ts
+ * type ButtonVariants = CVAVariants<{
+ *   size: { small: string; medium: string };
+ *   intent: { primary: string; secondary: string };
+ * }>;
+ * // ButtonVariants = { size?: "small" | "medium"; intent?: "primary" | "secondary" };
+ * ```
+ */
+type CVAVariants<V extends Variant> = {
+  [K in keyof V]?: StringToBoolean<keyof V[K]>;
+};
+
+/**
+ * Represents the configuration object for the `cva` function.
+ *
+ * @template V - The type of variants.
+ * @property {string=} name - Optional component name.
+ * @property {ClassValue=} base - The base class name for the component.
+ * @property {V=} variants - Variants allow you to create multiple versions of the same component.
+ * @property {(V extends Variant ? (CVAVariants<V> | { [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[]; }) & ClassProp : ClassProp)[]=} compoundVariants - Compound variants allow you to apply classes to multiple variants at once.
+ * @property {CVAVariants<V>=} defaultVariants - Default variants allow you to set default variants for a component.
+ *
+ * @example
+ * ```ts
+ * const buttonConfig: CVAConfig<{
+ *   size: { small: string; medium: string };
+ *   intent: { primary: string; secondary: string };
+ * }> = {
+ *   base: "rounded-md",
+ *   variants: {
+ *     size: {
+ *       small: "text-sm",
+ *       medium: "text-base"
+ *     },
+ *     intent: {
+ *       primary: "bg-blue-500",
+ *       secondary: "bg-gray-200"
+ *     }
+ *   },
+ *   compoundVariants: [
+ *     {
+ *       size: "small",
+ *       intent: "primary",
+ *       class: "font-bold"
+ *     }
+ *   ],
+ *   defaultVariants: {
+ *     size: "medium",
+ *     intent: "primary"
+ *   }
+ * };
+ * ```
+ */
+type CVAConfig<V extends Variant> = {
+  /**
+   * The name of the cva component.
+   */
+  name?: string;
+  /**
+   * The base class name for the component.
+   */
+  base?: ClassValue;
+  /**
+   * Variants allow you to create multiple versions of the same component.
+   */
+  variants?: V;
+  /**
+   * Compound variants allow you to apply classes to multiple variants at once.
+   */
+  compoundVariants?: (V extends Variant
+    ? (
+        | CVAVariants<V>
+        | {
+            [K in keyof V]?: StringToBoolean<keyof V[K]> | StringToBoolean<keyof V[K]>[];
+          }
+      ) &
+        ClassProp
+    : ClassProp)[];
+  /**
+   * Default variants allow you to set default variants for a component.
+   */
+  defaultVariants?: CVAVariants<V>;
+};
+
+/**
+ * Represents the return type of the CVA function.
+ *
+ * @template V - The type of variants.
+ * @returns {((props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp) => string)& { metaConfig: MetaConfig; styleConfig: CVAConfig<V>; }} A function that generates class names based on props.
+ */
+type CVAComponent<V extends Variant> = ((
+  props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp
+) => string) & {
+  metaConfig: MetaConfig;
+  styleConfig: CVAConfig<V>;
+};
+
+/**
+ * Creates a class variant authority (cva) function.
+ * Generates class names based on provided variants and props.
+ *
+ * @template V - The type of variants.
+ * @param {CVAConfig<V>} styleConfig - The cva configuration object.
+ * @param {MetaConfig} [metaConfig] - Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
+ * @returns {CVAComponent<V>} A function that generates class names based on props.
+ */
+type CVA = <V extends Variant = {}>(styleConfig: CVAConfig<V>, metaConfig?: MetaConfig) => CVAComponent<V>;

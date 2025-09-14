@@ -8,11 +8,12 @@ const svaSuite = new Benchmark.Suite("sva");
 svaSuite
   .add("jade-garden sva", () => {
     const { base, fallback, image } = sva({
-      slots: {
+      base: {
         base: "relative flex shrink-0 overflow-hidden rounded-full",
         image: "aspect-square h-full w-full",
         fallback: "flex h-full w-full items-center justify-center rounded-full bg-muted"
       },
+      slots: ["base", "fallback", "image"],
       variants: {
         withBorder: {
           true: {

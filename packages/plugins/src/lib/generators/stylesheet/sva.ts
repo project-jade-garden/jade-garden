@@ -1,11 +1,12 @@
 import { kebabCase } from "es-toolkit/string";
-import { type CreateOptions, cx, type SVAConfig } from "jade-garden";
+import { type CreateOptions, cx } from "jade-garden";
+import type { SVAConfig } from "../../types";
 
 /* -----------------------------------------------------------------------------
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export const generateSVAStylesheet = (styleConfig: SVAConfig<any, any, any>, createOptions: CreateOptions): string => {
+export const generateSVAStylesheet = (styleConfig: SVAConfig, createOptions: CreateOptions): string => {
   const mergeFn = createOptions?.mergeFn ?? cx;
   const prefix = createOptions?.prefix;
 

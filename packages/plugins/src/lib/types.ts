@@ -1,8 +1,10 @@
-import type { CreateOptions, CVAComponent, SVAComponent } from "jade-garden";
+import type { CreateOptions, cva, sva } from "jade-garden";
 
 /* -----------------------------------------------------------------------------
  * Types
  * -----------------------------------------------------------------------------*/
+
+export type ComponentMetaConfig = CVA["metaConfig"] & SVA["metaConfig"];
 
 /**
  * **FOR LIBRARY AUTHORS**
@@ -188,10 +190,12 @@ export type PluginInstance<T> = (options?: Options | undefined) => T;
  * CVA
  * -----------------------------------------------------------------------------*/
 
-export type CVA = CVAComponent<any>;
+export type CVA = ReturnType<typeof cva>;
+export type CVAConfig = CVA["styleConfig"];
 
 /* -----------------------------------------------------------------------------
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export type SVA = SVAComponent<any, any, any>;
+export type SVA = ReturnType<typeof sva>;
+export type SVAConfig = SVA["styleConfig"];

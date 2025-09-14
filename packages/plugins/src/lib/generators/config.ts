@@ -1,7 +1,6 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { kebabCase } from "es-toolkit/string";
-import type { MetaConfig as ComponentMetaConfig, CVAConfig, SVAConfig } from "jade-garden";
-import type { Options } from "../types";
+import type { ComponentMetaConfig, CVAConfig, Options, SVAConfig } from "../types";
 import { sharedComment } from "./utils";
 
 /* -----------------------------------------------------------------------------
@@ -24,7 +23,7 @@ const generateComment = (rawConfig: Record<string, string | boolean | undefined>
 const generateConfig = (params: {
   type: "cva" | "sva";
   componentMetaConfig: ComponentMetaConfig;
-  styleConfig: CVAConfig<any> | SVAConfig<any, any, any>;
+  styleConfig: CVAConfig | SVAConfig;
 }): string => {
   const { componentMetaConfig, styleConfig, type } = params;
   const importStatement = `import { ${type} } from "../utils";`;
