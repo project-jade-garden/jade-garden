@@ -8,21 +8,22 @@ describe("createSVA", () => {
       const sva = createSVA({ mergeFn: cn });
 
       test("should return a function that returns an object of slot functions", () => {
-        const result = sva({ slots: { root: "root-class" } });
+        const result = sva({ base: { root: "root-class" }, slots: ["root"] });
         expect(typeof result).toBe("function");
         const slotFunctions = result({});
         expect(typeof slotFunctions.root).toBe("function");
       });
 
       test("should apply slot base classes", () => {
-        const result = sva({ slots: { root: "root-class" } });
+        const result = sva({ base: { root: "root-class" }, slots: ["root"] });
         const slotFunctions = result({});
         expect(slotFunctions.root()).toBe("root-class");
       });
 
       test("should apply slot variant classes", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -36,7 +37,8 @@ describe("createSVA", () => {
 
       test("should apply default slot variant classes", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -51,7 +53,8 @@ describe("createSVA", () => {
 
       test("should apply compound variant classes to slots", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -70,7 +73,8 @@ describe("createSVA", () => {
 
       test("should apply compound slot classes", () => {
         const components = sva({
-          slots: { root: "root-class", inner: "inner-class" },
+          base: { root: "root-class", inner: "inner-class" },
+          slots: ["root", "inner"],
           variants: {
             size: {
               small: { root: "size-small", inner: "size-inner-small" },
@@ -85,7 +89,7 @@ describe("createSVA", () => {
       });
 
       test("should merge class and className props for slots", () => {
-        const components = sva({ slots: { root: "root-class" } });
+        const components = sva({ base: { root: "root-class" }, slots: ["root"] });
         const slotFunctions = components({});
         // @ts-expect-error: for testing
         expect(slotFunctions.root({ class: "extra-class", className: "another-class" })).toBe(
@@ -98,21 +102,22 @@ describe("createSVA", () => {
       const sva = createSVA();
 
       test("should return a function that returns an object of slot functions", () => {
-        const result = sva({ slots: { root: "root-class" } });
+        const result = sva({ base: { root: "root-class" }, slots: ["root"] });
         expect(typeof result).toBe("function");
         const slotFunctions = result({});
         expect(typeof slotFunctions.root).toBe("function");
       });
 
       test("should apply slot base classes", () => {
-        const result = sva({ slots: { root: "root-class" } });
+        const result = sva({ base: { root: "root-class" }, slots: ["root"] });
         const slotFunctions = result({});
         expect(slotFunctions.root()).toBe("root-class");
       });
 
       test("should apply slot variant classes", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -126,7 +131,8 @@ describe("createSVA", () => {
 
       test("should apply default slot variant classes", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -141,7 +147,8 @@ describe("createSVA", () => {
 
       test("should apply compound variant classes to slots", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -160,7 +167,8 @@ describe("createSVA", () => {
 
       test("should apply compound slot classes", () => {
         const components = sva({
-          slots: { root: "root-class", inner: "inner-class" },
+          base: { root: "root-class", inner: "inner-class" },
+          slots: ["root", "inner"],
           variants: {
             size: {
               small: { root: "size-small", inner: "size-inner-small" },
@@ -175,7 +183,7 @@ describe("createSVA", () => {
       });
 
       test("should merge class and className props for slots", () => {
-        const components = sva({ slots: { root: "root-class" } });
+        const components = sva({ base: { root: "root-class" }, slots: ["root"] });
         const slotFunctions = components({});
         // @ts-expect-error: for testing
         expect(slotFunctions.root({ class: "extra-class", className: "another-class" })).toBe(
@@ -185,7 +193,8 @@ describe("createSVA", () => {
 
       test("should handle deeply nested arrays and objects within slots", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             style: {
               complex: {
@@ -203,21 +212,22 @@ describe("createSVA", () => {
       const sva = createSVA({ mergeFn: tm as MergeFn });
 
       test("should return a function that returns an object of slot functions", () => {
-        const result = sva({ slots: { root: "root-class" } });
+        const result = sva({ base: { root: "root-class" }, slots: ["root"] });
         expect(typeof result).toBe("function");
         const slotFunctions = result({});
         expect(typeof slotFunctions.root).toBe("function");
       });
 
       test("should apply slot base classes", () => {
-        const result = sva({ slots: { root: "root-class" } });
+        const result = sva({ base: { root: "root-class" }, slots: ["root"] });
         const slotFunctions = result({});
         expect(slotFunctions.root()).toBe("root-class");
       });
 
       test("should apply slot variant classes", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -231,7 +241,8 @@ describe("createSVA", () => {
 
       test("should apply default slot variant classes", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -246,7 +257,8 @@ describe("createSVA", () => {
 
       test("should apply compound variant classes to slots", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -265,7 +277,8 @@ describe("createSVA", () => {
 
       test("should apply compound slot classes", () => {
         const components = sva({
-          slots: { root: "root-class", inner: "inner-class" },
+          base: { root: "root-class", inner: "inner-class" },
+          slots: ["root", "inner"],
           variants: {
             size: {
               small: { root: "size-small", inner: "size-inner-small" },
@@ -280,7 +293,7 @@ describe("createSVA", () => {
       });
 
       test("should merge class and className props for slots", () => {
-        const components = sva({ slots: { root: "root-class" } });
+        const components = sva({ base: { root: "root-class" }, slots: ["root"] });
         const slotFunctions = components({});
         // @ts-expect-error: for testing
         expect(slotFunctions.root({ class: "extra-class", className: "another-class" })).toBe(
@@ -290,7 +303,8 @@ describe("createSVA", () => {
 
       test("should correctly merge and remove duplicate tailwind classes within slots", () => {
         const components = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             style: {
               merged: {
@@ -303,7 +317,8 @@ describe("createSVA", () => {
         expect(slotFunctions.root()).toBe("root-class font-bold text-xl text-blue-200");
 
         const complexTailwind = sva({
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             style: {
               mergedComplex: {
@@ -325,10 +340,11 @@ describe("createSVA", () => {
       test("should generate class name with slot", () => {
         const component = sva({
           name: "button",
-          slots: {
+          base: {
             root: "root-class",
             inner: "inner-class"
-          }
+          },
+          slots: ["root", "inner"]
         });
 
         const slots = component();
@@ -339,7 +355,8 @@ describe("createSVA", () => {
       test("should generate class name with variants", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -355,7 +372,8 @@ describe("createSVA", () => {
       test("should generate slot class name with variants", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -372,7 +390,8 @@ describe("createSVA", () => {
       test("should not generate class name with variants if variant key does not exist", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -389,7 +408,8 @@ describe("createSVA", () => {
       test("should not generate class name with variants if variant type does not exist", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -406,7 +426,8 @@ describe("createSVA", () => {
       test("should not generate slot class name with variants if variant key does not exist", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -425,7 +446,8 @@ describe("createSVA", () => {
       test("should not generate slot class name with variants if variant type does not exist", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -444,7 +466,8 @@ describe("createSVA", () => {
       test("should generate slot class name with custom case convention", () => {
         const component = sva({
           name: "myButton",
-          slots: { root: "root-class" }
+          base: { root: "root-class" },
+          slots: ["root"]
         });
 
         const slots = component();
@@ -454,7 +477,8 @@ describe("createSVA", () => {
       test("should generate class name with compound variants", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -474,7 +498,8 @@ describe("createSVA", () => {
 
       test("should return empty string if name is not defined", () => {
         const component = sva({
-          slots: { root: "root-class" }
+          base: { root: "root-class" },
+          slots: ["root"]
         });
 
         const slots = component();
@@ -488,10 +513,11 @@ describe("createSVA", () => {
       test("should generate slot class name with prefix and default case convention", () => {
         const component = sva({
           name: "button",
-          slots: {
+          base: {
             root: "root-class",
             inner: "inner-class"
-          }
+          },
+          slots: ["root", "inner"]
         });
 
         const slots = component();
@@ -502,7 +528,8 @@ describe("createSVA", () => {
       test("should generate slot variant class name with prefix and default case convention", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -518,7 +545,8 @@ describe("createSVA", () => {
       test("should generate slot class name with custom case convention", () => {
         const component = sva({
           name: "myButton",
-          slots: { root: "root-class" }
+          base: { root: "root-class" },
+          slots: ["root"]
         });
 
         const slots = component();
@@ -528,7 +556,8 @@ describe("createSVA", () => {
       test("should generate class name with compound variants", () => {
         const component = sva({
           name: "button",
-          slots: { root: "root-class" },
+          base: { root: "root-class" },
+          slots: ["root"],
           variants: {
             size: {
               small: { root: "size-small" },
@@ -548,7 +577,8 @@ describe("createSVA", () => {
 
       test("should return empty string if name is not defined", () => {
         const component = sva({
-          slots: { root: "root-class" }
+          base: { root: "root-class" },
+          slots: ["root"]
         });
 
         const slots = component();

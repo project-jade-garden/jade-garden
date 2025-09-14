@@ -24,7 +24,7 @@ const generateComment = (rawConfig: Record<string, string | boolean | undefined>
 const generateConfig = (params: {
   type: "cva" | "sva";
   componentMetaConfig: ComponentMetaConfig;
-  styleConfig: CVAConfig<any> | SVAConfig<any, any>;
+  styleConfig: CVAConfig<any> | SVAConfig<any, any, any>;
 }): string => {
   const { componentMetaConfig, styleConfig, type } = params;
   const importStatement = `import { ${type} } from "../utils";`;
@@ -112,19 +112,7 @@ export const writeConfigs = (options: Required<Options>, outDirPath: string): vo
       const outFile = `${outDirWrite}/${fileName}.${configOutput}`;
 
       // * Write individual css or js/ts files
-      if ("base" in styleConfig) {
-        exportsFile += `export { ${name} } from "./${fileName}";\n`;
-        indexFile += `import { ${name} } from "./${fileName}";\n`;
-        writeFileSync(
-          outFile,
-          generateConfig({
-            componentMetaConfig,
-            styleConfig,
-            type: "cva" as const
-          })
-        );
-        exportComponent.push(name);
-      } else if ("slots" in styleConfig) {
+      if ("slots" in styleConfig) {
         exportsFile += `export { ${name} } from "./${fileName}";\n`;
         indexFile += `import { ${name} } from "./${fileName}";\n`;
         writeFileSync(
@@ -133,6 +121,18 @@ export const writeConfigs = (options: Required<Options>, outDirPath: string): vo
             componentMetaConfig,
             styleConfig,
             type: "sva" as const
+          })
+        );
+        exportComponent.push(name);
+      } else if ("base" in styleConfig) {
+        exportsFile += `export { ${name} } from "./${fileName}";\n`;
+        indexFile += `import { ${name} } from "./${fileName}";\n`;
+        writeFileSync(
+          outFile,
+          generateConfig({
+            componentMetaConfig,
+            styleConfig,
+            type: "cva" as const
           })
         );
         exportComponent.push(name);

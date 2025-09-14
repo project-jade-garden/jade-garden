@@ -194,4 +194,4 @@ export type CVA = CVAComponent<any>;
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export type SVA = SVAComponent<any, any>;
+export type SVA = SVAComponent<any, any, any>;

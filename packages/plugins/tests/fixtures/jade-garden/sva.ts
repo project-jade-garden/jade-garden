@@ -5,11 +5,12 @@ const sva = createSVA({ useStylesheet: true });
 export const alertConfig = sva(
   {
     name: "alert",
-    slots: {
+    base: {
       root: "rounded py-3 px-5 mb-4",
       title: "font-bold mb-1",
       message: ""
     },
+    slots: ["root", "title", "message"],
     variants: {
       variant: {
         outlined: {
@@ -118,11 +119,12 @@ export const alertConfig = sva(
 );
 
 export const noNameSVA = sva({
-  slots: {
+  base: {
     root: "rounded py-3 px-5 mb-4",
     title: "font-bold mb-1",
     message: ""
   },
+  slots: ["root", "title", "message"],
   variants: {
     variant: {
       outlined: {
@@ -222,6 +224,7 @@ export const noNameSVA = sva({
   }
 });
 
+// @ts-expect-error: for testing
 export const noSlotsSVA = sva({
   name: "alert",
   variants: {

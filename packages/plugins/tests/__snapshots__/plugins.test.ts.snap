@@ -660,11 +660,16 @@ exports[`plugins rollup writes cva and sva files "default" 5`] = `
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -908,11 +913,16 @@ exports[`plugins rollup writes cva and sva files "with \`configOutput\` set to \
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -1794,11 +1804,16 @@ exports[`plugins rspack writes cva and sva files "default" 5`] = `
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -2042,11 +2057,16 @@ exports[`plugins rspack writes cva and sva files "with \`configOutput\` set to \
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -2928,11 +2948,16 @@ exports[`plugins vite writes cva and sva files "default" 5`] = `
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -3176,11 +3201,16 @@ exports[`plugins vite writes cva and sva files "with \`configOutput\` set to \\"
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -4062,11 +4092,16 @@ exports[`plugins webpack writes cva and sva files "default" 5`] = `
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {
@@ -4310,11 +4345,16 @@ exports[`plugins webpack writes cva and sva files "with \`configOutput\` set to 
  */
 export const alert = sva({
   "name": "alert",
-  "slots": {
+  "base": {
     "root": "rounded py-3 px-5 mb-4",
     "title": "font-bold mb-1",
     "message": ""
   },
+  "slots": [
+    "root",
+    "title",
+    "message"
+  ],
   "variants": {
     "variant": {
       "outlined": {

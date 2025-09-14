@@ -4,7 +4,7 @@ import { getBundleSize } from "../utils";
 describe("sva bundle size", () => {
   test("jade-garden", async () => {
     const bundleSize = await getBundleSize("jade-garden", "sva");
-    expect(bundleSize).toMatchInlineSnapshot("2867");
+    expect(bundleSize).toMatchInlineSnapshot("2815");
   });
 
   test("tailwind-variants", async () => {

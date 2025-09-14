@@ -112,17 +112,17 @@ export const writeStylesheets = (options: Required<Options>, outDirPath: string)
       const outFile = `${outDirWrite}/${fileName}.css`;
 
       // * Write individual css or js/ts files
-      if ("base" in styleConfig) {
-        indexFile += `@import "./${fileName}.css";\n`;
-        writeFileSync(
-          outFile,
-          `${generateComment(componentMetaConfig, true)}${generateCVAStylesheet(styleConfig, createOptions)}`
-        );
-      } else if ("slots" in styleConfig) {
+      if ("slots" in styleConfig) {
         indexFile += `@import "./${fileName}.css";\n`;
         writeFileSync(
           outFile,
           `${generateComment(componentMetaConfig, true)}${generateSVAStylesheet(styleConfig, createOptions)}`
+        );
+      } else if ("base" in styleConfig) {
+        indexFile += `@import "./${fileName}.css";\n`;
+        writeFileSync(
+          outFile,
+          `${generateComment(componentMetaConfig, true)}${generateCVAStylesheet(styleConfig, createOptions)}`
         );
       } else if (!silent) {
         console.warn(
