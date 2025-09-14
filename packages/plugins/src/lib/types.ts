@@ -190,12 +190,12 @@ export type PluginInstance<T> = (options?: Options | undefined) => T;
  * CVA
  * -----------------------------------------------------------------------------*/
 
-export type CVA = ReturnType<typeof cva>;
+export type CVA = ReturnType<typeof cva<any>>;
 export type CVAConfig = CVA["styleConfig"];
 
 /* -----------------------------------------------------------------------------
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export type SVA = ReturnType<typeof sva>;
+export type SVA = ReturnType<typeof sva<any, any, any>>;
 export type SVAConfig = SVA["styleConfig"];

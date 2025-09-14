@@ -186,7 +186,7 @@ describe("plugins", () => {
       test.each(diffOutputTestCases)("$label - `component` name contains reserved keywords", async ({ value }) => {
         const { opts: _opts } = value;
         const opts = cloneDeep(_opts);
-        opts.components = { components: [cva({ name: "index", base: "" }), sva({ name: "exports", slots: {} })] };
+        opts.components = { components: [cva({ name: "index", base: "" }), sva({ name: "exports", slots: [] })] };
 
         await build(opts);
         expect(existsSync(outputDir)).toBe(false);
