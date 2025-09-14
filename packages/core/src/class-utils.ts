@@ -58,7 +58,7 @@ export const cn = (...inputs: ClassValue[]): string => {
     i = 0,
     arg: ClassValue;
 
-  for (; i < inputs.length; ) {
+  while (i < inputs.length) {
     arg = inputs[i++];
     if (arg && typeof arg === "string") {
       str += `${str ? " " : ""}${arg}`;
@@ -92,9 +92,7 @@ export const cx = (...inputs: ClassValue[]): string => {
         str += `${str && " "}${arg}`;
       } else if (Array.isArray(arg)) {
         val = cx(...arg);
-        if (val) {
-          str += `${str && " "}${val}`;
-        }
+        if (val) str += `${str && " "}${val}`;
       } else if (typeof arg === "object") {
         for (val in arg) {
           if (Object.hasOwn(arg, val) && arg[val]) {
