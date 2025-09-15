@@ -197,5 +197,5 @@ export type CVAConfig = CVA["styleConfig"];
  * SVA
  * -----------------------------------------------------------------------------*/
 
-export type SVA = ReturnType<typeof sva<any, any>>;
+export type SVA = ReturnType<typeof sva<any, any, any>>;
 export type SVAConfig = SVA["styleConfig"];
