@@ -164,11 +164,11 @@ export const prefixes = (
 };
 
 /**
- * A helper function to generate CSS data attribute selectors.
+ * A helper function to generate HTML attribute selectors.
  *
- * @template T - An object type where keys represent the data attribute names and values are the allowed types for those attributes.
- * @param {{ data: Traits<T> }} attributes - An object with a `data` property that maps data attribute names to their possible values.
- * @returns {string} A string of CSS data attribute selectors.
+ * @template T - An object type where keys represent HTML attribute names and values are the allowed types for those attributes.
+ * @param {{ data: Traits<T> }} attributes - An object that maps HTML attribute names to their possible values.
+ * @returns {string} A string of HTML attribute selectors.
  *
  * @example
  * ```ts

@@ -7,8 +7,8 @@ seo:
 
 ::u-page-hero
 ---
-reverse: true
 class: "[&>div]:gap-0"
+reverse: true
 ---
   :::full-brand
   :::
@@ -38,73 +38,67 @@ class: "[&>div]:gap-0"
 
 ::u-page-section
 #title
-Get the most out of building your :br [design system]{.text-primary}
+Get the most out of building :br [your design system]{.text-primary}
 
 #features
-  :::u-page-feature
+  :::card
   ---
+  class: "m-0"
   icon: ph:handshake-duotone
+  title: Stable
+  to: /getting-started/essentials
   ---
-  #title
-  Stable
-
-  #description
   Features that match Class Variance Authority and Tailwind Variants including enhancements.
 
   :::
 
-  :::u-page-feature
+  :::card
   ---
+  class: "m-0"
   icon: ph:speedometer-duotone
+  title: Performant
+  to: /getting-started/introduction#comparisons
   ---
-  #title
-  Performant
-
-  #description
   Faster execution speed than Class Variance Authority and **double** than Tailwind Variants.
   :::
 
-  :::u-page-feature
+  :::card
   ---
-  icon: ph:tree-duotone
+  class: "m-0"
+  icon: ph:number-circle-zero-duotone
+  title: Zero Dependencies
+  to: /getting-started/essentials#class-utils
   ---
-  #title
-  Tree Shakeable
-
-  #description
-  Optimized bundle sizes equal to Class Variance Authority and **50% less** than Tailwind Variants.
+  Includes class utilities with similar functionality to `clsx` and optimized runtime performance.
   :::
 
-  :::u-page-feature
+  :::card
   ---
+  class: "m-0"
   icon: simple-icons:typescript
+  title: TypeScript Support
+  to: /getting-started/essentials#typescript
   ---
-  #title
-  TypeScript Support
-
-  #description
   Enjoy a fully typed development experience that enhances modularity of a design system.
   :::
 
-  :::u-page-feature
+  :::card
   ---
+  class: "m-0"
   icon: simple-icons:javascript
+  title: Framework Agnostic
+  to: /getting-started/installation
   ---
-  #title
-  Framework Agnostic
-
-  #description
-  All functions in Jade Garden generate strings, use wherever JavaScript can run.
+  All functions in Jade Garden generate strings and can be used wherever JavaScript can run.
   :::
 
-  :::u-page-feature
+  :::card
   ---
+  class: "m-0"
   icon: simple-icons:tailwindcss
+  title: Generate CSS
+  to: /advanced/unplugin-jade-garden
   ---
-  #title
-  Generate CSS
-
-  #description
-  Add the `unplugin-jade-garden` package to expand portability of your design system.
+  Use `unplugin-jade-garden` to expand portability of your design system.
   :::
 ::

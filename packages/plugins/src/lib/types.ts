@@ -113,7 +113,7 @@ export type Options = {
   configOutput?: "js" | "ts";
 
   /**
-   * The options used to modify your custom merge functions (`createCVA` and `createSVA`).
+   * The options used to modify your class names for `createCVA` and `createSVA`.
    *
    * Use with `unplugin-jade-garden` to ensure consistent output of your CSS.
    *

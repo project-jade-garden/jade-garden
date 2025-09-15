@@ -106,11 +106,11 @@
 
   /* Colors */
   --ui-primary: var(--ui-color-primary-700);
-  --ui-secondary: var(--ui-color-secondary-700);
-  --ui-success: var(--ui-color-success-700);
-  --ui-info: var(--ui-color-info-700);
-  --ui-warning: var(--ui-color-warning-700);
-  --ui-error: var(--ui-color-error-700);
+  --ui-secondary: var(--ui-color-secondary-500);
+  --ui-success: var(--ui-color-success-500);
+  --ui-info: var(--ui-color-info-500);
+  --ui-warning: var(--ui-color-warning-500);
+  --ui-error: var(--ui-color-error-500);
 
   /* Neutral */
   --ui-text-dimmed: var(--ui-color-neutral-500);

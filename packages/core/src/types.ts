@@ -43,7 +43,7 @@ export type ClassStrings = string | string[];
 export type ClassValue = ClassArray | Record<string, any> | string | number | bigint | null | boolean | undefined;
 
 /**
- * The options used to modify your custom merge functions (`createCVA` and `createSVA`).
+ * The options used to modify your class names for `createCVA` and `createSVA`.
  *
  * Use with `unplugin-jade-garden` to ensure consistent output of your CSS.
  *
@@ -75,8 +75,8 @@ export type CreateOptions = {
   prefix?: string;
   /**
    * Determines if the component returns classes for a stylesheet or not.
-   * `false` for standard class merging.
-   * `true` for stylesheet generation.
+   * If `true` the class name generated is a combination of `base` and `variant` keys.
+   * If `false`, defaults to the standard class merging functionality.
    */
   useStylesheet?: boolean;
 };
