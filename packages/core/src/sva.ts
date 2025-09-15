@@ -1,39 +1,35 @@
 import { cx } from "./class-utils";
-import type {
-  ClassProp,
-  ClassValue,
-  MergeFn,
-  RecordClassValue,
-  SVA,
-  SVAConfig,
-  SVAReturnType,
-  SVAVariants,
-  Variants
-} from "./types";
-import { getVariantClasses, hasProps } from "./utils";
+import type { ClassValue, CreateOptions } from "./types";
+import { type ClassProp, falsyToString, hasProps, kebabCase, type MetaConfig, type StringToBoolean } from "./utils";
 
-/* ====================== SVA ====================== */
+/* -----------------------------------------------------------------------------
+ * SVA
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Creates a slots variants authority (SVA) function with a custom merge function.
  *
- * @param {MergeFn} mergeFn - The function to merge class names.
+ * @param {CreateOptions} [options] - Options to manage class names.
  * @returns {SVA} The sva function.
  */
-export const createSVA = (mergeFn: MergeFn = cx): SVA => {
-  return <RCV extends RecordClassValue, V extends Variants<RCV>>(config: SVAConfig<RCV, V>): SVAReturnType<RCV, V> => {
-    const components = (props?: SVAVariants<RCV, V>) => {
-      type SlotProps = SVAVariants<typeof slots, typeof variants> & ClassProp;
+export const createSVA = (options?: CreateOptions): SVA => {
+  const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
-      const slotsFns: { [key: string]: (slotProps?: SlotProps) => string } = {};
+  return <S extends string, SV extends SlotVariants<Slots[number]>, Slots extends S[] | Readonly<S[]>>(
+    styleConfig: SVAConfig<Slots[number], SV, Slots>,
+    metaConfig?: MetaConfig
+  ): SVAComponent<Slots[number], SV, Slots> => {
+    const jg = (props?: SVAVariants<Slots[number], SV, Slots>) => {
+      // * Exit early if slots is not defined or does not have values
+      if (!Array.isArray(styleConfig?.slots) || !styleConfig.slots.length) return {};
 
-      // * Exit early if slots is not defined or does not have keys
-      if (!config?.slots || Object.keys(config?.slots).length === 0) return slotsFns;
+      const slotsFns: Record<string, (slotProps?: SlotProps<Slots[number], SV, Slots>) => string> = {};
 
-      const slots = config.slots;
-      const compoundSlots = config?.compoundSlots ?? [];
+      const base = styleConfig.base;
+      const slots = styleConfig.slots;
+      const compoundSlots = styleConfig?.compoundSlots ?? [];
 
-      const getCompoundSlotClasses = (configProps: SlotProps) => {
+      const getCompoundSlotClasses = (configProps: SlotProps<Slots[number], SV, Slots>) => {
         if (!Array.isArray(compoundSlots)) return {};
 
         const result: Record<string, string> = {};
@@ -48,14 +44,18 @@ export const createSVA = (mergeFn: MergeFn = cx): SVA => {
             for (const slot of slotNames) {
               if (typeof slot === "string") {
                 const classes: string[] = [];
+
+                // * class
                 if (typeof slotClass === "string") classes.push(slotClass);
                 if (Array.isArray(slotClass)) classes.push(...slotClass);
+
+                // * className
                 if (typeof slotClassName === "string") classes.push(slotClassName);
                 if (Array.isArray(slotClassName)) classes.push(...slotClassName);
 
                 if (!Object.hasOwn(result, slot)) result[slot] = "";
                 const value = mergeFn(...classes);
-                result[slot] += result[slot].length === 0 ? value : ` ${value}`;
+                result[slot] += !result[slot].length ? value : ` ${value}`;
               }
             }
           }
@@ -65,12 +65,12 @@ export const createSVA = (mergeFn: MergeFn = cx): SVA => {
       };
 
       // * Exit early if variants do not exist or is not an object
-      if (typeof config?.variants !== "object" || Array.isArray(config.variants)) {
-        for (const slotKey of Object.keys(slots)) {
-          slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
+      if (typeof styleConfig?.variants !== "object" || Array.isArray(styleConfig.variants)) {
+        for (const slot of slots) {
+          slotsFns[slot] = (slotProps: SlotProps<Slots[number], SV, Slots> = {}) => {
             return mergeFn(
-              slots[slotKey],
-              getCompoundSlotClasses({ ...props, ...slotProps })[slotKey],
+              base?.[slot],
+              getCompoundSlotClasses({ ...props, ...slotProps })[slot],
               slotProps?.class,
               slotProps?.className
             );
@@ -80,16 +80,38 @@ export const createSVA = (mergeFn: MergeFn = cx): SVA => {
         return slotsFns;
       }
 
-      const variants = config.variants;
-      const compoundVariants = Array.isArray(config.compoundVariants) ? config.compoundVariants : [];
-      const defaultVariants =
-        typeof config?.defaultVariants === "object" && !Array.isArray(config.defaultVariants)
-          ? config.defaultVariants
+      const variants = styleConfig.variants;
+      const compoundVariants = Array.isArray(styleConfig.compoundVariants) ? styleConfig.compoundVariants : [];
+      const defaultVariants: SVAVariants<Slots[number], SV, Slots> =
+        typeof styleConfig?.defaultVariants === "object" && !Array.isArray(styleConfig.defaultVariants)
+          ? styleConfig.defaultVariants
           : {};
 
-      const defaultsAndProps = { ...defaultVariants, ...(props ?? {}) };
+      const getVariantClasses = (slot: string, slotProps: SlotProps<Slots[number], SV, Slots>) => {
+        if (typeof variants !== "object" || Array.isArray(variants)) return "";
+        let result = "";
 
-      const getCompoundVariantClasses = (configProps: SlotProps) => {
+        for (const variant of Object.keys(variants)) {
+          const variantObj = variants[variant];
+          if (typeof variantObj !== "object" || Array.isArray(variantObj)) continue;
+
+          const variantKey = slotProps?.[variant] ?? props?.[variant] ?? defaultVariants?.[variant];
+          const validKey = falsyToString(variantKey) ?? "false";
+          const value = slot
+            ? mergeFn(
+                variantObj[validKey as keyof (typeof variants)[typeof variant]]?.[
+                  slot as keyof (typeof variants)[typeof variant]
+                ]
+              )
+            : mergeFn(variantObj[validKey as keyof (typeof variants)[typeof variant]]);
+
+          if (value) result += !result.length ? value : ` ${value}`;
+        }
+
+        return result;
+      };
+
+      const getCompoundVariantClasses = (configProps: SlotProps<Slots[number], SV, Slots>) => {
         if (!Array.isArray(compoundVariants)) return {};
 
         const result: Record<string, string> = {};
@@ -105,7 +127,7 @@ export const createSVA = (mergeFn: MergeFn = cx): SVA => {
               if (!Object.hasOwn(result, slot)) result[slot] = "";
               if (typeof className === "string") {
                 const value = mergeFn(className);
-                result[slot] += result[slot].length === 0 ? value : ` ${value}`;
+                result[slot] += !result[slot].length ? value : ` ${value}`;
               }
             }
           }
@@ -115,14 +137,14 @@ export const createSVA = (mergeFn: MergeFn = cx): SVA => {
       };
 
       // * Set `slotsFns`
-      for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: SVAVariants<RCV, V> & ClassProp = {}) => {
-          const configProps = { ...defaultsAndProps, ...slotProps };
+      for (const slot of slots) {
+        slotsFns[slot] = (slotProps: SlotProps<Slots[number], SV, Slots> = {}) => {
+          const configProps = { ...defaultVariants, ...(props ?? {}), ...slotProps };
           return mergeFn(
-            slots[slotKey],
-            getVariantClasses({ defaultVariants, mergeFn, props, variants, slotKey, slotProps }),
-            getCompoundVariantClasses(configProps)[slotKey],
-            getCompoundSlotClasses(configProps)[slotKey],
+            base?.[slot],
+            getVariantClasses(slot, slotProps),
+            getCompoundVariantClasses(configProps)[slot],
+            getCompoundSlotClasses(configProps)[slot],
             slotProps?.class,
             slotProps?.className
           );
@@ -132,64 +154,52 @@ export const createSVA = (mergeFn: MergeFn = cx): SVA => {
       return slotsFns;
     };
 
-    return components as SVAReturnType<RCV, V>;
-  };
-};
+    const ujg = (props?: SVAVariants<Slots[number], SV, Slots>) => {
+      // * Exit early if slots is not defined or does not have values
+      if (!Array.isArray(styleConfig?.slots) || !styleConfig.slots.length) return {};
 
-/**
- * Defines a type-safe structure for an SVA configuration object.
- * This utility allows you to define a SVA config with type checking based on the specified slots.
- *
- * @template S - A string or union of strings representing the slot keys for the component.
- * @returns A function that takes an `SVAConfig` object with the specified slot keys and returns that same configuration object, ensuring type safety.
- *
- * @example
- * ```ts
- * const buttonConfig = defineSVA(["root", "label"])({
- *   name: "button",
- *   slots: {
- *     root: "base-button",
- *     label: "button-label",
- *   },
- *   variants: {
- *     size: {
- *       small: {
- *         root: "button-small",
- *         label: "text-sm"
- *       },
- *       medium: {
- *         root: "button-medium",
- *         label: "text-base"
- *       }
- *     },
- *     color: {
- *       primary: {
- *         root: "bg-blue-500 text-white"
- *       },
- *       secondary: {
- *         root: "bg-gray-300 text-gray-800"
- *       }
- *     }
- *   },
- *   defaultVariants: {
- *     size: "medium",
- *     color: "primary"
- *   }
- * });
- *
- * // OR
- *
- * const defineSVAConfig = defineSVA(["root", "label"]);
- *
- * const buttonConfig = defineSVAConfig({
- *   // ... config object
- * });
- * ```
- */
-export const defineSVA = <Slots extends string>(_slots: readonly Slots[]) => {
-  return <RCV extends { [S in Slots]?: ClassValue }, V extends Variants<RCV>>(
-    config: SVAConfig<RCV, V>
-  ): SVAConfig<RCV, V> => config;
+      const slotsFns: Record<string, (slotProps?: SlotProps<Slots[number], SV, Slots>) => string> = {};
+
+      // * Set `slotsFns`
+      for (const slot of styleConfig.slots) {
+        slotsFns[slot] = (slotProps: SlotProps<Slots[number], SV, Slots> = {}) => {
+          const { name, variants } = styleConfig;
+          if (!name) return mergeFn(slotProps?.class, slotProps?.className);
+
+          // * "jgPrefix:componentName--componentSlot"
+          const component = `${prefix ? `${prefix}:` : ""}${kebabCase(name)}--${kebabCase(slot)}`;
+
+          // * Exit early if variants do not exist or is not an object
+          if (typeof variants !== "object" || Array.isArray(variants)) return component;
+
+          let result = component;
+          for (const variantName of Object.keys(variants)) {
+            const variantObj = variants[variantName];
+
+            if (variantObj && typeof variantObj === "object") {
+              const variantType = slotProps?.[variantName] ?? props?.[variantName];
+
+              if (typeof variantType === "string" && variantType in variantObj) {
+                // * "jgPrefix:componentName--componentSlot__variantName--variantType"
+                result += ` ${component}__${kebabCase(variantName)}--${kebabCase(variantType)}`;
+              }
+            }
+          }
+
+          return mergeFn(result, slotProps?.class, slotProps?.className);
+        };
+      }
+
+      return slotsFns;
+    };
+
+    const component = (useStylesheet ? ujg : jg) as SVAComponent<Slots[number], SV, Slots>;
+
+    component.styleConfig = styleConfig;
+    component.metaConfig = metaConfig ?? {};
+
+    return component;
+  };
 };
 
 /**
@@ -200,10 +210,11 @@ export const defineSVA = <Slots extends string>(_slots: readonly Slots[]) => {
  * @example
  * ```ts
  * const button = sva({
- *   slots: {
+ *   base: {
  *     root: "flex",
  *     item: "px-2 py-1"
  *   },
+ *   slots: ["root", "item"],
  *   variants: {
  *     size: {
  *       small: {
@@ -225,3 +236,159 @@ export const defineSVA = <Slots extends string>(_slots: readonly Slots[]) => {
  * ```
  */
 export const sva: SVA = createSVA();
+
+/* -----------------------------------------------------------------------------
+ * Types
+ * -----------------------------------------------------------------------------*/
+
+/**
+ * **IMPORTANT**
+ *
+ * This is a core type that defines keys in {@link SVAConfig}.
+ *
+ * Represents the base for a compound variant or compound slot.
+ *
+ * @template S - Generic for string.
+ * @template SV - The slot variants.
+ * @template Slots - The slots.
+ */
+type CompoundBase<S extends string, SV extends SlotVariants<Slots[number]>, Slots extends S[] | Readonly<S[]>> = {
+  [K in keyof SV]?: StringToBoolean<keyof SV[K]> | StringToBoolean<keyof SV[K]>[];
+};
+
+/**
+ * Represents the default variants for a component.
+ *
+ * @template S - A union of string literals representing the slots.
+ */
+type DefaultVariants<S extends string> = {
+  [key: string]: {
+    [key: string]: SlotsClassValue<S>;
+  };
+};
+
+/**
+ * **IMPORTANT**
+ *
+ * This is **THE** core type that defines the keys throughout {@link SVAConfig}.
+ *
+ * Represents the class values for slots, where keys are slot names and values are class names.
+ *
+ * @template S - Generic for string.
+ */
+type SlotsClassValue<S extends string> = {
+  [K in S]?: ClassValue;
+};
+
+/**
+ * Represents the parameters that an `sva` component can take.
+ *
+ * @template S - Generic for string.
+ * @template SV - The slot variants.
+ * @template Slots - The slots.
+ */
+type SlotProps<
+  S extends string,
+  SV extends SlotVariants<Slots[number]>,
+  Slots extends S[] | Readonly<S[]>
+> = SVAVariants<Slots[number], SV, Slots> & ClassProp;
+
+/**
+ * Defines the structure for slot variants.
+ * @template S - A union of string literals representing the slots.
+ * @template DV - A record of default variants.
+ */
+type SlotVariants<S extends string, DV extends DefaultVariants<S> = DefaultVariants<S>> =
+  | {
+      [K in keyof DV]?: {
+        [K2 in keyof DV[K]]?: SlotsClassValue<S>;
+      };
+    }
+  | DefaultVariants<S>;
+
+/**
+ * Extracts the variants from the `SVAConfig`.
+ *
+ * @template S - Generic for string.
+ * @template SV - The slot variants.
+ * @template Slots - The slots.
+ */
+type SVAVariants<S extends string, SV extends SlotVariants<Slots[number]>, Slots extends S[] | Readonly<S[]>> = {
+  [K in keyof SV]?: StringToBoolean<keyof SV[K]>;
+};
+
+/**
+ * Represents the SVA configuration object.
+ *
+ * @template S - Generic for string.
+ * @template SV - The slot variants.
+ * @template Slots - The slots.
+ */
+type SVAConfig<S extends string, SV extends SlotVariants<Slots[number]>, Slots extends S[] | Readonly<S[]>> = {
+  /**
+   * An optional name for the component.
+   */
+  name?: string;
+  /**
+   * An array of slots for the component.
+   */
+  slots: Slots;
+  /**
+   * The base classes for each slot.
+   */
+  base?: Partial<Record<Slots[number], ClassValue>>;
+  /**
+   * The variants for the component.
+   */
+  variants?: SV;
+  /**
+   * Compound variants allow you to apply classes to multiple variants at once.
+   */
+  compoundVariants?: Array<
+    CompoundBase<Slots[number], SV, Slots> &
+      (
+        | {
+            class?: Partial<Record<Slots[number], ClassValue>>;
+            className?: never;
+          }
+        | {
+            class?: never;
+            className?: Partial<Record<Slots[number], ClassValue>>;
+          }
+      )
+  >;
+  /**
+   * Compound slots allow you to apply classes to multiple slots at once.
+   */
+  compoundSlots?: Array<{ slots: Slots } & CompoundBase<Slots[number], SV, Slots> & ClassProp>;
+  /**
+   * Default variants allow you to set default variants for a component.
+   */
+  defaultVariants?: SVAVariants<Slots[number], SV, Slots>;
+};
+
+/**
+ * Represents the return type of the SVA function.
+ *
+ * @template S - Generic for string.
+ * @template SV - The slot variants.
+ * @template Slots - The slots.
+ */
+type SVAComponent<S extends string, SV extends SlotVariants<Slots[number]>, Slots extends S[] | Readonly<S[]>> = ((
+  props?: SVAVariants<Slots[number], SV, Slots>
+) => Record<Slots[number], (slotProps?: SlotProps<Slots[number], SV, Slots>) => string>) & {
+  metaConfig: MetaConfig;
+  styleConfig: SVAConfig<Slots[number], SV, Slots>;
+};
+
+/**
+ * Defines the structure for `createSVA`.
+ *
+ * @template S - Generic for string.
+ * @template SV - The slot variants.
+ * @template Slots - The slots.
+ */
+type SVA = <S extends string, SV extends SlotVariants<Slots[number]>, Slots extends S[] | Readonly<S[]>>(
+  styleConfig: SVAConfig<Slots[number], SV, Slots>,
+  metaConfig?: MetaConfig
+) => SVAComponent<Slots[number], SV, Slots>;

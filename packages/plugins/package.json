@@ -35,9 +35,9 @@
     "./*": "./src/*.ts"
   },
   "scripts": {
-    "build": "bun typecheck && tsup",
+    "build": "bun typecheck && tsdown",
     "clean": "rm -rf .turbo dist node_modules",
-    "dev": "tsup --watch",
+    "dev": "tsdown --watch",
     "format": "biome format --write .",
     "lint": "biome lint",
     "postpack": "clean-package restore",
@@ -49,24 +49,24 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "es-toolkit": "catalog:",
     "jade-garden": "workspace:*",
     "unplugin": "2.3.10",
     "unplugin-utils": "0.3.0"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@rspack/core": "1.5.2",
+    "@rspack/core": "1.5.3",
     "@tailwindcss/postcss": "4.1.13",
     "@tailwindcss/vite": "4.1.13",
     "clean-package": "catalog:",
     "css-loader": "7.1.2",
+    "es-toolkit": "1.39.10",
     "postcss": "8.5.6",
     "postcss-loader": "8.2.0",
     "rollup": "4.50.1",
     "rollup-plugin-postcss": "4.0.2",
     "tailwindcss": "catalog:",
-    "tsup": "8.5.0",
+    "tsdown": "0.15.1",
     "typescript": "catalog:",
     "vite": "catalog:",
     "webpack": "5.101.3"

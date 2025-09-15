@@ -33,10 +33,11 @@ describe("sva", () => {
   describe("default", () => {
     test("with nested arrays", () => {
       const menu = sva({
-        slots: {
+        base: {
           root: ["base--styles-1", ["base--styles-2", ["base--styles-3"]]],
           item: ["slots--item-1", ["slots--item-2", ["slots--item-3"]]]
         },
+        slots: ["root", "item"],
         variants: {
           color: {
             primary: {
@@ -60,11 +61,11 @@ describe("sva", () => {
     });
 
     test("without variants", () => {
-      // * THIS NEEDS TO WORK!!!
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl font-bold"
-        }
+        },
+        slots: ["root"]
       });
 
       const expectedResult = "text-3xl font-bold";
@@ -75,9 +76,10 @@ describe("sva", () => {
 
     test("with variants", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "font-bold"
         },
+        slots: ["root"],
         variants: {
           isBig: {
             default: {
@@ -116,9 +118,10 @@ describe("sva", () => {
 
     test("with compoundVariants", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "font-bold"
         },
+        slots: ["root"],
         variants: {
           isBig: {
             default: {
@@ -184,9 +187,10 @@ describe("sva", () => {
 
     test("with custom class & className", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl font-bold"
-        }
+        },
+        slots: ["root"]
       });
 
       const expectedResult = ["text-xl", "font-bold"];
@@ -202,21 +206,44 @@ describe("sva", () => {
     });
 
     test("without anything", () => {
-      // @ts-expect-error
+      // @ts-expect-error: for testing
       const noConfig = sva();
+      // @ts-expect-error: for testing
       const emptyConfig = sva({});
-      const emptySlotsConfig = sva({ slots: {} });
+      // @ts-expect-error: for testing
+      const emptyBase = sva({ base: {} });
+      const emptySlots = sva({ slots: [] });
 
       expect(noConfig()).toBeEmptyObject();
       expect(emptyConfig()).toBeEmptyObject();
-      expect(emptySlotsConfig()).toBeEmptyObject();
+      expect(emptyBase()).toBeEmptyObject();
+      expect(emptySlots()).toBeEmptyObject();
+    });
+
+    test("with slots and no base", () => {
+      const component = sva({ slots: ["root", "title", "message"] });
+
+      // Should be functions
+      expect(component().root).toBeFunction();
+      expect(component().title).toBeFunction();
+      expect(component().message).toBeFunction();
+
+      // Should write class names
+      expect(component().root({ class: "bg-blue-500" })).toEqual("bg-blue-500");
+      expect(component().title({ className: "bg-red-500" })).toEqual("bg-red-500");
+
+      expect(
+        // @ts-expect-error: for testing
+        component().message({ class: ["pt-1", "pr-2", "pb-3", "pl-4"], className: [["mt-1", "mr-2", "mb-3", "ml-4"]] })
+      ).toHaveClass(["pt-1", "pr-2", "pb-3", "pl-4", "mt-1", "mr-2", "mb-3", "ml-4"]);
     });
 
     test("without defaultsVariants", () => {
       const button = sva({
-        slots: {
+        base: {
           root: "button"
         },
+        slots: ["root"],
         variants: {
           variant: {
             primary: {
@@ -305,9 +332,10 @@ describe("sva", () => {
 
     test("with simple variants", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl font-bold"
         },
+        slots: ["root"],
         variants: {
           color: {
             red: {
@@ -339,9 +367,10 @@ describe("sva", () => {
 
     test("should support boolean variants", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl"
         },
+        slots: ["root"],
         variants: {
           bool: {
             true: {
@@ -363,9 +392,10 @@ describe("sva", () => {
 
     test("should support false only variant", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl"
         },
+        slots: ["root"],
         variants: {
           bool: {
             false: {
@@ -384,9 +414,10 @@ describe("sva", () => {
 
     test("should support false only variant -- default variant", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl"
         },
+        slots: ["root"],
         variants: {
           bool: {
             false: {
@@ -408,9 +439,10 @@ describe("sva", () => {
 
     test("should support boolean variants -- default variants", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl"
         },
+        slots: ["root"],
         variants: {
           bool: {
             true: {
@@ -435,9 +467,10 @@ describe("sva", () => {
 
     test("should support boolean variants -- missing false variant", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl"
         },
+        slots: ["root"],
         variants: {
           bool: {
             true: {
@@ -456,9 +489,10 @@ describe("sva", () => {
 
     test("should support boolean variants -- missing false variant -- default variants", () => {
       const h1 = sva({
-        slots: {
+        base: {
           root: "text-3xl"
         },
+        slots: ["root"],
         variants: {
           bool: {
             true: {
@@ -482,12 +516,13 @@ describe("sva", () => {
   describe("slots", () => {
     test("with empty slots", () => {
       const menu = sva({
-        slots: {
+        base: {
           root: "",
           title: "",
           item: "",
           list: ""
-        }
+        },
+        slots: ["root", "title", "item", "list"]
       });
 
       const { root, title, item, list } = menu();
@@ -501,13 +536,14 @@ describe("sva", () => {
     describe("with slots", () => {
       test("default variants", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "text-3xl font-bold underline",
             title: "text-2xl",
             item: "text-xl",
             list: "list-none",
             wrapper: "flex flex-col"
           },
+          slots: ["root", "title", "item", "list", "wrapper"],
           variants: {
             color: {
               primary: {
@@ -558,13 +594,14 @@ describe("sva", () => {
 
       test("default variants, custom class, & className", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "font-bold underline",
             title: "text-2xl",
             item: "text-xl",
             list: "list-none",
             wrapper: "flex flex-col"
           },
+          slots: ["root", "title", "item", "list", "wrapper"],
           variants: {
             color: {
               primary: {
@@ -639,13 +676,14 @@ describe("sva", () => {
 
       test("custom variants", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "text-3xl font-bold underline",
             title: "text-2xl",
             item: "text-xl",
             list: "list-none",
             wrapper: "flex flex-col"
           },
+          slots: ["root", "title", "item", "list", "wrapper"],
           variants: {
             color: {
               primary: {
@@ -700,13 +738,14 @@ describe("sva", () => {
 
       test("custom variants, custom class, & className", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "text-3xl font-bold underline",
             title: "text-2xl",
             item: "text-xl",
             list: "list-none",
             wrapper: "flex flex-col"
           },
+          slots: ["root", "title", "item", "list", "wrapper"],
           variants: {
             color: {
               primary: {
@@ -801,13 +840,14 @@ describe("sva", () => {
 
       test("compoundVariants", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "text-3xl font-bold underline",
             title: "text-2xl",
             item: "text-xl",
             list: "list-none",
             wrapper: "flex flex-col"
           },
+          slots: ["root", "title", "item", "list", "wrapper"],
           variants: {
             color: {
               primary: {
@@ -877,10 +917,11 @@ describe("sva", () => {
     describe("slot level variant", () => {
       test("overrides", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "text-3xl",
             title: "text-2xl"
           },
+          slots: ["root", "title"],
           variants: {
             color: {
               primary: {
@@ -908,11 +949,12 @@ describe("sva", () => {
 
       test("overrides with compoundSlots", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "text-3xl",
             title: "text-2xl",
             subtitle: "text-xl"
           },
+          slots: ["root", "title", "subtitle"],
           variants: {
             color: {
               primary: {
@@ -951,10 +993,11 @@ describe("sva", () => {
 
       test("with array variants overrides & compoundSlots", () => {
         const menu = sva({
-          slots: {
+          base: {
             root: "flex flex-wrap",
             cursor: ["absolute", "flex", "overflow-visible"]
           },
+          slots: ["root", "cursor"],
           variants: {
             size: {
               xs: {},
@@ -981,7 +1024,7 @@ describe("sva", () => {
 
     test("should not override the default classes when the variant doesn't match - compoundSlots", () => {
       const tabs = sva({
-        slots: {
+        base: {
           root: "inline-flex",
           tabList: ["flex"],
           tab: ["z-0", "w-full", "px-3", "py-1", "flex", "group", "relative"],
@@ -989,6 +1032,7 @@ describe("sva", () => {
           cursor: ["absolute", "z-0", "bg-white"],
           panel: ["py-3", "px-1", "outline-none"]
         },
+        slots: ["root", "tabContent", "panel", "cursor", "tab", "tabList"],
         variants: {
           variant: {
             solid: {},
@@ -1083,7 +1127,7 @@ describe("sva", () => {
 
     test("should override the default classes when the variant matches - compoundSlots", () => {
       const tabs = sva({
-        slots: {
+        base: {
           root: "inline-flex",
           tabList: ["flex"],
           tab: ["z-0", "w-full", "px-3", "py-1", "flex", "group", "relative"],
@@ -1091,6 +1135,7 @@ describe("sva", () => {
           cursor: ["absolute", "z-0", "bg-white"],
           panel: ["py-3", "px-1", "outline-none"]
         },
+        slots: ["root", "tabContent", "panel", "cursor", "tab", "tabList"],
         variants: {
           variant: {
             solid: {},
@@ -1185,10 +1230,11 @@ describe("sva", () => {
 
     test("overrides - compoundVariants", () => {
       const menu = sva({
-        slots: {
+        base: {
           root: "text-3xl",
           title: "text-2xl"
         },
+        slots: ["root", "title"],
         variants: {
           color: {
             primary: {
@@ -1226,13 +1272,14 @@ describe("sva", () => {
   describe("compound slots", () => {
     test("without variants", () => {
       const pagination = sva({
-        slots: {
+        base: {
           root: "flex flex-wrap relative gap-1 max-w-fit",
           item: "",
           prev: "",
           next: "",
           cursor: ["absolute", "flex", "overflow-visible"]
         },
+        slots: ["root", "item", "prev", "next", "cursor"],
         compoundSlots: [
           {
             slots: ["item", "prev", "next"],
@@ -1253,13 +1300,14 @@ describe("sva", () => {
     describe("single variant", () => {
       test("defaultVariants", () => {
         const pagination = sva({
-          slots: {
+          base: {
             root: "flex flex-wrap relative gap-1 max-w-fit",
             item: "",
             prev: "",
             next: "",
             cursor: ["absolute", "flex", "overflow-visible"]
           },
+          slots: ["root", "item", "prev", "next", "cursor"],
           variants: {
             size: {
               xs: {},
@@ -1296,13 +1344,14 @@ describe("sva", () => {
 
       test("prop variant", () => {
         const pagination = sva({
-          slots: {
+          base: {
             root: "flex flex-wrap relative gap-1 max-w-fit",
             item: "",
             prev: "",
             next: "",
             cursor: ["absolute", "flex", "overflow-visible"]
           },
+          slots: ["root", "item", "prev", "next", "cursor"],
           variants: {
             size: {
               xs: {},
@@ -1341,11 +1390,12 @@ describe("sva", () => {
 
       test("boolean variant", () => {
         const nav = sva({
-          slots: {
+          base: {
             root: "base",
             toggle: "slot--toggle",
             item: "slot--item"
           },
+          slots: ["root", "item", "toggle"],
           variants: {
             isActive: {
               true: {
@@ -1383,13 +1433,14 @@ describe("sva", () => {
     describe("multiple variants", () => {
       test("defaultVariants", () => {
         const pagination = sva({
-          slots: {
+          base: {
             root: "flex flex-wrap relative gap-1 max-w-fit",
             item: "",
             prev: "",
             next: "",
             cursor: ["absolute", "flex", "overflow-visible"]
           },
+          slots: ["root", "item", "prev", "next", "cursor"],
           variants: {
             size: {
               xs: {},
@@ -1437,13 +1488,14 @@ describe("sva", () => {
 
       test("prop variants", () => {
         const pagination = sva({
-          slots: {
+          base: {
             root: "flex flex-wrap relative gap-1 max-w-fit",
             item: "",
             prev: "",
             next: "",
             cursor: ["absolute", "flex", "overflow-visible"]
           },
+          slots: ["root", "item", "prev", "next", "cursor"],
           variants: {
             size: {
               xs: {},

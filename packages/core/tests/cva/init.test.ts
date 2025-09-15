@@ -5,43 +5,43 @@ describe("cva", () => {
   describe("without base", () => {
     describe("without anything", () => {
       test("empty", () => {
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         const example = cva();
         expect(example()).toBe("");
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(example({ aCheekyInvalidProp: "lol" })).toBe("");
         expect(example({ class: "adhoc-class" })).toBe("adhoc-class");
         expect(example({ className: "adhoc-className" })).toBe("adhoc-className");
         expect(
-          // @ts-expect-error
+          // @ts-expect-error: for testing
           example({ class: "adhoc-class", className: "adhoc-className" })
         ).toBe("adhoc-class adhoc-className");
       });
 
       test("undefined", () => {
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         const example = cva(undefined);
         expect(example()).toBe("");
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(example({ aCheekyInvalidProp: "lol" })).toBe("");
         expect(example({ class: "adhoc-class" })).toBe("adhoc-class");
         expect(example({ className: "adhoc-className" })).toBe("adhoc-className");
         expect(
-          // @ts-expect-error
+          // @ts-expect-error: for testing
           example({ class: "adhoc-class", className: "adhoc-className" })
         ).toBe("adhoc-class adhoc-className");
       });
 
       test("null", () => {
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         const example = cva(null);
         expect(example()).toBe("");
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(example({ aCheekyInvalidProp: "lol" })).toBe("");
         expect(example({ class: "adhoc-class" })).toBe("adhoc-class");
         expect(example({ className: "adhoc-className" })).toBe("adhoc-className");
         expect(
-          // @ts-expect-error
+          // @ts-expect-error: for testing
           example({ class: "adhoc-class", className: "adhoc-className" })
         ).toBe("adhoc-class adhoc-className");
       });
@@ -49,12 +49,12 @@ describe("cva", () => {
       test("empty object", () => {
         const example = cva({});
         expect(example()).toBe("");
-        // @ts-expect-error
+        // @ts-expect-error: for testing
         expect(example({ aCheekyInvalidProp: "lol" })).toBe("");
         expect(example({ class: "adhoc-class" })).toBe("adhoc-class");
         expect(example({ className: "adhoc-className" })).toBe("adhoc-className");
         expect(
-          // @ts-expect-error
+          // @ts-expect-error: for testing
           example({ class: "adhoc-class", className: "adhoc-className" })
         ).toBe("adhoc-class adhoc-className");
       });
@@ -325,7 +325,7 @@ describe("cva", () => {
         | VariantProps<typeof buttonWithoutBaseWithDefaultsArray>
         | VariantProps<typeof buttonWithoutBaseWithDefaultsWithClassNameArray>;
 
-      // @ts-expect-error
+      // @ts-expect-error: for testing
       describe.each<[ButtonWithoutBaseWithDefaultsProps, string]>([
         [
           undefined,
@@ -657,7 +657,7 @@ describe("cva", () => {
         | VariantProps<typeof buttonWithBaseWithDefaultsArray>
         | VariantProps<typeof buttonWithBaseWithDefaultsWithClassNameArray>;
 
-      // @ts-expect-error
+      // @ts-expect-error: for testing
       describe.each<[ButtonWithBaseWithDefaultsProps, string]>([
         [
           undefined,

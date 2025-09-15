@@ -1,38 +1,27 @@
-import { clsx } from "clsx";
-import { kebabCase } from "es-toolkit";
-import type {
-  ClassNameConfig,
-  ClassProp,
-  ClassStrings,
-  ClassValue,
-  CVAConfig,
-  CVAReturnType,
-  RecordClassValue,
-  SVAConfig,
-  SVAReturnType,
-  Traits,
-  Variant,
-  Variants
-} from "./types";
+import type { ClassStrings, ClassValue, Traits } from "./types";
 
-/* ================== Class Utils ================= */
+/* -----------------------------------------------------------------------------
+ * Class Utils
+ * -----------------------------------------------------------------------------*/
 
 /**
- * Conditionally combines class names, allowing for exclusion and inclusion of specific classes.
+ * Conditionally combines class names, allowing for the inclusion or exclusion of specific classes.
+ * It first processes the input using `cx` to handle various data types, then filters the resulting
+ * class names based on the provided `include` and `exclude` options.
  *
- * @template T - The type of the input class value, which can be a string, number, array, or object.
- * @param {T} input - The input class value to be processed by `cx`.
- * @param {{[P in "include" | "exclude"]?: ClassStrings}} options - The options object to include or exclude class names from `input`.
+ * @template T - The type of the input, extending {@link ClassValue}.
+ * @param {T} input - The input to be processed and filtered. This can be a string, number, array, or object.
+ * @param {{ include?: ClassStrings; exclude?: ClassStrings; }} options - An object containing options to include or exclude class names from the input.
  * @returns {string} A string of class names, conditionally combined and modified based on the options.
  */
 export const cm = <T extends ClassValue>(
   input: T,
-  options: { [P in "include" | "exclude"]?: ClassStrings }
+  options: { include?: ClassStrings; exclude?: ClassStrings }
 ): string => {
-  let result = clsx(input).split(" ");
+  let result = cx(input).split(" ");
 
   if (typeof options?.include === "undefined" && typeof options?.exclude === "undefined") {
-    return clsx(Array.from(new Set(result)));
+    return Array.from(new Set(result)).join(" ");
   }
 
   const { include, exclude } = options;
@@ -53,209 +42,99 @@ export const cm = <T extends ClassValue>(
     }
   }
 
-  return clsx(Array.from(new Set(result)));
+  return cx(Array.from(new Set(result)));
 };
 
-export {
-  /**
-   * **This is an alias for [clsx](https://github.com/lukeed/clsx)**.
-   * - Conditionally generates a string of class names.
-   * - Accepts multiple arguments of various types to build a class name string.
-   *
-   * @param {...*} args - Arguments to conditionally include in the class name string.
-   * Arguments can be strings, numbers, arrays, or objects.
-   * - Strings and numbers are directly appended.
-   * - Arrays are recursively processed.
-   * - Objects are processed where keys are class names and values are conditions.
-   * @returns {string} A string of class names.
-   */
-  clsx as cx
-} from "clsx";
-
-export {
-  /**
-   * **This is an alias for [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite)**.
-   * - Conditionally generates a string of class names from string arguments.
-   * - It concatenates the provided string arguments, separated by spaces,
-   * excluding any falsy values (null, undefined, '', 0, false).
-   *
-   * @param {...string} args - String arguments to conditionally include in the class name string.
-   * @returns {string} A string of class names.
-   */
-  clsx as cn
-} from "clsx/lite";
-
-// * Function overloads: https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads
 /**
- * **CVA**
+ * A reimplementation of [clsx/lite](https://github.com/lukeed/clsx/tree/master?tab=readme-ov-file#clsxlite).
+ * This function conditionally generates a string of class names from a list of string arguments.
+ * It concatenates the provided string arguments, separated by spaces, while excluding any falsy values (e.g., `null`, `undefined`, `''`, `0`, `false`).
  *
- * Returns a function that generates class names based on a CVA or SVA configuration.
- *
- * This function acts as a factory, detecting the configuration type (CVA or SVA) and returning a
- * tailored function (or object of functions) for generating class names. It ensures full
- * type-safety for both CVA and SVA consumers.
- *
- * @overload
- * @template {Variant} V
- * @param {CVAConfig<V>} styleConfig A CVA configuration object.
- * @param {Omit<ClassNameConfig, "twPrefix">} classNameConfig A shared (`unplugin-jade-garden`) options object for overriding generated classes.
- * @returns {CVAReturnType<V>} A function that takes props and returns a class name string.
- *
- * @example
- * ```ts
- * // CVA
- * const button = getClasses({
- *   name: "button",
- *   base: "button",
- *   variants: {
- *     size: { small: "size-2", medium: "size-4" },
- *     variant: { primary: "bg-red-500", secondary: "bg-blue-500" }
- *   }
- * });
- * button({ size: "small", variant: "primary" }); // "button button__size--small button__variant--primary"
- * ```
+ * @param {...ClassValue[]} inputs - String arguments to conditionally include in the class name string.
+ * @returns {string} A single string of class names.
  */
-export function getClasses<V extends Variant>(
-  styleConfig: CVAConfig<V>,
-  classNameConfig?: Omit<ClassNameConfig, "twPrefix">
-): CVAReturnType<V>;
+export const cn = (...inputs: ClassValue[]): string => {
+  let str = "",
+    i = 0,
+    arg: ClassValue;
 
-/**
- * **SVA**
- *
- * Returns a function that generates class names based on a CVA or SVA configuration.
- *
- * This function acts as a factory, detecting the configuration type (CVA or SVA) and returning a
- * tailored function (or object of functions) for generating class names. It ensures full
- * type-safety for both CVA and SVA consumers.
- *
- * @overload
- * @template {RecordClassValue} RCV
- * @template {Variants<RCV>} VS
- * @param {SVAConfig<RCV, VS>} styleConfig An SVA configuration object.
- * @param {Omit<ClassNameConfig, "twPrefix">} classNameConfig A shared (`unplugin-jade-garden`) options object for overriding generated classes.
- * @returns {SVAReturnType<RCV, VS>} An object of functions where each key corresponds to a slot.
- *
- * @example
- * ```ts
- * // SVA
- * const card = getClasses({
- *   name: "card",
- *   slots: { content: "content-class", footer: "footer-class" },
- *   variants: {
- *     size: {
- *       small: { content: "size-2" },
- *       medium: { content: "size-4" }
- *     }
- *   }
- * });
- * const { content, footer } = card({ size: "small" });
- * content(); // "card--content card--content__size--small"
- * ```
- */
-export function getClasses<RCV extends RecordClassValue, VS extends Variants<RCV>>(
-  styleConfig: SVAConfig<RCV, VS>,
-  classNameConfig?: Omit<ClassNameConfig, "twPrefix">
-): SVAReturnType<RCV, VS>;
-
-export function getClasses(
-  styleConfig: CVAConfig<any> | SVAConfig<any, any>,
-  classNameConfig?: Omit<ClassNameConfig, "twPrefix">
-): any {
-  const mergeFn = classNameConfig?.mergeFn ?? clsx;
-  const jgPrefix = classNameConfig?.jgPrefix;
-
-  const createClasses = (options: {
-    compoundVariants: Record<string, any> | undefined;
-    name: string | undefined;
-    props: Record<string, any> | undefined;
-    variants: Record<string, any> | undefined;
-    slotKey?: string;
-    slotProps?: Record<string, any>;
-  }): string => {
-    const { compoundVariants, name, props, slotKey, slotProps, variants } = options;
-    if (!name) return mergeFn(props?.class, props?.className);
-
-    // * "jgPrefix:componentName--componentSlot"
-    const component = `${jgPrefix ? `${jgPrefix}:` : ""}${kebabCase(name)}${slotKey ? `--${kebabCase(slotKey)}` : ""}`;
-
-    // * Exit early if variants do not exist or is not an object
-    if (typeof variants !== "object" || Array.isArray(variants))
-      return mergeFn(component, props?.class, props?.className);
-
-    let result = component;
-    for (const variantName of Object.keys(variants)) {
-      const variantObj = variants[variantName];
-      if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
-
-      const variantType = slotProps?.[variantName] ?? props?.[variantName] ?? compoundVariants?.[variantName];
-
-      // * "__variantName--variantType"
-      const variant = variantName
-        ? `__${kebabCase(variantName)}${variantType ? `--${kebabCase(variantType)}` : ""}`
-        : "";
-
-      // * "jgPrefix:componentName--componentSlot__variantName--variantType"
-      result += ` ${component}${variant}`;
+  while (i < inputs.length) {
+    arg = inputs[i++];
+    if (arg && typeof arg === "string") {
+      str += `${str ? " " : ""}${arg}`;
     }
-
-    return mergeFn(result, props?.class, props?.className);
-  };
-
-  if ("base" in styleConfig) {
-    return (props: any) => {
-      const { name, variants, compoundVariants } = styleConfig;
-      return createClasses({ compoundVariants, name, props, variants });
-    };
-  } else if ("slots" in styleConfig) {
-    return (props: any) => {
-      const { slots, name, variants, compoundVariants } = styleConfig;
-      const slotsFns: Record<string, any> = {};
-
-      // * Exit early if slots are not defined or do not have keys
-      if (!slots || Object.keys(slots).length === 0) return slotsFns;
-
-      // * Set `slotsFns`
-      for (const slotKey of Object.keys(slots)) {
-        slotsFns[slotKey] = (slotProps: any = {}) => {
-          return createClasses({ compoundVariants, name, props, variants, slotKey, slotProps });
-        };
-      }
-
-      return slotsFns;
-    };
   }
-}
+
+  return str;
+};
+
+/**
+ * A reimplementation of [clsx](https://github.com/lukeed/clsx).
+ * Conditionally generates a string of class names. It accepts multiple arguments of various types to build the final class name string.
+ *
+ * - **Strings and numbers** are directly appended.
+ * - **Arrays** are recursively processed.
+ * - **Objects** are processed where keys are class names and values are conditions; only keys with truthy values are included.
+ *
+ * @param {...ClassValue[]} inputs - Arguments to conditionally include in the class name string.
+ * @returns {string} A single string of class names.
+ */
+export const cx = (...inputs: ClassValue[]): string => {
+  let i = 0,
+    arg: ClassValue,
+    val: string;
+  let str = "";
+
+  while (i < inputs.length) {
+    arg = inputs[i++];
+    if (arg) {
+      if (typeof arg === "string" || typeof arg === "number" || typeof arg === "bigint") {
+        str += `${str && " "}${arg}`;
+      } else if (Array.isArray(arg)) {
+        val = cx(...arg);
+        if (val) str += `${str && " "}${val}`;
+      } else if (typeof arg === "object") {
+        for (val in arg) {
+          if (Object.hasOwn(arg, val) && arg[val]) {
+            str += `${str && " "}${val}`;
+          }
+        }
+      }
+    }
+  }
+
+  return str;
+};
 
 /**
  * A utility to simplify the maintenance of prefixed CSS classes.
  *
  * It iterates through an array of inputs, applying a base prefix to each class string.
- * It also supports variant-specific prefixes, allowing for different styles based on a
+ * It also supports conditional prefixes, allowing for different styles based on a
  * condition (e.g., `dark:has-checked:bg-indigo-950`).
  *
  * @param {string} prefix - The base prefix to apply to each class name (e.g., 'has-checked').
- * @param {(string | { classes: ClassStrings; variant: string; })[]} inputs - An array of class names, which can be simple strings or objects for variants.
+ * @param {(string | { classes: ClassStrings; condition: string; })[]} inputs - An array of class names, which can be simple strings or objects for conditions.
  * @returns {string} A single string of space-separated, prefixed class names.
  *
  * @example
  * ```ts
- * prefixClasses("has-checked", [
+ * prefixes("has-checked", [
  *   "bg-indigo-50",
  *   "text-indigo-900",
  *   "ring-indigo-200",
- *   { variant: "dark", classes: ["bg-indigo-950", "text-indigo-200", "ring-indigo-900"] }
+ *   { condition: "dark", classes: ["bg-indigo-950", "text-indigo-200", "ring-indigo-900"] }
  * ]);
  * // "has-checked:bg-indigo-50 has-checked:text-indigo-900 has-checked:ring-indigo-200 dark:has-checked:bg-indigo-950 dark:has-checked:text-indigo-200 dark:has-checked:ring-indigo-900"
  * ```
  */
-export const prefixClasses = (
+export const prefixes = (
   prefix: string,
   inputs: (
     | string
     | {
         classes: ClassStrings;
-        variant: string;
+        condition: string;
       }
   )[]
 ) => {
@@ -265,16 +144,16 @@ export const prefixClasses = (
 
   for (const input of inputs) {
     if (typeof input === "string" && !!input) {
-      output += `${output.length ? " " : ""}${prefix ? `${prefix}:${input}` : input}`;
+      output += `${!output.length ? "" : " "}${prefix ? `${prefix}:${input}` : input}`;
     } else if (typeof input === "object" && !Array.isArray(input)) {
-      const classPrefix = input.variant ? `${input.variant}:${prefix}:` : prefix ? `${prefix}:` : "";
+      const classPrefix = input.condition ? `${input.condition}:${prefix}:` : prefix ? `${prefix}:` : "";
 
       if (typeof input.classes === "string" && input.classes) {
-        output += `${output.length ? " " : ""}${classPrefix + input.classes}`;
+        output += `${!output.length ? "" : " "}${classPrefix + input.classes}`;
       } else if (Array.isArray(input.classes)) {
         for (const className of input.classes) {
           if (typeof className === "string" && className) {
-            output += `${output.length ? " " : ""}${classPrefix + className}`;
+            output += `${!output.length ? "" : " "}${classPrefix + className}`;
           }
         }
       }
@@ -285,79 +164,79 @@ export const prefixClasses = (
 };
 
 /**
- * Generates CSS class names with data attributes for a part of an anatomy.
+ * A helper function to generate HTML attribute selectors.
  *
- * @template T - An interface defining the shape of the data attributes.
- * @returns {string} A string of merged class names and data attributes.
+ * @template T - An object type where keys represent HTML attribute names and values are the allowed types for those attributes.
+ * @param {{ data: Traits<T> }} attributes - An object that maps HTML attribute names to their possible values.
+ * @returns {string} A string of HTML attribute selectors.
+ *
+ * @example
+ * ```ts
+ * const elementTraits = traits({
+ *   data: {
+ *     value: "my-value-123",
+ *     custom: "my-class",
+ *     index: {
+ *       0: "not-active",
+ *       1: "is-active"
+ *     }
+ *   }
+ * });
+ * // data-[value]:my-value-123 data-[custom]:my-class data-[index="0"]:not-active data-[index="1"]:active
+ * ```
  */
-export const traits = <T extends Traits<Record<string, any>>>(options?: ClassProp & { data?: T }): string => {
-  const appendDataAttribute = (dataAttributes: string, attributeKey: string, attributeValue: ClassStrings): string => {
-    const prefix = dataAttributes.length ? " " : "";
-    const dataAttributeStr = `data-[${attributeKey}]`;
+export const traits = <T extends Traits<Record<string, Record<string, any>>>>(attributes: T): string => {
+  let result = "";
 
-    if (Array.isArray(attributeValue)) {
-      let attributeValues = "";
-      for (const v of attributeValue) {
-        attributeValues += `${attributeValues.length ? " " : ""}${dataAttributeStr}:${v}`;
-      }
+  if (typeof attributes === "object" && !Array.isArray(attributes)) {
+    for (const attributeKey of Object.keys(attributes)) {
+      const attributeValues = attributes[attributeKey];
 
-      return dataAttributes + prefix + attributeValues;
-    }
+      if (attributeValues) {
+        for (const valueKey of Object.keys(attributeValues)) {
+          const value = attributeValues[valueKey];
 
-    if (typeof attributeValue === "string" && attributeValue.length) {
-      return `${dataAttributes + prefix + dataAttributeStr}:${attributeValue}`;
-    }
+          if (typeof value === "object" && !Array.isArray(value)) {
+            const attributeValue = value;
 
-    return dataAttributes;
-  };
+            for (const condition in value) {
+              const prefix = !result.length ? "" : " ";
 
-  const appendConditionalDataAttribute = (
-    dataAttributes: string,
-    attributeKey: string,
-    attributeValue: Partial<Record<string, ClassStrings>>
-  ): string => {
-    let result = dataAttributes;
+              if (Object.hasOwn(attributeValue, condition)) {
+                const value = attributeValue[condition as keyof typeof attributeValue];
+                const dataAttributeStr = `${attributeKey}-[${valueKey}=${condition}]`;
 
-    for (const condition in attributeValue) {
-      const prefix = result.length ? " " : "";
+                if (Array.isArray(value)) {
+                  let values = "";
+                  for (const v of value) {
+                    values += `${!values.length ? "" : " "}${dataAttributeStr}:${v}`;
+                  }
 
-      if (Object.hasOwn(attributeValue, condition)) {
-        const value = attributeValue[condition];
-        const dataAttributeStr = `data-[${attributeKey}=${condition}]`;
+                  result += prefix + values;
+                } else if (typeof value === "string" && value.length > 0) {
+                  result += `${prefix}${dataAttributeStr}:${value}`;
+                }
+              }
+            }
+          } else if (typeof value !== "undefined") {
+            const prefix = !result.length ? "" : " ";
+            const dataAttributeStr = `${attributeKey}-[${valueKey}]`;
 
-        if (Array.isArray(value)) {
-          let values = "";
-          for (const v of value) {
-            values += `${values.length ? " " : ""}${dataAttributeStr}:${v}`;
+            if (Array.isArray(value)) {
+              let attributeValues = "";
+              for (const v of value) {
+                attributeValues += `${!attributeValues.length ? "" : " "}${dataAttributeStr}:${v}`;
+              }
+
+              result += prefix + attributeValues;
+            } else if (typeof value === "string" && value.length > 0) {
+              result += `${prefix}${dataAttributeStr}:${value}`;
+            }
           }
-
-          result += prefix + values;
-        } else if (typeof value === "string" && value.length) {
-          result += `${prefix + dataAttributeStr}:${value}`;
         }
-      }
-    }
-
-    return result;
-  };
-
-  let dataAttributes = "";
-
-  if (typeof options?.data === "object" && !Array.isArray(options?.data) && Object.keys(options?.data).length > 0) {
-    for (const key of Object.keys(options?.data)) {
-      const value = options?.data[key];
-
-      if (typeof value === "object" && !Array.isArray(value)) {
-        dataAttributes = appendConditionalDataAttribute(
-          dataAttributes,
-          key,
-          value as Partial<Record<string, ClassStrings>>
-        );
-      } else if (typeof value !== "undefined") {
-        dataAttributes = appendDataAttribute(dataAttributes, key, value as ClassStrings);
       }
     }
   }
 
-  return clsx(options?.class, options?.className, dataAttributes);
+  return result;
 };

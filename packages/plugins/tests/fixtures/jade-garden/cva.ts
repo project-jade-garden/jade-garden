@@ -1,7 +1,37 @@
-import { defineCVA } from "jade-garden/cva";
+import { createCVA } from "jade-garden/cva";
 
-export const buttonConfig = defineCVA({
-  name: "button",
+const cva = createCVA({ useStylesheet: true });
+
+export const buttonConfig = cva(
+  {
+    name: "button",
+    base: "rounded-full",
+    variants: {
+      intent: {
+        primary: ["bg-blue-500", "text-white", "border-transparent", "hover:bg-blue-600"],
+        secondary: ["bg-white", "text-gray-800", "border-gray-400", "hover:bg-gray-100"]
+      },
+      size: {
+        small: ["text-sm", "py-1", "px-2"],
+        medium: ["text-base", "py-2", "px-4"]
+      }
+    },
+    compoundVariants: [{ intent: "primary", size: "medium", class: "uppercase" }],
+    defaultVariants: {
+      intent: "primary",
+      size: "medium"
+    }
+  },
+  {
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    deprecated: "The quick brown fox jumps over the lazy dog",
+    name: "Component",
+    see: "https://www.mozilla.org/"
+  }
+);
+
+export const noNameCVA = cva({
   base: "rounded-full",
   variants: {
     intent: {
@@ -20,26 +50,7 @@ export const buttonConfig = defineCVA({
   }
 });
 
-export const noNameCVA = defineCVA({
-  base: "rounded-full",
-  variants: {
-    intent: {
-      primary: ["bg-blue-500", "text-white", "border-transparent", "hover:bg-blue-600"],
-      secondary: ["bg-white", "text-gray-800", "border-gray-400", "hover:bg-gray-100"]
-    },
-    size: {
-      small: ["text-sm", "py-1", "px-2"],
-      medium: ["text-base", "py-2", "px-4"]
-    }
-  },
-  compoundVariants: [{ intent: "primary", size: "medium", class: "uppercase" }],
-  defaultVariants: {
-    intent: "primary",
-    size: "medium"
-  }
-});
-
-export const noBaseCVA = defineCVA({
+export const noBaseCVA = cva({
   name: "button",
   variants: {
     intent: {

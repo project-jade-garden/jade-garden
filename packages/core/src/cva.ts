@@ -1,87 +1,114 @@
 import { cx } from "./class-utils";
-import type { ClassProp, CVA, CVAConfig, CVAReturnType, CVAVariants, MergeFn, Variant } from "./types";
-import { getVariantClasses, hasProps } from "./utils";
+import type { ClassValue, CreateOptions } from "./types";
+import { type ClassProp, falsyToString, hasProps, kebabCase, type MetaConfig, type StringToBoolean } from "./utils";
 
-/* ====================== CVA ====================== */
+/* -----------------------------------------------------------------------------
+ * CVA
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Creates a class variant authority (cva) function with a custom merge function.
  *
- * @param {MergeFn} mergeFn - The function to merge class names.
+ * @param {CreateOptions} [options] - Options to manage class names.
  * @returns {CVA} The cva function.
  */
-export const createCVA = (mergeFn: MergeFn = cx): CVA => {
-  return <V extends Variant>(config: CVAConfig<V>): CVAReturnType<V> => {
-    const component = (props?: V extends Variant ? CVAVariants<V> & ClassProp : ClassProp): string => {
-      // * Exit early if `base` is not defined or has a falsey value
-      if (typeof config?.base === "undefined" || !config.base) return mergeFn(props?.class, props?.className);
+export const createCVA = (options?: CreateOptions): CVA => {
+  const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
-      const base = config.base;
+  return <CV extends ClassVariant>(styleConfig: CVAConfig<CV>, metaConfig?: MetaConfig): CVAComponent<CV> => {
+    const jg = (props?: CV extends ClassVariant ? CVAVariants<CV> & ClassProp : ClassProp): string => {
+      // * Exit early if `base` is not defined or has a falsy value
+      if (!styleConfig?.base) return mergeFn(props?.class, props?.className);
+
+      const base = styleConfig.base;
 
       // * Exit early if variants do not exist or is not an object
-      if (typeof config?.variants !== "object" || Array.isArray(config.variants)) {
+      if (typeof styleConfig?.variants !== "object" || Array.isArray(styleConfig.variants)) {
         return mergeFn(base, props?.class, props?.className);
       }
 
-      const variants = config.variants;
-      const compoundVariants = Array.isArray(config?.compoundVariants) ? config.compoundVariants : [];
-      const defaultVariants =
-        typeof config?.defaultVariants === "object" && !Array.isArray(config.defaultVariants)
-          ? config.defaultVariants
+      const variants = styleConfig.variants;
+      const compoundVariants = Array.isArray(styleConfig?.compoundVariants) ? styleConfig.compoundVariants : [];
+      const defaultVariants: CVAVariants<CV> =
+        typeof styleConfig?.defaultVariants === "object" && !Array.isArray(styleConfig.defaultVariants)
+          ? styleConfig.defaultVariants
           : {};
 
-      const defaultsAndProps = { ...defaultVariants, ...(props ?? {}) };
+      const getVariantClasses = () => {
+        if (typeof variants !== "object" || Array.isArray(variants)) return "";
+        let result = "";
+
+        for (const variant of Object.keys(variants)) {
+          const variantObj = variants[variant];
+          if (typeof variantObj !== "object" || Array.isArray(variantObj)) continue;
+
+          const variantKey = props?.[variant] ?? defaultVariants?.[variant];
+          const validKey = falsyToString(variantKey) ?? "false";
+          const value = mergeFn(variantObj[validKey as keyof (typeof variants)[typeof variant]]);
+
+          if (value) result += !result.length ? value : ` ${value}`;
+        }
+
+        return result;
+      };
 
       const getCompoundVariantClasses = () => {
         if (!Array.isArray(compoundVariants)) return "";
         let result = "";
 
         for (const { class: variantClass, className: variantClassName, ...variantConfig } of compoundVariants) {
-          if (hasProps(variantConfig, defaultsAndProps)) {
+          if (hasProps(variantConfig, { ...defaultVariants, ...(props ?? {}) })) {
             const classValue = mergeFn(variantClass);
             const classNameValue = mergeFn(variantClassName);
 
-            if (classValue) result += result.length === 0 ? classValue : ` ${classValue}`;
-            if (classNameValue) result += result.length === 0 ? classNameValue : ` ${classNameValue}`;
+            if (classValue) result += !result.length ? classValue : ` ${classValue}`;
+            if (classNameValue) result += !result.length ? classNameValue : ` ${classNameValue}`;
           }
         }
 
         return result;
       };
 
-      return mergeFn(
-        base,
-        getVariantClasses({ defaultVariants, mergeFn, props, variants }),
-        getCompoundVariantClasses(),
-        props?.class,
-        props?.className
-      );
+      return mergeFn(base, getVariantClasses(), getCompoundVariantClasses(), props?.class, props?.className);
     };
+
+    const ujg = (props?: CV extends ClassVariant ? CVAVariants<CV> & ClassProp : ClassProp): string => {
+      const { name, variants } = styleConfig;
+      if (!name) return mergeFn(props?.class, props?.className);
+
+      // * "jgPrefix:componentName"
+      const component = `${prefix ? `${prefix}:` : ""}${kebabCase(name)}`;
+
+      // * Exit early if variants do not exist or is not an object
+      if (typeof variants !== "object" || Array.isArray(variants)) {
+        return mergeFn(component, props?.class, props?.className);
+      }
+
+      let result = component;
+      for (const variantName of Object.keys(variants)) {
+        const variantObj = variants[variantName];
+
+        if (variantObj && typeof variantObj === "object") {
+          const variantType = props?.[variantName];
+
+          if (typeof variantType === "string" && variantType in variantObj) {
+            // * "jgPrefix:componentName__variantName--variantType"
+            result += ` ${component}__${kebabCase(variantName)}--${kebabCase(variantType)}`;
+          }
+        }
+      }
+
+      return mergeFn(result, props?.class, props?.className);
+    };
+
+    const component = (useStylesheet ? ujg : jg) as CVAComponent<CV>;
+
+    component.styleConfig = styleConfig;
+    component.metaConfig = metaConfig ?? {};
 
     return component;
   };
 };
-
-/**
- * Defines a type-safe structure for an CVA configuration object.
- * This utility allows you to define a CVA config with type checking.
- *
- * @returns {CVAConfig<Variant>} The CVA configuration object.
- *
- * @example
- * ```ts
- * const buttonConfig = defineCVA({
- *   base: "rounded-md",
- *   variants: {
- *     size: {
- *       small: "text-sm",
- *       medium: "text-base"
- *     }
- *   }
- * });
- * ```
- */
-export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V> => config;
 
 /**
  * Implementation of the class variant authority (cva) function using the default class merging function.
@@ -119,3 +146,74 @@ export const defineCVA = <V extends Variant>(config: CVAConfig<V>): CVAConfig<V>
  * ```
  */
 export const cva: CVA = createCVA();
+
+/* -----------------------------------------------------------------------------
+ * Types
+ * -----------------------------------------------------------------------------*/
+
+/**
+ * The variants of a component.
+ */
+type ClassVariant = Record<string, Record<string, ClassValue>>;
+
+/**
+ * Extracts the variants from the `CVAConfig`.
+ *
+ * @template CV - The type of variants.
+ */
+type CVAVariants<CV extends ClassVariant> = {
+  [K in keyof CV]?: StringToBoolean<keyof CV[K]>;
+};
+
+/**
+ * Represents the CVA configuration object.
+ *
+ * @template CV - The type of variants.
+ */
+type CVAConfig<CV extends ClassVariant> = {
+  /**
+   * An optional name for the component.
+   */
+  name?: string;
+  /**
+   * The base class for the component.
+   */
+  base?: ClassValue;
+  /**
+   * The variants for the component.
+   */
+  variants?: CV;
+  /**
+   * Compound variants allow you to apply classes to multiple variants at once.
+   */
+  compoundVariants?: (CV extends ClassVariant
+    ? (
+        | CVAVariants<CV>
+        | {
+            [K in keyof CV]?: StringToBoolean<keyof CV[K]> | StringToBoolean<keyof CV[K]>[];
+          }
+      ) &
+        ClassProp
+    : ClassProp)[];
+  /**
+   * Default variants allow you to set default variants for a component.
+   */
+  defaultVariants?: CVAVariants<CV>;
+};
+
+/**
+ * Represents the return type of the CVA function.
+ *
+ * @template CV - The type of variants.
+ */
+type CVAComponent<CV extends ClassVariant> = ((
+  props?: CV extends ClassVariant ? CVAVariants<CV> & ClassProp : ClassProp
+) => string) & {
+  metaConfig: MetaConfig;
+  styleConfig: CVAConfig<CV>;
+};
+
+/**
+ * Defines the structure for `createCVA`.
+ */
+type CVA = <CV extends ClassVariant = {}>(styleConfig: CVAConfig<CV>, metaConfig?: MetaConfig) => CVAComponent<CV>;

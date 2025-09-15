@@ -10,11 +10,11 @@
     "typecheck": "vue-tsc"
   },
   "dependencies": {
-    "@ark-ui/vue": "5.22.0",
+    "@ark-ui/vue": "5.23.0",
     "jade-garden": "workspace:*",
-    "lucide-vue-next": "0.542.0",
+    "lucide-vue-next": "0.544.0",
     "vue": "3.5.21",
-    "vue-tsc": "3.0.6"
+    "vue-tsc": "3.0.7"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "catalog:playground",

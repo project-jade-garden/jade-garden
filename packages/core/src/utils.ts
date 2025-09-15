@@ -1,63 +1,27 @@
-import type { MergeFn } from "./types";
+import type { ClassValue } from "./types";
 
-/* ===================== Utils ===================== */
+/* -----------------------------------------------------------------------------
+ * Utils
+ * -----------------------------------------------------------------------------*/
 
 /**
  * Converts a boolean to its string representation ("true" or "false"), or returns the value as is.
- * Treats 0 as "0".
+ * This is useful for handling variant keys, where `false` or `0` should not be omitted.
  *
  * @template T - The type of the value.
  * @param {T} value - The value to convert.
- * @returns {string | T} - The string representation of the boolean, or the original value.
+ * @returns {string | T} The string representation of the boolean, or the original value.
  */
-const falsyToString = <T>(value: T): string | T =>
+export const falsyToString = <T>(value: T): string | T =>
   typeof value === "boolean" ? `${value}` : value === 0 ? "0" : value;
 
 /**
- * Retrieves variant classes based on provided configuration and props.
- *
- * @param {object} options - The options object.
- * @param {Record<string, any> | undefined} options.defaultVariants - The default variants object.
- * @param {MergeFn} options.mergeFn - The function to merge class names.
- * @param {Record<string, any> | undefined} options.props - The props object.
- * @param {Record<string, any> | undefined} options.variants - The variants object.
- * @param {string | undefined} [options.slotKey] - The slot key (for `sva`).
- * @param {Record<string, any> | undefined} [options.slotProps] - The slot props (for `sva`).
- * @returns {string} A string of variant class names.
- */
-export const getVariantClasses = (options: {
-  defaultVariants: Record<string, any> | undefined;
-  mergeFn: MergeFn;
-  props: Record<string, any> | undefined;
-  variants: Record<string, any> | undefined;
-  slotKey?: string;
-  slotProps?: Record<string, any>;
-}): string => {
-  const { defaultVariants, mergeFn, props, slotKey, slotProps, variants } = options;
-  if (typeof variants !== "object" || Array.isArray(variants)) return "";
-
-  let result = "";
-
-  for (const variant of Object.keys(variants)) {
-    const variantObj = (variants as Record<string, any>)[variant];
-    if (!variantObj || typeof variantObj !== "object" || Object.keys(variantObj).length === 0) continue;
-
-    const variantKey = slotProps?.[variant] ?? props?.[variant] ?? defaultVariants?.[variant];
-    const validKey = variantKey !== undefined ? falsyToString(variantKey) : variantKey;
-    const value = slotKey ? mergeFn(variantObj[validKey ?? "false"]?.[slotKey]) : mergeFn(variantObj[validKey]);
-
-    if (value) result += result.length === 0 ? value : ` ${value}`;
-  }
-
-  return result;
-};
-
-/**
  * Checks if a given configuration object matches the provided props.
+ * This is used to determine if a compound variant or compound slot should be applied.
  *
- * @param {Record<string, unknown>} config - The configuration object.
- * @param {Record<string, unknown>} props - The props object.
- * @returns {boolean} True if the configuration matches the props, false otherwise.
+ * @param {Record<string, unknown>} config - The configuration object, where keys are variant names and values are the required variant values.
+ * @param {Record<string, unknown>} props - The props object from the component.
+ * @returns {boolean} `true` if the configuration matches the props, `false` otherwise.
  */
 export const hasProps = (config: Record<string, unknown>, props: Record<string, unknown>): boolean => {
   let isValid = true;
@@ -75,3 +39,80 @@ export const hasProps = (config: Record<string, unknown>, props: Record<string, 
 
   return isValid;
 };
+
+/**
+ * **The `kebabCase` function taken from [es-toolkit](https://github.com/toss/es-toolkit/blob/main/src/string/kebabCase.ts)**.
+ * Converts a string to kebab case.
+ *
+ * @param {string} str - The string to convert.
+ * @returns {string} The kebab-cased string.
+ */
+export const kebabCase = (str: string): string => {
+  const words = Array.from(
+    str.match(/\p{Lu}?\p{Ll}+|[0-9]+|\p{Lu}+(?!\p{Ll})|\p{Emoji_Presentation}|\p{Extended_Pictographic}|\p{L}+/gu) ?? []
+  );
+  return words.map((word) => word.toLowerCase()).join("-");
+};
+
+/* -----------------------------------------------------------------------------
+ * Types
+ * -----------------------------------------------------------------------------*/
+
+/**
+ * Represents the `class` and `className` props for `cva` and `sva`.
+ * Ensures that only one of `class` or `className` is present.
+ */
+export type ClassProp =
+  | {
+      class?: ClassValue;
+      className?: never;
+    }
+  | {
+      class?: never;
+      className?: ClassValue;
+    };
+
+/**
+ * **FOR LIBRARY AUTHORS**
+ *
+ * Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
+ */
+export type MetaConfig = {
+  /**
+   * Adds a `deprecated` tag.
+   *
+   * Adds a description if `deprecated` is a string.
+   *
+   * @see https://jsdoc3.vercel.app/tags/deprecated
+   */
+  deprecated?: boolean | string;
+
+  /**
+   * Adds a `description` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/description
+   */
+  description?: string;
+
+  /**
+   * Adds a `name` tag.
+   *
+   * `name` should be the same as `name` in style configuration.
+   *
+   * @see https://jsdoc3.vercel.app/tags/name
+   */
+  name?: string;
+
+  /**
+   * Adds a `see` tag.
+   *
+   * @see https://jsdoc3.vercel.app/tags/see
+   */
+  see?: string;
+};
+
+/**
+ * Converts a string literal "true" or "false" to its boolean type.
+ * @template T - The string literal type, e.g., "true" | "false".
+ */
+export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
