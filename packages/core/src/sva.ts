@@ -314,7 +314,6 @@ type SVAVariants<S extends string, SV extends SlotVariants<S>> = {
  * Represents the SVA configuration object.
  *
  * @template S - The name of the slots.
- * @template RCV - The record class values.
  * @template SV - The slot variants.
  */
 type SVAConfig<S extends string, SV extends SlotVariants<S>> = {
@@ -364,7 +363,6 @@ type SVAConfig<S extends string, SV extends SlotVariants<S>> = {
  * Represents the return type of the SVA function.
  *
  * @template S - The name the of slots.
- * @template RCV - The type of record class values.
  * @template SV - The slot variants.
  */
 type SVAComponent<S extends string, SV extends SlotVariants<S>> = ((
@@ -378,7 +376,6 @@ type SVAComponent<S extends string, SV extends SlotVariants<S>> = ((
  * Defines the structure for `createSVA`.
  *
  * @template S - The name the of slots.
- * @template RCV - The type of record class values.
  * @template SV - The slot variants.
  */
 type SVA = <S extends string, SV extends SlotVariants<S>>(
