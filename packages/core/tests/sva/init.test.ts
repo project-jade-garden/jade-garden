@@ -220,6 +220,24 @@ describe("sva", () => {
       expect(emptySlots()).toBeEmptyObject();
     });
 
+    test("with slots and no base", () => {
+      const component = sva({ slots: ["root", "title", "message"] });
+
+      // Should be functions
+      expect(component().root).toBeFunction();
+      expect(component().title).toBeFunction();
+      expect(component().message).toBeFunction();
+
+      // Should write class names
+      expect(component().root({ class: "bg-blue-500" })).toEqual("bg-blue-500");
+      expect(component().title({ className: "bg-red-500" })).toEqual("bg-red-500");
+
+      expect(
+        // @ts-expect-error: for testing
+        component().message({ class: ["pt-1", "pr-2", "pb-3", "pl-4"], className: [["mt-1", "mr-2", "mb-3", "ml-4"]] })
+      ).toHaveClass(["pt-1", "pr-2", "pb-3", "pl-4", "mt-1", "mr-2", "mb-3", "ml-4"]);
+    });
+
     test("without defaultsVariants", () => {
       const button = sva({
         base: {
