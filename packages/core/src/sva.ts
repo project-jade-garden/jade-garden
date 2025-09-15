@@ -15,10 +15,10 @@ import { type ClassProp, falsyToString, hasProps, kebabCase, type MetaConfig, ty
 export const createSVA = (options?: CreateOptions): SVA => {
   const { mergeFn = cx, prefix = "", useStylesheet = false } = options ?? {};
 
-  return <S extends string, RCV extends Partial<RecordClassValue<S>>, SV extends SlotVariants<S>>(
-    styleConfig: SVAConfig<S, RCV, SV>,
+  return <S extends string, SV extends SlotVariants<S>>(
+    styleConfig: SVAConfig<S, SV>,
     metaConfig?: MetaConfig
-  ): SVAComponent<S, RCV, SV> => {
+  ): SVAComponent<S, SV> => {
     const jg = (props?: SVAVariants<S, SV>) => {
       // * Exit early if slots is not defined or does not have values
       if (!Array.isArray(styleConfig?.slots) || !styleConfig.slots.length) return {};
@@ -193,7 +193,7 @@ export const createSVA = (options?: CreateOptions): SVA => {
       return slotsFns;
     };
 
-    const component = (useStylesheet ? ujg : jg) as SVAComponent<S, RCV, SV>;
+    const component = (useStylesheet ? ujg : jg) as SVAComponent<S, SV>;
 
     component.styleConfig = styleConfig;
     component.metaConfig = metaConfig ?? {};
@@ -267,13 +267,6 @@ type DefaultVariants<S extends string> = {
 };
 
 /**
- * A record of class values.
- *
- * @template S - The name of the slots.
- */
-type RecordClassValue<S extends string> = Record<S, ClassValue>;
-
-/**
  * **IMPORTANT**
  *
  * This is **THE** core type that defines the keys throughout {@link SVAConfig}.
@@ -324,7 +317,7 @@ type SVAVariants<S extends string, SV extends SlotVariants<S>> = {
  * @template RCV - The record class values.
  * @template SV - The slot variants.
  */
-type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, SV extends SlotVariants<S>> = {
+type SVAConfig<S extends string, SV extends SlotVariants<S>> = {
   /**
    * An optional name for the component.
    */
@@ -336,7 +329,7 @@ type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, SV ex
   /**
    * The base classes for each slot.
    */
-  base?: RCV;
+  base?: Partial<Record<S, ClassValue>>;
   /**
    * The variants for the component.
    */
@@ -374,11 +367,11 @@ type SVAConfig<S extends string, RCV extends Partial<RecordClassValue<S>>, SV ex
  * @template RCV - The type of record class values.
  * @template SV - The slot variants.
  */
-type SVAComponent<S extends string, RCV extends Partial<RecordClassValue<S>>, SV extends SlotVariants<S>> = ((
+type SVAComponent<S extends string, SV extends SlotVariants<S>> = ((
   props?: SVAVariants<S, SV>
 ) => Record<S, (slotProps?: SlotProps<S, SV>) => string>) & {
   metaConfig: MetaConfig;
-  styleConfig: SVAConfig<S, RCV, SV>;
+  styleConfig: SVAConfig<S, SV>;
 };
 
 /**
@@ -388,7 +381,7 @@ type SVAComponent<S extends string, RCV extends Partial<RecordClassValue<S>>, SV
  * @template RCV - The type of record class values.
  * @template SV - The slot variants.
  */
-type SVA = <S extends string, RCV extends Partial<RecordClassValue<S>>, SV extends SlotVariants<S>>(
-  styleConfig: SVAConfig<S, RCV, SV>,
+type SVA = <S extends string, SV extends SlotVariants<S>>(
+  styleConfig: SVAConfig<S, SV>,
   metaConfig?: MetaConfig
-) => SVAComponent<S, RCV, SV>;
+) => SVAComponent<S, SV>;
