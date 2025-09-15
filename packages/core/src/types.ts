@@ -103,8 +103,10 @@ type OmitUndefined<T> = T extends undefined ? never : T;
  * @template T - A map where keys are component property names (e.g., "size", "variant")
  * and values are the allowed types for that property (e.g., "small" | "medium").
  */
-export type Traits<T extends Record<string, any>> = {
-  [K in keyof T]?: Attribute<T[K]>;
+export type Traits<T extends Record<string, Record<string, any>>> = {
+  [K in keyof T]?: {
+    [A in keyof T[K]]?: Attribute<T[K][A]>;
+  };
 };
 
 /**

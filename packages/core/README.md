@@ -67,12 +67,13 @@ Manage styles for multi-part components by defining styles for individual "**slo
 import { sva } from "jade-garden";
 
 const card = sva({
-  slots: {
+  base: {
     root: "relative rounded-lg shadow-md",
     header: "p-4 border-b",
     body: "p-4",
     footer: "p-4 border-t",
   },
+  slots: ["root", "header", "body", "footer"],
   variants: {
     flat: {
       true: {
@@ -132,9 +133,11 @@ const hasCheckedPrefixes = prefixes("has-checked", [
 
 // traits (for data attributes)
 type CustomTraits = Traits<{
-  value: boolean;
-  custom: string;
-  index: number;
+  data: {
+    value: boolean;
+    custom: string;
+    index: number;
+  }
 }>;
 
 const elementTraits = traits<CustomTraits>({

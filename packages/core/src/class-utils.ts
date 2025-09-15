@@ -185,51 +185,53 @@ export const prefixes = (
  * // data-[value]:my-value-123 data-[custom]:my-class data-[index="0"]:not-active data-[index="1"]:active
  * ```
  */
-export const traits = <T extends Traits<Record<string, any>>>(attributes: Record<string, T>): string => {
+export const traits = <T extends Traits<Record<string, Record<string, any>>>>(attributes: T): string => {
   let result = "";
 
   if (typeof attributes === "object" && !Array.isArray(attributes)) {
     for (const attributeKey of Object.keys(attributes)) {
       const attributeValues = attributes[attributeKey];
 
-      for (const valueKey of Object.keys(attributeValues)) {
-        const value = attributeValues[valueKey];
+      if (attributeValues) {
+        for (const valueKey of Object.keys(attributeValues)) {
+          const value = attributeValues[valueKey];
 
-        if (typeof value === "object" && !Array.isArray(value)) {
-          const attributeValue = value;
+          if (typeof value === "object" && !Array.isArray(value)) {
+            const attributeValue = value;
 
-          for (const condition in value) {
-            const prefix = !result.length ? "" : " ";
+            for (const condition in value) {
+              const prefix = !result.length ? "" : " ";
 
-            if (Object.hasOwn(attributeValue, condition)) {
-              const value = attributeValue[condition as keyof typeof attributeValue];
-              const dataAttributeStr = `${attributeKey}-[${valueKey}=${condition}]`;
+              if (Object.hasOwn(attributeValue, condition)) {
+                const value = attributeValue[condition as keyof typeof attributeValue];
+                const dataAttributeStr = `${attributeKey}-[${valueKey}=${condition}]`;
 
-              if (Array.isArray(value)) {
-                let values = "";
-                for (const v of value) {
-                  values += `${!values.length ? "" : " "}${dataAttributeStr}:${v}`;
+                if (Array.isArray(value)) {
+                  let values = "";
+                  for (const v of value) {
+                    values += `${!values.length ? "" : " "}${dataAttributeStr}:${v}`;
+                  }
+
+                  result += prefix + values;
+                } else if (typeof value === "string" && value.length > 0) {
+                  result += `${prefix}${dataAttributeStr}:${value}`;
                 }
-
-                result += prefix + values;
-              } else if (typeof value === "string" && value.length > 0) {
-                result += `${prefix}${dataAttributeStr}:${value}`;
               }
             }
-          }
-        } else if (typeof value !== "undefined") {
-          const prefix = !result.length ? "" : " ";
-          const dataAttributeStr = `${attributeKey}-[${valueKey}]`;
+          } else if (typeof value !== "undefined") {
+            const prefix = !result.length ? "" : " ";
+            const dataAttributeStr = `${attributeKey}-[${valueKey}]`;
 
-          if (Array.isArray(value)) {
-            let attributeValues = "";
-            for (const v of value) {
-              attributeValues += `${!attributeValues.length ? "" : " "}${dataAttributeStr}:${v}`;
+            if (Array.isArray(value)) {
+              let attributeValues = "";
+              for (const v of value) {
+                attributeValues += `${!attributeValues.length ? "" : " "}${dataAttributeStr}:${v}`;
+              }
+
+              result += prefix + attributeValues;
+            } else if (typeof value === "string" && value.length > 0) {
+              result += `${prefix}${dataAttributeStr}:${value}`;
             }
-
-            result += prefix + attributeValues;
-          } else if (typeof value === "string" && value.length > 0) {
-            result += `${prefix}${dataAttributeStr}:${value}`;
           }
         }
       }

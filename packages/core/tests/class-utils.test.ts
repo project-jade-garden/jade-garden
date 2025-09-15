@@ -210,67 +210,94 @@ describe("class-utils", () => {
 
   describe("traits", () => {
     test("generate data attributes for simple string values", () => {
-      const data: Traits<{ scope: "avatar"; part: "fallback" }> = {
-        scope: { avatar: "avatar" },
-        part: { fallback: "fallback" }
-      };
-      expect(traits({ data })).toBe("data-[scope=avatar]:avatar data-[part=fallback]:fallback");
+      expect(
+        traits<Traits<{ data: { scope: "avatar"; part: "fallback" } }>>({
+          data: {
+            scope: { avatar: "avatar" },
+            part: { fallback: "fallback" }
+          }
+        })
+      ).toBe("data-[scope=avatar]:avatar data-[part=fallback]:fallback");
     });
 
     test("generate data attributes for array values", () => {
-      const data: Traits<{ roles: "admin" | "moderator" }> = {
-        roles: {
-          admin: ["admin", "manager"],
-          moderator: ["moderator", "ic"]
-        }
-      };
-      expect(traits({ data })).toBe(
+      expect(
+        traits<Traits<{ data: { roles: "admin" | "moderator" } }>>({
+          data: {
+            roles: {
+              admin: ["admin", "manager"],
+              moderator: ["moderator", "ic"]
+            }
+          }
+        })
+      ).toBe(
         "data-[roles=admin]:admin data-[roles=admin]:manager data-[roles=moderator]:moderator data-[roles=moderator]:ic"
       );
     });
 
     test("conditional data attributes for object values", () => {
-      const data: Traits<{ state: "open" | "closed" }> = {
-        state: {
-          open: "is-open",
-          closed: "is-closed"
-        }
-      };
-      expect(traits({ data })).toBe("data-[state=open]:is-open data-[state=closed]:is-closed");
+      expect(
+        traits<Traits<{ data: { state: "open" | "closed" } }>>({
+          data: {
+            state: {
+              open: "is-open",
+              closed: "is-closed"
+            }
+          }
+        })
+      ).toBe("data-[state=open]:is-open data-[state=closed]:is-closed");
     });
 
     test("boolean data attributes", () => {
-      const data: Traits<{ disabled: boolean }> = {
-        disabled: { true: "is-disabled", false: "is-enabled" }
-      };
-      expect(traits({ data })).toBe("data-[disabled=true]:is-disabled data-[disabled=false]:is-enabled");
+      expect(
+        traits<Traits<{ data: { disabled: boolean } }>>({
+          data: {
+            disabled: {
+              true: "is-disabled",
+              false: "is-enabled"
+            }
+          }
+        })
+      ).toBe("data-[disabled=true]:is-disabled data-[disabled=false]:is-enabled");
     });
 
     test("empty string literal data attributes", () => {
-      const data: Traits<{ focus: boolean }> = {
-        focus: "is-focused"
-      };
-      expect(traits({ data })).toBe("data-[focus]:is-focused");
+      type TraitsTest = Traits<{ data: { focus: boolean } }>;
 
-      const dataArr: Traits<{ focus: boolean }> = {
-        focus: ["is-focused", "active"]
-      };
-      expect(traits({ data: dataArr })).toBe("data-[focus]:is-focused data-[focus]:active");
+      expect(
+        traits<TraitsTest>({
+          data: {
+            focus: "is-focused"
+          }
+        })
+      ).toBe("data-[focus]:is-focused");
+
+      expect(
+        traits<TraitsTest>({
+          data: {
+            focus: ["is-focused", "active"]
+          }
+        })
+      ).toBe("data-[focus]:is-focused data-[focus]:active");
     });
 
     test("empty string data value", () => {
-      const data: Traits<{ name: boolean; id: boolean }> = {
-        name: "John Doe",
-        id: ""
+      const { data }: Traits<{ data: { name: boolean; id: boolean } }> = {
+        data: {
+          name: "John Doe",
+          id: ""
+        }
       };
       expect(traits({ data })).toBe("data-[name]:John Doe");
     });
 
     test("undefined data value", () => {
-      // @ts-expect-error: for testing
-      const data: Traits<{ name: boolean; id: boolean }> = {
-        name: "John Doe",
-        id: undefined
+      const { data }: Traits<{ data: { name: boolean; id: boolean } }> = {
+        // @ts-expect-error: for testing
+        data: {
+          name: "John Doe",
+          id: undefined
+        }
       };
       expect(traits({ data })).toBe("data-[name]:John Doe");
     });
