@@ -1,5 +1,12 @@
 # unplugin-jade-garden
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [c5ac8bd]
+  - jade-garden@2.0.1
+
 ## 1.0.0
 
 ### Major Changes
