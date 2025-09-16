@@ -1,5 +1,3 @@
-import type { ClassValue } from "./types";
-
 /* -----------------------------------------------------------------------------
  * Utils
  * -----------------------------------------------------------------------------*/
@@ -53,66 +51,3 @@ export const kebabCase = (str: string): string => {
   );
   return words.map((word) => word.toLowerCase()).join("-");
 };
-
-/* -----------------------------------------------------------------------------
- * Types
- * -----------------------------------------------------------------------------*/
-
-/**
- * Represents the `class` and `className` props for `cva` and `sva`.
- * Ensures that only one of `class` or `className` is present.
- */
-export type ClassProp =
-  | {
-      class?: ClassValue;
-      className?: never;
-    }
-  | {
-      class?: never;
-      className?: ClassValue;
-    };
-
-/**
- * **FOR LIBRARY AUTHORS**
- *
- * Add JSDoc and CSS comments to components when generating with `unplugin-jade-garden`.
- */
-export type MetaConfig = {
-  /**
-   * Adds a `deprecated` tag.
-   *
-   * Adds a description if `deprecated` is a string.
-   *
-   * @see https://jsdoc3.vercel.app/tags/deprecated
-   */
-  deprecated?: boolean | string;
-
-  /**
-   * Adds a `description` tag.
-   *
-   * @see https://jsdoc3.vercel.app/tags/description
-   */
-  description?: string;
-
-  /**
-   * Adds a `name` tag.
-   *
-   * `name` should be the same as `name` in style configuration.
-   *
-   * @see https://jsdoc3.vercel.app/tags/name
-   */
-  name?: string;
-
-  /**
-   * Adds a `see` tag.
-   *
-   * @see https://jsdoc3.vercel.app/tags/see
-   */
-  see?: string;
-};
-
-/**
- * Converts a string literal "true" or "false" to its boolean type.
- * @template T - The string literal type, e.g., "true" | "false".
- */
-export type StringToBoolean<T> = T extends "true" | "false" ? boolean : T;
