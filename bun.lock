@@ -26,7 +26,7 @@
     },
     "packages/core": {
       "name": "jade-garden",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "devDependencies": {
         "@biomejs/biome": "catalog:",
         "@types/benchmark": "2.1.5",
@@ -45,7 +45,7 @@
     },
     "packages/plugins": {
       "name": "unplugin-jade-garden",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "dependencies": {
         "jade-garden": "workspace:*",
         "unplugin": "2.3.10",

@@ -1,5 +1,11 @@
 # jade-garden
 
+## 2.0.1
+
+### Patch Changes
+
+- c5ac8bd: Fixes inferred type issue by moving types from `utils.ts` back to `types.ts`.
+
 ## 2.0.0
 
 ### Major Changes
