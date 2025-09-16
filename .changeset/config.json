@@ -7,11 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [
-    "@project-jade-garden/docs",
-    "@project-jade-garden/playground-react",
-    "@project-jade-garden/playground-solid",
-    "@project-jade-garden/playground-svelte",
-    "@project-jade-garden/playground-vue"
-  ]
+  "ignore": ["@project-jade-garden/docs"]
 }
