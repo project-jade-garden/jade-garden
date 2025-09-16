@@ -1,6 +1,6 @@
 import { cx } from "./class-utils";
-import type { ClassValue, CreateOptions } from "./types";
-import { type ClassProp, falsyToString, hasProps, kebabCase, type MetaConfig, type StringToBoolean } from "./utils";
+import type { ClassProp, ClassValue, CreateOptions, MetaConfig, StringToBoolean } from "./types";
+import { falsyToString, hasProps, kebabCase } from "./utils";
 
 /* -----------------------------------------------------------------------------
  * SVA
