@@ -45,6 +45,7 @@
         "typescript": "catalog:",
       },
       "peerDependencies": {
+        "jade-garden": ">=2.0.0",
         "tailwindcss": ">=4.0.0",
       },
     },
