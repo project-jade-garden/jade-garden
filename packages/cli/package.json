@@ -30,10 +30,10 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    "default": "./dist/index.mjs",
-    "types": "./dist/index.d.mts"
-  },
+  "exports": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "module": "dist/index.mjs",
+  "main": "./dist/index.mjs",
   "bin": "./dist/index.mjs",
   "scripts": {
     "build": "bun typecheck && bun ./build.ts",
@@ -58,7 +58,6 @@
     "c12": "3.3.0",
     "jade-garden": "workspace:*",
     "minimist": "1.2.8",
-    "picocolors": "1.1.1",
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
