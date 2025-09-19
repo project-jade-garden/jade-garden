@@ -19,6 +19,7 @@
     "postinstall": "lefthook install",
     "fresh": "bun clean && bun i && bun typecheck",
     "docs": "bun run --cwd docs",
+    "pkg:cli": "bun run --cwd packages/cli",
     "pkg:core": "bun run --cwd packages/core",
     "pkg:plugins": "bun run --cwd packages/plugins",
     "playground:react": "bun run --cwd playground/react",
@@ -38,12 +39,12 @@
     "@biomejs/biome": "catalog:",
     "@changesets/changelog-github": "0.5.1",
     "@changesets/cli": "2.29.7",
-    "@types/bun": "1.2.21",
+    "@types/bun": "1.2.22",
     "lefthook": "1.13.0",
     "turbo": "2.5.6",
     "typescript": "catalog:"
   },
-  "packageManager": "bun@1.2.21",
+  "packageManager": "bun@1.2.22",
   "overrides": {
     "@internationalized/date": "3.8.1",
     "@internationalized/number": "3.6.2"

@@ -1,0 +1,75 @@
+{
+  "name": "@jade-garden/cli",
+  "version": "0.0.0",
+  "description": "Generate CSS with Jade Garden and Tailwind CSS",
+  "keywords": [
+    "tailwindcss",
+    "tailwind",
+    "class-variance-authority",
+    "slots-variance-authority",
+    "classes",
+    "classname",
+    "classnames",
+    "css",
+    "cva",
+    "sva",
+    "styles",
+    "variants"
+  ],
+  "author": "Gregory Salinas <ags1130@yahoo.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-jade-garden/jade-garden.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/project-jade-garden/jade-garden/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "default": "./dist/index.mjs",
+    "types": "./dist/index.d.mts"
+  },
+  "bin": "./dist/index.mjs",
+  "scripts": {
+    "build": "bun typecheck && bun ./build.ts",
+    "clean": "rm -rf .turbo dist node_modules",
+    "dev": "bun ./build.ts",
+    "format": "biome format --write .",
+    "lint": "biome lint",
+    "postpack": "clean-package restore",
+    "prepack": "clean-package",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public",
+    "executableFiles": [
+      "./dist/index.mjs"
+    ]
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/preset-typescript": "7.27.1",
+    "@clack/prompts": "0.11.0",
+    "c12": "3.3.0",
+    "jade-garden": "workspace:*",
+    "minimist": "1.2.8",
+    "picocolors": "1.1.1",
+    "tailwindcss": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/minimist": "1.2.5",
+    "clean-package": "catalog:",
+    "es-toolkit": "1.39.10",
+    "obuild": "0.2.1",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=4.0.0"
+  }
+}
