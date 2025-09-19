@@ -34,7 +34,6 @@
         "c12": "3.3.0",
         "jade-garden": "workspace:*",
         "minimist": "1.2.8",
-        "picocolors": "1.1.1",
         "tailwindcss": "catalog:",
       },
       "devDependencies": {

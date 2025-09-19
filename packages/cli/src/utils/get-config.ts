@@ -6,6 +6,10 @@ import type { Config } from "../types";
 import { cancelBuild } from ".";
 import { logs, WARNING } from "./logs";
 
+/* -----------------------------------------------------------------------------
+ * Get Config
+ * -----------------------------------------------------------------------------*/
+
 let possiblePaths = [
   "jade-garden.config.js",
   "jade-garden.config.ts",
