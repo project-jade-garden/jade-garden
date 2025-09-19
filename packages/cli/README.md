@@ -1,157 +1,126 @@
-# unplugin-jade-garden
+# @jade-garden/cli
 
 > [!WARNING]
-> `unplugin-jade-garden` will soon be deprecated and replaced by [`@jade-garden/cli`](https://www.npmjs.com/package/@jade-garden/cli).
+> While most of the code in `@jade-garden/cli` is identical to [`unplugin-jade-garden`](https://www.npmjs.com/package/unplugin-jade-garden), and should have the same outputs, there are no tests to verify.
+> Use with caution.
 
-`unplugin-jade-garden` utilizes [`unplugin`](https://unplugin.unjs.io/) to seamlessly integrate your `jade-garden` CVA (Class Variance Authority) and SVA (Slots Variance Authority) configurations
-directly into your build process. It automatically generates CSS files containing Tailwind CSS [`@apply` directives](https://tailwindcss.com/docs/functions-and-directives#apply-directive)
+The CLI automatically generates CSS files containing Tailwind CSS [`@apply` directives](https://tailwindcss.com/docs/functions-and-directives#apply-directive)
 based on your defined component styles, eliminating the need for manual class matching, prop handling, or type concerns in your final CSS output.
 
-## Why unplugin-jade-garden?
+## Why @jade-garden/cli?
 
 Modern front-end development heavily relies on component-based styling and utility-first CSS frameworks like Tailwind CSS.
 While `jade-garden` provides a powerful programmatic way to define and manage component styles with variants and slots,
 integrating these definitions into your actual CSS output has traditionally required manual effort or complex PostCSS setups.
 
-`unplugin-jade-garden` solves this challenge by:
+The CLI solves this challenge by:
 
 - **Automating CSS Generation**: It reads your `jade-garden` CVA and SVA configurations and automatically writes corresponding CSS files using `@apply` directives. This means your `jade-garden` definitions directly translate into CSS that Tailwind will optimize to plain CSS.
-- **Streamlining Tailwind Integration:** Forget manually mapping Tailwind classes to `jade-garden` variants. The plugin handles this intelligently, ensuring your component styles are correctly applied in your final stylesheet.
+- **Streamlining Tailwind Integration:** Forget manually mapping Tailwind classes to `jade-garden` variants. The CLI handles this intelligently, ensuring your component styles are correctly applied in your final stylesheet.
 - **Enhancing Performance:** By generating static CSS at build time, it reduces the amount of JavaScript needed for runtime styling, leading to faster page loads and a more performant user experience.
-- **Improving Developer Experience:** Focus on defining your design system programmatically with `jade-garden`'s type safety; the plugin takes care of the build-time CSS output.
-- **Cross-Build Tool Compatibility:** Leveraging [`unplugin`](https://unplugin.unjs.io/), it offers native support for popular bundlers like **Rollup**, **Rspack**, **Vite**, and **Webpack**, ensuring a consistent setup across different projects.
+- **Improving Developer Experience:** Focus on defining your design system programmatically with `jade-garden`'s type safety; the CLI takes care of the CSS output that Tailwind will process.
 
 ## Quick Start
 
 ### Installation
 
-Install `unplugin-jade-garden` and `jade-garden`:
+Install `@jade-garden/cli`, `jade-garden`, and `tailwindcss`:
 
 ```bash
 # Using npm
-npm install jade-garden
-npm install -D unplugin-jade-garden
+npm install jade-garden tailwindcss
+npm install -D @jade-garden/cli
 
 # Using yarn
-yarn add jade-garden
-yarn add -D unplugin-jade-garden
+yarn add jade-garden tailwindcss
+yarn add -D @jade-garden/cli
 
 # Using pnpm
-pnpm add jade-garden
-pnpm add -D unplugin-jade-garden
+pnpm add jade-garden tailwindcss
+pnpm add -D @jade-garden/cli
 
 # Using bun
-bun add jade-garden
-bun add -D unplugin-jade-garden
+bun add jade-garden tailwindcss
+bun add -D @jade-garden/cli
 ```
 
 ## Usage
 
-`unplugin-jade-garden` integrates with your build tool through its respective `unplugin` adapter.
+You can run the CLI with `npx`, `pnpx`, `bunx`, or install locally.
 
-### Basic Configuration Example (Vite)
+```bash
+# Using npx
+npx @jade-garden/cli
 
-```ts
-// vite.config.ts
-import { defineConfig } from "vite";
-import jadeGardenPlugin from "unplugin-jade-garden/vite";
-import { cva, sva } from "jade-garden";
+# Using pnpx
+pnpx @jade-garden/cli
 
-// Define some example CVA and SVA configs
-const buttonConfig = cva({
-  base: "...",
-  variants: { ... }
-});
-
-const card = sva({
-  base: { ... },
-  slots: ["content", "footer", "header"],
-  variants: { ... }
-});
-
-export default defineConfig({
-  plugins: [
-    jadeGardenPlugin({
-      components: {
-        ui: [button, card]
-      },
-
-      // Required: The entry point for your main CSS/Tailwind file.
-      // This path is relative to your project root.
-      // E.g., "./styles/index.css" or "css/main.css"
-      entry: "src/app.css"
-    })
-  ]
-});
+# Using bunx
+bunx @jade-garden/cli
 ```
 
-### Build Tool Specific Setup
+By default, the CLI will automatically look for configuration files with the following names across your project:
+- jade-garden.config.js
+- jade-garden.config.ts
+- jade-garden.js
+- jade-garden.ts
+- jade.config.js
+- jade.config.ts
+- jade.js
+- jade.ts
 
-#### Vite
+You can also specify where your configuration is by passing the `--config` flag.
 
-```js
-// vite.config.js
-import { defineConfig } from "vite";
-import jadeGardenPlugin from "unplugin-jade-garden/vite";
-
-export default defineConfig({
-  plugins: [
-    jadeGardenPlugin({ /* options */ })
-  ]
-});
-```
-
-#### Rollup
-
-```js
-// rollup.config.js
-import jadeGardenPlugin from "unplugin-jade-garden/rollup";
-
-export default {
-  plugins: [
-    jadeGardenPlugin({ /* options */ })
-  ]
-};
-```
-
-#### Webpack
-
-```js
-// webpack.config.js
-const jadeGardenPlugin = require("unplugin-jade-garden/webpack");
-
-module.exports = {
-  plugins: [
-    jadeGardenPlugin({ /* options */ })
-  ]
-};
-```
-
-#### Rspack
-
-```js
-// rspack.config.js
-const jadeGardenPlugin = require("unplugin-jade-garden/rspack");
-
-module.exports = {
-  plugins: [
-    jadeGardenPlugin({ /* options */ })
-  ]
-};
+```bash
+@jade-garden/cli --config ./path/to/config.ts
 ```
 
 ## Configuration
 
-The plugin accepts an `Options` object to customize its behavior:
+The CLI accepts a `Config` object to customize its behavior:
 
 ```ts
-type Options = {
+// TypeScript
+import type { Config } from "@jade-garden/cli";
+
+export default {
+  components: []
+} satisfies Config;
+```
+
+```js
+// JavaScript
+
+/** @type {import("@jade-garden/cli").Config} */
+export default {
+  components: []
+} satisfies Config;
+```
+
+### Types
+
+```ts
+/**
+ * The config for the Jade Garden CLI.
+ */
+export type Config = {
   /**
    * Will empty the output directory on every build.
    *
    * @default false
    */
   clean?: boolean;
+
+  /**
+   * **REQUIRES TAILWIND v4**
+   *
+   * See [the upgrade guide](https://tailwindcss.com/docs/upgrade-guide) for more information.
+   *
+   * Leverages the Tailwind compiler to replace `@apply` directives with CSS variables.
+   *
+   * @default false
+   */
+  compile?: boolean;
 
   /**
    * An object containing arrays of `cva` and `sva` components.
@@ -185,7 +154,7 @@ type Options = {
    * }
    * ```
    */
-  components?: Record<string, (CVA | SVA)[]>;
+  components: Record<string, (CVA | SVA)[]>;
 
   /**
    * The file format for the generated configs, if `createOptions.useStylesheet` is set to `false`.
@@ -197,7 +166,7 @@ type Options = {
   /**
    * The options used to modify your class names for `createCVA` and `createSVA`.
    *
-   * Use with `unplugin-jade-garden` to ensure consistent output of your CSS.
+   * Use with `jade-garden` to ensure consistent output of your CSS.
    *
    * @default {}
    *
@@ -216,30 +185,10 @@ type Options = {
    * export const sva = createSVA(createOptions);
    * ```
    */
-  createOptions?: {
-    /**
-    * The function used to merge the classes.
-    */
-    mergeFn?: MergeFn;
-    /**
-    * The prefix for the class name.
-    */
-    prefix?: string;
-    /**
-    * Determines if the component returns classes for a stylesheet or not.
-    * If `true` the class name generated is a combination of `base` and `variant` keys.
-    * If `false`, defaults to the standard class merging functionality.
-    *
-    * In the plugin, this determines if you are outputting CSS or style configurations.
-    */
-    useStylesheet?: boolean;
-  };
+  createOptions?: CreateOptions;
 
   /**
-   * The main TailwindCSS file (relative to **project root**) where the generated CSS files will output.
-   *
-   * It is **recommended** that the main TailwindCSS file live in a dedicated directory
-   * (e.g., `assets`, `css`, `styles`, etc.).
+   * The main TailwindCSS file (relative to **project root**).
    *
    * @default process.cwd()
    *
@@ -255,7 +204,7 @@ type Options = {
   /**
    * **FOR LIBRARY AUTHORS**
    *
-   * Add global JSDoc and CSS comments to the top of your main "index" file.
+   * Add global JSDoc and CSS comments to the top of your file outputs.
    *
    * @default {}
    */
@@ -300,11 +249,10 @@ type Options = {
     version?: string;
   };
 
-
   /**
-   * Specify the output directory (relative to **`entry`**).
+   * Specify the output directory (relative to **project root**).
    *
-   * @default "jade-garden"
+   * @default `${process.cwd()}/jade-garden`
    *
    * @example
    * ```ts
@@ -316,7 +264,12 @@ type Options = {
   outDir?: string;
 
   /**
-   * Silence warnings that occur before an operation cancels or skips.
+   * Silence log outputs.
+   *
+   * Logs that the cli will serve are:
+   * - Info - Before an operation occurs.
+   * - Success - After an operation completes.
+   * - Warning - Before an operation cancels or skips.
    *
    * @default false
    */
@@ -326,9 +279,9 @@ type Options = {
 
 ## How It Works (Conceptual)
 
-1. **Configuration Intake**: The plugin receives your jade-garden CVA and SVA configuration objects.
+1. **Configuration Intake**: The plugin receives your `jade-garden` components.
 
-2. **CSS Transformation**: For each CVA and SVA configuration, the plugin intelligently parses the base, variants, compoundVariants, slots, and compoundSlots.
+2. **CSS Transformation**: For each component, the plugin intelligently parses the base, variants, compoundVariants, slots, and compoundSlots.
 
 3. **Tailwind `@apply` Generation**: It then generates corresponding CSS rules using Tailwind's `@apply` directives. For example, a CVA config might generate:
 

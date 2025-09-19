@@ -23,7 +23,7 @@ const chunkStr = (str: string, maxLen = 80): string[][] => {
   return chunks;
 };
 
-export const sharedComment = (params: {
+const comments = (params: {
   firstComment: string;
   lastComment: string;
   metaConfig: Record<string, string | boolean | undefined>;
@@ -60,16 +60,30 @@ export const sharedComment = (params: {
   return result;
 };
 
-/**
- * **The `kebabCase` function taken from [es-toolkit](https://github.com/toss/es-toolkit/blob/main/src/string/kebabCase.ts)**.
- * Converts a string to kebab case.
- *
- * @param {string} str - The string to convert.
- * @returns {string} The kebab-cased string.
- */
-export const kebabCase = (str: string): string => {
-  const words = Array.from(
-    str.match(/\p{Lu}?\p{Ll}+|[0-9]+|\p{Lu}+(?!\p{Ll})|\p{Emoji_Presentation}|\p{Extended_Pictographic}|\p{L}+/gu) ?? []
-  );
-  return words.map((word) => word.toLowerCase()).join("-");
+export const generateComments = (params: {
+  rawConfig: Record<string, string | boolean | undefined>;
+  type: "config" | "stylesheet";
+  isComponent?: boolean;
+}): string => {
+  const { rawConfig, type, isComponent = false } = params;
+  const metaConfig = {
+    deprecated: isComponent ? (rawConfig?.deprecated ?? undefined) : undefined,
+    description: rawConfig?.description ?? undefined,
+    license: !isComponent ? (rawConfig?.license ?? undefined) : undefined,
+    name: rawConfig?.name ?? undefined,
+    see: rawConfig?.see ?? undefined,
+    version: !isComponent ? (rawConfig?.version ?? undefined) : undefined
+  };
+
+  return comments({
+    firstComment:
+      type === "config"
+        ? "/**\n"
+        : "/* -----------------------------------------------------------------------------\n",
+    lastComment:
+      type === "config"
+        ? " */\n"
+        : " * -----------------------------------------------------------------------------*/\n",
+    metaConfig
+  });
 };
