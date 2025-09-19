@@ -1,5 +1,12 @@
 # unplugin-jade-garden
 
+## 1.0.2
+
+### Patch Changes
+
+- 9cefe4c: - Create `@jade-garden/cli` that will eventually replace `unplugin-jade-garden`.
+  - Set a message to the `unplugin-jade-garden` README.
+
 ## 1.0.1
 
 ### Patch Changes

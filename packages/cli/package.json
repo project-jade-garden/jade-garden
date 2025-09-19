@@ -1,6 +1,6 @@
 {
   "name": "@jade-garden/cli",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generate CSS with Jade Garden and Tailwind CSS",
   "keywords": [
     "tailwindcss",

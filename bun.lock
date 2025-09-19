@@ -26,7 +26,8 @@
     },
     "packages/cli": {
       "name": "@jade-garden/cli",
-      "version": "1.0.0",
+      "version": "0.1.0",
+      "bin": "./dist/index.mjs",
       "dependencies": {
         "@babel/preset-typescript": "7.27.1",
         "@clack/prompts": "0.11.0",
@@ -69,7 +70,7 @@
     },
     "packages/plugins": {
       "name": "unplugin-jade-garden",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "dependencies": {
         "jade-garden": "workspace:*",
         "unplugin": "2.3.10",
