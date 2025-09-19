@@ -26,7 +26,7 @@
     },
     "packages/cli": {
       "name": "@jade-garden/cli",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "bin": "./dist/index.mjs",
       "dependencies": {
         "@babel/preset-typescript": "7.27.1",
