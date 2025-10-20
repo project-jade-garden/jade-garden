@@ -27,7 +27,7 @@
     },
     "packages/cli": {
       "name": "@jade-garden/cli",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "bin": "./dist/index.mjs",
       "dependencies": {
         "@babel/preset-typescript": "7.27.1",
@@ -46,13 +46,13 @@
         "typescript": "catalog:",
       },
       "peerDependencies": {
-        "jade-garden": ">=2.0.0",
+        "jade-garden": ">=2.0.2",
         "tailwindcss": ">=4.0.0",
       },
     },
     "packages/core": {
       "name": "jade-garden",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "devDependencies": {
         "@biomejs/biome": "catalog:",
         "@types/benchmark": "2.1.5",
@@ -72,7 +72,7 @@
     },
     "packages/plugins": {
       "name": "unplugin-jade-garden",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "dependencies": {
         "jade-garden": "workspace:*",
         "unplugin": "2.3.10",

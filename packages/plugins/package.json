@@ -1,6 +1,6 @@
 {
   "name": "unplugin-jade-garden",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Plugins for generating CSS with Jade Garden and Tailwind CSS",
   "keywords": [
     "tailwindcss",
