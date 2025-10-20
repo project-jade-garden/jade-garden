@@ -1,5 +1,13 @@
 # unplugin-jade-garden
 
+## 1.0.3
+
+### Patch Changes
+
+- c364142: Update dependencies
+- Updated dependencies [c364142]
+  - jade-garden@2.0.2
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # jade-garden
 
+## 2.0.2
+
+### Patch Changes
+
+- c364142: Update dependencies
+
 ## 2.0.1
 
 ### Patch Changes

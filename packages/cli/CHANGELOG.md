@@ -1,5 +1,14 @@
 # @jade-garden/cli
 
+## 0.2.1
+
+### Patch Changes
+
+- e2f68cd: chore: enforce `jade-garden` peer dependencies when installing with CLI.
+- c364142: Update dependencies
+- Updated dependencies [c364142]
+  - jade-garden@2.0.2
+
 ## 0.2.0
 
 ### Minor Changes
