@@ -21,7 +21,7 @@ export const rspackBuild: typeof rspack.rspack = rspack.rspack;
 export const viteBuild: typeof vite.build = vite.build;
 export const webpackBuild: typeof webpack.webpack = webpack.webpack || (webpack as any).default || webpack;
 
-export const builds: Record<"rollup" | "rspack" | "vite" | "webpack", (config: Options) => Promise<void>> = {
+export const builds: Record<"rollup" | "vite", (config: Options) => Promise<void>> = {
   rollup: async (config: Options) => {
     await rollupBuild({
       input: entryDir,
@@ -34,38 +34,38 @@ export const builds: Record<"rollup" | "rspack" | "vite" | "webpack", (config: O
       ]
     });
   },
-  rspack: async (config: Options) => {
-    await new Promise((resolve) => {
-      rspackBuild(
-        {
-          entry: entryDir,
-          plugins: [rspackPlugin(config)],
-          module: {
-            rules: [
-              {
-                test: /\.css$/,
-                use: [
-                  "css-loader",
-                  {
-                    loader: "postcss-loader",
-                    options: {
-                      postcssOptions: {
-                        plugins: ["@tailwindcss/postcss"]
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          output: {
-            path: getPath("./dist")
-          }
-        },
-        resolve
-      );
-    });
-  },
+  // rspack: async (config: Options) => {
+  //   await new Promise((resolve) => {
+  //     rspackBuild(
+  //       {
+  //         entry: entryDir,
+  //         plugins: [rspackPlugin(config)],
+  //         module: {
+  //           rules: [
+  //             {
+  //               test: /\.css$/,
+  //               use: [
+  //                 "css-loader",
+  //                 {
+  //                   loader: "postcss-loader",
+  //                   options: {
+  //                     postcssOptions: {
+  //                       plugins: ["@tailwindcss/postcss"]
+  //                     }
+  //                   }
+  //                 }
+  //               ]
+  //             }
+  //           ]
+  //         },
+  //         output: {
+  //           path: getPath("./dist")
+  //         }
+  //       },
+  //       resolve
+  //     );
+  //   });
+  // },
   vite: async (config: Options) => {
     await viteBuild({
       clearScreen: false,
@@ -83,37 +83,37 @@ export const builds: Record<"rollup" | "rspack" | "vite" | "webpack", (config: O
       },
       logLevel: "silent"
     });
-  },
-  webpack: async (config: Options) => {
-    await new Promise((resolve) => {
-      webpackBuild(
-        {
-          entry: entryDir,
-          plugins: [webpackPlugin(config)],
-          module: {
-            rules: [
-              {
-                test: /\.css$/,
-                use: [
-                  "css-loader",
-                  {
-                    loader: "postcss-loader",
-                    options: {
-                      postcssOptions: {
-                        plugins: ["@tailwindcss/postcss"]
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          output: {
-            path: getPath("./dist")
-          }
-        },
-        resolve
-      );
-    });
   }
+  // webpack: async (config: Options) => {
+  //   await new Promise((resolve) => {
+  //     webpackBuild(
+  //       {
+  //         entry: entryDir,
+  //         plugins: [webpackPlugin(config)],
+  //         module: {
+  //           rules: [
+  //             {
+  //               test: /\.css$/,
+  //               use: [
+  //                 "css-loader",
+  //                 {
+  //                   loader: "postcss-loader",
+  //                   options: {
+  //                     postcssOptions: {
+  //                       plugins: ["@tailwindcss/postcss"]
+  //                     }
+  //                   }
+  //                 }
+  //               ]
+  //             }
+  //           ]
+  //         },
+  //         output: {
+  //           path: getPath("./dist")
+  //         }
+  //       },
+  //       resolve
+  //     );
+  //   });
+  // }
 };
