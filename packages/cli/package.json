@@ -41,8 +41,8 @@
     "dev": "bun ./build.ts",
     "format": "biome format --write .",
     "lint": "biome lint",
-    "postpack": "clean-package restore",
-    "prepack": "clean-package",
+    "postpack": "bun clean-package restore",
+    "prepack": "bun clean-package",
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
