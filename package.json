@@ -34,7 +34,7 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "version": "changeset version && bun update",
-    "release": "for dir in packages/*; do (cd \"$dir\" && bun publish || true); done && changeset tag"
+    "release": "for dir in packages/*; do (cd \"$dir\" && bun publish || true); done && changeset tag && turbo run postrestore"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",

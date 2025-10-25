@@ -11,6 +11,7 @@
     "clean": {},
     "format": {},
     "lint": {},
+    "postrestore": {},
     "typecheck": {}
   }
 }
