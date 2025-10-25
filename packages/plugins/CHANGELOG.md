@@ -1,5 +1,13 @@
 # unplugin-jade-garden
 
+## 1.0.6
+
+### Patch Changes
+
+- 1f8f193: Fix pre/post publication
+- Updated dependencies [1f8f193]
+  - jade-garden@2.0.5
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @jade-garden/cli
 
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies [1f8f193]
+  - jade-garden@2.0.5
+
 ## 0.2.3
 
 ### Patch Changes

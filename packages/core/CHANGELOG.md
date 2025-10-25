@@ -1,5 +1,11 @@
 # jade-garden
 
+## 2.0.5
+
+### Patch Changes
+
+- 1f8f193: Fix pre/post publication
+
 ## 2.0.4
 
 ### Patch Changes
