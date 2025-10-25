@@ -1,5 +1,13 @@
 # @jade-garden/cli
 
+## 0.2.2
+
+### Patch Changes
+
+- e25faf3: Update dependencies
+- Updated dependencies [e25faf3]
+  - jade-garden@2.0.3
+
 ## 0.2.1
 
 ### Patch Changes

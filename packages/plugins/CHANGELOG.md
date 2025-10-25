@@ -1,5 +1,13 @@
 # unplugin-jade-garden
 
+## 1.0.4
+
+### Patch Changes
+
+- e25faf3: Fixes package exports for npm
+- Updated dependencies [e25faf3]
+  - jade-garden@2.0.3
+
 ## 1.0.3
 
 ### Patch Changes
