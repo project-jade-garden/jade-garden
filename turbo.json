@@ -11,7 +11,8 @@
     "clean": {},
     "format": {},
     "lint": {},
-    "postrestore": {},
+    "prepub": {},
+    "postpub": {},
     "typecheck": {}
   }
 }
