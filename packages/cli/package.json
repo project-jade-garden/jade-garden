@@ -41,8 +41,6 @@
     "dev": "bun ./build.ts",
     "format": "biome format --write .",
     "lint": "biome lint",
-    "postpack": "bun clean-package restore",
-    "prepack": "bun clean-package",
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
@@ -63,7 +61,6 @@
   "devDependencies": {
     "@biomejs/biome": "catalog:",
     "@types/minimist": "1.2.5",
-    "clean-package": "catalog:",
     "es-toolkit": "1.40.0",
     "obuild": "0.2.1",
     "typescript": "catalog:"
