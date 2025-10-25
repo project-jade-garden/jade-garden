@@ -1,5 +1,11 @@
 # jade-garden
 
+## 2.0.3
+
+### Patch Changes
+
+- e25faf3: Fixes package exports for npm
+
 ## 2.0.2
 
 ### Patch Changes
