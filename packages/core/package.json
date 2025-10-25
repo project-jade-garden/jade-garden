@@ -44,7 +44,7 @@
     "perf:class-utils": "bun tests/performance.bench.ts",
     "perf:cva": "bun tests/cva/performance.bench.ts",
     "perf:sva": "bun tests/sva/performance.bench.ts",
-    "postpublish": "bun clean-package restore",
+    "postrestore": "clean-package restore",
     "prepack": "bun clean-package",
     "typecheck": "tsc --noEmit"
   },

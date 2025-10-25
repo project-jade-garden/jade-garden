@@ -40,7 +40,7 @@
     "dev": "tsdown --watch",
     "format": "biome format --write .",
     "lint": "biome lint",
-    "postpublish": "bun clean-package restore",
+    "postrestore": "clean-package restore",
     "prepack": "bun clean-package",
     "typecheck": "tsc --noEmit"
   },
