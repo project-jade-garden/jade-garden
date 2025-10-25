@@ -1,5 +1,12 @@
 # jade-garden
 
+## 2.0.4
+
+### Patch Changes
+
+- 1cd5180: - Adds `postrestore` command
+  - Should fix bad npm exports due to `changeset tag` being the final publish command, **NOT** `bun publish`
+
 ## 2.0.3
 
 ### Patch Changes
