@@ -51,7 +51,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@babel/preset-typescript": "7.27.1",
+    "@babel/preset-typescript": "7.28.5",
     "@clack/prompts": "0.11.0",
     "c12": "3.3.1",
     "jade-garden": "workspace:*",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@biomejs/biome": "catalog:",
     "@types/minimist": "1.2.5",
-    "es-toolkit": "1.40.0",
+    "es-toolkit": "catalog:",
     "obuild": "0.2.1",
     "typescript": "catalog:"
   },
