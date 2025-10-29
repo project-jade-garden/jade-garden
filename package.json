@@ -8,7 +8,7 @@
       "packages/*"
     ],
     "catalog": {
-      "@biomejs/biome": "2.3.0",
+      "@biomejs/biome": "2.3.2",
       "clean-package": "2.2.0",
       "es-toolkit": "1.41.0",
       "tailwindcss": "4.1.16",
@@ -23,10 +23,6 @@
     "pkg:cli": "bun run --cwd packages/cli",
     "pkg:core": "bun run --cwd packages/core",
     "pkg:plugins": "bun run --cwd packages/plugins",
-    "playground:react": "bun run --cwd playground/react",
-    "playground:solid": "bun run --cwd playground/solid",
-    "playground:svelte": "bun run --cwd playground/svelte",
-    "playground:vue": "bun run --cwd playground/vue",
     "build": "turbo run build --filter='!./docs/**'",
     "clean": "turbo run clean && rm -rf .turbo node_modules",
     "dev": "turbo run dev --filter='!./docs/**'",
@@ -46,11 +42,7 @@
     "turbo": "2.5.8",
     "typescript": "catalog:"
   },
-  "packageManager": "bun@1.3.0",
-  "overrides": {
-    "@internationalized/date": "3.8.1",
-    "@internationalized/number": "3.6.2"
-  },
+  "packageManager": "bun@1.3.1",
   "trustedDependencies": [
     "@biomejs/biome",
     "lefthook"

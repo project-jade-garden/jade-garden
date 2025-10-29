@@ -1,6 +1,8 @@
 [install]
 # https://bun.sh/docs/runtime/bunfig#package-manager
 exact = true
+# ! IMPORTANT: Needed for docus to properly run dev/build
+linker = "hoisted"
 registry = { url = "https://registry.npmjs.org", token = "$NPM_TOKEN" }
 
 [test]

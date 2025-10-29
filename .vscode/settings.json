@@ -8,14 +8,9 @@
     "**/.nuxt": true,
     "**/.turbo": true,
     "**/dist": true,
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/tsconfig.tsbuildinfo": true
   },
-  "material-icon-theme.folders.associations": {
-    "react": "React-components",
-    "solid": "Core"
-  },
-
   "mdc.enableComponentMetadataCompletions": true,
   // https://github.com/nuxtlabs/vscode-mdc?tab=readme-ov-file#formatting
   "mdc.enableFormatting": true,
@@ -32,6 +27,5 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
-  },
-  "svg.preview.background": "transparent"
+  }
 }
