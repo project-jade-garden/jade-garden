@@ -27,12 +27,10 @@ const chunkStr = (str: string, maxLen = 80): string[][] => {
   return chunks;
 };
 
-const comments = (params: {
-  firstComment: string;
-  lastComment: string;
-  metaConfig: Record<string, string | boolean | undefined>;
-}): string => {
-  const { firstComment, lastComment, metaConfig } = params;
+export const generateComments = (metaConfig: Record<string, string | boolean | undefined>): string => {
+  const firstComment = "/**\n";
+  const lastComment = " */\n";
+
   const keys = ["name", "version", "description", "deprecated", "see", "license"];
   let result = "";
 
@@ -40,7 +38,7 @@ const comments = (params: {
     const key = keys[i];
     if (!(key in metaConfig)) continue;
 
-    const value = metaConfig[key];
+    const value = metaConfig[key as keyof typeof metaConfig];
 
     if (typeof value === "string" || typeof value === "boolean") {
       const startsWithoutWrite = !result.length;
@@ -62,32 +60,4 @@ const comments = (params: {
   result += !result.length ? "" : lastComment;
 
   return result;
-};
-
-export const generateComments = (params: {
-  rawConfig: Record<string, string | boolean | undefined>;
-  type: "config" | "stylesheet";
-  isComponent?: boolean;
-}): string => {
-  const { rawConfig, type, isComponent = false } = params;
-  const metaConfig = {
-    deprecated: isComponent ? (rawConfig?.deprecated ?? undefined) : undefined,
-    description: rawConfig?.description ?? undefined,
-    license: !isComponent ? (rawConfig?.license ?? undefined) : undefined,
-    name: rawConfig?.name ?? undefined,
-    see: rawConfig?.see ?? undefined,
-    version: !isComponent ? (rawConfig?.version ?? undefined) : undefined
-  };
-
-  return comments({
-    firstComment:
-      type === "config"
-        ? "/**\n"
-        : "/* -----------------------------------------------------------------------------\n",
-    lastComment:
-      type === "config"
-        ? " */\n"
-        : " * -----------------------------------------------------------------------------*/\n",
-    metaConfig
-  });
 };

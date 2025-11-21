@@ -34,7 +34,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 
 coverage
-packages/**/tests/fixtures/tailwindcss/jade-garden
+jade-garden
 *.lcov
 
 # nyc test coverage
