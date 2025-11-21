@@ -1,0 +1,4658 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`cli writeConfigs writes files for duplicate names 1`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Accordion
+ *
+ * @description
+ * A stacked set of collapsible panels.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/accordion
+ */
+export const style = sva({
+  "name": "style",
+  "slots": [
+    "root",
+    "item",
+    "itemTrigger",
+    "itemContent",
+    "itemIndicator"
+  ],
+  "base": {
+    "root": "w-full divide-y",
+    "item": "border-accented",
+    "itemTrigger": [
+      "py-4",
+      "w-full",
+      "cursor-pointer",
+      "disabled:cursor-not-allowed",
+      "h-stack-3",
+      "items-center",
+      "justify-between",
+      "text-default",
+      "disabled:text-dimmed",
+      "text-left",
+      "text-lg",
+      "font-semibold"
+    ],
+    "itemContent": [
+      "pb-6",
+      "pr-8",
+      "closed:pb-0",
+      "text-muted",
+      "overflow-hidden",
+      "transition-[padding-bottom]",
+      "duration-200",
+      "ease-in",
+      "open:animate-collapse-in",
+      "closed:animate-collapse-out"
+    ],
+    "itemIndicator": [
+      "text-muted",
+      "origin-center",
+      "open:-rotate-180",
+      "transition-[rotate]",
+      "duration-200",
+      "ease-in"
+    ]
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 2`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Alert
+ *
+ * @description
+ * A callout to draw user's attention.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/alert
+ */
+export const style1 = sva({
+  "name": "style-1",
+  "slots": [
+    "root",
+    "content",
+    "description",
+    "icon",
+    "title"
+  ],
+  "base": {}
+});
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 3`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Avatar
+ *
+ * @description
+ * An img element with fallback support.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/avatar
+ */
+export const style2 = sva({
+  "name": "style-2",
+  "slots": [
+    "root",
+    "image",
+    "fallback"
+  ],
+  "base": {
+    "root": "rounded-full overflow-hidden shrink-0",
+    "image": "object-cover",
+    "fallback": [
+      "h-[inherit]",
+      "bg-muted",
+      "rounded-full",
+      "border",
+      "center",
+      "text-default",
+      "font-semibold"
+    ]
+  },
+  "variants": {
+    "size": {
+      "xs": {
+        "root": "size-8",
+        "image": "size-8",
+        "fallback": "text-xs icon:size-4"
+      },
+      "sm": {
+        "root": "size-9",
+        "image": "size-9",
+        "fallback": "text-sm icon:size-4"
+      },
+      "md": {
+        "root": "size-10",
+        "image": "size-10",
+        "fallback": "text-md icon:size-5"
+      },
+      "lg": {
+        "root": "size-11",
+        "image": "size-11",
+        "fallback": "text-lg icon:size-6"
+      },
+      "xl": {
+        "root": "size-12",
+        "image": "size-12",
+        "fallback": "text-xl icon:size-7"
+      },
+      "2xl": {
+        "root": "size-16",
+        "image": "size-16",
+        "fallback": "text-2xl icon:size-8"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 4`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Card
+ *
+ * @description
+ * A container component that displays content in a compact and organized way.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/card
+ */
+export const styles = sva({
+  "name": "styles",
+  "slots": [
+    "root",
+    "header",
+    "body",
+    "footer",
+    "title",
+    "description"
+  ],
+  "base": {
+    "root": [
+      "rounded-md",
+      "relative",
+      "flex",
+      "overflow-hidden",
+      "flex-col"
+    ],
+    "header": "v-stack-1",
+    "body": "flex-col flex-1",
+    "footer": "justify-end",
+    "title": [
+      "text-lg",
+      "font-semibold"
+    ],
+    "description": [
+      "text-sm"
+    ]
+  },
+  "variants": {
+    "variant": {
+      "solid": {
+        "root": "bg-inverted text-inverted"
+      },
+      "outline": {
+        "root": "bg-default"
+      },
+      "soft": {},
+      "subtle": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "body",
+        "footer",
+        "header"
+      ],
+      "class": "p-6"
+    },
+    {
+      "slots": [
+        "body",
+        "footer"
+      ],
+      "class": "flex"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": [
+        "outline",
+        "soft",
+        "subtle"
+      ],
+      "class": {
+        "root": "divide-y divide-default"
+      }
+    },
+    {
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": {
+        "root": "ring ring-default"
+      }
+    },
+    {
+      "variant": [
+        "soft",
+        "subtle"
+      ],
+      "class": {
+        "root": "bg-elevated/50"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Carousel
+ *
+ * @description
+ * A slideshow component that cycles through elements.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/carousel
+ */
+export const styles1 = sva({
+  "name": "styles-1",
+  "slots": [
+    "root",
+    "itemGroup",
+    "item",
+    "control",
+    "nextTrigger",
+    "prevTrigger",
+    "indicatorGroup",
+    "indicator",
+    "autoplayTrigger"
+  ],
+  "base": {
+    "root": [
+      "p-4",
+      "md:p-6",
+      "rounded-lg",
+      "border",
+      "border-muted",
+      "relative"
+    ],
+    "control": [
+      "bg-default",
+      "rounded-sm",
+      "absolute",
+      "bottom-8",
+      "md:bottom-10",
+      "left-1/2",
+      "flex",
+      "items-center",
+      "-translate-x-1/2"
+    ],
+    "indicatorGroup": "flex",
+    "indicator": [
+      "bg-elevated",
+      "current:bg-primary",
+      "rounded-full",
+      "focus-visible:outline-2",
+      "focus-visible:outline-offset-2",
+      "focus-visible:outline-border-outline",
+      "cursor-pointer"
+    ]
+  },
+  "variants": {
+    "size": {
+      "sm": {
+        "control": "gap-1 p-1",
+        "indicatorGroup": "gap-2",
+        "indicator": "size-2"
+      },
+      "md": {
+        "control": "gap-2 p-2.5",
+        "indicatorGroup": "gap-3",
+        "indicator": "size-2.5"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 6`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Checkbox
+ *
+ * @description
+ * An input element to toggle between checked and unchecked states.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/checkbox
+ */
+export const styles2 = sva({
+  "name": "styles-2",
+  "slots": [
+    "root",
+    "label",
+    "control",
+    "indicator",
+    "group"
+  ],
+  "base": {
+    "root": "flex items-center",
+    "label": "text-default font-medium",
+    "control": [
+      "border",
+      "rounded-xs",
+      "border-accented",
+      "focus-visible:outline-2",
+      "focus-visible:outline-border-outline",
+      "checked:focus-visible:outline-default",
+      "cursor-pointer",
+      "center",
+      "text-white",
+      "transition-[border-color,background]",
+      "duration-200",
+      "ease-in"
+    ]
+  },
+  "variants": {
+    "color": {
+      "primary": {
+        "control": [
+          "checked:bg-primary",
+          "indeterminate:bg-primary",
+          "checked:border-primary",
+          "indeterminate:primary"
+        ]
+      },
+      "secondary": {
+        "control": [
+          "checked:bg-secondary",
+          "indeterminate:bg-secondary",
+          "checked:border-secondary",
+          "indeterminate:secondary"
+        ]
+      },
+      "tertiary": {
+        "control": [
+          "checked:bg-tertiary",
+          "indeterminate:bg-tertiary",
+          "checked:border-tertiary",
+          "indeterminate:tertiary"
+        ]
+      },
+      "success": {
+        "control": [
+          "checked:bg-success",
+          "indeterminate:bg-success",
+          "checked:border-success",
+          "indeterminate:success"
+        ]
+      },
+      "info": {
+        "control": [
+          "checked:bg-info",
+          "indeterminate:bg-info",
+          "checked:border-info",
+          "indeterminate:info"
+        ]
+      },
+      "warning": {
+        "control": [
+          "checked:bg-warning",
+          "indeterminate:bg-warning",
+          "checked:border-warning",
+          "indeterminate:warning"
+        ]
+      },
+      "error": {
+        "control": [
+          "checked:bg-error",
+          "indeterminate:bg-error",
+          "checked:border-error",
+          "indeterminate:error"
+        ]
+      },
+      "surface": {
+        "control": [
+          "checked:bg-surface",
+          "indeterminate:bg-surface",
+          "checked:border-surface",
+          "indeterminate:surface"
+        ]
+      }
+    },
+    "size": {
+      "sm": {
+        "root": "gap-2",
+        "control": "size-4 icon:size-3",
+        "label": "text-sm"
+      },
+      "md": {
+        "root": "gap-3",
+        "control": "size-5 icon:size-3.5",
+        "label": "text-md"
+      },
+      "lg": {
+        "root": "gap-4",
+        "control": "size-6 icon:size-4",
+        "label": "text-lg"
+      }
+    }
+  },
+  "defaultVariants": {
+    "color": "surface",
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 7`] = `
+"export { style } from "./style";
+export { style1 } from "./style-1";
+export { style2 } from "./style-2";
+export { styles } from "./styles";
+export { styles1 } from "./styles-1";
+export { styles2 } from "./styles-2";
+"
+`;
+
+exports[`cli writeConfigs writes files for duplicate names 8`] = `
+"import { style } from "./style";
+import { style1 } from "./style-1";
+import { style2 } from "./style-2";
+import { styles } from "./styles";
+import { styles1 } from "./styles-1";
+import { styles2 } from "./styles-2";
+
+export const duplicates = [
+  style,
+  style1,
+  style2,
+  styles,
+  styles1,
+  styles2
+];
+"
+`;
+
+exports[`cli writeConfigs animations outputs directories and files 1`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Skeleton
+ *
+ * @description
+ * A placeholder to show while content is loading.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/animations/skeleton
+ */
+export const skeleton = cva({
+  "name": "skeleton",
+  "base": "animate-pulse bg-surface-400 dark:bg-surface-700",
+  "variants": {
+    "speed": {
+      "fastest": "[animation-duration:1250ms]",
+      "faster": "[animation-duration:1300ms]",
+      "fast": "[animation-duration:1350ms]",
+      "normal": "[animation-duration:1400ms]",
+      "slow": "[animation-duration:1600ms]",
+      "slower": "[animation-duration:1800ms]",
+      "slowest": "[animation-duration:2000ms]"
+    }
+  },
+  "defaultVariants": {
+    "speed": "slowest"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs animations outputs directories and files 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Spinner
+ *
+ * @description
+ * A placeholder to show while content is loading.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/animations/spinner
+ */
+export const spinner = cva({
+  "name": "spinner",
+  "base": [
+    "border-2",
+    "border-b-transparent",
+    "border-l-transparent",
+    "rounded-full",
+    "inline-block",
+    "animate-spin"
+  ],
+  "variants": {
+    "size": {
+      "xs": "size-3",
+      "sm": "size-4",
+      "md": "size-6",
+      "lg": "size-8",
+      "xl": "size-12"
+    },
+    "speed": {
+      "fastest": "[animation-duration:250ms]",
+      "faster": "[animation-duration:300ms]",
+      "fast": "[animation-duration:400ms]",
+      "normal": "[animation-duration:500ms]",
+      "slow": "[animation-duration:550ms]",
+      "slower": "[animation-duration:600ms]",
+      "slowest": "[animation-duration:700ms]"
+    }
+  },
+  "defaultVariants": {
+    "size": "md",
+    "speed": "slowest"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs animations outputs directories and files 3`] = `
+"export { skeleton } from "./skeleton";
+export { spinner } from "./spinner";
+"
+`;
+
+exports[`cli writeConfigs animations outputs directories and files 4`] = `
+"import { skeleton } from "./skeleton";
+import { spinner } from "./spinner";
+
+export const animations = [
+  skeleton,
+  spinner
+];
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 1`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Accordion
+ *
+ * @description
+ * A stacked set of collapsible panels.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/accordion
+ */
+export const accordion = sva({
+  "name": "accordion",
+  "slots": [
+    "root",
+    "item",
+    "itemTrigger",
+    "itemContent",
+    "itemIndicator"
+  ],
+  "base": {
+    "root": "w-full divide-y",
+    "item": "border-accented",
+    "itemTrigger": [
+      "py-4",
+      "w-full",
+      "cursor-pointer",
+      "disabled:cursor-not-allowed",
+      "h-stack-3",
+      "items-center",
+      "justify-between",
+      "text-default",
+      "disabled:text-dimmed",
+      "text-left",
+      "text-lg",
+      "font-semibold"
+    ],
+    "itemContent": [
+      "pb-6",
+      "pr-8",
+      "closed:pb-0",
+      "text-muted",
+      "overflow-hidden",
+      "transition-[padding-bottom]",
+      "duration-200",
+      "ease-in",
+      "open:animate-collapse-in",
+      "closed:animate-collapse-out"
+    ],
+    "itemIndicator": [
+      "text-muted",
+      "origin-center",
+      "open:-rotate-180",
+      "transition-[rotate]",
+      "duration-200",
+      "ease-in"
+    ]
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 2`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Alert
+ *
+ * @description
+ * A callout to draw user's attention.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/alert
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": [
+    "root",
+    "content",
+    "description",
+    "icon",
+    "title"
+  ],
+  "base": {}
+});
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 3`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Avatar
+ *
+ * @description
+ * An img element with fallback support.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/avatar
+ */
+export const avatar = sva({
+  "name": "avatar",
+  "slots": [
+    "root",
+    "image",
+    "fallback"
+  ],
+  "base": {
+    "root": "rounded-full overflow-hidden shrink-0",
+    "image": "object-cover",
+    "fallback": [
+      "h-[inherit]",
+      "bg-muted",
+      "rounded-full",
+      "border",
+      "center",
+      "text-default",
+      "font-semibold"
+    ]
+  },
+  "variants": {
+    "size": {
+      "xs": {
+        "root": "size-8",
+        "image": "size-8",
+        "fallback": "text-xs icon:size-4"
+      },
+      "sm": {
+        "root": "size-9",
+        "image": "size-9",
+        "fallback": "text-sm icon:size-4"
+      },
+      "md": {
+        "root": "size-10",
+        "image": "size-10",
+        "fallback": "text-md icon:size-5"
+      },
+      "lg": {
+        "root": "size-11",
+        "image": "size-11",
+        "fallback": "text-lg icon:size-6"
+      },
+      "xl": {
+        "root": "size-12",
+        "image": "size-12",
+        "fallback": "text-xl icon:size-7"
+      },
+      "2xl": {
+        "root": "size-16",
+        "image": "size-16",
+        "fallback": "text-2xl icon:size-8"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 4`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Card
+ *
+ * @description
+ * A container component that displays content in a compact and organized way.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/card
+ */
+export const card = sva({
+  "name": "card",
+  "slots": [
+    "root",
+    "header",
+    "body",
+    "footer",
+    "title",
+    "description"
+  ],
+  "base": {
+    "root": [
+      "rounded-md",
+      "relative",
+      "flex",
+      "overflow-hidden",
+      "flex-col"
+    ],
+    "header": "v-stack-1",
+    "body": "flex-col flex-1",
+    "footer": "justify-end",
+    "title": [
+      "text-lg",
+      "font-semibold"
+    ],
+    "description": [
+      "text-sm"
+    ]
+  },
+  "variants": {
+    "variant": {
+      "solid": {
+        "root": "bg-inverted text-inverted"
+      },
+      "outline": {
+        "root": "bg-default"
+      },
+      "soft": {},
+      "subtle": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "body",
+        "footer",
+        "header"
+      ],
+      "class": "p-6"
+    },
+    {
+      "slots": [
+        "body",
+        "footer"
+      ],
+      "class": "flex"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": [
+        "outline",
+        "soft",
+        "subtle"
+      ],
+      "class": {
+        "root": "divide-y divide-default"
+      }
+    },
+    {
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": {
+        "root": "ring ring-default"
+      }
+    },
+    {
+      "variant": [
+        "soft",
+        "subtle"
+      ],
+      "class": {
+        "root": "bg-elevated/50"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Carousel
+ *
+ * @description
+ * A slideshow component that cycles through elements.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/carousel
+ */
+export const carousel = sva({
+  "name": "carousel",
+  "slots": [
+    "root",
+    "itemGroup",
+    "item",
+    "control",
+    "nextTrigger",
+    "prevTrigger",
+    "indicatorGroup",
+    "indicator",
+    "autoplayTrigger"
+  ],
+  "base": {
+    "root": [
+      "p-4",
+      "md:p-6",
+      "rounded-lg",
+      "border",
+      "border-muted",
+      "relative"
+    ],
+    "control": [
+      "bg-default",
+      "rounded-sm",
+      "absolute",
+      "bottom-8",
+      "md:bottom-10",
+      "left-1/2",
+      "flex",
+      "items-center",
+      "-translate-x-1/2"
+    ],
+    "indicatorGroup": "flex",
+    "indicator": [
+      "bg-elevated",
+      "current:bg-primary",
+      "rounded-full",
+      "focus-visible:outline-2",
+      "focus-visible:outline-offset-2",
+      "focus-visible:outline-border-outline",
+      "cursor-pointer"
+    ]
+  },
+  "variants": {
+    "size": {
+      "sm": {
+        "control": "gap-1 p-1",
+        "indicatorGroup": "gap-2",
+        "indicator": "size-2"
+      },
+      "md": {
+        "control": "gap-2 p-2.5",
+        "indicatorGroup": "gap-3",
+        "indicator": "size-2.5"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 6`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Checkbox
+ *
+ * @description
+ * An input element to toggle between checked and unchecked states.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/checkbox
+ */
+export const checkbox = sva({
+  "name": "checkbox",
+  "slots": [
+    "root",
+    "label",
+    "control",
+    "indicator",
+    "group"
+  ],
+  "base": {
+    "root": "flex items-center",
+    "label": "text-default font-medium",
+    "control": [
+      "border",
+      "rounded-xs",
+      "border-accented",
+      "focus-visible:outline-2",
+      "focus-visible:outline-border-outline",
+      "checked:focus-visible:outline-default",
+      "cursor-pointer",
+      "center",
+      "text-white",
+      "transition-[border-color,background]",
+      "duration-200",
+      "ease-in"
+    ]
+  },
+  "variants": {
+    "color": {
+      "primary": {
+        "control": [
+          "checked:bg-primary",
+          "indeterminate:bg-primary",
+          "checked:border-primary",
+          "indeterminate:primary"
+        ]
+      },
+      "secondary": {
+        "control": [
+          "checked:bg-secondary",
+          "indeterminate:bg-secondary",
+          "checked:border-secondary",
+          "indeterminate:secondary"
+        ]
+      },
+      "tertiary": {
+        "control": [
+          "checked:bg-tertiary",
+          "indeterminate:bg-tertiary",
+          "checked:border-tertiary",
+          "indeterminate:tertiary"
+        ]
+      },
+      "success": {
+        "control": [
+          "checked:bg-success",
+          "indeterminate:bg-success",
+          "checked:border-success",
+          "indeterminate:success"
+        ]
+      },
+      "info": {
+        "control": [
+          "checked:bg-info",
+          "indeterminate:bg-info",
+          "checked:border-info",
+          "indeterminate:info"
+        ]
+      },
+      "warning": {
+        "control": [
+          "checked:bg-warning",
+          "indeterminate:bg-warning",
+          "checked:border-warning",
+          "indeterminate:warning"
+        ]
+      },
+      "error": {
+        "control": [
+          "checked:bg-error",
+          "indeterminate:bg-error",
+          "checked:border-error",
+          "indeterminate:error"
+        ]
+      },
+      "surface": {
+        "control": [
+          "checked:bg-surface",
+          "indeterminate:bg-surface",
+          "checked:border-surface",
+          "indeterminate:surface"
+        ]
+      }
+    },
+    "size": {
+      "sm": {
+        "root": "gap-2",
+        "control": "size-4 icon:size-3",
+        "label": "text-sm"
+      },
+      "md": {
+        "root": "gap-3",
+        "control": "size-5 icon:size-3.5",
+        "label": "text-md"
+      },
+      "lg": {
+        "root": "gap-4",
+        "control": "size-6 icon:size-4",
+        "label": "text-lg"
+      }
+    }
+  },
+  "defaultVariants": {
+    "color": "surface",
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 7`] = `
+"export { accordion } from "./accordion";
+export { alert } from "./alert";
+export { avatar } from "./avatar";
+export { card } from "./card";
+export { carousel } from "./carousel";
+export { checkbox } from "./checkbox";
+"
+`;
+
+exports[`cli writeConfigs components outputs directories and files 8`] = `
+"import { accordion } from "./accordion";
+import { alert } from "./alert";
+import { avatar } from "./avatar";
+import { card } from "./card";
+import { carousel } from "./carousel";
+import { checkbox } from "./checkbox";
+
+export const components = [
+  accordion,
+  alert,
+  avatar,
+  card,
+  carousel,
+  checkbox
+];
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 1`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Badge
+ *
+ * @description
+ * Used to highlight and label a status.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/badge
+ */
+export const badge = cva({
+  "name": "badge",
+  "base": [
+    "select-none",
+    "inline-flex",
+    "items-center",
+    "flex-nowrap",
+    "font-medium"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "pill": {
+      "true": "rounded-full"
+    },
+    "size": {
+      "xs": [
+        "px-1",
+        "py-0.5",
+        "icon:size-2",
+        "gap-1",
+        "text-xs"
+      ],
+      "sm": [
+        "px-1.5",
+        "py-1",
+        "icon:size-3",
+        "gap-1",
+        "text-xs"
+      ],
+      "md": [
+        "px-2",
+        "py-1",
+        "icon:size-3",
+        "gap-1",
+        "text-sm"
+      ],
+      "lg": [
+        "px-2",
+        "py-1",
+        "icon:size-4",
+        "gap-1.5",
+        "text-sm"
+      ],
+      "xl": [
+        "px-2.5",
+        "py-1",
+        "icon:size-4",
+        "gap-1.5",
+        "text-base"
+      ]
+    },
+    "variant": {
+      "solid": "",
+      "outline": "ring ring-inset",
+      "soft": "",
+      "subtle": "ring ring-inset"
+    }
+  },
+  "compoundVariants": [
+    {
+      "pill": false,
+      "size": [
+        "xs",
+        "sm"
+      ],
+      "class": "rounded-sm"
+    },
+    {
+      "pill": false,
+      "size": [
+        "md",
+        "lg",
+        "xl"
+      ],
+      "class": "rounded-md"
+    },
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": "bg-primary text-inverted"
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": "bg-secondary text-inverted"
+    },
+    {
+      "color": "tertiary",
+      "variant": "solid",
+      "class": "bg-tertiary text-inverted"
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": "bg-success text-inverted"
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": "bg-info text-inverted"
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": "bg-warning text-inverted"
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": "bg-error text-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "bg-surface text-inverted"
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": "text-primary ring-primary/50"
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": "text-secondary ring-secondary/50"
+    },
+    {
+      "color": "tertiary",
+      "variant": "outline",
+      "class": "text-tertiary ring-tertiary/50"
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": "text-success ring-success/50"
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": "text-info ring-info/50"
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": "text-warning ring-warning/50"
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": "text-error ring-error/50"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "text-surface ring-surface/50"
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": "bg-primary/10 text-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": "bg-secondary/10 text-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "soft",
+      "class": "bg-tertiary/10 text-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": "bg-success/10 text-success"
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": "bg-info/10 text-info"
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": "bg-warning/10 text-warning"
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": "bg-error/10 text-error"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "bg-surface/10 text-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": "bg-primary/10 text-primary ring-primary/25"
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": "bg-secondary/10 text-secondary ring-secondary/25"
+    },
+    {
+      "color": "tertiary",
+      "variant": "subtle",
+      "class": "bg-tertiary/10 text-tertiary ring-tertiary/25"
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": "bg-success/10 text-success ring-success/25"
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": "bg-info/10 text-info ring-info/25"
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": "bg-warning/10 text-warning ring-warning/25"
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": "bg-error/10 text-error ring-error/25"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "bg-surface/10 text-surface ring-surface/25"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring-accented text-default bg-default"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-default bg-elevated"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "ring-accented text-default bg-elevated"
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "pill": false,
+    "size": "md",
+    "variant": "solid"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Blockquote
+ *
+ * @description
+ * Used to highlight important information or quotes.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/blockquote
+ */
+export const blockquote = cva({
+  "name": "blockquote",
+  "base": "border-s-4 ps-4 italic",
+  "variants": {
+    "color": {
+      "primary": "border-primary",
+      "secondary": "border-secondary",
+      "tertiary": "border-tertiary",
+      "success": "border-success",
+      "info": "border-info",
+      "warning": "border-warning",
+      "error": "border-error",
+      "surface": "border-accented"
+    }
+  },
+  "defaultVariants": {
+    "color": "surface"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 3`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Button
+ *
+ * @description
+ * Used to trigger actions.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/button
+ */
+export const button = cva({
+  "name": "button",
+  "base": [
+    "min-w-0",
+    "icon:size-[1.1em]",
+    "rounded-sm",
+    "disabled:opacity-75",
+    "appearance-none",
+    "cursor-pointer",
+    "disabled:cursor-not-allowed",
+    "select-none",
+    "isolate",
+    "relative",
+    "inline-flex",
+    "hidden:hidden",
+    "outline-none",
+    "center",
+    "font-semibold",
+    "align-middle",
+    "whitespace-nowrap",
+    "icon:text-[1.1em]",
+    "transition-[background,_border-color,_color,_box-shadow]",
+    "duration-200",
+    "ease-in"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "variant": {
+      "solid": "",
+      "outline": "",
+      "soft": "",
+      "subtle": "",
+      "ghost": "",
+      "link": ""
+    },
+    "size": {
+      "xs": [
+        "px-2",
+        "h-8",
+        "min-w-8",
+        "gap-2",
+        "text-xs"
+      ],
+      "sm": [
+        "px-3.5",
+        "h-9",
+        "min-w-9",
+        "gap-2",
+        "text-sm"
+      ],
+      "md": [
+        "px-4",
+        "h-10",
+        "min-w-10",
+        "gap-2",
+        "text-sm"
+      ],
+      "lg": [
+        "px-4.5",
+        "h-11",
+        "min-w-11",
+        "gap-2",
+        "text-md"
+      ],
+      "xl": [
+        "px-5",
+        "h-12",
+        "min-w-12",
+        "gap-2.5",
+        "text-md"
+      ],
+      "2xl": [
+        "px-7",
+        "h-16",
+        "min-w-16",
+        "gap-3",
+        "text-lg"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": "text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": "text-inverted bg-secondary hover:bg-secondary/75 active:bg-secondary/75 disabled:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "solid",
+      "class": "text-inverted bg-tertiary hover:bg-tertiary/75 active:bg-tertiary/75 disabled:bg-tertiary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": "text-inverted bg-success hover:bg-success/75 active:bg-success/75 disabled:bg-success focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success"
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": "text-inverted bg-info hover:bg-info/75 active:bg-info/75 disabled:bg-info focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info"
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": "text-inverted bg-warning hover:bg-warning/75 active:bg-warning/75 disabled:bg-warning focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning"
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": "text-inverted bg-error hover:bg-error/75 active:bg-error/75 disabled:bg-error focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-error"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-surface hover:bg-surface/75 active:bg-surface/75 disabled:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": "ring ring-inset ring-primary/50 text-primary hover:bg-primary/10 active:bg-primary/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": "ring ring-inset ring-secondary/50 text-secondary hover:bg-secondary/10 active:bg-secondary/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "outline",
+      "class": "ring ring-inset ring-tertiary/50 text-tertiary hover:bg-tertiary/10 active:bg-tertiary/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": "ring ring-inset ring-success/50 text-success hover:bg-success/10 active:bg-success/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": "ring ring-inset ring-info/50 text-info hover:bg-info/10 active:bg-info/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": "ring ring-inset ring-warning/50 text-warning hover:bg-warning/10 active:bg-warning/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": "ring ring-inset ring-error/50 text-error hover:bg-error/10 active:bg-error/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring ring-inset ring-surface/50 text-surface hover:bg-surface/10 active:bg-surface/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": "text-primary bg-primary/10 hover:bg-primary/15 active:bg-primary/15 focus:outline-none focus-visible:bg-primary/15 disabled:bg-primary/10"
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": "text-secondary bg-secondary/10 hover:bg-secondary/15 active:bg-secondary/15 focus:outline-none focus-visible:bg-secondary/15 disabled:bg-secondary/10"
+    },
+    {
+      "color": "tertiary",
+      "variant": "soft",
+      "class": "text-tertiary bg-tertiary/10 hover:bg-tertiary/15 active:bg-tertiary/15 focus:outline-none focus-visible:bg-tertiary/15 disabled:bg-tertiary/10"
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": "text-success bg-success/10 hover:bg-success/15 active:bg-success/15 focus:outline-none focus-visible:bg-success/15 disabled:bg-success/10"
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": "text-info bg-info/10 hover:bg-info/15 active:bg-info/15 focus:outline-none focus-visible:bg-info/15 disabled:bg-info/10"
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": "text-warning bg-warning/10 hover:bg-warning/15 active:bg-warning/15 focus:outline-none focus-visible:bg-warning/15 disabled:bg-warning/10"
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": "text-error bg-error/10 hover:bg-error/15 active:bg-error/15 focus:outline-none focus-visible:bg-error/15 disabled:bg-error/10"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-surface bg-surface/10 hover:bg-surface/15 active:bg-surface/15 focus:outline-none focus-visible:bg-surface/15 disabled:bg-surface/10"
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": "text-primary ring ring-inset ring-primary/25 bg-primary/10 hover:bg-primary/15 active:bg-primary/15 disabled:bg-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": "text-secondary ring ring-inset ring-secondary/25 bg-secondary/10 hover:bg-secondary/15 active:bg-secondary/15 disabled:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "subtle",
+      "class": "text-tertiary ring ring-inset ring-tertiary/25 bg-tertiary/10 hover:bg-tertiary/15 active:bg-tertiary/15 disabled:bg-tertiary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": "text-success ring ring-inset ring-success/25 bg-success/10 hover:bg-success/15 active:bg-success/15 disabled:bg-success/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": "text-info ring ring-inset ring-info/25 bg-info/10 hover:bg-info/15 active:bg-info/15 disabled:bg-info/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": "text-warning ring ring-inset ring-warning/25 bg-warning/10 hover:bg-warning/15 active:bg-warning/15 disabled:bg-warning/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": "text-error ring ring-inset ring-error/25 bg-error/10 hover:bg-error/15 active:bg-error/15 disabled:bg-error/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "text-surface ring ring-inset ring-surface/25 bg-surface/10 hover:bg-surface/15 active:bg-surface/15 disabled:bg-surface/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "ghost",
+      "class": "text-primary hover:bg-primary/10 active:bg-primary/10 focus:outline-none focus-visible:bg-primary/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "secondary",
+      "variant": "ghost",
+      "class": "text-secondary hover:bg-secondary/10 active:bg-secondary/10 focus:outline-none focus-visible:bg-secondary/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "tertiary",
+      "variant": "ghost",
+      "class": "text-tertiary hover:bg-tertiary/10 active:bg-tertiary/10 focus:outline-none focus-visible:bg-tertiary/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "success",
+      "variant": "ghost",
+      "class": "text-success hover:bg-success/10 active:bg-success/10 focus:outline-none focus-visible:bg-success/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "info",
+      "variant": "ghost",
+      "class": "text-info hover:bg-info/10 active:bg-info/10 focus:outline-none focus-visible:bg-info/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "warning",
+      "variant": "ghost",
+      "class": "text-warning hover:bg-warning/10 active:bg-warning/10 focus:outline-none focus-visible:bg-warning/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "error",
+      "variant": "ghost",
+      "class": "text-error hover:bg-error/10 active:bg-error/10 focus:outline-none focus-visible:bg-error/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "surface",
+      "variant": "ghost",
+      "class": "text-surface hover:bg-surface/10 active:bg-surface/10 focus:outline-none focus-visible:bg-surface/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "primary",
+      "variant": "link",
+      "class": "text-primary hover:text-primary/75 active:text-primary/75 disabled:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "link",
+      "class": "text-secondary hover:text-secondary/75 active:text-secondary/75 disabled:text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "link",
+      "class": "text-tertiary hover:text-tertiary/75 active:text-tertiary/75 disabled:text-tertiary focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "link",
+      "class": "text-success hover:text-success/75 active:text-success/75 disabled:text-success focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": "link",
+      "class": "text-info hover:text-info/75 active:text-info/75 disabled:text-info focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": "link",
+      "class": "text-warning hover:text-warning/75 active:text-warning/75 disabled:text-warning focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": "link",
+      "class": "text-error hover:text-error/75 active:text-error/75 disabled:text-error focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": "link",
+      "class": "text-surface hover:text-surface/75 active:text-surface/75 disabled:text-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-surface"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-inverted hover:bg-inverted/90 active:bg-inverted/90 disabled:bg-inverted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring ring-inset ring-accented text-default bg-default hover:bg-disabled active:bg-disabled disabled:bg-default focus:outline-none focus-visible:ring-2 focus-visible:ring-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-default bg-disabled hover:bg-elevated/75 active:bg-elevated/75 focus:outline-none focus-visible:bg-elevated/75 disabled:bg-disabled"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "ring ring-inset ring-accented text-default bg-disabled hover:bg-elevated/75 active:bg-elevated/75 disabled:bg-disabled focus:outline-none focus-visible:ring-2 focus-visible:ring-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "ghost",
+      "class": "text-default hover:bg-disabled active:bg-disabled focus:outline-none focus-visible:bg-disabled hover:disabled:bg-transparent dark:hover:disabled:bg-transparent"
+    },
+    {
+      "color": "surface",
+      "variant": "link",
+      "class": "text-muted hover:text-default active:text-default disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted"
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "size": "md",
+    "variant": "solid"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 4`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Code
+ *
+ * @description
+ * Display inline code snippets.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/code
+ */
+export const code = cva({
+  "name": "code",
+  "base": [
+    "border",
+    "rounded-sm",
+    "inline-flex",
+    "items-center",
+    "font-medium!",
+    "font-mono",
+    "whitespace-pre"
+  ],
+  "variants": {
+    "color": {
+      "primary": "border-primary/25 bg-primary/10 text-primary",
+      "secondary": "border-secondary/25 bg-secondary/10 text-secondary",
+      "tertiary": "border-tertiary/25 bg-tertiary/10 text-tertiary",
+      "success": "border-success/25 bg-success/10 text-success",
+      "info": "border-info/25 bg-info/10 text-info",
+      "warning": "border-warning/25 bg-warning/10 text-warning",
+      "error": "border-error/25 bg-error/10 text-error",
+      "surface": "border-muted text-highlighted bg-muted"
+    },
+    "size": {
+      "sm": [
+        "px-0.5",
+        "min-h-5",
+        "text-sm"
+      ],
+      "md": [
+        "px-1",
+        "py-px",
+        "min-h-6",
+        "text-sm"
+      ],
+      "lg": [
+        "px-1.5",
+        "py-px",
+        "min-h-7",
+        "text-md"
+      ]
+    }
+  },
+  "defaultVariants": {
+    "color": "primary",
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 5`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Heading
+ *
+ * @description
+ * For headings and subheadings.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/heading
+ */
+export const heading = cva({
+  "name": "heading",
+  "base": "text-highlighted font-bold",
+  "variants": {
+    "variant": {
+      "h1": "text-7xl",
+      "h2": "text-6xl",
+      "h3": "text-4xl",
+      "h4": "text-3xl",
+      "h5": "text-2xl",
+      "h6": "text-lg"
+    }
+  },
+  "defaultVariants": {
+    "variant": "h1"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 6`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Icon
+ *
+ * @description
+ * A graphical representation of an action, file, or concept.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/icon
+ */
+export const icon = cva({
+  "name": "icon",
+  "base": [
+    "inline-block",
+    "shrink-0",
+    "text-current",
+    "align-middle",
+    "leading-[1em]"
+  ],
+  "variants": {
+    "size": {
+      "xs": "size-3",
+      "sm": "size-4",
+      "md": "size-5",
+      "lg": "size-6",
+      "xl": "size-7",
+      "2xl": "size-8"
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 7`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Input
+ *
+ * @description
+ * A field for user input, often used for forms or search functionality.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/input
+ */
+export const input = cva({
+  "name": "input",
+  "base": [
+    "w-full",
+    "rounded-md",
+    "border-0",
+    "disabled:opacity-75",
+    "appearance-none",
+    "disabled:cursor-not-allowed",
+    "focus:outline-none",
+    "placeholder:text-dimmed",
+    "transition-[box-shadow,_border-color]",
+    "duration-200",
+    "ease-in"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "highlight": {
+      "true": ""
+    },
+    "size": {
+      "xs": [
+        "px-2",
+        "py-1",
+        "gap-1",
+        "text-xs"
+      ],
+      "sm": [
+        "px-2.5",
+        "py-1.5",
+        "gap-1.5",
+        "text-xs"
+      ],
+      "md": [
+        "px-2.5",
+        "py-1.5",
+        "gap-1.5",
+        "text-sm"
+      ],
+      "lg": [
+        "px-3",
+        "py-2",
+        "gap-2",
+        "text-base"
+      ]
+    },
+    "variant": {
+      "outline": [
+        "bg-default",
+        "ring",
+        "ring-inset",
+        "ring-accented",
+        "text-highlighted"
+      ],
+      "soft": [
+        "bg-disabled/50",
+        "hover:bg-disabled",
+        "focus:bg-disabled",
+        "disabled:bg-disabled/50",
+        "ring",
+        "ring-inset",
+        "ring-accented",
+        "text-highlighted"
+      ],
+      "subtle": [
+        "bg-disabled",
+        "ring",
+        "ring-inset",
+        "ring-accented",
+        "text-highlighted"
+      ],
+      "ghost": [
+        "bg-transparent",
+        "hover:bg-disabled",
+        "focus:bg-disabled",
+        "disabled:bg-transparent",
+        "dark:disabled:bg-transparent",
+        "text-highlighted"
+      ],
+      "none": "bg-transparent text-highlighted"
+    },
+    "type": {
+      "file": "file:me-1.5 file:font-medium file:text-muted file:outline-none"
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-surface"
+    },
+    {
+      "color": "primary",
+      "highlight": true,
+      "class": "ring ring-inset ring-primary"
+    },
+    {
+      "color": "secondary",
+      "highlight": true,
+      "class": "ring ring-inset ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "highlight": true,
+      "class": "ring ring-inset ring-tertiary"
+    },
+    {
+      "color": "success",
+      "highlight": true,
+      "class": "ring ring-inset ring-success"
+    },
+    {
+      "color": "info",
+      "highlight": true,
+      "class": "ring ring-inset ring-info"
+    },
+    {
+      "color": "warning",
+      "highlight": true,
+      "class": "ring ring-inset ring-warning"
+    },
+    {
+      "color": "error",
+      "highlight": true,
+      "class": "ring ring-inset ring-error"
+    },
+    {
+      "color": "surface",
+      "highlight": true,
+      "class": "ring ring-inset ring-surface"
+    },
+    {
+      "color": "surface",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-inverted"
+    },
+    {
+      "color": "surface",
+      "highlight": true,
+      "class": "ring ring-inset ring-inverted"
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "size": "md",
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 8`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Kbd
+ *
+ * @description
+ * Represents a keyboard input or hotkey.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/kbd
+ */
+export const kbd = cva({
+  "name": "kbd",
+  "base": [
+    "px-1",
+    "rounded-sm",
+    "inline-flex",
+    "center",
+    "font-medium",
+    "font-sans",
+    "uppercase"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "variant": {
+      "solid": "",
+      "outline": "ring ring-inset",
+      "soft": "",
+      "subtle": "ring ring-inset"
+    },
+    "size": {
+      "sm": [
+        "px-0.5",
+        "min-h-5",
+        "text-xs"
+      ],
+      "md": [
+        "px-1",
+        "py-px",
+        "min-h-6",
+        "text-sm"
+      ],
+      "lg": [
+        "px-1.5",
+        "py-px",
+        "min-h-7",
+        "text-md"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": "text-inverted bg-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": "text-inverted bg-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "solid",
+      "class": "text-inverted bg-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": "text-inverted bg-success"
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": "text-inverted bg-info"
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": "text-inverted bg-warning"
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": "text-inverted bg-error"
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": "ring-primary/50 text-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": "ring-secondary/50 text-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "outline",
+      "class": "ring-tertiary/50 text-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": "ring-success/50 text-success"
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": "ring-info/50 text-info"
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": "ring-warning/50 text-warning"
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": "ring-error/50 text-error"
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": "text-primary bg-primary/10"
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": "text-secondary bg-secondary/10"
+    },
+    {
+      "color": "tertiary",
+      "variant": "soft",
+      "class": "text-tertiary bg-tertiary/10"
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": "text-success bg-success/10"
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": "text-info bg-info/10"
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": "text-warning bg-warning/10"
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": "text-error bg-error/10"
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": "text-primary ring-primary/25 bg-primary/10"
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": "text-secondary ring-secondary/25 bg-secondary/10"
+    },
+    {
+      "color": "tertiary",
+      "variant": "subtle",
+      "class": "text-tertiary ring-tertiary/25 bg-tertiary/10"
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": "text-success ring-success/25 bg-success/10"
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": "text-info ring-info/25 bg-info/10"
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": "text-warning ring-warning/25 bg-warning/10"
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": "text-error ring-error/25 bg-error/10"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring-accented text-default bg-default"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-default bg-elevated"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "ring-accented text-default bg-elevated"
+    }
+  ],
+  "defaultVariants": {
+    "color": "surface",
+    "size": "md",
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 9`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Label
+ *
+ * @description
+ * A text component that represents a caption for an item in a user interface.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/label
+ */
+export const label = cva({
+  "name": "label",
+  "base": "text-default font-medium",
+  "variants": {
+    "size": {
+      "xs": "text-xs",
+      "sm": "text-sm",
+      "md": "text-base"
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 10`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Link
+ *
+ * @description
+ * Used for navigation between pages.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/link
+ */
+export const link = cva({
+  "name": "link",
+  "base": [
+    "icon:size-[1em]",
+    "border-b",
+    "border-transparent",
+    "disabled:hover:border-transparent",
+    "disabled:opacity-75",
+    "disabled:cursor-not-allowed",
+    "inline-flex",
+    "items-center",
+    "gap-1",
+    "font-medium",
+    "transition-colors"
+  ],
+  "variants": {
+    "color": {
+      "primary": [
+        "hover:border-primary",
+        "focus-visible:outline-primary",
+        "text-primary"
+      ],
+      "secondary": [
+        "hover:border-secondary",
+        "focus-visible:outline-secondary",
+        "text-secondary"
+      ],
+      "tertiary": [
+        "hover:border-tertiary",
+        "focus-visible:outline-tertiary",
+        "text-tertiary"
+      ],
+      "success": [
+        "hover:border-success",
+        "focus-visible:outline-success",
+        "text-success"
+      ],
+      "info": [
+        "hover:border-info",
+        "focus-visible:outline-info",
+        "text-info"
+      ],
+      "warning": [
+        "hover:border-warning",
+        "focus-visible:outline-warning",
+        "text-warning"
+      ],
+      "error": [
+        "hover:border-error",
+        "focus-visible:outline-error",
+        "text-error"
+      ],
+      "surface": [
+        "hover:border-surface",
+        "focus-visible:outline-surface",
+        "text-surface"
+      ]
+    }
+  },
+  "defaultVariants": {
+    "color": "primary"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 11`] = `
+"export { badge } from "./badge";
+export { blockquote } from "./blockquote";
+export { button } from "./button";
+export { code } from "./code";
+export { heading } from "./heading";
+export { icon } from "./icon";
+export { input } from "./input";
+export { kbd } from "./kbd";
+export { label } from "./label";
+export { link } from "./link";
+"
+`;
+
+exports[`cli writeConfigs elements outputs directories and files 12`] = `
+"import { badge } from "./badge";
+import { blockquote } from "./blockquote";
+import { button } from "./button";
+import { code } from "./code";
+import { heading } from "./heading";
+import { icon } from "./icon";
+import { input } from "./input";
+import { kbd } from "./kbd";
+import { label } from "./label";
+import { link } from "./link";
+
+export const elements = [
+  badge,
+  blockquote,
+  button,
+  code,
+  heading,
+  icon,
+  input,
+  kbd,
+  label,
+  link
+];
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 1`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Skeleton
+ *
+ * @description
+ * A placeholder to show while content is loading.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/animations/skeleton
+ */
+export const skeleton = cva({
+  "name": "skeleton",
+  "base": "animate-pulse bg-surface-400 dark:bg-surface-700",
+  "variants": {
+    "speed": {
+      "fastest": "[animation-duration:1250ms]",
+      "faster": "[animation-duration:1300ms]",
+      "fast": "[animation-duration:1350ms]",
+      "normal": "[animation-duration:1400ms]",
+      "slow": "[animation-duration:1600ms]",
+      "slower": "[animation-duration:1800ms]",
+      "slowest": "[animation-duration:2000ms]"
+    }
+  },
+  "defaultVariants": {
+    "speed": "slowest"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 2`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Spinner
+ *
+ * @description
+ * A placeholder to show while content is loading.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/animations/spinner
+ */
+export const spinner = cva({
+  "name": "spinner",
+  "base": [
+    "border-2",
+    "border-b-transparent",
+    "border-l-transparent",
+    "rounded-full",
+    "inline-block",
+    "animate-spin"
+  ],
+  "variants": {
+    "size": {
+      "xs": "size-3",
+      "sm": "size-4",
+      "md": "size-6",
+      "lg": "size-8",
+      "xl": "size-12"
+    },
+    "speed": {
+      "fastest": "[animation-duration:250ms]",
+      "faster": "[animation-duration:300ms]",
+      "fast": "[animation-duration:400ms]",
+      "normal": "[animation-duration:500ms]",
+      "slow": "[animation-duration:550ms]",
+      "slower": "[animation-duration:600ms]",
+      "slowest": "[animation-duration:700ms]"
+    }
+  },
+  "defaultVariants": {
+    "size": "md",
+    "speed": "slowest"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 3`] = `
+"export { skeleton } from "./skeleton";
+export { spinner } from "./spinner";
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 4`] = `
+"import { skeleton } from "./skeleton";
+import { spinner } from "./spinner";
+
+export const animations = [
+  skeleton,
+  spinner
+];
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 5`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Accordion
+ *
+ * @description
+ * A stacked set of collapsible panels.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/accordion
+ */
+export const accordion = sva({
+  "name": "accordion",
+  "slots": [
+    "root",
+    "item",
+    "itemTrigger",
+    "itemContent",
+    "itemIndicator"
+  ],
+  "base": {
+    "root": "w-full divide-y",
+    "item": "border-accented",
+    "itemTrigger": [
+      "py-4",
+      "w-full",
+      "cursor-pointer",
+      "disabled:cursor-not-allowed",
+      "h-stack-3",
+      "items-center",
+      "justify-between",
+      "text-default",
+      "disabled:text-dimmed",
+      "text-left",
+      "text-lg",
+      "font-semibold"
+    ],
+    "itemContent": [
+      "pb-6",
+      "pr-8",
+      "closed:pb-0",
+      "text-muted",
+      "overflow-hidden",
+      "transition-[padding-bottom]",
+      "duration-200",
+      "ease-in",
+      "open:animate-collapse-in",
+      "closed:animate-collapse-out"
+    ],
+    "itemIndicator": [
+      "text-muted",
+      "origin-center",
+      "open:-rotate-180",
+      "transition-[rotate]",
+      "duration-200",
+      "ease-in"
+    ]
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 6`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Alert
+ *
+ * @description
+ * A callout to draw user's attention.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/alert
+ */
+export const alert = sva({
+  "name": "alert",
+  "slots": [
+    "root",
+    "content",
+    "description",
+    "icon",
+    "title"
+  ],
+  "base": {}
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 7`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Avatar
+ *
+ * @description
+ * An img element with fallback support.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/avatar
+ */
+export const avatar = sva({
+  "name": "avatar",
+  "slots": [
+    "root",
+    "image",
+    "fallback"
+  ],
+  "base": {
+    "root": "rounded-full overflow-hidden shrink-0",
+    "image": "object-cover",
+    "fallback": [
+      "h-[inherit]",
+      "bg-muted",
+      "rounded-full",
+      "border",
+      "center",
+      "text-default",
+      "font-semibold"
+    ]
+  },
+  "variants": {
+    "size": {
+      "xs": {
+        "root": "size-8",
+        "image": "size-8",
+        "fallback": "text-xs icon:size-4"
+      },
+      "sm": {
+        "root": "size-9",
+        "image": "size-9",
+        "fallback": "text-sm icon:size-4"
+      },
+      "md": {
+        "root": "size-10",
+        "image": "size-10",
+        "fallback": "text-md icon:size-5"
+      },
+      "lg": {
+        "root": "size-11",
+        "image": "size-11",
+        "fallback": "text-lg icon:size-6"
+      },
+      "xl": {
+        "root": "size-12",
+        "image": "size-12",
+        "fallback": "text-xl icon:size-7"
+      },
+      "2xl": {
+        "root": "size-16",
+        "image": "size-16",
+        "fallback": "text-2xl icon:size-8"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 8`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Card
+ *
+ * @description
+ * A container component that displays content in a compact and organized way.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/card
+ */
+export const card = sva({
+  "name": "card",
+  "slots": [
+    "root",
+    "header",
+    "body",
+    "footer",
+    "title",
+    "description"
+  ],
+  "base": {
+    "root": [
+      "rounded-md",
+      "relative",
+      "flex",
+      "overflow-hidden",
+      "flex-col"
+    ],
+    "header": "v-stack-1",
+    "body": "flex-col flex-1",
+    "footer": "justify-end",
+    "title": [
+      "text-lg",
+      "font-semibold"
+    ],
+    "description": [
+      "text-sm"
+    ]
+  },
+  "variants": {
+    "variant": {
+      "solid": {
+        "root": "bg-inverted text-inverted"
+      },
+      "outline": {
+        "root": "bg-default"
+      },
+      "soft": {},
+      "subtle": {}
+    }
+  },
+  "compoundSlots": [
+    {
+      "slots": [
+        "body",
+        "footer",
+        "header"
+      ],
+      "class": "p-6"
+    },
+    {
+      "slots": [
+        "body",
+        "footer"
+      ],
+      "class": "flex"
+    }
+  ],
+  "compoundVariants": [
+    {
+      "variant": [
+        "outline",
+        "soft",
+        "subtle"
+      ],
+      "class": {
+        "root": "divide-y divide-default"
+      }
+    },
+    {
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": {
+        "root": "ring ring-default"
+      }
+    },
+    {
+      "variant": [
+        "soft",
+        "subtle"
+      ],
+      "class": {
+        "root": "bg-elevated/50"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 9`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Carousel
+ *
+ * @description
+ * A slideshow component that cycles through elements.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/carousel
+ */
+export const carousel = sva({
+  "name": "carousel",
+  "slots": [
+    "root",
+    "itemGroup",
+    "item",
+    "control",
+    "nextTrigger",
+    "prevTrigger",
+    "indicatorGroup",
+    "indicator",
+    "autoplayTrigger"
+  ],
+  "base": {
+    "root": [
+      "p-4",
+      "md:p-6",
+      "rounded-lg",
+      "border",
+      "border-muted",
+      "relative"
+    ],
+    "control": [
+      "bg-default",
+      "rounded-sm",
+      "absolute",
+      "bottom-8",
+      "md:bottom-10",
+      "left-1/2",
+      "flex",
+      "items-center",
+      "-translate-x-1/2"
+    ],
+    "indicatorGroup": "flex",
+    "indicator": [
+      "bg-elevated",
+      "current:bg-primary",
+      "rounded-full",
+      "focus-visible:outline-2",
+      "focus-visible:outline-offset-2",
+      "focus-visible:outline-border-outline",
+      "cursor-pointer"
+    ]
+  },
+  "variants": {
+    "size": {
+      "sm": {
+        "control": "gap-1 p-1",
+        "indicatorGroup": "gap-2",
+        "indicator": "size-2"
+      },
+      "md": {
+        "control": "gap-2 p-2.5",
+        "indicatorGroup": "gap-3",
+        "indicator": "size-2.5"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 10`] = `
+"import { sva } from "../utils";
+
+/**
+ * @name
+ * Checkbox
+ *
+ * @description
+ * An input element to toggle between checked and unchecked states.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/components/checkbox
+ */
+export const checkbox = sva({
+  "name": "checkbox",
+  "slots": [
+    "root",
+    "label",
+    "control",
+    "indicator",
+    "group"
+  ],
+  "base": {
+    "root": "flex items-center",
+    "label": "text-default font-medium",
+    "control": [
+      "border",
+      "rounded-xs",
+      "border-accented",
+      "focus-visible:outline-2",
+      "focus-visible:outline-border-outline",
+      "checked:focus-visible:outline-default",
+      "cursor-pointer",
+      "center",
+      "text-white",
+      "transition-[border-color,background]",
+      "duration-200",
+      "ease-in"
+    ]
+  },
+  "variants": {
+    "color": {
+      "primary": {
+        "control": [
+          "checked:bg-primary",
+          "indeterminate:bg-primary",
+          "checked:border-primary",
+          "indeterminate:primary"
+        ]
+      },
+      "secondary": {
+        "control": [
+          "checked:bg-secondary",
+          "indeterminate:bg-secondary",
+          "checked:border-secondary",
+          "indeterminate:secondary"
+        ]
+      },
+      "tertiary": {
+        "control": [
+          "checked:bg-tertiary",
+          "indeterminate:bg-tertiary",
+          "checked:border-tertiary",
+          "indeterminate:tertiary"
+        ]
+      },
+      "success": {
+        "control": [
+          "checked:bg-success",
+          "indeterminate:bg-success",
+          "checked:border-success",
+          "indeterminate:success"
+        ]
+      },
+      "info": {
+        "control": [
+          "checked:bg-info",
+          "indeterminate:bg-info",
+          "checked:border-info",
+          "indeterminate:info"
+        ]
+      },
+      "warning": {
+        "control": [
+          "checked:bg-warning",
+          "indeterminate:bg-warning",
+          "checked:border-warning",
+          "indeterminate:warning"
+        ]
+      },
+      "error": {
+        "control": [
+          "checked:bg-error",
+          "indeterminate:bg-error",
+          "checked:border-error",
+          "indeterminate:error"
+        ]
+      },
+      "surface": {
+        "control": [
+          "checked:bg-surface",
+          "indeterminate:bg-surface",
+          "checked:border-surface",
+          "indeterminate:surface"
+        ]
+      }
+    },
+    "size": {
+      "sm": {
+        "root": "gap-2",
+        "control": "size-4 icon:size-3",
+        "label": "text-sm"
+      },
+      "md": {
+        "root": "gap-3",
+        "control": "size-5 icon:size-3.5",
+        "label": "text-md"
+      },
+      "lg": {
+        "root": "gap-4",
+        "control": "size-6 icon:size-4",
+        "label": "text-lg"
+      }
+    }
+  },
+  "defaultVariants": {
+    "color": "surface",
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 11`] = `
+"export { accordion } from "./accordion";
+export { alert } from "./alert";
+export { avatar } from "./avatar";
+export { card } from "./card";
+export { carousel } from "./carousel";
+export { checkbox } from "./checkbox";
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 12`] = `
+"import { accordion } from "./accordion";
+import { alert } from "./alert";
+import { avatar } from "./avatar";
+import { card } from "./card";
+import { carousel } from "./carousel";
+import { checkbox } from "./checkbox";
+
+export const components = [
+  accordion,
+  alert,
+  avatar,
+  card,
+  carousel,
+  checkbox
+];
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 13`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Badge
+ *
+ * @description
+ * Used to highlight and label a status.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/badge
+ */
+export const badge = cva({
+  "name": "badge",
+  "base": [
+    "select-none",
+    "inline-flex",
+    "items-center",
+    "flex-nowrap",
+    "font-medium"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "pill": {
+      "true": "rounded-full"
+    },
+    "size": {
+      "xs": [
+        "px-1",
+        "py-0.5",
+        "icon:size-2",
+        "gap-1",
+        "text-xs"
+      ],
+      "sm": [
+        "px-1.5",
+        "py-1",
+        "icon:size-3",
+        "gap-1",
+        "text-xs"
+      ],
+      "md": [
+        "px-2",
+        "py-1",
+        "icon:size-3",
+        "gap-1",
+        "text-sm"
+      ],
+      "lg": [
+        "px-2",
+        "py-1",
+        "icon:size-4",
+        "gap-1.5",
+        "text-sm"
+      ],
+      "xl": [
+        "px-2.5",
+        "py-1",
+        "icon:size-4",
+        "gap-1.5",
+        "text-base"
+      ]
+    },
+    "variant": {
+      "solid": "",
+      "outline": "ring ring-inset",
+      "soft": "",
+      "subtle": "ring ring-inset"
+    }
+  },
+  "compoundVariants": [
+    {
+      "pill": false,
+      "size": [
+        "xs",
+        "sm"
+      ],
+      "class": "rounded-sm"
+    },
+    {
+      "pill": false,
+      "size": [
+        "md",
+        "lg",
+        "xl"
+      ],
+      "class": "rounded-md"
+    },
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": "bg-primary text-inverted"
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": "bg-secondary text-inverted"
+    },
+    {
+      "color": "tertiary",
+      "variant": "solid",
+      "class": "bg-tertiary text-inverted"
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": "bg-success text-inverted"
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": "bg-info text-inverted"
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": "bg-warning text-inverted"
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": "bg-error text-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "bg-surface text-inverted"
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": "text-primary ring-primary/50"
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": "text-secondary ring-secondary/50"
+    },
+    {
+      "color": "tertiary",
+      "variant": "outline",
+      "class": "text-tertiary ring-tertiary/50"
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": "text-success ring-success/50"
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": "text-info ring-info/50"
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": "text-warning ring-warning/50"
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": "text-error ring-error/50"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "text-surface ring-surface/50"
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": "bg-primary/10 text-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": "bg-secondary/10 text-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "soft",
+      "class": "bg-tertiary/10 text-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": "bg-success/10 text-success"
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": "bg-info/10 text-info"
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": "bg-warning/10 text-warning"
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": "bg-error/10 text-error"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "bg-surface/10 text-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": "bg-primary/10 text-primary ring-primary/25"
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": "bg-secondary/10 text-secondary ring-secondary/25"
+    },
+    {
+      "color": "tertiary",
+      "variant": "subtle",
+      "class": "bg-tertiary/10 text-tertiary ring-tertiary/25"
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": "bg-success/10 text-success ring-success/25"
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": "bg-info/10 text-info ring-info/25"
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": "bg-warning/10 text-warning ring-warning/25"
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": "bg-error/10 text-error ring-error/25"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "bg-surface/10 text-surface ring-surface/25"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring-accented text-default bg-default"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-default bg-elevated"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "ring-accented text-default bg-elevated"
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "pill": false,
+    "size": "md",
+    "variant": "solid"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 14`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Blockquote
+ *
+ * @description
+ * Used to highlight important information or quotes.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/blockquote
+ */
+export const blockquote = cva({
+  "name": "blockquote",
+  "base": "border-s-4 ps-4 italic",
+  "variants": {
+    "color": {
+      "primary": "border-primary",
+      "secondary": "border-secondary",
+      "tertiary": "border-tertiary",
+      "success": "border-success",
+      "info": "border-info",
+      "warning": "border-warning",
+      "error": "border-error",
+      "surface": "border-accented"
+    }
+  },
+  "defaultVariants": {
+    "color": "surface"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 15`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Button
+ *
+ * @description
+ * Used to trigger actions.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/button
+ */
+export const button = cva({
+  "name": "button",
+  "base": [
+    "min-w-0",
+    "icon:size-[1.1em]",
+    "rounded-sm",
+    "disabled:opacity-75",
+    "appearance-none",
+    "cursor-pointer",
+    "disabled:cursor-not-allowed",
+    "select-none",
+    "isolate",
+    "relative",
+    "inline-flex",
+    "hidden:hidden",
+    "outline-none",
+    "center",
+    "font-semibold",
+    "align-middle",
+    "whitespace-nowrap",
+    "icon:text-[1.1em]",
+    "transition-[background,_border-color,_color,_box-shadow]",
+    "duration-200",
+    "ease-in"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "variant": {
+      "solid": "",
+      "outline": "",
+      "soft": "",
+      "subtle": "",
+      "ghost": "",
+      "link": ""
+    },
+    "size": {
+      "xs": [
+        "px-2",
+        "h-8",
+        "min-w-8",
+        "gap-2",
+        "text-xs"
+      ],
+      "sm": [
+        "px-3.5",
+        "h-9",
+        "min-w-9",
+        "gap-2",
+        "text-sm"
+      ],
+      "md": [
+        "px-4",
+        "h-10",
+        "min-w-10",
+        "gap-2",
+        "text-sm"
+      ],
+      "lg": [
+        "px-4.5",
+        "h-11",
+        "min-w-11",
+        "gap-2",
+        "text-md"
+      ],
+      "xl": [
+        "px-5",
+        "h-12",
+        "min-w-12",
+        "gap-2.5",
+        "text-md"
+      ],
+      "2xl": [
+        "px-7",
+        "h-16",
+        "min-w-16",
+        "gap-3",
+        "text-lg"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": "text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": "text-inverted bg-secondary hover:bg-secondary/75 active:bg-secondary/75 disabled:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "solid",
+      "class": "text-inverted bg-tertiary hover:bg-tertiary/75 active:bg-tertiary/75 disabled:bg-tertiary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": "text-inverted bg-success hover:bg-success/75 active:bg-success/75 disabled:bg-success focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success"
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": "text-inverted bg-info hover:bg-info/75 active:bg-info/75 disabled:bg-info focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info"
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": "text-inverted bg-warning hover:bg-warning/75 active:bg-warning/75 disabled:bg-warning focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning"
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": "text-inverted bg-error hover:bg-error/75 active:bg-error/75 disabled:bg-error focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-error"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-surface hover:bg-surface/75 active:bg-surface/75 disabled:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": "ring ring-inset ring-primary/50 text-primary hover:bg-primary/10 active:bg-primary/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": "ring ring-inset ring-secondary/50 text-secondary hover:bg-secondary/10 active:bg-secondary/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "outline",
+      "class": "ring ring-inset ring-tertiary/50 text-tertiary hover:bg-tertiary/10 active:bg-tertiary/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": "ring ring-inset ring-success/50 text-success hover:bg-success/10 active:bg-success/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": "ring ring-inset ring-info/50 text-info hover:bg-info/10 active:bg-info/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": "ring ring-inset ring-warning/50 text-warning hover:bg-warning/10 active:bg-warning/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": "ring ring-inset ring-error/50 text-error hover:bg-error/10 active:bg-error/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring ring-inset ring-surface/50 text-surface hover:bg-surface/10 active:bg-surface/10 disabled:bg-transparent dark:disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": "text-primary bg-primary/10 hover:bg-primary/15 active:bg-primary/15 focus:outline-none focus-visible:bg-primary/15 disabled:bg-primary/10"
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": "text-secondary bg-secondary/10 hover:bg-secondary/15 active:bg-secondary/15 focus:outline-none focus-visible:bg-secondary/15 disabled:bg-secondary/10"
+    },
+    {
+      "color": "tertiary",
+      "variant": "soft",
+      "class": "text-tertiary bg-tertiary/10 hover:bg-tertiary/15 active:bg-tertiary/15 focus:outline-none focus-visible:bg-tertiary/15 disabled:bg-tertiary/10"
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": "text-success bg-success/10 hover:bg-success/15 active:bg-success/15 focus:outline-none focus-visible:bg-success/15 disabled:bg-success/10"
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": "text-info bg-info/10 hover:bg-info/15 active:bg-info/15 focus:outline-none focus-visible:bg-info/15 disabled:bg-info/10"
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": "text-warning bg-warning/10 hover:bg-warning/15 active:bg-warning/15 focus:outline-none focus-visible:bg-warning/15 disabled:bg-warning/10"
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": "text-error bg-error/10 hover:bg-error/15 active:bg-error/15 focus:outline-none focus-visible:bg-error/15 disabled:bg-error/10"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-surface bg-surface/10 hover:bg-surface/15 active:bg-surface/15 focus:outline-none focus-visible:bg-surface/15 disabled:bg-surface/10"
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": "text-primary ring ring-inset ring-primary/25 bg-primary/10 hover:bg-primary/15 active:bg-primary/15 disabled:bg-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": "text-secondary ring ring-inset ring-secondary/25 bg-secondary/10 hover:bg-secondary/15 active:bg-secondary/15 disabled:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "subtle",
+      "class": "text-tertiary ring ring-inset ring-tertiary/25 bg-tertiary/10 hover:bg-tertiary/15 active:bg-tertiary/15 disabled:bg-tertiary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": "text-success ring ring-inset ring-success/25 bg-success/10 hover:bg-success/15 active:bg-success/15 disabled:bg-success/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": "text-info ring ring-inset ring-info/25 bg-info/10 hover:bg-info/15 active:bg-info/15 disabled:bg-info/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": "text-warning ring ring-inset ring-warning/25 bg-warning/10 hover:bg-warning/15 active:bg-warning/15 disabled:bg-warning/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": "text-error ring ring-inset ring-error/25 bg-error/10 hover:bg-error/15 active:bg-error/15 disabled:bg-error/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "text-surface ring ring-inset ring-surface/25 bg-surface/10 hover:bg-surface/15 active:bg-surface/15 disabled:bg-surface/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-surface"
+    },
+    {
+      "color": "primary",
+      "variant": "ghost",
+      "class": "text-primary hover:bg-primary/10 active:bg-primary/10 focus:outline-none focus-visible:bg-primary/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "secondary",
+      "variant": "ghost",
+      "class": "text-secondary hover:bg-secondary/10 active:bg-secondary/10 focus:outline-none focus-visible:bg-secondary/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "tertiary",
+      "variant": "ghost",
+      "class": "text-tertiary hover:bg-tertiary/10 active:bg-tertiary/10 focus:outline-none focus-visible:bg-tertiary/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "success",
+      "variant": "ghost",
+      "class": "text-success hover:bg-success/10 active:bg-success/10 focus:outline-none focus-visible:bg-success/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "info",
+      "variant": "ghost",
+      "class": "text-info hover:bg-info/10 active:bg-info/10 focus:outline-none focus-visible:bg-info/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "warning",
+      "variant": "ghost",
+      "class": "text-warning hover:bg-warning/10 active:bg-warning/10 focus:outline-none focus-visible:bg-warning/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "error",
+      "variant": "ghost",
+      "class": "text-error hover:bg-error/10 active:bg-error/10 focus:outline-none focus-visible:bg-error/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "surface",
+      "variant": "ghost",
+      "class": "text-surface hover:bg-surface/10 active:bg-surface/10 focus:outline-none focus-visible:bg-surface/10 disabled:bg-transparent dark:disabled:bg-transparent"
+    },
+    {
+      "color": "primary",
+      "variant": "link",
+      "class": "text-primary hover:text-primary/75 active:text-primary/75 disabled:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "link",
+      "class": "text-secondary hover:text-secondary/75 active:text-secondary/75 disabled:text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "link",
+      "class": "text-tertiary hover:text-tertiary/75 active:text-tertiary/75 disabled:text-tertiary focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "link",
+      "class": "text-success hover:text-success/75 active:text-success/75 disabled:text-success focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": "link",
+      "class": "text-info hover:text-info/75 active:text-info/75 disabled:text-info focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": "link",
+      "class": "text-warning hover:text-warning/75 active:text-warning/75 disabled:text-warning focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": "link",
+      "class": "text-error hover:text-error/75 active:text-error/75 disabled:text-error focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": "link",
+      "class": "text-surface hover:text-surface/75 active:text-surface/75 disabled:text-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-surface"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-inverted hover:bg-inverted/90 active:bg-inverted/90 disabled:bg-inverted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring ring-inset ring-accented text-default bg-default hover:bg-disabled active:bg-disabled disabled:bg-default focus:outline-none focus-visible:ring-2 focus-visible:ring-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-default bg-disabled hover:bg-elevated/75 active:bg-elevated/75 focus:outline-none focus-visible:bg-elevated/75 disabled:bg-disabled"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "ring ring-inset ring-accented text-default bg-disabled hover:bg-elevated/75 active:bg-elevated/75 disabled:bg-disabled focus:outline-none focus-visible:ring-2 focus-visible:ring-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "ghost",
+      "class": "text-default hover:bg-disabled active:bg-disabled focus:outline-none focus-visible:bg-disabled hover:disabled:bg-transparent dark:hover:disabled:bg-transparent"
+    },
+    {
+      "color": "surface",
+      "variant": "link",
+      "class": "text-muted hover:text-default active:text-default disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted"
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "size": "md",
+    "variant": "solid"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 16`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Code
+ *
+ * @description
+ * Display inline code snippets.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/code
+ */
+export const code = cva({
+  "name": "code",
+  "base": [
+    "border",
+    "rounded-sm",
+    "inline-flex",
+    "items-center",
+    "font-medium!",
+    "font-mono",
+    "whitespace-pre"
+  ],
+  "variants": {
+    "color": {
+      "primary": "border-primary/25 bg-primary/10 text-primary",
+      "secondary": "border-secondary/25 bg-secondary/10 text-secondary",
+      "tertiary": "border-tertiary/25 bg-tertiary/10 text-tertiary",
+      "success": "border-success/25 bg-success/10 text-success",
+      "info": "border-info/25 bg-info/10 text-info",
+      "warning": "border-warning/25 bg-warning/10 text-warning",
+      "error": "border-error/25 bg-error/10 text-error",
+      "surface": "border-muted text-highlighted bg-muted"
+    },
+    "size": {
+      "sm": [
+        "px-0.5",
+        "min-h-5",
+        "text-sm"
+      ],
+      "md": [
+        "px-1",
+        "py-px",
+        "min-h-6",
+        "text-sm"
+      ],
+      "lg": [
+        "px-1.5",
+        "py-px",
+        "min-h-7",
+        "text-md"
+      ]
+    }
+  },
+  "defaultVariants": {
+    "color": "primary",
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 17`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Heading
+ *
+ * @description
+ * For headings and subheadings.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/heading
+ */
+export const heading = cva({
+  "name": "heading",
+  "base": "text-highlighted font-bold",
+  "variants": {
+    "variant": {
+      "h1": "text-7xl",
+      "h2": "text-6xl",
+      "h3": "text-4xl",
+      "h4": "text-3xl",
+      "h5": "text-2xl",
+      "h6": "text-lg"
+    }
+  },
+  "defaultVariants": {
+    "variant": "h1"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 18`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Icon
+ *
+ * @description
+ * A graphical representation of an action, file, or concept.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/icon
+ */
+export const icon = cva({
+  "name": "icon",
+  "base": [
+    "inline-block",
+    "shrink-0",
+    "text-current",
+    "align-middle",
+    "leading-[1em]"
+  ],
+  "variants": {
+    "size": {
+      "xs": "size-3",
+      "sm": "size-4",
+      "md": "size-5",
+      "lg": "size-6",
+      "xl": "size-7",
+      "2xl": "size-8"
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 19`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Input
+ *
+ * @description
+ * A field for user input, often used for forms or search functionality.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/input
+ */
+export const input = cva({
+  "name": "input",
+  "base": [
+    "w-full",
+    "rounded-md",
+    "border-0",
+    "disabled:opacity-75",
+    "appearance-none",
+    "disabled:cursor-not-allowed",
+    "focus:outline-none",
+    "placeholder:text-dimmed",
+    "transition-[box-shadow,_border-color]",
+    "duration-200",
+    "ease-in"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "highlight": {
+      "true": ""
+    },
+    "size": {
+      "xs": [
+        "px-2",
+        "py-1",
+        "gap-1",
+        "text-xs"
+      ],
+      "sm": [
+        "px-2.5",
+        "py-1.5",
+        "gap-1.5",
+        "text-xs"
+      ],
+      "md": [
+        "px-2.5",
+        "py-1.5",
+        "gap-1.5",
+        "text-sm"
+      ],
+      "lg": [
+        "px-3",
+        "py-2",
+        "gap-2",
+        "text-base"
+      ]
+    },
+    "variant": {
+      "outline": [
+        "bg-default",
+        "ring",
+        "ring-inset",
+        "ring-accented",
+        "text-highlighted"
+      ],
+      "soft": [
+        "bg-disabled/50",
+        "hover:bg-disabled",
+        "focus:bg-disabled",
+        "disabled:bg-disabled/50",
+        "ring",
+        "ring-inset",
+        "ring-accented",
+        "text-highlighted"
+      ],
+      "subtle": [
+        "bg-disabled",
+        "ring",
+        "ring-inset",
+        "ring-accented",
+        "text-highlighted"
+      ],
+      "ghost": [
+        "bg-transparent",
+        "hover:bg-disabled",
+        "focus:bg-disabled",
+        "disabled:bg-transparent",
+        "dark:disabled:bg-transparent",
+        "text-highlighted"
+      ],
+      "none": "bg-transparent text-highlighted"
+    },
+    "type": {
+      "file": "file:me-1.5 file:font-medium file:text-muted file:outline-none"
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-success"
+    },
+    {
+      "color": "info",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info"
+    },
+    {
+      "color": "warning",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-warning"
+    },
+    {
+      "color": "error",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error"
+    },
+    {
+      "color": "surface",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-surface"
+    },
+    {
+      "color": "primary",
+      "highlight": true,
+      "class": "ring ring-inset ring-primary"
+    },
+    {
+      "color": "secondary",
+      "highlight": true,
+      "class": "ring ring-inset ring-secondary"
+    },
+    {
+      "color": "tertiary",
+      "highlight": true,
+      "class": "ring ring-inset ring-tertiary"
+    },
+    {
+      "color": "success",
+      "highlight": true,
+      "class": "ring ring-inset ring-success"
+    },
+    {
+      "color": "info",
+      "highlight": true,
+      "class": "ring ring-inset ring-info"
+    },
+    {
+      "color": "warning",
+      "highlight": true,
+      "class": "ring ring-inset ring-warning"
+    },
+    {
+      "color": "error",
+      "highlight": true,
+      "class": "ring ring-inset ring-error"
+    },
+    {
+      "color": "surface",
+      "highlight": true,
+      "class": "ring ring-inset ring-surface"
+    },
+    {
+      "color": "surface",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-inverted"
+    },
+    {
+      "color": "surface",
+      "highlight": true,
+      "class": "ring ring-inset ring-inverted"
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "size": "md",
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 20`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Kbd
+ *
+ * @description
+ * Represents a keyboard input or hotkey.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/kbd
+ */
+export const kbd = cva({
+  "name": "kbd",
+  "base": [
+    "px-1",
+    "rounded-sm",
+    "inline-flex",
+    "center",
+    "font-medium",
+    "font-sans",
+    "uppercase"
+  ],
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "surface": ""
+    },
+    "variant": {
+      "solid": "",
+      "outline": "ring ring-inset",
+      "soft": "",
+      "subtle": "ring ring-inset"
+    },
+    "size": {
+      "sm": [
+        "px-0.5",
+        "min-h-5",
+        "text-xs"
+      ],
+      "md": [
+        "px-1",
+        "py-px",
+        "min-h-6",
+        "text-sm"
+      ],
+      "lg": [
+        "px-1.5",
+        "py-px",
+        "min-h-7",
+        "text-md"
+      ]
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": "text-inverted bg-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": "text-inverted bg-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "solid",
+      "class": "text-inverted bg-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": "text-inverted bg-success"
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": "text-inverted bg-info"
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": "text-inverted bg-warning"
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": "text-inverted bg-error"
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": "ring-primary/50 text-primary"
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": "ring-secondary/50 text-secondary"
+    },
+    {
+      "color": "tertiary",
+      "variant": "outline",
+      "class": "ring-tertiary/50 text-tertiary"
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": "ring-success/50 text-success"
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": "ring-info/50 text-info"
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": "ring-warning/50 text-warning"
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": "ring-error/50 text-error"
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": "text-primary bg-primary/10"
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": "text-secondary bg-secondary/10"
+    },
+    {
+      "color": "tertiary",
+      "variant": "soft",
+      "class": "text-tertiary bg-tertiary/10"
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": "text-success bg-success/10"
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": "text-info bg-info/10"
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": "text-warning bg-warning/10"
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": "text-error bg-error/10"
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": "text-primary ring-primary/25 bg-primary/10"
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": "text-secondary ring-secondary/25 bg-secondary/10"
+    },
+    {
+      "color": "tertiary",
+      "variant": "subtle",
+      "class": "text-tertiary ring-tertiary/25 bg-tertiary/10"
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": "text-success ring-success/25 bg-success/10"
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": "text-info ring-info/25 bg-info/10"
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": "text-warning ring-warning/25 bg-warning/10"
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": "text-error ring-error/25 bg-error/10"
+    },
+    {
+      "color": "surface",
+      "variant": "solid",
+      "class": "text-inverted bg-inverted"
+    },
+    {
+      "color": "surface",
+      "variant": "outline",
+      "class": "ring-accented text-default bg-default"
+    },
+    {
+      "color": "surface",
+      "variant": "soft",
+      "class": "text-default bg-elevated"
+    },
+    {
+      "color": "surface",
+      "variant": "subtle",
+      "class": "ring-accented text-default bg-elevated"
+    }
+  ],
+  "defaultVariants": {
+    "color": "surface",
+    "size": "md",
+    "variant": "outline"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 21`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Label
+ *
+ * @description
+ * A text component that represents a caption for an item in a user interface.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/label
+ */
+export const label = cva({
+  "name": "label",
+  "base": "text-default font-medium",
+  "variants": {
+    "size": {
+      "xs": "text-xs",
+      "sm": "text-sm",
+      "md": "text-base"
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 22`] = `
+"import { cva } from "../utils";
+
+/**
+ * @name
+ * Link
+ *
+ * @description
+ * Used for navigation between pages.
+ *
+ * @see
+ * https://github.com/project-jade-garden/bouquet-ui/blob/main/packages/design/src/classes/elements/link
+ */
+export const link = cva({
+  "name": "link",
+  "base": [
+    "icon:size-[1em]",
+    "border-b",
+    "border-transparent",
+    "disabled:hover:border-transparent",
+    "disabled:opacity-75",
+    "disabled:cursor-not-allowed",
+    "inline-flex",
+    "items-center",
+    "gap-1",
+    "font-medium",
+    "transition-colors"
+  ],
+  "variants": {
+    "color": {
+      "primary": [
+        "hover:border-primary",
+        "focus-visible:outline-primary",
+        "text-primary"
+      ],
+      "secondary": [
+        "hover:border-secondary",
+        "focus-visible:outline-secondary",
+        "text-secondary"
+      ],
+      "tertiary": [
+        "hover:border-tertiary",
+        "focus-visible:outline-tertiary",
+        "text-tertiary"
+      ],
+      "success": [
+        "hover:border-success",
+        "focus-visible:outline-success",
+        "text-success"
+      ],
+      "info": [
+        "hover:border-info",
+        "focus-visible:outline-info",
+        "text-info"
+      ],
+      "warning": [
+        "hover:border-warning",
+        "focus-visible:outline-warning",
+        "text-warning"
+      ],
+      "error": [
+        "hover:border-error",
+        "focus-visible:outline-error",
+        "text-error"
+      ],
+      "surface": [
+        "hover:border-surface",
+        "focus-visible:outline-surface",
+        "text-surface"
+      ]
+    }
+  },
+  "defaultVariants": {
+    "color": "primary"
+  }
+});
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 23`] = `
+"export { badge } from "./badge";
+export { blockquote } from "./blockquote";
+export { button } from "./button";
+export { code } from "./code";
+export { heading } from "./heading";
+export { icon } from "./icon";
+export { input } from "./input";
+export { kbd } from "./kbd";
+export { label } from "./label";
+export { link } from "./link";
+"
+`;
+
+exports[`cli writeConfigs all styles outputs directories and files 24`] = `
+"import { badge } from "./badge";
+import { blockquote } from "./blockquote";
+import { button } from "./button";
+import { code } from "./code";
+import { heading } from "./heading";
+import { icon } from "./icon";
+import { input } from "./input";
+import { kbd } from "./kbd";
+import { label } from "./label";
+import { link } from "./link";
+
+export const elements = [
+  badge,
+  blockquote,
+  button,
+  code,
+  heading,
+  icon,
+  input,
+  kbd,
+  label,
+  link
+];
+"
+`;

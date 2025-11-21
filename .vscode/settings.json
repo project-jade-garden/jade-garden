@@ -7,8 +7,8 @@
     "**/.data": true,
     "**/.nuxt": true,
     "**/.turbo": true,
-    "**/dist": true,
-    "**/node_modules": false,
+    "**/dist": false,
+    "**/node_modules": true,
     "**/tsconfig.tsbuildinfo": true
   },
   "mdc.enableComponentMetadataCompletions": true,

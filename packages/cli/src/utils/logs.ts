@@ -1,4 +1,4 @@
-import { log } from "@clack/prompts";
+import { cancel, log } from "@clack/prompts";
 
 /* -----------------------------------------------------------------------------
  * Colors
@@ -136,32 +136,35 @@ const warning = (message: string, useLog = true): string | undefined => {
 
 export const WARNING = {
   NoBaseOrSlots(componentName: string, componentDir: string) {
-    warning(
-      `The style configuration in "${componentDir}[${componentName}]" requires a "base" and/or "slots" property.`
-    );
+    warning(`The style configuration in "${componentDir}[${componentName}]" requires a "base" or "slots" property.`);
   },
   NoConfig() {
     warning(
-      "Could not detect your config. Specifiy a relative path with the '--config' flag, default export your config, and set `components`."
+      "Could not detect your config. Specifiy a relative path with the '--config' flag, default export your config, and set `styles`."
     );
   },
   NoName(componentDir: string): void {
     warning(`A style configuration in ${componentDir} requires a "name" property to output file.`);
   },
   NotArray(componentDir: string): void {
-    warning(`The value in "components.${componentDir}" is not an array.`);
+    warning(`The value in "styles.${componentDir}" is not an array.`);
   },
   ReservedDirKeyword(componentDir: string): void {
-    warning(`Key "${componentDir}" in "components" is a reserved keyword.`);
+    warning(`Key "${componentDir}" in "styles" is a reserved keyword.`);
   },
   ReservedNameKeyword(componentName: string, componentDir: string): void {
-    warning(`"${componentName}" in "components.${componentDir}" is a reserved keyword.`);
+    warning(`"${componentName}" in "styles.${componentDir}" is a reserved keyword.`);
   },
   StyleNameConflict(componentName: string, componentDir: string): void {
     warning(
       `Duplicate "name" property detected. Rename "${componentName}" in "${componentDir}[${componentName}]" to output file.`
     );
   }
+};
+
+export const cancelBuild = (): never => {
+  cancel(warning("Canceling.", false));
+  process.exit(0);
 };
 
 export const logs = {
