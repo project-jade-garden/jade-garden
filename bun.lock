@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "project-jade-garden",
@@ -27,7 +28,7 @@
     },
     "packages/cli": {
       "name": "@jade-garden/cli",
-      "version": "0.2.4",
+      "version": "0.3.0",
       "bin": "./dist/index.mjs",
       "dependencies": {
         "@babel/preset-typescript": "7.28.5",
@@ -35,7 +36,6 @@
         "c12": "3.3.1",
         "jade-garden": "workspace:*",
         "minimist": "1.2.8",
-        "tailwindcss": "catalog:",
       },
       "devDependencies": {
         "@biomejs/biome": "catalog:",
@@ -46,7 +46,6 @@
       },
       "peerDependencies": {
         "jade-garden": ">=2.0.5",
-        "tailwindcss": ">=4.0.0",
       },
     },
     "packages/core": {
